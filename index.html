@@ -6,30 +6,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title data-en="Lightning Alert for Kanata Lakes" data-zh="Kanata Lakes 社区雷电预警">Kanata Lakes 社区雷电预警</title>
   <style>
+    @media (max-width: 768px) {
 
-@media (max-width: 768px) {
-
-  .navbar {
-    display: none;
-  }
+      .navbar {
+        display: none;
+      }
 
 
-}
- 
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      background: #f9f9f9;
-      color: #333;
-      line-height: 1.6;
     }
 
-    header {
-      background: linear-gradient(135deg, #004aad, #007bff);
-      color: white;
-      text-align: center;
-      padding: 2rem 1rem;
-    }
+
+
+
 
     header h1 {
       font-size: 2.5rem;
@@ -122,7 +110,6 @@
 
     .navbar {
       margin-top: 1rem;
-      display: flex;
       justify-content: center;
       gap: 2rem;
       font-size: 1.1rem;
@@ -145,11 +132,7 @@
 
 
 
-    .banner {
-      background: linear-gradient(135deg, #004aad, #007bff);
-      color: white;
-      padding: 1.5rem 2rem;
-    }
+
 
     .top-bar {
       display: flex;
@@ -162,19 +145,21 @@
       font-weight: bold;
     }
 
-.lang-switch {
-  position: absolute;
-  top: 10px;
-  right: 400px;
-  display: flex;
-  gap: 8px;
-}
-@media (max-width: 768px) {
-  .lang-switch {
-    top: 5px;
-    left: 10px;
-  }
-}
+    .lang-switch {
+      position: absolute;
+      top: 10px;
+      right: 400px;
+      display: flex;
+      gap: 8px;
+    }
+
+    @media (max-width: 768px) {
+      .lang-switch {
+        top: 5px;
+        left: 1px;
+      }
+    }
+
     .lang-switch button {
       padding: 6px 12px;
       background: #ff9800;
@@ -192,17 +177,17 @@
       background: #f9f9f9;
       color: #333;
       line-height: 1.6;
-      padding-top: 180px;
+      padding-top: 220px;
     }
 
 
     .banner {
 
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 1000;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
 
 
 
@@ -237,10 +222,6 @@
       margin: 0.5rem 0;
       font-size: 1.1rem;
     }
-
-
-
-
   </style>
 
   <style>
@@ -427,8 +408,8 @@
   <header class="banner">
     <div class="banner-row">
       <div class="banner-text">
-        <h1 data-en="⚡ Lightning Alert for Kanata Lakes" data-zh="⚡ Kanata Lakes 社区雷电预警">
-          ⚡ Kanata Lakes 社区雷电预警
+        <h1 data-en="Lightning Alert for Kanata Lakes" data-zh="Kanata Lakes 社区雷电预警">
+          Kanata Lakes 社区雷电预警
         </h1>
         <p data-en="A Sustainable, Community-Sharing Safety Network" data-zh="一个可持续的社区共享安全网络">
           A Sustainable, Community-Sharing Safety Network
