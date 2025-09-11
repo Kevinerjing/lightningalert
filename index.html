@@ -193,17 +193,19 @@
   </style>
 </head>
 <!-- Language Switch Script -->
+
 <script>
   function setLanguage(lang) {
     document.querySelectorAll("[data-en]").forEach(el => {
-      el.innerText = el.getAttribute("data-" + lang);
+      el.innerHTML = el.getAttribute("data-" + lang);
     });
     document.title = document.querySelector("title").getAttribute("data-" + lang);
   }
-  window.onload = function () {
+  window.onload = function() {
     setLanguage('en');
   }
 </script>
+
 
 <body>
 
@@ -251,7 +253,7 @@
         </li>
 
         <li
-          data-en="If every household had to buy its own lightning sensor and hub, the cost and energy use would be very high. Our sustainable, community-shared network means only a few devices are needed to protect everyone, which not only saves money and energy but also provides better coverage for the community."
+          data-en="If every household had to buy its own lightning sensor and hub, the cost and energy use would be very high. Our<strong> sustainable, community-shared network</strong> means only a few devices are needed to protect everyone, which not only saves money and energy but also provides better coverage for the community."
           data-zh="如果社区里每个家庭都单独购买雷电传感器和基站，花费和能耗都会非常高。我们的社区共享网络只需少量设备，就能保护所有人，既节省开支，又节能环保，同时还能提供更好的覆盖效果。">
           如果社区里每个家庭都单独购买雷电传感器和基站，花费和能耗都会非常高。我们的社区共享网络只需少量设备，就能保护所有人，既节省开支，又节能环保，同时还能提供更好的覆盖效果。
         </li>
@@ -276,18 +278,94 @@
     </div>
   </section>
 
+    <!-- 7. App Preview Section -->
+  <section>
+    <div class="card" style="text-align:center;">
+      <h2 data-en="App Preview" data-zh="应用预览">App Preview</h2>
+      <p data-en="See how our Lightning Alert App works on iPhone." data-zh="看看我们的雷电预警应用在 iPhone 上是如何运行的。">
+        See how our Lightning Alert App works on iPhone.
+      </p>
+
+      <!-- Promo Image -->
+      <img src="ios_app_preview.png" alt="Lightning Alert App iPhone Preview"
+        style="max-width:90%; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.15); margin:1rem 0;" />
+
+      <!-- Future Download Buttons -->
+      <div style="margin-top:1rem;">
+        <a href="#" style="display:inline-block; margin:0 10px;">
+          <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"
+            alt="Download on the App Store" style="height:50px;">
+        </a>
+        <!-- Optional: Google Play badge for future expansion -->
+        <!--
+      <a href="#" style="display:inline-block; margin:0 10px;">
+        <img src="" 
+             alt="Get it on Google Play" style="height:50px;">
+      </a>
+      -->
+      </div>
+    </div>
+  </section>
+
   <!-- 5. STEM Knowledge -->
+<!-- STEM Knowledge Section -->
+<section>
+  <div class="card">
+    <h2 data-en="STEM Knowledge We Use" data-zh="我们使用的 STEM 知识">
+      STEM Knowledge We Use / 我们使用的 STEM 知识
+    </h2>
+    <ul>
+      <li data-en="<strong>Wireless (Radio)</strong>: 433 MHz signals, Software Defined Radio (SDR), electromagnetic pulse detection."
+          data-zh="<strong>无线电</strong>：433 MHz 信号，软件定义无线电 (SDR)，电磁脉冲探测。">
+          <strong>无线电</strong>：433 MHz 信号，软件定义无线电 (SDR)，电磁脉冲探测。
+      </li>
+
+      <li data-en="<strong>IT / Computer Science</strong>: MQTT publish/subscribe, cloud servers, real-time notifications, web development, mobile app development."
+          data-zh="<strong>信息技术 / 计算机科学</strong>：MQTT 发布/订阅，云端服务器，实时通知，网页开发，手机应用开发。">
+          <strong>信息技术 / 计算机科学</strong>：MQTT 发布/订阅，云端服务器，实时通知，网页开发，手机应用开发。
+      </li>
+
+      <li data-en="<strong>Mathematics</strong>: Geometry & Trigonometry (triangulation), distance-circle intersection, data visualization."
+          data-zh="<strong>数学</strong>：几何与三角学（三点定位），距离圆的交点计算，数据可视化。">
+          <strong>数学</strong>：几何与三角学（三点定位），距离圆的交点计算，数据可视化。
+      </li>
+
+      <li data-en="<strong>Weather & Earth Science</strong>: Thunderstorms, EMP pulses, lightning formation, 30/30 safety rule, risk awareness."
+          data-zh="<strong>气象与地球科学</strong>：雷暴，EMP 脉冲，雷电形成，30/30 安全规则，风险意识。">
+          <strong>气象与地球科学</strong>：雷暴，EMP 脉冲，雷电形成，30/30 安全规则，风险意识。
+      </li>
+
+      <li data-en="<strong>Engineering</strong>: Hardware setup (Raspberry Pi / Orange Pi), low-power system design, USB hub integration, edge-to-cloud architecture."
+          data-zh="<strong>工程</strong>：硬件搭建（树莓派 / 香橙派），低功耗系统设计，USB 集线器接入，边缘到云端架构。">
+          <strong>工程</strong>：硬件搭建（树莓派 / 香橙派），低功耗系统设计，USB 集线器接入，边缘到云端架构。
+      </li>
+    </ul>
+  </div>
+</section>
+
+  <!-- Triangulation Section -->
   <section>
     <div class="card">
-      <h2 data-en="STEM Knowledge We Use" data-zh="我们学习的 STEM 知识">我们学习的 STEM 知识</h2>
-      <ul>
-        <li data-en="Wireless (Radio): 433 MHz signals, SDR, electromagnetic pulses."
-          data-zh="无线电：433 MHz 信号、软件无线电、雷电电磁脉冲。">无线电：433 MHz 信号、软件无线电、雷电电磁脉冲。</li>
-        <li data-en="IT: MQTT publish/subscribe, cloud servers, real-time notifications, app development."
-          data-zh="信息技术：MQTT 发布/订阅、云服务器、实时推送、应用开发。">信息技术：MQTT 发布/订阅、云服务器、实时推送、应用开发。</li>
-        <li data-en="Weather Science: thunderstorms, EMP pulses, 30/30 rule." data-zh="天气科学：雷暴、EMP 脉冲、30/30 规则。">
-          天气科学：雷暴、EMP 脉冲、30/30 规则。</li>
-      </ul>
+      <h2 data-en="Community Triangulation" data-zh="三角定位">Community Triangulation / 三角定位</h2>
+
+
+      <p data-en="By installing sensors at different homes or schools, students and neighbors can work together to build a community lightning detection network. Each sensor estimates the distance of a strike. When circles from multiple sensors overlap, we can locate the strike more precisely."
+        data-zh="在不同家庭或学校安装传感器，学生和邻居可以共同合作，构建一个社区级的雷电探测网络。每个传感器都会估算雷电的距离，当多个传感器的圆圈重叠时，就能更精确地确定雷电位置。" </p>
+
+
+      <p data-en="
+        Future expansion: Each sensor could be hosted by different students or neighbors, forming a collaborative community network. The more sensors we have, the more accurate the triangulation."
+        data-zh="未来的扩展：每个传感器由不同的学生或邻居安装，形成社区级的协作网络，传感器越多，定位就越精准。" </p>
+
+
+      <div style="text-align:center; margin: 1.5rem 0;">
+        <img src="lightning_triangulation_students.png" alt="Triangulation Example with Sensors A, B, C"
+          style="max-width: 90%; border: 2px solid #ccc; border-radius: 8px;">
+      </div>
+
+
+      <p data-en="Together, these stations enable triangulation, turning individual lightning alerts into a powerful community-wide safety system."
+        data-zh="通过这些站点的协作，就能实现三角定位，把单个的雷电警报，转变为一个功能强大的社区级安全系统。" </p>
     </div>
   </section>
 
@@ -338,35 +416,6 @@
         </tfoot>
       </table>
       <p data-en="Ongoing cost: about $10 per month." data-zh="持续成本：大约 $10/月。">持续成本：大约 $10/月。</p>
-    </div>
-  </section>
-
-  <!-- 7. App Preview Section -->
-  <section>
-    <div class="card" style="text-align:center;">
-      <h2 data-en="App Preview" data-zh="应用预览">App Preview</h2>
-      <p data-en="See how our Lightning Alert App works on iPhone." data-zh="看看我们的雷电预警应用在 iPhone 上是如何运行的。">
-        See how our Lightning Alert App works on iPhone.
-      </p>
-
-      <!-- Promo Image -->
-      <img src="ios_app_preview.png" alt="Lightning Alert App iPhone Preview"
-        style="max-width:90%; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.15); margin:1rem 0;" />
-
-      <!-- Future Download Buttons -->
-      <div style="margin-top:1rem;">
-        <a href="#" style="display:inline-block; margin:0 10px;">
-          <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"
-            alt="Download on the App Store" style="height:50px;">
-        </a>
-        <!-- Optional: Google Play badge for future expansion -->
-        <!--
-      <a href="#" style="display:inline-block; margin:0 10px;">
-        <img src="" 
-             alt="Get it on Google Play" style="height:50px;">
-      </a>
-      -->
-      </div>
     </div>
   </section>
 
@@ -615,32 +664,68 @@
     </div>
   </section>
 
-  <!-- 12. Triangulation Section -->
   <section>
-    <div class="card">
-      <h2 data-en="Community Triangulation" data-zh="三角定位">Community Triangulation / 三角定位</h2>
+  <div class="card">
+    <h2 data-en="Supported By" data-zh="支持与资助">Supported By / 支持与资助</h2>
+    <p data-en="We are grateful for the support from organizations, schools, and individuals who believe in building a safer, community-shared lightning alert network." 
+       data-zh="感谢支持我们的组织、学校和个人，他们相信并愿意共同建设一个更安全的社区共享雷电预警网络。">
+       感谢支持我们的组织、学校和个人，他们相信并愿意共同建设一个更安全的社区共享雷电预警网络。
+    </p>
 
-
-      <p data-en="By installing sensors at different homes or schools, students and neighbors can work together to build a community lightning detection network. Each sensor estimates the distance of a strike. When circles from multiple sensors overlap, we can locate the strike more precisely."
-        data-zh="在不同家庭或学校安装传感器，学生和邻居可以共同合作，构建一个社区级的雷电探测网络。每个传感器都会估算雷电的距离，当多个传感器的圆圈重叠时，就能更精确地确定雷电位置。" </p>
-
-
-      <p data-en="
-        Future expansion: Each sensor could be hosted by different students or neighbors, forming a collaborative community network. The more sensors we have, the more accurate the triangulation."
-        data-zh="未来的扩展：每个传感器由不同的学生或邻居安装，形成社区级的协作网络，传感器越多，定位就越精准。" </p>
-
-
-      <div style="text-align:center; margin: 1.5rem 0;">
-        <img src="lightning_triangulation_students.png" alt="Triangulation Example with Sensors A, B, C"
-          style="max-width: 90%; border: 2px solid #ccc; border-radius: 8px;">
+    <!-- Carousel container -->
+    <div class="sponsor-carousel">
+      <div class="sponsor-track">
+        <img src="EOMschoolLogo.png" alt="School Logo">
+        <img src="SLPSschoolLogo.png" alt="School Logo">
+        <img src="KanataCommunityLogo.jpeg" alt="Community Logo">
+        <img src="MarshesgolfclubLogo.png" alt="Community Logo">
+        <!--         
+        <img src="company_logo.png" alt="Company Logo">
+                 
+        -->
       </div>
-
-
-      <p data-en="Together, these stations enable triangulation, turning individual lightning alerts into a powerful community-wide safety system."
-        data-zh="通过这些站点的协作，就能实现三角定位，把单个的雷电警报，转变为一个功能强大的社区级安全系统。" </p>
     </div>
-  </section>
 
+    <p style="text-align:center; margin-top:1rem;">
+      <em data-en="And individual donors from our community" 
+          data-zh="以及社区的个人捐赠者">以及社区的个人捐赠者</em>
+    </p>
+  </div>
+</section>
+
+<style>
+.sponsor-carousel {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  margin: 2rem auto;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+  padding: 1rem 0;
+}
+
+.sponsor-track {
+  display: flex;
+  gap: 3rem;
+  animation: scroll 20s linear infinite;
+}
+
+.sponsor-track img {
+  max-height: 60px;
+  object-fit: contain;
+  filter: grayscale(100%);
+  transition: filter 0.3s;
+}
+.sponsor-track img:hover {
+  filter: grayscale(0%);
+}
+
+@keyframes scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+</style>
 
 
   <!-- 13. Footer -->
