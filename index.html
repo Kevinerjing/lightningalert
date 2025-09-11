@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-en="Lightning Alert for Kanata Lakes" data-zh="Kanata Lakes 社区雷电预警">Kanata Lakes 社区雷电预警</title>
+  <style>
+    body {font-family: Arial, sans-serif; margin:0; background:#f9f9f9; color:#333; line-height:1.6;}
+    header {background:linear-gradient(135deg,#004aad,#007bff); color:white; text-align:center; padding:2rem 1rem;}
+    header h1 {font-size:2.5rem; margin-bottom:0.5rem;}
+    header p {font-size:1.2rem; font-style:italic;}
+    .lang-btn {margin-top:1rem;}
+    .lang-btn button {padding:6px 12px; margin:0 5px; border:none; border-radius:4px; cursor:pointer; background:#ff9800; color:white; font-weight:bold;}
+    section {max-width:900px; margin:2rem auto; padding:0 1rem;}
+    section h2 {color:#004aad; margin-bottom:0.5rem;}
+    .card {background:white; padding:1.5rem; border-radius:8px; margin-bottom:1.5rem; box-shadow:0 2px 6px rgba(0,0,0,0.1);}
+    table {width:100%; border-collapse:collapse; margin-top:1rem;}
+    table th, table td {padding:8px;}
+    table thead {background:#004aad; color:white;}
+    table tfoot {background:#e6f0ff; font-weight:bold;}
+    .donate-btn {display:inline-block; padding:0.8rem 1.5rem; background:#ff9800; color:white; text-decoration:none; border-radius:5px; font-weight:bold; margin-top:1rem;}
+    footer {background:#004aad; color:white; text-align:center; padding:1rem; margin-top:2rem;}
+  </style>
+
+  <!-- CSS for Timeline -->
+<style>
+.timeline {
+  position: relative;
+  max-width: 800px;
+  margin: 1rem auto;
+}
+.timeline::after {
+  content: '';
+  position: absolute;
+  width: 4px;
+  background: #004aad;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  margin-left: -2px;
+}
+.timeline-item {
+  padding: 1rem 1rem;
+  position: relative;
+  width: 48%;
+}
+.timeline-item.left {
+  left: 0;
+}
+.timeline-item.right {
+  left: 50%;
+}
+.timeline-item::before {
+  content: "⚡";
+  position: absolute;
+  top: 15px;
+  right: -14px;
+  background: #004aad;
+  color: white;
+  font-size: 0.8rem;
+  padding: 6px;
+  border-radius: 50%;
+  z-index: 1;
+}
+.timeline-item.right::before {
+  left: -14px;
+  right: auto;
+}
+.timeline-content {
+  padding: 1rem;
+  background: white;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+.timeline-content h3 {
+  margin-top: 0;
+  color: #004aad;
+}
+@media screen and (max-width: 768px) {
+  .timeline::after {
+    left: 20px;
+  }
+  .timeline-item {
+    width: 100%;
+    left: 0;
+    padding-left: 40px;
+    margin-bottom: 2rem;
+  }
+  .timeline-item.right {
+    left: 0;
+  }
+  .timeline-item::before {
+    left: 0;
+    right: auto;
+  }
+}
+</style>
+</head>
+<!-- Language Switch Script -->
+<script>
+    function setLanguage(lang) {
+      document.querySelectorAll("[data-en]").forEach(el => {
+        el.innerText = el.getAttribute("data-" + lang);
+      });
+      document.title = document.querySelector("title").getAttribute("data-" + lang);
+    }
+  window.onload = function() {
+    setLanguage('en');
+  }
+</script>
+<body>
+
+  <!-- 1. Banner -->
+  <header>
+    <h1 data-en="⚡ Lightning Alert for Kanata Lakes" data-zh="⚡ Kanata Lakes 社区雷电预警">⚡ Kanata Lakes 社区雷电预警</h1>
+    <p data-en="Keeping our community safe, one lightning alert at a time" data-zh="用每一次雷电提醒守护社区安全">用每一次雷电提醒守护社区安全</p>
+    <div class="lang-btn">
+      <button onclick="setLanguage('zh')">Chinese</button>
+      <button onclick="setLanguage('en')">English</button>
+    </div>
+  </header>
+
+  <!-- 2. Mission -->
+  <section>
+    <div class="card">
+      <h2 data-en="Our Mission" data-zh="我们的使命">我们的使命</h2>
+      <p data-en="We are Kevin and Eric, two students from Kanata who love science and technology. Our project brings fast, local lightning alerts to our neighbors, schools, and sports clubs to help everyone stay safe during thunderstorms."
+         data-zh="我们是 Kevin 和 Eric，两名来自 Kanata 的学生，热爱科学与技术。我们的项目为社区、学校和运动俱乐部提供快速、本地化的雷电预警，帮助大家在雷暴天气中保持安全。">
+         我们是 Kevin 和 Eric，两名来自 Kanata 的学生，热爱科学与技术。我们的项目为社区、学校和运动俱乐部提供快速、本地化的雷电预警，帮助大家在雷暴天气中保持安全。
+      </p>
+    </div>
+  </section>
+
+  <!-- 3. Why It Matters -->
+  <section>
+    <div class="card">
+      <h2 data-en="Why It Matters" data-zh="为什么重要">为什么重要</h2>
+      <ul>
+        <li data-en="Official apps like WeatherCAN are accurate, but may be delayed by 1-2 minutes." data-zh="官方应用（如 WeatherCAN）虽然准确，但可能延迟 1-2 分钟。">官方应用（如 WeatherCAN）虽然准确，但可能延迟 1-2 分钟。</li>
+        <li data-en="For outdoor activities like golf, tennis, or soccer, even 30 seconds can make a difference." data-zh="对于高尔夫、网球、足球等户外活动，即使 30 秒的延迟也可能造成危险。">对于高尔夫、网球、足球等户外活动，即使 30 秒的延迟也可能造成危险。</li>
+        <li data-en="Our system detects lightning within seconds and shares alerts instantly." data-zh="我们的系统可以在数秒内检测到雷电并立即推送提醒。">我们的系统可以在数秒内检测到雷电并立即推送提醒。</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 4. How It Works -->
+  <section>
+    <div class="card">
+      <h2 data-en="How It Works" data-zh="工作原理">工作原理</h2>
+      <ol>
+        <li data-en="A lightning sensor detects strikes within a few kilometers." data-zh="雷电传感器探测到几公里范围内的闪电。">雷电传感器探测到几公里范围内的闪电。</li>
+        <li data-en="Our receiver decodes the data and sends it to our server." data-zh="接收器解码数据并传输到服务器。">接收器解码数据并传输到服务器。</li>
+        <li data-en="The server shares alerts through this website and our app." data-zh="服务器通过网站和手机应用发布预警。">服务器通过网站和手机应用发布预警。</li>
+        <li data-en="Community members receive instant notifications to stay safe." data-zh="社区成员收到即时通知，确保安全。">社区成员收到即时通知，确保安全。</li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- 5. STEM Knowledge -->
+  <section>
+    <div class="card">
+      <h2 data-en="STEM Knowledge We Use" data-zh="我们学习的 STEM 知识">我们学习的 STEM 知识</h2>
+      <ul>
+        <li data-en="Wireless (Radio): 433 MHz signals, SDR, electromagnetic pulses." data-zh="无线电：433 MHz 信号、软件无线电、雷电电磁脉冲。">无线电：433 MHz 信号、软件无线电、雷电电磁脉冲。</li>
+        <li data-en="IT: MQTT publish/subscribe, cloud servers, real-time notifications, app development." data-zh="信息技术：MQTT 发布/订阅、云服务器、实时推送、应用开发。">信息技术：MQTT 发布/订阅、云服务器、实时推送、应用开发。</li>
+        <li data-en="Weather Science: thunderstorms, EMP pulses, 30/30 rule." data-zh="天气科学：雷暴、EMP 脉冲、30/30 规则。">天气科学：雷暴、EMP 脉冲、30/30 规则。</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 6. Materials & Budget -->
+  <section>
+    <div class="card">
+      <h2 data-en="Materials & Budget" data-zh="材料与预算">材料与预算</h2>
+      <table>
+        <thead>
+          <tr>
+            <th data-en="Item" data-zh="项目">项目</th>
+            <th data-en="Cost" data-zh="费用">费用</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td data-en="Lightning Sensor" data-zh="雷电传感器">雷电传感器</td><td>$62.70</td></tr>
+          <tr><td data-en="RTL-SDR USB Receiver (433 MHz)" data-zh="RTL-SDR USB 接收器 (433 MHz)">RTL-SDR USB 接收器 (433 MHz)</td><td>$65.95</td></tr>
+          <tr><td data-en="Raspberry Pi or small PC" data-zh="Raspberry Pi 或小型电脑">Raspberry Pi 或小型电脑</td><td>$143.00</td></tr>
+          <tr><td data-en="Apple Developer Program (1 year)" data-zh="Apple 开发者账号 (1 年)">Apple 开发者账号 (1 年)</td><td>$99.00</td></tr>
+          <tr><td data-en="MQTT Server (Cloud VM)" data-zh="MQTT 云服务器">MQTT 云服务器</td><td>$10/Month</td></tr>
+          <tr><td data-en="Website Hosting (GitHub Pages / Netlify)" data-zh="网站托管 (GitHub Pages / Netlify)">网站托管 (GitHub Pages / Netlify)</td><td>Free</td></tr>
+        </tbody>
+        <tfoot>
+          <tr><td data-en="Total Initial Cost" data-zh="总初始成本">总初始成本</td><td>≈ $370</td></tr>
+        </tfoot>
+      </table>
+      <p data-en="Ongoing cost: about $10 per month." data-zh="持续成本：大约 $10/月。">持续成本：大约 $10/月。</p>
+    </div>
+  </section>
+
+  <!-- 7. App Preview Section -->
+  <section>
+  <div class="card" style="text-align:center;">
+    <h2 data-en="App Preview" data-zh="应用预览">App Preview</h2>
+    <p data-en="See how our Lightning Alert App works on iPhone."
+       data-zh="看看我们的雷电预警应用在 iPhone 上是如何运行的。">
+       See how our Lightning Alert App works on iPhone.
+    </p>
+
+    <!-- Promo Image -->
+    <img src="ios_app_preview.png" 
+         alt="Lightning Alert App iPhone Preview"
+         style="max-width:90%; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.15); margin:1rem 0;" />
+
+    <!-- Future Download Buttons -->
+    <div style="margin-top:1rem;">
+      <a href="#" style="display:inline-block; margin:0 10px;">
+        <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" 
+             alt="Download on the App Store" style="height:50px;">
+      </a>
+      <!-- Optional: Google Play badge for future expansion -->
+      <!--
+      <a href="#" style="display:inline-block; margin:0 10px;">
+        <img src="" 
+             alt="Get it on Google Play" style="height:50px;">
+      </a>
+      -->
+    </div>
+  </div>
+  </section>
+
+
+  <!-- 8. Project Roadmap Timeline -->
+  <section>
+  <div class="card">
+    <h2 data-en="Project Roadmap" data-zh="项目计划时间轴">项目计划时间轴</h2>
+    <div class="timeline">
+
+      <div class="timeline-item left">
+        <div class="timeline-content">
+          <h3 data-en="Phase 1: Prototype (Week 1-2)" data-zh="阶段 1：原型 (第1-2周)">阶段 1：原型 (第1-2周)</h3>
+          <p data-en="Buy hardware (sensor, SDR, Raspberry Pi), test signal decoding, validate detection accuracy."
+             data-zh="购买硬件（传感器、SDR、树莓派），测试信号解码，验证探测准确性。">
+             购买硬件（传感器、SDR、树莓派），测试信号解码，验证探测准确性。
+          </p>
+        </div>
+      </div>
+
+      <div class="timeline-item right">
+        <div class="timeline-content">
+          <h3 data-en="Phase 2: Infrastructure (Week 2-3)" data-zh="阶段 2：基础设施 (第2-3周)">阶段 2：基础设施 (第2-3周)</h3>
+          <p data-en="Set up cloud VM, install MQTT broker, connect Pi to broker, build basic data logging."
+             data-zh="搭建云服务器，安装 MQTT broker，连接树莓派，建立基础数据记录。">
+             搭建云服务器，安装 MQTT broker，连接树莓派，建立基础数据记录。
+          </p>
+        </div>
+      </div>
+
+      <div class="timeline-item left">
+        <div class="timeline-content">
+          <h3 data-en="Phase 3: Website (Week 3-4)" data-zh="阶段 3：网站 (第3-4周)">阶段 3：网站 (第3-4周)</h3>
+          <p data-en="Launch project website with mission, budget, STEM knowledge, and donation page."
+             data-zh="上线项目网站，展示使命、预算、STEM 知识，并开放捐赠。">
+             上线项目网站，展示使命、预算、STEM 知识，并开放捐赠。
+          </p>
+        </div>
+      </div>
+
+      <div class="timeline-item right">
+        <div class="timeline-content">
+          <h3 data-en="Phase 4: App Development (Week 4-5)" data-zh="阶段 4：应用开发 (第4-5周)">阶段 4：应用开发 (第4-5周)</h3>
+          <p data-en="Apply for Apple Developer account, set up Xcode, build iOS app prototype with notifications."
+             data-zh="申请 Apple 开发者账号，配置 Xcode，开发带通知功能的 iOS 应用原型。">
+             申请 Apple 开发者账号，配置 Xcode，开发带通知功能的 iOS 应用原型。
+          </p>
+        </div>
+      </div>
+
+      <div class="timeline-item left">
+        <div class="timeline-content">
+          <h3 data-en="Phase 5: Improvements (Week 5-6)" data-zh="阶段 5：改进 (第5-6周)">阶段 5：改进 (第5-6周)</h3>
+          <p data-en="Add map visualization, secure server, refine distance-based alerts, collect user feedback."
+             data-zh="增加地图可视化，提升服务器安全，优化基于距离的提醒，收集用户反馈。">
+             增加地图可视化，提升服务器安全，优化基于距离的提醒，收集用户反馈。
+          </p>
+        </div>
+      </div>
+
+      <div class="timeline-item right">
+        <div class="timeline-content">
+          <h3 data-en="Phase 6: Community Launch (Week 7+)" data-zh="阶段 6：社区发布 (第7周+)">阶段 6：社区发布 (第7周+)</h3>
+          <p data-en="Publish app to App Store, organize Community Science Talk sessions, help neighbors install and use the app."
+             data-zh="发布应用到 App Store，组织社区科普讲座，帮助邻居安装和使用应用。">
+             发布应用到 App Store，组织社区科普讲座，帮助邻居安装和使用应用。
+          </p>
+        </div>
+      </div>
+
+      <div class="timeline-item left">
+        <div class="timeline-content">
+          <h3 data-en="Phase 7: Expansion" data-zh="阶段 7：扩展">阶段 7：扩展</h3>
+          <p data-en="Add more sensors across Kanata, recruit student teams, explore Android version."
+             data-zh="在 Kanata 增加更多传感器，招募学生团队，探索 Android 版本。">
+             在 Kanata 增加更多传感器，招募学生团队，探索 Android 版本。
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  </section>
+
+  <!-- 9. Contact Us -->
+  <section>
+  <div class="card">
+    <h2 data-en="Contact Us" data-zh="联系我们">Contact Us</h2>
+    <p data-en="We’d love to hear from you! Whether you are from ECCC, a teacher, a parent, or a community member, feel free to reach out."
+       data-zh="我们非常期待您的反馈！无论您是 ECCC 专家、老师、家长还是社区成员，都欢迎与我们联系。">
+       We’d love to hear from you! Whether you are from ECCC, a teacher, a parent, or a community member, feel free to reach out.
+    </p>
+
+    <ul>
+      <li>
+        <strong>Email:</strong>
+        <a href="mailto:jingkevin0408@gmail.com" data-en="jingkevin0408@gmail.com" data-zh="jingkevin0408@gmail.com">jingkevin0408@gmail.com</a>
+      </li>
+    </ul>
+
+    <p data-en="We are based in Kanata Lakes, Ottawa, and happy to collaborate with organizations that care about community safety and weather awareness."
+       data-zh="我们位于渥太华 Kanata Lakes，期待与关注社区安全和天气意识的机构合作。">
+       We are based in Kanata Lakes, Ottawa, and happy to collaborate with organizations that care about community safety and weather awareness.
+    </p>
+  </div>
+  </section>
+
+  <!-- 10. Safety Context -->
+  <section>
+  <div class="card">
+    <h2 data-en="Lightning in Canada" data-zh="加拿大的雷电风险">
+      Lightning in Canada
+    </h2>
+
+    <p data-en="Lightning is a serious safety concern in Canada. According to Environment and Climate Change Canada (ECCC) and scientific studies, lightning strikes cause multiple deaths and hundreds of injuries every year."
+       data-zh="雷电是加拿大的重要安全隐患。根据加拿大环境与气候变化部 (ECCC) 和科研统计，雷电每年都会造成多人死亡和上百起伤害。">
+       Lightning is a serious safety concern in Canada. According to Environment and Climate Change Canada (ECCC) and scientific studies, lightning strikes cause multiple deaths and hundreds of injuries every year.
+    </p>
+
+    <table style="width:100%; border-collapse:collapse; margin:1rem 0;">
+      <thead>
+        <tr style="background:#004aad; color:white;">
+          <th style="text-align:left; padding:8px;" data-en="Source" data-zh="来源">Source</th>
+          <th style="text-align:center; padding:8px;" data-en="Deaths per year" data-zh="年均死亡">Deaths per year</th>
+          <th style="text-align:center; padding:8px;" data-en="Injuries per year" data-zh="年均受伤">Injuries per year</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="background:#f2f2f2;">
+          <td style="padding:8px;" data-en="Official conservative estimate (ECCC)" data-zh="官方保守估计 (ECCC)">Official conservative estimate (ECCC)</td>
+          <td style="text-align:center;">2-3</td>
+          <td style="text-align:center;">~180</td>
+        </tr>
+        <tr>
+          <td style="padding:8px;" data-en="Scientific research (Mills et al., 2006)" data-zh="科研统计 (Mills 等, 2006)">Scientific research (Mills et al., 2006)</td>
+          <td style="text-align:center;">9-10</td>
+          <td style="text-align:center;">92-164</td>
+        </tr>
+        <tr style="background:#f2f2f2;">
+          <td style="padding:8px;" data-en="ECCC upper estimate" data-zh="ECCC 上限估计">ECCC upper estimate</td>
+          <td style="text-align:center;">≤10</td>
+          <td style="text-align:center;">≤164</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p data-en="Most lightning-related deaths and injuries in Canada occur during the summer months (June-August), especially in Ontario, Quebec, Alberta, Saskatchewan, and Manitoba."
+       data-zh="加拿大的大多数雷击伤亡集中在夏季（6-8 月），主要发生在安大略、魁北克、阿尔伯塔、萨省和马尼托巴。">
+       Most lightning-related deaths and injuries in Canada occur during the summer months (June-August), especially in Ontario, Quebec, Alberta, Saskatchewan, and Manitoba.
+    </p>
+
+    <p data-en="This shows why community-level, second-fast lightning alerts are important: even in a developed country like Canada, lightning still causes preventable deaths and injuries every year."
+       data-zh="这说明社区级的秒级雷电预警非常重要：即使在像加拿大这样的发达国家，每年仍有可以避免的雷击伤亡。">
+       This shows why community-level, second-fast lightning alerts are important: even in a developed country like Canada, lightning still causes preventable deaths and injuries every year.
+    </p>
+  </div>
+  </section>
+
+  <section>
+  <div class="card">
+    <h2 data-en="Global Lightning Risks & Safety" data-zh="全球雷电风险与安全">
+      Global Lightning Risks & Safety
+    </h2>
+
+    <!-- Global Lightning Map -->
+    <div style="text-align:center; margin:1rem 0;">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Global_lightning_strikes.png/500px-Global_lightning_strikes.png"
+           alt="World lightning strike frequency map"
+           style="max-width:100%; border-radius:8px; box-shadow:0 2px 6px rgba(0,0,0,0.1);" />
+      <p style="font-size:0.9rem; color:#555;"
+         data-en="World map showing frequency of lightning strikes, in flashes per square kilometer (km²) per year (equal-area projection). Lightning strikes most frequently in the Democratic Republic of the Congo. Data combined from the Optical Transient Detector (1995-2003) and Lightning Imaging Sensor (1998-2003)."
+         data-zh="世界地图显示每平方公里每年雷击次数（等面积投影）。雷电最频繁的地区是刚果民主共和国。数据来自光瞬变探测器 (1995-2003) 和闪电成像传感器 (1998-2003) 的合成结果。">
+         World map showing frequency of lightning strikes, in flashes per square kilometer (km²) per year (equal-area projection). Lightning strikes most frequently in the Democratic Republic of the Congo. Data combined from the Optical Transient Detector (1995-2003) and Lightning Imaging Sensor (1998-2003).
+      </p>
+    </div>
+
+    <!-- Part 1: Lightning Hotspots -->
+    <h3 data-en="Where is lightning most frequent?" data-zh="雷电最密集的地区在哪里？">Where is lightning most frequent?</h3>
+    <p data-en="The highest lightning densities are found in tropical regions. Lake Maracaibo in Venezuela holds the world record with ~250 lightning strikes per km² per year, followed by parts of DR Congo (~205/km²) and Singapore, the country with the highest overall lightning density."
+       data-zh="热带地区是雷电最密集的地方。委内瑞拉的马拉开波湖保持着世界纪录，每平方公里每年约 250 次雷电；刚果（金）部分地区约 205 次/km²；而新加坡则是整体国土雷电密度最高的国家。">
+       The highest lightning densities are found in tropical regions. Lake Maracaibo in Venezuela holds the world record with ~250 lightning strikes per km² per year, followed by parts of DR Congo (~205/km²) and Singapore, the country with the highest overall lightning density.
+    </p>
+    <ul>
+      <li><span data-en="Lake Maracaibo, Venezuela - ~250 strikes/km²/year" data-zh="委内瑞拉马拉开波湖 - ~250 次/km²·年">Lake Maracaibo, Venezuela - ~250 strikes/km²/year</span></li>
+      <li><span data-en="Kabare, DR Congo - ~205 strikes/km²/year" data-zh="刚果（金）Kabare - ~205 次/km²·年">Kabare, DR Congo - ~205 strikes/km²/year</span></li>
+      <li><span data-en="Singapore - 8-12 strikes/km²/year (highest density country)" data-zh="新加坡 - 8-12 次/km²·年（国家级最高密度）">Singapore - 8-12 strikes/km²/year (highest density country)</span></li>
+    </ul>
+
+    <!-- Part 2: Global Impacts -->
+    <h3 data-en="Global Impact of Lightning" data-zh="全球雷电的影响">Global Impact of Lightning</h3>
+    <p data-en="According to the World Meteorological Organization (WMO), lightning kills about 24,000-30,000 people every year worldwide, and injures 240,000-300,000 more. Many cases in rural areas are never reported, so the true numbers may be higher."
+       data-zh="根据世界气象组织 (WMO) 数据，雷电每年在全球导致约 24,000-30,000 人死亡，240,000-300,000 人受伤。由于很多发生在偏远地区未被统计，实际数字可能更高。">
+       According to the World Meteorological Organization (WMO), lightning kills about 24,000-30,000 people every year worldwide, and injures 240,000-300,000 more. Many cases in rural areas are never reported, so the true numbers may be higher.
+    </p>
+
+    <!-- Part 3: Safety Measures -->
+    <h3 data-en="How to Stay Safe" data-zh="如何防护雷电">How to Stay Safe</h3>
+    <ul>
+      <li><span data-en="Avoid outdoor activities during thunderstorms, stay indoors when possible." data-zh="雷雨天气避免户外活动, 尽量待在室内。">Avoid outdoor activities during thunderstorms, stay indoors when possible.</span></li>
+      <li><span data-en="If outside, seek shelter in a closed metal vehicle, not under trees." data-zh="如在户外，可在封闭金属车内避险，不要在树下躲雨。">If outside, seek shelter in a closed metal vehicle, not under trees.</span></li>
+      <li><span data-en="Keep distance from others outdoors, as lightning can spread across the ground." data-zh="户外保持人与人之间的距离，避免雷电通过地面传导造成二次伤害。">Keep distance from others outdoors, as lightning can spread across the ground.</span></li>
+      <li><span data-en="Buildings should have lightning rods and grounding systems, checked yearly." data-zh="建筑物应安装避雷针和接地系统，并进行年度检查。">Buildings should have lightning rods and grounding systems, checked yearly.</span></li>
+    </ul>
+  </div>
+  </section>
+
+  <!-- 11. Support -->
+  <section>
+    <div class="card">
+      <h2 data-en="Support Our Project" data-zh="支持我们的项目">支持我们的项目</h2>
+      <p data-en="Donations will help us buy more sensors, maintain our server, and expand coverage. Every contribution makes a difference!"
+         data-zh="捐赠将帮助我们购买更多传感器、维护服务器，并扩大覆盖范围。每一份支持都很重要！">
+         捐赠将帮助我们购买更多传感器、维护服务器，并扩大覆盖范围。每一份支持都很重要！
+      </p>
+<a href="https://www.paypal.me/KevinEricJing" target="_blank" class="donate-btn" data-en="Donate Now" data-zh="立即捐赠">Donate Now</a>
+
+    </div>
+  </section>
+
+  <!-- 12. Triangulation Section -->
+<section>
+  <div class="card">
+    <h2 data-en="Community Triangulation" data-zh="三角定位">Community Triangulation / 三角定位</h2>
+
+
+    <p data-en="By installing sensors at different homes or schools, students and neighbors can work together to build a community lightning detection network. Each sensor estimates the distance of a strike. When circles from multiple sensors overlap, we can locate the strike more precisely."
+       data-zh="在不同家庭或学校安装传感器，学生和邻居可以共同合作，构建一个社区级的雷电探测网络。每个传感器都会估算雷电的距离，当多个传感器的圆圈重叠时，就能更精确地确定雷电位置。"
+    </p>
+
+
+    <p data-en="
+        Future expansion: Each sensor could be hosted by different students or neighbors, forming a collaborative community network. The more sensors we have, the more accurate the triangulation."
+
+     data-zh="未来的扩展：每个传感器由不同的学生或邻居安装，形成社区级的协作网络，传感器越多，定位就越精准。"
+
+    </p>
+
+
+    <div style="text-align:center; margin: 1.5rem 0;">
+      <img src="lightning_triangulation_students.png" 
+           alt="Triangulation Example with Sensors A, B, C" 
+           style="max-width: 90%; border: 2px solid #ccc; border-radius: 8px;">
+    </div>
+
+
+    <p data-en="Together, these stations enable triangulation, turning individual lightning alerts into a powerful community-wide safety system."
+    data-zh="通过这些站点的协作，就能实现三角定位，把单个的雷电警报，转变为一个功能强大的社区级安全系统。"
+    </p>
+  </div>
+</section>
+
+
+
+  <!-- 13. Footer -->
+  <footer>
+    <p data-en="© 2025 Lightning Alert Project - Built by Kevin & Eric, with community support."
+       data-zh="© 2025 雷电预警项目 - 由 Kevin & Eric 发起，感谢社区支持。">© 2025 雷电预警项目 - 由 Kevin & Eric 发起，感谢社区支持。</p>
+  </footer>
+
+</body>
+</html>
