@@ -35,6 +35,10 @@
       margin-top: 1rem;
     }
 
+    html {
+      scroll-padding-top: 188px;
+    }
+
     .lang-btn button {
       padding: 6px 12px;
       margin: 0 5px;
@@ -103,6 +107,221 @@
       text-align: center;
       padding: 1rem;
       margin-top: 2rem;
+    }
+
+
+    .navbar {
+      margin-top: 1rem;
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      font-size: 1.1rem;
+      font-weight: bold;
+    }
+
+    .navbar a {
+      color: white;
+      text-decoration: none;
+      padding: 0.5rem 0.8rem;
+      transition: background 0.3s, color 0.3s;
+      border-radius: 4px;
+    }
+
+    .navbar a:hover {
+      background: rgba(255, 255, 255, 0.2);
+      color: #ffeb3b;
+    }
+
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .banner {
+      background: linear-gradient(135deg, #004aad, #007bff);
+      color: white;
+      padding: 1.5rem 2rem;
+    }
+
+    .top-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 1.4rem;
+      font-weight: bold;
+    }
+
+    .lang-switch {
+      position: absolute;
+      top: 10px;
+      right: 500px;
+      display: flex;
+      gap: 8px;
+    }
+
+    .lang-switch button {
+      padding: 6px 12px;
+      background: #ff9800;
+      border: none;
+      border-radius: 4px;
+      font-weight: bold;
+      cursor: pointer;
+      color: white;
+    }
+
+
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: #f9f9f9;
+      color: #333;
+      line-height: 1.6;
+      padding-top: 180px;
+    }
+
+
+    .banner {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+
+      background: linear-gradient(135deg, rgba(0, 74, 173, 0.75), rgba(0, 123, 255, 0.75));
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+
+      color: white;
+      padding: 1.5rem 2rem 1rem;
+      text-align: center;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .banner-row {
+      position: relative;
+    }
+
+    .banner-text {
+      text-align: center;
+      margin: 0 auto;
+      max-width: 70%;
+    }
+
+
+
+    .banner-text h1 {
+      margin: 0;
+      font-size: 2.2rem;
+    }
+
+    .banner-text p {
+      margin: 0.5rem 0;
+      font-size: 1.1rem;
+    }
+
+
+
+    .navbar {
+      margin-top: 1.2rem;
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      font-size: 1rem;
+      font-weight: bold;
+    }
+
+    .navbar a {
+      color: white;
+      text-decoration: none;
+      padding: 0.5rem 0.8rem;
+      transition: background 0.3s, color 0.3s;
+      border-radius: 4px;
+    }
+
+    .navbar a:hover {
+      background: rgba(255, 255, 255, 0.2);
+      color: #ffeb3b;
+    }
+  </style>
+
+  <style>
+    .donor-carousel {
+      overflow: hidden;
+      white-space: nowrap;
+      width: 100%;
+      border-top: 1px solid #eee;
+      border-bottom: 1px solid #eee;
+      padding: 0.5rem 0;
+      background: #fafafa;
+    }
+
+    .donor-track {
+      display: inline-block;
+      padding-left: 100%;
+      animation: donor-scroll 25s linear infinite;
+    }
+
+    .donor-track span {
+      display: inline-block;
+      margin: 0 2rem;
+      font-weight: bold;
+      color: #004aad;
+    }
+
+    @keyframes donor-scroll {
+      0% {
+        transform: translateX(0);
+      }
+
+      100% {
+        transform: translateX(-100%);
+      }
+    }
+  </style>
+
+
+  <style>
+    .sponsor-carousel {
+      overflow: hidden;
+      position: relative;
+      width: 100%;
+      max-width: 800px;
+      margin: 2rem auto;
+      border-top: 1px solid #eee;
+      border-bottom: 1px solid #eee;
+      padding: 1rem 0;
+    }
+
+    .sponsor-track {
+      display: flex;
+      gap: 3rem;
+      animation: scroll 20s linear infinite;
+    }
+
+    .sponsor-track img {
+      max-height: 60px;
+      object-fit: contain;
+      filter: grayscale(100%);
+      transition: filter 0.3s;
+    }
+
+    .sponsor-track img:hover {
+      filter: grayscale(0%);
+    }
+
+    @keyframes scroll {
+      0% {
+        transform: translateX(0);
+      }
+
+      100% {
+        transform: translateX(-50%);
+      }
     }
   </style>
 
@@ -191,6 +410,7 @@
       }
     }
   </style>
+
 </head>
 <!-- Language Switch Script -->
 
@@ -201,7 +421,7 @@
     });
     document.title = document.querySelector("title").getAttribute("data-" + lang);
   }
-  window.onload = function() {
+  window.onload = function () {
     setLanguage('en');
   }
 </script>
@@ -210,21 +430,37 @@
 <body>
 
   <!-- 1. Banner -->
-  <header>
-    <h1 data-en="⚡ Lightning Alert for Kanata Lakes" data-zh="⚡ Kanata Lakes 社区雷电预警">⚡ Kanata Lakes 社区雷电预警</h1>
-    <p data-en="A Sustainable, Community-Sharing Safety Network" 
-     data-zh="一个可持续的社区共享安全网络">
-    A Sustainable, Community-Sharing Safety Network
-    </p>
-    <p data-en="Keeping our community safe, one lightning alert at a time" data-zh="用每一次雷电提醒守护社区安全">用每一次雷电提醒守护社区安全</p>
-    <div class="lang-btn">
-      <button onclick="setLanguage('zh')">Chinese</button>
-      <button onclick="setLanguage('en')">English</button>
+  <header class="banner">
+    <div class="banner-row">
+      <div class="banner-text">
+        <h1 data-en="⚡ Lightning Alert for Kanata Lakes" data-zh="⚡ Kanata Lakes 社区雷电预警">
+          ⚡ Kanata Lakes 社区雷电预警
+        </h1>
+        <p data-en="A Sustainable, Community-Sharing Safety Network" data-zh="一个可持续的社区共享安全网络">
+          A Sustainable, Community-Sharing Safety Network
+        </p>
+        <p data-en="Keeping our community safe, one lightning alert at a time" data-zh="用每一次雷电提醒守护社区安全">
+          用每一次雷电提醒守护社区安全
+        </p>
+      </div>
+
+      <div class="lang-switch">
+        <button onclick="setLanguage('zh')">CH</button>
+        <button onclick="setLanguage('en')">EN</button>
+      </div>
     </div>
+
+    <nav class="navbar">
+      <a href="#mission" data-en="Mission" data-zh="使命">使命</a>
+      <a href="#why" data-en="Why It Matters" data-zh="为什么重要">为什么重要</a>
+      <a href="#how" data-en="How It Works" data-zh="工作原理">工作原理</a>
+      <a href="#our-story" data-en="Our Story" data-zh="我们的故事">我们的故事</a>
+      <a href="#support" data-en="Support" data-zh="支持我们">支持我们</a>
+    </nav>
   </header>
 
   <!-- 2. Mission -->
-  <section>
+  <section id="mission">
     <div class="card">
       <h2 data-en="Our Mission" data-zh="我们的使命">我们的使命</h2>
       <p data-en="We are Kevin and Eric, two students from Kanata who love science and technology. Our project brings fast, local lightning alerts to our neighbors, schools, and sports clubs to help everyone stay safe during thunderstorms."
@@ -235,7 +471,7 @@
   </section>
 
   <!-- 3. Why It Matters -->
-  <section>
+  <section id="why">
     <div class="card">
       <h2 data-en="Why It Matters" data-zh="为什么重要">为什么重要</h2>
       <ul>
@@ -262,7 +498,7 @@
   </section>
 
   <!-- 4. How It Works -->
-  <section>
+  <section id="how">
     <div class="card">
       <h2 data-en="How It Works" data-zh="工作原理">工作原理</h2>
       <ol>
@@ -278,7 +514,7 @@
     </div>
   </section>
 
-    <!-- 7. App Preview Section -->
+  <!-- 7. App Preview Section -->
   <section>
     <div class="card" style="text-align:center;">
       <h2 data-en="App Preview" data-zh="应用预览">App Preview</h2>
@@ -308,40 +544,45 @@
   </section>
 
   <!-- 5. STEM Knowledge -->
-<!-- STEM Knowledge Section -->
-<section>
-  <div class="card">
-    <h2 data-en="STEM Knowledge We Use" data-zh="我们使用的 STEM 知识">
-      STEM Knowledge We Use / 我们使用的 STEM 知识
-    </h2>
-    <ul>
-      <li data-en="<strong>Wireless (Radio)</strong>: 433 MHz signals, Software Defined Radio (SDR), electromagnetic pulse detection."
+  <!-- STEM Knowledge Section -->
+  <section>
+    <div class="card">
+      <h2 data-en="STEM Knowledge We Use" data-zh="我们使用的 STEM 知识">
+        STEM Knowledge We Use / 我们使用的 STEM 知识
+      </h2>
+      <ul>
+        <li
+          data-en="<strong>Wireless (Radio)</strong>: 433 MHz signals, Software Defined Radio (SDR), electromagnetic pulse detection."
           data-zh="<strong>无线电</strong>：433 MHz 信号，软件定义无线电 (SDR)，电磁脉冲探测。">
           <strong>无线电</strong>：433 MHz 信号，软件定义无线电 (SDR)，电磁脉冲探测。
-      </li>
+        </li>
 
-      <li data-en="<strong>IT / Computer Science</strong>: MQTT publish/subscribe, cloud servers, real-time notifications, web development, mobile app development."
+        <li
+          data-en="<strong>IT / Computer Science</strong>: MQTT publish/subscribe, cloud servers, real-time notifications, web development, mobile app development."
           data-zh="<strong>信息技术 / 计算机科学</strong>：MQTT 发布/订阅，云端服务器，实时通知，网页开发，手机应用开发。">
           <strong>信息技术 / 计算机科学</strong>：MQTT 发布/订阅，云端服务器，实时通知，网页开发，手机应用开发。
-      </li>
+        </li>
 
-      <li data-en="<strong>Mathematics</strong>: Geometry & Trigonometry (triangulation), distance-circle intersection, data visualization."
+        <li
+          data-en="<strong>Mathematics</strong>: Geometry & Trigonometry (triangulation), distance-circle intersection, data visualization."
           data-zh="<strong>数学</strong>：几何与三角学（三点定位），距离圆的交点计算，数据可视化。">
           <strong>数学</strong>：几何与三角学（三点定位），距离圆的交点计算，数据可视化。
-      </li>
+        </li>
 
-      <li data-en="<strong>Weather & Earth Science</strong>: Thunderstorms, EMP pulses, lightning formation, 30/30 safety rule, risk awareness."
+        <li
+          data-en="<strong>Weather & Earth Science</strong>: Thunderstorms, EMP pulses, lightning formation, 30/30 safety rule, risk awareness."
           data-zh="<strong>气象与地球科学</strong>：雷暴，EMP 脉冲，雷电形成，30/30 安全规则，风险意识。">
           <strong>气象与地球科学</strong>：雷暴，EMP 脉冲，雷电形成，30/30 安全规则，风险意识。
-      </li>
+        </li>
 
-      <li data-en="<strong>Engineering</strong>: Hardware setup (Raspberry Pi / Orange Pi), low-power system design, USB hub integration, edge-to-cloud architecture."
+        <li
+          data-en="<strong>Engineering</strong>: Hardware setup (Raspberry Pi / Orange Pi), low-power system design, USB hub integration, edge-to-cloud architecture."
           data-zh="<strong>工程</strong>：硬件搭建（树莓派 / 香橙派），低功耗系统设计，USB 集线器接入，边缘到云端架构。">
           <strong>工程</strong>：硬件搭建（树莓派 / 香橙派），低功耗系统设计，USB 集线器接入，边缘到云端架构。
-      </li>
-    </ul>
-  </div>
-</section>
+        </li>
+      </ul>
+    </div>
+  </section>
 
   <!-- Triangulation Section -->
   <section>
@@ -664,120 +905,84 @@
     </div>
   </section>
 
-  <section>
-  <div class="card">
-    <h2 data-en="Supported By" data-zh="支持与资助">Supported By / 支持与资助</h2>
-    <p data-en="We are grateful for the support from organizations, schools, and individuals who believe in building a safer, community-shared lightning alert network." 
-       data-zh="感谢支持我们的组织、学校和个人，他们相信并愿意共同建设一个更安全的社区共享雷电预警网络。">
-       感谢支持我们的组织、学校和个人，他们相信并愿意共同建设一个更安全的社区共享雷电预警网络。
-    </p>
+  <section id="support">
+    <div class="card">
+      <h2 data-en="Supported By" data-zh="支持与资助">Supported By / 支持与资助</h2>
+      <p data-en="We are grateful for the support from organizations, schools, and individuals who believe in building a safer, community-shared lightning alert network."
+        data-zh="感谢支持我们的组织、学校和个人，他们相信并愿意共同建设一个更安全的社区共享雷电预警网络。">
+        感谢支持我们的组织、学校和个人，他们相信并愿意共同建设一个更安全的社区共享雷电预警网络。
+      </p>
 
-    <!-- Carousel container -->
-    <div class="sponsor-carousel">
-      <div class="sponsor-track">
-        <img src="ECCCLogo.png" alt="ECCC Logo">
-        <img src="EOMschoolLogo.png" alt="School Logo">
-        <img src="SLPSschoolLogo.png" alt="School Logo">
-        <img src="KanataCommunityLogo.jpeg" alt="Community Logo">
-        <img src="MarshesgolfclubLogo.png" alt="Golf Club Logo">
-        
-        <!--         
+      <!-- Carousel container -->
+      <div class="sponsor-carousel">
+        <div class="sponsor-track">
+          <img src="ECCCLogo.png" alt="ECCC Logo">
+          <img src="EOMschoolLogo.png" alt="School Logo">
+          <img src="SLPSschoolLogo.png" alt="School Logo">
+          <img src="KanataCommunityLogo.jpeg" alt="Community Logo">
+          <img src="MarshesgolfclubLogo.png" alt="Golf Club Logo">
+
+          <!--         
         <img src="company_logo.png" alt="Company Logo">
                  
         -->
+        </div>
       </div>
+
+      <p style="text-align:center; margin-top:1rem;">
+        <em data-en="And individual donors from our community" data-zh="以及社区的个人捐赠者">以及社区的个人捐赠者</em>
+      </p>
     </div>
+  </section>
 
-    <p style="text-align:center; margin-top:1rem;">
-      <em data-en="And individual donors from our community" 
-          data-zh="以及社区的个人捐赠者">以及社区的个人捐赠者</em>
-    </p>
-  </div>
-</section>
+  <section>
+    <div class="card">
+      <h2 data-en="Community Donors" data-zh="社区捐赠者">Community Donors / 社区捐赠者</h2>
+      <p data-en="We thank the individuals and families who generously supported our project."
+        data-zh="感谢慷慨支持我们项目的个人和家庭。">
+        感谢慷慨支持我们项目的个人和家庭。
+      </p>
 
-<section>
-  <div class="card">
-    <h2 data-en="Community Donors" data-zh="社区捐赠者">Community Donors / 社区捐赠者</h2>
-    <p data-en="We thank the individuals and families who generously supported our project." 
-       data-zh="感谢慷慨支持我们项目的个人和家庭。">
-       感谢慷慨支持我们项目的个人和家庭。
-    </p>
-
-    <div class="donor-carousel">
-      <div class="donor-track">
-        <span>Guanhua J.</span>
-        <!-- 
+      <div class="donor-carousel">
+        <div class="donor-track">
+          <span>Guanhua J.</span>
+          <!-- 
         
         -->
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<style>
-.donor-carousel {
-  overflow: hidden;
-  white-space: nowrap;
-  width: 100%;
-  border-top: 1px solid #eee;
-  border-bottom: 1px solid #eee;
-  padding: 0.5rem 0;
-  background: #fafafa;
-}
+  <section id="our-story">
+    <div class="card">
+      <h2 data-en="Our Story" data-zh="我们的故事 - 这个想法是怎么来的">
+        Our Story – How the idea started
+      </h2>
 
-.donor-track {
-  display: inline-block;
-  padding-left: 100%;
-  animation: donor-scroll 25s linear infinite;
-}
+      <p data-en="I have been passionate about meteorology and extreme weather for many years. A few years ago, I even installed a personal weather station at home to observe and measure local conditions. Over time, I became more determined to pursue my future studies and career in atmospheric and environmental science."
+        data-zh="我一直对气象和极端天气充满热情。几年前，我就在家里安装了一个个人气象站，坚持观察和测量本地的天气情况。随着时间推移，我更加明确了自己未来要从事大气与环境科学方面的学习和职业方向。">
+        I have been passionate about meteorology and extreme weather for many years...
+      </p>
 
-.donor-track span {
-  display: inline-block;
-  margin: 0 2rem;
-  font-weight: bold;
-  color: #004aad;
-}
+      <p data-en="To learn from professionals, I started following ECCC (Environment and Climate Change Canada) and other organizations on LinkedIn, reading their posts and updates. One day, I noticed an announcement that WeatherCAN had added a new feature, Canada’s Lightning Map. I was excited to test it, and I even posted my first feedback about it directly on LinkedIn."
+        data-zh="为了向专业人士学习，我开始在 LinkedIn 上关注加拿大环境与气候变化部 (ECCC) 和其他相关机构，阅读他们的文章和更新。有一次，我看到 ECCC 发布消息，说 WeatherCAN 新增了一个功能, Canada’s Lightning Map（加拿大雷电地图）。我非常兴奋，第一时间试用了，并在 LinkedIn 上发表了反馈。">
+        To learn from professionals, I started following ECCC...
+      </p>
 
-@keyframes donor-scroll {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-100%); }
-}
-</style>
+      <p data-en="This inspired me to study how ECCC’s lightning detection network works, and to think about a new idea: What if my own community could also have a free, hyper-local, real-time lightning alert system?"
+        data-zh="这次经历启发我去研究 ECCC 的雷电探测网络的功能和特点，也让我想到一个新点子：如果我们的社区也能有一个免费的、本地化的、实时雷电提醒系统，会怎么样呢？">
+        This inspired me to study how ECCC’s lightning detection network works...
+      </p>
 
+      <p data-en="By building a community-based lightning detection network, I hope not only to increase safety during extreme weather, but also to raise public awareness about how to stay safe during thunderstorms."
+        data-zh="通过建设一个社区共享的雷电检测网络，我希望不仅能在极端天气中提升安全性，还能增强居民的防雷意识，让大家更好地保护自己。">
+        By building a community-based lightning detection network...
+      </p>
 
-<style>
-.sponsor-carousel {
-  overflow: hidden;
-  position: relative;
-  width: 100%;
-  max-width: 800px;
-  margin: 2rem auto;
-  border-top: 1px solid #eee;
-  border-bottom: 1px solid #eee;
-  padding: 1rem 0;
-}
-
-.sponsor-track {
-  display: flex;
-  gap: 3rem;
-  animation: scroll 20s linear infinite;
-}
-
-.sponsor-track img {
-  max-height: 60px;
-  object-fit: contain;
-  filter: grayscale(100%);
-  transition: filter 0.3s;
-}
-.sponsor-track img:hover {
-  filter: grayscale(0%);
-}
-
-@keyframes scroll {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
-}
-</style>
+      <p>Kevin</p>
+    </div>
+  </section>
 
 
   <!-- 13. Footer -->
