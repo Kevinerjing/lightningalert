@@ -675,10 +675,12 @@
     <!-- Carousel container -->
     <div class="sponsor-carousel">
       <div class="sponsor-track">
+        <img src="ECCCLogo.png" alt="ECCC Logo">
         <img src="EOMschoolLogo.png" alt="School Logo">
         <img src="SLPSschoolLogo.png" alt="School Logo">
         <img src="KanataCommunityLogo.jpeg" alt="Community Logo">
-        <img src="MarshesgolfclubLogo.png" alt="Community Logo">
+        <img src="MarshesgolfclubLogo.png" alt="Golf Club Logo">
+        
         <!--         
         <img src="company_logo.png" alt="Company Logo">
                  
@@ -692,6 +694,56 @@
     </p>
   </div>
 </section>
+
+<section>
+  <div class="card">
+    <h2 data-en="Community Donors" data-zh="社区捐赠者">Community Donors / 社区捐赠者</h2>
+    <p data-en="We thank the individuals and families who generously supported our project." 
+       data-zh="感谢慷慨支持我们项目的个人和家庭。">
+       感谢慷慨支持我们项目的个人和家庭。
+    </p>
+
+    <div class="donor-carousel">
+      <div class="donor-track">
+        <span>Guanhua J.</span>
+        <!-- 
+        
+        -->
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+.donor-carousel {
+  overflow: hidden;
+  white-space: nowrap;
+  width: 100%;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+  padding: 0.5rem 0;
+  background: #fafafa;
+}
+
+.donor-track {
+  display: inline-block;
+  padding-left: 100%;
+  animation: donor-scroll 25s linear infinite;
+}
+
+.donor-track span {
+  display: inline-block;
+  margin: 0 2rem;
+  font-weight: bold;
+  color: #004aad;
+}
+
+@keyframes donor-scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-100%); }
+}
+</style>
+
 
 <style>
 .sponsor-carousel {
