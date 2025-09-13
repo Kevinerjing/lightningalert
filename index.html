@@ -597,10 +597,70 @@
     </div>
   </section>
 
+<section id="compare-maps">
+  <div class="card">
+    <h2 data-en="Comparing WeatherCAN and WeatherBug Lightning Maps" 
+        data-zh="WeatherCAN 与 WeatherBug 雷电地图对比">
+      WeatherCAN 与 WeatherBug 雷电地图对比
+    </h2>
+
+    <p data-en="Many people notice a difference between Canada’s official WeatherCAN lightning map and the commercial WeatherBug app. At first glance, the two maps give very different impressions of precision."
+       data-zh="很多人注意到，加拿大官方的 WeatherCAN 雷电地图和商业应用 WeatherBug 在显示上差别很大。第一眼看上去，这两个地图给人的精度印象完全不同。">
+      很多人注意到，加拿大官方的 WeatherCAN 雷电地图和商业应用 WeatherBug 在显示上差别很大。第一眼看上去，这两个地图给人的精度印象完全不同。
+    </p>
+
+    <table style="width:100%; border-collapse:collapse; margin:1rem 0;">
+      <thead style="background:#004aad; color:white;">
+        <tr>
+          <th style="padding:8px;" data-en="Aspect" data-zh="对比点">对比点</th>
+          <th style="padding:8px;" data-en="WeatherCAN (Official)" data-zh="WeatherCAN（官方）">WeatherCAN（官方）</th>
+          <th style="padding:8px;" data-en="WeatherBug (Commercial)" data-zh="WeatherBug（商业应用）">WeatherBug（商业应用）</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="background:#f2f2f2;">
+          <td style="padding:8px;" data-en="Map Zoom" data-zh="地图缩放">地图缩放</td>
+          <td style="padding:8px;" data-en="Limited zoom, city-level view" 
+              data-zh="缩放有限，主要是城市级别">缩放有限，主要是城市级别</td>
+          <td style="padding:8px;" data-en="Deep zoom, shows down to street-level visually" 
+              data-zh="可深度缩放，视觉上可到街道级别">可深度缩放，视觉上可到街道级别</td>
+        </tr>
+        <tr>
+          <td style="padding:8px;" data-en="User Impression" data-zh="用户印象">用户印象</td>
+          <td style="padding:8px;" data-en="Looks coarse, regional patterns only" 
+              data-zh="看起来比较粗糙，更多是区域模式">看起来比较粗糙，更多是区域模式</td>
+          <td style="padding:8px;" data-en="Feels highly precise, almost house-by-house" 
+              data-zh="看起来非常精准，似乎能精确到每条街甚至房子">看起来非常精准，似乎能精确到每条街甚至房子</td>
+        </tr>
+        <tr style="background:#f2f2f2;">
+          <td style="padding:8px;" data-en="Actual Detection Principle" data-zh="实际探测原理">实际探测原理</td>
+          <td style="padding:8px;" data-en="Based on Canada’s official lightning detection network (ECCC)" 
+              data-zh="基于加拿大官方雷电探测网络（ECCC）">基于加拿大官方雷电探测网络（ECCC）</td>
+          <td style="padding:8px;" data-en="Based on Earth Networks’ ENTLN sensor network" 
+              data-zh="基于 Earth Networks 的 ENTLN 传感器网络">基于 Earth Networks 的 ENTLN 传感器网络</td>
+        </tr>
+        <tr>
+          <td style="padding:8px;" data-en="True Accuracy" data-zh="真实精度">真实精度</td>
+          <td style="padding:8px;" data-en="Varies with sensor density, typically hundreds of meters to a few km" 
+              data-zh="取决于探测器密度，通常在几百米到几公里之间">取决于探测器密度，通常在几百米到几公里之间</td>
+          <td style="padding:8px;" data-en="Also depends on sensor coverage, not guaranteed street-level" 
+              data-zh="同样取决于探测器覆盖，不能保证街道级别">同样取决于探测器覆盖，不能保证街道级别</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p data-en="Key Point: The difference in maps is mostly visual. WeatherCAN shows a coarser, city-level view, while WeatherBug looks sharper and more localized. But in reality, both rely on the density of lightning sensors. Neither can guarantee true street-level accuracy, since detection errors are larger when sensors are sparse."
+       data-zh="关键点：这两个地图的区别主要是视觉上的。WeatherCAN 展示的是城市级别的粗粒度，而 WeatherBug 看起来更细致、更本地化。但实际上，它们都依赖探测器的密度。在探测器稀疏的地方，两者都无法保证真正的街道级精度。">
+      关键点：这两个地图的区别主要是视觉上的。WeatherCAN 展示的是城市级别的粗粒度，而 WeatherBug 看起来更细致、更本地化。但实际上，它们都依赖探测器的密度。在探测器稀疏的地方，两者都无法保证真正的街道级精度。
+    </p>
+  </div>
+</section>
+
+
 <!-- Compare to WeatherCAN -->
     <section>
   <div class="card">
-    <h2 data-en="How We Compare to WeatherCAN" data-zh="与 WeatherCAN 的对比">How We Compare to WeatherCAN / 与 WeatherCAN 的对比</h2>
+    <h2 data-en="How We Compare to WeatherCAN/WeatherBug" data-zh="我们的项目与 WeatherCAN/WeatherBug 的对比">How We Compare to WeatherCAN / 	我们的项目与 WeatherCAN 的对比</h2>
     <p data-en="WeatherCAN provides a reliable national lightning map. Our project builds on this idea with a more local, real-time, and community-shared approach." 
        data-zh="WeatherCAN 提供可靠的全国雷电地图。我们的项目在此基础上, 提供更本地化、实时化、社区共享的方案。">
        WeatherCAN 提供可靠的全国雷电地图。我们的项目在此基础上, 提供更本地化、实时化、社区共享的方案。
@@ -638,7 +698,7 @@
         <tr style="background:#f9f9f9;">
           <td style="padding:8px;" data-en="Purpose" data-zh="目标">Purpose / 目标</td>
           <td style="padding:8px;">National awareness</td>
-          <td style="padding:8px;"><strong>Community safety & education</strong></td>
+          <td style="padding:8px;"><strong>Community notification/awareness & education</strong></td>
         </tr>
       </tbody>
     </table>
@@ -1063,38 +1123,45 @@
 
 <section id="our-story">
   <div class="card">
-    <h2 data-en="Our Story" data-zh="我们的故事 - 这个想法是怎么来的">
-      Our Story - How the idea started
+    <h2 data-en="Our Story - How the idea started" data-zh="我们的故事 - 这个想法是怎么来的">
+      我们的故事 - 这个想法是怎么来的
     </h2>
 
-    <p data-en="I have been passionate about meteorology and extreme weather for many years. A few years ago, I even installed a personal weather station at home to observe and measure local conditions. Over time, I became more determined to pursue my future studies and career in atmospheric and environmental science."
-      data-zh="我一直对气象和极端天气充满热情。几年前, 我就在家里安装了一个个人气象站, 坚持观察和测量本地的天气情况。随着时间推移, 我更加明确了自己未来要从事大气与环境科学方面的学习和职业方向。">
-      I have been passionate about meteorology and extreme weather for many years...
+    <p data-en="I have always been passionate about meteorology and extreme weather. A few years ago, I even installed a personal weather station at home to observe and measure local conditions. Over time, I became more determined to pursue my future studies and career in atmospheric and environmental science."
+       data-zh="我一直对气象和极端天气充满热情。几年前，我就在家里安装了一个个人气象站，坚持观察和测量本地的天气情况。随着时间推移，我更加明确了自己未来要从事大气与环境科学方面的学习和职业方向。">
+      我一直对气象和极端天气充满热情。几年前，我就在家里安装了一个个人气象站，坚持观察和测量本地的天气情况。随着时间推移，我更加明确了自己未来要从事大气与环境科学方面的学习和职业方向。
     </p>
 
-    <p data-en="To learn from professionals, I started following ECCC (Environment and Climate Change Canada) and other organizations on LinkedIn, reading their posts and updates. One day, I noticed an announcement that WeatherCAN had added a new feature, Canada's Lightning Map. I was excited to test it, and I even posted my first feedback about it directly on LinkedIn."
-      data-zh="为了向专业人士学习, 我开始在 LinkedIn 上关注加拿大环境与气候变化部 (ECCC) 和其他相关机构, 阅读他们的文章和更新。有一次, 我看到 ECCC 发布消息, 说 WeatherCAN 新增了一个功能, Canada's Lightning Map(加拿大雷电地图)。我非常兴奋, 第一时间试用了, 并在 LinkedIn 上发表了反馈。">
-      To learn from professionals, I started following ECCC...
+    <p data-en="To learn from professionals, I started following Environment and Climate Change Canada (ECCC) and other organizations on LinkedIn, reading their posts and updates. One day, I noticed an announcement that WeatherCAN had added a new feature: Canada's Lightning Map. I was very excited, tested it immediately, and even posted my first feedback about it directly on LinkedIn."
+       data-zh="为了向专业人士学习，我开始在 LinkedIn 上关注加拿大环境与气候变化部 (ECCC) 和其他相关机构，阅读他们的文章和更新。有一次，我看到 ECCC 发布消息，说 WeatherCAN 新增了一个功能：Canada's Lightning Map（加拿大雷电地图）。我非常兴奋，第一时间试用了，并在 LinkedIn 上发表了反馈。">
+      为了向专业人士学习，我开始在 LinkedIn 上关注加拿大环境与气候变化部 (ECCC) 和其他相关机构，阅读他们的文章和更新。有一次，我看到 ECCC 发布消息，说 WeatherCAN 新增了一个功能：Canada’s Lightning Map（加拿大雷电地图）。我非常兴奋，第一时间试用了，并在 LinkedIn 上发表了反馈。
     </p>
 
-    <p data-en="When I told my family about WeatherCAN's new feature, my little brother,  who never stops asking questions, jumped in right away: So what's the difference between this Lightning Map and the alerts from our weather station at home? If WeatherCAN already has it, does that mean nobody needs to buy sensors like ours anymore? His rapid-fire questions really made me stop and think."
-      data-zh="当我把 WeatherCAN 的新功能告诉家人的时候, 我那个总爱追问问题的弟弟立刻插话:‘这个雷电地图和我们家的气象站雷电告警有什么区别呢？既然 WeatherCAN 已经有了这个功能, 是不是大家以后都不用再买我们这样的传感器了？' 他一连串的问题让我突然停下来, 好好想了想。">
-      When I told my family about WeatherCAN's new feature, my little brother...
+    <p data-en="When I shared this new feature with my family, my younger brother, who always loves to ask questions, immediately jumped in: 'What's the difference between this Lightning Map and the lightning alerts from our own home weather station? Now that WeatherCAN already has this feature, doesn’t it mean people no longer need devices like ours?' His string of questions made me pause and think deeply."
+       data-zh="当我把 WeatherCAN 的新功能告诉家人的时候，我那个总爱追问问题的弟弟立刻插话：‘这个雷电地图和我们家的气象站雷电告警有什么区别呢？既然 WeatherCAN 已经有了这个功能，是不是大家以后都不用再买我们这样的传感器了？’ 他一连串的问题让我突然停下来，好好想了想。">
+      当我把 WeatherCAN 的新功能告诉家人的时候，我那个总爱追问问题的弟弟立刻插话：‘这个雷电地图和我们家的气象站雷电告警有什么区别呢？既然 WeatherCAN 已经有了这个功能，是不是大家以后都不用再买我们这样的传感器了？’ 他一连串的问题让我突然停下来，好好想了想。
     </p>
 
-    <p data-en="This inspired me to study how ECCC's lightning detection network works, and to think about a new idea: What if my own community could have a community-shared, local, real-time lightning alert system?"
-      data-zh="这次经历启发我去研究 ECCC 的雷电探测网络的功能和特点, 也让我想到一个新点子:如果我们的社区能有一个共享的、本地化的、实时雷电提醒系统, 会怎么样呢？">
-      This inspired me to study how ECCC's lightning detection network works...
+    <p data-en="Later, during golf practice, I asked my coach whether the club had any lightning alert equipment. He said no, but told me that he personally uses WeatherBug, and even showed me its lightning map. My first reaction was: this map looks incredibly detailed, you can even see the golf course and nearby streets! But when I got home and did some research, I realized that while WeatherBug's interface gives the impression of street-level precision, the actual detection accuracy still depends on how densely the sensors are distributed."
+   data-zh="后来，在高尔夫球场训练时，我问教练俱乐部有没有雷电告警设备。教练说没有，但他个人一直在用 WeatherBug，还给我看了它的雷电地图界面。我的第一反应是：这个界面好精细啊，居然能直接看到球场和街道。回家后我开始查资料，发现虽然 WeatherBug 的地图看起来很细致，但真正的探测精度仍然取决于传感器的分布密度。">
+  后来，在高尔夫球场训练时，我问教练俱乐部有没有雷电告警设备。教练说没有，但他个人一直在用 WeatherBug，还给我看了它的雷电地图界面。我的第一反应是：这个界面好精细啊，居然能直接看到球场和街道。回家后我开始查资料，发现虽然 WeatherBug 的地图看起来很细致，但真正的探测精度仍然取决于传感器的分布密度。
+</p>
+
+
+    <p data-en="These inspired me to study how ECCC's lightning detection network works, and it sparked a new idea: instead of relying only on national or commercial systems, we can also build a shared, hyper-local, real-time lightning alert network within our community."
+       data-zh="这些经历启发我去研究 ECCC 的雷电探测网络的功能和特点，也让我想到一个新点子：除了国家级或商业系统，我们也可以在社区内部做一个共享的、本地化的、实时雷电提醒网络。">
+      这次经历启发我去研究 ECCC 的雷电探测网络的功能和特点，也让我想到一个新点子：除了国家级或商业系统，我们也可以在社区内部做一个共享的、本地化的、实时雷电提醒网络。
     </p>
 
-    <p data-en="By building a community-based lightning detection network, I hope not only to increase safety during extreme weather, but also to raise public awareness about how to stay safe during thunderstorms."
-      data-zh="通过建设一个社区共享的雷电检测网络, 我希望不仅能在极端天气中提升安全性, 还能增强居民的防雷意识, 让大家更好地保护自己。">
-      By building a community-based lightning detection network...
+    <p data-en="By building a community-shared lightning detection network, I hope not only to increase safety during extreme weather, but also to raise public awareness about lightning safety and science education."
+       data-zh="通过建设一个社区共享的雷电检测网络，我希望不仅能在极端天气中提升安全性，还能增强居民的防雷意识和科普教育，让大家更好地保护自己。">
+      通过建设一个社区共享的雷电检测网络，我希望不仅能在极端天气中提升安全性，还能增强居民的防雷意识和科普教育，让大家更好地保护自己。
     </p>
 
     <p>Kevin</p>
   </div>
 </section>
+
 
 
 
