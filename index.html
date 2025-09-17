@@ -500,15 +500,29 @@
     <h2 data-en="What is the Community Lightning Alert System?" data-zh="什么是社区雷电告警系统">什么是社区雷电告警</h2>
 
 
-    <div style="position:relative; padding-bottom:56.25%; height:0; overflow:hidden; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.15); margin-bottom:1rem;">
-      <iframe src="https://www.youtube.com/embed/LxaaEOfFLl4"
-              title="What is the Community Lightning Alert System?"
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen
-              style="position:absolute; top:0; left:0; width:100%; height:100%;">
-      </iframe>
-    </div>
+<div class="video-wrap">
+  <video controls>
+    <source src="alerte_foudre.mp4" type="video/mp4">
+  </video>
+</div>
+
+<style>
+.video-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  max-width: 900px;
+  margin: 0 auto;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,.15);
+}
+.video-wrap video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+</style>
 </section>
 <!--  New Section: Comparison -->
 <section id="comparison">
