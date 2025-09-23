@@ -406,7 +406,14 @@
 
 </head>
 <!-- Language Switch Script -->
-
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const defaultLang = "en";
+  document.querySelectorAll(`[data-${defaultLang}]`).forEach(el => {
+    el.textContent = el.getAttribute(`data-${defaultLang}`);
+  });
+});
+</script>
 <script>
   function setLanguage(lang) {
     document.querySelectorAll("[data-en]").forEach(el => {
@@ -1351,4 +1358,5 @@
 
 
 </html>
+
 
