@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Campus PM2.5 Monitoring Prototype</title>
+  <style>
+    body { font-family: Arial, sans-serif; text-align: center; }
+    #campus {
+      position: relative;
+      margin: 20px auto;
+      width: 954px;
+      height: 767px;
+      background: url("eom_map.png") no-repeat center;
+      background-size: cover;
+      border: 2px solid #000;
+    }
+    .sensor {
+      position: absolute;
+      width: 60px; height: 60px;
+      border-radius: 50%;
+      border: 2px solid #000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 12px;
+      font-weight: bold;
+      text-align: center;
+      line-height: 1.2em;
+    }
+  </style>
+</head>
+<body>
+  <h2>Earl of March PM2.5 Monitoring Map</h2>
+  <div id="campus">
+    <!--left/top -->
+    <div class="sensor" id="gate" style="left:600px; top:500px;">Gate</div>
+    <div class="sensor" id="schoolyard" style="left:600px; top:120px;">Gym</div>
+    <div class="sensor" id="parking" style="left:400px; top:500px;">Cafeteria</div>
+    <div class="sensor" id="library" style="left:500px; top:400px;">Tennis</div>
+    <div class="sensor" id="gym" style="left:450px; top:250px;">Library</div>
+  </div>
+
+  <script>
+    function fetchData() {
+      // simulated data
+      return {
+        gate: Math.floor(Math.random()*80),
+        gym: Math.floor(Math.random()*80),
+        parking: Math.floor(Math.random()*80),
+        schoolyard: Math.floor(Math.random()*80),
+        library: Math.floor(Math.random()*80),
+      };
+    }
+
+    function getColor(pm) {
+      if (pm <= 15) return "green";
+      else if (pm <= 35) return "yellow";
+      else if (pm <= 55) return "orange";
+      else return "red";
+    }
+
+    function updateSensors() {
+      let data = fetchData();
+      for (let key in data) {
+        let el = document.getElementById(key);
+        el.style.background = getColor(data[key]);
+        el.innerHTML = key.charAt(0).toUpperCase() + key.slice(1) + "<br>" + data[key] + " µg/m³";
+      }
+    }
+
+    updateSensors();
+    setInterval(updateSensors, 8000);
+  </script>
+</body>
+</html>
