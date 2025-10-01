@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Lightning Triangulation</title>
+  <style>
+    body { font-family: Arial, sans-serif; text-align: center; }
+    #campus {
+      position: relative;
+      margin: 20px auto;
+      width: 954px;
+      height: 767px;
+      background: url("eom_lightning_map.png") no-repeat center;
+      background-size: cover;
+      border: 2px solid #000;
+    }
+    .sensor {
+      position: absolute;
+      width: 0; height: 0;
+      border-left: 12px solid transparent;
+      border-right: 12px solid transparent;
+      border-bottom: 20px solid blue;
+    }
+    .lightning {
+      position: absolute;
+      font-size: 32px;
+      color: yellow;
+      text-shadow: 0 0 10px orange, 0 0 20px red;
+    }
+    canvas {
+      position: absolute;
+      top: 0; left: 0;
+    }
+  </style>
+</head>
+<body>
+  <h2>Lightning Map Demo (3-Sensor Triangulation)</h2>
+  <div id="campus">
+    <canvas id="overlay" width="800" height="600"></canvas>
+
+    <div class="sensor" id="s1" style="left:100px; top:100px;"></div>
+    <div class="sensor" id="s2" style="left:800px; top:50px;"></div>
+    <div class="sensor" id="s3" style="left:400px; top:700px;"></div>
+  </div>
+
+  <script>
+    const canvas = document.getElementById("overlay");
+    const ctx = canvas.getContext("2d");
+
+
+    const sensors = [
+      {x:100, y:100},
+      {x:600, y:150},
+      {x:400, y:500}
+    ];
+
+    function randomLightning() {
+
+      const lx = Math.random()*700+50;
+      const ly = Math.random()*500+50;
+
+
+      let campus = document.getElementById("campus");
+      let bolt = document.createElement("div");
+      bolt.className = "lightning";
+      bolt.style.left = lx + "px";
+      bolt.style.top = ly + "px";
+      bolt.innerHTML = "⚡";
+      campus.appendChild(bolt);
+      setTimeout(() => campus.removeChild(bolt), 1500);
+
+
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+
+      sensors.forEach(s => {
+        let dx = lx - s.x;
+        let dy = ly - s.y;
+        let dist = Math.sqrt(dx*dx + dy*dy);
+
+
+        ctx.beginPath();
+        ctx.setLineDash([6, 6]);
+        ctx.arc(s.x, s.y, dist, 0, 2*Math.PI);
+        ctx.strokeStyle = "rgba(0,0,255,0.3)";
+        ctx.stroke();
+      });
+    }
+
+
+    setInterval(randomLightning, 5000);
+  </script>
+</body>
+</html>
