@@ -48,11 +48,11 @@
     const ctx = canvas.getContext("2d");
 
 
-    const sensors = [
-      {x:100, y:100},
-      {x:600, y:150},
-      {x:400, y:500}
-    ];
+const sensors = [
+  {x:100, y:100},
+  {x:800, y:50},
+  {x:400, y:700}
+];
 
     function randomLightning() {
 
@@ -67,7 +67,7 @@
       bolt.style.top = ly + "px";
       bolt.innerHTML = "⚡";
       campus.appendChild(bolt);
-      setTimeout(() => campus.removeChild(bolt), 1500);
+      setTimeout(() => campus.removeChild(bolt), 2500);
 
 
       ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -81,8 +81,9 @@
 
         ctx.beginPath();
         ctx.setLineDash([6, 6]);
+        ctx.lineWidth = 3;
         ctx.arc(s.x, s.y, dist, 0, 2*Math.PI);
-        ctx.strokeStyle = "rgba(0,0,255,0.3)";
+        ctx.strokeStyle = "rgba(255,165,0,0.6)";
         ctx.stroke();
       });
     }
