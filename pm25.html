@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Campus PM2.5 Monitoring Prototype</title>
+  <title>EOM PM2.5 Live Dashboard</title>
+  <script src="https://unpkg.com/mqtt/dist/mqtt.min.js"></script>
   <style>
     body { font-family: Arial, sans-serif; text-align: center; }
     #campus {
@@ -28,30 +29,43 @@
       line-height: 1.2em;
     }
   </style>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns"></script>
+
 </head>
 <body>
-  <h2>EOM PM2.5 Monitoring Prototype</h2>
+  <h2>EOM PM2.5 Monitoring – Live Data from ESP32 Sensors</h2>
+  <p id="status">Connecting to HiveMQ...</p>
+
   <div id="campus">
     <!--left/top -->
-    <div class="sensor" id="gate" style="left:600px; top:500px;">Gate</div>
-    <div class="sensor" id="schoolyard" style="left:600px; top:120px;">Gym</div>
-    <div class="sensor" id="parking" style="left:400px; top:500px;">Cafeteria</div>
-    <div class="sensor" id="library" style="left:500px; top:400px;">Tennis</div>
-    <div class="sensor" id="gym" style="left:450px; top:250px;">Library</div>
+    <div class="sensor" id="gate" style="left:600px; top:500px;">gate</div>
+    <div class="sensor" id="schoolyard" style="left:600px; top:120px;">schoolyard</div>
+    <div class="sensor" id="parking" style="left:400px; top:500px;">parking</div>
+    <div class="sensor" id="library" style="left:500px; top:400px;">library</div>
+    <div class="sensor" id="gym" style="left:450px; top:250px;">gym</div>
   </div>
-
+  <h3>24-Hour PM2.5 Trend</h3>
+  <canvas id="pmChart" width="600" height="250"></canvas>
   <script>
-    function fetchData() {
-      // simulated data
-      return {
-        gate: Math.floor(Math.random()*80),
-        gym: Math.floor(Math.random()*80),
-        parking: Math.floor(Math.random()*80),
-        schoolyard: Math.floor(Math.random()*80),
-        library: Math.floor(Math.random()*80),
-      };
-    }
+    // ====== Connect to HiveMQ Cloud ======
+    const client = mqtt.connect('wss://19908b6cb7054952800839917a2701c3.s1.eu.hivemq.cloud:8884/mqtt', {
+      username: "sensorpm25",
+      password: "IDontknow12345"
+    });
 
+    const statusEl = document.getElementById("status");
+
+    client.on('connect', () => {
+      statusEl.innerText = "Connected to HiveMQ Waiting for PM2.5 data...";
+      client.subscribe('school/gympm25');  // subscribe to your topic
+    });
+
+    client.on('error', (err) => {
+      statusEl.innerText = "Connection error: " + err.message;
+    });
+
+    // ====== Color by Air Quality ======
     function getColor(pm) {
       if (pm <= 15) return "green";
       else if (pm <= 35) return "yellow";
@@ -59,17 +73,86 @@
       else return "red";
     }
 
-    function updateSensors() {
-      let data = fetchData();
-      for (let key in data) {
-        let el = document.getElementById(key);
-        el.style.background = getColor(data[key]);
-        el.innerHTML = key.charAt(0).toUpperCase() + key.slice(1) + "<br>" + data[key] + " µg/m³";
+    // ====== Handle Incoming Data ======
+    client.on('message', (topic, message) => {
+      try {
+        const data = JSON.parse(message.toString());
+        const pm25 = data.PM25;
+
+        // Example: choose one sensor to update (you can use multiple topics later)
+        const sensorEl = document.getElementById("gym");
+        sensorEl.style.background = getColor(pm25);
+        sensorEl.innerHTML = `gym<br>${pm25} µg/m³`;
+
+        statusEl.innerText = `Last updated: ${new Date().toLocaleTimeString()}`;
+      } catch (e) {
+        console.error("Invalid message:", e);
+      }
+    });
+  </script>
+
+<script>
+  // ===== Create Chart =====
+  const ctx = document.getElementById('pmChart').getContext('2d');
+  const pmData = {
+    labels: [],  // time labels
+    datasets: [{
+      label: 'PM2.5 (µg/m³)',
+      data: [],
+      borderColor: 'orange',
+      backgroundColor: 'rgba(255,165,0,0.2)',
+      borderWidth: 2,
+      fill: true,
+      tension: 0.3,
+      pointRadius: 0
+    }]
+  };
+
+  const pmChart = new Chart(ctx, {
+    type: 'line',
+    data: pmData,
+    options: {
+      responsive: true,
+      scales: {
+        x: {
+          type: 'time',
+          time: {
+            unit: 'hour',
+            displayFormats: { hour: 'HH:mm' }
+          },
+          title: { display: true, text: 'Time (last 24h)' }
+        },
+        y: {
+          beginAtZero: true,
+          title: { display: true, text: 'PM2.5 (µg/m³)' }
+        }
       }
     }
+  });
 
-    updateSensors();
-    setInterval(updateSensors, 8000);
-  </script>
+  // ===== When a new MQTT message arrives =====
+  client.on('message', (topic, message) => {
+    try {
+      const data = JSON.parse(message.toString());
+      const pm25 = data.PM25;
+      const now = new Date();
+
+      // Add new data
+      pmChart.data.labels.push(now);
+      pmChart.data.datasets[0].data.push(pm25);
+
+      // Keep only last 24h (max 2880 points if every 30s, or adjust as needed)
+      if (pmChart.data.labels.length > 2880) {
+        pmChart.data.labels.shift();
+        pmChart.data.datasets[0].data.shift();
+      }
+
+      pmChart.update();
+    } catch (err) {
+      console.error('Invalid message:', err);
+    }
+  });
+</script>
+
 </body>
 </html>
