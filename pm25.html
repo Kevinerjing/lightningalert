@@ -1,158 +1,206 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>EOM PM2.5 Live Dashboard</title>
   <script src="https://unpkg.com/mqtt/dist/mqtt.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns"></script>
   <style>
     body { font-family: Arial, sans-serif; text-align: center; }
     #campus {
-      position: relative;
-      margin: 20px auto;
-      width: 954px;
-      height: 767px;
-      background: url("eom_map.png") no-repeat center;
-      background-size: cover;
+      position: relative; margin: 20px auto;
+      width: 954px; height: 767px;
+      background: url("eom_map.png") no-repeat center; background-size: cover;
       border: 2px solid #000;
     }
     .sensor {
-      position: absolute;
-      width: 60px; height: 60px;
-      border-radius: 50%;
-      border: 2px solid #000;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-size: 12px;
-      font-weight: bold;
-      text-align: center;
-      line-height: 1.2em;
+      position: absolute; width: 60px; height: 60px; border-radius: 50%;
+      border: 2px solid #000; display: flex; justify-content: center; align-items: center;
+      font-size: 12px; font-weight: bold; text-align: center; line-height: 1.2em;
+      cursor: pointer; user-select: none; transition: box-shadow 0.2s ease, transform 0.05s ease;
     }
+    .sensor:hover { transform: translateY(-1px); }
+    .sensor.selected { box-shadow: 0 0 0 3px #00d4ff, 0 0 14px #00d4ff; }
+    #toolbar { margin-top: 8px; }
+    #toolbar button { margin: 0 6px; padding: 6px 12px; cursor: pointer; }
   </style>
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns"></script>
-
 </head>
 <body>
   <h2>EOM PM2.5 Monitoring – Live Data from ESP32 Sensors</h2>
-  <p id="status">Connecting to HiveMQ...</p>
+  <p id="status">Connecting to HiveMQ…</p>
 
   <div id="campus">
-    <!--left/top -->
-    <div class="sensor" id="gate" style="left:600px; top:500px;">gate</div>
+    <div class="sensor" id="gate"       style="left:600px; top:500px;">gate</div>
     <div class="sensor" id="schoolyard" style="left:600px; top:120px;">schoolyard</div>
-    <div class="sensor" id="parking" style="left:400px; top:500px;">parking</div>
-    <div class="sensor" id="library" style="left:500px; top:400px;">library</div>
-    <div class="sensor" id="gym" style="left:450px; top:250px;">gym</div>
+    <div class="sensor" id="parking"    style="left:400px; top:500px;">parking</div>
+    <div class="sensor" id="library"    style="left:500px; top:400px;">library</div>
+    <div class="sensor" id="gym"        style="left:450px; top:250px;">gym</div>
   </div>
-  <h3>24-Hour PM2.5 Trend</h3>
-  <canvas id="pmChart" width="600" height="250"></canvas>
+
+  <div id="toolbar">
+    <button id="showAllBtn">Show All</button>
+    <span id="which">Viewing: <b>All locations</b></span>
+  </div>
+
+  <h3 id="chartTitle">24-Hour PM2.5 Trend</h3>
+  <canvas id="pmChart" width="720" height="280"></canvas>
+
   <script>
-    // ====== Connect to HiveMQ Cloud ======
+    // ---------- MQTT connection ----------
     const client = mqtt.connect('wss://19908b6cb7054952800839917a2701c3.s1.eu.hivemq.cloud:8884/mqtt', {
       username: "sensorpm25",
       password: "IDontknow12345"
     });
-
     const statusEl = document.getElementById("status");
 
     client.on('connect', () => {
-      statusEl.innerText = "Connected to HiveMQ Waiting for PM2.5 data...";
-      client.subscribe('school/gympm25');  // subscribe to your topic
+      statusEl.innerText = "Connected to HiveMQ. Subscribing to all locations…";
+      // Subscribe to all topics by default
+      Object.values(TOPICS).forEach(t => client.subscribe(t));
     });
+    client.on('error', (err) => statusEl.innerText = "Connection error: " + err.message);
 
-    client.on('error', (err) => {
-      statusEl.innerText = "Connection error: " + err.message;
-    });
+    // ---------- Location → topic map (adjust if your topics differ) ----------
+    const TOPICS = {
+      gym:        'school/gympm25',
+      library:    'school/librarypm25',
+      gate:       'school/gatepm25',
+      schoolyard: 'school/schoolyardpm25',
+      parking:    'school/parkingpm25'
+    };
 
-    // ====== Color by Air Quality ======
-    function getColor(pm) {
+    // ---------- Colors per location ----------
+    const COLORS = {
+      gym:        { line: '#ff8a00', fill: 'rgba(255,138,0,0.2)' },
+      library:    { line: '#1f77b4', fill: 'rgba(31,119,180,0.18)' },
+      gate:       { line: '#2ca02c', fill: 'rgba(44,160,44,0.18)' },
+      schoolyard: { line: '#d62728', fill: 'rgba(214,39,40,0.18)' },
+      parking:    { line: '#9467bd', fill: 'rgba(148,103,189,0.18)' }
+    };
+
+    // ---------- AQ color for circles ----------
+    function circleColor(pm) {
       if (pm <= 15) return "green";
-      else if (pm <= 35) return "yellow";
-      else if (pm <= 55) return "orange";
-      else return "red";
+      if (pm <= 35) return "yellow";
+      if (pm <= 55) return "orange";
+      return "red";
     }
 
-    // ====== Handle Incoming Data ======
+    // ---------- Chart setup (time series; each dataset has {x:Date, y:value}) ----------
+    const ctx = document.getElementById('pmChart').getContext('2d');
+    const datasets = Object.keys(TOPICS).map(loc => ({
+      label: `${loc} PM2.5`,
+      data: [],                 // array of {x: Date, y: number}
+      parsing: true,            // Chart.js will use x/y keys
+      borderColor: COLORS[loc].line,
+      backgroundColor: COLORS[loc].fill,
+      borderWidth: 2,
+      fill: true,
+      tension: 0.3,
+      pointRadius: 0,
+      hidden: false            // all visible by default
+    }));
+
+    const pmChart = new Chart(ctx, {
+      type: 'line',
+      data: { datasets },
+      options: {
+        responsive: true,
+        scales: {
+          x: {
+            type: 'time',
+            time: { unit: 'hour', displayFormats: { hour: 'HH:mm' } },
+            title: { display: true, text: 'Time (last 24h)' }
+          },
+          y: {
+            beginAtZero: true,
+            title: { display: true, text: 'PM2.5 (µg/m³)' }
+          }
+        },
+        plugins: { legend: { position: 'bottom' } }
+      }
+    });
+
+    // Helper: dataset by location
+    const datasetByLoc = {};
+    datasets.forEach(ds => datasetByLoc[ds.label.split(' ')[0]] = ds);
+
+    // Trim points older than 24h
+    function trimOldPoints(arr, now) {
+      const cutoff = now.getTime() - 24 * 60 * 60 * 1000;
+      // keep last 24h
+      while (arr.length && new Date(arr[0].x).getTime() < cutoff) arr.shift();
+    }
+
+    // ---------- Update circles + chart on incoming messages ----------
     client.on('message', (topic, message) => {
       try {
         const data = JSON.parse(message.toString());
         const pm25 = data.PM25;
+        const now = new Date();
 
-        // Example: choose one sensor to update (you can use multiple topics later)
-        const sensorEl = document.getElementById("gym");
-        sensorEl.style.background = getColor(pm25);
-        sensorEl.innerHTML = `gym<br>${pm25} µg/m³`;
+        // Find which location this topic matches
+        const loc = Object.keys(TOPICS).find(k => TOPICS[k] === topic);
+        if (!loc) return;
 
-        statusEl.innerText = `Last updated: ${new Date().toLocaleTimeString()}`;
+        // Update circle
+        const el = document.getElementById(loc);
+        if (el) {
+          el.style.background = circleColor(pm25);
+          el.innerHTML = `${loc}<br>${pm25} µg/m³`;
+        }
+
+        // Update chart dataset for that location
+        const ds = datasetByLoc[loc];
+        ds.data.push({ x: now, y: pm25 });
+        trimOldPoints(ds.data, now);
+
+        pmChart.update('none');
+        statusEl.innerText = `Last update (${loc}): ${now.toLocaleTimeString()}`;
       } catch (e) {
-        console.error("Invalid message:", e);
+        console.error('Invalid message:', e);
       }
     });
-  </script>
 
-<script>
-  // ===== Create Chart =====
-  const ctx = document.getElementById('pmChart').getContext('2d');
-  const pmData = {
-    labels: [],  // time labels
-    datasets: [{
-      label: 'PM2.5 (µg/m³)',
-      data: [],
-      borderColor: 'orange',
-      backgroundColor: 'rgba(255,165,0,0.2)',
-      borderWidth: 2,
-      fill: true,
-      tension: 0.3,
-      pointRadius: 0
-    }]
-  };
+    // ---------- Interaction: default show ALL; click to show ONE ----------
+    let currentView = 'all'; // 'all' or a location id
+    const whichEl = document.getElementById('which');
 
-  const pmChart = new Chart(ctx, {
-    type: 'line',
-    data: pmData,
-    options: {
-      responsive: true,
-      scales: {
-        x: {
-          type: 'time',
-          time: {
-            unit: 'hour',
-            displayFormats: { hour: 'HH:mm' }
-          },
-          title: { display: true, text: 'Time (last 24h)' }
-        },
-        y: {
-          beginAtZero: true,
-          title: { display: true, text: 'PM2.5 (µg/m³)' }
-        }
+    function setSelectedCircle(idOrNull) {
+      document.querySelectorAll('.sensor').forEach(el => el.classList.remove('selected'));
+      if (idOrNull) {
+        const el = document.getElementById(idOrNull);
+        if (el) el.classList.add('selected');
       }
     }
-  });
 
-  // ===== When a new MQTT message arrives =====
-  client.on('message', (topic, message) => {
-    try {
-      const data = JSON.parse(message.toString());
-      const pm25 = data.PM25;
-      const now = new Date();
-
-      // Add new data
-      pmChart.data.labels.push(now);
-      pmChart.data.datasets[0].data.push(pm25);
-
-      // Keep only last 24h (max 2880 points if every 30s, or adjust as needed)
-      if (pmChart.data.labels.length > 2880) {
-        pmChart.data.labels.shift();
-        pmChart.data.datasets[0].data.shift();
-      }
-
+    function showAll() {
+      currentView = 'all';
+      datasets.forEach(ds => ds.hidden = false);
+      whichEl.innerHTML = 'Viewing: <b>All locations</b>';
+      setSelectedCircle(null);
       pmChart.update();
-    } catch (err) {
-      console.error('Invalid message:', err);
     }
-  });
-</script>
 
+    function showOnly(loc) {
+      currentView = loc;
+      datasets.forEach(ds => ds.hidden = (ds.label.split(' ')[0] !== loc));
+      whichEl.innerHTML = `Viewing: <b>${loc}</b>`;
+      setSelectedCircle(loc);
+      pmChart.update();
+    }
+
+    // Click handlers on circles
+    ['gym','library','gate','schoolyard','parking'].forEach(id => {
+      document.getElementById(id).addEventListener('click', () => showOnly(id));
+    });
+
+    // "Show All" button
+    document.getElementById('showAllBtn').addEventListener('click', showAll);
+
+    // Start with ALL visible
+    showAll();
+  </script>
 </body>
 </html>
