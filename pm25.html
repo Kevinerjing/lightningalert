@@ -35,7 +35,7 @@
     <div class="sensor" id="schoolyard" style="left:600px; top:120px;">schoolyard</div>
     <div class="sensor" id="parking"    style="left:400px; top:500px;">parking</div>
     <div class="sensor" id="library"    style="left:500px; top:400px;">library</div>
-    <div class="sensor" id="gym"        style="left:450px; top:250px;">gym</div>
+    <div class="sensor" id="upperfoyer"        style="left:450px; top:250px;">upperfoyer</div>
   </div>
 
   <div id="toolbar">
@@ -63,7 +63,7 @@
 
     // ---------- Location → topic map (adjust if your topics differ) ----------
     const TOPICS = {
-      gym:        'school/gympm25',
+      upperfoyer:        'school/gympm25',
       library:    'school/librarypm25',
       gate:       'school/gatepm25',
       schoolyard: 'school/schoolyardpm25',
@@ -72,7 +72,7 @@
 
     // ---------- Colors per location ----------
     const COLORS = {
-      gym:        { line: '#ff8a00', fill: 'rgba(255,138,0,0.2)' },
+      upperfoyer:        { line: '#ff8a00', fill: 'rgba(255,138,0,0.2)' },
       library:    { line: '#1f77b4', fill: 'rgba(31,119,180,0.18)' },
       gate:       { line: '#2ca02c', fill: 'rgba(44,160,44,0.18)' },
       schoolyard: { line: '#d62728', fill: 'rgba(214,39,40,0.18)' },
@@ -192,7 +192,7 @@
     }
 
     // Click handlers on circles
-    ['gym','library','gate','schoolyard','parking'].forEach(id => {
+    ['upperfoyer','library','gate','schoolyard','parking'].forEach(id => {
       document.getElementById(id).addEventListener('click', () => showOnly(id));
     });
 
