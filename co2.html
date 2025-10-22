@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CO₂ Measurement Dashboard</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns"></script>
+  <script src="https://unpkg.com/mqtt/dist/mqtt.min.js"></script>
+  <style>
+    :root{ --low:#9bd53f; --mod:#f7ca58; --high:#e686b3; --bg:#072d3e; --grid:rgba(255,255,255,.06); --textSoft:#cfe7ff; }
+    *{box-sizing:border-box}
+    body{ margin:0; min-height:100vh; display:flex; flex-direction:column; align-items:center; padding:24px 16px; background:var(--bg); color:#fff; font-family:system-ui, Arial, sans-serif; }
+    h1{margin:0 0 8px; font-weight:800; letter-spacing:.5px}
+    .dashboard{display:flex; flex-direction:column; align-items:center; gap:12px; width:min(1000px, 96vw)}
+    .topbar{display:flex; gap:10px; align-items:center; flex-wrap:wrap; justify-content:center}
+    .status{opacity:.9; font-size:14px}
+    .btn{appearance:none; border:1px solid #16506b; background:#0b3a4f; color:#eaf6ff; padding:6px 10px; border-radius:8px; cursor:pointer}
+    .btn:hover{background:#0f4660}
+    .gauge-wrap{position:relative; width:560px; max-width:95vw}
+    svg{width:100%; height:auto; display:block}
+    .center-text{position:absolute; left:0; right:0; top:36%; text-align:center}
+    .center-text .label{opacity:.8; font-size:18px}
+    .center-text .value{font-size:40px; font-weight:900; text-shadow:0 2px 10px rgba(0,0,0,.35)}
+    .chip{padding:2px 8px; background:#0b3a4f; border:1px solid #16506b; border-radius:999px; margin-right:6px; font-size:14px}
+    .legend{display:flex; gap:28px; margin-top:2px; justify-content:center; font-weight:600}
+    .dot{width:12px; height:12px; border-radius:50%; display:inline-block; margin-right:8px}
+    .arc{filter: drop-shadow(0 3px 8px rgba(0,0,0,.35));}
+    .needle{filter: drop-shadow(0 0 8px rgba(255,255,255,.7));}
+    .trend-card{width:100%; background:#09364b; border-radius:14px; padding:18px; box-shadow:0 6px 18px rgba(0,0,0,.25); margin-top:8px}
+    .trend-title{font-weight:700; margin-bottom:8px; display:flex; align-items:center; gap:10px}
+    .trend-title small{opacity:.7; font-weight:500}
+    canvas{width:100%; height:320px}
+  </style>
+</head>
+<body>
+  <div class="dashboard">
+    <h1>CO₂ Measurement Dashboard</h1>
+    <div class="topbar">
+      <div class="status" id="status">MQTT: <b>not connected</b></div>
+      <button class="btn" id="clearBtn" title="Clear last-24h stored points">Clear 24h Data</button>
+    </div>
+
+    <div class="gauge-wrap">
+      <svg viewBox="0 0 560 360" aria-label="CO2 gauge">
+        <path id="ring-bg" class="arc" d="" fill="none" stroke="#0d3b52" stroke-width="42" stroke-linecap="round"/>
+        <path id="arc-low"  class="arc" d="" fill="none" stroke="var(--low)"  stroke-width="42" stroke-linecap="round"/>
+        <path id="arc-mod"  class="arc" d="" fill="none" stroke="var(--mod)"  stroke-width="42" stroke-linecap="round"/>
+        <path id="arc-high" class="arc" d="" fill="none" stroke="var(--high)" stroke-width="42" stroke-linecap="round"/>
+        <g id="separators" stroke="#ffffffb3" stroke-dasharray="3 6" stroke-width="3">
+          <line id="sep-1000" x1="0" y1="0" x2="0" y2="0" />
+          <line id="sep-1500" x1="0" y1="0" x2="0" y2="0" />
+        </g>
+        <g id="needle" class="needle">
+          <circle id="hub" cx="280" cy="280" r="7" fill="#fff"/>
+          <line id="arm" x1="280" y1="280" x2="280" y2="120" stroke="#fff" stroke-width="8" stroke-linecap="round"/>
+        </g>
+      </svg>
+      <div class="center-text">
+        <div class="label">Current CO₂</div>
+        <div class="value" id="reading">— ppm</div>
+        <div style="margin-top:6px; opacity:.95">
+          <span id="tempBadge" class="chip">Temp: — °C</span>
+          <span id="rhBadge" class="chip">RH: — %</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="legend">
+      <div><span class="dot" style="background:var(--low)"></span>LOW (0–1000)</div>
+      <div><span class="dot" style="background:var(--mod)"></span>MODERATE (1000–1500)</div>
+      <div><span class="dot" style="background:var(--high)"></span>HIGH (1500–2000)</div>
+    </div>
+
+    <div class="trend-card">
+      <div class="trend-title">Last 24 hours <small>(guideline: 1000 ppm)</small></div>
+      <canvas id="co2Trend"></canvas>
+    </div>
+  </div>
+
+  <script>
+    'use strict';
+    var USE_SIM = false; // real MQTT
+
+    // ===== MQTT CONFIG =====
+    var MQTT_URL = 'wss://19908b6cb7054952800839917a2701c3.s1.eu.hivemq.cloud:8884/mqtt';
+    var MQTT_USERNAME = 'sensorco2';
+    var MQTT_PASSWORD = 'IDontknow123';
+    var CO2_TOPIC = new URLSearchParams(location.search).get('topic') || 'school/room1/co2';
+
+    var statusEl = document.getElementById('status');
+    var clearBtn = document.getElementById('clearBtn');
+
+    // ===== Gauge geometry helpers =====
+    var CX = 280, CY = 280, R = 180;
+    function deg2rad(d){ return (Math.PI/180) * d; }
+    function polar(cx, cy, r, angleDeg){ var a = deg2rad(angleDeg); return { x: cx + r * Math.cos(a), y: cy + r * Math.sin(a) }; }
+    function arcPath(startDeg, endDeg){
+      var s = polar(CX, CY, R, startDeg); var e = polar(CX, CY, R, endDeg);
+      var large = ((endDeg - startDeg) % 360) > 180 ? 1 : 0;
+      return 'M ' + s.x + ' ' + s.y + ' A ' + R + ' ' + R + ' 0 ' + large + ' 1 ' + e.x + ' ' + e.y;
+    }
+    var LOW_END = 270, MOD_END = 315, HI_END = 360; // bottom-facing
+    document.getElementById('ring-bg').setAttribute('d', arcPath(180, 360));
+    document.getElementById('arc-low').setAttribute('d', arcPath(180, LOW_END));
+    document.getElementById('arc-mod').setAttribute('d', arcPath(LOW_END, MOD_END));
+    document.getElementById('arc-high').setAttribute('d', arcPath(MOD_END, HI_END));
+    function placeSep(at, id){ var i=polar(CX,CY,R-22,at), o=polar(CX,CY,R+22,at); var L=document.getElementById(id); L.setAttribute('x1',i.x); L.setAttribute('y1',i.y); L.setAttribute('x2',o.x); L.setAttribute('y2',o.y); }
+    placeSep(LOW_END,'sep-1000'); placeSep(MOD_END,'sep-1500');
+
+    // ===== Trend (24h) =====
+    var ctx = document.getElementById('co2Trend').getContext('2d');
+    var hoursBack = 24;
+    var trendSeries = [];
+
+    var trendChart = new Chart(ctx, {
+      type: 'line',
+      data: {
+        datasets: [
+          {
+            label: 'CO₂ (ppm)',
+            data: trendSeries,
+            parsing: true,
+            spanGaps: true,
+            borderColor: '#7ec8ff',
+            backgroundColor: 'rgba(126,200,255,.15)',
+            tension: 0.35,
+            fill: true,
+            pointRadius: 0,
+            borderWidth: 2
+          },
+          {
+            label: 'Guideline 1000 ppm',
+            data: [],
+            parsing: true,
+            borderColor: 'rgba(255,255,255,.45)',
+            borderDash: [6, 6],
+            pointRadius: 0,
+            fill: false,
+            borderWidth: 1.5
+          }
+        ]
+      },
+      options: {
+        responsive: true,
+        animation: false,
+        plugins: { legend: { display: false } },
+        scales: {
+          x: {
+            type: 'time',
+            time: { unit: 'hour', displayFormats: { hour: 'HH:mm' } },
+            min: new Date(Date.now() - hoursBack * 3600 * 1000),
+            max: new Date(),
+            grid: { color: getComputedStyle(document.documentElement).getPropertyValue('--grid') },
+            ticks: { color: getComputedStyle(document.documentElement).getPropertyValue('--textSoft'), autoSkip: true, maxTicksLimit: 12 }
+          },
+          y: {
+            min: 0,
+            max: 2000,
+            grid: { color: getComputedStyle(document.documentElement).getPropertyValue('--grid') },
+            ticks: { color: getComputedStyle(document.documentElement).getPropertyValue('--textSoft') }
+          }
+        }
+      }
+    });
+
+    // ===== Local persistence for 24h accumulation =====
+    var STORE_KEY = 'co2TrendDataV1';
+    function saveTrend(){
+      try { var arr = trendSeries.map(function(p){ return [ +p.x, p.y ]; }); localStorage.setItem(STORE_KEY, JSON.stringify(arr)); } catch (e) {}
+    }
+    function loadTrend(){
+      try { var raw = localStorage.getItem(STORE_KEY); if (!raw) return; var arr = JSON.parse(raw); var cut = Date.now() - hoursBack * 3600 * 1000; for (var i=0;i<arr.length;i++){ var ts=arr[i][0], y=arr[i][1]; if (typeof ts==='number' && typeof y==='number' && ts>=cut){ trendSeries.push({ x:new Date(ts), y:y }); } } } catch (e) {}
+    }
+
+    function refreshWindow(){ var now=Date.now(); var min=new Date(now-hoursBack*3600*1000); var max=new Date(now); trendChart.options.scales.x.min=min; trendChart.options.scales.x.max=max; trendChart.data.datasets[1].data=[{x:min,y:1000},{x:max,y:1000}]; }
+    function trimOld(){ var cut=Date.now()-hoursBack*3600*1000; var changed=false; while(trendSeries.length && (+trendSeries[0].x)<cut){ trendSeries.shift(); changed=true; } if(changed) saveTrend(); }
+
+    function updateCO2(ppm, temp, rh){
+      var v=Math.max(0,Math.min(2000,ppm));
+      var angle=180+(v/2000)*180; var tip=polar(CX,CY,R-60,angle); var arm=document.getElementById('arm'); arm.setAttribute('x2',tip.x); arm.setAttribute('y2',tip.y);
+      document.getElementById('reading').textContent=v.toFixed(0)+' ppm';
+      if(typeof temp==='number') document.getElementById('tempBadge').textContent='Temp: '+temp.toFixed(1)+' °C';
+      if(typeof rh==='number')   document.getElementById('rhBadge').textContent='RH: '+rh.toFixed(0)+' %';
+      trendSeries.push({x:new Date(), y:v}); trimOld(); refreshWindow(); trendChart.update('none'); saveTrend();
+    }
+
+    setInterval(function(){ refreshWindow(); trendChart.update('none'); }, 30000);
+    clearBtn.addEventListener('click', function(){ localStorage.removeItem(STORE_KEY); trendSeries.splice(0,trendSeries.length); trendChart.update('none'); statusEl.innerHTML='Local data cleared. Waiting for new points…'; });
+
+    // ========= SIM OR MQTT =========
+    function startSimulation(){
+      statusEl.innerHTML='Mode: <b>Simulated</b> — streaming live points…';
+      function diurnal(d){ var h=d.getHours()+d.getMinutes()/60; return 850+250*Math.sin((h-8)/24*2*Math.PI); }
+      function clamp(v,lo,hi){ return Math.max(lo,Math.min(hi,v)); }
+      setInterval(function(){ var d=new Date(); var base=diurnal(d); var prev=trendSeries.length?trendSeries[trendSeries.length-1].y:base; var next=clamp(0.85*prev+0.15*base+(Math.random()-0.5)*35,400,1900); var temp=24+Math.sin(d.getHours()/24*2*Math.PI)*2+(Math.random()-0.5)*0.6; var rh=45+Math.cos(d.getHours()/24*2*Math.PI)*8+(Math.random()-0.5)*3; updateCO2(next,temp,rh); statusEl.innerHTML='Mode: <b>Simulated</b> — '+next.toFixed(0)+' ppm @ '+d.toLocaleTimeString(); },10000);
+    }
+
+    function startMQTT(){
+      statusEl.innerHTML='MQTT: <b>connecting…</b> → <code>'+CO2_TOPIC+'</code>';
+      var client=mqtt.connect(MQTT_URL,{ clientId:'co2dash_'+Math.random().toString(16).slice(2), username:MQTT_USERNAME, password:MQTT_PASSWORD, protocolVersion:4, clean:true, reconnectPeriod:5000, connectTimeout:15000 });
+      client.on('connect',function(){ statusEl.innerHTML='MQTT: <b>connected</b> – subscribing <code>'+CO2_TOPIC+'</code>'; client.subscribe(CO2_TOPIC,function(err){ statusEl.innerHTML = err ? 'MQTT: <b>subscribe failed</b>' : 'MQTT: <b>subscribed</b> to <code>'+CO2_TOPIC+'</code>'; }); });
+      client.on('reconnect',function(){ statusEl.innerHTML='MQTT: <b>reconnecting…</b>'; });
+      client.on('close',function(){ statusEl.innerHTML='MQTT: <b>disconnected</b>'; });
+      client.on('error',function(err){ statusEl.innerHTML='MQTT error: '+((err&&err.message)?err.message:err); });
+
+      function parseMsg(s){
+        var out={co2:null,temp:null,rh:null};
+        var n=Number(s); if(!Number.isNaN(n)){ out.co2=n; return out; }
+        try{ var o=JSON.parse(s); if(typeof o.CO2==='number') out.co2=o.CO2; if(typeof o.co2==='number') out.co2=o.co2; if(typeof o.ppm==='number') out.co2=o.ppm; if(typeof o.value==='number') out.co2=o.value; if(typeof o.temp==='number') out.temp=o.temp; if(typeof o.rh==='number') out.rh=o.rh; }catch(e){}
+        return out;
+      }
+      var last=0, MIN_MS=800;
+      client.on('message',function(topic,msg){
+        if(topic!==CO2_TOPIC) return;
+        var p=parseMsg(msg.toString());
+        if(p.co2==null){ statusEl.innerHTML='MQTT: received non-parseable payload'; return; }
+        var now=Date.now();
+        if(now-last>MIN_MS){ updateCO2(p.co2,p.temp,p.rh); statusEl.innerHTML='MQTT: <b>'+p.co2.toFixed(0)+' ppm</b>'+(typeof p.temp==='number'?' | '+p.temp.toFixed(1)+' °C':'')+(typeof p.rh==='number'?' | '+p.rh.toFixed(0)+' %':'')+' @ '+new Date().toLocaleTimeString()+'  <small>(topic: '+topic+')</small>'; last=now; }
+      });
+    }
+
+    // ============== Self-tests ==============
+    (function selfTests(){
+      try{
+        console.groupCollapsed('CO2 Dashboard self-tests');
+        if(Math.abs(deg2rad(180) - Math.PI) >= 1e-10) throw new Error('deg2rad failed');
+        var p0=polar(0,0,10,0); if(Math.abs(p0.x-10)>1e-6 || Math.abs(p0.y-0)>1e-6) throw new Error('polar 0°');
+        if(typeof arcPath(180,360) !== 'string') throw new Error('arcPath not string');
+        (function(){ var tmp=[{x:new Date(Date.now()-25*3600*1000), y:500},{x:new Date(), y:600}], cut=Date.now()-24*3600*1000; while(tmp.length && +tmp[0].x<cut) tmp.shift(); if(!(tmp.length===1 && tmp[0].y===600)) throw new Error('24h trim'); })();
+        // JSON sample test from your publisher format
+        var t=(function(){ try{return JSON.parse('{"co2":1240,"temp":25.88,"rh":42.60}');}catch(e){return null;} })();
+        if(!(t && t.co2===1240 && Math.abs(t.temp-25.88)<1e-6 && Math.abs(t.rh-42.6)<1e-6)) throw new Error('json sample parse failed');
+        console.groupEnd();
+      }catch(e){ console.error('Self-tests failed', e); }
+    })();
+
+    // ===== init =====
+    (function(){ loadTrend(); refreshWindow(); trendChart.update(); if(USE_SIM){ startSimulation(); } else { startMQTT(); } })();
+  </script>
+</body>
+</html>
