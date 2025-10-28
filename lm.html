@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Lightning Detection Node – Earl of March</title>
+<script src="https://unpkg.com/mqtt/dist/mqtt.min.js"></script>
+<style>
+  body {
+    margin: 0;
+    height: 100vh;
+    background: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+  }
+
+  .map-container {
+    position: relative;
+    width: 90vw;
+    max-width: 900px;
+    height: 70vh;
+    background: url("googlemap_earl_of_march.png") center/cover no-repeat;
+    border: 3px solid #ffb84d;
+    border-radius: 12px;
+    box-shadow: 0 0 25px rgba(255,165,0,0.5);
+    overflow: hidden;
+  }
+
+  .node {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: radial-gradient(circle, #ffff99, #ff6600);
+    box-shadow: 0 0 25px 8px rgba(255,140,0,0.8);
+    z-index: 10;
+  }
+
+  .ring {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    border: 2px dashed rgba(255,165,0,0.9);
+    border-radius: 50%;
+    box-shadow: 0 0 12px 2px rgba(255,140,0,0.4);
+    opacity: 0.95;
+    animation: expand 1.5s ease-out forwards;
+  }
+
+  @keyframes expand {
+    0% { transform: translate(-50%, -50%) scale(0.1); opacity: 1; }
+    100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+  }
+
+  .distance-label {
+    position: absolute;
+    top: calc(50% + 40px);
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0,0,0,0.6);
+    color: #fff;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 1rem;
+    text-align: center;
+    z-index: 20;
+  }
+
+  .label {
+    position: absolute;
+    bottom: 10px;
+    right: 15px;
+    background: rgba(0,0,0,0.6);
+    color: #fff;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 0.9rem;
+  }
+</style>
+</head>
+<body>
+  <div class="map-container">
+    <div class="node" title="Earl of March Sensor Node"></div>
+    <div class="distance-label" id="distanceLabel">Waiting for data…</div>
+    <div class="label">⚡ Earl of March Lightning Node</div>
+  </div>
+
+<script>
+const broker = "wss://19908b6cb7054952800839917a2701c3.s1.eu.hivemq.cloud:8884/mqtt";
+const options = {
+  username: "sensorpm25",
+  password: "IDontknow12345",
+  reconnectPeriod: 2000
+};
+const topic = "school/lightning";
+
+const client = mqtt.connect(broker, options);
+client.on("connect", () => {
+  console.log("✅ Connected to MQTT broker");
+  client.subscribe(topic);
+});
+
+client.on("message", (t, message) => {
+  try {
+    const data = JSON.parse(message.toString());
+    if ("distance" in data) {
+      drawPersistentRing(data.distance);
+    }
+  } catch (e) {
+    console.error("Invalid MQTT message:", message.toString());
+  }
+});
+
+function drawPersistentRing(distance) {
+  const label = document.getElementById("distanceLabel");
+  label.textContent = `⚡ Detected lightning ~${distance.toFixed(1)} km away`;
+
+  const container = document.querySelector(".map-container");
+  const ring = document.createElement("div");
+  ring.classList.add("ring");
+
+  // Convert distance (km) → pixel radius
+  const pxSize = Math.min(distance * 100, 700);
+  ring.style.width = ring.style.height = pxSize + "px";
+
+  // Add detection time tooltip
+  const now = new Date();
+  ring.title = `Detected at ${now.toLocaleTimeString()}`;
+
+  container.appendChild(ring);
+}
+</script>
+</body>
+</html>
