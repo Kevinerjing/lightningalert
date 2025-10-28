@@ -8,39 +8,23 @@
 <style>
   body {
     margin: 0;
-    height: 100vh;
     background: #000;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    color: #fff;
     font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
-  .map-container {
-    position: relative;
+  #map {
     width: 90vw;
     max-width: 900px;
-    height: 70vh;
-    background: url("googlemap_earl_of_march.png") center/cover no-repeat;
+    height: 65vh;
     border: 3px solid #ffb84d;
     border-radius: 12px;
     box-shadow: 0 0 25px rgba(255,165,0,0.5);
-    overflow: hidden;
+    margin-top: 20px;
   }
-
-  .node {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    background: radial-gradient(circle, #ffff99, #ff6600);
-    box-shadow: 0 0 25px 8px rgba(255,140,0,0.8);
-    z-index: 10;
-  }
-
   .ring {
     position: absolute;
     top: 50%;
@@ -58,100 +42,309 @@
     100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
   }
 
-  .distance-label {
-    position: absolute;
-    top: calc(50% + 40px);
-    left: 50%;
-    transform: translateX(-50%);
-    background: rgba(0,0,0,0.6);
-    color: #fff;
-    padding: 6px 12px;
-    border-radius: 6px;
-    font-size: 1rem;
-    text-align: center;
-    z-index: 20;
+
+/* Gentle pulsing glow animation for detecting label */
+@keyframes pulseGlow {
+  0% {
+    box-shadow: 0 0 5px rgba(255, 200, 100, 0.4);
+    opacity: 0.9;
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(255, 200, 100, 0.9);
+    opacity: 1;
+  }
+  100% {
+    box-shadow: 0 0 5px rgba(255, 200, 100, 0.4);
+    opacity: 0.9;
+  }
+}
+
+/* Default style for the detecting label */
+.distance-label {
+  margin-top: 10px;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 1rem;
+  text-align: center;
+  color: #fff;
+  animation: pulseGlow 2s ease-in-out infinite; /* make it glow repeatedly */
+}
+
+
+  .history-container {
+    width: 90vw;
+    max-width: 900px;
+    margin-top: 15px;
+    background: rgba(255,165,0,0.05);
+    border: 2px solid rgba(255,165,0,0.3);
+    border-radius: 8px;
+    padding: 10px;
+    box-shadow: 0 0 10px rgba(255,165,0,0.2);
   }
 
-  .label {
-    position: absolute;
-    bottom: 10px;
-    right: 15px;
-    background: rgba(0,0,0,0.6);
-    color: #fff;
-    padding: 6px 12px;
-    border-radius: 6px;
-    font-size: 0.9rem;
+  .history-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 6px;
+  }
+
+  .history-title {
+    font-weight: bold;
+    color: #ffcc66;
+  }
+
+  .clear-btn {
+    background: rgba(255,165,0,0.2);
+    color: #ffcc66;
+    border: 1px solid rgba(255,165,0,0.5);
+    border-radius: 5px;
+    padding: 4px 10px;
+    cursor: pointer;
+  }
+
+  .clear-btn:hover {
+    background: rgba(255,165,0,0.4);
+  }
+
+  .history-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    max-height: 120px;
+    overflow-y: auto;
+    font-size: 0.95rem;
+  }
+
+  .history-list li {
+    padding: 4px 0;
+    border-bottom: 1px dashed rgba(255,255,255,0.2);
+  }
+
+  .history-list li span.time {
+    color: #ccc;
+    margin-right: 10px;
+  }
+
+  .history-list li span.dist {
+    color: #ffcc66;
   }
 </style>
 </head>
 <body>
-  <div class="map-container">
-    <div class="node" title="Earl of March Sensor Node"></div>
-    <div class="distance-label" id="distanceLabel">Waiting for data…</div>
-    <div class="label">Earl of March Lightning Node</div>
+  <div id="map"></div>
+
+
+  <div class="history-container">
+    <div class="history-header">
+      <div class="history-title">⚡ Lightning Detection History</div>
+      <button class="clear-btn" onclick="clearHistory()">Clear History</button>
+    </div>
+    <ul class="history-list" id="historyList"></ul>
   </div>
 
 <script>
-const broker = "wss://19908b6cb7054952800839917a2701c3.s1.eu.hivemq.cloud:8884/mqtt";
-const options = {
-  username: "sensorpm25",
-  password: "IDontknow12345",
-  reconnectPeriod: 2000
-};
-const topic = "kanata/lightning-station-001";
+let map, marker;
 
-const client = mqtt.connect(broker, options);
-client.on("connect", () => {
-  console.log("Connected to MQTT broker");
-  client.subscribe(topic);
-});
+// Initialize Google Map
+function initMap() {
+//45.32324690727077, -75.8946487124856
+  const earlOfMarch = { lat: 45.3232, lng: -75.8946 }; // Earl of March coordinates
 
-client.on("message", (t, message) => {
-  try {
-    const data = JSON.parse(message.toString());
-    if ("storm_dist" in data && "time" in data) {
-      const msgTime = new Date(data.time.replace(" ", "T"));
-      const now = new Date();
-      const diffSec = (now - msgTime) / 1000;
+  map = new google.maps.Map(document.getElementById("map"), {
+    center: earlOfMarch,
+    zoom: 12,
+    mapTypeId: "roadmap",
+    scaleControl: true,
 
-      if (diffSec > 10) {
-        console.log(`Skipped old data (${diffSec.toFixed(1)}s ago)`);
-        return;
-      }
+  });
 
-      drawPersistentRing(data.storm_dist);
+  marker = new google.maps.Marker({
+    position: earlOfMarch,
+    map,
+    title: "Earl of March Sensor Node",
+    icon: {
+      path: google.maps.SymbolPath.CIRCLE,
+      scale: 8,
+      fillColor: "#ff6600",
+      fillOpacity: 1,
+      strokeColor: "#fff",
+      strokeWeight: 2
     }
-  } catch (e) {
-    console.error("Invalid MQTT message:", message.toString());
+  });
+
+
+
+  initMQTT();
+
+
+// Custom label overlay directly on map
+class LightningLabel extends google.maps.OverlayView {
+  constructor(position, text) {
+    super();
+    this.position = position;
+    this.div = document.createElement("div");
+    this.div.id = "distanceLabel";
+    this.div.textContent = text;
+    this.div.style.cssText = `
+      position: absolute;
+      background: rgba(0, 0, 0, 0.6);
+      color: white;
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-size: 0.95rem;
+      text-align: center;
+      transform: translate(-50%, -120%);
+      animation: pulseGlow 2s ease-in-out infinite;
+      box-shadow: 0 0 10px rgba(255,165,0,0.5);
+      white-space: nowrap;
+    `;
   }
-});
 
+  onAdd() {
+    const panes = this.getPanes();
+    panes.overlayMouseTarget.appendChild(this.div);
+  }
 
-function drawPersistentRing(distance) {
-  const label = document.getElementById("distanceLabel");
-  label.textContent = `⚡ Detected lightning ~${distance.toFixed(1)} km away`;
+  draw() {
+    const overlayProjection = this.getProjection();
+    const pos = overlayProjection.fromLatLngToDivPixel(this.position);
+    this.div.style.left = pos.x + "px";
+    this.div.style.top = pos.y + "px";
+  }
 
-  const container = document.querySelector(".map-container");
+  onRemove() {
+    this.div.parentNode.removeChild(this.div);
+  }
 
-
-  const oldRing = container.querySelector(".ring");
-  if (oldRing) oldRing.remove();
-
-
-  const ring = document.createElement("div");
-  ring.classList.add("ring");
-
-  // Convert distance (km) → pixel radius
-  const pxSize = Math.min(distance * 100, 700);
-  ring.style.width = ring.style.height = pxSize + "px";
-
-  // Add detection time tooltip
-  const now = new Date();
-  ring.title = `Detected at ${now.toLocaleTimeString()}`;
-
-  container.appendChild(ring);
+  setText(newText) {
+    this.div.textContent = newText;
+  }
 }
 
+// Create overlay above EOM
+const labelPos = new google.maps.LatLng(45.3232, -75.8946);
+window.lightningLabel = new LightningLabel(labelPos, "Detecting lightning…");
+window.lightningLabel.setMap(map);
+
+}
+
+// Draw an expanding lightning ring on Google Map
+function drawPersistentRing(distance) {
+  const label = document.getElementById("distanceLabel");
+  label.textContent = `⚡ Lightning detected ~${distance.toFixed(1)} km away`;
+
+  // Remove previous circles
+  if (window.lastCircle) window.lastCircle.setMap(null);
+
+  const center = marker.getPosition();
+  const maxRadius = distance * 1000; // km → meters
+  const duration = 1500; // animation duration in ms
+  const frameRate = 30; // frames per second
+  const steps = (duration / 1000) * frameRate;
+  const increment = maxRadius / steps;
+
+  // Start with very small radius
+  const circle = new google.maps.Circle({
+    strokeColor: "#FFA500",
+    strokeOpacity: 0.9,
+    strokeWeight: 2,
+    fillOpacity: 0,
+    map,
+    center,
+    radius: 0
+  });
+  window.lastCircle = circle;
+
+  // Animate expansion
+  let currentRadius = 0;
+  const timer = setInterval(() => {
+    currentRadius += increment;
+    circle.setRadius(currentRadius);
+
+    if (currentRadius >= maxRadius) {
+      clearInterval(timer);
+      // Optionally remove circle after a few seconds
+      //setTimeout(() => circle.setMap(null), 2000);
+    }
+  }, 1000 / frameRate);
+
+
+}
+
+// Format time as YYYY-MM-DD HH:MM:SS
+function formatTime(date) {
+  const y = date.getFullYear();
+  const m = String(date.getMonth() + 1).padStart(2, "0");
+  const d = String(date.getDate()).padStart(2, "0");
+  const hh = String(date.getHours()).padStart(2, "0");
+  const mm = String(date.getMinutes()).padStart(2, "0");
+  const ss = String(date.getSeconds()).padStart(2, "0");
+  return `${y}-${m}-${d} ${hh}:${mm}:${ss}`;
+}
+
+// Update detection history
+function updateHistory(time, distance) {
+  const list = document.getElementById("historyList");
+  const li = document.createElement("li");
+  li.innerHTML = `<span class="time">${formatTime(time)}</span>
+                  <span class="dist">${distance.toFixed(1)} km away</span>`;
+  list.prepend(li);
+
+  while (list.children.length > 5) {
+    list.removeChild(list.lastChild);
+  }
+}
+
+// Clear all history
+function clearHistory() {
+  document.getElementById("historyList").innerHTML = "";
+  console.log("🧹 History cleared");
+}
+
+// MQTT setup
+function initMQTT() {
+  const broker = "wss://19908b6cb7054952800839917a2701c3.s1.eu.hivemq.cloud:8884/mqtt";
+  const options = {
+    username: "sensorpm25",
+    password: "IDontknow12345",
+    reconnectPeriod: 2000
+  };
+  const topic = "kanata/lightning-station-001";
+
+  const client = mqtt.connect(broker, options);
+  client.on("connect", () => {
+    console.log("Connected to MQTT broker");
+    client.subscribe(topic);
+  });
+
+  client.on("message", (t, message) => {
+    try {
+      const data = JSON.parse(message.toString());
+      if ("storm_dist" in data && "time" in data) {
+        const msgTime = new Date(data.time.replace(" ", "T"));
+        const now = new Date();
+        const diffSec = (now - msgTime) / 1000;
+
+        if (diffSec > 10) {
+          console.log(`Skipped old data (${diffSec.toFixed(1)}s ago)`);
+          return;
+        }
+
+        drawPersistentRing(data.storm_dist);
+        updateHistory(msgTime, data.storm_dist);
+      }
+    } catch (e) {
+      console.error("Invalid MQTT message:", message.toString());
+    }
+  });
+}
+</script>
+
+<!-- Replace with your Google Maps API key -->
+<script async
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCy0tWl4x49OKQO8tdFPWDU0arhlsAm27U&callback=initMap">
 </script>
 </body>
 </html>
