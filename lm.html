@@ -98,7 +98,7 @@ const options = {
   password: "IDontknow12345",
   reconnectPeriod: 2000
 };
-const topic = "school/lightning";
+const topic = "kanata/lightning-station-01";
 
 const client = mqtt.connect(broker, options);
 client.on("connect", () => {
@@ -138,3 +138,4 @@ function drawPersistentRing(distance) {
 </script>
 </body>
 </html>
+
