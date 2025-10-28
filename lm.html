@@ -132,6 +132,12 @@ function drawPersistentRing(distance) {
   label.textContent = `⚡ Detected lightning ~${distance.toFixed(1)} km away`;
 
   const container = document.querySelector(".map-container");
+
+
+  const oldRing = container.querySelector(".ring");
+  if (oldRing) oldRing.remove();
+
+
   const ring = document.createElement("div");
   ring.classList.add("ring");
 
@@ -145,6 +151,7 @@ function drawPersistentRing(distance) {
 
   container.appendChild(ring);
 }
+
 </script>
 </body>
 </html>
