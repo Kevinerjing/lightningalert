@@ -109,13 +109,23 @@ client.on("connect", () => {
 client.on("message", (t, message) => {
   try {
     const data = JSON.parse(message.toString());
-    if ("storm_dist" in data) {
+    if ("storm_dist" in data && "time" in data) {
+      const msgTime = new Date(data.time.replace(" ", "T"));
+      const now = new Date();
+      const diffSec = (now - msgTime) / 1000;
+
+      if (diffSec > 10) {
+        console.log(`Skipped old data (${diffSec.toFixed(1)}s ago)`);
+        return;
+      }
+
       drawPersistentRing(data.storm_dist);
     }
   } catch (e) {
     console.error("Invalid MQTT message:", message.toString());
   }
 });
+
 
 function drawPersistentRing(distance) {
   const label = document.getElementById("distanceLabel");
