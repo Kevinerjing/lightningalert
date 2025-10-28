@@ -109,8 +109,8 @@ client.on("connect", () => {
 client.on("message", (t, message) => {
   try {
     const data = JSON.parse(message.toString());
-    if ("distance" in data) {
-      drawPersistentRing(data.distance);
+    if ("storm_dist" in data) {
+      drawPersistentRing(data.storm_dist);
     }
   } catch (e) {
     console.error("Invalid MQTT message:", message.toString());
@@ -138,6 +138,3 @@ function drawPersistentRing(distance) {
 </script>
 </body>
 </html>
-
-
-
