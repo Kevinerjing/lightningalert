@@ -88,7 +88,7 @@
   <div class="map-container">
     <div class="node" title="Earl of March Sensor Node"></div>
     <div class="distance-label" id="distanceLabel">Waiting for data…</div>
-    <div class="label">⚡ Earl of March Lightning Node</div>
+    <div class="label">Earl of March Lightning Node</div>
   </div>
 
 <script>
@@ -102,7 +102,7 @@ const topic = "kanata/lightning-station-01";
 
 const client = mqtt.connect(broker, options);
 client.on("connect", () => {
-  console.log("✅ Connected to MQTT broker");
+  console.log("Connected to MQTT broker");
   client.subscribe(topic);
 });
 
@@ -138,4 +138,5 @@ function drawPersistentRing(distance) {
 </script>
 </body>
 </html>
+
 
