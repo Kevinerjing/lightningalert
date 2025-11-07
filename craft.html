@@ -46,12 +46,22 @@
     .product:hover {
       transform: scale(1.03);
     }
-    .product img {
-      width: 100%;
-      border-radius: 12px;
-      max-height: 240px;
-      object-fit: cover;
-    }
+
+.product img {
+  width: 100%;
+  border-radius: 12px;
+  max-height: 240px;
+  object-fit: cover;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.product img:hover {
+  transform: scale(1.5);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.25);
+  z-index: 2;
+  position: relative;
+}
+
     .product h3 {
       margin: 0.8rem 0 0.4rem;
       color: #b71c1c;
@@ -249,6 +259,14 @@
   <em>Scents:</em> Vanilla Cream · Lavender · Citrus Bloom.</p>
   <p class="price">💲<strong>26.00 CAD</strong></p>
   <a href="#" class="order-btn" data-code="C07">Pre-Order Now</a>
+</div>
+
+<div class="product">
+  <img src="more.jpg" alt="Collection" />
+  <h3>Candle Collection</h3>
+  <p><strong>Code:</strong> C99</p>
+  <p></p>
+  <p class="price"><strong></strong></p>
 </div>
 
 </section>
