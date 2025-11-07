@@ -113,6 +113,70 @@
       font-size: 0.9rem;
       color: #555;
     }
+
+.price {
+  font-size: 1.1rem;
+  color: #c62828;
+  margin-top: 0.5rem;
+  font-weight: bold;
+}
+
+.order-btn {
+  display: inline-block;
+  margin-top: 0.8rem;
+  background-color: #c62828;
+  color: white;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background-color 0.3s;
+}
+
+.order-btn:hover {
+  background-color: #e53935;
+}
+
+
+.popup-overlay {
+  display: none;
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: rgba(0,0,0,0.5);
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+
+.popup-content {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 500px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+  position: relative;
+  animation: popupFade 0.3s ease;
+}
+
+
+.close-btn {
+  position: absolute;
+  top: 12px;
+  right: 18px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #b71c1c;
+}
+
+
+@keyframes popupFade {
+  from {opacity: 0; transform: translateY(-20px);}
+  to {opacity: 1; transform: translateY(0);}
+}
+
+
   </style>
 </head>
 <body>
@@ -121,44 +185,80 @@
     <p>Natural Soy Candles · Botanical Soaps · Hand Creams · Cuticle Oils</p>
   </header>
 
-  <section class="products">
-    <div class="product">
-      <img src="christmastree_candle_01.jpg" alt="Christmas Tree Candle" />
-      <h3>Christmas Tree Candle</h3>
-     <p>Code: <strong>C01</strong><br>
-      <p>Natural soy wax candle with essential oils, shaped like a festive tree. Scents: Pine, Mint, Orange Clove.</p>
-    </div>
-    <div class="product">
-      <img src="bubble_candle_01.jpg" alt="Bubble Candle" />
-      <h3>Bubble Candle</h3>
-<p>Code: <strong>C02</strong><br>
-      <p>Pastel-toned soy candle with a cute bubble shape - perfect as a holiday gift.</p>
-    </div>
-    <div class="product">
-      <img src="reindeer_stars_candle_01.jpg" alt="Winter Relief Candle" />
-      <h3>Winter Relief Candle</h3>
-<p>Code: <strong>C03</strong><br>
-      <p>Decorated with delicate reindeer and stars, offering a cozy and soothing aroma for winter nights.</p>
-    </div>
-    <div class="product">
-      <img src="snowflake_candle_01.jpg" alt="Snowflake Candle" />
-      <h3>Snowflake Candle</h3>
-<p>Code: <strong>C04</strong><br>
-      <p>Handcrafted snowflake design infused with citrus and spice essential oils.</p>
-    </div>
-    <div class="product">
-      <img src="rose_candle_01.jpg" alt="Rose Candle" />
-      <h3>Rose Candle</h3>
-<p>Code: <strong>C05</strong><br>
-      <p>Bright floral-shaped candle with a natural rose scent, symbolizing love and warmth.</p>
-    </div>
-    <div class="product">
-      <img src="christmas_globe_candle_01.jpg" alt="Christmas Globe Candle" />
-      <h3>Christmas Globe Candle</h3>
-<p>Code: <strong>C06</strong><br>
-      <p>Round candle carved with stars and deer - a joyful addition to any holiday setting.</p>
-    </div>
-  </section>
+<section class="products">
+  <div class="product">
+    <img src="christmastree_candle_01.jpg" alt="Christmas Tree Candle" />
+    <h3>Christmas Tree Candle</h3>
+    <p><strong>Code:</strong> C01</p>
+    <p>Natural soy wax candle with essential oils, shaped like a festive tree.<br>
+    <em>Scents:</em> Pine, Mint, Orange Clove.</p>
+    <p class="price">💲<strong>28.00 CAD</strong></p>
+    <a href="#preorder" class="order-btn" data-code="C01">Pre-Order Now</a>
+  </div>
+
+  <div class="product">
+    <img src="bubble_candle_01.jpg" alt="Bubble Candle" />
+    <h3>Bubble Candle</h3>
+    <p><strong>Code:</strong> C02</p>
+    <p>Pastel-toned soy candle with a cute bubble shape - perfect as a holiday gift.</p>
+    <p class="price">💲<strong>22.00 CAD</strong></p>
+    <a href="#preorder" class="order-btn" data-code="C02">Pre-Order Now</a>
+  </div>
+
+  <div class="product">
+    <img src="reindeer_stars_candle_01.jpg" alt="Winter Relief Candle" />
+    <h3>Winter Relief Candle</h3>
+    <p><strong>Code:</strong> C03</p>
+    <p>Decorated with delicate reindeer and stars, offering a cozy and soothing aroma for winter nights.</p>
+    <p class="price">💲<strong>26.00 CAD</strong></p>
+    <a href="#preorder" class="order-btn" data-code="C03">Pre-Order Now</a>
+  </div>
+
+  <div class="product">
+    <img src="snowflake_candle_01.jpg" alt="Snowflake Candle" />
+    <h3>Snowflake Candle</h3>
+    <p><strong>Code:</strong> C04</p>
+    <p>Handcrafted snowflake design infused with citrus and spice essential oils.</p>
+    <p class="price">💲<strong>25.00 CAD</strong></p>
+    <a href="#preorder" class="order-btn" data-code="C04">Pre-Order Now</a>
+  </div>
+
+  <div class="product">
+    <img src="rose_candle_01.jpg" alt="Rose Candle" />
+    <h3>Rose Candle</h3>
+    <p><strong>Code:</strong> C05</p>
+    <p>Bright floral-shaped candle with a natural rose scent, symbolizing love and warmth.</p>
+    <p class="price">💲<strong>24.00 CAD</strong></p>
+    <a href="#preorder" class="order-btn" data-code="C05">Pre-Order Now</a>
+  </div>
+
+  <div class="product">
+    <img src="christmas_globe_candle_01.jpg" alt="Christmas Globe Candle" />
+    <h3>Christmas Globe Candle</h3>
+    <p><strong>Code:</strong> C06</p>
+    <p>Round candle carved with stars and deer - a joyful addition to any holiday setting.</p>
+    <p class="price">💲<strong>30.00 CAD</strong></p>
+    <a href="#preorder" class="order-btn" data-code="C06">Pre-Order Now</a>
+  </div>
+
+<div class="product">
+  <img src="happy_sheep_candle_01.jpg" alt="Happy Sheep Candle" />
+  <h3>Happy Sheep Candle</h3>
+  <p><strong>Code:</strong> C07</p>
+  <p>Handcrafted soy wax candle shaped like a sweet little sheep - symbolizing happiness, peace, and warmth.<br>
+  <em>Scents:</em> Vanilla Cream · Lavender · Citrus Bloom.</p>
+  <p class="price">💲<strong>26.00 CAD</strong></p>
+  <a href="#" class="order-btn" data-code="C07">Pre-Order Now</a>
+</div>
+
+</section>
+
+
+
+
+
+
+
 <section class="essential-oils" style="background-color:#f9f7f4; padding:2rem; text-align:center;">
   <h2 style="color:#b71c1c; font-size:1.8rem;">🌿 Premium Essential Oils We Use</h2>
   <p style="max-width:700px; margin:auto; font-size:1rem; line-height:1.6; color:#444;">
@@ -215,38 +315,70 @@
     ✨ Pre-order now and pick up your gifts during the event!</p>
   </section>
 
- <form action="https://docs.google.com/forms/d/e/1FAIpQLSeRvzG44g21k-MhIXK8pUH-SF84-As4czvtl7mz6dwFZwXRXQ/formResponse" method="POST" target="_blank">
-  <h3>🎁 Pre-Order Form</h3>
 
-  <label for="name">Name</label>
-  <input type="text" id="name" name="entry.1671186868" required>
+<div id="popupForm" class="popup-overlay">
+  <div class="popup-content">
+    <span class="close-btn">&times;</span>
+    <form action="https://docs.google.com/forms/d/e/1FAIpQLSeRvzG44g21k-MhIXK8pUH-SF84-As4czvtl7mz6dwFZwXRXQ/formResponse" method="POST" target="_blank">
+      <h3>🎁 Pre-Order Form</h3>
 
-  <label for="email">Email</label>
-  <input type="email" id="email" name="entry.1327049730" required>
+      <label for="name">Name</label>
+      <input type="text" id="name" name="entry.1671186868" required>
 
-  <label for="product">Product</label>
-  <select id="product" name="entry.1008259500" required>
-    <option value="Candle">Candle</option>
-    <option value="Soap">Soap</option>
-    <option value="Hand Cream">Hand Cream</option>
-    <option value="Cuticle Oil">Cuticle Oil</option>
-  </select>
+      <label for="email">Email</label>
+      <input type="email" id="email" name="entry.1327049730" required>
 
-  <label for="code">Product Code</label>
-  <input type="text" id="code" name="entry.1742998165" placeholder="e.g., C01, S01, H01" required>
+      <label for="product">Product</label>
+      <select id="product" name="entry.1008259500" required>
+        <option value="Candle">Candle</option>
+        <option value="Soap">Soap</option>
+        <option value="Hand Cream">Hand Cream</option>
+        <option value="Cuticle Oil">Cuticle Oil</option>
+      </select>
 
-  <label for="quantity">Quantity</label>
-  <input type="number" id="quantity" name="entry.984960042" min="1" value="1">
+      <label for="code">Product Code</label>
+      <input type="text" id="code" name="entry.1742998165" placeholder="e.g., C01" required>
 
-  <label for="notes">Notes</label>
-  <textarea id="notes" name="entry.2086449595" rows="3" placeholder="e.g., Gift wrapping requested"></textarea>
+      <label for="quantity">Quantity</label>
+      <input type="number" id="quantity" name="entry.984960042" min="1" value="1">
 
-  <button type="submit">Submit Pre-Order</button>
-</form>
+      <label for="notes">Notes</label>
+      <textarea id="notes" name="entry.2086449595" rows="3" placeholder="e.g., Gift wrapping requested"></textarea>
 
+      <button type="submit">Submit Pre-Order</button>
+    </form>
+  </div>
+</div>
 
   <footer>
     Made with ❤️ in Ottawa · Follow us on Instagram @changchang
   </footer>
+
+<script>
+
+  document.querySelectorAll('.order-btn').forEach(button => {
+    button.addEventListener('click', function(event) {
+      event.preventDefault();
+      const productCode = this.getAttribute('data-code');
+      document.getElementById('popupForm').style.display = 'flex';
+      document.getElementById('code').value = productCode;
+    });
+  });
+
+
+  document.querySelector('.close-btn').addEventListener('click', function() {
+    document.getElementById('popupForm').style.display = 'none';
+  });
+
+
+  document.getElementById('popupForm').addEventListener('click', function(e) {
+    if (e.target === this) {
+      this.style.display = 'none';
+    }
+  });
+</script>
+
+
+
 </body>
 </html>
