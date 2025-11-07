@@ -18,6 +18,26 @@
       text-align: center;
       padding: 2.5rem 1rem;
     }
+.our-story {
+background-color: #fdf6f3;
+padding: 3rem 1.5rem;
+max-width: 900px;
+margin: 3rem auto;
+border-radius: 16px;
+box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+}
+.our-story h2 {
+text-align: center;
+color: #b71c1c;
+font-family: 'Georgia', serif;
+margin-bottom: 1.5rem;
+}
+.our-story p {
+line-height: 1.8;
+font-size: 1.05rem;
+color: #444;
+margin-bottom: 1rem;
+}
     header h1 {
       margin: 0;
       font-size: 2.4rem;
@@ -74,6 +94,18 @@
       text-align: center;
       padding: 2rem 1rem;
     }
+.gold-text {
+  background: linear-gradient(90deg, #b8860b, #ffd700, #ffec8b);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 600;
+  text-shadow: 0 0 8px rgba(255, 215, 0, 0.3);
+  animation: shimmer 3s infinite linear;
+}
+@keyframes shimmer {
+  0% {background-position: 0%;}
+  100% {background-position: 100%;}
+}
     .event-info h2 {
       color: #c62828;
       font-size: 1.8rem;
@@ -190,10 +222,12 @@
   </style>
 </head>
 <body>
-  <header>
-    <h1>Handcrafted Christmas Gifts</h1>
-    <p>Natural Soy Candles · Botanical Soaps · Hand Creams · Cuticle Oils</p>
-  </header>
+<header>
+  <h1>Handcrafted Christmas Gifts</h1>
+  <p>
+    Natural Soy <span class="gold-text">& Essential Oil Candles</span> · Botanical Soaps · Hand Creams · Cuticle Oils
+  </p>
+</header>
 
 <section class="products">
   <div class="product">
@@ -368,8 +402,15 @@
   </div>
 </div>
 
+<section class="our-story">
+<h2>Our Crafting Story</h2>
+<p>With a decade in healthcare and certified aromatherapy training, I’ve always believed scent can heal. Inspired by a glowing display of handmade candles in a window one chilly afternoon, I decided to bring together pure essential oils and handcrafted soy wax.</p>
+<p>Each piece is poured in small batches, in my Ottawa-based workshop, using only premium essential oils and 100% soy wax. I measure each blend for harmony, hand-pour slowly, let it rest to set perfectly, then wrap each candle like a gift.</p>
+<p>From the first drop of oil to the final wrap, each candle is a reflection of care — a small reminder that beauty is found in the time we take.</p>
+</section>
+
   <footer>
-    Made with ❤️ in Ottawa · Follow us on Instagram @changchang
+    Made with ❤️ in Ottawa · Follow us on Instagram @changchang1420
   </footer>
 
 <script>
