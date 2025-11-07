@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Handcrafted Christmas Gifts</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #fff9f6;
+      color: #333;
+      background-image: url('https://www.transparenttextures.com/patterns/snow.png');
+    }
+    header {
+      background: linear-gradient(120deg, #b71c1c, #d84315);
+      color: white;
+      text-align: center;
+      padding: 2.5rem 1rem;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2.4rem;
+      font-family: 'Georgia', serif;
+    }
+    header p {
+      margin-top: 0.5rem;
+      font-size: 1.2rem;
+    }
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.5rem;
+      padding: 2rem;
+      max-width: 1100px;
+      margin: auto;
+    }
+    .product {
+      background-color: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+      text-align: center;
+      padding: 1rem;
+      transition: transform 0.2s;
+    }
+    .product:hover {
+      transform: scale(1.03);
+    }
+    .product img {
+      width: 100%;
+      border-radius: 12px;
+      max-height: 240px;
+      object-fit: cover;
+    }
+    .product h3 {
+      margin: 0.8rem 0 0.4rem;
+      color: #b71c1c;
+    }
+    .product p {
+      font-size: 0.95rem;
+    }
+    .event-info {
+      background-color: #fde0dc;
+      text-align: center;
+      padding: 2rem 1rem;
+    }
+    .event-info h2 {
+      color: #c62828;
+      font-size: 1.8rem;
+    }
+    form {
+      max-width: 500px;
+      background: white;
+      margin: 2rem auto;
+      padding: 1.5rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    form h3 {
+      text-align: center;
+      color: #b71c1c;
+    }
+    label {
+      font-weight: bold;
+      display: block;
+      margin-top: 1rem;
+    }
+    input, select, textarea, button {
+      width: 100%;
+      padding: 0.5rem;
+      margin-top: 0.3rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 1rem;
+    }
+    button {
+      background-color: #c62828;
+      color: white;
+      border: none;
+      cursor: pointer;
+      margin-top: 1rem;
+      font-size: 1.1rem;
+      padding: 0.7rem;
+      border-radius: 8px;
+    }
+    button:hover {
+      background-color: #e53935;
+    }
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background-color: #f8f1ee;
+      font-size: 0.9rem;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Handcrafted Christmas Gifts</h1>
+    <p>Natural Soy Candles · Botanical Soaps · Hand Creams · Cuticle Oils</p>
+  </header>
+
+  <section class="products">
+    <div class="product">
+      <img src="christmastree_candle_01.jpg" alt="Christmas Tree Candle" />
+      <h3>Christmas Tree Candle</h3>
+     <p>Code: <strong>C01</strong><br>
+      <p>Natural soy wax candle with essential oils, shaped like a festive tree. Scents: Pine, Mint, Orange Clove.</p>
+    </div>
+    <div class="product">
+      <img src="bubble_candle_01.jpg" alt="Bubble Candle" />
+      <h3>Bubble Candle</h3>
+<p>Code: <strong>C02</strong><br>
+      <p>Pastel-toned soy candle with a cute bubble shape - perfect as a holiday gift.</p>
+    </div>
+    <div class="product">
+      <img src="reindeer_stars_candle_01.jpg" alt="Winter Relief Candle" />
+      <h3>Winter Relief Candle</h3>
+<p>Code: <strong>C03</strong><br>
+      <p>Decorated with delicate reindeer and stars, offering a cozy and soothing aroma for winter nights.</p>
+    </div>
+    <div class="product">
+      <img src="snowflake_candle_01.jpg" alt="Snowflake Candle" />
+      <h3>Snowflake Candle</h3>
+<p>Code: <strong>C04</strong><br>
+      <p>Handcrafted snowflake design infused with citrus and spice essential oils.</p>
+    </div>
+    <div class="product">
+      <img src="rose_candle_01.jpg" alt="Rose Candle" />
+      <h3>Rose Candle</h3>
+<p>Code: <strong>C05</strong><br>
+      <p>Bright floral-shaped candle with a natural rose scent, symbolizing love and warmth.</p>
+    </div>
+    <div class="product">
+      <img src="christmas_globe_candle_01.jpg" alt="Christmas Globe Candle" />
+      <h3>Christmas Globe Candle</h3>
+<p>Code: <strong>C06</strong><br>
+      <p>Round candle carved with stars and deer - a joyful addition to any holiday setting.</p>
+    </div>
+  </section>
+
+  <section class="event-info">
+    <h2>🎄 Visit Us at the Christmas Craft Event!</h2>
+    <p>📍 Ottawa<br>
+    📆 <br>
+    ✨ Pre-order now and pick up your gifts during the event!</p>
+  </section>
+
+ <form action="https://docs.google.com/forms/d/e/1FAIpQLSeRvzG44g21k-MhIXK8pUH-SF84-As4czvtl7mz6dwFZwXRXQ/formResponse" method="POST" target="_blank">
+  <h3>🎁 Pre-Order Form</h3>
+
+  <label for="name">Name</label>
+  <input type="text" id="name" name="entry.1671186868" required>
+
+  <label for="email">Email</label>
+  <input type="email" id="email" name="entry.1327049730" required>
+
+  <label for="product">Product</label>
+  <select id="product" name="entry.1008259500" required>
+    <option value="Candle">Candle</option>
+    <option value="Soap">Soap</option>
+    <option value="Hand Cream">Hand Cream</option>
+    <option value="Cuticle Oil">Cuticle Oil</option>
+  </select>
+
+  <label for="code">Product Code</label>
+  <input type="text" id="code" name="entry.1742998165" placeholder="e.g., C01, S01, H01" required>
+
+  <label for="quantity">Quantity</label>
+  <input type="number" id="quantity" name="entry.984960042" min="1" value="1">
+
+  <label for="notes">Notes</label>
+  <textarea id="notes" name="entry.2086449595" rows="3" placeholder="e.g., Gift wrapping requested"></textarea>
+
+  <button type="submit">Submit Pre-Order</button>
+</form>
+
+
+  <footer>
+    Made with ❤️ in Ottawa · Follow us on Instagram @changchang
+  </footer>
+</body>
+</html>
