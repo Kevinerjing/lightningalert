@@ -47,14 +47,15 @@ margin-bottom: 1rem;
       margin-top: 0.5rem;
       font-size: 1.2rem;
     }
-    .products {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 1.5rem;
-      padding: 2rem;
-      max-width: 1100px;
-      margin: auto;
-    }
+.products {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.8rem;
+  padding: 2rem;
+  max-width: 1200px;
+  margin: auto;
+  align-items: stretch;
+}
     .product {
       background-color: white;
       border-radius: 12px;
@@ -69,12 +70,11 @@ margin-bottom: 1rem;
 
 .product img {
   width: 100%;
+  height: 220px;
   border-radius: 12px;
-  max-height: 240px;
   object-fit: cover;
   transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
-
 .product img:hover {
   transform: scale(1.5);
   box-shadow: 0 6px 16px rgba(0,0,0,0.25);
@@ -174,7 +174,42 @@ margin-bottom: 1rem;
   font-weight: 600;
   transition: background-color 0.3s;
 }
+.color-options {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 0.6rem;
+}
 
+.color-btn {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 2px solid #ccc;
+  transition: transform 0.2s, border 0.2s;
+}
+.color-warning {
+  transition: opacity 0.3s ease;
+  opacity: 0;
+}
+.color-warning.active {
+  display: block;
+  opacity: 1;
+}
+
+.color-btn:hover {
+  transform: scale(1.1);
+}
+
+.color-btn.selected {
+  border: 3px solid #444;
+}
+.color-purple { background-color: #7b1fa2; }
+.color-red { background-color: #c62828; }
+.color-white { background-color: #fff; border: 1px solid #ccc; }
+.color-green { background-color: #2e7d32; }
+.color-gold { background-color: #d4af37; }
 .order-btn:hover {
   background-color: #e53935;
 }
@@ -237,6 +272,14 @@ margin-bottom: 1rem;
     <p>Natural soy wax candle with essential oils, shaped like a festive tree.<br>
     <em>Scents:</em> Pine, Mint, Orange Clove.</p>
     <p class="price">💲<strong>28.00 CAD</strong></p>
+<div class="color-options">
+  <span class="color-btn color-green" data-color="Green" aria-label="Green" title="Green"></span>
+  <span class="color-btn color-purple" data-color="Purple" aria-label="Purple" title="Purple"></span>
+
+</div>
+<p class="color-warning">
+  Please select a color before pre-ordering.
+</p>
     <a href="#preorder" class="order-btn" data-code="C01">Pre-Order Now</a>
   </div>
 
@@ -390,6 +433,8 @@ margin-bottom: 1rem;
 
       <label for="code">Product Code</label>
       <input type="text" id="code" name="entry.1742998165" placeholder="e.g., C01" required>
+<label for="color">Color</label>
+<input type="text" id="color" name="entry.1126823907" placeholder="e.g., Red, Green, Gold" required>
 
       <label for="quantity">Quantity</label>
       <input type="number" id="quantity" name="entry.984960042" min="1" value="1">
@@ -410,19 +455,42 @@ margin-bottom: 1rem;
 </section>
 
   <footer>
-    Made with ❤️ in Ottawa · Follow us on Instagram @changchang1420
+    Made with ❤️ in Ottawa
   </footer>
 
 <script>
-
-  document.querySelectorAll('.order-btn').forEach(button => {
-    button.addEventListener('click', function(event) {
-      event.preventDefault();
-      const productCode = this.getAttribute('data-code');
-      document.getElementById('popupForm').style.display = 'flex';
-      document.getElementById('code').value = productCode;
-    });
+document.querySelectorAll('.color-btn').forEach(btn => {
+  btn.addEventListener('click', e => {
+    const parent = e.target.closest('.color-options');
+    parent.querySelectorAll('.color-btn').forEach(b => b.classList.remove('selected'));
+    e.target.classList.add('selected');
   });
+});
+document.querySelectorAll('.order-btn').forEach(button => {
+  button.addEventListener('click', function(event) {
+    event.preventDefault();
+    const product = this.closest('.product');
+      const productCode = this.getAttribute('data-code');
+
+    const selectedColorBtn = product.querySelector('.color-btn.selected');
+    const warning = product.querySelector('.color-warning');
+
+
+    if (!selectedColorBtn) {
+      warning.classList.add('active');
+      return;
+    }
+
+
+    warning.classList.remove('active');
+    const selectedColor = selectedColorBtn.dataset.color;
+
+    document.getElementById('popupForm').style.display = 'flex';
+    document.getElementById('code').value = productCode;
+    document.getElementById('color').value = selectedColor;
+  });
+});
+
 
 
   document.querySelector('.close-btn').addEventListener('click', function() {
