@@ -48,48 +48,80 @@ margin-bottom: 1rem;
       font-size: 1.2rem;
     }
 .products {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 1.8rem;
+  column-count: 3;
+  column-gap: 1.5rem;
   padding: 2rem;
   max-width: 1200px;
   margin: auto;
-  align-items: stretch;
 }
-    .product {
-      background-color: white;
-      border-radius: 12px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-      text-align: center;
-      padding: 1rem;
-      transition: transform 0.2s;
-    }
-    .product:hover {
-      transform: scale(1.03);
-    }
+
+@media (max-width: 900px) {
+  .products {
+    column-count: 2;
+  }
+}
+
+@media (max-width: 600px) {
+  .products {
+    column-count: 1;
+  }
+}
+.product {
+  display: inline-block;
+  width: 100%;
+  background-color: #fff;
+  border-radius: 14px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  text-align: center;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  break-inside: avoid;
+}
+.product:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
 
 .product img {
   width: 100%;
-  height: 220px;
+  height: auto;
   border-radius: 12px;
   object-fit: cover;
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
-}
-.product img:hover {
-  transform: scale(1.5);
-  box-shadow: 0 6px 16px rgba(0,0,0,0.25);
-  z-index: 2;
-  position: relative;
+  transition: opacity 0.3s ease;
 }
 
-    .product h3 {
-      margin: 0.8rem 0 0.4rem;
-      color: #b71c1c;
-    }
-    .product p {
-      font-size: 0.95rem;
-    }
-    .event-info {
+.product img:hover {
+  opacity: 0.9;
+}
+
+.product h3 {
+  margin: 0.8rem 0 0.4rem;
+  color: #b71c1c;
+  font-family: 'Georgia', serif;
+  font-size: 1.1rem;
+}
+
+.product p {
+  font-size: 0.93rem;
+  color: #444;
+  line-height: 1.5;
+}
+
+.price {
+  font-size: 1.05rem;
+  color: #c62828;
+  font-weight: bold;
+  margin: 0.6rem 0;
+}
+
+.color-options {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 0.6rem;
+  flex-wrap: wrap;
+}    .event-info {
       background-color: #fde0dc;
       text-align: center;
       padding: 2rem 1rem;
@@ -156,12 +188,6 @@ margin-bottom: 1rem;
       color: #555;
     }
 
-.price {
-  font-size: 1.1rem;
-  color: #c62828;
-  margin-top: 0.5rem;
-  font-weight: bold;
-}
 
 .order-btn {
   display: inline-block;
@@ -174,12 +200,7 @@ margin-bottom: 1rem;
   font-weight: 600;
   transition: background-color 0.3s;
 }
-.color-options {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  margin-top: 0.6rem;
-}
+
 
 .color-btn {
   width: 20px;
