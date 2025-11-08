@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -12,154 +13,180 @@
       color: #333;
       background-image: url('https://www.transparenttextures.com/patterns/snow.png');
     }
+
     header {
       background: linear-gradient(120deg, #b71c1c, #d84315);
       color: white;
       text-align: center;
       padding: 2.5rem 1rem;
     }
-.our-story {
-background-color: #fdf6f3;
-padding: 3rem 1.5rem;
-max-width: 900px;
-margin: 3rem auto;
-border-radius: 16px;
-box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-}
-.our-story h2 {
-text-align: center;
-color: #b71c1c;
-font-family: 'Georgia', serif;
-margin-bottom: 1.5rem;
-}
-.our-story p {
-line-height: 1.8;
-font-size: 1.05rem;
-color: #444;
-margin-bottom: 1rem;
-}
+
+    .our-story {
+      background-color: #fdf6f3;
+      padding: 3rem 1.5rem;
+      max-width: 900px;
+      margin: 3rem auto;
+      border-radius: 16px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    }
+
+    .our-story h2 {
+      text-align: center;
+      color: #b71c1c;
+      font-family: 'Georgia', serif;
+      margin-bottom: 1.5rem;
+    }
+
+    .our-story p {
+      line-height: 1.8;
+      font-size: 1.05rem;
+      color: #444;
+      margin-bottom: 1rem;
+    }
+
     header h1 {
       margin: 0;
       font-size: 2.4rem;
       font-family: 'Georgia', serif;
     }
+
     header p {
       margin-top: 0.5rem;
       font-size: 1.2rem;
     }
-.products {
-  column-count: 3;
-  column-gap: 1.5rem;
-  padding: 2rem;
-  max-width: 1200px;
-  margin: auto;
-}
 
-@media (max-width: 900px) {
-  .products {
-    column-count: 2;
-  }
-}
+    .products {
+      column-count: 3;
+      column-gap: 1.5rem;
+      padding: 2rem;
+      max-width: 1200px;
+      margin: auto;
+    }
 
-@media (max-width: 600px) {
-  .products {
-    column-count: 1;
-  }
-}
-.product {
-  display: inline-block;
-  width: 100%;
-  background-color: #fff;
-  border-radius: 14px;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
-  margin-bottom: 1.5rem;
-  padding: 1rem;
-  text-align: center;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-  break-inside: avoid;
-}
-.product:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
-}
+    @media (max-width: 900px) {
+      .products {
+        column-count: 2;
+      }
+    }
 
-.product img {
-  width: 100%;
-  height: auto;
-  border-radius: 12px;
-  object-fit: cover;
-  transition: opacity 0.3s ease;
-}
+    @media (max-width: 600px) {
+      .products {
+        column-count: 1;
+      }
+    }
 
-.product img:hover {
-  opacity: 0.9;
-}
+    .product {
+      display: inline-block;
+      width: 100%;
+      background-color: #fff;
+      border-radius: 14px;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+      margin-bottom: 1.5rem;
+      padding: 1rem;
+      text-align: center;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      break-inside: avoid;
+    }
 
-.product h3 {
-  margin: 0.8rem 0 0.4rem;
-  color: #b71c1c;
-  font-family: 'Georgia', serif;
-  font-size: 1.1rem;
-}
+    .product:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+    }
 
-.product p {
-  font-size: 0.93rem;
-  color: #444;
-  line-height: 1.5;
-}
+    .product img {
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+      object-fit: cover;
+      transition: opacity 0.3s ease;
+    }
 
-.price {
-  font-size: 1.05rem;
-  color: #c62828;
-  font-weight: bold;
-  margin: 0.6rem 0;
-}
+    .product img:hover {
+      opacity: 0.9;
+    }
 
-.color-options {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  margin-top: 0.6rem;
-  flex-wrap: wrap;
-}    .event-info {
+    .product h3 {
+      margin: 0.8rem 0 0.4rem;
+      color: #b71c1c;
+      font-family: 'Georgia', serif;
+      font-size: 1.1rem;
+    }
+
+    .product p {
+      font-size: 0.93rem;
+      color: #444;
+      line-height: 1.5;
+    }
+
+    .price {
+      font-size: 1.05rem;
+      color: #c62828;
+      font-weight: bold;
+      margin: 0.6rem 0;
+    }
+
+    .color-options {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 0.6rem;
+      flex-wrap: wrap;
+    }
+
+    .event-info {
       background-color: #fde0dc;
       text-align: center;
       padding: 2rem 1rem;
     }
-.gold-text {
-  background: linear-gradient(90deg, #b8860b, #ffd700, #ffec8b);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  font-weight: 600;
-  text-shadow: 0 0 8px rgba(255, 215, 0, 0.3);
-  animation: shimmer 3s infinite linear;
-}
-@keyframes shimmer {
-  0% {background-position: 0%;}
-  100% {background-position: 100%;}
-}
+
+    .gold-text {
+      background: linear-gradient(90deg, #b8860b, #ffd700, #ffec8b);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: 600;
+      text-shadow: 0 0 8px rgba(255, 215, 0, 0.3);
+      animation: shimmer 3s infinite linear;
+    }
+
+    @keyframes shimmer {
+      0% {
+        background-position: 0%;
+      }
+
+      100% {
+        background-position: 100%;
+      }
+    }
+
     .event-info h2 {
       color: #c62828;
       font-size: 1.8rem;
     }
+
     form {
       max-width: 500px;
       background: white;
       margin: 2rem auto;
       padding: 1.5rem;
       border-radius: 12px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
+
     form h3 {
       text-align: center;
       color: #b71c1c;
     }
+
     label {
       font-weight: bold;
       display: block;
       margin-top: 1rem;
     }
-    input, select, textarea, button {
+
+    input,
+    select,
+    textarea,
+    button {
       width: 100%;
       padding: 0.5rem;
       margin-top: 0.3rem;
@@ -167,6 +194,7 @@ margin-bottom: 1rem;
       border-radius: 6px;
       font-size: 1rem;
     }
+
     button {
       background-color: #c62828;
       color: white;
@@ -177,9 +205,11 @@ margin-bottom: 1rem;
       padding: 0.7rem;
       border-radius: 8px;
     }
+
     button:hover {
       background-color: #e53935;
     }
+
     footer {
       text-align: center;
       padding: 1rem;
@@ -189,698 +219,770 @@ margin-bottom: 1rem;
     }
 
 
-.order-btn {
-  display: inline-block;
-  margin-top: 0.8rem;
-  background-color: #c62828;
-  color: white;
-  padding: 0.6rem 1.2rem;
-  border-radius: 8px;
-  text-decoration: none;
-  font-weight: 600;
-  transition: background-color 0.3s;
-}
+    .order-btn {
+      display: inline-block;
+      margin-top: 0.8rem;
+      background-color: #c62828;
+      color: white;
+      padding: 0.6rem 1.2rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: background-color 0.3s;
+    }
 
 
-.color-btn {
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  cursor: pointer;
-  border: 2px solid #ccc;
-  transition: transform 0.2s, border 0.2s;
-}
-.color-warning {
-  transition: opacity 0.3s ease;
-  opacity: 0;
-}
-.color-warning.active {
-  display: block;
-  opacity: 1;
-}
+    .color-btn {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      cursor: pointer;
+      border: 2px solid #ccc;
+      transition: transform 0.2s, border 0.2s;
+    }
 
-.color-btn:hover {
-  transform: scale(1.1);
-}
+    .color-warning {
+      transition: opacity 0.3s ease;
+      opacity: 0;
+    }
 
-.color-btn.selected {
-  border: 3px solid #444;
-}
-.color-greenwhite {
-  background: linear-gradient(90deg, #2e7d32 50%, #ffffff 50%);
-  border: 1px solid #ccc;
-}
-.color-pink {
-  background-color: #fcd6df;
-  border: 1px solid #f8a5b2;
-}
-.color-yellow {
-  background-color: #fff176;
-  border: 1px solid #fdd835;
-}
-.color-purple { background-color: #7b1fa2; }
-.color-red { background-color: #c62828; }
-.color-white { background-color: #fff; border: 1px solid #ccc; }
-.color-green { background-color: #2e7d32; }
-.color-gold { background-color: #d4af37; }
-.order-btn:hover {
-  background-color: #e53935;
-}
-.color-random {
-  background: repeating-linear-gradient(
-    45deg,
-    #ccc,
-    #eee 5px,
-    #ddd 10px,
-    #ccc 15px
-  );
-  border: 1px solid #aaa;
-}
+    .color-warning.active {
+      display: block;
+      opacity: 1;
+    }
 
-.popup-overlay {
-  display: none;
-  position: fixed;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background-color: rgba(0,0,0,0.5);
-  justify-content: center;
-  align-items: center;
-  z-index: 999;
-}
+    .color-btn:hover {
+      transform: scale(1.1);
+    }
 
+    .color-btn.selected {
+      border: 3px solid #444;
+    }
 
-.popup-content {
-  background: white;
-  padding: 2rem;
-  border-radius: 12px;
-  width: 90%;
-  max-width: 500px;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.3);
-  position: relative;
-  animation: popupFade 0.3s ease;
-}
+    .color-greenwhite {
+      background: linear-gradient(90deg, #2e7d32 50%, #ffffff 50%);
+      border: 1px solid #ccc;
+    }
 
+    .color-pink {
+      background-color: #fcd6df;
+      border: 1px solid #f8a5b2;
+    }
 
-.close-btn {
-  position: absolute;
-  top: 12px;
-  right: 18px;
-  font-size: 1.5rem;
-  cursor: pointer;
-  color: #b71c1c;
-}
+    .color-yellow {
+      background-color: #fff176;
+      border: 1px solid #fdd835;
+    }
 
-.image-gallery {
-  position: relative;
-  width: 100%;
-  height: 400px;
-  overflow: hidden;
-  border-radius: 12px;
-}
+    .color-purple {
+      background-color: #7b1fa2;
+    }
 
-.image-gallery img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  position: absolute;
-  top: 0; left: 0;
-  opacity: 0;
-  transition: opacity 0.5s ease;
-}
+    .color-red {
+      background-color: #c62828;
+    }
+
+    .color-white {
+      background-color: #fff;
+      border: 1px solid #ccc;
+    }
+
+    .color-green {
+      background-color: #2e7d32;
+    }
+
+    .color-gold {
+      background-color: #d4af37;
+    }
+
+    .order-btn:hover {
+      background-color: #e53935;
+    }
+
+    .color-random {
+      background: repeating-linear-gradient(45deg,
+          #ccc,
+          #eee 5px,
+          #ddd 10px,
+          #ccc 15px);
+      border: 1px solid #aaa;
+    }
+
+    .popup-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(0, 0, 0, 0.5);
+      justify-content: center;
+      align-items: center;
+      z-index: 999;
+    }
 
 
-.image-gallery img.active {
-  opacity: 1;
-}
-
-.image-gallery button {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 32px;
-  height: 32px;
-  line-height: 32px;
-  background: rgba(255, 255, 255, 0.85);
-  border: none;
-  font-size: 1.1rem;
-  cursor: pointer;
-  border-radius: 50%;
-  color: #333;
-  text-align: center;
-  transition: background 0.3s, transform 0.2s;
-  box-shadow: 0 0 5px rgba(0,0,0,0.2);
-  padding: 0;
-}
+    .popup-content {
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      width: 90%;
+      max-width: 500px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+      position: relative;
+      animation: popupFade 0.3s ease;
+    }
 
 
-.image-gallery button:focus {
-  outline: none;
-}
+    .close-btn {
+      position: absolute;
+      top: 12px;
+      right: 18px;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: #b71c1c;
+    }
 
-.image-gallery button.prev {
-  left: 8px;
-}
+    .image-gallery {
+      position: relative;
+      width: 100%;
+      height: 400px;
+      overflow: hidden;
+      border-radius: 12px;
+    }
 
-.image-gallery button.next {
-  right: 8px;
-}
-
-.image-gallery button:hover {
-  background: rgba(255, 255, 255, 1);
-  transform: translateY(-50%) scale(1.1);
-}
-
-
-
-@keyframes popupFade {
-  from {opacity: 0; transform: translateY(-20px);}
-  to {opacity: 1; transform: translateY(0);}
-}
+    .image-gallery img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
 
 
+    .image-gallery img.active {
+      opacity: 1;
+    }
+
+    .image-gallery button {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 32px;
+      height: 32px;
+      line-height: 32px;
+      background: rgba(255, 255, 255, 0.85);
+      border: none;
+      font-size: 1.1rem;
+      cursor: pointer;
+      border-radius: 50%;
+      color: #333;
+      text-align: center;
+      transition: background 0.3s, transform 0.2s;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+      padding: 0;
+    }
+
+
+    .image-gallery button:focus {
+      outline: none;
+    }
+
+    .image-gallery button.prev {
+      left: 8px;
+    }
+
+    .image-gallery button.next {
+      right: 8px;
+    }
+
+    .image-gallery button:hover {
+      background: rgba(255, 255, 255, 1);
+      transform: translateY(-50%) scale(1.1);
+    }
+
+
+
+    @keyframes popupFade {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
   </style>
 </head>
+
 <body>
-<header>
-  <h1>Handcrafted Christmas Gifts</h1>
-  <p>
-    Natural Soy <span class="gold-text">& Essential Oil Candles</span> · Botanical Soaps · Hand Creams · Cuticle Oils
-  </p>
-</header>
+  <header>
+    <h1>Handcrafted Christmas Gifts</h1>
+    <p>
+      Natural Soy <span class="gold-text">& Essential Oil Candles</span> · Botanical Soaps · Hand Creams · Cuticle Oils
+    </p>
+  </header>
 
-<section class="products">
+  <section class="products">
 
-  <div class="product">
-    <img src="small_christmastree_candle_01.jpg" alt="Small Christmas Tree Candle" />
-    <h3>Small Christmas Tree Candle</h3>
-    <p><strong>Code:</strong> C00</p>
-    <p>Natural soy wax candle with essential oils, shaped like a festive tree.<br>
-    <em>Scents:</em> pine, fir, and frankincense.</p>
-    <p class="price">💲<strong>14.99 CAD</strong></p>
-<div class="color-options">
-  <span class="color-btn color-green" data-color="Green" aria-label="Green" title="Green"></span>
-  <span class="color-btn color-greenwhite" data-color="Green White" aria-label="Green White" title="Green White"></span>
-  <span class="color-btn color-white" data-color="White" aria-label="White" title="White"></span>
+    <div class="product">
+      <img src="small_christmastree_candle_01.jpg" alt="Small Christmas Tree Candle" />
+      <h3>Small Christmas Tree Candle</h3>
+      <p><strong>Code:</strong> C00</p>
+      <p>Natural soy wax candle with essential oils, shaped like a festive tree.<br>
+        <em>Scents:</em> pine, fir, and frankincense.
+      </p>
+      <p class="price">💲<strong>14.99 CAD</strong></p>
+      <div class="color-options">
+        <span class="color-btn color-green" data-color="Green" aria-label="Green" title="Green"></span>
+        <span class="color-btn color-greenwhite" data-color="Green White" aria-label="Green White"
+          title="Green White"></span>
+        <span class="color-btn color-white" data-color="White" aria-label="White" title="White"></span>
 
-</div>
-<p class="color-warning">
-  Please select a color before pre-ordering.
-</p>
-    <a href="#preorder" class="order-btn" data-code="C01">Pre-Order Now</a>
-  </div>
-
-  <div class="product">
-    <img src="christmastree_candle_01.jpg" alt="Christmas Tree Candle" />
-    <h3>Christmas Tree Candle</h3>
-    <p><strong>Code:</strong> C01</p>
-    <p>Natural soy wax candle with essential oils, shaped like a festive tree.<br>
-    <em>Scents:</em> pine, fir, and frankincense.</p>
-    <p class="price">💲<strong>19.99 CAD</strong></p>
-<div class="color-options">
-  <span class="color-btn color-green" data-color="Green" aria-label="Green" title="Green"></span>
-  <span class="color-btn color-greenwhite" data-color="Green White" aria-label="Green White" title="Green White"></span>
-  <span class="color-btn color-white" data-color="White" aria-label="White" title="White"></span>
-
-</div>
-<p class="color-warning">
-  Please select a color before pre-ordering.
-</p>
-    <a href="#preorder" class="order-btn" data-code="C01">Pre-Order Now</a>
-  </div>
-
-
-
-
-
-  <div class="product">
-    <img src="bubble_candle_01.jpg" alt="Bubble Candle" />
-    <h3>Bubble Candle</h3>
-    <p><strong>Code:</strong> C02</p>
-    <p>Pastel-toned soy candle with a cute bubble shape and essential oils - perfect as a holiday gift.</p>
-    <em>Scents:</em> A gentle mix of citrus and floral oils symbolizing joy, freshness, and love.</p>
-    <p class="price">💲<strong>25.00 CAD</strong></p>
-  <div class="color-options">
-    <span class="color-btn color-random" data-color="Random" title="Random (Surprise Color)"></span>
-  </div>
-<p class="color-warning">
-  Please select a color before pre-ordering.
-</p>
-    <a href="#preorder" class="order-btn" data-code="C02">Pre-Order Now</a>
-  </div>
-
-  <div class="product">
-    <img src="reindeer_stars_candle_01.jpg" alt="Winter Relief Candle" />
-    <h3>Winter Relief Candle</h3>
-    <p><strong>Code:</strong> C03</p>
-    <p>Natural soy wax candle with essential oils, decorated with delicate reindeer and stars, offering a cozy and soothing aroma for winter nights.</p>
-    <em>Scents:</em> Warm, spicy, and citrusy blend that captures the true essence of Christmas cheer.</p>
-    <p class="price">💲<strong>25.00 CAD</strong></p>
-  <div class="color-options">
-<span class="color-btn color-pink" data-color="Pink" title="Light Pink"></span>
-    <span class="color-btn color-random" data-color="Random" title="Random (Surprise Color)"></span>
-  </div>
-<p class="color-warning">
-  Please select a color before pre-ordering.
-</p>
-    <a href="#preorder" class="order-btn" data-code="C03">Pre-Order Now</a>
-  </div>
-
-
-
-
-
-  <div class="product">
-    <img src="snowflake_candle_01.jpg" alt="Snowflake Candle" />
-    <h3>Snowflake Candle</h3>
-    <p><strong>Code:</strong> C04</p>
-    <p>Handcrafted snowflake design infused with citrus and spice essential oils.</p>
-    <em>Scents:</em> Warm, spicy, and citrusy blend that captures the true essence of Christmas cheer.</p>
-    <p class="price">💲<strong>19.99 CAD</strong></p>
-  <div class="color-options">
-    <span class="color-btn color-random" data-color="Random" title="Random (Surprise Color)"></span>
-  </div>
-<p class="color-warning">
-  Please select a color before pre-ordering.
-</p>
-    <a href="#preorder" class="order-btn" data-code="C04">Pre-Order Now</a>
-  </div>
-
-
-
-
-  <div class="product">
-    <img src="rose_candle_01.jpg" alt="Flower Candle" />
-    <h3>Flower Candle</h3>
-    <p><strong>Code:</strong> C05</p>
-    <p>Natural soy wax candle with essential oils, bright floral-shaped candle with a natural flower scent, symbolizing love and warmth.</p>
-    <p class="price">💲<strong>19.99 CAD</strong></p>
-  <div class="color-options">
-<span class="color-btn color-yellow" data-color="Yellow" title="Yellow"></span>
-<span class="color-btn color-red" data-color="Red" title="Red"></span>
-<span class="color-btn color-pink" data-color="Pink" title="Light Pink"></span>
-    <span class="color-btn color-random" data-color="Random" title="Random (Surprise Color)"></span>
-  </div>
-<p class="color-warning">
-  Please select a color before pre-ordering.
-</p>
-    <a href="#preorder" class="order-btn" data-code="C05">Pre-Order Now</a>
-  </div>
-
-  <div class="product">
-    <img src="christmas_globe_candle_01.jpg" alt="Christmas Globe Candle" />
-    <h3>Christmas Globe Candle</h3>
-    <p><strong>Code:</strong> C06</p>
-    <p>Natural soy wax candle with essential oils, round candle carved with stars and deer - a joyful addition to any holiday setting.</p>
-
-    <p class="price">💲<strong>14.99 CAD</strong></p>
-  <div class="color-options">
-    <span class="color-btn color-random" data-color="Random" title="Random (Surprise Color)"></span>
-  </div>
-<p class="color-warning">
-  Please select a color before pre-ordering.
-</p>
-    <a href="#preorder" class="order-btn" data-code="C06">Pre-Order Now</a>
-  </div>
-
-<div class="product">
-  <img src="happy_sheep_candle_01.jpg" alt="Happy Sheep Candle" />
-  <h3>Happy Sheep Candle</h3>
-  <p><strong>Code:</strong> C07</p>
-  <p>Handcrafted soy wax candle shaped like a sweet little sheep - symbolizing happiness, peace, and warmth.<br>
-<em>Scents:</em> Warm, spicy, and citrusy blend that captures the true essence of Christmas cheer.</p>
-  <p class="price">💲<strong>25.00 CAD</strong></p>
-  <div class="color-options">
-  <span class="color-btn color-white" data-color="White" aria-label="White" title="White"></span>
-  </div>
-<p class="color-warning">
-  Please select a color before pre-ordering.
-</p>
-  <a href="#" class="order-btn" data-code="C07">Pre-Order Now</a>
-</div>
-
-<div class="product">
-  <img src="winter_combo_01.jpg" alt="Winter Combo Candle Set" />
-  <h3>Winter Combo Set</h3>
-  <p><strong>Code:</strong> C10</p>
-  <p>A festive gift set featuring <strong>Christmas Tree</strong>, <strong>Small Christmas Tree</strong>, 
-     <strong>Snowflake</strong>, <strong>Winter Relief</strong>, and <strong>Christmas Globe</strong> candles - 
-     perfectly curated to fill your home with cozy winter aromas.</p>
-  <p><em>Scents:</em> A harmonious blend of pine, citrus, and spice - capturing the warmth and peace of the season.</p>
-  <p class="price">💲<strong>69.99 CAD</strong></p>
-  
-  <div class="color-options">
-    <span class="color-btn color-random" data-color="Random" title="Random (Surprise Color)"></span>
-  </div>
-  
-  <p class="color-warning">
-    Please select a color before pre-ordering.
-  </p>
-  
-  <a href="#preorder" class="order-btn" data-code="C10">Pre-Order Now</a>
-</div>
-
-<div class="product">
-  <img src="christmas_tree_combo_01.jpg" alt="Christmas Tree Combo Set" />
-  <h3>Christmas Tree Combo Set</h3>
-  <p><strong>Code:</strong> C11</p>
-  <p>A delightful duo of <strong>Christmas Tree</strong> and <strong>Small Christmas Tree</strong> candles - 
-     handcrafted with pure soy wax and essential oils, perfect for spreading holiday cheer.</p>
-  <p><em>Scents:</em> Holiday Peace - a soothing evergreen aroma that brings the calm and joy of the forest indoors.</p>
-  <p class="price">💲<strong>29.99 CAD</strong></p>
-
-  <div class="color-options">
-    <span class="color-btn color-green" data-color="Green" title="Green"></span>
-    <span class="color-btn color-white" data-color="White" title="White"></span>
-    <span class="color-btn color-random" data-color="Random" title="Random (Surprise Color)"></span>
-  </div>
-
-  <p class="color-warning">
-    Please select a color before pre-ordering.
-  </p>
-
-  <a href="#preorder" class="order-btn" data-code="C11">Pre-Order Now</a>
-</div>
-
-<div class="product">
-  <div class="image-gallery">
-    <img src="fruit_soap_01.jpg" alt="Fruit Cluster Soap" class="active">
-    <img src="fruit_soap_02.jpg" alt="Fruit Cluster Soap">
-    <img src="fruit_soap_03.jpg" alt="Fruit Cluster Soap">
-    <img src="fruit_soap_04.jpg" alt="Fruit Cluster Soap">
-    <img src="fruit_soap_05.jpg" alt="Fruit Cluster Soap">
-    <img src="fruit_soap_06.jpg" alt="Fruit Cluster Soap">
-    <img src="fruit_soap_07.jpg" alt="Fruit Cluster Soap">
-    <img src="fruit_soap_08.jpg" alt="Fruit Cluster Soap">
-    <img src="fruit_soap_09.jpg" alt="Fruit Cluster Soap">
-
-    <button class="prev">❮</button>
-    <button class="next">❯</button>
-  </div>
-
-  <h3>Fruit Cluster Soap</h3>
-  <p><strong>Code:</strong> S01</p>
-  <p>Handcrafted soap shaped like a cluster of grapes, made with natural ingredients and essential oils. 
-  Available in multiple colors and scents.</p>
-  <em>Scents:</em> Refreshing citrus, lavender calm, and floral blends.<br>
-  <p class="price">💲<strong>29.99 CAD</strong></p>
-
-  <div class="color-options">
-    <span class="color-btn color-green" data-color="Green"></span>
-    <span class="color-btn color-purple" data-color="Purple"></span>
-    <span class="color-btn color-pink" data-color="Pink"></span>
-    <span class="color-btn color-random" data-color="Random"></span>
-  </div>
-
-  <p class="color-warning">Please select a color before pre-ordering.</p>
-  <a href="#preorder" class="order-btn" data-code="S01">Pre-Order Now</a>
-</div>
-
-
-</section>
-
-
-
-
-
-
-
-
-<section class="essential-oils" style="background-color:#f9f7f4; padding:2rem; text-align:center;">
-  <h2 style="color:#b71c1c; font-size:1.8rem;">🌿 Premium Essential Oils We Use</h2>
-  <p style="max-width:700px; margin:auto; font-size:1rem; line-height:1.6; color:#444;">
-    Each candle is infused with <strong>dōTERRA</strong> essential oils, chosen for their purity and aromatic benefits.
-    These natural scents create a cozy and uplifting holiday atmosphere.
-  </p>
-
-  <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); gap:1.5rem; margin-top:2rem;">
-    
-    <div style="background:#fff; border-radius:12px; box-shadow:0 4px 8px rgba(0,0,0,0.1); padding:1rem;">
-      <img src="siberian_fir.png" alt="Siberian Fir" style="width:100%; border-radius:12px; max-height:240px; object-fit:cover;">
-      <h3 style="color:#2e7d32;">Siberian Fir</h3>
-      <p style="font-size:0.95rem;">Refreshing and grounding scent reminiscent of a peaceful pine forest. Perfect for focus and clarity.</p>
+      </div>
+      <p class="color-warning">
+        Please select a color before pre-ordering.
+      </p>
+      <a href="#preorder" class="order-btn" data-code="C01">Pre-Order Now</a>
     </div>
 
-    <div style="background:#fff; border-radius:12px; box-shadow:0 4px 8px rgba(0,0,0,0.1); padding:1rem;">
-      <img src="citrus_bliss.png" alt="Citrus Bliss" style="width:100%; border-radius:12px; max-height:240px; object-fit:cover;">
-      <h3 style="color:#f57c00;">Citrus Bliss</h3>
-      <p style="font-size:0.95rem;">A cheerful citrus blend bringing warmth, happiness, and light to any space.</p>
+    <div class="product">
+      <img src="christmastree_candle_01.jpg" alt="Christmas Tree Candle" />
+      <h3>Christmas Tree Candle</h3>
+      <p><strong>Code:</strong> C01</p>
+      <p>Natural soy wax candle with essential oils, shaped like a festive tree.<br>
+        <em>Scents:</em> pine, fir, and frankincense.
+      </p>
+      <p class="price">💲<strong>19.99 CAD</strong></p>
+      <div class="color-options">
+        <span class="color-btn color-green" data-color="Green" aria-label="Green" title="Green"></span>
+        <span class="color-btn color-greenwhite" data-color="Green White" aria-label="Green White"
+          title="Green White"></span>
+        <span class="color-btn color-white" data-color="White" aria-label="White" title="White"></span>
+
+      </div>
+      <p class="color-warning">
+        Please select a color before pre-ordering.
+      </p>
+      <a href="#preorder" class="order-btn" data-code="C01">Pre-Order Now</a>
     </div>
 
-    <div style="background:#fff; border-radius:12px; box-shadow:0 4px 8px rgba(0,0,0,0.1); padding:1rem;">
-      <img src="wild_orange.png" alt="Wild Orange" style="width:100%; border-radius:12px; max-height:240px; object-fit:cover;">
-      <h3 style="color:#ef6c00;">Wild Orange</h3>
-      <p style="font-size:0.95rem;">Sweet and uplifting aroma that energizes the mind and fills the air with optimism.</p>
+
+
+
+
+    <div class="product">
+      <img src="bubble_candle_01.jpg" alt="Bubble Candle" />
+      <h3>Bubble Candle</h3>
+      <p><strong>Code:</strong> C02</p>
+      <p>Pastel-toned soy candle with a cute bubble shape and essential oils - perfect as a holiday gift.</p>
+      <em>Scents:</em> A gentle mix of citrus and floral oils symbolizing joy, freshness, and love.</p>
+      <p class="price">💲<strong>25.00 CAD</strong></p>
+      <div class="color-options">
+        <span class="color-btn color-random" data-color="Random" title="Random (Surprise Color)"></span>
+      </div>
+      <p class="color-warning">
+        Please select a color before pre-ordering.
+      </p>
+      <a href="#preorder" class="order-btn" data-code="C02">Pre-Order Now</a>
     </div>
 
-    <div style="background:#fff; border-radius:12px; box-shadow:0 4px 8px rgba(0,0,0,0.1); padding:1rem;">
-      <img src="citrus_bloom.png" alt="Citrus Bloom" style="width:100%; border-radius:12px; max-height:240px; object-fit:cover;">
-      <h3 style="color:#ec407a;">Citrus Bloom</h3>
-      <p style="font-size:0.95rem;">A gentle mix of citrus and floral oils symbolizing joy, freshness, and love.</p>
+    <div class="product">
+      <img src="reindeer_stars_candle_01.jpg" alt="Winter Relief Candle" />
+      <h3>Winter Relief Candle</h3>
+      <p><strong>Code:</strong> C03</p>
+      <p>Natural soy wax candle with essential oils, decorated with delicate reindeer and stars, offering a cozy and
+        soothing aroma for winter nights.</p>
+      <em>Scents:</em> Warm, spicy, and citrusy blend that captures the true essence of Christmas cheer.</p>
+      <p class="price">💲<strong>25.00 CAD</strong></p>
+      <div class="color-options">
+        <span class="color-btn color-pink" data-color="Pink" title="Light Pink"></span>
+        <span class="color-btn color-random" data-color="Random" title="Random (Surprise Color)"></span>
+      </div>
+      <p class="color-warning">
+        Please select a color before pre-ordering.
+      </p>
+      <a href="#preorder" class="order-btn" data-code="C03">Pre-Order Now</a>
     </div>
 
-    <div style="background:#fff; border-radius:12px; box-shadow:0 4px 8px rgba(0,0,0,0.1); padding:1rem;">
-      <img src="holiday_joy.png" alt="Holiday Joy" style="width:100%; border-radius:12px; max-height:240px; object-fit:cover;">
-      <h3 style="color:#c62828;">Holiday Joy</h3>
-      <p style="font-size:0.95rem;">Warm, spicy, and citrusy blend that captures the true essence of Christmas cheer.</p>
+
+
+
+
+    <div class="product">
+      <img src="snowflake_candle_01.jpg" alt="Snowflake Candle" />
+      <h3>Snowflake Candle</h3>
+      <p><strong>Code:</strong> C04</p>
+      <p>Handcrafted snowflake design infused with citrus and spice essential oils.</p>
+      <em>Scents:</em> Warm, spicy, and citrusy blend that captures the true essence of Christmas cheer.</p>
+      <p class="price">💲<strong>19.99 CAD</strong></p>
+      <div class="color-options">
+        <span class="color-btn color-random" data-color="Random" title="Random (Surprise Color)"></span>
+      </div>
+      <p class="color-warning">
+        Please select a color before pre-ordering.
+      </p>
+      <a href="#preorder" class="order-btn" data-code="C04">Pre-Order Now</a>
     </div>
 
-    <div style="background:#fff; border-radius:12px; box-shadow:0 4px 8px rgba(0,0,0,0.1); padding:1rem;">
-      <img src="holiday_peace.png" alt="Holiday Peace" style="width:100%; border-radius:12px; max-height:240px; object-fit:cover;">
-      <h3 style="color:#2e7d32;">Holiday Peace</h3>
-      <p style="font-size:0.95rem;">A calming evergreen aroma combining pine, fir, and frankincense for a tranquil winter night.</p>
+
+
+
+    <div class="product">
+      <img src="rose_candle_01.jpg" alt="Flower Candle" />
+      <h3>Flower Candle</h3>
+      <p><strong>Code:</strong> C05</p>
+      <p>Natural soy wax candle with essential oils, bright floral-shaped candle with a natural flower scent,
+        symbolizing love and warmth.</p>
+      <p class="price">💲<strong>19.99 CAD</strong></p>
+      <div class="color-options">
+        <span class="color-btn color-yellow" data-color="Yellow" title="Yellow"></span>
+        <span class="color-btn color-red" data-color="Red" title="Red"></span>
+        <span class="color-btn color-pink" data-color="Pink" title="Light Pink"></span>
+        <span class="color-btn color-random" data-color="Random" title="Random (Surprise Color)"></span>
+      </div>
+      <p class="color-warning">
+        Please select a color before pre-ordering.
+      </p>
+      <a href="#preorder" class="order-btn" data-code="C05">Pre-Order Now</a>
     </div>
 
-  </div>
-</section>
+    <div class="product">
+      <img src="christmas_globe_candle_01.jpg" alt="Christmas Globe Candle" />
+      <h3>Christmas Globe Candle</h3>
+      <p><strong>Code:</strong> C06</p>
+      <p>Natural soy wax candle with essential oils, round candle carved with stars and deer - a joyful addition to any
+        holiday setting.</p>
+
+      <p class="price">💲<strong>14.99 CAD</strong></p>
+      <div class="color-options">
+        <span class="color-btn color-random" data-color="Random" title="Random (Surprise Color)"></span>
+      </div>
+      <p class="color-warning">
+        Please select a color before pre-ordering.
+      </p>
+      <a href="#preorder" class="order-btn" data-code="C06">Pre-Order Now</a>
+    </div>
+
+    <div class="product">
+      <img src="happy_sheep_candle_01.jpg" alt="Happy Sheep Candle" />
+      <h3>Happy Sheep Candle</h3>
+      <p><strong>Code:</strong> C07</p>
+      <p>Handcrafted soy wax candle shaped like a sweet little sheep - symbolizing happiness, peace, and warmth.<br>
+        <em>Scents:</em> Warm, spicy, and citrusy blend that captures the true essence of Christmas cheer.
+      </p>
+      <p class="price">💲<strong>25.00 CAD</strong></p>
+      <div class="color-options">
+        <span class="color-btn color-white" data-color="White" aria-label="White" title="White"></span>
+      </div>
+      <p class="color-warning">
+        Please select a color before pre-ordering.
+      </p>
+      <a href="#" class="order-btn" data-code="C07">Pre-Order Now</a>
+    </div>
+
+    <div class="product">
+      <img src="winter_combo_01.jpg" alt="Winter Combo Candle Set" />
+      <h3>Winter Combo Set</h3>
+      <p><strong>Code:</strong> C10</p>
+      <p>A festive gift set featuring <strong>Christmas Tree</strong>, <strong>Small Christmas Tree</strong>,
+        <strong>Snowflake</strong>, <strong>Winter Relief</strong>, and <strong>Christmas Globe</strong> candles -
+        perfectly curated to fill your home with cozy winter aromas.
+      </p>
+      <p><em>Scents:</em> A harmonious blend of pine, citrus, and spice - capturing the warmth and peace of the season.
+      </p>
+      <p class="price">💲<strong>69.99 CAD</strong></p>
+
+      <div class="color-options">
+        <span class="color-btn color-random" data-color="Random" title="Random (Surprise Color)"></span>
+      </div>
+
+      <p class="color-warning">
+        Please select a color before pre-ordering.
+      </p>
+
+      <a href="#preorder" class="order-btn" data-code="C10">Pre-Order Now</a>
+    </div>
+
+    <div class="product">
+      <img src="christmas_tree_combo_01.jpg" alt="Christmas Tree Combo Set" />
+      <h3>Christmas Tree Combo Set</h3>
+      <p><strong>Code:</strong> C11</p>
+      <p>A delightful duo of <strong>Christmas Tree</strong> and <strong>Small Christmas Tree</strong> candles -
+        handcrafted with pure soy wax and essential oils, perfect for spreading holiday cheer.</p>
+      <p><em>Scents:</em> Holiday Peace - a soothing evergreen aroma that brings the calm and joy of the forest indoors.
+      </p>
+      <p class="price">💲<strong>29.99 CAD</strong></p>
+
+      <div class="color-options">
+        <span class="color-btn color-green" data-color="Green" title="Green"></span>
+        <span class="color-btn color-white" data-color="White" title="White"></span>
+        <span class="color-btn color-random" data-color="Random" title="Random (Surprise Color)"></span>
+      </div>
+
+      <p class="color-warning">
+        Please select a color before pre-ordering.
+      </p>
+
+      <a href="#preorder" class="order-btn" data-code="C11">Pre-Order Now</a>
+    </div>
+
+    <div class="product">
+      <div class="image-gallery">
+        <img src="fruit_soap_01.jpg" alt="Fruit Cluster Soap" class="active">
+        <img src="fruit_soap_02.jpg" alt="Fruit Cluster Soap">
+        <img src="fruit_soap_03.jpg" alt="Fruit Cluster Soap">
+        <img src="fruit_soap_04.jpg" alt="Fruit Cluster Soap">
+        <img src="fruit_soap_05.jpg" alt="Fruit Cluster Soap">
+        <img src="fruit_soap_06.jpg" alt="Fruit Cluster Soap">
+        <img src="fruit_soap_07.jpg" alt="Fruit Cluster Soap">
+        <img src="fruit_soap_08.jpg" alt="Fruit Cluster Soap">
+        <img src="fruit_soap_09.jpg" alt="Fruit Cluster Soap">
+
+        <button class="prev">❮</button>
+        <button class="next">❯</button>
+      </div>
+
+      <h3>Fruit Cluster Soap</h3>
+      <p><strong>Code:</strong> S01</p>
+      <p>Handcrafted soap shaped like a cluster of grapes, made with natural ingredients and essential oils.
+        Available in multiple colors and scents.</p>
+      <em>Scents:</em> Refreshing citrus, lavender calm, and floral blends.<br>
+      <p class="price">💲<strong>29.99 CAD</strong></p>
+
+      <div class="color-options">
+        <span class="color-btn color-green" data-color="Green"></span>
+        <span class="color-btn color-purple" data-color="Purple"></span>
+        <span class="color-btn color-pink" data-color="Pink"></span>
+        <span class="color-btn color-random" data-color="Random"></span>
+      </div>
+
+      <p class="color-warning">Please select a color before pre-ordering.</p>
+      <a href="#preorder" class="order-btn" data-code="S01">Pre-Order Now</a>
+    </div>
+
+
+  </section>
+
+
+
+
+
+
+
+
+  <section class="essential-oils" style="background-color:#f9f7f4; padding:2rem; text-align:center;">
+    <h2 style="color:#b71c1c; font-size:1.8rem;">🌿 Premium Essential Oils We Use</h2>
+    <p style="max-width:700px; margin:auto; font-size:1rem; line-height:1.6; color:#444;">
+      Each candle is infused with <strong>dōTERRA</strong> essential oils, chosen for their purity and aromatic
+      benefits.
+      These natural scents create a cozy and uplifting holiday atmosphere.
+    </p>
+
+    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); gap:1.5rem; margin-top:2rem;">
+
+      <div style="background:#fff; border-radius:12px; box-shadow:0 4px 8px rgba(0,0,0,0.1); padding:1rem;">
+        <img src="siberian_fir.png" alt="Siberian Fir"
+          style="width:100%; border-radius:12px; max-height:240px; object-fit:cover;">
+        <h3 style="color:#2e7d32;">Siberian Fir</h3>
+        <p style="font-size:0.95rem;">Refreshing and grounding scent reminiscent of a peaceful pine forest. Perfect for
+          focus and clarity.</p>
+      </div>
+
+      <div style="background:#fff; border-radius:12px; box-shadow:0 4px 8px rgba(0,0,0,0.1); padding:1rem;">
+        <img src="citrus_bliss.png" alt="Citrus Bliss"
+          style="width:100%; border-radius:12px; max-height:240px; object-fit:cover;">
+        <h3 style="color:#f57c00;">Citrus Bliss</h3>
+        <p style="font-size:0.95rem;">A cheerful citrus blend bringing warmth, happiness, and light to any space.</p>
+      </div>
+
+      <div style="background:#fff; border-radius:12px; box-shadow:0 4px 8px rgba(0,0,0,0.1); padding:1rem;">
+        <img src="wild_orange.png" alt="Wild Orange"
+          style="width:100%; border-radius:12px; max-height:240px; object-fit:cover;">
+        <h3 style="color:#ef6c00;">Wild Orange</h3>
+        <p style="font-size:0.95rem;">Sweet and uplifting aroma that energizes the mind and fills the air with optimism.
+        </p>
+      </div>
+
+      <div style="background:#fff; border-radius:12px; box-shadow:0 4px 8px rgba(0,0,0,0.1); padding:1rem;">
+        <img src="citrus_bloom.png" alt="Citrus Bloom"
+          style="width:100%; border-radius:12px; max-height:240px; object-fit:cover;">
+        <h3 style="color:#ec407a;">Citrus Bloom</h3>
+        <p style="font-size:0.95rem;">A gentle mix of citrus and floral oils symbolizing joy, freshness, and love.</p>
+      </div>
+
+      <div style="background:#fff; border-radius:12px; box-shadow:0 4px 8px rgba(0,0,0,0.1); padding:1rem;">
+        <img src="holiday_joy.png" alt="Holiday Joy"
+          style="width:100%; border-radius:12px; max-height:240px; object-fit:cover;">
+        <h3 style="color:#c62828;">Holiday Joy</h3>
+        <p style="font-size:0.95rem;">Warm, spicy, and citrusy blend that captures the true essence of Christmas cheer.
+        </p>
+      </div>
+
+      <div style="background:#fff; border-radius:12px; box-shadow:0 4px 8px rgba(0,0,0,0.1); padding:1rem;">
+        <img src="holiday_peace.png" alt="Holiday Peace"
+          style="width:100%; border-radius:12px; max-height:240px; object-fit:cover;">
+        <h3 style="color:#2e7d32;">Holiday Peace</h3>
+        <p style="font-size:0.95rem;">A calming evergreen aroma combining pine, fir, and frankincense for a tranquil
+          winter night.</p>
+      </div>
+
+    </div>
+  </section>
 
 
   <section class="event-info">
     <h2>🎄 Visit Us at the Christmas Craft Event!</h2>
     <p>📍 Ottawa<br>
-    📆 <br>
-    ✨ Pre-order now and pick up your gifts during the event!</p>
+      📆 <br>
+      ✨ Pre-order now and pick up your gifts during the event!</p>
   </section>
 
 
-<div id="popupForm" class="popup-overlay">
-  <div class="popup-content">
-    <span class="close-btn">&times;</span>
-    <form action="https://docs.google.com/forms/d/e/1FAIpQLSeRvzG44g21k-MhIXK8pUH-SF84-As4czvtl7mz6dwFZwXRXQ/formResponse" method="POST" target="_blank">
-      <h3>🎁 Pre-Order Form</h3>
+  <div id="popupForm" class="popup-overlay">
+    <div class="popup-content">
+      <span class="close-btn">&times;</span>
+      <form
+        action="https://docs.google.com/forms/d/e/1FAIpQLSeRvzG44g21k-MhIXK8pUH-SF84-As4czvtl7mz6dwFZwXRXQ/formResponse"
+        method="POST" target="_blank">
+        <h3>🎁 Pre-Order Form</h3>
 
-      <label for="name">Name</label>
-      <input type="text" id="name" name="entry.1671186868" required>
+        <label for="name">Name</label>
+        <input type="text" id="name" name="entry.1671186868" required>
 
-      <label for="email">Email</label>
-      <input type="email" id="email" name="entry.1327049730" required>
+        <label for="email">Email</label>
+        <input type="email" id="email" name="entry.1327049730" required>
 
-      <label for="product">Product</label>
-      <select id="product" name="entry.1008259500" required>
-        <option value="Candle">Candle</option>
-        <option value="Soap">Soap</option>
-        <option value="Hand Cream">Hand Cream</option>
-        <option value="Cuticle Oil">Cuticle Oil</option>
-      </select>
+        <label for="product">Product</label>
+        <select id="product" name="entry.1008259500" required>
+          <option value="Candle">Candle</option>
+          <option value="Soap">Soap</option>
+          <option value="Hand Cream">Hand Cream</option>
+          <option value="Cuticle Oil">Cuticle Oil</option>
+        </select>
 
-      <label for="code">Product Code</label>
-      <input type="text" id="code" name="entry.1742998165" placeholder="e.g., C01" required>
-<label for="color">Color</label>
-<input type="text" id="color" name="entry.1126823907" placeholder="e.g., Red, Green, Gold" required>
+        <label for="code">Product Code</label>
+        <input type="text" id="code" name="entry.1742998165" placeholder="e.g., C01" required>
+        <label for="color">Color</label>
+        <input type="text" id="color" name="entry.1126823907" placeholder="e.g., Red, Green, Gold" required>
 
-      <label for="quantity">Quantity</label>
-      <input type="number" id="quantity" name="entry.984960042" min="1" value="1">
+        <label for="quantity">Quantity</label>
+        <input type="number" id="quantity" name="entry.984960042" min="1" value="1">
 
-      <label for="notes">Notes</label>
-      <textarea id="notes" name="entry.2086449595" rows="3" placeholder="e.g., Gift wrapping requested"></textarea>
+        <label for="notes">Notes</label>
+        <textarea id="notes" name="entry.2086449595" rows="3" placeholder="e.g., Gift wrapping requested"></textarea>
 
-      <button type="submit">Submit Pre-Order</button>
-    </form>
-  </div>
-</div>
-
-<section class="workshops" style="background-color:#fff9f6; padding:3rem 1.5rem; text-align:center;">
-  <h2 style="color:#b71c1c; font-size:1.9rem; font-family:'Georgia', serif;">🎨 Handcraft Workshops</h2>
-  <p style="max-width:720px; margin:auto; font-size:1.05rem; color:#444; line-height:1.8;">
-    Join our <strong>small group creative classes</strong> - perfect for birthdays, family gatherings, or team bonding!  
-    Learn to craft your own <strong>candles, soaps, or natural creams</strong> using premium essential oils and eco-friendly ingredients.  
-    All <strong>tools and materials</strong> are provided, and each participant will take home <strong>one finished product</strong> made by themselves.
-  </p>
-
-  <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:1.5rem; max-width:1100px; margin:2rem auto;">
-    <div style="background:white; border-radius:12px; box-shadow:0 4px 10px rgba(0,0,0,0.1); padding:1.5rem;">
-      <!--<img src="workshop_candle.jpg" alt="Candle Making Class" style="width:100%; border-radius:12px; height:200px; object-fit:cover;">-->
-      <h3 style="color:#b71c1c; margin-top:1rem;">Candle Making</h3>
-      <p style="color:#555; font-size:0.95rem;">Create your own soy & essential oil candles in relaxing holiday scents.</p>
-    </div>
-
-    <div style="background:white; border-radius:12px; box-shadow:0 4px 10px rgba(0,0,0,0.1); padding:1.5rem;">
-      <!--<img src="workshop_soap.jpg" alt="Soap Making Class" style="width:100%; border-radius:12px; height:200px; object-fit:cover;">-->
-      <h3 style="color:#b71c1c; margin-top:1rem;">Soap Making</h3>
-      <p style="color:#555; font-size:0.95rem;">Learn the art of botanical soap making with natural oils and gentle fragrances.</p>
-    </div>
-
-    <div style="background:white; border-radius:12px; box-shadow:0 4px 10px rgba(0,0,0,0.1); padding:1.5rem;">
-      <!--<img src="workshop_cream.jpg" alt="Cream Making Class" style="width:100%; border-radius:12px; height:200px; object-fit:cover;">-->
-      <h3 style="color:#b71c1c; margin-top:1rem;">Natural Cream</h3>
-      <p style="color:#555; font-size:0.95rem;">Blend nourishing ingredients and essential oils to make your own soothing hand cream.</p>
+        <button type="submit">Submit Pre-Order</button>
+      </form>
     </div>
   </div>
 
-  <p style="max-width:700px; margin:1.5rem auto; font-size:1rem; color:#333;">
-    <strong>✨ Private Workshops · Min. 8 people</strong><br>
-    Perfect for birthdays, girls’ night, or family gatherings.<br>
-    Pricing starts from <strong>$30-40/person</strong> (depending on class type and materials).  
-  </p>
+  <section class="workshops" style="background-color:#fff9f6; padding:3rem 1.5rem; text-align:center;">
+    <h2 style="color:#b71c1c; font-size:1.9rem; font-family:'Georgia', serif;">🎨 Handcraft Workshops</h2>
+    <p style="max-width:720px; margin:auto; font-size:1.05rem; color:#444; line-height:1.8;">
+      Join our <strong>small group creative classes</strong> - perfect for birthdays, family gatherings, or team
+      bonding!
+      Learn to craft your own <strong>candles, soaps, or natural creams</strong> using premium essential oils and
+      eco-friendly ingredients.
+      All <strong>tools and materials</strong> are provided, and each participant will take home <strong>one finished
+        product</strong> made by themselves.
+    </p>
 
-<a href="#workshopform" class="order-btn" id="openWorkshopForm" style="font-size:1.1rem;">Book a Workshop</a>
+    <div
+      style="display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:1.5rem; max-width:1100px; margin:2rem auto;">
+      <div style="background:white; border-radius:12px; box-shadow:0 4px 10px rgba(0,0,0,0.1); padding:1.5rem;">
+        <!--<img src="workshop_candle.jpg" alt="Candle Making Class" style="width:100%; border-radius:12px; height:200px; object-fit:cover;">-->
+        <h3 style="color:#b71c1c; margin-top:1rem;">Candle Making</h3>
+        <p style="color:#555; font-size:0.95rem;">Create your own soy & essential oil candles in relaxing holiday
+          scents.</p>
+      </div>
 
-</section>
+      <div style="background:white; border-radius:12px; box-shadow:0 4px 10px rgba(0,0,0,0.1); padding:1.5rem;">
+        <!--<img src="workshop_soap.jpg" alt="Soap Making Class" style="width:100%; border-radius:12px; height:200px; object-fit:cover;">-->
+        <h3 style="color:#b71c1c; margin-top:1rem;">Soap Making</h3>
+        <p style="color:#555; font-size:0.95rem;">Learn the art of botanical soap making with natural oils and gentle
+          fragrances.</p>
+      </div>
 
-<section style="text-align:center; padding:2rem; background:#fff9f6;">
-  <h2 style="color:#b71c1c;">📱 Share Our Page</h2>
-  <p style="color:#444;">Scan or share this QR code to visit our website and explore our handcrafted creations.</p>
-  <img src="friend-craft-qr-code-02.png" alt="QR Code to share website" style="width:160px; height:160px; border-radius:12px; margin-top:1rem;">
-</section>
+      <div style="background:white; border-radius:12px; box-shadow:0 4px 10px rgba(0,0,0,0.1); padding:1.5rem;">
+        <!--<img src="workshop_cream.jpg" alt="Cream Making Class" style="width:100%; border-radius:12px; height:200px; object-fit:cover;">-->
+        <h3 style="color:#b71c1c; margin-top:1rem;">Natural Cream</h3>
+        <p style="color:#555; font-size:0.95rem;">Blend nourishing ingredients and essential oils to make your own
+          soothing hand cream.</p>
+      </div>
+    </div>
 
-<section class="our-story">
-<h2>Our Crafting Story</h2>
-<p>With a decade in healthcare and certified aromatherapy training, I’ve always believed scent can heal. Inspired by a glowing display of handmade candles in a window one chilly afternoon, I decided to bring together pure essential oils and handcrafted soy wax.</p>
-<p>Each piece is poured in small batches, in my Ottawa-based workshop, using only premium essential oils and 100% soy wax. I measure each blend for harmony, hand-pour slowly, let it rest to set perfectly, then wrap each candle like a gift.</p>
-<p>From the first drop of oil to the final wrap, each candle is a reflection of care - a small reminder that beauty is found in the time we take.</p>
-</section>
+    <p style="max-width:700px; margin:1.5rem auto; font-size:1rem; color:#333;">
+      <strong>✨ Private Workshops · Min. 8 people</strong><br>
+      Perfect for birthdays, girls’ night, or family gatherings.<br>
+      Pricing starts from <strong>$30-40/person</strong> (depending on class type and materials).
+    </p>
+
+    <a href="#workshopform" class="order-btn" id="openWorkshopForm" style="font-size:1.1rem;">Book a Workshop</a>
+
+  </section>
+
+  <section style="text-align:center; padding:2rem; background:#fff9f6;">
+    <h2 style="color:#b71c1c;">📱 Share Our Page</h2>
+    <p style="color:#444;">Scan or share this QR code to visit our website and explore our handcrafted creations.</p>
+    <img src="friend-craft-qr-code-02.png" alt="QR Code to share website"
+      style="width:160px; height:160px; border-radius:12px; margin-top:1rem;">
+  </section>
+
+  <section class="our-story">
+    <h2>Our Crafting Story</h2>
+    <p>With a decade in healthcare and certified aromatherapy training, I’ve always believed scent can heal. Inspired by
+      a glowing display of handmade candles in a window one chilly afternoon, I decided to bring together pure essential
+      oils and handcrafted soy wax.</p>
+    <p>Each piece is poured in small batches, in my Ottawa-based workshop, using only premium essential oils and 100%
+      soy wax. I measure each blend for harmony, hand-pour slowly, let it rest to set perfectly, then wrap each candle
+      like a gift.</p>
+    <p>From the first drop of oil to the final wrap, each candle is a reflection of care - a small reminder that beauty
+      is found in the time we take.</p>
+  </section>
 
   <footer>
     Made with ❤️ in Ottawa
   </footer>
 
-<div id="popupWorkshop" class="popup-overlay">
-  <div class="popup-content">
-    <span class="close-btn">&times;</span>
-    <form action="https://docs.google.com/forms/d/e/1FAIpQLSf1YVniSYWLx0-BJthnt7ZcJrw8XRBSmBbAa-gGt91Ja6G_0Q/formResponse" method="POST" target="_blank">
-      <h3>🎨 Workshop Booking Form</h3>
+  <div id="popupWorkshop" class="popup-overlay">
+    <div class="popup-content">
+      <span class="close-btn">&times;</span>
+      <form
+        action="https://docs.google.com/forms/d/e/1FAIpQLSf1YVniSYWLx0-BJthnt7ZcJrw8XRBSmBbAa-gGt91Ja6G_0Q/formResponse"
+        method="POST" target="_blank">
+        <h3>🎨 Workshop Booking Form</h3>
 
-      <label for="ws-name">Name</label>
-      <input type="text" id="ws-name" name="entry.421325929" required>
+        <label for="ws-name">Name</label>
+        <input type="text" id="ws-name" name="entry.421325929" required>
 
-      <label for="ws-email">Email</label>
-      <input type="email" id="ws-email" name="entry.287487827" required>
+        <label for="ws-email">Email</label>
+        <input type="email" id="ws-email" name="entry.287487827" required>
 
-      <label for="ws-phone">Phone Number</label>
-      <input type="tel" id="ws-phone" name="entry.704157606" required>
+        <label for="ws-phone">Phone Number</label>
+        <input type="tel" id="ws-phone" name="entry.704157606" required>
 
-      <label for="ws-type">Workshop Type</label>
-      <select id="ws-type" name="entry.1087838752" required>
-        <option value="Candle Making">Candle Making</option>
-        <option value="Soap Making">Soap Making</option>
-        <option value="Natural Cream">Natural Cream</option>
-      </select>
+        <label for="ws-type">Workshop Type</label>
+        <select id="ws-type" name="entry.1087838752" required>
+          <option value="Candle Making">Candle Making</option>
+          <option value="Soap Making">Soap Making</option>
+          <option value="Natural Cream">Natural Cream</option>
+        </select>
 
-      <label for="ws-people">Number of Participants</label>
-      <input type="number" id="ws-people" name="entry.1476396791" min="1" value="8">
+        <label for="ws-people">Number of Participants</label>
+        <input type="number" id="ws-people" name="entry.1476396791" min="1" value="8">
 
-      <label for="ws-date">Preferred Date</label>
-      <input type="text" id="ws-date" name="entry.531363139" placeholder="e.g., Dec 15 or weekend" required>
+        <label for="ws-date">Preferred Date</label>
+        <input type="text" id="ws-date" name="entry.531363139" placeholder="e.g., Dec 15 or weekend" required>
 
-      <label for="ws-notes">Notes</label>
-      <textarea id="ws-notes" name="entry.1784056829" rows="3" placeholder="e.g., birthday, team event, or special requests"></textarea>
+        <label for="ws-notes">Notes</label>
+        <textarea id="ws-notes" name="entry.1784056829" rows="3"
+          placeholder="e.g., birthday, team event, or special requests"></textarea>
 
-      <button type="submit">Submit Booking</button>
-    </form>
+        <button type="submit">Submit Booking</button>
+      </form>
+    </div>
   </div>
-</div>
 
 
 
-<script>
-// === Workshop Popup ===
-document.getElementById('openWorkshopForm').addEventListener('click', e => {
-  e.preventDefault();
-  document.getElementById('popupWorkshop').style.display = 'flex';
-});
+  <script>
+    // === Workshop Popup ===
+    document.getElementById('openWorkshopForm').addEventListener('click', e => {
+      e.preventDefault();
+      document.getElementById('popupWorkshop').style.display = 'flex';
+    });
 
-document.querySelector('#popupWorkshop .close-btn').addEventListener('click', () => {
-  document.getElementById('popupWorkshop').style.display = 'none';
-});
+    document.querySelector('#popupWorkshop .close-btn').addEventListener('click', () => {
+      document.getElementById('popupWorkshop').style.display = 'none';
+    });
 
-document.getElementById('popupWorkshop').addEventListener('click', e => {
-  if (e.target === e.currentTarget) {
-    e.currentTarget.style.display = 'none';
-  }
-});
-
-
-document.querySelectorAll('.image-gallery').forEach(gallery => {
-  const images = gallery.querySelectorAll('img');
-  let index = 0;
-
-  gallery.querySelector('.next').addEventListener('click', () => {
-    images[index].classList.remove('active');
-    index = (index + 1) % images.length;
-    images[index].classList.add('active');
-  });
-
-  gallery.querySelector('.prev').addEventListener('click', () => {
-    images[index].classList.remove('active');
-    index = (index - 1 + images.length) % images.length;
-    images[index].classList.add('active');
-  });
-});
+    document.getElementById('popupWorkshop').addEventListener('click', e => {
+      if (e.target === e.currentTarget) {
+        e.currentTarget.style.display = 'none';
+      }
+    });
 
 
-document.querySelectorAll('.color-btn').forEach(btn => {
-  btn.addEventListener('click', e => {
-    const parent = e.target.closest('.color-options');
-    parent.querySelectorAll('.color-btn').forEach(b => b.classList.remove('selected'));
-    e.target.classList.add('selected');
-  });
-});
-document.querySelectorAll('.order-btn').forEach(button => {
-  button.addEventListener('click', function(event) {
-    event.preventDefault();
-    const product = this.closest('.product');
-      const productCode = this.getAttribute('data-code');
+    document.querySelectorAll('.image-gallery').forEach(gallery => {
+      const images = gallery.querySelectorAll('img');
+      let index = 0;
 
-    const selectedColorBtn = product.querySelector('.color-btn.selected');
-    const warning = product.querySelector('.color-warning');
+      gallery.querySelector('.next').addEventListener('click', () => {
+        images[index].classList.remove('active');
+        index = (index + 1) % images.length;
+        images[index].classList.add('active');
+      });
 
-
-    if (!selectedColorBtn) {
-      warning.classList.add('active');
-      return;
-    }
+      gallery.querySelector('.prev').addEventListener('click', () => {
+        images[index].classList.remove('active');
+        index = (index - 1 + images.length) % images.length;
+        images[index].classList.add('active');
+      });
+    });
 
 
-    warning.classList.remove('active');
-    const selectedColor = selectedColorBtn.dataset.color;
+    document.querySelectorAll('.color-btn').forEach(btn => {
+      btn.addEventListener('click', e => {
+        const parent = e.target.closest('.color-options');
+        parent.querySelectorAll('.color-btn').forEach(b => b.classList.remove('selected'));
+        e.target.classList.add('selected');
+      });
+    });
+    document.querySelectorAll('.order-btn').forEach(button => {
+      button.addEventListener('click', function (event) {
+        event.preventDefault();
+        const product = this.closest('.product');
+        const productCode = this.getAttribute('data-code');
 
-    document.getElementById('popupForm').style.display = 'flex';
-    document.getElementById('code').value = productCode;
-    document.getElementById('color').value = selectedColor;
-  });
-});
+        const selectedColorBtn = product.querySelector('.color-btn.selected');
+        const warning = product.querySelector('.color-warning');
+
+
+        if (!selectedColorBtn) {
+          warning.classList.add('active');
+          return;
+        }
+
+
+        warning.classList.remove('active');
+        const selectedColor = selectedColorBtn.dataset.color;
+
+        document.getElementById('popupForm').style.display = 'flex';
+        document.getElementById('code').value = productCode;
+        document.getElementById('color').value = selectedColor;
+      });
+    });
 
 
 
-  document.querySelector('.close-btn').addEventListener('click', function() {
-    document.getElementById('popupForm').style.display = 'none';
-  });
+    document.querySelector('.close-btn').addEventListener('click', function () {
+      document.getElementById('popupForm').style.display = 'none';
+    });
 
 
-  document.getElementById('popupForm').addEventListener('click', function(e) {
-    if (e.target === this) {
-      this.style.display = 'none';
-    }
-  });
-</script>
+    document.getElementById('popupForm').addEventListener('click', function (e) {
+      if (e.target === this) {
+        this.style.display = 'none';
+      }
+    });
+  </script>
 
-<!-- Google tag (GA4) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-T26EHT11T4');
-</script>
+  <!-- Google tag (GA4) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-T26EHT11T4');
+  </script>
 
 
 </body>
+
 </html>
