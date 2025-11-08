@@ -205,6 +205,10 @@ margin-bottom: 1rem;
 .color-btn.selected {
   border: 3px solid #444;
 }
+.color-greenwhite {
+  background: linear-gradient(90deg, #2e7d32 50%, #ffffff 50%);
+  border: 1px solid #ccc;
+}
 .color-purple { background-color: #7b1fa2; }
 .color-red { background-color: #c62828; }
 .color-white { background-color: #fff; border: 1px solid #ccc; }
@@ -213,7 +217,16 @@ margin-bottom: 1rem;
 .order-btn:hover {
   background-color: #e53935;
 }
-
+.color-random {
+  background: repeating-linear-gradient(
+    45deg,
+    #ccc,
+    #eee 5px,
+    #ddd 10px,
+    #ccc 15px
+  );
+  border: 1px solid #aaa;
+}
 
 .popup-overlay {
   display: none;
@@ -265,16 +278,18 @@ margin-bottom: 1rem;
 </header>
 
 <section class="products">
+
   <div class="product">
-    <img src="christmastree_candle_01.jpg" alt="Christmas Tree Candle" />
-    <h3>Christmas Tree Candle</h3>
-    <p><strong>Code:</strong> C01</p>
+    <img src="small_christmastree_candle_01.jpg" alt="Small Christmas Tree Candle" />
+    <h3>Small Christmas Tree Candle</h3>
+    <p><strong>Code:</strong> C00</p>
     <p>Natural soy wax candle with essential oils, shaped like a festive tree.<br>
-    <em>Scents:</em> Pine, Mint, Orange Clove.</p>
-    <p class="price">💲<strong>28.00 CAD</strong></p>
+    <em>Scents:</em> pine, fir, and frankincense.</p>
+    <p class="price">💲<strong>14.99 CAD</strong></p>
 <div class="color-options">
   <span class="color-btn color-green" data-color="Green" aria-label="Green" title="Green"></span>
-  <span class="color-btn color-purple" data-color="Purple" aria-label="Purple" title="Purple"></span>
+  <span class="color-btn color-greenwhite" data-color="Green White" aria-label="Green White" title="Green White"></span>
+  <span class="color-btn color-white" data-color="White" aria-label="White" title="White"></span>
 
 </div>
 <p class="color-warning">
@@ -284,11 +299,41 @@ margin-bottom: 1rem;
   </div>
 
   <div class="product">
+    <img src="christmastree_candle_01.jpg" alt="Christmas Tree Candle" />
+    <h3>Christmas Tree Candle</h3>
+    <p><strong>Code:</strong> C01</p>
+    <p>Natural soy wax candle with essential oils, shaped like a festive tree.<br>
+    <em>Scents:</em> pine, fir, and frankincense.</p>
+    <p class="price">💲<strong>19.99 CAD</strong></p>
+<div class="color-options">
+  <span class="color-btn color-green" data-color="Green" aria-label="Green" title="Green"></span>
+  <span class="color-btn color-greenwhite" data-color="Green White" aria-label="Green White" title="Green White"></span>
+  <span class="color-btn color-white" data-color="White" aria-label="White" title="White"></span>
+
+</div>
+<p class="color-warning">
+  Please select a color before pre-ordering.
+</p>
+    <a href="#preorder" class="order-btn" data-code="C01">Pre-Order Now</a>
+  </div>
+
+
+
+
+
+  <div class="product">
     <img src="bubble_candle_01.jpg" alt="Bubble Candle" />
     <h3>Bubble Candle</h3>
     <p><strong>Code:</strong> C02</p>
-    <p>Pastel-toned soy candle with a cute bubble shape - perfect as a holiday gift.</p>
-    <p class="price">💲<strong>22.00 CAD</strong></p>
+    <p>Pastel-toned soy candle with a cute bubble shape and essential oils - perfect as a holiday gift.</p>
+    <em>Scents:</em> A gentle mix of citrus and floral oils symbolizing joy, freshness, and love.</p>
+    <p class="price">💲<strong>25.00 CAD</strong></p>
+  <div class="color-options">
+    <span class="color-btn color-random" data-color="Random" title="Random (Surprise Color)"></span>
+  </div>
+<p class="color-warning">
+  Please select a color before pre-ordering.
+</p>
     <a href="#preorder" class="order-btn" data-code="C02">Pre-Order Now</a>
   </div>
 
@@ -296,26 +341,53 @@ margin-bottom: 1rem;
     <img src="reindeer_stars_candle_01.jpg" alt="Winter Relief Candle" />
     <h3>Winter Relief Candle</h3>
     <p><strong>Code:</strong> C03</p>
-    <p>Decorated with delicate reindeer and stars, offering a cozy and soothing aroma for winter nights.</p>
-    <p class="price">💲<strong>26.00 CAD</strong></p>
+    <p>Natural soy wax candle with essential oils, decorated with delicate reindeer and stars, offering a cozy and soothing aroma for winter nights.</p>
+    <em>Scents:</em> Warm, spicy, and citrusy blend that captures the true essence of Christmas cheer.</p>
+    <p class="price">💲<strong>25.00 CAD</strong></p>
+  <div class="color-options">
+    <span class="color-btn color-random" data-color="Random" title="Random (Surprise Color)"></span>
+  </div>
+<p class="color-warning">
+  Please select a color before pre-ordering.
+</p>
     <a href="#preorder" class="order-btn" data-code="C03">Pre-Order Now</a>
   </div>
+
+
+
+
 
   <div class="product">
     <img src="snowflake_candle_01.jpg" alt="Snowflake Candle" />
     <h3>Snowflake Candle</h3>
     <p><strong>Code:</strong> C04</p>
     <p>Handcrafted snowflake design infused with citrus and spice essential oils.</p>
-    <p class="price">💲<strong>25.00 CAD</strong></p>
+    <em>Scents:</em> Warm, spicy, and citrusy blend that captures the true essence of Christmas cheer.</p>
+    <p class="price">💲<strong>19.99 CAD</strong></p>
+  <div class="color-options">
+    <span class="color-btn color-random" data-color="Random" title="Random (Surprise Color)"></span>
+  </div>
+<p class="color-warning">
+  Please select a color before pre-ordering.
+</p>
     <a href="#preorder" class="order-btn" data-code="C04">Pre-Order Now</a>
   </div>
 
+
+
+
   <div class="product">
-    <img src="rose_candle_01.jpg" alt="Rose Candle" />
-    <h3>Rose Candle</h3>
+    <img src="rose_candle_01.jpg" alt="Flower Candle" />
+    <h3>Flower Candle</h3>
     <p><strong>Code:</strong> C05</p>
-    <p>Bright floral-shaped candle with a natural rose scent, symbolizing love and warmth.</p>
-    <p class="price">💲<strong>24.00 CAD</strong></p>
+    <p>Natural soy wax candle with essential oils, bright floral-shaped candle with a natural flower scent, symbolizing love and warmth.</p>
+    <p class="price">💲<strong>19.99 CAD</strong></p>
+  <div class="color-options">
+    <span class="color-btn color-random" data-color="Random" title="Random (Surprise Color)"></span>
+  </div>
+<p class="color-warning">
+  Please select a color before pre-ordering.
+</p>
     <a href="#preorder" class="order-btn" data-code="C05">Pre-Order Now</a>
   </div>
 
@@ -323,8 +395,15 @@ margin-bottom: 1rem;
     <img src="christmas_globe_candle_01.jpg" alt="Christmas Globe Candle" />
     <h3>Christmas Globe Candle</h3>
     <p><strong>Code:</strong> C06</p>
-    <p>Round candle carved with stars and deer - a joyful addition to any holiday setting.</p>
-    <p class="price">💲<strong>30.00 CAD</strong></p>
+    <p>Natural soy wax candle with essential oils, round candle carved with stars and deer - a joyful addition to any holiday setting.</p>
+
+    <p class="price">💲<strong>14.99 CAD</strong></p>
+  <div class="color-options">
+    <span class="color-btn color-random" data-color="Random" title="Random (Surprise Color)"></span>
+  </div>
+<p class="color-warning">
+  Please select a color before pre-ordering.
+</p>
     <a href="#preorder" class="order-btn" data-code="C06">Pre-Order Now</a>
   </div>
 
@@ -333,18 +412,60 @@ margin-bottom: 1rem;
   <h3>Happy Sheep Candle</h3>
   <p><strong>Code:</strong> C07</p>
   <p>Handcrafted soy wax candle shaped like a sweet little sheep - symbolizing happiness, peace, and warmth.<br>
-  <em>Scents:</em> Vanilla Cream · Lavender · Citrus Bloom.</p>
-  <p class="price">💲<strong>26.00 CAD</strong></p>
+<em>Scents:</em> Warm, spicy, and citrusy blend that captures the true essence of Christmas cheer.</p>
+  <p class="price">💲<strong>25.00 CAD</strong></p>
+  <div class="color-options">
+  <span class="color-btn color-white" data-color="White" aria-label="White" title="White"></span>
+  </div>
+<p class="color-warning">
+  Please select a color before pre-ordering.
+</p>
   <a href="#" class="order-btn" data-code="C07">Pre-Order Now</a>
 </div>
 
 <div class="product">
-  <img src="more.jpg" alt="Collection" />
-  <h3>Candle Collection</h3>
-  <p><strong>Code:</strong> C99</p>
-  <p></p>
-  <p class="price"><strong></strong></p>
+  <img src="winter_combo_01.jpg" alt="Winter Combo Candle Set" />
+  <h3>Winter Combo Set</h3>
+  <p><strong>Code:</strong> C10</p>
+  <p>A festive gift set featuring <strong>Christmas Tree</strong>, <strong>Small Christmas Tree</strong>, 
+     <strong>Snowflake</strong>, <strong>Winter Relief</strong>, and <strong>Christmas Globe</strong> candles — 
+     perfectly curated to fill your home with cozy winter aromas.</p>
+  <p><em>Scents:</em> A harmonious blend of pine, citrus, and spice — capturing the warmth and peace of the season.</p>
+  <p class="price">💲<strong>69.99 CAD</strong></p>
+  
+  <div class="color-options">
+    <span class="color-btn color-random" data-color="Random" title="Random (Surprise Color)"></span>
+  </div>
+  
+  <p class="color-warning">
+    Please select a color before pre-ordering.
+  </p>
+  
+  <a href="#preorder" class="order-btn" data-code="C10">Pre-Order Now</a>
 </div>
+
+<div class="product">
+  <img src="christmas_tree_combo_01.jpg" alt="Christmas Tree Combo Set" />
+  <h3>Christmas Tree Combo Set</h3>
+  <p><strong>Code:</strong> C11</p>
+  <p>A delightful duo of <strong>Christmas Tree</strong> and <strong>Small Christmas Tree</strong> candles — 
+     handcrafted with pure soy wax and essential oils, perfect for spreading holiday cheer.</p>
+  <p><em>Scents:</em> Holiday Peace — a soothing evergreen aroma that brings the calm and joy of the forest indoors.</p>
+  <p class="price">💲<strong>29.99 CAD</strong></p>
+
+  <div class="color-options">
+    <span class="color-btn color-green" data-color="Green" title="Green"></span>
+    <span class="color-btn color-white" data-color="White" title="White"></span>
+    <span class="color-btn color-random" data-color="Random" title="Random (Surprise Color)"></span>
+  </div>
+
+  <p class="color-warning">
+    Please select a color before pre-ordering.
+  </p>
+
+  <a href="#preorder" class="order-btn" data-code="C11">Pre-Order Now</a>
+</div>
+
 
 </section>
 
