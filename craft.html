@@ -442,7 +442,7 @@
 
 <body>
   <header>
-    <!--<img src="complogo.png" alt="Candle Logo" style="height:120px; width:auto; margin-right:12px;"> -->
+    <img src="comlogo.png" alt="Candle Logo" style="height:120px; width:auto; margin-right:12px;">
     <h1>Handcrafted Christmas Gifts</h1>
     <p>
       Natural Soy <span class="gold-text">& Essential Oil Candles</span> · Botanical Soaps · Hand Creams · Cuticle Oils
@@ -874,7 +874,21 @@
     </div>
   </div>
 
-  <section class="workshops" style="background-color:#fff9f6; padding:3rem 1.5rem; text-align:center;">
+<section class="workshops" style="
+  position: relative;
+  background: url('candle_process_bg.png') center/cover no-repeat fixed;
+  padding: 4rem 1rem;
+  color: #333;
+">
+
+  <div style="
+    position: absolute;
+    inset: 0;
+    background: rgba(255,255,255,0.75);
+    backdrop-filter: blur(2px) brightness(0.8) saturate(0.6);
+    z-index: 0;
+  "></div>
+  <div style="position: relative; z-index: 1; max-width: 1000px; margin: auto; text-align: center;">
     <h2 style="color:#b71c1c; font-size:1.9rem; font-family:'Georgia', serif;">🎨 Handcraft Workshops</h2>
     <p style="max-width:720px; margin:auto; font-size:1.05rem; color:#444; line-height:1.8;">
       Join our <strong>small group creative classes</strong> - perfect for birthdays, family gatherings, or team
@@ -916,7 +930,7 @@
     </p>
 
     <a href="#workshopform" class="order-btn" id="openWorkshopForm" style="font-size:1.1rem;">Book a Workshop</a>
-
+</div>
   </section>
 
 <section class="workshop-story" style="
