@@ -74,7 +74,27 @@
         column-count: 1;
       }
     }
+ .essential-oils-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    margin-top: 2rem;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+  }
 
+  @media (max-width: 1024px) {
+    .essential-oils-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 600px) {
+    .essential-oils-grid {
+      grid-template-columns: 1fr;
+    }
+  }
     .product {
       display: inline-block;
       width: 100%;
@@ -422,7 +442,7 @@
 
 <body>
   <header>
-    <img src="clogo.png" alt="Candle Logo" style="height:80px; width:auto; margin-right:12px;">
+    <img src="complogo.png" alt="Candle Logo" style="height:120px; width:auto; margin-right:12px;">
     <h1>Handcrafted Christmas Gifts</h1>
     <p>
       Natural Soy <span class="gold-text">& Essential Oil Candles</span> · Botanical Soaps · Hand Creams · Cuticle Oils
@@ -433,8 +453,8 @@
 
     <div class="product">
        <div class="image-gallery">
-      <img src="small_christmastree_candle_01.jpg" alt="Small Christmas Tree Candle" class="active"/>
-      <img src="small_christmastree_candle_00.jpg" alt="Small Christmas Tree Candle" 
+      <img src="small_christmastree_candle_00.jpg" alt="Small Christmas Tree Candle" class="active"/>
+      <img src="small_christmastree_candle_01.jpg" alt="Small Christmas Tree Candle" 
         <button class="prev">❮</button>
         <button class="next">❯</button>
       </div>
@@ -737,13 +757,9 @@
       These natural scents create a cozy and uplifting holiday atmosphere.
     </p>
 
-    <div  style="display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1.5rem;
-  margin-top: 2rem;
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;">
+
+
+  <div class="essential-oils-grid">
 
       <div style="background:#fff; border-radius:12px; box-shadow:0 4px 8px rgba(0,0,0,0.1); padding:1rem;">
         <img src="lavender.png" alt="Lavender Essential Oil"
