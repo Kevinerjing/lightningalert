@@ -156,6 +156,8 @@
   <b>Pass:</b> Tap the puck carrier, then tap a teammate.<br>
   <b>Shoot:</b> Tap puck carrier, then tap the blue goal crease.
 </div>
+<div id="hint">...</div>
+<button id="autoPlayBtn">Run F1 → F2 → F3</button>
 
 <div id="rink">
   <!-- Goal crease -->
@@ -379,6 +381,34 @@
   });
 
   initPositions();
+
+// =============================
+// AUTO PLAY: F1 → F2 → F3
+// =============================
+document.getElementById("autoPlayBtn").addEventListener("click", () => {
+  // Step 1 — pass from F1 → F2
+  selectedFrom = F1;
+  currentHolder = F1;
+  syncPuck(true);
+
+  setTimeout(() => {
+    passPuckTo(F2);
+  }, 400);
+
+  // Step 2 — pass F2 → F3
+  setTimeout(() => {
+    selectedFrom = F2;
+    currentHolder = F2;
+    syncPuck(true);
+    passPuckTo(F3);
+  }, 900);
+
+  // Step 3 — cleanup
+  setTimeout(() => {
+    selectedFrom = null;
+  }, 1400);
+});
+
 </script>
 
 </body>
