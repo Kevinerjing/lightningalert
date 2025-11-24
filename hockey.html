@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>自由冰球战术板（可传球+射门）</title>
+<style>
+  body {
+    background: #e9f4ff;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20px;
+  }
+
+  #hint {
+    margin-bottom: 10px;
+    font-size: 14px;
+  }
+
+  #rink {
+    width: 420px;
+    height: 260px;
+    background: #ffffff;
+    border: 4px solid #007bff;   /* 外框板墙，蓝色 */
+    border-radius: 22px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* 顶部门前区：蓝色半圆，贴在上边板 */
+  #crease {
+    position: absolute;
+    top: 4px;
+    left: 170px;
+    width: 80px;
+    height: 50px;
+    background: rgba(0,150,255,0.25);
+    border-radius: 40px 40px 0 0;
+    border: 2px solid #007bff;
+    border-bottom: none;
+    cursor: crosshair;     /* 提示这里可点（射门） */
+  }
+
+  /* 两个红色争球圈 */
+  .faceoff-circle {
+    position: absolute;
+    width: 70px;
+    height: 70px;
+    border: 2px solid #d40000;
+    border-radius: 50%;
+  }
+  #leftCircle  { top: 95px; left: 65px; }
+  #rightCircle { top: 95px; right: 65px; }
+
+  .faceoff-dot {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: #d40000;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .hash {
+    position: absolute;
+    width: 14px;
+    height: 2px;
+    background: #d40000;
+  }
+  .hash-left-top  { top: 28%; left: -8px; }
+  .hash-left-bot  { top: 72%; left: -8px; }
+  .hash-right-top { top: 28%; right: -8px; }
+  .hash-right-bot { top: 72%; right: -8px; }
+
+  /* 攻区蓝线 */
+  #blueLine {
+    position: absolute;
+    bottom: 60px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: #007bff;
+  }
+
+  .player {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    position: absolute;
+    font-size: 11px;
+    font-weight: bold;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: grab;
+    text-shadow: 0 0 2px black;
+    transition: left 0.4s linear, top 0.4s linear;
+  }
+  #F1, #F2, #F3 { background:#007bff; }   /* 3 个前锋：蓝色 */
+  #D1, #D2      { background:#cc0000; }   /* 2 个后卫：红色 */
+
+  #G {
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background:#555;
+    color:#fff;
+    position:absolute;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-shadow:0 0 2px black;
+    transition:left 0.4s linear, top 0.4s linear;
+  }
+
+  #puck {
+    width:8px;
+    height:8px;
+    background:#000;
+    border-radius:50%;
+    position:absolute;
+    transition:left 0.3s linear, top 0.3s linear;
+  }
+
+  /* 正在“准备传球/射门”的球员高亮 */
+  .selected {
+    box-shadow: 0 0 0 3px yellow;
+  }
+
+  /* 进球提示文字 */
+  #goalText {
+    position: absolute;
+    top: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 20px;
+    font-weight: bold;
+    color: #007bff;
+    text-shadow: 0 0 4px #ffffff;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+</style>
+</head>
+<body>
+
+<div id="hint">
+Drag the players to the positions you want. The current puck carrier is the blue F1.<br>
+<b>Passing:</b> Click the puck carrier first, then click a teammate without the puck.<br>
+<b>Shooting:</b> Click the puck carrier, then click the blue goal crease at the top. <br>The puck will be shot at the net and “GOAL!” will appear if it goes in.
+</div>
+
+<div id="rink">
+  <!-- 场地：门前区 + 两个争球圈 + 蓝线 -->
+  <div id="crease"></div>
+
+  <div class="faceoff-circle" id="leftCircle">
+    <div class="faceoff-dot"></div>
+    <div class="hash hash-left-top"></div>
+    <div class="hash hash-left-bot"></div>
+    <div class="hash hash-right-top"></div>
+    <div class="hash hash-right-bot"></div>
+  </div>
+
+  <div class="faceoff-circle" id="rightCircle">
+    <div class="faceoff-dot"></div>
+    <div class="hash hash-left-top"></div>
+    <div class="hash hash-left-bot"></div>
+    <div class="hash hash-right-top"></div>
+    <div class="hash hash-right-bot"></div>
+  </div>
+
+  <div id="blueLine"></div>
+
+  <!-- 球员 -->
+  <div class="player" id="F1">F1</div>
+  <div class="player" id="F2">F2</div>
+  <div class="player" id="F3">F3</div>
+  <div class="player" id="D1">D1</div>
+  <div class="player" id="D2">D2</div>
+  <div id="G">G</div>
+
+  <!-- 冰球 & 进球文字 -->
+  <div id="puck"></div>
+  <div id="goalText">GOAL!</div>
+</div>
+
+<script>
+  const rink   = document.getElementById('rink');
+  const crease = document.getElementById('crease');
+  const F1     = document.getElementById('F1');
+  const F2     = document.getElementById('F2');
+  const F3     = document.getElementById('F3');
+  const D1     = document.getElementById('D1');
+  const D2     = document.getElementById('D2');
+  const G      = document.getElementById('G');
+  const puck   = document.getElementById('puck');
+  const goalText = document.getElementById('goalText');
+
+  const players = [F1, F2, F3, D1, D2, G];
+
+  function setPos(el, x, y) {
+    el.style.left = x + 'px';
+    el.style.top  = y + 'px';
+  }
+
+  // 当前持球队员 / 选中的“准备传球或射门”的球员
+  let currentHolder = F1;
+  let selectedFrom  = null;
+
+  // 拖拽相关
+  let dragging = null;
+  let dragMoved = false;
+  let offsetX = 0, offsetY = 0;
+
+  function setInitialPositions() {
+    // 大致仿真一个进攻站位
+    setPos(G, 197, 18);      // 门前
+    setPos(D1, 215, 70);
+    setPos(D2, 175, 70);
+
+    setPos(F1, 260, 190);    // F1 持球
+    setPos(F2, 220, 160);
+    setPos(F3, 300, 160);
+
+    currentHolder = F1;
+    syncPuckWithHolder(true);
+  }
+
+  function getCenter(el) {
+    const x = parseInt(el.style.left) || 0;
+    const y = parseInt(el.style.top)  || 0;
+    const w = el.offsetWidth;
+    const h = el.offsetHeight;
+    return { cx: x + w/2, cy: y + h/2 };
+  }
+
+  function syncPuckWithHolder(noTransition) {
+    if (!currentHolder) return;
+    const { cx, cy } = getCenter(currentHolder);
+    if (noTransition) {
+      const old = puck.style.transition;
+      puck.style.transition = 'none';
+      setPos(puck, cx - puck.offsetWidth/2, cy - puck.offsetHeight/2);
+      requestAnimationFrame(() => {
+        puck.style.transition = old || 'left 0.3s linear, top 0.3s linear';
+      });
+    } else {
+      setPos(puck, cx - puck.offsetWidth/2, cy - puck.offsetHeight/2);
+    }
+  }
+
+  // 拖拽任意球员
+  players.forEach(p => {
+    p.addEventListener('mousedown', e => {
+      dragging = p;
+      dragMoved = false;
+      dragging.style.transition = 'none';
+      if (dragging === currentHolder) {
+        puck.style.transition = 'none';
+      }
+      offsetX = e.offsetX;
+      offsetY = e.offsetY;
+      dragging.style.cursor = 'grabbing';
+    });
+  });
+
+  document.addEventListener('mousemove', e => {
+    if (!dragging) return;
+    dragMoved = true;
+    const rect = rink.getBoundingClientRect();
+    let x = e.clientX - rect.left - offsetX;
+    let y = e.clientY - rect.top  - offsetY;
+
+    x = Math.max(0, Math.min(rect.width  - dragging.offsetWidth,  x));
+    y = Math.max(0, Math.min(rect.height - dragging.offsetHeight, y));
+
+    setPos(dragging, x, y);
+
+    if (dragging === currentHolder) {
+      syncPuckWithHolder(true);
+    }
+  });
+
+  document.addEventListener('mouseup', () => {
+    if (dragging) {
+      dragging.style.transition = 'left 0.4s linear, top 0.4s linear';
+      dragging.style.cursor = 'grab';
+      puck.style.transition   = 'left 0.3s linear, top 0.3s linear';
+    }
+    dragging = null;
+    dragMoved = false;
+  });
+
+  // 点击球员：传球
+  players.forEach(p => {
+    p.addEventListener('click', e => {
+      if (dragMoved) {   // 刚拖完不算点击
+        dragMoved = false;
+        return;
+      }
+      const clicked = e.currentTarget;
+
+      if (!selectedFrom) {
+        // 只有当前持球队员才能进入“准备传球/射门”
+        if (clicked === currentHolder) {
+          selectedFrom = clicked;
+          selectedFrom.classList.add('selected');
+        }
+        return;
+      }
+
+      // 再次点自己 -> 取消
+      if (clicked === selectedFrom) {
+        selectedFrom.classList.remove('selected');
+        selectedFrom = null;
+        return;
+      }
+
+      // 传球：from -> clicked
+      passPuckTo(clicked);
+      selectedFrom.classList.remove('selected');
+      selectedFrom = null;
+    });
+  });
+
+  function passPuckTo(target) {
+    currentHolder = target;
+    syncPuckWithHolder(false);
+  }
+
+  // 点击门前蓝色半圆：射门
+  crease.addEventListener('click', () => {
+    if (!selectedFrom) return;       // 必须先选持球队员
+    shootFrom(selectedFrom);
+    selectedFrom.classList.remove('selected');
+    selectedFrom = null;
+  });
+
+  function shootFrom(shooter) {
+    // 冰球从 shooter 飞到门前区中心
+    const rinkRect   = rink.getBoundingClientRect();
+    const creaseRect = crease.getBoundingClientRect();
+    const gx = creaseRect.left - rinkRect.left + creaseRect.width / 2;
+    const gy = creaseRect.top  - rinkRect.top  + creaseRect.height / 2;
+
+    setPos(puck, gx - puck.offsetWidth/2, gy - puck.offsetHeight/2);
+
+    // 显示 GOAL!
+    goalText.style.opacity = 1;
+    setTimeout(() => {
+      goalText.style.opacity = 0;
+    }, 800);
+
+    // 我们让 shooter 仍然算“持球队员”，方便你拖着他和球一起走
+    currentHolder = shooter;
+  }
+
+  // 初始化
+  setInitialPositions();
+</script>
+
+</body>
+</html>
