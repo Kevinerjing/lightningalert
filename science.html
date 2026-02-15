@@ -1,0 +1,1261 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Grade 9 Science Writing Trainer</title>
+  <style>
+    :root{
+      --bg:#0b1020;
+      --panel:#111833;
+      --panel2:#0f1730;
+      --text:#e9ecf5;
+      --muted:#aab2cf;
+      --line:#22305e;
+      --accent:#7aa2ff;
+      --good:#5fe3a1;
+      --bad:#ff6b7a;
+      --warn:#ffd36b;
+      --shadow: 0 12px 28px rgba(0,0,0,.35);
+      --radius: 16px;
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: var(--sans);
+      background: radial-gradient(1200px 700px at 20% 0%, #1a2560 0%, var(--bg) 60%);
+      color:var(--text);
+      min-height:100vh;
+    }
+    header{
+      padding:18px 18px 0 18px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .topbar{
+      display:flex; gap:12px; align-items:center; justify-content:space-between;
+      padding:14px 16px;
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+      border:1px solid rgba(255,255,255,.08);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      flex-wrap:wrap;
+    }
+    .title{display:flex; flex-direction:column; gap:2px; min-width:260px}
+    .title h1{margin:0; font-size:18px; letter-spacing:.2px}
+    .title p{margin:0; color:var(--muted); font-size:13px; line-height:1.35}
+    .controls{display:flex; gap:8px; align-items:center; flex-wrap:wrap}
+    button, select, input, textarea{
+      font-family:inherit;
+      color:var(--text);
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 12px;
+      padding:10px 12px;
+      outline:none;
+    }
+    button{cursor:pointer; transition:.15s transform ease, .15s background ease; user-select:none; font-weight:700}
+    button:hover{transform: translateY(-1px); background: rgba(255,255,255,.10)}
+    button:active{transform: translateY(0px)}
+    .pill{
+      font-size:12px;
+      padding:8px 10px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.14);
+      color:var(--muted);
+      background: rgba(255,255,255,.05);
+    }
+    main{
+      max-width:1200px;
+      margin: 14px auto 40px;
+      padding: 0 18px;
+      display:grid;
+      grid-template-columns: 320px 1fr;
+      gap: 14px;
+    }
+    @media (max-width: 980px){
+      main{grid-template-columns: 1fr;}
+    }
+    .card{
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+      border:1px solid rgba(255,255,255,.08);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+    }
+    .card .hd{
+      padding: 14px 14px 10px;
+      border-bottom:1px solid rgba(255,255,255,.08);
+      display:flex; align-items:center; justify-content:space-between; gap:10px;
+    }
+    .card .hd h2{margin:0; font-size:14px; color: var(--muted); font-weight:800; letter-spacing:.3px; text-transform:uppercase}
+    .card .bd{padding: 14px;}
+    .list{display:flex; flex-direction:column; gap:8px; max-height: 72vh; overflow:auto; padding-right:6px;}
+    .item{
+      padding: 10px 10px;
+      border-radius: 12px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(15,23,48,.55);
+      cursor:pointer;
+      transition:.12s background ease, .12s transform ease;
+    }
+    .item:hover{transform: translateY(-1px); background: rgba(15,23,48,.72)}
+    .item.active{border-color: rgba(122,162,255,.7); box-shadow: 0 0 0 2px rgba(122,162,255,.18) inset}
+    .item .k{font-weight:900; font-size:13px}
+    .item .m{color:var(--muted); font-size:12px; margin-top:2px; line-height:1.35}
+    .box{
+      padding: 12px 12px;
+      background: rgba(15,23,48,.55);
+      border: 1px solid rgba(255,255,255,.10);
+      border-radius: 14px;
+      margin-bottom: 12px;
+    }
+    .label{
+      font-size:12px;
+      color: var(--muted);
+      margin-bottom:6px;
+      text-transform:uppercase;
+      letter-spacing:.25px;
+      font-weight:900;
+    }
+    .small{font-size:12px;color:var(--muted); line-height:1.35}
+    textarea{
+      width:100%;
+      min-height: 120px;
+      resize: vertical;
+      background: rgba(255,255,255,.05);
+      border-radius: 12px;
+      padding: 10px 12px;
+      line-height:1.45;
+    }
+    .row{
+      display:grid;
+      grid-template-columns: 140px 1fr;
+      gap: 10px;
+      align-items:center;
+      margin-bottom:10px;
+    }
+    @media (max-width: 520px){ .row{grid-template-columns:1fr;} }
+    input{width:100%; padding:10px 12px; border-radius: 12px; background: rgba(255,255,255,.05);}
+    .actions{display:flex; gap:10px; flex-wrap:wrap; align-items:center;}
+    .btnPrimary{background: rgba(122,162,255,.18); border-color: rgba(122,162,255,.45);}
+    .status{
+      display:flex; gap:8px; align-items:center; flex-wrap:wrap;
+      padding: 10px 12px;
+      border-radius: 14px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(15,23,48,.55);
+      margin-top: 10px;
+    }
+    .badge{
+      font-size:12px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-weight:900;
+      border:1px solid rgba(255,255,255,.12);
+    }
+    .badge.good{background: rgba(95,227,161,.14); border-color: rgba(95,227,161,.35); color: var(--good)}
+    .badge.bad{background: rgba(255,107,122,.14); border-color: rgba(255,107,122,.35); color: var(--bad)}
+    .badge.warn{background: rgba(255,211,107,.14); border-color: rgba(255,211,107,.35); color: var(--warn)}
+    .status .msg{color: var(--muted); font-size:13px; line-height:1.35}
+    .tabs{display:flex; gap:8px; flex-wrap:wrap;}
+    .tab{
+      padding:8px 10px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.05);
+      color:var(--muted);
+      font-size:12px;
+      font-weight:900;
+      cursor:pointer;
+    }
+    .tab.active{
+      border-color: rgba(122,162,255,.7);
+      color: var(--text);
+      background: rgba(122,162,255,.14);
+    }
+    .grid2{display:grid; grid-template-columns: 1fr 1fr; gap:12px;}
+    @media (max-width: 980px){ .grid2{grid-template-columns:1fr;} }
+    .choiceGrid{display:grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap:10px;}
+    @media (max-width: 520px){ .choiceGrid{grid-template-columns:1fr;} }
+    .choice{
+      padding:10px 10px;
+      border-radius:12px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.04);
+      cursor:pointer;
+      font-weight:800;
+      text-align:center;
+    }
+    .choice:hover{background: rgba(255,255,255,.08)}
+    .choice.selected{border-color: rgba(122,162,255,.7); box-shadow: 0 0 0 2px rgba(122,162,255,.18) inset}
+    .historyItem{
+      padding:10px 10px;
+      border-radius: 12px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(15,23,48,.55);
+      margin-bottom:10px;
+    }
+    .historyItem .t{display:flex; justify-content:space-between; gap:8px; align-items:center; font-size:12px; color: var(--muted); margin-bottom:6px;}
+    .historyItem .s{font-size:13px; line-height:1.45}
+    .mono{font-family: var(--mono);}
+    .hint{border:1px dashed rgba(255,255,255,.18); background: rgba(255,255,255,.04); padding:10px; border-radius:12px;}
+  </style>
+</head>
+
+<body>
+<header>
+  <div class="topbar">
+    <div class="title">
+      <h1>Grade 9 Science Writing Trainer (Kevin)</h1>
+      <p>Train scientific thinking + writing: classify, observe vs infer, build hypotheses (IV/DV), write procedures, and improve explanations.</p>
+    </div>
+    <div class="controls">
+      <span class="pill" id="progressPill">Done: 0 | Accuracy: 0%</span>
+      <button id="resetBtn">Reset</button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <!-- Left: Modules -->
+  <section class="card">
+    <div class="hd">
+      <h2>Modules</h2>
+      <span class="pill" id="moduleTag">—</span>
+    </div>
+    <div class="bd">
+      <div class="list" id="moduleList"></div>
+      <div class="small" style="margin-top:10px;">
+        Daily plan: do <b>1 quiz</b> + <b>1 writing</b> (10–15 min).
+      </div>
+    </div>
+  </section>
+
+  <!-- Right: Work area -->
+  <section class="card">
+    <div class="hd">
+      <h2>Practice</h2>
+      <div class="tabs" id="tabs"></div>
+    </div>
+    <div class="bd" id="workArea"></div>
+  </section>
+</main>
+
+<script>
+  const LS_KEY = "g9_science_trainer_v1";
+
+  const MODULES = [
+    {
+      id: "is_science",
+      name: "Is it Science?",
+      desc: "Classify: science / pseudoscience / protoscience / not science.",
+      tabs: ["Quiz", "Explain"],
+      quiz: [
+        { s:"The Sun warms the Earth unevenly.", a:"science" },
+        { s:"My birthday falls under the sign of Aquarius so I am creative and loyal.", a:"pseudoscience" },
+        { s:"There is life somewhere in the universe.", a:"protoscience" },
+        { s:"The meaning of life can be determined and verified.", a:"not science" },
+        { s:"It’s predicted that the weather on Friday will be a high of 22°C and rainy.", a:"science" },
+      ],
+      explainPrompt: "Pick ONE statement above. In 3–4 sentences: (1) your classification, (2) what evidence/test would support it, (3) what would make it wrong?"
+    },
+    {
+      id: "obs_infer",
+      name: "Observation vs Inference",
+      desc: "Decide if a statement is directly observed or inferred.",
+      tabs: ["Quiz", "Write"],
+      quiz: [
+        { s:"The container is filled to the 350 mL mark with a clear liquid.", a:"observation" },
+        { s:"The caterpillar did not eat the moth because it is not a carnivore.", a:"inference" },
+        { s:"When the power is turned on, the game lights up and plays a song.", a:"observation" },
+        { s:"Dinosaurs died out when they could not adapt to the changing climate.", a:"inference" },
+      ],
+      writePrompt: "Write 2 observations + 1 inference about: a paper airplane test in a hallway (distance, flight path, etc.)."
+    },
+    {
+      id: "hypothesis",
+      name: "Hypothesis Builder (IV/DV)",
+      desc: "Write IF–THEN–BECAUSE and label independent/dependent variables.",
+      tabs: ["Build", "Check"],
+      build: {
+        template: "If {IV}, then {DV} will {DIR} because {REASON}.",
+        fields: [
+          { key:"IV", label:"Independent variable (cause)", ph:"e.g., plants are watered more / temperature increases" },
+          { key:"DV", label:"Dependent variable (effect)", ph:"e.g., plant height / germination rate" },
+          { key:"DIR", label:"Direction", ph:"increase / decrease / change" },
+          { key:"REASON", label:"Reason (science idea)", ph:"e.g., plants need water for growth" },
+        ],
+        checks: [
+          "Must include: If / then / because",
+          "IV should be what you change (cause)",
+          "DV should be what you measure (effect)",
+          "Reason should be a scientific explanation (not 'because I think so')"
+        ]
+      },
+      check: {
+        items: [
+          {
+            q:"What effect does studying with music have on student test scores?",
+            hint:"IV = studying with music (music vs no music). DV = test scores.",
+          },
+          {
+            q:"What effect does light have on plant growth?",
+            hint:"IV = light (amount/type). DV = plant growth.",
+          }
+        ]
+      }
+    },
+    {
+      id: "procedure",
+      name: "Procedure Writing (Lab)",
+      desc: "Write numbered, repeatable steps (imperative, no pronouns).",
+      tabs: ["Rules", "Write"],
+      rules: [
+        "Use numbered steps.",
+        "Be repeatable and clear.",
+        "Imperative voice (e.g., 'Measure…', 'Place…').",
+        "No personal pronouns (no I / we / you / our).",
+        "Include trials if required (e.g., 3 trials)."
+      ],
+      writePrompt: "Write a procedure to test a paper airplane for distance (3 trials). Include measuring distance and recording results."
+    },
+    {
+      id: "qual_quant",
+      name: "Qualitative vs Quantitative",
+      desc: "Sort properties: qualitative (descriptive) vs quantitative (numbers/measure).",
+      tabs: ["Sort", "Explain"],
+      sortItems: [
+        { t:"sticky", a:"qualitative" },
+        { t:"weighs 3 kg", a:"quantitative" },
+        { t:"clear", a:"qualitative" },
+        { t:"100 °C", a:"quantitative" },
+        { t:"10 cm long", a:"quantitative" },
+        { t:"creamy texture", a:"qualitative" },
+      ],
+      explainPrompt: "Write 2 qualitative + 2 quantitative observations about a liquid in a beaker (like in a lab)."
+    },
+    {
+      id: "science_paragraph",
+      name: "Science Paragraph (Point → Explain → Structure)",
+      desc: "Practice high-scoring explanation sentences (Because of this, etc.).",
+      tabs: ["Plan", "Write"],
+      plan: {
+        prompts: [
+          "Why should procedures be repeatable in experiments?",
+          "Why can a forecast be considered scientific?",
+          "Why is 'Aquarius personality' not scientific?"
+        ],
+        scaffold: [
+          "Point (1 sentence): Your main idea.",
+          "Explain (2–3 sentences): Evidence, reason, or how it can be tested.",
+          "Structure upgrade (use 1 template below): Make it clearer."
+        ],
+        templates: [
+          "Because of this, … can make it harder to … and can reduce …",
+          "We are more likely to … if …",
+          "By contrast, …",
+          "It is not only …; it is also …"
+        ]
+      }
+    }
+  ];
+
+  const state = {
+    moduleIdx: 0,
+    tabIdx: 0,
+    stats: { done: 0, correct: 0, total: 0 },
+    history: []
+  };
+
+  const $ = (id)=>document.getElementById(id);
+
+  function save(){ localStorage.setItem(LS_KEY, JSON.stringify(state)); }
+  function load(){
+    try{
+      const raw = localStorage.getItem(LS_KEY);
+      if(!raw) return;
+      const obj = JSON.parse(raw);
+      Object.assign(state, obj);
+    }catch(e){}
+  }
+
+  function updateProgress(){
+    const done = state.stats.done || 0;
+    const total = state.stats.total || 0;
+    const correct = state.stats.correct || 0;
+    const acc = total ? Math.round((correct/total)*100) : 0;
+    $("progressPill").textContent = `Done: ${done} | Accuracy: ${acc}%`;
+  }
+
+  function nowStamp(){ return new Date().toLocaleString(); }
+
+  function renderModules(){
+    const list = $("moduleList");
+    list.innerHTML = "";
+    MODULES.forEach((m, idx)=>{
+      const div = document.createElement("div");
+      div.className = "item" + (idx===state.moduleIdx ? " active" : "");
+      div.innerHTML = `<div class="k">${m.name}</div><div class="m">${m.desc}</div>`;
+      div.onclick = ()=>{
+        state.moduleIdx = idx;
+        state.tabIdx = 0;
+        save();
+        renderModules();
+        renderTabs();
+        renderWork();
+      };
+      list.appendChild(div);
+    });
+    $("moduleTag").textContent = MODULES[state.moduleIdx].id;
+  }
+
+  function renderTabs(){
+    const m = MODULES[state.moduleIdx];
+    const tabs = $("tabs");
+    tabs.innerHTML = "";
+    m.tabs.forEach((t, idx)=>{
+      const b = document.createElement("div");
+      b.className = "tab" + (idx===state.tabIdx ? " active" : "");
+      b.textContent = t;
+      b.onclick = ()=>{
+        state.tabIdx = idx;
+        save();
+        renderTabs();
+        renderWork();
+      };
+      tabs.appendChild(b);
+    });
+  }
+
+  function setStatus(type, title, msg){
+    return `
+      <div class="status">
+        <span class="badge ${type}">${title}</span>
+        <div class="msg">${escapeHtml(msg)}</div>
+      </div>
+    `;
+  }
+
+  function escapeHtml(str){
+    return (str||"").replace(/[&<>"']/g, (m)=>({
+      "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"
+    }[m]));
+  }
+
+  // --- Generic heuristics ---
+  function tokenizeWords(s){
+    return (s||"").toLowerCase().replace(/[^a-z'\s-]/g," ").split(/\s+/).filter(Boolean);
+  }
+  function hasPronouns(s){
+    const low = (s||"").toLowerCase();
+    return /\b(i|we|you|our|my|your|ours)\b/.test(low);
+  }
+  function looksNumberedProcedure(s){
+    // check at least 3 lines starting with 1.,2.,3. or 1),2),3)
+    const lines = (s||"").split(/\n+/).map(x=>x.trim()).filter(Boolean);
+    let count=0;
+    for(const ln of lines){
+      if (/^\d+[\.\)]\s+/.test(ln)) count++;
+    }
+    return count>=3;
+  }
+  function hasImperativeVerbs(s){
+    // very simple: look for common lab verbs at line starts
+    const verbs = ["measure","place","record","fold","throw","repeat","label","use","calculate","compare","pour","set","start","mark"];
+    const lines = (s||"").split(/\n+/).map(x=>x.trim()).filter(Boolean);
+    let hits=0;
+    for(const ln of lines){
+      const w = tokenizeWords(ln)[0];
+      if (verbs.includes(w)) hits++;
+    }
+    return hits>=2;
+  }
+
+  // --- Module renderers ---
+  function renderIsScience(tab){
+    const m = MODULES[state.moduleIdx];
+    if(tab==="Quiz"){
+      const qIdx = pickQuizIndex(m.id);
+      const q = m.quiz[qIdx];
+      return `
+        <div class="box">
+          <div class="label">Statement</div>
+          <div class="hint">${escapeHtml(q.s)}</div>
+          <div class="small">Choose the best classification.</div>
+          <div class="choiceGrid" id="choices">
+            ${["science","pseudoscience","protoscience","not science"].map(x=>`
+              <div class="choice" data-val="${x}">${x}</div>
+            `).join("")}
+          </div>
+          <div class="actions" style="margin-top:10px;">
+            <button class="btnPrimary" id="checkBtn">Check</button>
+            <button id="nextBtn">Next</button>
+          </div>
+          <div id="statusArea"></div>
+        </div>
+
+        <div class="box">
+          <div class="label">Teacher hint</div>
+          <div class="small">
+            <b>Science</b>: testable + evidence-based. <br/>
+            <b>Pseudoscience</b>: claims like science but not testable/verified. <br/>
+            <b>Protoscience</b>: possible but not yet directly tested/confirmed (for now). <br/>
+            <b>Not science</b>: philosophy/opinion/meaning claims not testable.
+          </div>
+        </div>
+      `;
+    } else {
+      return `
+        <div class="box">
+          <div class="label">Explain in 3–4 sentences</div>
+          <div class="small">${escapeHtml(m.explainPrompt)}</div>
+          <textarea id="writingBox" placeholder="Write here..."></textarea>
+          <div class="actions">
+            <button class="btnPrimary" id="gradeExplainBtn">Check quality</button>
+            <button id="saveDoneBtn">Save as Done</button>
+          </div>
+          <div id="statusArea"></div>
+        </div>
+        <div class="box">
+          <div class="label">Structure you should use</div>
+          <div class="mono hint">
+            Point: I classify it as ___ .<br/>
+            Explain: This is testable because ___ .<br/>
+            Falsify: It would be wrong if ___ .
+          </div>
+        </div>
+      `;
+    }
+  }
+
+  function renderObsInfer(tab){
+    const m = MODULES[state.moduleIdx];
+    if(tab==="Quiz"){
+      const qIdx = pickQuizIndex(m.id);
+      const q = m.quiz[qIdx];
+      return `
+        <div class="box">
+          <div class="label">Statement</div>
+          <div class="hint">${escapeHtml(q.s)}</div>
+          <div class="small">Observation = directly seen/measured. Inference = explanation or conclusion.</div>
+          <div class="choiceGrid" id="choices">
+            ${["observation","inference"].map(x=>`
+              <div class="choice" data-val="${x}">${x}</div>
+            `).join("")}
+          </div>
+          <div class="actions" style="margin-top:10px;">
+            <button class="btnPrimary" id="checkBtn">Check</button>
+            <button id="nextBtn">Next</button>
+          </div>
+          <div id="statusArea"></div>
+        </div>
+      `;
+    } else {
+      return `
+        <div class="box">
+          <div class="label">Write</div>
+          <div class="small">${escapeHtml(m.writePrompt)}</div>
+          <textarea id="writingBox" placeholder="Write 2 observations + 1 inference. Use complete sentences."></textarea>
+          <div class="actions">
+            <button class="btnPrimary" id="gradeObsBtn">Check</button>
+            <button id="saveDoneBtn">Save as Done</button>
+          </div>
+          <div id="statusArea"></div>
+        </div>
+        <div class="box">
+          <div class="label">Quick reminder</div>
+          <div class="small">
+            Observation: has numbers/measurements or direct descriptions.<br/>
+            Inference: often has <b>because</b>, or explains <b>why</b>.
+          </div>
+        </div>
+      `;
+    }
+  }
+
+  function renderHypothesis(tab){
+    const m = MODULES[state.moduleIdx];
+    if(tab==="Build"){
+      const b = m.build;
+      return `
+        <div class="box">
+          <div class="label">IF–THEN–BECAUSE builder</div>
+          <div class="mono hint">${escapeHtml(b.template)}</div>
+
+          ${b.fields.map(f=>`
+            <div class="row">
+              <div class="small" style="font-weight:900">${escapeHtml(f.label)}</div>
+              <input id="h_${f.key}" placeholder="${escapeHtml(f.ph)}" />
+            </div>
+          `).join("")}
+
+          <div class="actions">
+            <button class="btnPrimary" id="genHypBtn">Generate</button>
+            <button id="checkHypBtn">Check</button>
+            <button id="saveDoneBtn">Save as Done</button>
+          </div>
+
+          <div class="box">
+            <div class="label">Your hypothesis</div>
+            <textarea id="hypOut" placeholder="Generated hypothesis appears here..."></textarea>
+          </div>
+          <div id="statusArea"></div>
+        </div>
+
+        <div class="box">
+          <div class="label">Checklist</div>
+          <ul class="small">
+            ${b.checks.map(x=>`<li>${escapeHtml(x)}</li>`).join("")}
+          </ul>
+        </div>
+      `;
+    } else {
+      const items = m.check.items;
+      const q = items[Math.floor(Math.random()*items.length)];
+      return `
+        <div class="box">
+          <div class="label">Practice question</div>
+          <div class="hint">${escapeHtml(q.q)}</div>
+          <div class="small">Write IV + DV + hypothesis. Then self-check using the hint.</div>
+
+          <div class="row">
+            <div class="small" style="font-weight:900">Independent variable</div>
+            <input id="ivBox" placeholder="What you change..." />
+          </div>
+          <div class="row">
+            <div class="small" style="font-weight:900">Dependent variable</div>
+            <input id="dvBox" placeholder="What you measure..." />
+          </div>
+
+          <textarea id="writingBox" placeholder="Write: If..., then... will... because..."></textarea>
+
+          <div class="actions">
+            <button class="btnPrimary" id="gradeHypBtn">Check</button>
+            <button id="saveDoneBtn">Save as Done</button>
+          </div>
+
+          <div class="box">
+            <div class="label">Hint</div>
+            <div class="small">${escapeHtml(q.hint)}</div>
+          </div>
+
+          <div id="statusArea"></div>
+        </div>
+      `;
+    }
+  }
+
+  function renderProcedure(tab){
+    const m = MODULES[state.moduleIdx];
+    if(tab==="Rules"){
+      return `
+        <div class="box">
+          <div class="label">Procedure rules</div>
+          <ul class="small">
+            ${m.rules.map(x=>`<li>${escapeHtml(x)}</li>`).join("")}
+          </ul>
+          <div class="small">
+            These rules match what teachers want for procedures: numbered, repeatable, imperative, and no personal pronouns.
+          </div>
+        </div>
+        <div class="box">
+          <div class="label">Mini check</div>
+          <div class="small">
+            Copy a procedure draft into the Write tab and click <b>Check</b>.
+          </div>
+        </div>
+      `;
+    } else {
+      return `
+        <div class="box">
+          <div class="label">Write a procedure</div>
+          <div class="small">${escapeHtml(m.writePrompt)}</div>
+          <textarea id="writingBox" placeholder="Start like: 1. Measure... 2. Place... 3. Throw..."></textarea>
+          <div class="actions">
+            <button class="btnPrimary" id="gradeProcBtn">Check</button>
+            <button id="saveDoneBtn">Save as Done</button>
+          </div>
+          <div id="statusArea"></div>
+        </div>
+
+        <div class="box">
+          <div class="label">Teacher checklist (auto)</div>
+          <div class="small">
+            ✅ numbered steps (1., 2., 3.)<br/>
+            ✅ imperative verbs (Measure/Record/Repeat...)<br/>
+            ✅ no pronouns (I/we/you/our)<br/>
+            ✅ mentions 3 trials + recording results
+          </div>
+        </div>
+      `;
+    }
+  }
+
+  function renderQualQuant(tab){
+    const m = MODULES[state.moduleIdx];
+    if(tab==="Sort"){
+      // shuffle each render for variety
+      const items = shuffle([...m.sortItems]).slice(0,6);
+      state._currentSort = items;
+      return `
+        <div class="box">
+          <div class="label">Sort the properties</div>
+          <div class="small">Click each item, then choose Qualitative or Quantitative.</div>
+
+          <div id="sortList">
+            ${items.map((it, idx)=>`
+              <div class="historyItem">
+                <div class="t"><span>Item ${idx+1}</span><span class="pill">${escapeHtml(it.t)}</span></div>
+                <div class="choiceGrid" data-idx="${idx}">
+                  <div class="choice" data-val="qualitative">qualitative</div>
+                  <div class="choice" data-val="quantitative">quantitative</div>
+                </div>
+              </div>
+            `).join("")}
+          </div>
+
+          <div class="actions">
+            <button class="btnPrimary" id="checkSortBtn">Check</button>
+            <button id="nextBtn">New set</button>
+          </div>
+          <div id="statusArea"></div>
+        </div>
+      `;
+    } else {
+      return `
+        <div class="box">
+          <div class="label">Explain</div>
+          <div class="small">${escapeHtml(m.explainPrompt)}</div>
+          <textarea id="writingBox" placeholder="Example: The liquid is clear (qual). The volume is 50 mL (quant)."></textarea>
+          <div class="actions">
+            <button class="btnPrimary" id="gradeQualBtn">Check</button>
+            <button id="saveDoneBtn">Save as Done</button>
+          </div>
+          <div id="statusArea"></div>
+        </div>
+      `;
+    }
+  }
+
+  function renderScienceParagraph(tab){
+    const m = MODULES[state.moduleIdx];
+    if(tab==="Plan"){
+      const prompt = m.plan.prompts[Math.floor(Math.random()*m.plan.prompts.length)];
+      state._currentPlanPrompt = prompt;
+      return `
+        <div class="box">
+          <div class="label">Prompt</div>
+          <div class="hint">${escapeHtml(prompt)}</div>
+        </div>
+
+        <div class="box">
+          <div class="label">Plan (3 steps)</div>
+          <ol class="small">
+            ${m.plan.scaffold.map(x=>`<li>${escapeHtml(x)}</li>`).join("")}
+          </ol>
+        </div>
+
+        <div class="box">
+          <div class="label">Structure templates</div>
+          <div class="small">
+            ${m.plan.templates.map(x=>`• <span class="mono">${escapeHtml(x)}</span>`).join("<br/>")}
+          </div>
+        </div>
+
+        <div class="box">
+          <div class="label">Quick draft</div>
+          <textarea id="writingBox" placeholder="Write 4–6 sentences. Use at least ONE template."></textarea>
+          <div class="actions">
+            <button class="btnPrimary" id="gradeParaBtn">Check</button>
+            <button id="saveDoneBtn">Save as Done</button>
+          </div>
+          <div id="statusArea"></div>
+        </div>
+      `;
+    } else {
+      return `
+        <div class="box">
+          <div class="label">Write a strong science paragraph</div>
+          <div class="small">
+            Use: Point → Explain → Structure. Aim for 5–7 sentences. Use one of the templates.
+          </div>
+          <textarea id="writingBox" placeholder="Start with your point..."></textarea>
+          <div class="actions">
+            <button class="btnPrimary" id="gradeParaBtn">Check</button>
+            <button id="saveDoneBtn">Save as Done</button>
+          </div>
+          <div id="statusArea"></div>
+        </div>
+      `;
+    }
+  }
+
+  function renderWork(){
+    const m = MODULES[state.moduleIdx];
+    const tab = m.tabs[state.tabIdx];
+    let html = "";
+
+    if(m.id==="is_science") html = renderIsScience(tab);
+    if(m.id==="obs_infer") html = renderObsInfer(tab);
+    if(m.id==="hypothesis") html = renderHypothesis(tab);
+    if(m.id==="procedure") html = renderProcedure(tab);
+    if(m.id==="qual_quant") html = renderQualQuant(tab);
+    if(m.id==="science_paragraph") html = renderScienceParagraph(tab);
+
+    // add recent history
+    html += `
+      <div class="box">
+        <div class="label">Recent attempts</div>
+        <div id="historyArea">${renderHistory()}</div>
+      </div>
+    `;
+
+    $("workArea").innerHTML = html;
+    wireEvents();
+    updateProgress();
+  }
+
+  function renderHistory(){
+    const items = (state.history || []).slice(0,8);
+    if(!items.length) return `<div class="small">No attempts yet.</div>`;
+    return items.map(x=>`
+      <div class="historyItem">
+        <div class="t">
+          <span>${escapeHtml(x.stamp)}</span>
+          <span class="badge ${x.ok ? "good":"bad"}">${x.ok ? "OK":"Fix"}</span>
+        </div>
+        <div class="s">${escapeHtml(x.text)}</div>
+        <div class="small">${escapeHtml(x.meta)}</div>
+      </div>
+    `).join("");
+  }
+
+  function recordAttempt(ok, text, meta){
+    state.stats.total = (state.stats.total || 0) + 1;
+    if(ok) state.stats.correct = (state.stats.correct || 0) + 1;
+    if(ok) state.stats.done = (state.stats.done || 0) + 1;
+
+    state.history = state.history || [];
+    state.history.unshift({ stamp: nowStamp(), ok, text, meta });
+    state.history = state.history.slice(0,30);
+    save();
+    updateProgress();
+    const ha = document.getElementById("historyArea");
+    if(ha) ha.innerHTML = renderHistory();
+  }
+
+  function pickQuizIndex(moduleId){
+    // rotate per module
+    state._quizCursor = state._quizCursor || {};
+    const m = MODULES.find(x=>x.id===moduleId);
+    const n = (m.quiz || []).length;
+    const cur = state._quizCursor[moduleId] || 0;
+    const idx = cur % n;
+    state._quizCursor[moduleId] = cur + 1;
+    save();
+    return idx;
+  }
+
+  function shuffle(arr){
+    for(let i=arr.length-1;i>0;i--){
+      const j = Math.floor(Math.random()*(i+1));
+      [arr[i],arr[j]]=[arr[j],arr[i]];
+    }
+    return arr;
+  }
+
+  // --- Graders ---
+  function gradeExplain(text){
+    const s = (text||"").trim();
+    const words = tokenizeWords(s);
+    const hasClass = /\b(science|pseudoscience|protoscience|not science)\b/i.test(s);
+    const hasTest = /\b(test|measure|evidence|data|experiment|observe)\b/i.test(s);
+    const hasWrong = /\b(wrong|false|if|unless)\b/i.test(s);
+    let score = 0;
+    if(words.length>=35) score+=30;
+    if(hasClass) score+=25;
+    if(hasTest) score+=25;
+    if(hasWrong) score+=20;
+    return {score, ok: score>=70, tips:[
+      !hasClass && "State the classification clearly.",
+      !hasTest && "Explain how it could be tested/measured.",
+      !hasWrong && "Say what would make it wrong (falsify).",
+      words.length<35 && "Write 3–4 full sentences (more detail)."
+    ].filter(Boolean)};
+  }
+
+  function gradeObsWrite(text){
+    const s = (text||"").trim();
+    const lines = s.split(/\n+/).map(x=>x.trim()).filter(Boolean);
+    const hasBecause = /\bbecause\b/i.test(s);
+    const hasNumber = /\b(\d+(\.\d+)?)\b/.test(s);
+    // heuristic: at least 3 sentences
+    const sentenceCount = (s.match(/[.!?]/g)||[]).length;
+    let score = 0;
+    if(sentenceCount>=3) score+=35;
+    if(hasNumber) score+=25;
+    if(hasBecause) score+=15; // inference often uses because
+    if(lines.length>=3) score+=25;
+    return {score, ok: score>=70, tips:[
+      sentenceCount<3 && "Write 3 sentences total (2 observations + 1 inference).",
+      !hasNumber && "Add at least one measurement (cm, trials, distance).",
+      !hasBecause && "Make your inference explain WHY (use because)."
+    ].filter(Boolean)};
+  }
+
+  function gradeHypothesis(text, iv, dv){
+    const s = (text||"").trim();
+    const low = s.toLowerCase();
+    const hasIf = low.includes("if ");
+    const hasThen = low.includes(" then ");
+    const hasBecause = low.includes(" because ");
+    const hasDir = /\b(increase|decrease|change)\b/i.test(s);
+    const ivOk = (iv||"").trim().length>=5;
+    const dvOk = (dv||"").trim().length>=3;
+    let score = 0;
+    if(hasIf) score+=20;
+    if(hasThen) score+=20;
+    if(hasBecause) score+=20;
+    if(hasDir) score+=10;
+    if(ivOk) score+=15;
+    if(dvOk) score+=15;
+    return {score, ok: score>=75, tips:[
+      !hasIf && "Start with IF (cause).",
+      !hasThen && "Include THEN (effect).",
+      !hasBecause && "Include BECAUSE (scientific reason).",
+      !hasDir && "Add direction: increase / decrease / change.",
+      !ivOk && "IV too vague—what exactly changes?",
+      !dvOk && "DV too vague—what exactly is measured?"
+    ].filter(Boolean)};
+  }
+
+  function gradeProcedure(text){
+    const s = (text||"").trim();
+    const mentionsTrials = /\b3\b.*\btrial\b|\bthree\b.*\btrial\b/i.test(s);
+    const mentionsRecord = /\brecord|table|data|measure\b/i.test(s);
+    const okNumbered = looksNumberedProcedure(s);
+    const okNoPronouns = !hasPronouns(s);
+    const okImperative = hasImperativeVerbs(s);
+    let score = 0;
+    if(okNumbered) score+=30;
+    if(okImperative) score+=25;
+    if(okNoPronouns) score+=20;
+    if(mentionsTrials) score+=15;
+    if(mentionsRecord) score+=10;
+    return {score, ok: score>=75, tips:[
+      !okNumbered && "Use numbered steps (1., 2., 3., ...).",
+      !okImperative && "Start steps with verbs (Measure/Record/Repeat...).",
+      !okNoPronouns && "Remove pronouns (no I/we/you/our).",
+      !mentionsTrials && "Mention 3 trials.",
+      !mentionsRecord && "Mention measuring distance + recording results."
+    ].filter(Boolean)};
+  }
+
+  function gradeQualExplain(text){
+    const s = (text||"").trim();
+    const hasNum = /\b(\d+(\.\d+)?)\b/.test(s);
+    const sentenceCount = (s.match(/[.!?]/g)||[]).length;
+    // crude: look for at least 2 qualitative adjectives
+    const qualWords = ["clear","cloudy","sticky","warm","cold","sweet","salty","colourful","smooth","rough","creamy"];
+    const hits = tokenizeWords(s).filter(w=>qualWords.includes(w)).length;
+    let score=0;
+    if(sentenceCount>=4) score+=35;
+    if(hasNum) score+=25;
+    if(hits>=2) score+=20;
+    if(/\b(ml|cm|kg|°c|c)\b/i.test(s)) score+=20;
+    return {score, ok: score>=70, tips:[
+      sentenceCount<4 && "Write 4 sentences (2 qualitative + 2 quantitative).",
+      !hasNum && "Add numbers (mL, cm, °C, kg).",
+      hits<2 && "Add descriptive words (clear, sticky, creamy, etc.).",
+      !/\b(ml|cm|kg|°c|c)\b/i.test(s) && "Add units (mL, cm, °C, kg)."
+    ].filter(Boolean)};
+  }
+
+  function gradeParagraph(text){
+    const s = (text||"").trim();
+    const sentenceCount = (s.match(/[.!?]/g)||[]).length;
+    const hasPoint = sentenceCount>=1;
+    const hasExplain = /\bbecause\b|\bso\b|\btherefore\b|\bthis means\b/i.test(s);
+    const templates = [
+      "because of this",
+      "more likely to",
+      "by contrast",
+      "it is not only"
+    ];
+    const usedTemplate = templates.some(t => s.toLowerCase().includes(t));
+    let score=0;
+    if(sentenceCount>=5) score+=35;
+    if(hasPoint) score+=15;
+    if(hasExplain) score+=25;
+    if(usedTemplate) score+=25;
+    return {score, ok: score>=75, tips:[
+      sentenceCount<5 && "Write 5–7 sentences.",
+      !hasExplain && "Add explanation (because/therefore/so).",
+      !usedTemplate && "Use one template (Because of this / more likely / By contrast / not only...)."
+    ].filter(Boolean)};
+  }
+
+  // --- Wiring ---
+  function wireEvents(){
+    const m = MODULES[state.moduleIdx];
+    const tab = m.tabs[state.tabIdx];
+
+    // For quiz choices
+    const choicesWrap = document.getElementById("choices");
+    if(choicesWrap){
+      choicesWrap.querySelectorAll(".choice").forEach(c=>{
+        c.onclick = ()=>{
+          choicesWrap.querySelectorAll(".choice").forEach(x=>x.classList.remove("selected"));
+          c.classList.add("selected");
+        };
+      });
+    }
+
+    const statusArea = ()=>document.getElementById("statusArea");
+
+    const nextBtn = document.getElementById("nextBtn");
+    if(nextBtn){
+      nextBtn.onclick = ()=>{
+        renderWork();
+      };
+    }
+
+    const saveDoneBtn = document.getElementById("saveDoneBtn");
+    if(saveDoneBtn){
+      saveDoneBtn.onclick = ()=>{
+        const text = (document.getElementById("writingBox")?.value || document.getElementById("hypOut")?.value || "").trim();
+        if(!text){
+          statusArea().innerHTML = setStatus("bad","Not saved","Write something first.");
+          return;
+        }
+        recordAttempt(true, text, `${m.name} — ${tab}`);
+        statusArea().innerHTML = setStatus("good","Saved","Saved as Done ✅");
+      };
+    }
+
+    // Module-specific
+    if(m.id==="is_science" && tab==="Quiz"){
+      const qIdx = (state._quizCursor?.[m.id] ? (state._quizCursor[m.id]-1) : 0);
+      const q = m.quiz[qIdx];
+      const checkBtn = document.getElementById("checkBtn");
+      if(checkBtn){
+        checkBtn.onclick = ()=>{
+          const selected = document.querySelector("#choices .choice.selected")?.dataset?.val;
+          if(!selected){
+            statusArea().innerHTML = setStatus("warn","Pick one","Choose a classification.");
+            return;
+          }
+          const ok = selected === q.a;
+          const msg = ok
+            ? `Correct. This is best classified as "${q.a}".`
+            : `Not quite. Best answer: "${q.a}".`;
+          statusArea().innerHTML = setStatus(ok ? "good":"bad", ok ? "Good":"Fix", msg);
+          recordAttempt(ok, `${q.s} → ${selected}`, `${m.name} — Quiz`);
+        };
+      }
+    }
+
+    if(m.id==="is_science" && tab==="Explain"){
+      const gradeBtn = document.getElementById("gradeExplainBtn");
+      if(gradeBtn){
+        gradeBtn.onclick = ()=>{
+          const t = document.getElementById("writingBox").value;
+          const r = gradeExplain(t);
+          statusArea().innerHTML = setStatus(
+            r.ok ? "good" : "warn",
+            `${r.ok ? "Good":"Needs work"} (${r.score}/100)`,
+            r.ok ? "Strong explanation." : ("Tips: " + r.tips.join(" | "))
+          );
+          recordAttempt(r.ok, t, `${m.name} — Explain`);
+        };
+      }
+    }
+
+    if(m.id==="obs_infer" && tab==="Quiz"){
+      const qIdx = (state._quizCursor?.[m.id] ? (state._quizCursor[m.id]-1) : 0);
+      const q = m.quiz[qIdx];
+      const checkBtn = document.getElementById("checkBtn");
+      if(checkBtn){
+        checkBtn.onclick = ()=>{
+          const selected = document.querySelector("#choices .choice.selected")?.dataset?.val;
+          if(!selected){
+            statusArea().innerHTML = setStatus("warn","Pick one","Choose observation or inference.");
+            return;
+          }
+          const ok = selected === q.a;
+          statusArea().innerHTML = setStatus(
+            ok ? "good":"bad",
+            ok ? "Good":"Fix",
+            ok ? "Correct." : `Not quite. Best answer: "${q.a}".`
+          );
+          recordAttempt(ok, `${q.s} → ${selected}`, `${m.name} — Quiz`);
+        };
+      }
+    }
+
+    if(m.id==="obs_infer" && tab==="Write"){
+      const gradeBtn = document.getElementById("gradeObsBtn");
+      if(gradeBtn){
+        gradeBtn.onclick = ()=>{
+          const t = document.getElementById("writingBox").value;
+          const r = gradeObsWrite(t);
+          statusArea().innerHTML = setStatus(
+            r.ok ? "good":"warn",
+            `${r.ok ? "Good":"Needs work"} (${r.score}/100)`,
+            r.ok ? "Nice mix of observation + inference." : ("Tips: " + r.tips.join(" | "))
+          );
+          recordAttempt(r.ok, t, `${m.name} — Write`);
+        };
+      }
+    }
+
+    if(m.id==="hypothesis" && tab==="Build"){
+      const genBtn = document.getElementById("genHypBtn");
+      const checkBtn = document.getElementById("checkHypBtn");
+      if(genBtn){
+        genBtn.onclick = ()=>{
+          const iv = document.getElementById("h_IV").value.trim();
+          const dv = document.getElementById("h_DV").value.trim();
+          const dir = document.getElementById("h_DIR").value.trim();
+          const reason = document.getElementById("h_REASON").value.trim();
+          const out = `If ${iv}, then ${dv} will ${dir} because ${reason}.`;
+          document.getElementById("hypOut").value = out.replace(/\s+/g," ").trim();
+        };
+      }
+      if(checkBtn){
+        checkBtn.onclick = ()=>{
+          const out = document.getElementById("hypOut").value;
+          const r = gradeHypothesis(out, document.getElementById("h_IV").value, document.getElementById("h_DV").value);
+          statusArea().innerHTML = setStatus(
+            r.ok ? "good":"warn",
+            `${r.ok ? "Good":"Needs work"} (${r.score}/100)`,
+            r.ok ? "Strong hypothesis structure." : ("Tips: " + r.tips.join(" | "))
+          );
+          recordAttempt(r.ok, out, `${m.name} — Build`);
+        };
+      }
+    }
+
+    if(m.id==="hypothesis" && tab==="Check"){
+      const gradeBtn = document.getElementById("gradeHypBtn");
+      if(gradeBtn){
+        gradeBtn.onclick = ()=>{
+          const t = document.getElementById("writingBox").value;
+          const iv = document.getElementById("ivBox").value;
+          const dv = document.getElementById("dvBox").value;
+          const r = gradeHypothesis(t, iv, dv);
+          statusArea().innerHTML = setStatus(
+            r.ok ? "good":"warn",
+            `${r.ok ? "Good":"Needs work"} (${r.score}/100)`,
+            r.ok ? "Nice IV/DV + hypothesis." : ("Tips: " + r.tips.join(" | "))
+          );
+          recordAttempt(r.ok, t, `${m.name} — IV/DV Check`);
+        };
+      }
+    }
+
+    if(m.id==="procedure" && tab==="Write"){
+      const gradeBtn = document.getElementById("gradeProcBtn");
+      if(gradeBtn){
+        gradeBtn.onclick = ()=>{
+          const t = document.getElementById("writingBox").value;
+          const r = gradeProcedure(t);
+          statusArea().innerHTML = setStatus(
+            r.ok ? "good":"warn",
+            `${r.ok ? "Good":"Needs work"} (${r.score}/100)`,
+            r.ok ? "Looks repeatable and clear." : ("Tips: " + r.tips.join(" | "))
+          );
+          recordAttempt(r.ok, t, `${m.name} — Procedure`);
+        };
+      }
+    }
+
+    if(m.id==="qual_quant" && tab==="Sort"){
+      // selection handlers per item
+      document.querySelectorAll("#sortList .choiceGrid").forEach(grid=>{
+        grid.querySelectorAll(".choice").forEach(c=>{
+          c.onclick = ()=>{
+            grid.querySelectorAll(".choice").forEach(x=>x.classList.remove("selected"));
+            c.classList.add("selected");
+          };
+        });
+      });
+
+      const checkBtn = document.getElementById("checkSortBtn");
+      if(checkBtn){
+        checkBtn.onclick = ()=>{
+          const items = state._currentSort || [];
+          let correct=0, answered=0;
+          document.querySelectorAll("#sortList .choiceGrid").forEach((grid, idx)=>{
+            const pick = grid.querySelector(".choice.selected")?.dataset?.val;
+            if(pick){ answered++; if(pick===items[idx].a) correct++; }
+          });
+          const ok = answered===items.length && correct===items.length;
+          const msg = ok
+            ? "Perfect! Qualitative = description; Quantitative = numbers/measurements."
+            : `You got ${correct}/${items.length}. Make sure every item is answered.`;
+          document.getElementById("statusArea").innerHTML = setStatus(ok ? "good":"warn", ok ? "Good":"Try again", msg);
+          recordAttempt(ok, `Sort score ${correct}/${items.length}`, `${m.name} — Sort`);
+        };
+      }
+    }
+
+    if(m.id==="qual_quant" && tab==="Explain"){
+      const gradeBtn = document.getElementById("gradeQualBtn");
+      if(gradeBtn){
+        gradeBtn.onclick = ()=>{
+          const t = document.getElementById("writingBox").value;
+          const r = gradeQualExplain(t);
+          document.getElementById("statusArea").innerHTML = setStatus(
+            r.ok ? "good":"warn",
+            `${r.ok ? "Good":"Needs work"} (${r.score}/100)`,
+            r.ok ? "Good mix of qualitative + quantitative." : ("Tips: " + r.tips.join(" | "))
+          );
+          recordAttempt(r.ok, t, `${m.name} — Explain`);
+        };
+      }
+    }
+
+    if(m.id==="science_paragraph"){
+      const gradeBtn = document.getElementById("gradeParaBtn");
+      if(gradeBtn){
+        gradeBtn.onclick = ()=>{
+          const t = document.getElementById("writingBox").value;
+          const r = gradeParagraph(t);
+          document.getElementById("statusArea").innerHTML = setStatus(
+            r.ok ? "good":"warn",
+            `${r.ok ? "Good":"Needs work"} (${r.score}/100)`,
+            r.ok ? "Strong paragraph: point + explanation + structure." : ("Tips: " + r.tips.join(" | "))
+          );
+          recordAttempt(r.ok, t, `${m.name} — Paragraph`);
+        };
+      }
+    }
+  }
+
+  // Reset
+  function doReset(){
+    if(!confirm("Reset progress and history?")) return;
+    state.moduleIdx = 0;
+    state.tabIdx = 0;
+    state.stats = { done:0, correct:0, total:0 };
+    state.history = [];
+    save();
+    renderModules();
+    renderTabs();
+    renderWork();
+  }
+
+  // Init
+  load();
+  renderModules();
+  renderTabs();
+  renderWork();
+  updateProgress();
+  $("resetBtn").onclick = doReset;
+</script>
+</body>
+</html>
