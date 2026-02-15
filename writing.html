@@ -1,0 +1,969 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Sentence Structure Trainer</title>
+  <style>
+    :root{
+      --bg:#0b1020;
+      --panel:#111833;
+      --panel2:#0f1730;
+      --text:#e9ecf5;
+      --muted:#aab2cf;
+      --line:#22305e;
+      --accent:#7aa2ff;
+      --good:#5fe3a1;
+      --bad:#ff6b7a;
+      --warn:#ffd36b;
+      --shadow: 0 12px 28px rgba(0,0,0,.35);
+      --radius: 16px;
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: var(--sans);
+      background: radial-gradient(1200px 700px at 20% 0%, #1a2560 0%, var(--bg) 60%);
+      color:var(--text);
+      min-height:100vh;
+    }
+    header{
+      padding:18px 18px 0 18px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .topbar{
+      display:flex;
+      gap:12px;
+      align-items:center;
+      justify-content:space-between;
+      padding:14px 16px;
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+      border:1px solid rgba(255,255,255,.08);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+    .title{
+      display:flex; flex-direction:column; gap:2px;
+    }
+    .title h1{margin:0; font-size:18px; letter-spacing:.2px}
+    .title p{margin:0; color:var(--muted); font-size:13px}
+    .controls{
+      display:flex; gap:8px; align-items:center; flex-wrap:wrap;
+    }
+    button, select, input, textarea{
+      font-family:inherit;
+      color:var(--text);
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 12px;
+      padding:10px 12px;
+      outline:none;
+    }
+    button{
+      cursor:pointer;
+      transition:.15s transform ease, .15s background ease;
+      user-select:none;
+      font-weight:600;
+    }
+    button:hover{transform: translateY(-1px); background: rgba(255,255,255,.10)}
+    button:active{transform: translateY(0px)}
+    .pill{
+      font-size:12px;
+      padding:8px 10px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.14);
+      color:var(--muted);
+      background: rgba(255,255,255,.05);
+    }
+    main{
+      max-width:1200px;
+      margin: 14px auto 40px;
+      padding: 0 18px;
+      display:grid;
+      grid-template-columns: 340px 1fr;
+      gap: 14px;
+    }
+    @media (max-width: 980px){
+      main{grid-template-columns: 1fr;}
+    }
+    .card{
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+      border:1px solid rgba(255,255,255,.08);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+    }
+    .card .hd{
+      padding: 14px 14px 10px;
+      border-bottom:1px solid rgba(255,255,255,.08);
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+    }
+    .card .hd h2{margin:0; font-size:14px; color: var(--muted); font-weight:700; letter-spacing:.3px; text-transform:uppercase}
+    .card .bd{padding: 14px;}
+    .list{
+      display:flex; flex-direction:column; gap:8px;
+      max-height: 68vh;
+      overflow:auto;
+      padding-right: 6px;
+    }
+    .item{
+      padding: 10px 10px;
+      border-radius: 12px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(15,23,48,.55);
+      cursor:pointer;
+      transition:.12s background ease, .12s transform ease;
+    }
+    .item:hover{transform: translateY(-1px); background: rgba(15,23,48,.72)}
+    .item.active{border-color: rgba(122,162,255,.7); box-shadow: 0 0 0 2px rgba(122,162,255,.18) inset}
+    .item .k{font-weight:800; font-size:13px}
+    .item .m{color:var(--muted); font-size:12px; margin-top:2px}
+    .grid{
+      display:grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 12px;
+    }
+    @media (max-width: 980px){
+      .grid{grid-template-columns: 1fr;}
+    }
+    .meta{
+      display:flex; flex-direction:column; gap:10px;
+    }
+    .box{
+      padding: 12px 12px;
+      background: rgba(15,23,48,.55);
+      border: 1px solid rgba(255,255,255,.10);
+      border-radius: 14px;
+    }
+    .label{
+      font-size:12px;
+      color: var(--muted);
+      margin-bottom:6px;
+      text-transform:uppercase;
+      letter-spacing:.25px;
+      font-weight:800;
+    }
+    .template{
+      font-family: var(--mono);
+      font-size: 13px;
+      line-height:1.45;
+      padding: 10px;
+      border-radius: 12px;
+      background: rgba(255,255,255,.05);
+      border:1px dashed rgba(255,255,255,.14);
+      white-space: pre-wrap;
+    }
+    .example{
+      font-size: 13px;
+      line-height:1.45;
+      color: var(--text);
+    }
+    .when{
+      color: var(--muted);
+      font-size: 13px;
+      line-height:1.45;
+    }
+    .inputs{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap:10px;
+    }
+    .inputs .row{
+      display:grid;
+      grid-template-columns: 140px 1fr;
+      gap: 10px;
+      align-items:center;
+    }
+    @media (max-width: 520px){
+      .inputs .row{grid-template-columns: 1fr;}
+    }
+    input{
+      width:100%;
+      padding:10px 12px;
+      border-radius: 12px;
+      background: rgba(255,255,255,.05);
+    }
+    textarea{
+      width:100%;
+      min-height: 94px;
+      resize: vertical;
+      background: rgba(255,255,255,.05);
+      border-radius: 12px;
+      padding: 10px 12px;
+      line-height:1.45;
+    }
+    .actions{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      align-items:center;
+      margin-top: 10px;
+    }
+    .btnPrimary{
+      background: rgba(122,162,255,.18);
+      border-color: rgba(122,162,255,.45);
+    }
+    .btnGhost{
+      background: rgba(255,255,255,.04);
+    }
+    .status{
+      display:flex;
+      gap:8px;
+      align-items:center;
+      flex-wrap:wrap;
+      margin-top: 10px;
+      padding: 10px 12px;
+      border-radius: 14px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(15,23,48,.55);
+    }
+    .badge{
+      font-size:12px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-weight:800;
+      border:1px solid rgba(255,255,255,.12);
+    }
+    .badge.good{background: rgba(95,227,161,.14); border-color: rgba(95,227,161,.35); color: var(--good)}
+    .badge.bad{background: rgba(255,107,122,.14); border-color: rgba(255,107,122,.35); color: var(--bad)}
+    .badge.warn{background: rgba(255,211,107,.14); border-color: rgba(255,211,107,.35); color: var(--warn)}
+    .status .msg{color: var(--muted); font-size:13px}
+    .history{
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+    }
+    .historyItem{
+      padding:10px 10px;
+      border-radius: 12px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(15,23,48,.55);
+    }
+    .historyItem .t{
+      display:flex; justify-content:space-between; gap:8px; align-items:center;
+      font-size:12px; color: var(--muted);
+      margin-bottom:6px;
+    }
+    .historyItem .s{
+      font-size:13px;
+      line-height:1.45;
+    }
+    .small{font-size:12px;color:var(--muted)}
+    .kbd{
+      font-family: var(--mono);
+      font-size: 12px;
+      padding: 2px 6px;
+      border: 1px solid rgba(255,255,255,.16);
+      border-bottom-width: 2px;
+      border-radius: 8px;
+      color: var(--text);
+      background: rgba(255,255,255,.05);
+    }
+  </style>
+</head>
+
+<body>
+<header>
+  <div class="topbar">
+    <div class="title">
+      <h1>Sentence Structure Trainer</h1>
+      <p>Practice high-scoring templates (Levels 1–3) with fill-in-the-blank and instant feedback.</p>
+    </div>
+    <div class="controls">
+      <span class="pill" id="progressPill">Done: 0 | Accuracy: 0%</span>
+      <button class="btnGhost" id="toggleLangBtn" title="Toggle Chinese hints">中文提示：OFF</button>
+      <button class="btnGhost" id="resetBtn" title="Reset progress">Reset</button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <!-- Left: picker -->
+  <section class="card">
+    <div class="hd">
+      <h2>Pick a template</h2>
+      <select id="levelSelect" aria-label="Select level"></select>
+    </div>
+    <div class="bd">
+      <div class="list" id="templateList"></div>
+      <div class="small" style="margin-top:10px;">
+        Tip: Use <span class="kbd">Tab</span> to jump inputs, then <span class="kbd">Generate</span>.
+      </div>
+    </div>
+  </section>
+
+  <!-- Right: practice -->
+  <section class="card">
+    <div class="hd">
+      <h2>Practice</h2>
+      <span class="pill" id="currentTag">—</span>
+    </div>
+    <div class="bd">
+      <div class="grid">
+        <div class="meta">
+          <div class="box">
+            <div class="label">Template</div>
+            <div class="template" id="templateText"></div>
+          </div>
+          <div class="box">
+            <div class="label">When to use</div>
+            <div class="when" id="whenText"></div>
+          </div>
+          <div class="box">
+            <div class="label">Example</div>
+            <div class="example" id="exampleText"></div>
+          </div>
+        </div>
+
+        <div class="meta">
+          <div class="box">
+            <div class="label">Fill in</div>
+            <div class="inputs" id="inputs"></div>
+
+            <div class="actions">
+              <button class="btnPrimary" id="generateBtn">Generate</button>
+              <button class="btnGhost" id="checkBtn">Check</button>
+              <button class="btnGhost" id="saveBtn">Save as Done</button>
+              <button class="btnGhost" id="randomBtn">Random</button>
+            </div>
+
+            <div class="status" id="statusBox">
+              <span class="badge warn" id="statusBadge">Ready</span>
+              <div class="msg" id="statusMsg">Fill the blanks and click Generate.</div>
+            </div>
+
+            <div class="box" style="margin-top:12px;">
+              <div class="label">Your sentence</div>
+              <textarea id="output" placeholder="Your generated sentence will appear here..."></textarea>
+              <div class="small">Suggestion: read it aloud once before saving.</div>
+            </div>
+          </div>
+
+          <div class="box">
+            <div class="label">Recent attempts</div>
+            <div class="history" id="history"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script>
+  // -----------------------------
+  // Data model
+  // -----------------------------
+  const DATA = [
+    // Level 1
+    {
+      level: "Level 1 — Must master",
+      items: [
+        {
+          id: "def-1",
+          title: "Definition",
+          template: "{A} is a {B} that {C}.",
+          when: "Essential for science, geography, biology; also useful in essays to define a key term.",
+          whenZh: "科学/地理/生物必备；议论文中定义关键概念也很加分。",
+          example: "Gravity is a force that pulls objects toward Earth.",
+          exampleZh: "Gravity is a force that pulls objects toward Earth.",
+          fields: [
+            { key:"A", label:"Term (A)", hint:"e.g., A smartphone / Photosynthesis", hintZh:"例如：A smartphone / Photosynthesis" },
+            { key:"B", label:"Category (B)", hint:"e.g., device / process / force", hintZh:"例如：device / process / force" },
+            { key:"C", label:"What it does (C)", hint:"e.g., connects people quickly", hintZh:"例如：快速连接人们" },
+          ],
+          mustContain: [" is a ", " that "]
+        },
+        {
+          id: "cause-1",
+          title: "Cause–effect",
+          template: "Because of this, {A} can make it harder to {B} and can reduce {C}.",
+          when: "Science explanations; essay body paragraphs showing effects.",
+          whenZh: "科学解释；议论文正文说明影响。",
+          example: "Because of this, noise can make it harder to concentrate and can reduce productivity.",
+          exampleZh: "Because of this, noise can make it harder to concentrate and can reduce productivity.",
+          fields: [
+            { key:"A", label:"Cause (A)", hint:"e.g., loud noise / stress", hintZh:"例如：loud noise / stress" },
+            { key:"B", label:"Action (B)", hint:"e.g., concentrate / sleep", hintZh:"例如：concentrate / sleep" },
+            { key:"C", label:"Thing reduced (C)", hint:"e.g., productivity / deep sleep", hintZh:"例如：productivity / deep sleep" },
+          ],
+          mustContain: ["Because of this", "harder to", "reduce"]
+        },
+        {
+          id: "contrast-1",
+          title: "Contrast (transition)",
+          template: "By contrast, {A}.",
+          when: "Compare two ideas/people/events; contrast paragraph or sentence.",
+          whenZh: "对比两种观点/人物/事件；转折对比段落。",
+          example: "By contrast, some students wait until the last minute.",
+          exampleZh: "By contrast, some students wait until the last minute.",
+          fields: [
+            { key:"A", label:"Contrasting point (A)", hint:"e.g., others prefer to plan ahead", hintZh:"例如：others prefer to plan ahead" },
+          ],
+          mustContain: ["By contrast"]
+        },
+        {
+          id: "notonly-1",
+          title: "Not only…; it is also…",
+          template: "It is not only {A}; it is also {B}.",
+          when: "Supporting argument; showing two factors (not just one).",
+          whenZh: "支撑论点：不止一个原因/因素。",
+          example: "Success is not only about intelligence; it is also about discipline.",
+          exampleZh: "Success is not only about intelligence; it is also about discipline.",
+          fields: [
+            { key:"A", label:"First factor (A)", hint:"e.g., about talent", hintZh:"例如：about talent" },
+            { key:"B", label:"Second factor (B)", hint:"e.g., about effort", hintZh:"例如：about effort" },
+          ],
+          mustContain: ["It is not only", "it is also"]
+        },
+        {
+          id: "method-1",
+          title: "Method / solution",
+          template: "One simple method is to {A}.",
+          when: "Solution paragraph; giving practical advice.",
+          whenZh: "解决方案段落：给出方法/建议。",
+          example: "One simple method is to review vocabulary every day.",
+          exampleZh: "One simple method is to review vocabulary every day.",
+          fields: [
+            { key:"A", label:"Method (A)", hint:"e.g., set a 10-minute timer and start", hintZh:"例如：设10分钟计时器立刻开始" },
+          ],
+          mustContain: ["One simple method is to"]
+        },
+        {
+          id: "likely-1",
+          title: "Likelihood (advanced)",
+          template: "We are more likely to {A} if {B}.",
+          when: "Replace 'we can'; makes writing more academic and precise.",
+          whenZh: "替换 we can；更学术、更准确。",
+          example: "We are more likely to remember information if we review it.",
+          exampleZh: "We are more likely to remember information if we review it.",
+          fields: [
+            { key:"A", label:"Result (A)", hint:"e.g., succeed / remember details", hintZh:"例如：succeed / remember details" },
+            { key:"B", label:"Condition (B)", hint:"e.g., we practice daily", hintZh:"例如：we practice daily" },
+          ],
+          mustContain: ["more likely to", " if "]
+        },
+      ]
+    },
+
+    // Level 2
+    {
+      level: "Level 2 — Advanced (mature)",
+      items: [
+        {
+          id: "moreworse-2",
+          title: "The more…, the worse…",
+          template: "The more {A}, the worse it is for {B}.",
+          when: "Essay argument; showing increasing negative impact.",
+          whenZh: "议论文论证：越…越糟。",
+          example: "The more sugar we eat, the worse it is for our health.",
+          exampleZh: "The more sugar we eat, the worse it is for our health.",
+          fields: [
+            { key:"A", label:"More of… (A)", hint:"e.g., time we waste online", hintZh:"例如：time we waste online" },
+            { key:"B", label:"Target (B)", hint:"e.g., our focus / our health", hintZh:"例如：our focus / our health" },
+          ],
+          mustContain: ["The more", "the worse"]
+        },
+        {
+          id: "ifwant-2",
+          title: "If you want… without…, try…",
+          template: "If you want {A} without {B}, try {C}.",
+          when: "Persuasive writing; advice with a clear trade-off.",
+          whenZh: "劝说类写作：给出不牺牲…的方案。",
+          example: "If you want better grades without stress, try planning your time.",
+          exampleZh: "If you want better grades without stress, try planning your time.",
+          fields: [
+            { key:"A", label:"Goal (A)", hint:"e.g., better sleep", hintZh:"例如：better sleep" },
+            { key:"B", label:"Cost (B)", hint:"e.g., giving up fun", hintZh:"例如：giving up fun" },
+            { key:"C", label:"Action (C)", hint:"e.g., a short nightly routine", hintZh:"例如：a short nightly routine" },
+          ],
+          mustContain: ["If you want", "without", "try"]
+        },
+        {
+          id: "whenfollows-2",
+          title: "When…, … follows close behind",
+          template: "When {A} happens, {B} follows close behind.",
+          when: "Analysis/explanation; linking cause to near-immediate result.",
+          whenZh: "分析解释：当…发生，…紧随其后。",
+          example: "When practice becomes regular, improvement follows close behind.",
+          exampleZh: "When practice becomes regular, improvement follows close behind.",
+          fields: [
+            { key:"A", label:"Event (A)", hint:"e.g., planning becomes consistent", hintZh:"例如：planning becomes consistent" },
+            { key:"B", label:"Result (B)", hint:"e.g., confidence", hintZh:"例如：confidence" },
+          ],
+          mustContain: ["When", "follows close behind"]
+        },
+        {
+          id: "nottrivial-2",
+          title: "These are not…; they…",
+          template: "These are not {A}; they {B}.",
+          when: "Emphasizing small actions; strong argument tone.",
+          whenZh: "强调小事的价值；论证更有力量。",
+          example: "These are not small habits; they shape our future.",
+          exampleZh: "These are not small habits; they shape our future.",
+          fields: [
+            { key:"A", label:"What they seem (A)", hint:"e.g., trivial tasks", hintZh:"例如：trivial tasks" },
+            { key:"B", label:"What they do (B)", hint:"e.g., build discipline", hintZh:"例如：build discipline" },
+          ],
+          mustContain: ["These are not", "; they"]
+        },
+      ]
+    },
+
+    // Level 3
+    {
+      level: "Level 3 — High style (use sparingly)",
+      items: [
+        {
+          id: "admireyet-3",
+          title: "We admire…, yet…",
+          template: "We admire {A}, yet {B} is what actually {C}.",
+          when: "Essay argument / theme sentence (mature).",
+          whenZh: "议论文主题句：对比+强调本质（成熟）。",
+          example: "We admire talent, yet effort is what actually builds success.",
+          exampleZh: "We admire talent, yet effort is what actually builds success.",
+          fields: [
+            { key:"A", label:"What people admire (A)", hint:"e.g., creativity", hintZh:"例如：creativity" },
+            { key:"B", label:"True driver (B)", hint:"e.g., consistency", hintZh:"例如：consistency" },
+            { key:"C", label:"Verb (C)", hint:"e.g., reshapes our lives", hintZh:"例如：reshapes our lives" },
+          ],
+          mustContain: ["We admire", "yet", "is what actually"]
+        },
+        {
+          id: "therein-3",
+          title: "And therein lies…",
+          template: "And therein lies the {A}.",
+          when: "Lesson / conclusion insight (very advanced).",
+          whenZh: "结尾点题：高度概括（少用但很加分）。",
+          example: "And therein lies the true value of persistence.",
+          exampleZh: "And therein lies the true value of persistence.",
+          fields: [
+            { key:"A", label:"Lesson (A)", hint:"e.g., lesson / reason / truth", hintZh:"例如：lesson / reason / truth" },
+          ],
+          mustContain: ["And therein lies"]
+        },
+        {
+          id: "notthat-3",
+          title: "It is not that…; … remains",
+          template: "It is not that {A}; {B} remains.",
+          when: "Clarifying misunderstanding; mature academic voice.",
+          whenZh: "澄清误解：成熟学术表达。",
+          example: "It is not that studying becomes easy; challenges remain.",
+          exampleZh: "It is not that studying becomes easy; challenges remain.",
+          fields: [
+            { key:"A", label:"Misconception (A)", hint:"e.g., life becomes perfect", hintZh:"例如：life becomes perfect" },
+            { key:"B", label:"Reality (B)", hint:"e.g., setbacks", hintZh:"例如：setbacks" },
+          ],
+          mustContain: ["It is not that", ";", "remains"]
+        },
+        {
+          id: "onceknew-3",
+          title: "I once knew someone who…",
+          template: "I once knew someone who {A}.",
+          when: "Narrative essay / hook; personal example.",
+          whenZh: "叙事作文开头：引出故事/例子。",
+          example: "I once knew someone who never gave up on learning.",
+          exampleZh: "I once knew someone who never gave up on learning.",
+          fields: [
+            { key:"A", label:"Trait/Action (A)", hint:"e.g., stayed calm under pressure", hintZh:"例如：stayed calm under pressure" },
+          ],
+          mustContain: ["I once knew someone who"]
+        },
+      ]
+    },
+
+    // Research / extra templates
+    {
+      level: "Research / Science add-ons",
+      items: [
+        {
+          id: "researchopen-x",
+          title: "Research opening (careful claim)",
+          template: "There isn’t much direct research on whether {A}, but many people report that {B}.",
+          when: "Science report intro; social issue essay; careful, balanced opening.",
+          whenZh: "科学报告开头；社会议题；谨慎表达（很加分）。",
+          example: "There isn’t much direct research on whether screen time affects memory, but many students report feeling distracted.",
+          exampleZh: "There isn’t much direct research on whether screen time affects memory, but many students report feeling distracted.",
+          fields: [
+            { key:"A", label:"Research question (A)", hint:"e.g., caffeine affects dreams", hintZh:"例如：caffeine affects dreams" },
+            { key:"B", label:"Reported effect (B)", hint:"e.g., their sleep improves", hintZh:"例如：their sleep improves" },
+          ],
+          mustContain: ["There isn’t much direct research on whether", "but many people report that"]
+        },
+        {
+          id: "explainstage-x",
+          title: "Explanatory stage (science)",
+          template: "This usually increases {A}, the stage when {B} happens.",
+          when: "Science explanation; defining a stage/process precisely.",
+          whenZh: "科学解释：说明阶段/过程（精确）。",
+          example: "This usually increases REM sleep, the stage when dreams happen.",
+          exampleZh: "This usually increases REM sleep, the stage when dreams happen.",
+          fields: [
+            { key:"A", label:"Stage (A)", hint:"e.g., evaporation / REM sleep", hintZh:"例如：evaporation / REM sleep" },
+            { key:"B", label:"What happens (B)", hint:"e.g., water turns to vapor", hintZh:"例如：water turns to vapor" },
+          ],
+          mustContain: ["This usually increases", "the stage when"]
+        },
+        {
+          id: "conclusionposs-x",
+          title: "Conclusion possibility (advanced)",
+          template: "This way, {A} may improve, and {B} might become more {C}.",
+          when: "Essay conclusion; gentle prediction without over-claiming.",
+          whenZh: "议论文结尾：不绝对，给出可能性（很成熟）。",
+          example: "This way, learning may improve, and students might become more confident.",
+          exampleZh: "This way, learning may improve, and students might become more confident.",
+          fields: [
+            { key:"A", label:"Thing improves (A)", hint:"e.g., communication", hintZh:"例如：communication" },
+            { key:"B", label:"Who/what changes (B)", hint:"e.g., students", hintZh:"例如：students" },
+            { key:"C", label:"Adj (C)", hint:"e.g., motivated / focused", hintZh:"例如：motivated / focused" },
+          ],
+          mustContain: ["This way", "may improve", "might become more"]
+        },
+      ]
+    }
+  ];
+
+  // -----------------------------
+  // State + storage
+  // -----------------------------
+  const LS_KEY = "sentence_trainer_v1";
+  const state = {
+    langZh: false,
+    levelIdx: 0,
+    itemId: null,
+    stats: { done: 0, correct: 0, total: 0 },
+    history: []
+  };
+
+  function load() {
+    try {
+      const raw = localStorage.getItem(LS_KEY);
+      if (!raw) return;
+      const obj = JSON.parse(raw);
+      Object.assign(state, obj);
+    } catch (e) {}
+  }
+  function save() {
+    localStorage.setItem(LS_KEY, JSON.stringify(state));
+  }
+
+  // -----------------------------
+  // Helpers
+  // -----------------------------
+  const $ = (id) => document.getElementById(id);
+
+  function setStatus(type, title, msg){
+    const badge = $("statusBadge");
+    const box = $("statusBox");
+    badge.className = "badge " + type;
+    badge.textContent = title;
+    $("statusMsg").textContent = msg;
+  }
+
+  function fillTemplate(tpl, values){
+    return tpl.replace(/\{(\w+)\}/g, (_, k) => (values[k] ?? "").trim());
+  }
+
+  function normalize(s){
+    return (s || "").replace(/\s+/g, " ").trim();
+  }
+
+  function nowStamp(){
+    const d = new Date();
+    return d.toLocaleString();
+  }
+
+  function getAllItems(){
+    return DATA.flatMap(g => g.items.map(it => ({...it, level: g.level})));
+  }
+
+  function currentGroup(){
+    return DATA[state.levelIdx] || DATA[0];
+  }
+
+  function currentItem(){
+    const group = currentGroup();
+    if (!group) return null;
+    let item = group.items.find(x => x.id === state.itemId);
+    if (!item) item = group.items[0];
+    return item;
+  }
+
+  function updateProgressPill(){
+    const done = state.stats.done || 0;
+    const total = state.stats.total || 0;
+    const correct = state.stats.correct || 0;
+    const acc = total ? Math.round((correct/total)*100) : 0;
+    $("progressPill").textContent = `Done: ${done} | Accuracy: ${acc}%`;
+  }
+
+  function renderLevelSelect(){
+    const sel = $("levelSelect");
+    sel.innerHTML = "";
+    DATA.forEach((g, idx) => {
+      const opt = document.createElement("option");
+      opt.value = idx;
+      opt.textContent = g.level;
+      sel.appendChild(opt);
+    });
+    sel.value = String(state.levelIdx);
+  }
+
+  function renderTemplateList(){
+    const list = $("templateList");
+    list.innerHTML = "";
+    const group = currentGroup();
+
+    group.items.forEach(it => {
+      const div = document.createElement("div");
+      div.className = "item" + (it.id === state.itemId ? " active" : "");
+      div.innerHTML = `
+        <div class="k">${it.title}</div>
+        <div class="m">${state.langZh ? (it.whenZh || it.when) : it.when}</div>
+      `;
+      div.onclick = () => {
+        state.itemId = it.id;
+        save();
+        renderTemplateList();
+        renderPractice();
+      };
+      list.appendChild(div);
+    });
+  }
+
+  function renderInputs(item){
+    const wrap = $("inputs");
+    wrap.innerHTML = "";
+    item.fields.forEach(f => {
+      const row = document.createElement("div");
+      row.className = "row";
+      row.innerHTML = `
+        <div class="small" style="font-weight:800;color:var(--text)">${f.label}</div>
+        <input id="in_${f.key}" placeholder="${state.langZh ? (f.hintZh || f.hint) : f.hint}" />
+      `;
+      wrap.appendChild(row);
+    });
+  }
+
+  function renderHistory(){
+    const h = $("history");
+    h.innerHTML = "";
+    const items = state.history.slice(0,10);
+    if (!items.length){
+      h.innerHTML = `<div class="small">No attempts yet.</div>`;
+      return;
+    }
+    items.forEach(x => {
+      const div = document.createElement("div");
+      div.className = "historyItem";
+      div.innerHTML = `
+        <div class="t">
+          <span>${x.stamp}</span>
+          <span class="badge ${x.ok ? "good" : "bad"}">${x.ok ? "OK" : "Fix"}</span>
+        </div>
+        <div class="s">${escapeHtml(x.text)}</div>
+        <div class="small">${escapeHtml(x.title)}</div>
+      `;
+      h.appendChild(div);
+    });
+  }
+
+  function escapeHtml(str){
+    return (str||"").replace(/[&<>"']/g, (m)=>({
+      "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"
+    }[m]));
+  }
+
+  function renderPractice(){
+    const item = currentItem();
+    if (!item) return;
+
+    $("currentTag").textContent = item.level;
+    $("templateText").textContent = item.template;
+    $("whenText").textContent = state.langZh ? (item.whenZh || item.when) : item.when;
+    $("exampleText").textContent = item.example;
+
+    renderInputs(item);
+    $("output").value = "";
+    setStatus("warn", "Ready", state.langZh ? "填空后点击 Generate." : "Fill the blanks and click Generate.");
+
+    renderHistory();
+    updateProgressPill();
+  }
+
+  // -----------------------------
+  // Checking logic (simple but useful)
+  // -----------------------------
+  function checkSentence(item, sentence){
+    const s = normalize(sentence);
+    if (!s) return { ok:false, issues:["Empty sentence."] };
+
+    const issues = [];
+
+    // Basic: no unresolved placeholders, no empty fragments
+    if (s.includes("{") || s.includes("}")) issues.push("Looks like placeholders are still inside.");
+
+    // Must contain key structure bits
+    (item.mustContain || []).forEach(req => {
+      if (!s.toLowerCase().includes(req.toLowerCase())) issues.push(`Missing: "${req}"`);
+    });
+
+    // Very simple punctuation check
+    if (!/[.!?]$/.test(s)) issues.push("Add an ending punctuation (., !, or ?).");
+
+    // Avoid double spaces
+    if (/\s{2,}/.test(sentence)) issues.push("Too many spaces—clean it up.");
+
+    return { ok: issues.length === 0, issues };
+  }
+
+  function collectValues(item){
+    const values = {};
+    item.fields.forEach(f => {
+      values[f.key] = ($("in_" + f.key)?.value || "").trim();
+    });
+    return values;
+  }
+
+  // -----------------------------
+  // Actions
+  // -----------------------------
+  function doGenerate(){
+    const item = currentItem();
+    const values = collectValues(item);
+    const out = fillTemplate(item.template, values);
+
+    $("output").value = normalize(out);
+
+    // Auto-check after generate
+    doCheck(true);
+  }
+
+  function doCheck(silent=false){
+    const item = currentItem();
+    const text = $("output").value;
+    const result = checkSentence(item, text);
+
+    state.stats.total = (state.stats.total || 0) + (silent ? 0 : 1);
+    if (!silent) {
+      if (result.ok) state.stats.correct = (state.stats.correct || 0) + 1;
+      save();
+      updateProgressPill();
+    }
+
+    if (result.ok){
+      setStatus("good", "Good", state.langZh ? "结构正确！可以保存。" : "Structure looks good. You can save it.");
+    } else {
+      const msg = (state.langZh ? "需要改进：" : "Fix these: ") + result.issues.join(" | ");
+      setStatus("bad", "Fix", msg);
+    }
+
+    return result;
+  }
+
+  function doSaveDone(){
+    const item = currentItem();
+    const text = normalize($("output").value);
+    const result = checkSentence(item, text);
+
+    state.stats.total = (state.stats.total || 0) + 1;
+    if (result.ok) state.stats.correct = (state.stats.correct || 0) + 1;
+
+    state.history.unshift({
+      stamp: nowStamp(),
+      ok: result.ok,
+      text: text || "(empty)",
+      title: item.title + " — " + item.level
+    });
+
+    // Count "done" only if OK
+    if (result.ok) state.stats.done = (state.stats.done || 0) + 1;
+
+    // Keep history small
+    state.history = state.history.slice(0, 30);
+
+    save();
+    renderHistory();
+    updateProgressPill();
+
+    if (result.ok){
+      setStatus("good", "Saved", state.langZh ? "已记录为完成 ✅" : "Saved as done ✅");
+    } else {
+      setStatus("bad", "Not saved", state.langZh ? "先修正再保存。" : "Fix it first, then save.");
+    }
+  }
+
+  function doRandom(){
+    const group = currentGroup();
+    const idx = Math.floor(Math.random()*group.items.length);
+    state.itemId = group.items[idx].id;
+    save();
+    renderTemplateList();
+    renderPractice();
+  }
+
+  function doToggleLang(){
+    state.langZh = !state.langZh;
+    $("toggleLangBtn").textContent = state.langZh ? "中文提示：ON" : "中文提示：OFF";
+    save();
+    renderTemplateList();
+    renderPractice();
+  }
+
+  function doReset(){
+    if (!confirm("Reset progress and history?")) return;
+    state.stats = { done:0, correct:0, total:0 };
+    state.history = [];
+    save();
+    renderHistory();
+    updateProgressPill();
+    setStatus("warn", "Reset", "Progress cleared.");
+  }
+
+  // -----------------------------
+  // Init
+  // -----------------------------
+  load();
+
+  // default selection
+  if (!state.itemId){
+    state.levelIdx = 0;
+    state.itemId = DATA[0].items[0].id;
+  }
+
+  renderLevelSelect();
+  renderTemplateList();
+  renderPractice();
+
+  $("toggleLangBtn").textContent = state.langZh ? "中文提示：ON" : "中文提示：OFF";
+
+  $("levelSelect").addEventListener("change", (e) => {
+    state.levelIdx = Number(e.target.value);
+    const g = currentGroup();
+    state.itemId = g.items[0].id;
+    save();
+    renderTemplateList();
+    renderPractice();
+  });
+
+  $("generateBtn").addEventListener("click", doGenerate);
+  $("checkBtn").addEventListener("click", () => doCheck(false));
+  $("saveBtn").addEventListener("click", doSaveDone);
+  $("randomBtn").addEventListener("click", doRandom);
+  $("toggleLangBtn").addEventListener("click", doToggleLang);
+  $("resetBtn").addEventListener("click", doReset);
+
+  // Keyboard shortcut: Ctrl/Cmd + Enter to check
+  document.addEventListener("keydown", (e) => {
+    if ((e.ctrlKey || e.metaKey) && e.key === "Enter"){
+      doCheck(false);
+    }
+  });
+</script>
+</body>
+</html>
