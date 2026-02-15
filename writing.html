@@ -372,6 +372,12 @@
           whenZh: "科学/地理/生物必备；议论文中定义关键概念也很加分。",
           example: "Gravity is a force that pulls objects toward Earth.",
           exampleZh: "Gravity is a force that pulls objects toward Earth.",
+          qualityRules: {
+              minWords: { A: 1, B: 1, C: 3 },   // C 至少 3 个词
+              allowedB: ["force","process","device","system","chemical","tool","method","reaction","organism","resource","factor"],
+              requireVerbInC: true,
+              bannedWordsInC: ["thing","stuff","nice","good","bad","something"],
+            },
           fields: [
             { key:"A", label:"Term (A)", hint:"e.g., A smartphone / Photosynthesis", hintZh:"例如：A smartphone / Photosynthesis" },
             { key:"B", label:"Category (B)", hint:"e.g., device / process / force", hintZh:"例如：device / process / force" },
@@ -387,6 +393,11 @@
           whenZh: "科学解释；议论文正文说明影响。",
           example: "Because of this, noise can make it harder to concentrate and can reduce productivity.",
           exampleZh: "Because of this, noise can make it harder to concentrate and can reduce productivity.",
+          qualityRules: {
+              minWords: { A: 1, B: 1, C: 1 },
+              requireVerbInB: true,  // harder to + 动词
+              bannedWords: ["asdf","qwer","aaaa","lol"],
+            },
           fields: [
             { key:"A", label:"Cause (A)", hint:"e.g., loud noise / stress", hintZh:"例如：loud noise / stress" },
             { key:"B", label:"Action (B)", hint:"e.g., concentrate / sleep", hintZh:"例如：concentrate / sleep" },
@@ -442,6 +453,11 @@
           whenZh: "替换 we can；更学术、更准确。",
           example: "We are more likely to remember information if we review it.",
           exampleZh: "We are more likely to remember information if we review it.",
+          qualityRules: {
+              minWords: { A: 2, B: 2 },
+              requireVerbInA: true,
+              requireIfClause: true,
+            },
           fields: [
             { key:"A", label:"Result (A)", hint:"e.g., succeed / remember details", hintZh:"例如：succeed / remember details" },
             { key:"B", label:"Condition (B)", hint:"e.g., we practice daily", hintZh:"例如：we practice daily" },
@@ -803,9 +819,9 @@ function checkSentence(item, sentence){
   const s = normalize(sentence);
   const issues = [];
 
-  if (!s) return { ok:false, issues:["Empty sentence."] };
+  if (!s) return { ok:false, tier:"bad", score:0, issues:["Empty sentence."] };
 
-  // 1) Required fields must not be empty (prevents "that .")
+  // 1) Required fields must not be empty
   const values = collectValues(item);
   for (const f of (item.fields || [])) {
     const v = (values[f.key] || "").trim();
@@ -820,7 +836,7 @@ function checkSentence(item, sentence){
     if (!s.toLowerCase().includes(req.toLowerCase())) issues.push(`Missing: "${req}"`);
   });
 
-  // 4) Prevent empty clause after 'that' (common student mistake)
+  // 4) Prevent empty clause after 'that'
   const thatMatch = s.match(/\bthat\b(.*)/i);
   if (thatMatch) {
     const after = (thatMatch[1] || "").replace(/[.\s]/g, "");
@@ -830,11 +846,133 @@ function checkSentence(item, sentence){
   // 5) Basic punctuation check
   if (!/[.!?]$/.test(s)) issues.push("Add an ending punctuation (., !, or ?).");
 
-  // 6) Avoid double spaces
-  if (/\s{2,}/.test(sentence)) issues.push("Too many spaces—clean it up.");
+  // ========== NEW: sense scoring ==========
+  const score = senseScore(item, values, s);
+  const tier = tierFromScore(score);
 
-  return { ok: issues.length === 0, issues };
+  // 结构没问题但意义弱：给“弱”提示
+  if (issues.length === 0 && tier === "weak"){
+    issues.push("Structure is OK, but meaning is weak. Add a clear verb + specific object/detail.");
+  }
+
+  const ok = (issues.length === 0 && tier === "good");
+
+  return { ok, tier, score, issues };
 }
+
+
+function tokenizeWords(s){
+  return (s || "")
+    .toLowerCase()
+    .replace(/[^a-z'\s-]/g, " ")
+    .split(/\s+/)
+    .filter(Boolean);
+}
+
+function hasVerb(words){
+  // 轻量动词表（足够拦截“无意义短语”）
+  const verbs = new Set([
+    "is","are","was","were","be","being","been",
+    "pull","pulls","pushed","push","pushes",
+    "cause","causes","caused",
+    "make","makes","made",
+    "help","helps","helped",
+    "allow","allows","allowed",
+    "reduce","reduces","reduced",
+    "increase","increases","increased",
+    "improve","improves","improved",
+    "affect","affects","affected",
+    "convert","converts","converted",
+    "create","creates","created",
+    "connect","connects","connected",
+    "prevent","prevents","prevented",
+    "protect","protects","protected",
+    "lead","leads","led"
+  ]);
+  return words.some(w => verbs.has(w));
+}
+
+function looksLikeGibberish(text){
+  const s = (text || "").trim();
+  if (!s) return true;
+
+  // 太短
+  if (tokenizeWords(s).length < 4) return true;
+
+  // 连续同字符 4+
+  if (/(.)\1\1\1/.test(s.toLowerCase())) return true;
+
+  // 明显键盘乱敲
+  const bad = ["asdf","qwer","zxcv","hjkl","aaaa","bbbb","cccc"];
+  const low = s.toLowerCase();
+  if (bad.some(x => low.includes(x))) return true;
+
+  // 字母比例太低（大量符号/数字）
+  const letters = (s.match(/[a-z]/gi) || []).length;
+  const total = s.length || 1;
+  if (letters / total < 0.55) return true;
+
+  return false;
+}
+
+function fieldWordCount(values, key){
+  return tokenizeWords(values[key] || "").length;
+}
+
+function senseScore(item, values, sentence){
+  let score = 100;
+  const rules = item.qualityRules || {};
+
+  // 0) 乱写检测
+  if (looksLikeGibberish(sentence)) score -= 60;
+
+  // 1) 最低词数
+  if (rules.minWords){
+    for (const k of Object.keys(rules.minWords)){
+      const need = rules.minWords[k];
+      const got = fieldWordCount(values, k);
+      if (got < need) score -= (need - got) * 10;
+    }
+  }
+
+  // 2) 禁止空话（主要针对 C）
+  const bannedC = (rules.bannedWordsInC || []);
+  const cWords = tokenizeWords(values.C || "");
+  if (bannedC.some(w => cWords.includes(w))) score -= 20;
+
+  // 3) B 的允许列表（Definition 特别有效）
+  if (rules.allowedB){
+    const b = (values.B || "").trim().toLowerCase();
+    if (b && !rules.allowedB.includes(b)) score -= 20;
+  }
+
+  // 4) 必须有动词
+  if (rules.requireVerbInC){
+    if (!hasVerb(tokenizeWords(values.C || ""))) score -= 25;
+  }
+  if (rules.requireVerbInA){
+    if (!hasVerb(tokenizeWords(values.A || ""))) score -= 20;
+  }
+  if (rules.requireVerbInB){
+    if (!hasVerb(tokenizeWords(values.B || ""))) score -= 20;
+  }
+
+  // 5) Likelihood 模板必须有 if 从句
+  if (rules.requireIfClause){
+    const s = (sentence || "").toLowerCase();
+    if (!s.includes(" if ")) score -= 20;
+  }
+
+  // 分数下限
+  return Math.max(0, Math.min(100, score));
+}
+
+function tierFromScore(score){
+  if (score >= 80) return "good";      // 结构 + 意义都不错
+  if (score >= 55) return "weak";      // 结构对，但意义弱/不够具体
+  return "bad";                         // 明显不通顺/乱写/缺关键内容
+}
+
 
 
   function collectValues(item){
@@ -871,12 +1009,17 @@ function checkSentence(item, sentence){
       updateProgressPill();
     }
 
-    if (result.ok){
-      setStatus("good", "Good", state.langZh ? "结构正确！可以保存。" : "Structure looks good. You can save it.");
-    } else {
-      const msg = (state.langZh ? "需要改进：" : "Fix these: ") + result.issues.join(" | ");
-      setStatus("bad", "Fix", msg);
-    }
+if (result.tier === "good" && result.issues.length === 0){
+  setStatus("good", `Good (${result.score})`, state.langZh ? "结构和表达都不错，可以保存。" : "Structure + meaning look good. You can save it.");
+} else if (result.tier === "weak" && result.issues.length){
+  setStatus("warn", `Weak (${result.score})`, state.langZh
+    ? "结构对，但意思太弱：请加具体动词+宾语/细节。"
+    : "Structure is OK but meaning is weak. Add a clear verb + specific object/detail.");
+} else {
+  const msg = (state.langZh ? "需要改进：" : "Fix these: ") + result.issues.join(" | ");
+  setStatus("bad", `Not good (${result.score})`, msg);
+}
+
 
     return result;
   }
