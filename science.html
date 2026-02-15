@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Grade 9 Science Writing Trainer</title>
+  <title>Grade 9 Science Trainer</title>
   <style>
     :root{
       --bg:#0b1020;
@@ -12,7 +12,8 @@
       --text:#e9ecf5;
       --muted:#aab2cf;
       --line:#22305e;
-      --accent:#7aa2ff;
+--accent:#5fe3a1;
+--accentGlow:#103b2f;
       --good:#5fe3a1;
       --bad:#ff6b7a;
       --warn:#ffd36b;
@@ -25,7 +26,8 @@
     body{
       margin:0;
       font-family: var(--sans);
-      background: radial-gradient(1200px 700px at 20% 0%, #1a2560 0%, var(--bg) 60%);
+background: radial-gradient(1200px 700px at 20% 0%, var(--accentGlow) 0%, var(--bg) 60%);
+
       color:var(--text);
       min-height:100vh;
     }
@@ -209,7 +211,7 @@
 <header>
   <div class="topbar">
     <div class="title">
-      <h1>Grade 9 Science Writing Trainer (Kevin)</h1>
+      <h1>Grade 9 Science Trainer</h1>
       <p>Train scientific thinking + writing: classify, observe vs infer, build hypotheses (IV/DV), write procedures, and improve explanations.</p>
     </div>
     <div class="controls">
@@ -483,7 +485,9 @@
       return `
         <div class="box">
           <div class="label">Statement</div>
-          <div class="hint">${escapeHtml(q.s)}</div>
+          <div class="hint" id="statementBox" data-answer="${q.a}" data-statement="${escapeHtml(q.s)}">
+  ${escapeHtml(q.s)}
+</div>
           <div class="small">Choose the best classification.</div>
           <div class="choiceGrid" id="choices">
             ${["science","pseudoscience","protoscience","not science"].map(x=>`
@@ -539,7 +543,9 @@
       return `
         <div class="box">
           <div class="label">Statement</div>
-          <div class="hint">${escapeHtml(q.s)}</div>
+            <div class="hint" id="statementBox" data-answer="${q.a}" data-statement="${escapeHtml(q.s)}">
+            ${escapeHtml(q.s)}
+            </div>
           <div class="small">Observation = directly seen/measured. Inference = explanation or conclusion.</div>
           <div class="choiceGrid" id="choices">
             ${["observation","inference"].map(x=>`
@@ -1037,26 +1043,36 @@
     }
 
     // Module-specific
-    if(m.id==="is_science" && tab==="Quiz"){
-      const qIdx = (state._quizCursor?.[m.id] ? (state._quizCursor[m.id]-1) : 0);
-      const q = m.quiz[qIdx];
-      const checkBtn = document.getElementById("checkBtn");
-      if(checkBtn){
-        checkBtn.onclick = ()=>{
-          const selected = document.querySelector("#choices .choice.selected")?.dataset?.val;
-          if(!selected){
-            statusArea().innerHTML = setStatus("warn","Pick one","Choose a classification.");
-            return;
-          }
-          const ok = selected === q.a;
-          const msg = ok
-            ? `Correct. This is best classified as "${q.a}".`
-            : `Not quite. Best answer: "${q.a}".`;
-          statusArea().innerHTML = setStatus(ok ? "good":"bad", ok ? "Good":"Fix", msg);
-          recordAttempt(ok, `${q.s} → ${selected}`, `${m.name} — Quiz`);
-        };
+if(m.id==="is_science" && tab==="Quiz"){
+  const checkBtn = document.getElementById("checkBtn");
+  if(checkBtn){
+    checkBtn.onclick = ()=>{
+      const selected = document.querySelector("#choices .choice.selected")?.dataset?.val;
+      if(!selected){
+        statusArea().innerHTML = setStatus("warn","Pick one","Choose a classification.");
+        return;
       }
-    }
+
+      const box = document.getElementById("statementBox");
+      const answer = box?.dataset?.answer;          // ✅ 直接拿正确答案
+      const statement = box?.dataset?.statement || box?.textContent || "";
+
+      if(!answer){
+        statusArea().innerHTML = setStatus("bad","Error","Missing answer in DOM. Please refresh.");
+        return;
+      }
+
+      const ok = (selected === answer);
+      const msg = ok
+        ? `Correct. This is best classified as "${answer}".`
+        : `Not quite. Best answer: "${answer}".`;
+
+      statusArea().innerHTML = setStatus(ok ? "good":"bad", ok ? "Good":"Fix", msg);
+      recordAttempt(ok, `${statement} → ${selected}`, `${m.name} — Quiz`);
+    };
+  }
+}
+
 
     if(m.id==="is_science" && tab==="Explain"){
       const gradeBtn = document.getElementById("gradeExplainBtn");
