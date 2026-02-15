@@ -799,28 +799,43 @@
   // -----------------------------
   // Checking logic (simple but useful)
   // -----------------------------
-  function checkSentence(item, sentence){
-    const s = normalize(sentence);
-    if (!s) return { ok:false, issues:["Empty sentence."] };
+function checkSentence(item, sentence){
+  const s = normalize(sentence);
+  const issues = [];
 
-    const issues = [];
+  if (!s) return { ok:false, issues:["Empty sentence."] };
 
-    // Basic: no unresolved placeholders, no empty fragments
-    if (s.includes("{") || s.includes("}")) issues.push("Looks like placeholders are still inside.");
-
-    // Must contain key structure bits
-    (item.mustContain || []).forEach(req => {
-      if (!s.toLowerCase().includes(req.toLowerCase())) issues.push(`Missing: "${req}"`);
-    });
-
-    // Very simple punctuation check
-    if (!/[.!?]$/.test(s)) issues.push("Add an ending punctuation (., !, or ?).");
-
-    // Avoid double spaces
-    if (/\s{2,}/.test(sentence)) issues.push("Too many spaces—clean it up.");
-
-    return { ok: issues.length === 0, issues };
+  // 1) Required fields must not be empty (prevents "that .")
+  const values = collectValues(item);
+  for (const f of (item.fields || [])) {
+    const v = (values[f.key] || "").trim();
+    if (!v) issues.push(`Blank field: ${f.label}`);
   }
+
+  // 2) No unresolved placeholders
+  if (s.includes("{") || s.includes("}")) issues.push("Looks like placeholders are still inside.");
+
+  // 3) Must contain key structure bits
+  (item.mustContain || []).forEach(req => {
+    if (!s.toLowerCase().includes(req.toLowerCase())) issues.push(`Missing: "${req}"`);
+  });
+
+  // 4) Prevent empty clause after 'that' (common student mistake)
+  const thatMatch = s.match(/\bthat\b(.*)/i);
+  if (thatMatch) {
+    const after = (thatMatch[1] || "").replace(/[.\s]/g, "");
+    if (!after) issues.push('Incomplete: add meaning after "that".');
+  }
+
+  // 5) Basic punctuation check
+  if (!/[.!?]$/.test(s)) issues.push("Add an ending punctuation (., !, or ?).");
+
+  // 6) Avoid double spaces
+  if (/\s{2,}/.test(sentence)) issues.push("Too many spaces—clean it up.");
+
+  return { ok: issues.length === 0, issues };
+}
+
 
   function collectValues(item){
     const values = {};
