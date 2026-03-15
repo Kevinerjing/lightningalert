@@ -5,63 +5,354 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Ionic Bond Teaching App</title>
   <style>
-    :root{
-      --bg:#f5f8fc;
-      --card:#ffffff;
-      --ink:#18324a;
-      --muted:#5d7288;
-      --line:#dbe5ef;
-      --accent:#1f7aec;
-      --accent2:#4fb3ff;
-      --good:#1f9d55;
-      --warn:#f59e0b;
-      --shadow:0 14px 34px rgba(20,46,80,.12);
-      --radius:22px;
+    :root {
+      --bg: #f5f8fc;
+      --card: #ffffff;
+      --ink: #18324a;
+      --muted: #5d7288;
+      --line: #dbe5ef;
+      --accent: #1f7aec;
+      --good: #1f9d55;
+      --shadow: 0 14px 34px rgba(20, 46, 80, 0.12);
+      --radius: 22px;
     }
-    *{box-sizing:border-box}
-    body{margin:0;font-family:Arial,Helvetica,sans-serif;background:linear-gradient(180deg,#eef4fb 0%,#f8fbff 100%);color:var(--ink)}
-    .page{max-width:1320px;margin:0 auto;padding:24px}
-    .hero{background:linear-gradient(135deg,#1967d2 0%,#3793ff 60%,#7fd3ff 100%);color:#fff;border-radius:30px;padding:28px;box-shadow:var(--shadow);margin-bottom:22px}
-    .hero h1{margin:0 0 8px;font-size:clamp(28px,4vw,42px)}
-    .hero p{margin:0;max-width:920px;line-height:1.55;color:rgba(255,255,255,.96)}
-    .layout{display:grid;grid-template-columns:340px 1fr;gap:22px;align-items:start}
-    .card,.panel{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)}
-    .panel{padding:18px;position:sticky;top:14px}
-    .panel h2,.section-title{margin:0 0 14px;font-size:22px}
-    .section{padding-bottom:16px;margin-bottom:16px;border-bottom:1px solid #ebf1f7}
-    .section:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
-    label{display:block;font-size:14px;font-weight:700;margin-bottom:8px}
-    select,button{width:100%}
-    button,select{border:1px solid #d0dbe6;background:#fff;border-radius:14px;padding:12px 14px;font-size:15px;color:var(--ink)}
-    button{cursor:pointer;font-weight:700;transition:.12s transform ease,.12s box-shadow ease}
-    button:hover{transform:translateY(-1px);box-shadow:0 8px 18px rgba(31,122,236,.16)}
-    .btn-primary{background:var(--accent);color:#fff;border-color:transparent}
-    .btn-secondary{background:#eef6ff;color:var(--accent);border-color:#cfe2ff}
-    .btn-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px}
-    .toggle{display:flex;justify-content:space-between;align-items:center;gap:10px;background:#f8fbff;border:1px solid #e3edf8;border-radius:14px;padding:10px 12px;margin-top:10px}
-    .toggle label{margin:0;font-weight:600}.toggle input{width:18px;height:18px}
-    .content{display:grid;gap:22px}
-    .tabs{display:flex;flex-wrap:wrap;gap:10px;padding:10px;background:#fff;border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow)}
-    .tab{width:auto;border-radius:999px;padding:10px 16px;background:#f7fbff;border:1px solid #d9e6f2}
-    .tab.active{background:var(--accent);color:#fff;border-color:var(--accent)}
-    .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
-    .lesson,.practice,.viewer{padding:18px}
-    .mini{background:#f8fbff;border:1px solid #e3edf8;border-radius:16px;padding:14px}
-    .mini h4{margin:0 0 8px;font-size:17px}
-    .mini p,.mini li{margin:0;color:var(--muted);line-height:1.55;font-size:14px}
-    .mini ul{margin:0;padding-left:18px}
-    .stage{background:radial-gradient(circle at top,#fbfdff 0%,#f2f8fe 100%);border:1px solid #dce8f5;border-radius:18px;min-height:420px;padding:10px;overflow:hidden}
-    svg{width:100%;height:100%;min-height:390px;display:block}
-    .info-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
-    .stat{background:#fff;border:1px solid var(--line);border-radius:18px;padding:14px;box-shadow:var(--shadow)}
-    .stat .label{font-size:13px;color:var(--muted);margin-bottom:8px}.stat .value{font-size:22px;font-weight:800}
-    .step-buttons{display:grid;gap:10px}
-    .pill{display:inline-block;padding:7px 12px;border-radius:999px;background:#eef6ff;color:var(--accent);font-size:13px;font-weight:700;margin:0 8px 8px 0}
-    .practice-layout{display:grid;grid-template-columns:1.1fr .9fr;gap:18px}
-    .answer-box{background:#f8fbff;border:1px solid #dce8f4;border-radius:16px;padding:14px;min-height:80px;line-height:1.55}
-    .option-list{display:grid;gap:10px;margin-top:12px}.option.correct{background:#ecfff3;border-color:#9fe0b8;color:#136c39}.option.wrong{background:#fff2f2;border-color:#ffc6c6;color:#a33131}
-    .footer-note{font-size:13px;color:var(--muted);margin-top:8px}
-    @media (max-width:1100px){.layout,.practice-layout,.grid-2,.info-grid{grid-template-columns:1fr}.panel{position:static}}
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: linear-gradient(180deg, #eef4fb 0%, #f8fbff 100%);
+      color: var(--ink);
+    }
+
+    .page {
+      max-width: 1320px;
+      margin: 0 auto;
+      padding: 24px;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #1967d2 0%, #3793ff 60%, #7fd3ff 100%);
+      color: #fff;
+      border-radius: 30px;
+      padding: 28px;
+      box-shadow: var(--shadow);
+      margin-bottom: 22px;
+    }
+
+    .hero h1 {
+      margin: 0 0 8px;
+      font-size: clamp(28px, 4vw, 42px);
+    }
+
+    .hero p {
+      margin: 0;
+      max-width: 920px;
+      line-height: 1.55;
+      color: rgba(255, 255, 255, 0.96);
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: 340px 1fr;
+      gap: 22px;
+      align-items: start;
+    }
+
+    .card,
+    .panel {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .panel {
+      padding: 18px;
+      position: sticky;
+      top: 14px;
+    }
+
+    .panel h2,
+    .section-title {
+      margin: 0 0 14px;
+      font-size: 22px;
+    }
+
+    .section {
+      padding-bottom: 16px;
+      margin-bottom: 16px;
+      border-bottom: 1px solid #ebf1f7;
+    }
+
+    .section:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    label {
+      display: block;
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    select,
+    button {
+      width: 100%;
+    }
+
+    button,
+    select {
+      border: 1px solid #d0dbe6;
+      background: #fff;
+      border-radius: 14px;
+      padding: 12px 14px;
+      font-size: 15px;
+      color: var(--ink);
+    }
+
+    button {
+      cursor: pointer;
+      font-weight: 700;
+      transition: 0.12s transform ease, 0.12s box-shadow ease;
+    }
+
+    button:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 8px 18px rgba(31, 122, 236, 0.16);
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+      border-color: transparent;
+    }
+
+    .btn-secondary {
+      background: #eef6ff;
+      color: var(--accent);
+      border-color: #cfe2ff;
+    }
+
+    .btn-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .toggle {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      background: #f8fbff;
+      border: 1px solid #e3edf8;
+      border-radius: 14px;
+      padding: 10px 12px;
+      margin-top: 10px;
+    }
+
+    .toggle label {
+      margin: 0;
+      font-weight: 600;
+    }
+
+    .toggle input {
+      width: 18px;
+      height: 18px;
+    }
+
+    .content {
+      display: grid;
+      gap: 22px;
+    }
+
+    .tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      padding: 10px;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      box-shadow: var(--shadow);
+    }
+
+    .tab {
+      width: auto;
+      border-radius: 999px;
+      padding: 10px 16px;
+      background: #f7fbff;
+      border: 1px solid #d9e6f2;
+    }
+
+    .tab.active {
+      background: var(--accent);
+      color: #fff;
+      border-color: var(--accent);
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .lesson,
+    .practice,
+    .viewer {
+      padding: 18px;
+    }
+
+    .mini {
+      background: #f8fbff;
+      border: 1px solid #e3edf8;
+      border-radius: 16px;
+      padding: 14px;
+    }
+
+    .mini h4 {
+      margin: 0 0 8px;
+      font-size: 17px;
+    }
+
+    .mini p,
+    .mini li {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.55;
+      font-size: 14px;
+    }
+
+    .mini ul {
+      margin: 0;
+      padding-left: 18px;
+    }
+
+    .stage {
+      background: radial-gradient(circle at top, #fbfdff 0%, #f2f8fe 100%);
+      border: 1px solid #dce8f5;
+      border-radius: 18px;
+      min-height: 420px;
+      padding: 10px;
+      overflow: hidden;
+    }
+
+    svg {
+      width: 100%;
+      height: 100%;
+      min-height: 390px;
+      display: block;
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+    }
+
+    .stat {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 14px;
+      box-shadow: var(--shadow);
+    }
+
+    .stat .label {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+
+    .stat .value {
+      font-size: 22px;
+      font-weight: 800;
+    }
+
+    .step-buttons {
+      display: grid;
+      gap: 10px;
+    }
+
+    .pill {
+      display: inline-block;
+      padding: 7px 12px;
+      border-radius: 999px;
+      background: #eef6ff;
+      color: var(--accent);
+      font-size: 13px;
+      font-weight: 700;
+      margin: 0 8px 8px 0;
+    }
+
+    .practice-layout {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 18px;
+    }
+
+    .answer-box {
+      background: #f8fbff;
+      border: 1px solid #dce8f4;
+      border-radius: 16px;
+      padding: 14px;
+      min-height: 80px;
+      line-height: 1.55;
+    }
+
+    .option-list {
+      display: grid;
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .option.correct {
+      background: #ecfff3;
+      border-color: #9fe0b8;
+      color: #136c39;
+    }
+
+    .option.wrong {
+      background: #fff2f2;
+      border-color: #ffc6c6;
+      color: #a33131;
+    }
+
+    .footer-note {
+      font-size: 13px;
+      color: var(--muted);
+      margin-top: 8px;
+    }
+
+    .test-results {
+      margin-top: 12px;
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.5;
+      background: #f8fbff;
+      border: 1px solid #dce8f4;
+      border-radius: 14px;
+      padding: 10px 12px;
+      white-space: pre-line;
+    }
+
+    @media (max-width: 1100px) {
+      .layout,
+      .practice-layout,
+      .grid-2,
+      .info-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .panel {
+        position: static;
+      }
+    }
   </style>
 </head>
 <body>
@@ -112,6 +403,8 @@
           <div style="font-weight:700;margin-bottom:8px">Quick facts</div>
           <div id="quickFacts"></div>
         </div>
+
+        <div class="test-results" id="testResults">Running self-checks…</div>
       </aside>
 
       <main class="content">
@@ -187,93 +480,580 @@
 
   <script>
     const compounds = {
-      Li2S:{key:'Li2S',title:'Lithium sulfide',formula:'Li₂S',metalSymbol:'Li',metalName:'lithium',nonmetalSymbol:'S',nonmetalName:'sulfur',metalCount:2,nonmetalCount:1,metalValence:1,nonmetalValence:6,metalChargeText:'Li⁺',nonmetalChargeText:'S²⁻',metalShellsNeutral:'2,1',metalShellsIon:'2',nonmetalShellsNeutral:'2,8,6',nonmetalShellsIon:'2,8,8',metalProtons:3,metalNeutrons:4,nonmetalProtons:16,nonmetalNeutrons:16,transferElectrons:2,metalFinalCountLabel:'2 × [Li]⁺',nonmetalFinalCountLabel:'[S]²⁻',practice:[
-        {q:'Why are there 2 lithium atoms in Li₂S?',a:'Because sulfur gains 2 electrons total, and each lithium gives only 1 electron.',options:['Because sulfur gains 2 electrons total, and each lithium gives only 1 electron.','Because lithium has 2 valence electrons.','Because sulfur loses 2 electrons.','Because Li₂S is covalent.']},
-        {q:'What is the final charge on sulfur in lithium sulfide?',a:'2−',options:['1−','2−','1+','0']},
-        {q:'How many dots should surround sulfur in the final Lewis ionic diagram?',a:'8',options:['6','7','8','2']}
-      ]},
-      NaCl:{key:'NaCl',title:'Sodium chloride',formula:'NaCl',metalSymbol:'Na',metalName:'sodium',nonmetalSymbol:'Cl',nonmetalName:'chlorine',metalCount:1,nonmetalCount:1,metalValence:1,nonmetalValence:7,metalChargeText:'Na⁺',nonmetalChargeText:'Cl⁻',metalShellsNeutral:'2,8,1',metalShellsIon:'2,8',nonmetalShellsNeutral:'2,8,7',nonmetalShellsIon:'2,8,8',metalProtons:11,metalNeutrons:12,nonmetalProtons:17,nonmetalNeutrons:18,transferElectrons:1,metalFinalCountLabel:'[Na]⁺',nonmetalFinalCountLabel:'[Cl]⁻',practice:[
-        {q:'Why is the formula NaCl and not Na₂Cl?',a:'Because sodium loses 1 electron and chlorine gains 1 electron, so the charges balance 1:1.',options:['Because sodium loses 1 electron and chlorine gains 1 electron, so the charges balance 1:1.','Because chlorine loses 1 electron.','Because sodium has 2 valence electrons.','Because NaCl is covalent.']},
-        {q:'What is the final charge on chlorine in sodium chloride?',a:'1−',options:['1−','2−','1+','0']},
-        {q:'What happens to sodium?',a:'Sodium loses 1 electron and becomes Na⁺.',options:['Sodium loses 1 electron and becomes Na⁺.','Sodium gains 1 electron and becomes Na⁻.','Sodium shares 1 electron.','Sodium stays neutral.']}
-      ]},
-      MgCl2:{key:'MgCl2',title:'Magnesium chloride',formula:'MgCl₂',metalSymbol:'Mg',metalName:'magnesium',nonmetalSymbol:'Cl',nonmetalName:'chlorine',metalCount:1,nonmetalCount:2,metalValence:2,nonmetalValence:7,metalChargeText:'Mg²⁺',nonmetalChargeText:'Cl⁻',metalShellsNeutral:'2,8,2',metalShellsIon:'2,8',nonmetalShellsNeutral:'2,8,7',nonmetalShellsIon:'2,8,8',metalProtons:12,metalNeutrons:12,nonmetalProtons:17,nonmetalNeutrons:18,transferElectrons:2,metalFinalCountLabel:'[Mg]²⁺',nonmetalFinalCountLabel:'2 × [Cl]⁻',practice:[
-        {q:'Why are there 2 chlorine atoms in MgCl₂?',a:'Because magnesium loses 2 electrons total, and each chlorine gains only 1 electron.',options:['Because magnesium loses 2 electrons total, and each chlorine gains only 1 electron.','Because chlorine loses 2 electrons.','Because magnesium has 1 valence electron.','Because MgCl₂ is covalent.']},
-        {q:'What is the final charge on magnesium in magnesium chloride?',a:'2+',options:['1+','2+','1−','0']},
-        {q:'How many chloride ions are formed?',a:'2',options:['1','2','3','4']}
-      ]}
+      Li2S: {
+        key: 'Li2S',
+        title: 'Lithium sulfide',
+        formula: 'Li₂S',
+        metalSymbol: 'Li',
+        metalName: 'lithium',
+        nonmetalSymbol: 'S',
+        nonmetalName: 'sulfur',
+        metalCount: 2,
+        nonmetalCount: 1,
+        metalValence: 1,
+        nonmetalValence: 6,
+        metalChargeText: 'Li⁺',
+        nonmetalChargeText: 'S²⁻',
+        metalShellsNeutral: '2,1',
+        metalShellsIon: '2',
+        nonmetalShellsNeutral: '2,8,6',
+        nonmetalShellsIon: '2,8,8',
+        metalProtons: 3,
+        metalNeutrons: 4,
+        nonmetalProtons: 16,
+        nonmetalNeutrons: 16,
+        transferElectrons: 2,
+        practice: [
+          {
+            q: 'Why are there 2 lithium atoms in Li₂S?',
+            a: 'Because sulfur gains 2 electrons total, and each lithium gives only 1 electron.',
+            options: [
+              'Because sulfur gains 2 electrons total, and each lithium gives only 1 electron.',
+              'Because lithium has 2 valence electrons.',
+              'Because sulfur loses 2 electrons.',
+              'Because Li₂S is covalent.'
+            ]
+          },
+          { q: 'What is the final charge on sulfur in lithium sulfide?', a: '2−', options: ['1−', '2−', '1+', '0'] },
+          { q: 'How many dots should surround sulfur in the final Lewis ionic diagram?', a: '8', options: ['6', '7', '8', '2'] }
+        ]
+      },
+      NaCl: {
+        key: 'NaCl',
+        title: 'Sodium chloride',
+        formula: 'NaCl',
+        metalSymbol: 'Na',
+        metalName: 'sodium',
+        nonmetalSymbol: 'Cl',
+        nonmetalName: 'chlorine',
+        metalCount: 1,
+        nonmetalCount: 1,
+        metalValence: 1,
+        nonmetalValence: 7,
+        metalChargeText: 'Na⁺',
+        nonmetalChargeText: 'Cl⁻',
+        metalShellsNeutral: '2,8,1',
+        metalShellsIon: '2,8',
+        nonmetalShellsNeutral: '2,8,7',
+        nonmetalShellsIon: '2,8,8',
+        metalProtons: 11,
+        metalNeutrons: 12,
+        nonmetalProtons: 17,
+        nonmetalNeutrons: 18,
+        transferElectrons: 1,
+        practice: [
+          {
+            q: 'Why is the formula NaCl and not Na₂Cl?',
+            a: 'Because sodium loses 1 electron and chlorine gains 1 electron, so the charges balance 1:1.',
+            options: [
+              'Because sodium loses 1 electron and chlorine gains 1 electron, so the charges balance 1:1.',
+              'Because chlorine loses 1 electron.',
+              'Because sodium has 2 valence electrons.',
+              'Because NaCl is covalent.'
+            ]
+          },
+          { q: 'What is the final charge on chlorine in sodium chloride?', a: '1−', options: ['1−', '2−', '1+', '0'] },
+          { q: 'What happens to sodium?', a: 'Sodium loses 1 electron and becomes Na⁺.', options: ['Sodium loses 1 electron and becomes Na⁺.', 'Sodium gains 1 electron and becomes Na⁻.', 'Sodium shares 1 electron.', 'Sodium stays neutral.'] }
+        ]
+      },
+      MgCl2: {
+        key: 'MgCl2',
+        title: 'Magnesium chloride',
+        formula: 'MgCl₂',
+        metalSymbol: 'Mg',
+        metalName: 'magnesium',
+        nonmetalSymbol: 'Cl',
+        nonmetalName: 'chlorine',
+        metalCount: 1,
+        nonmetalCount: 2,
+        metalValence: 2,
+        nonmetalValence: 7,
+        metalChargeText: 'Mg²⁺',
+        nonmetalChargeText: 'Cl⁻',
+        metalShellsNeutral: '2,8,2',
+        metalShellsIon: '2,8',
+        nonmetalShellsNeutral: '2,8,7',
+        nonmetalShellsIon: '2,8,8',
+        metalProtons: 12,
+        metalNeutrons: 12,
+        nonmetalProtons: 17,
+        nonmetalNeutrons: 18,
+        transferElectrons: 2,
+        practice: [
+          {
+            q: 'Why are there 2 chlorine atoms in MgCl₂?',
+            a: 'Because magnesium loses 2 electrons total, and each chlorine gains only 1 electron.',
+            options: [
+              'Because magnesium loses 2 electrons total, and each chlorine gains only 1 electron.',
+              'Because chlorine loses 2 electrons.',
+              'Because magnesium has 1 valence electron.',
+              'Because MgCl₂ is covalent.'
+            ]
+          },
+          { q: 'What is the final charge on magnesium in magnesium chloride?', a: '2+', options: ['1+', '2+', '1−', '0'] },
+          { q: 'How many chloride ions are formed?', a: '2', options: ['1', '2', '3', '4'] }
+        ]
+      }
     };
 
-    const state = {tab:'viewer',view:'split',step:0,showLabels:true,showHints:true,playTimer:null,practice:null,compound:'Li2S'};
+    const state = {
+      tab: 'viewer',
+      view: 'split',
+      step: 0,
+      showLabels: true,
+      showHints: true,
+      playTimer: null,
+      practice: null,
+      compound: 'Li2S'
+    };
 
     const refs = {
-      diagramStage: document.getElementById('diagramStage'), stepText: document.getElementById('stepText'), viewerTitle: document.getElementById('viewerTitle'),
-      viewSelect: document.getElementById('viewSelect'), compoundSelect: document.getElementById('compoundSelect'), showLabels: document.getElementById('showLabels'), showHints: document.getElementById('showHints'),
-      practiceQuestion: document.getElementById('practiceQuestion'), practiceOptions: document.getElementById('practiceOptions'), practiceFeedback: document.getElementById('practiceFeedback'),
-      quickFacts: document.getElementById('quickFacts'), statCompound: document.getElementById('statCompound'), statMetalIon: document.getElementById('statMetalIon'), statNonmetalIon: document.getElementById('statNonmetalIon')
+      diagramStage: document.getElementById('diagramStage'),
+      stepText: document.getElementById('stepText'),
+      viewerTitle: document.getElementById('viewerTitle'),
+      viewSelect: document.getElementById('viewSelect'),
+      compoundSelect: document.getElementById('compoundSelect'),
+      showLabels: document.getElementById('showLabels'),
+      showHints: document.getElementById('showHints'),
+      practiceQuestion: document.getElementById('practiceQuestion'),
+      practiceOptions: document.getElementById('practiceOptions'),
+      practiceFeedback: document.getElementById('practiceFeedback'),
+      quickFacts: document.getElementById('quickFacts'),
+      statCompound: document.getElementById('statCompound'),
+      statMetalIon: document.getElementById('statMetalIon'),
+      statNonmetalIon: document.getElementById('statNonmetalIon'),
+      testResults: document.getElementById('testResults')
     };
 
-    function currentCompound(){ return compounds[state.compound]; }
-    function setTab(tab){ state.tab=tab; document.querySelectorAll('.tab').forEach(btn=>btn.classList.toggle('active',btn.dataset.tab===tab)); document.getElementById('viewerTab').hidden=tab!=='viewer'; document.getElementById('lessonTab').hidden=tab!=='lesson'; document.getElementById('practiceTab').hidden=tab!=='practice'; if(tab==='practice'&&!state.practice) newPracticeQuestion(); }
-    function svgStart(w=1100,h=430){ return [`<svg viewBox="0 0 ${w} ${h}" xmlns="http://www.w3.org/2000/svg" role="img">`]; }
-    function svgEnd(parts){ parts.push('</svg>'); return parts.join(''); }
-    function electronCircle(parts,x,y){ parts.push(`<circle cx="${x}" cy="${y}" r="6" fill="#18324a"/>`); }
-    function shell(parts,cx,cy,r){ parts.push(`<circle cx="${cx}" cy="${cy}" r="${r}" fill="none" stroke="#6f879d" stroke-width="2"/>`); }
-    function nucleus(parts,cx,cy,symbol,protons,neutrons){ parts.push(`<circle cx="${cx}" cy="${cy}" r="34" fill="#eef5fd" stroke="#6f879d" stroke-width="2"/>`); if(state.showLabels){ parts.push(`<text x="${cx}" y="${cy-9}" text-anchor="middle" font-size="12" font-weight="700" fill="#18324a">${protons} p⁺</text>`); parts.push(`<text x="${cx}" y="${cy+14}" text-anchor="middle" font-size="12" fill="#18324a">${neutrons} n°</text>`);} else { parts.push(`<text x="${cx}" y="${cy+4}" text-anchor="middle" font-size="22" font-weight="800" fill="#18324a">${symbol}</text>`);} }
-    function shellFromText(text){ return text.split(',').map(v=>Number(v.trim())).filter(v=>!Number.isNaN(v)); }
-    function drawBohrAtom(parts,cx,cy,config){ const shells=shellFromText(config.shells); const radii=shells.length===1?[58]:shells.length===2?[52,86]:[44,78,112]; shells.forEach((count,index)=>{ shell(parts,cx,cy,radii[index]); for(let i=0;i<count;i++){ const angle=-Math.PI/2 + i*(Math.PI*2/count); electronCircle(parts, +(cx+radii[index]*Math.cos(angle)).toFixed(1), +(cy+radii[index]*Math.sin(angle)).toFixed(1)); } }); nucleus(parts,cx,cy,config.symbol,config.protons,config.neutrons); if(state.showLabels){ parts.push(`<text x="${cx}" y="${cy-(radii[radii.length-1]+26)}" text-anchor="middle" font-size="22" font-weight="800" fill="#18324a">${config.label}</text>`); parts.push(`<text x="${cx}" y="${cy+(radii[radii.length-1]+36)}" text-anchor="middle" font-size="13" fill="#5d7288">${config.shells}</text>`); } }
-    function drawArrow(parts,x1,y1,x2,y2,dashed=false){ const dash=dashed?'stroke-dasharray="7 7"':''; parts.push(`<defs><marker id="arrowHead" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#1f7aec"/></marker></defs>`); parts.push(`<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="#1f7aec" stroke-width="4" ${dash} marker-end="url(#arrowHead)"/>`); }
-    function lewisDotSet(parts,cx,cy,count){ const positions=[[cx,cy-38],[cx+38,cy],[cx,cy+38],[cx-38,cy],[cx+14,cy-38],[cx+38,cy+14],[cx+14,cy+38],[cx-38,cy+14]]; for(let i=0;i<count&&i<8;i++){ const [x,y]=positions[i]; parts.push(`<text x="${x}" y="${y}" text-anchor="middle" dominant-baseline="middle" font-size="28" font-weight="800" fill="#18324a">•</text>`); } }
-    function lewisNeutralMetal(parts,x,y,symbol,valence){ parts.push(`<text x="${x}" y="${y}" text-anchor="middle" font-size="42" font-weight="800" fill="#1f9d55">${symbol}</text>`); const offs=[[28,-14],[40,6]]; for(let i=0;i<valence;i++){ const off=offs[i]||[28+i*10,-14]; parts.push(`<text x="${x+off[0]}" y="${y+off[1]}" text-anchor="middle" font-size="28" font-weight="800" fill="#1f9d55">•</text>`);} }
-    function lewisNeutralNonmetal(parts,x,y,symbol,valence){ parts.push(`<text x="${x}" y="${y}" text-anchor="middle" font-size="46" font-weight="800" fill="#1f9d55">${symbol}</text>`); lewisDotSet(parts,x,y-4,valence); }
-    function lewisIonMetal(parts,x,y,text){ parts.push(`<text x="${x}" y="${y}" text-anchor="middle" font-size="44" font-weight="800" fill="#1f9d55">${text}</text>`); }
-    function lewisIonNonmetal(parts,x,y,symbol,chargeText){ parts.push(`<text x="${x}" y="${y}" text-anchor="middle" font-size="48" font-weight="800" fill="#1f9d55">[${symbol}]${chargeText}</text>`); lewisDotSet(parts,x,y-6,8); }
+    function currentCompound() {
+      return compounds[state.compound];
+    }
 
-    function drawBohrStep(step){ const c=currentCompound(); const p=svgStart(); p.push(`<text x="275" y="30" text-anchor="middle" font-size="26" font-weight="800" fill="#18324a">Bohr-Rutherford Diagram</text>`);
-      if(c.key==='Li2S'){
-        if(step<2){ drawBohrAtom(p,120,215,{symbol:'Li',label:'Li',shells:c.metalShellsNeutral,protons:c.metalProtons,neutrons:c.metalNeutrons}); drawBohrAtom(p,360,215,{symbol:'Li',label:'Li',shells:c.metalShellsNeutral,protons:c.metalProtons,neutrons:c.metalNeutrons}); drawBohrAtom(p,700,210,{symbol:'S',label:'S',shells:c.nonmetalShellsNeutral,protons:c.nonmetalProtons,neutrons:c.nonmetalNeutrons}); if(step>=1){ drawArrow(p,212,215,574,160,true); drawArrow(p,452,215,596,258,true);} }
-        else { drawBohrAtom(p,150,215,{symbol:'Li',label:c.metalChargeText,shells:c.metalShellsIon,protons:c.metalProtons,neutrons:c.metalNeutrons}); drawBohrAtom(p,520,210,{symbol:'S',label:c.nonmetalChargeText,shells:c.nonmetalShellsIon,protons:c.nonmetalProtons,neutrons:c.nonmetalNeutrons}); drawBohrAtom(p,890,215,{symbol:'Li',label:c.metalChargeText,shells:c.metalShellsIon,protons:c.metalProtons,neutrons:c.metalNeutrons}); }
-      } else if(c.key==='NaCl'){
-        if(step<2){ drawBohrAtom(p,220,210,{symbol:'Na',label:'Na',shells:c.metalShellsNeutral,protons:c.metalProtons,neutrons:c.metalNeutrons}); drawBohrAtom(p,720,210,{symbol:'Cl',label:'Cl',shells:c.nonmetalShellsNeutral,protons:c.nonmetalProtons,neutrons:c.nonmetalNeutrons}); if(step>=1) drawArrow(p,332,210,592,170,true); }
-        else { drawBohrAtom(p,280,210,{symbol:'Na',label:c.metalChargeText,shells:c.metalShellsIon,protons:c.metalProtons,neutrons:c.metalNeutrons}); drawBohrAtom(p,760,210,{symbol:'Cl',label:c.nonmetalChargeText,shells:c.nonmetalShellsIon,protons:c.nonmetalProtons,neutrons:c.nonmetalNeutrons}); }
+    function setTab(tab) {
+      state.tab = tab;
+      document.querySelectorAll('.tab').forEach((btn) => btn.classList.toggle('active', btn.dataset.tab === tab));
+      document.getElementById('viewerTab').hidden = tab !== 'viewer';
+      document.getElementById('lessonTab').hidden = tab !== 'lesson';
+      document.getElementById('practiceTab').hidden = tab !== 'practice';
+      if (tab === 'practice' && !state.practice) newPracticeQuestion();
+    }
+
+    function svgStart(w = 1100, h = 430) {
+      return ['<svg viewBox="0 0 ' + w + ' ' + h + '" xmlns="http://www.w3.org/2000/svg" role="img">'];
+    }
+
+    function svgEnd(parts) {
+      parts.push('</svg>');
+      return parts.join('');
+    }
+
+    function electronCircle(parts, x, y) {
+      parts.push('<circle cx="' + x + '" cy="' + y + '" r="6" fill="#18324a"/>');
+    }
+
+    function shell(parts, cx, cy, r) {
+      parts.push('<circle cx="' + cx + '" cy="' + cy + '" r="' + r + '" fill="none" stroke="#6f879d" stroke-width="2"/>');
+    }
+
+    function nucleus(parts, cx, cy, symbol, protons, neutrons) {
+      parts.push('<circle cx="' + cx + '" cy="' + cy + '" r="34" fill="#eef5fd" stroke="#6f879d" stroke-width="2"/>');
+      if (state.showLabels) {
+        parts.push('<text x="' + cx + '" y="' + (cy - 9) + '" text-anchor="middle" font-size="12" font-weight="700" fill="#18324a">' + protons + ' p⁺</text>');
+        parts.push('<text x="' + cx + '" y="' + (cy + 14) + '" text-anchor="middle" font-size="12" fill="#18324a">' + neutrons + ' n°</text>');
       } else {
-        if(step<2){ drawBohrAtom(p,180,210,{symbol:'Mg',label:'Mg',shells:c.metalShellsNeutral,protons:c.metalProtons,neutrons:c.metalNeutrons}); drawBohrAtom(p,620,140,{symbol:'Cl',label:'Cl',shells:c.nonmetalShellsNeutral,protons:c.nonmetalProtons,neutrons:c.nonmetalNeutrons}); drawBohrAtom(p,620,300,{symbol:'Cl',label:'Cl',shells:c.nonmetalShellsNeutral,protons:c.nonmetalProtons,neutrons:c.nonmetalNeutrons}); if(step>=1){ drawArrow(p,292,176,490,132,true); drawArrow(p,292,244,490,288,true);} }
-        else { drawBohrAtom(p,180,210,{symbol:'Mg',label:c.metalChargeText,shells:c.metalShellsIon,protons:c.metalProtons,neutrons:c.metalNeutrons}); drawBohrAtom(p,620,140,{symbol:'Cl',label:c.nonmetalChargeText,shells:c.nonmetalShellsIon,protons:c.nonmetalProtons,neutrons:c.nonmetalNeutrons}); drawBohrAtom(p,620,300,{symbol:'Cl',label:c.nonmetalChargeText,shells:c.nonmetalShellsIon,protons:c.nonmetalProtons,neutrons:c.nonmetalNeutrons}); }
+        parts.push('<text x="' + cx + '" y="' + (cy + 4) + '" text-anchor="middle" font-size="22" font-weight="800" fill="#18324a">' + symbol + '</text>');
       }
-      if(state.showHints){ const hint=step===0?'Start with neutral atoms.':step===1?'Show electron transfer to the non-metal.':'Write the final ions after transfer.'; p.push(`<rect x="36" y="360" width="1000" height="40" rx="12" fill="#eef6ff" stroke="#d6e7fb"/>`); p.push(`<text x="56" y="385" font-size="16" font-weight="700" fill="#1f7aec">Teacher hint:</text>`); p.push(`<text x="180" y="385" font-size="16" fill="#18324a">${hint}</text>`); }
-      return svgEnd(p); }
+    }
 
-    function drawLewisStep(step){ const c=currentCompound(); const p=svgStart(); p.push(`<text x="275" y="30" text-anchor="middle" font-size="26" font-weight="800" fill="#18324a">Lewis Structure of ${c.formula} (ionic)</text>`);
-      if(c.key==='Li2S'){
-        if(step===0){ lewisNeutralMetal(p,110,145,'Li',1); lewisNeutralMetal(p,110,260,'Li',1); lewisNeutralNonmetal(p,370,202,'S',6); }
-        else if(step===1){ lewisNeutralMetal(p,110,145,'Li',1); lewisNeutralMetal(p,110,260,'Li',1); lewisNeutralNonmetal(p,370,202,'S',6); drawArrow(p,150,132,320,160,false); drawArrow(p,150,247,320,230,false); }
-        else { lewisIonMetal(p,120,205,'[Li]⁺'); lewisIonNonmetal(p,390,205,'S','²⁻'); lewisIonMetal(p,680,205,'[Li]⁺'); p.push(`<text x="135" y="330" text-anchor="middle" font-size="30" font-weight="800" fill="#1f9d55">${c.metalFinalCountLabel}</text>`); p.push(`<text x="450" y="330" text-anchor="middle" font-size="30" font-weight="800" fill="#1f9d55">${c.nonmetalFinalCountLabel}</text>`); }
-      } else if(c.key==='NaCl'){
-        if(step===0){ lewisNeutralMetal(p,140,205,'Na',1); lewisNeutralNonmetal(p,420,205,'Cl',7); }
-        else if(step===1){ lewisNeutralMetal(p,140,205,'Na',1); lewisNeutralNonmetal(p,420,205,'Cl',7); drawArrow(p,190,192,340,192,false); }
-        else { lewisIonMetal(p,170,205,'[Na]⁺'); lewisIonNonmetal(p,470,205,'Cl','⁻'); }
+    function shellFromText(text) {
+      return text.split(',').map((v) => Number(v.trim())).filter((v) => !Number.isNaN(v));
+    }
+
+    function drawBohrAtom(parts, cx, cy, config) {
+      const shells = shellFromText(config.shells);
+      const radii = shells.length === 1 ? [58] : shells.length === 2 ? [52, 86] : [44, 78, 112];
+      shells.forEach((count, index) => {
+        shell(parts, cx, cy, radii[index]);
+        for (let i = 0; i < count; i += 1) {
+          const angle = -Math.PI / 2 + i * ((Math.PI * 2) / count);
+          electronCircle(parts, +(cx + radii[index] * Math.cos(angle)).toFixed(1), +(cy + radii[index] * Math.sin(angle)).toFixed(1));
+        }
+      });
+      nucleus(parts, cx, cy, config.symbol, config.protons, config.neutrons);
+      if (state.showLabels) {
+        const outer = radii[radii.length - 1];
+        parts.push('<text x="' + cx + '" y="' + (cy - (outer + 26)) + '" text-anchor="middle" font-size="22" font-weight="800" fill="#18324a">' + config.label + '</text>');
+        parts.push('<text x="' + cx + '" y="' + (cy + outer + 36) + '" text-anchor="middle" font-size="13" fill="#5d7288">' + config.shells + '</text>');
+      }
+    }
+
+    function drawArrow(parts, x1, y1, x2, y2, dashed) {
+      const dash = dashed ? 'stroke-dasharray="7 7"' : '';
+      parts.push('<defs><marker id="arrowHead" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#1f7aec"/></marker></defs>');
+      parts.push('<line x1="' + x1 + '" y1="' + y1 + '" x2="' + x2 + '" y2="' + y2 + '" stroke="#1f7aec" stroke-width="4" ' + dash + ' marker-end="url(#arrowHead)"/>');
+    }
+
+    function lewisDotPositions(cx, cy, spread, pairOffset) {
+      return [
+        [cx, cy - spread],
+        [cx + spread, cy],
+        [cx, cy + spread],
+        [cx - spread, cy],
+        [cx + pairOffset, cy - spread],
+        [cx + spread, cy + pairOffset],
+        [cx + pairOffset, cy + spread],
+        [cx - spread, cy + pairOffset]
+      ];
+    }
+
+    function lewisDotSet(parts, cx, cy, count, color) {
+      const positions = lewisDotPositions(cx, cy, 38, 14);
+      for (let i = 0; i < count && i < 8; i += 1) {
+        const pos = positions[i];
+        parts.push('<text x="' + pos[0] + '" y="' + pos[1] + '" text-anchor="middle" dominant-baseline="middle" font-size="28" font-weight="800" fill="' + color + '">•</text>');
+      }
+    }
+
+    function lewisMetalPositions(x, y, valence) {
+      const all = [
+        [x + 48, y - 12],
+        [x + 48, y + 14],
+        [x, y - 50],
+        [x, y + 50]
+      ];
+      return all.slice(0, valence);
+    }
+
+    function lewisNeutralMetal(parts, x, y, symbol, valence) {
+      parts.push('<text x="' + x + '" y="' + y + '" text-anchor="middle" font-size="42" font-weight="800" fill="#1f9d55">' + symbol + '</text>');
+      lewisMetalPositions(x, y, valence).forEach((pos) => {
+        parts.push('<text x="' + pos[0] + '" y="' + pos[1] + '" text-anchor="middle" font-size="28" font-weight="800" fill="#1f9d55">•</text>');
+      });
+    }
+
+    function lewisNeutralNonmetal(parts, x, y, symbol, valence) {
+      parts.push('<text x="' + x + '" y="' + y + '" text-anchor="middle" font-size="46" font-weight="800" fill="#1f9d55">' + symbol + '</text>');
+      lewisDotSet(parts, x, y - 4, valence, '#18324a');
+    }
+
+    function lewisIonMetal(parts, x, y, text) {
+      parts.push('<text x="' + x + '" y="' + y + '" text-anchor="middle" font-size="44" font-weight="800" fill="#1f9d55">' + text + '</text>');
+    }
+
+    function lewisIonNonmetal(parts, x, y, symbol, chargeText) {
+      parts.push('<text x="' + x + '" y="' + y + '" text-anchor="middle" font-size="48" font-weight="800" fill="#1f9d55">[' + symbol + ']' + chargeText + '</text>');
+      lewisDotSet(parts, x, y - 6, 8, '#18324a');
+    }
+
+    function drawBohrStep(step) {
+      const c = currentCompound();
+      const p = svgStart();
+      p.push('<text x="275" y="30" text-anchor="middle" font-size="26" font-weight="800" fill="#18324a">Bohr-Rutherford Diagram</text>');
+
+      if (c.key === 'Li2S') {
+        if (step < 2) {
+          drawBohrAtom(p, 120, 215, { symbol: 'Li', label: 'Li', shells: c.metalShellsNeutral, protons: c.metalProtons, neutrons: c.metalNeutrons });
+          drawBohrAtom(p, 360, 215, { symbol: 'Li', label: 'Li', shells: c.metalShellsNeutral, protons: c.metalProtons, neutrons: c.metalNeutrons });
+          drawBohrAtom(p, 700, 210, { symbol: 'S', label: 'S', shells: c.nonmetalShellsNeutral, protons: c.nonmetalProtons, neutrons: c.nonmetalNeutrons });
+          if (step >= 1) {
+            drawArrow(p, 212, 215, 574, 160, true);
+            drawArrow(p, 452, 215, 596, 258, true);
+          }
+        } else {
+          drawBohrAtom(p, 150, 215, { symbol: 'Li', label: c.metalChargeText, shells: c.metalShellsIon, protons: c.metalProtons, neutrons: c.metalNeutrons });
+          drawBohrAtom(p, 520, 210, { symbol: 'S', label: c.nonmetalChargeText, shells: c.nonmetalShellsIon, protons: c.nonmetalProtons, neutrons: c.nonmetalNeutrons });
+          drawBohrAtom(p, 890, 215, { symbol: 'Li', label: c.metalChargeText, shells: c.metalShellsIon, protons: c.metalProtons, neutrons: c.metalNeutrons });
+        }
+      } else if (c.key === 'NaCl') {
+        if (step < 2) {
+          drawBohrAtom(p, 220, 210, { symbol: 'Na', label: 'Na', shells: c.metalShellsNeutral, protons: c.metalProtons, neutrons: c.metalNeutrons });
+          drawBohrAtom(p, 720, 210, { symbol: 'Cl', label: 'Cl', shells: c.nonmetalShellsNeutral, protons: c.nonmetalProtons, neutrons: c.nonmetalNeutrons });
+          if (step >= 1) drawArrow(p, 332, 210, 592, 170, true);
+        } else {
+          drawBohrAtom(p, 280, 210, { symbol: 'Na', label: c.metalChargeText, shells: c.metalShellsIon, protons: c.metalProtons, neutrons: c.metalNeutrons });
+          drawBohrAtom(p, 760, 210, { symbol: 'Cl', label: c.nonmetalChargeText, shells: c.nonmetalShellsIon, protons: c.nonmetalProtons, neutrons: c.nonmetalNeutrons });
+        }
       } else {
-        if(step===0){ lewisNeutralMetal(p,160,205,'Mg',2); lewisNeutralNonmetal(p,450,130,'Cl',7); lewisNeutralNonmetal(p,450,290,'Cl',7); }
-        else if(step===1){ lewisNeutralMetal(p,160,205,'Mg',2); lewisNeutralNonmetal(p,450,130,'Cl',7); lewisNeutralNonmetal(p,450,290,'Cl',7); drawArrow(p,210,182,360,138,false); drawArrow(p,210,230,360,272,false); }
-        else { lewisIonNonmetal(p,210,130,'Cl','⁻'); lewisIonMetal(p,500,205,'[Mg]²⁺'); lewisIonNonmetal(p,790,290,'Cl','⁻'); }
+        if (step < 2) {
+          drawBohrAtom(p, 180, 210, { symbol: 'Mg', label: 'Mg', shells: c.metalShellsNeutral, protons: c.metalProtons, neutrons: c.metalNeutrons });
+          drawBohrAtom(p, 620, 140, { symbol: 'Cl', label: 'Cl', shells: c.nonmetalShellsNeutral, protons: c.nonmetalProtons, neutrons: c.nonmetalNeutrons });
+          drawBohrAtom(p, 620, 300, { symbol: 'Cl', label: 'Cl', shells: c.nonmetalShellsNeutral, protons: c.nonmetalProtons, neutrons: c.nonmetalNeutrons });
+          if (step >= 1) {
+            drawArrow(p, 292, 176, 490, 132, true);
+            drawArrow(p, 292, 244, 490, 288, true);
+          }
+        } else {
+          drawBohrAtom(p, 180, 210, { symbol: 'Mg', label: c.metalChargeText, shells: c.metalShellsIon, protons: c.metalProtons, neutrons: c.metalNeutrons });
+          drawBohrAtom(p, 620, 140, { symbol: 'Cl', label: c.nonmetalChargeText, shells: c.nonmetalShellsIon, protons: c.nonmetalProtons, neutrons: c.nonmetalNeutrons });
+          drawBohrAtom(p, 620, 300, { symbol: 'Cl', label: c.nonmetalChargeText, shells: c.nonmetalShellsIon, protons: c.nonmetalProtons, neutrons: c.nonmetalNeutrons });
+        }
       }
-      if(state.showHints){ const hint=step===0?'Count valence electrons first.':step===1?'Show electron transfer arrows clearly.':'Final negative ions must have 8 dots.'; p.push(`<rect x="36" y="360" width="1000" height="40" rx="12" fill="#eef6ff" stroke="#d6e7fb"/>`); p.push(`<text x="56" y="385" font-size="16" font-weight="700" fill="#1f7aec">Teacher hint:</text>`); p.push(`<text x="180" y="385" font-size="16" fill="#18324a">${hint}</text>`); }
-      return svgEnd(p); }
 
-    function renderSplit(){ refs.viewerTitle.textContent=`Teaching View: Step ${state.step+1}`; refs.diagramStage.innerHTML=`<div class="grid-2"><div class="mini"><div class="stage">${drawBohrStep(state.step)}</div></div><div class="mini"><div class="stage">${drawLewisStep(state.step)}</div></div></div>`; }
-    function renderSingle(type){ refs.viewerTitle.textContent=`${type==='bohr'?'Bohr-Rutherford':'Lewis'} View: Step ${state.step+1}`; refs.diagramStage.innerHTML=type==='bohr'?drawBohrStep(state.step):drawLewisStep(state.step); }
-    function stepDescriptionsForCompound(){ const c=currentCompound(); const metalAtoms=c.metalCount===1?`1 neutral ${c.metalName} atom`:`${c.metalCount} neutral ${c.metalName} atoms`; const nonMetalAtoms=c.nonmetalCount===1?`1 neutral ${c.nonmetalName} atom`:`${c.nonmetalCount} neutral ${c.nonmetalName} atoms`; return [`Start with ${metalAtoms} and ${nonMetalAtoms}. ${c.metalSymbol} has ${c.metalValence} valence electron${c.metalValence>1?'s':''}. ${c.nonmetalSymbol} has ${c.nonmetalValence} valence electron${c.nonmetalValence>1?'s':''}.`,`Draw electron-transfer arrows. ${c.transferElectrons} electron${c.transferElectrons>1?'s':''} move${c.transferElectrons>1?'':'s'} from the metal side to the non-metal side in total.`,`After transfer, write the final ions. The positive ion is ${c.metalChargeText} and the negative ion is ${c.nonmetalChargeText}.`]; }
-    function updateCompoundText(){ const c=currentCompound(); refs.statCompound.textContent=c.formula; refs.statMetalIon.textContent=c.metalChargeText; refs.statNonmetalIon.textContent=c.nonmetalChargeText; refs.quickFacts.innerHTML=`<span class="pill">${c.metalSymbol} has ${c.metalValence} valence electron${c.metalValence>1?'s':''}</span><span class="pill">${c.nonmetalSymbol} has ${c.nonmetalValence} valence electron${c.nonmetalValence>1?'s':''}</span><span class="pill">${c.metalCount} ${c.metalSymbol} atom${c.metalCount>1?'s are':' is'} needed</span><span class="pill">Final ions: ${c.metalChargeText} and ${c.nonmetalChargeText}</span>`; document.getElementById('lessonLewisStep1').textContent=`Draw the neutral atoms first. Show ${c.metalCount} ${c.metalName} atom${c.metalCount>1?'s':''} and ${c.nonmetalCount} ${c.nonmetalName} atom${c.nonmetalCount>1?'s':''} with the correct valence electrons.`; document.getElementById('lessonLewisStep2').textContent=`Draw electron-transfer arrows from the ${c.metalName} side to the ${c.nonmetalName} side.`; document.getElementById('lessonLewisStep3').textContent=`After transfer, write the final ions in brackets. Use ${c.metalChargeText} and ${c.nonmetalChargeText}.`; document.getElementById('lessonBohrStep1').textContent=`Start with neutral Bohr-Rutherford diagrams. ${c.metalSymbol} is ${c.metalShellsNeutral} and ${c.nonmetalSymbol} is ${c.nonmetalShellsNeutral}.`; document.getElementById('lessonBohrStep2').textContent=`Show ${c.transferElectrons} electron${c.transferElectrons>1?'s':''} moving from the metal side to the non-metal side.`; document.getElementById('lessonBohrStep3').textContent=`After transfer, redraw the ions. ${c.metalChargeText} has shells ${c.metalShellsIon}. ${c.nonmetalChargeText} has shells ${c.nonmetalShellsIon}.`; document.getElementById('mistake1').textContent=`Using the wrong number of ${c.metalSymbol} or ${c.nonmetalSymbol} atoms`; document.getElementById('mistake2').textContent='Leaving dots around the positive ion'; document.getElementById('mistake3').textContent='Not giving the negative ion a full octet'; document.getElementById('mistake4').textContent=`Writing the wrong charge instead of ${c.metalChargeText} / ${c.nonmetalChargeText}`; document.getElementById('check1').textContent=`Correct number of atoms for ${c.formula}`; document.getElementById('check2').textContent='Correct electron transfer shown'; document.getElementById('check3').textContent='Correct final ion shells shown'; document.getElementById('check4').textContent='Correct final ion charges shown'; document.getElementById('remember1').textContent=`${c.metalName[0].toUpperCase()+c.metalName.slice(1)} loses electron(s).`; document.getElementById('remember2').textContent=`${c.nonmetalName[0].toUpperCase()+c.nonmetalName.slice(1)} gains electron(s).`; document.getElementById('remember3').textContent='The compound is neutral overall.'; document.getElementById('remember4').textContent='Use ion charges to decide the formula.'; document.getElementById('practiceNote').textContent=`This practice focuses on the exact diagram style commonly used in Grade 9 chemistry for ${c.formula}.`; }
-    function renderViewer(){ updateCompoundText(); if(state.view==='split') renderSplit(); else renderSingle(state.view); refs.stepText.textContent=stepDescriptionsForCompound()[state.step]; }
-    function sample(array,count=1){ const copy=[...array]; for(let i=copy.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [copy[i],copy[j]]=[copy[j],copy[i]]; } return copy.slice(0,count); }
-    function newPracticeQuestion(){ const item=sample(currentCompound().practice)[0]; state.practice={...item,answered:false}; renderPractice(); }
-    function renderPractice(){ const p=state.practice; refs.practiceQuestion.textContent=p.q; refs.practiceOptions.innerHTML=''; p.options.forEach(opt=>{ const btn=document.createElement('button'); btn.type='button'; btn.className='option'; btn.textContent=opt; btn.addEventListener('click',()=>answerPractice(opt,btn)); refs.practiceOptions.appendChild(btn); }); refs.practiceFeedback.textContent='Choose an answer.'; }
-    function answerPractice(opt,btn){ if(!state.practice||state.practice.answered) return; state.practice.answered=true; document.querySelectorAll('#practiceOptions .option').forEach(b=>{ if(b.textContent===state.practice.a) b.classList.add('correct'); }); if(opt!==state.practice.a) btn.classList.add('wrong'); refs.practiceFeedback.innerHTML=opt===state.practice.a?`<strong>Correct.</strong> ${state.practice.a}`:`<strong>Not quite.</strong> Correct answer: <strong>${state.practice.a}</strong>`; }
-    function revealPractice(){ if(!state.practice||state.practice.answered) return; state.practice.answered=true; document.querySelectorAll('#practiceOptions .option').forEach(b=>{ if(b.textContent===state.practice.a) b.classList.add('correct'); }); refs.practiceFeedback.innerHTML=`<strong>Answer:</strong> ${state.practice.a}`; }
-    function stopPlay(){ if(state.playTimer){ clearInterval(state.playTimer); state.playTimer=null; } document.getElementById('playBtn').textContent='Play animation'; }
-    function togglePlay(){ if(state.playTimer){ stopPlay(); return; } document.getElementById('playBtn').textContent='Stop animation'; state.playTimer=setInterval(()=>{ state.step=(state.step+1)%3; renderViewer(); },1400); }
-    function bindEvents(){ document.querySelectorAll('.tab').forEach(btn=>btn.addEventListener('click',()=>setTab(btn.dataset.tab))); refs.compoundSelect.addEventListener('change',e=>{ stopPlay(); state.compound=e.target.value; state.step=0; state.practice=null; renderViewer(); if(state.tab==='practice') newPracticeQuestion(); }); refs.viewSelect.addEventListener('change',e=>{ state.view=e.target.value; renderViewer(); }); refs.showLabels.addEventListener('change',e=>{ state.showLabels=e.target.checked; renderViewer(); }); refs.showHints.addEventListener('change',e=>{ state.showHints=e.target.checked; renderViewer(); }); document.querySelectorAll('[data-step]').forEach(btn=>btn.addEventListener('click',()=>{ stopPlay(); state.step=Number(btn.dataset.step); renderViewer(); })); document.getElementById('playBtn').addEventListener('click',togglePlay); document.getElementById('newQuestionBtn').addEventListener('click',newPracticeQuestion); document.getElementById('showAnswerBtn').addEventListener('click',revealPractice); }
-    function init(){ bindEvents(); refs.compoundSelect.value=state.compound; renderViewer(); setTab('viewer'); }
+      if (state.showHints) {
+        const hint = step === 0 ? 'Start with neutral atoms.' : step === 1 ? 'Show electron transfer to the non-metal.' : 'Write the final ions after transfer.';
+        p.push('<rect x="36" y="360" width="1000" height="40" rx="12" fill="#eef6ff" stroke="#d6e7fb"/>');
+        p.push('<text x="56" y="385" font-size="16" font-weight="700" fill="#1f7aec">Teacher hint:</text>');
+        p.push('<text x="180" y="385" font-size="16" fill="#18324a">' + hint + '</text>');
+      }
+      return svgEnd(p);
+    }
+
+    function drawLewisStep(step) {
+      const c = currentCompound();
+      const p = svgStart();
+      p.push('<text x="275" y="30" text-anchor="middle" font-size="26" font-weight="800" fill="#18324a">Lewis Structure of ' + c.formula + ' (ionic)</text>');
+
+      if (c.key === 'Li2S') {
+        if (step === 0) {
+          lewisNeutralMetal(p, 110, 145, 'Li', 1);
+          lewisNeutralMetal(p, 110, 260, 'Li', 1);
+          lewisNeutralNonmetal(p, 370, 202, 'S', 6);
+        } else if (step === 1) {
+          lewisNeutralMetal(p, 110, 145, 'Li', 1);
+          lewisNeutralMetal(p, 110, 260, 'Li', 1);
+          lewisNeutralNonmetal(p, 370, 202, 'S', 6);
+          drawArrow(p, 150, 132, 320, 160, false);
+          drawArrow(p, 150, 247, 320, 230, false);
+        } else {
+          lewisIonMetal(p, 120, 205, '[Li]⁺');
+          lewisIonNonmetal(p, 390, 205, 'S', '²⁻');
+          lewisIonMetal(p, 680, 205, '[Li]⁺');
+        }
+      } else if (c.key === 'NaCl') {
+        if (step === 0) {
+          lewisNeutralMetal(p, 140, 205, 'Na', 1);
+          lewisNeutralNonmetal(p, 420, 205, 'Cl', 7);
+        } else if (step === 1) {
+          lewisNeutralMetal(p, 140, 205, 'Na', 1);
+          lewisNeutralNonmetal(p, 420, 205, 'Cl', 7);
+          drawArrow(p, 190, 192, 340, 192, false);
+        } else {
+          lewisIonMetal(p, 170, 205, '[Na]⁺');
+          lewisIonNonmetal(p, 470, 205, 'Cl', '⁻');
+        }
+      } else {
+        if (step === 0) {
+          lewisNeutralMetal(p, 160, 205, 'Mg', 2);
+          lewisNeutralNonmetal(p, 450, 130, 'Cl', 7);
+          lewisNeutralNonmetal(p, 450, 290, 'Cl', 7);
+        } else if (step === 1) {
+          lewisNeutralMetal(p, 160, 205, 'Mg', 2);
+          lewisNeutralNonmetal(p, 450, 130, 'Cl', 7);
+          lewisNeutralNonmetal(p, 450, 290, 'Cl', 7);
+          drawArrow(p, 210, 182, 360, 138, false);
+          drawArrow(p, 210, 230, 360, 272, false);
+        } else {
+          lewisIonNonmetal(p, 210, 130, 'Cl', '⁻');
+          lewisIonMetal(p, 500, 205, '[Mg]²⁺');
+          lewisIonNonmetal(p, 790, 290, 'Cl', '⁻');
+        }
+      }
+
+      if (state.showHints) {
+        const hint = step === 0 ? 'Count valence electrons first.' : step === 1 ? 'Show electron transfer arrows clearly.' : 'Final negative ions must have 8 dots.';
+        p.push('<rect x="36" y="360" width="1000" height="40" rx="12" fill="#eef6ff" stroke="#d6e7fb"/>');
+        p.push('<text x="56" y="385" font-size="16" font-weight="700" fill="#1f7aec">Teacher hint:</text>');
+        p.push('<text x="180" y="385" font-size="16" fill="#18324a">' + hint + '</text>');
+      }
+      return svgEnd(p);
+    }
+
+    function renderSplit() {
+      refs.viewerTitle.textContent = 'Teaching View: Step ' + (state.step + 1);
+      refs.diagramStage.innerHTML = '<div class="grid-2"><div class="mini"><div class="stage">' + drawBohrStep(state.step) + '</div></div><div class="mini"><div class="stage">' + drawLewisStep(state.step) + '</div></div></div>';
+    }
+
+    function renderSingle(type) {
+      refs.viewerTitle.textContent = (type === 'bohr' ? 'Bohr-Rutherford' : 'Lewis') + ' View: Step ' + (state.step + 1);
+      refs.diagramStage.innerHTML = type === 'bohr' ? drawBohrStep(state.step) : drawLewisStep(state.step);
+    }
+
+    function stepDescriptionsForCompound() {
+      const c = currentCompound();
+      const metalAtoms = c.metalCount === 1 ? '1 neutral ' + c.metalName + ' atom' : c.metalCount + ' neutral ' + c.metalName + ' atoms';
+      const nonMetalAtoms = c.nonmetalCount === 1 ? '1 neutral ' + c.nonmetalName + ' atom' : c.nonmetalCount + ' neutral ' + c.nonmetalName + ' atoms';
+      return [
+        'Start with ' + metalAtoms + ' and ' + nonMetalAtoms + '. ' + c.metalSymbol + ' has ' + c.metalValence + ' valence electron' + (c.metalValence > 1 ? 's' : '') + '. ' + c.nonmetalSymbol + ' has ' + c.nonmetalValence + ' valence electron' + (c.nonmetalValence > 1 ? 's' : '') + '.',
+        'Draw electron-transfer arrows. ' + c.transferElectrons + ' electron' + (c.transferElectrons > 1 ? 's' : '') + ' move' + (c.transferElectrons > 1 ? '' : 's') + ' from the metal side to the non-metal side in total.',
+        'After transfer, write the final ions. The positive ion is ' + c.metalChargeText + ' and the negative ion is ' + c.nonmetalChargeText + '.'
+      ];
+    }
+
+    function updateCompoundText() {
+      const c = currentCompound();
+      refs.statCompound.textContent = c.formula;
+      refs.statMetalIon.textContent = c.metalChargeText;
+      refs.statNonmetalIon.textContent = c.nonmetalChargeText;
+      refs.quickFacts.innerHTML =
+        '<span class="pill">' + c.metalSymbol + ' has ' + c.metalValence + ' valence electron' + (c.metalValence > 1 ? 's' : '') + '</span>' +
+        '<span class="pill">' + c.nonmetalSymbol + ' has ' + c.nonmetalValence + ' valence electron' + (c.nonmetalValence > 1 ? 's' : '') + '</span>' +
+        '<span class="pill">' + c.metalCount + ' ' + c.metalSymbol + ' atom' + (c.metalCount > 1 ? 's are' : ' is') + ' needed</span>' +
+        '<span class="pill">Final ions: ' + c.metalChargeText + ' and ' + c.nonmetalChargeText + '</span>';
+
+      document.getElementById('lessonLewisStep1').textContent = 'Draw the neutral atoms first. Show ' + c.metalCount + ' ' + c.metalName + ' atom' + (c.metalCount > 1 ? 's' : '') + ' and ' + c.nonmetalCount + ' ' + c.nonmetalName + ' atom' + (c.nonmetalCount > 1 ? 's' : '') + ' with the correct valence electrons.';
+      document.getElementById('lessonLewisStep2').textContent = 'Draw electron-transfer arrows from the ' + c.metalName + ' side to the ' + c.nonmetalName + ' side.';
+      document.getElementById('lessonLewisStep3').textContent = 'After transfer, write the final ions in brackets. Use ' + c.metalChargeText + ' and ' + c.nonmetalChargeText + '.';
+      document.getElementById('lessonBohrStep1').textContent = 'Start with neutral Bohr-Rutherford diagrams. ' + c.metalSymbol + ' is ' + c.metalShellsNeutral + ' and ' + c.nonmetalSymbol + ' is ' + c.nonmetalShellsNeutral + '.';
+      document.getElementById('lessonBohrStep2').textContent = 'Show ' + c.transferElectrons + ' electron' + (c.transferElectrons > 1 ? 's' : '') + ' moving from the metal side to the non-metal side.';
+      document.getElementById('lessonBohrStep3').textContent = 'After transfer, redraw the ions. ' + c.metalChargeText + ' has shells ' + c.metalShellsIon + '. ' + c.nonmetalChargeText + ' has shells ' + c.nonmetalShellsIon + '.';
+      document.getElementById('mistake1').textContent = 'Using the wrong number of ' + c.metalSymbol + ' or ' + c.nonmetalSymbol + ' atoms';
+      document.getElementById('mistake2').textContent = 'Leaving dots around the positive ion';
+      document.getElementById('mistake3').textContent = 'Not giving the negative ion a full octet';
+      document.getElementById('mistake4').textContent = 'Writing the wrong charge instead of ' + c.metalChargeText + ' / ' + c.nonmetalChargeText;
+      document.getElementById('check1').textContent = 'Correct number of atoms for ' + c.formula;
+      document.getElementById('check2').textContent = 'Correct electron transfer shown';
+      document.getElementById('check3').textContent = 'Correct final ion shells shown';
+      document.getElementById('check4').textContent = 'Correct final ion charges shown';
+      document.getElementById('remember1').textContent = c.metalName.charAt(0).toUpperCase() + c.metalName.slice(1) + ' loses electron(s).';
+      document.getElementById('remember2').textContent = c.nonmetalName.charAt(0).toUpperCase() + c.nonmetalName.slice(1) + ' gains electron(s).';
+      document.getElementById('remember3').textContent = 'The compound is neutral overall.';
+      document.getElementById('remember4').textContent = 'Use ion charges to decide the formula.';
+      document.getElementById('practiceNote').textContent = 'This practice focuses on the exact diagram style commonly used in Grade 9 chemistry for ' + c.formula + '.';
+    }
+
+    function renderViewer() {
+      updateCompoundText();
+      if (state.view === 'split') renderSplit();
+      else renderSingle(state.view);
+      refs.stepText.textContent = stepDescriptionsForCompound()[state.step];
+    }
+
+    function sample(array, count) {
+      const copy = array.slice();
+      for (let i = copy.length - 1; i > 0; i -= 1) {
+        const j = Math.floor(Math.random() * (i + 1));
+        const temp = copy[i];
+        copy[i] = copy[j];
+        copy[j] = temp;
+      }
+      return copy.slice(0, count || 1);
+    }
+
+    function newPracticeQuestion() {
+      const item = sample(currentCompound().practice, 1)[0];
+      state.practice = { q: item.q, a: item.a, options: item.options.slice(), answered: false };
+      renderPractice();
+    }
+
+    function renderPractice() {
+      const p = state.practice;
+      refs.practiceQuestion.textContent = p.q;
+      refs.practiceOptions.innerHTML = '';
+      p.options.forEach((opt) => {
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'option';
+        btn.textContent = opt;
+        btn.addEventListener('click', () => answerPractice(opt, btn));
+        refs.practiceOptions.appendChild(btn);
+      });
+      refs.practiceFeedback.textContent = 'Choose an answer.';
+    }
+
+    function answerPractice(opt, btn) {
+      if (!state.practice || state.practice.answered) return;
+      state.practice.answered = true;
+      document.querySelectorAll('#practiceOptions .option').forEach((b) => {
+        if (b.textContent === state.practice.a) b.classList.add('correct');
+      });
+      if (opt !== state.practice.a) btn.classList.add('wrong');
+      refs.practiceFeedback.innerHTML = opt === state.practice.a
+        ? '<strong>Correct.</strong> ' + state.practice.a
+        : '<strong>Not quite.</strong> Correct answer: <strong>' + state.practice.a + '</strong>';
+    }
+
+    function revealPractice() {
+      if (!state.practice || state.practice.answered) return;
+      state.practice.answered = true;
+      document.querySelectorAll('#practiceOptions .option').forEach((b) => {
+        if (b.textContent === state.practice.a) b.classList.add('correct');
+      });
+      refs.practiceFeedback.innerHTML = '<strong>Answer:</strong> ' + state.practice.a;
+    }
+
+    function stopPlay() {
+      if (state.playTimer) {
+        clearInterval(state.playTimer);
+        state.playTimer = null;
+      }
+      document.getElementById('playBtn').textContent = 'Play animation';
+    }
+
+    function togglePlay() {
+      if (state.playTimer) {
+        stopPlay();
+        return;
+      }
+      document.getElementById('playBtn').textContent = 'Stop animation';
+      state.playTimer = setInterval(() => {
+        state.step = (state.step + 1) % 3;
+        renderViewer();
+      }, 1400);
+    }
+
+    function bindEvents() {
+      document.querySelectorAll('.tab').forEach((btn) => btn.addEventListener('click', () => setTab(btn.dataset.tab)));
+      refs.compoundSelect.addEventListener('change', (e) => {
+        stopPlay();
+        state.compound = e.target.value;
+        state.step = 0;
+        state.practice = null;
+        renderViewer();
+        if (state.tab === 'practice') newPracticeQuestion();
+      });
+      refs.viewSelect.addEventListener('change', (e) => {
+        state.view = e.target.value;
+        renderViewer();
+      });
+      refs.showLabels.addEventListener('change', (e) => {
+        state.showLabels = e.target.checked;
+        renderViewer();
+      });
+      refs.showHints.addEventListener('change', (e) => {
+        state.showHints = e.target.checked;
+        renderViewer();
+      });
+      document.querySelectorAll('[data-step]').forEach((btn) => btn.addEventListener('click', () => {
+        stopPlay();
+        state.step = Number(btn.dataset.step);
+        renderViewer();
+      }));
+      document.getElementById('playBtn').addEventListener('click', togglePlay);
+      document.getElementById('newQuestionBtn').addEventListener('click', newPracticeQuestion);
+      document.getElementById('showAnswerBtn').addEventListener('click', revealPractice);
+    }
+
+    function runSelfChecks() {
+      const results = [];
+      function assert(condition, message) {
+        if (!condition) throw new Error(message);
+        results.push('✔ ' + message);
+      }
+
+      assert(Array.isArray(svgStart()), 'svgStart returns an array');
+      assert(svgEnd(['<svg>', '</svg>']).indexOf('<svg>') === 0, 'svgEnd joins SVG parts');
+      assert(shellFromText('2,8,7').join(',') === '2,8,7', 'shellFromText parses shell text');
+      assert(lewisMetalPositions(100, 200, 2).length === 2, 'metal dot positions match valence count');
+      assert(currentCompound().formula === 'Li₂S', 'default compound is Li₂S');
+      state.compound = 'MgCl2';
+      assert(currentCompound().metalChargeText === 'Mg²⁺', 'compound switching works for MgCl₂');
+      const lewisSvg = drawLewisStep(0);
+      assert(lewisSvg.indexOf('Mg') !== -1, 'Lewis drawing for MgCl₂ renders symbol text');
+      const bohrSvg = drawBohrStep(2);
+      assert(bohrSvg.indexOf('Mg²⁺') !== -1, 'Bohr final step renders ion charge label');
+      state.compound = 'Li2S';
+
+      refs.testResults.textContent = 'Self-checks passed:\n' + results.join('\n');
+    }
+
+    function init() {
+      bindEvents();
+      refs.compoundSelect.value = state.compound;
+      renderViewer();
+      setTab('viewer');
+      runSelfChecks();
+    }
+
     init();
   </script>
 </body>
