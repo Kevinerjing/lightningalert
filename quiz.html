@@ -29,7 +29,7 @@
     }
 
     .app {
-      max-width: 1100px;
+      max-width: 1180px;
       margin: 0 auto;
       padding: 24px;
     }
@@ -50,7 +50,7 @@
     .hero p {
       margin: 6px 0;
       line-height: 1.55;
-      max-width: 760px;
+      max-width: 840px;
     }
 
     .toolbar {
@@ -71,6 +71,14 @@
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
+      align-items: center;
+    }
+
+    .actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      align-items: center;
     }
 
     .pill {
@@ -81,6 +89,12 @@
       padding: 8px 12px;
       font-size: 0.95rem;
       font-weight: 700;
+    }
+
+    .timer-pill {
+      background: #fff7ed;
+      border-color: #fed7aa;
+      color: #9a3412;
     }
 
     button {
@@ -99,11 +113,10 @@
     .primary { background: var(--accent); color: white; }
     .secondary { background: #e5edff; color: #163ea9; }
     .ghost { background: #f3f4f6; color: #111827; }
-    .danger { background: #fee2e2; color: #991b1b; }
 
     .layout {
       display: grid;
-      grid-template-columns: 1.9fr 1fr;
+      grid-template-columns: 1.95fr 1fr;
       gap: 18px;
     }
 
@@ -309,20 +322,20 @@
 <body>
   <div class="app">
     <section class="hero">
-      <h1>SNC1W Unit Test Practice Web App</h1>
-      <p>25 multiple-choice questions based on the Chemistry unit topics visible in your course calendar: atomic theory, atomic structure, periodic table, Bohr-Rutherford diagrams, chemical formulas, and chemical bonding.</p>
-      <p>You can move between questions, flag questions for review, submit at the end, and read explanations for every answer.</p>
+      <h1>SNC1W Chemistry Practice Web App</h1>
+      <p>This practice app focuses on the Grade 9 / SNC1W chemistry topics in your unit: atomic theory, atomic structure, periodic table, Bohr-Rutherford diagrams, elements and compounds, ions, and chemical bonding.</p>
+      <p>It includes a timer, flag-for-review, automatic marking, answer explanations, and a topic breakdown after submission.</p>
     </section>
 
     <section class="toolbar">
       <div class="stats">
-        <div class="pill">Questions: <span id="totalQuestions">50</span></div>
+        <div class="pill">Questions: <span id="totalQuestions">0</span></div>
         <div class="pill">Answered: <span id="answeredCount">0</span></div>
         <div class="pill">Flagged: <span id="flaggedCount">0</span></div>
         <div class="pill">Current: <span id="currentDisplay">1</span></div>
       </div>
-      <div style="display:flex; gap:10px; flex-wrap:wrap; align-items:center;">
-        <div class="pill">Time Left: <span id="timerDisplay">30:00</span></div>
+      <div class="actions">
+        <div class="pill timer-pill">Time Left: <span id="timerDisplay">30:00</span></div>
         <button class="secondary" id="flagBtn">Flag for Review</button>
         <button class="ghost" id="resetBtn">Reset Test</button>
         <button class="primary" id="submitBtn">Submit Test</button>
@@ -333,9 +346,9 @@
       <div class="panel">
         <div class="question-header">
           <div>
-            <div class="question-number" id="questionNumber">Question 1 of 25</div>
+            <div class="question-number" id="questionNumber">Question 1 of 1</div>
           </div>
-          <div class="question-topic" id="questionTopic">Atomic Structure</div>
+          <div class="question-topic" id="questionTopic">Topic</div>
         </div>
 
         <div class="question-text" id="questionText"></div>
@@ -734,7 +747,14 @@
     let answers = Array(questions.length).fill(null);
     let flagged = Array(questions.length).fill(false);
     let submitted = false;
+    let timeLeft = 30 * 60;
+    let timerId = null;
 
+    const totalQuestionsEl = document.getElementById('totalQuestions');
+    const answeredCount = document.getElementById('answeredCount');
+    const flaggedCount = document.getElementById('flaggedCount');
+    const currentDisplay = document.getElementById('currentDisplay');
+    const timerDisplay = document.getElementById('timerDisplay');
     const questionNumber = document.getElementById('questionNumber');
     const questionTopic = document.getElementById('questionTopic');
     const questionText = document.getElementById('questionText');
@@ -746,38 +766,19 @@
     const flagBtn = document.getElementById('flagBtn');
     const resetBtn = document.getElementById('resetBtn');
     const submitBtn = document.getElementById('submitBtn');
-    const answeredCount = document.getElementById('answeredCount');
-    const flaggedCount = document.getElementById('flaggedCount');
-    const currentDisplay = document.getElementById('currentDisplay');
     const resultBox = document.getElementById('resultBox');
     const topicBox = document.getElementById('topicBox');
-    const totalQuestionsEl = document.getElementById('totalQuestions');
-    const timerDisplay = document.getElementById('timerDisplay');
 
     totalQuestionsEl.textContent = questions.length;
 
-    let timeLeft = 30 * 60;
-    let timerId = null;
-
-    function renderNav() {
-      navGrid.innerHTML = '';
-      questions.forEach((_, i) => {
-        const btn = document.createElement('button');
-        btn.className = 'q-btn';
-        if (i === currentIndex) btn.classList.add('current');
-        if (answers[i] !== null) btn.classList.add('answered');
-        if (flagged[i]) btn.classList.add('flagged');
-        btn.textContent = i + 1;
-        btn.addEventListener('click', () => {
-          currentIndex = i;
-          function updateTimerDisplay() {
+    function updateTimerDisplay() {
       const mins = String(Math.floor(timeLeft / 60)).padStart(2, '0');
       const secs = String(timeLeft % 60).padStart(2, '0');
       timerDisplay.textContent = `${mins}:${secs}`;
     }
 
     function stopTimer() {
-      if (timerId) {
+      if (timerId !== null) {
         clearInterval(timerId);
         timerId = null;
       }
@@ -792,8 +793,9 @@
           return;
         }
         timeLeft -= 1;
+        if (timeLeft < 0) timeLeft = 0;
         updateTimerDisplay();
-        if (timeLeft <= 0) {
+        if (timeLeft === 0) {
           submitted = true;
           stopTimer();
           alert('Time is up. Your test will now be submitted.');
@@ -803,9 +805,25 @@
       }, 1000);
     }
 
-    updateTimerDisplay();
-    startTimer();
-    render();
+    function updateStats() {
+      answeredCount.textContent = answers.filter(a => a !== null).length;
+      flaggedCount.textContent = flagged.filter(Boolean).length;
+      currentDisplay.textContent = currentIndex + 1;
+    }
+
+    function renderNav() {
+      navGrid.innerHTML = '';
+      questions.forEach((_, i) => {
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'q-btn';
+        if (i === currentIndex) btn.classList.add('current');
+        if (answers[i] !== null) btn.classList.add('answered');
+        if (flagged[i]) btn.classList.add('flagged');
+        btn.textContent = i + 1;
+        btn.addEventListener('click', () => {
+          currentIndex = i;
+          render();
         });
         navGrid.appendChild(btn);
       });
@@ -816,7 +834,6 @@
       questionNumber.textContent = `Question ${currentIndex + 1} of ${questions.length}`;
       questionTopic.textContent = q.topic;
       questionText.textContent = q.text;
-      currentDisplay.textContent = currentIndex + 1;
       flagBtn.textContent = flagged[currentIndex] ? 'Unflag Question' : 'Flag for Review';
 
       optionsContainer.innerHTML = '';
@@ -864,11 +881,6 @@
 
       prevBtn.disabled = currentIndex === 0;
       nextBtn.disabled = currentIndex === questions.length - 1;
-    }
-
-    function updateStats() {
-      answeredCount.textContent = answers.filter(a => a !== null).length;
-      flaggedCount.textContent = flagged.filter(Boolean).length;
     }
 
     function showResults() {
@@ -969,6 +981,8 @@
       render();
     });
 
+    updateTimerDisplay();
+    startTimer();
     render();
   </script>
 </body>
