@@ -33,7 +33,13 @@
       margin: 0 auto;
       padding: 24px;
     }
-
+.question-image{
+  max-width:700px;
+  width:100%;
+  border:1px solid #ccc;
+  border-radius:8px;
+  margin:10px 0 20px 0;
+}
     .hero {
       background: linear-gradient(135deg, #1d4ed8, #7c3aed);
       color: white;
@@ -205,6 +211,47 @@
       flex-shrink: 0;
     }
 
+    .question-media {
+      margin: 8px 0 18px;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      background: #ffffff;
+      overflow: hidden;
+    }
+
+    .question-media-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 14px;
+      background: #f8fafc;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.92rem;
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    .question-media-body {
+      padding: 14px;
+    }
+
+    .question-image {
+      display: block;
+      width: 100%;
+      max-width: 100%;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: white;
+    }
+
+    .question-note {
+      margin-top: 10px;
+      font-size: 0.92rem;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
     .nav-row {
       display: flex;
       justify-content: space-between;
@@ -352,6 +399,7 @@
         </div>
 
         <div class="question-text" id="questionText"></div>
+        <div id="questionMediaContainer"></div>
         <div class="options" id="optionsContainer"></div>
         <div id="explanationContainer"></div>
 
@@ -379,6 +427,16 @@
 
   <script>
     const questions = [
+      {
+        topic: 'Atomic Theory',
+        text: 'Use the original question exactly as shown in the source image. Then choose the correct answer below.',
+        imageTitle: 'Original quiz question preserved as an image',
+        sourceLabel: 'Image-question mode ready',
+        imageNote: 'This app now supports original-question image mode. Next step: replace this placeholder with cropped single-question images so each question appears exactly like the source sheet.',
+        options: ['A', 'B', 'C', 'D', 'E'],
+        answer: 2,
+        explanation: 'This placeholder demonstrates how original screenshot-based questions can be rendered while still using automatic marking.'
+      },
       {
         topic: "Atomic Structure",
         text: "Which statement best defines an atom?",
@@ -740,7 +798,22 @@
         options: ["Ionic", "Covalent", "Molecular element", "Allotrope"],
         answer: 0,
         explanation: "Barium is a metal and oxygen is a non-metal, so BaO is ionic."
-      }
+      },
+     {
+        type:'image-question',
+        topic:'Atomic Structure',
+        text:"Which element does the following Bohr-Rutherford diagram refer to?",
+        imageSrc:"images/53.png",
+        options:[
+        "B",
+        "Al",
+        "Ga",
+        "In",
+        "Tl"
+        ],
+        answer:1,
+        explanation:"13 protons means atomic number 13 → Aluminum (Al)."
+    }
     ];
 
     let currentIndex = 0;
@@ -760,6 +833,7 @@
     const questionText = document.getElementById('questionText');
     const optionsContainer = document.getElementById('optionsContainer');
     const explanationContainer = document.getElementById('explanationContainer');
+    const questionMediaContainer = document.getElementById('questionMediaContainer');
     const navGrid = document.getElementById('navGrid');
     const prevBtn = document.getElementById('prevBtn');
     const nextBtn = document.getElementById('nextBtn');
@@ -833,8 +907,20 @@
       const q = questions[currentIndex];
       questionNumber.textContent = `Question ${currentIndex + 1} of ${questions.length}`;
       questionTopic.textContent = q.topic;
-      questionText.textContent = q.text;
+      questionText.textContent = q.text || '';
       flagBtn.textContent = flagged[currentIndex] ? 'Unflag Question' : 'Flag for Review';
+
+      questionMediaContainer.innerHTML = '';
+        if (q.type === "image-question") {
+
+        const img = document.createElement("img");
+        img.src = q.imageSrc;
+        img.className = "question-image";
+        img.alt = "Question image";
+
+        questionMediaContainer.appendChild(img);
+
+        }
 
       optionsContainer.innerHTML = '';
 
@@ -984,6 +1070,21 @@
     updateTimerDisplay();
     startTimer();
     render();
+
+    // To preserve questions exactly as in the source sheets,
+    // add items like this to the questions array:
+    // {
+    //   type: 'image-question',
+    //   topic: 'Atomic Structure',
+    //   text: 'Choose the correct answer.',
+    //   imageSrc: 'data:image/png;base64,...',
+    //   imageTitle: 'G9 Science: Class 3 Quiz - Q1',
+    //   sourceLabel: 'Original cropped image',
+    //   options: ['A', 'B', 'C', 'D', 'E'],
+    //   answer: 2,
+    //   explanation: 'J. J. Thomson discovered the electron.'
+    // };
+
   </script>
 </body>
 </html>
