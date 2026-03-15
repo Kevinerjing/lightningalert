@@ -1,0 +1,975 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SNC1W Chemistry Unit Test Practice</title>
+  <style>
+    :root {
+      --bg: #f6f8fb;
+      --card: #ffffff;
+      --text: #1f2937;
+      --muted: #6b7280;
+      --accent: #2563eb;
+      --accent-2: #0f172a;
+      --good: #15803d;
+      --bad: #b91c1c;
+      --border: #dbe3ee;
+      --soft: #eef4ff;
+      --warn: #f59e0b;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: linear-gradient(180deg, #f8fbff 0%, #eef4ff 100%);
+      color: var(--text);
+    }
+
+    .app {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 24px;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #1d4ed8, #7c3aed);
+      color: white;
+      border-radius: 22px;
+      padding: 28px;
+      box-shadow: 0 14px 30px rgba(37, 99, 235, 0.2);
+    }
+
+    .hero h1 {
+      margin: 0 0 8px;
+      font-size: 2rem;
+    }
+
+    .hero p {
+      margin: 6px 0;
+      line-height: 1.55;
+      max-width: 760px;
+    }
+
+    .toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+      justify-content: space-between;
+      margin: 20px 0;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 16px;
+      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.05);
+    }
+
+    .stats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .pill {
+      background: var(--soft);
+      border: 1px solid #cfe0ff;
+      color: var(--accent-2);
+      border-radius: 999px;
+      padding: 8px 12px;
+      font-size: 0.95rem;
+      font-weight: 700;
+    }
+
+    button {
+      border: none;
+      border-radius: 14px;
+      padding: 11px 16px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform 0.15s ease, opacity 0.15s ease, background 0.15s ease;
+    }
+
+    button:hover { transform: translateY(-1px); }
+    button:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+
+    .primary { background: var(--accent); color: white; }
+    .secondary { background: #e5edff; color: #163ea9; }
+    .ghost { background: #f3f4f6; color: #111827; }
+    .danger { background: #fee2e2; color: #991b1b; }
+
+    .layout {
+      display: grid;
+      grid-template-columns: 1.9fr 1fr;
+      gap: 18px;
+    }
+
+    .panel {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      padding: 20px;
+      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.05);
+    }
+
+    .question-header {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      align-items: start;
+      margin-bottom: 12px;
+    }
+
+    .question-number {
+      font-size: 0.95rem;
+      color: var(--accent);
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .question-topic {
+      color: var(--muted);
+      font-size: 0.92rem;
+      font-weight: 700;
+      text-align: right;
+    }
+
+    .question-text {
+      font-size: 1.14rem;
+      line-height: 1.55;
+      margin: 8px 0 18px;
+      font-weight: 700;
+    }
+
+    .options {
+      display: grid;
+      gap: 12px;
+    }
+
+    .option {
+      border: 1px solid var(--border);
+      background: #fff;
+      border-radius: 16px;
+      padding: 14px;
+      display: flex;
+      gap: 12px;
+      align-items: start;
+      cursor: pointer;
+      transition: border-color 0.15s ease, background 0.15s ease;
+    }
+
+    .option:hover {
+      border-color: #aac4ff;
+      background: #f8fbff;
+    }
+
+    .option input { margin-top: 3px; }
+
+    .option.correct {
+      border-color: #86efac;
+      background: #f0fdf4;
+    }
+
+    .option.incorrect {
+      border-color: #fca5a5;
+      background: #fef2f2;
+    }
+
+    .option-letter {
+      width: 28px;
+      height: 28px;
+      border-radius: 999px;
+      background: #eef2ff;
+      color: #3730a3;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      flex-shrink: 0;
+    }
+
+    .nav-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    .explanation {
+      margin-top: 18px;
+      border-left: 4px solid var(--accent);
+      background: #f8fbff;
+      padding: 14px 16px;
+      border-radius: 0 14px 14px 0;
+      line-height: 1.6;
+    }
+
+    .mini-title {
+      margin: 0 0 8px;
+      font-size: 1rem;
+      font-weight: 800;
+    }
+
+    .grid-nav {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .q-btn {
+      min-height: 46px;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      background: white;
+      font-weight: 800;
+    }
+
+    .q-btn.current {
+      border-color: var(--accent);
+      background: #dbeafe;
+      color: #1d4ed8;
+    }
+
+    .q-btn.answered {
+      background: #ecfdf5;
+      border-color: #86efac;
+      color: #166534;
+    }
+
+    .q-btn.flagged {
+      outline: 2px solid var(--warn);
+    }
+
+    .legend {
+      display: grid;
+      gap: 8px;
+      margin-top: 14px;
+      font-size: 0.94rem;
+      color: var(--muted);
+    }
+
+    .legend span::before {
+      content: "";
+      display: inline-block;
+      width: 12px;
+      height: 12px;
+      border-radius: 999px;
+      margin-right: 8px;
+      vertical-align: middle;
+    }
+
+    .legend .l-current::before { background: #60a5fa; }
+    .legend .l-answered::before { background: #4ade80; }
+    .legend .l-flagged::before { background: #f59e0b; }
+
+    .result-box {
+      margin-top: 16px;
+      padding: 16px;
+      border-radius: 18px;
+      background: #f8fafc;
+      border: 1px solid var(--border);
+    }
+
+    .score {
+      font-size: 2rem;
+      font-weight: 900;
+      margin: 0;
+    }
+
+    .good { color: var(--good); }
+    .bad { color: var(--bad); }
+
+    .review-list {
+      margin-top: 12px;
+      display: grid;
+      gap: 10px;
+    }
+
+    .review-item {
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 12px;
+      background: white;
+    }
+
+    .muted { color: var(--muted); }
+
+    @media (max-width: 900px) {
+      .layout {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <section class="hero">
+      <h1>SNC1W Unit Test Practice Web App</h1>
+      <p>25 multiple-choice questions based on the Chemistry unit topics visible in your course calendar: atomic theory, atomic structure, periodic table, Bohr-Rutherford diagrams, chemical formulas, and chemical bonding.</p>
+      <p>You can move between questions, flag questions for review, submit at the end, and read explanations for every answer.</p>
+    </section>
+
+    <section class="toolbar">
+      <div class="stats">
+        <div class="pill">Questions: <span id="totalQuestions">50</span></div>
+        <div class="pill">Answered: <span id="answeredCount">0</span></div>
+        <div class="pill">Flagged: <span id="flaggedCount">0</span></div>
+        <div class="pill">Current: <span id="currentDisplay">1</span></div>
+      </div>
+      <div style="display:flex; gap:10px; flex-wrap:wrap; align-items:center;">
+        <div class="pill">Time Left: <span id="timerDisplay">30:00</span></div>
+        <button class="secondary" id="flagBtn">Flag for Review</button>
+        <button class="ghost" id="resetBtn">Reset Test</button>
+        <button class="primary" id="submitBtn">Submit Test</button>
+      </div>
+    </section>
+
+    <section class="layout">
+      <div class="panel">
+        <div class="question-header">
+          <div>
+            <div class="question-number" id="questionNumber">Question 1 of 25</div>
+          </div>
+          <div class="question-topic" id="questionTopic">Atomic Structure</div>
+        </div>
+
+        <div class="question-text" id="questionText"></div>
+        <div class="options" id="optionsContainer"></div>
+        <div id="explanationContainer"></div>
+
+        <div class="nav-row">
+          <button class="ghost" id="prevBtn">← Previous</button>
+          <button class="primary" id="nextBtn">Next →</button>
+        </div>
+      </div>
+
+      <div class="panel">
+        <h3 class="mini-title">Question Navigator</h3>
+        <div class="grid-nav" id="navGrid"></div>
+
+        <div class="legend">
+          <span class="l-current">Current question</span>
+          <span class="l-answered">Answered question</span>
+          <span class="l-flagged">Flagged for review</span>
+        </div>
+
+        <div class="result-box" id="resultBox" style="display:none;"></div>
+        <div class="result-box" id="topicBox" style="display:none; margin-top:12px;"></div>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    const questions = [
+      {
+        topic: "Atomic Structure",
+        text: "Which statement best defines an atom?",
+        options: [
+          "The smallest piece of matter that still has the properties of an element",
+          "A positively charged particle in the nucleus",
+          "A neutral particle that travels around the nucleus",
+          "A substance made of more than one type of atom"
+        ],
+        answer: 0,
+        explanation: "An atom is the smallest piece of matter that still keeps the properties of that element."
+      },
+      {
+        topic: "Atomic Structure",
+        text: "Which particle has a positive charge?",
+        options: ["Electron", "Neutron", "Proton", "Isotope"],
+        answer: 2,
+        explanation: "Protons are positively charged. Electrons are negative and neutrons are neutral."
+      },
+      {
+        topic: "Atomic Structure",
+        text: "Where are protons and neutrons found in the atom?",
+        options: ["In the electron cloud", "In the nucleus", "In the outer shell only", "Floating between shells"],
+        answer: 1,
+        explanation: "The nucleus contains protons and neutrons and almost all of the atom's mass."
+      },
+      {
+        topic: "Atomic Structure",
+        text: "What is the charge of a neutron?",
+        options: ["Positive", "Negative", "Neutral", "It changes depending on the element"],
+        answer: 2,
+        explanation: "Neutrons have no charge, so they are neutral."
+      },
+      {
+        topic: "Atomic Theory",
+        text: "Which scientist proposed the 'billiard ball' model of the atom?",
+        options: ["Bohr", "Dalton", "Rutherford", "Thomson"],
+        answer: 1,
+        explanation: "Dalton proposed the early billiard ball model, in which atoms were thought to be solid spheres."
+      },
+      {
+        topic: "Atomic Theory",
+        text: "Which model suggested that electrons move in defined energy levels around the nucleus?",
+        options: ["Thomson's model", "Dalton's model", "Bohr's model", "Billiard ball model"],
+        answer: 2,
+        explanation: "Bohr's model introduced electrons moving in fixed energy levels around the nucleus."
+      },
+      {
+        topic: "Periodic Table",
+        text: "The atomic number of an element is equal to the number of:",
+        options: ["Neutrons", "Protons", "Energy levels", "Ions"],
+        answer: 1,
+        explanation: "Atomic number tells you how many protons an atom has."
+      },
+      {
+        topic: "Periodic Table",
+        text: "In a neutral atom, the number of electrons is usually equal to the number of:",
+        options: ["Neutrons", "Protons", "Shells", "Isotopes"],
+        answer: 1,
+        explanation: "A neutral atom has equal numbers of protons and electrons."
+      },
+      {
+        topic: "Periodic Table",
+        text: "What information do periods (rows) on the periodic table give you?",
+        options: ["How many neutrons an atom has", "How many valence electrons an atom has", "How many occupied energy levels an atom has", "Whether an atom is an isotope"],
+        answer: 2,
+        explanation: "Periods tell you the number of occupied energy levels, or shells."
+      },
+      {
+        topic: "Periodic Table",
+        text: "What information do groups (columns) on the periodic table usually give you?",
+        options: ["The number of outermost electrons", "The number of neutrons", "The total mass", "The number of energy levels"],
+        answer: 0,
+        explanation: "Groups usually tell you how many valence electrons are in the outer shell."
+      },
+      {
+        topic: "Periodic Table",
+        text: "An atom has an atomic number of 9 and an atomic mass of 19. How many neutrons does it have?",
+        options: ["9", "10", "19", "28"],
+        answer: 1,
+        explanation: "Neutrons = atomic mass − atomic number = 19 − 9 = 10."
+      },
+      {
+        topic: "Bohr-Rutherford Diagrams",
+        text: "How many electrons can fill the first energy level?",
+        options: ["1", "2", "8", "18"],
+        answer: 1,
+        explanation: "The first energy level can hold a maximum of 2 electrons."
+      },
+      {
+        topic: "Bohr-Rutherford Diagrams",
+        text: "How many electrons can fill the second energy level in this unit's simplified model?",
+        options: ["2", "4", "8", "10"],
+        answer: 2,
+        explanation: "In the simplified Bohr model used here, the second shell holds up to 8 electrons."
+      },
+      {
+        topic: "Bohr-Rutherford Diagrams",
+        text: "A neutral sodium atom has 11 electrons. Which Bohr electron arrangement is correct?",
+        options: ["2-8-1", "2-7-2", "2-8-8", "1-8-2"],
+        answer: 0,
+        explanation: "Electrons fill inner shells first, so sodium is arranged 2-8-1."
+      },
+      {
+        topic: "Bohr-Rutherford Diagrams",
+        text: "A neutral argon atom has 18 electrons. Which arrangement is correct?",
+        options: ["2-8-8", "2-6-10", "8-8-2", "2-7-9"],
+        answer: 0,
+        explanation: "Argon fills as 2-8-8 in the simplified model, making it very stable."
+      },
+      {
+        topic: "Chemical Families",
+        text: "Which family contains very stable elements that do not react readily?",
+        options: ["Halogens", "Alkali metals", "Noble gases", "Alkaline earth metals"],
+        answer: 2,
+        explanation: "Noble gases have full outer energy levels, so they are very stable and not very reactive."
+      },
+      {
+        topic: "Chemical Families",
+        text: "Which family usually has 1 electron in the outermost energy level and forms a +1 ion?",
+        options: ["Halogens", "Noble gases", "Alkali metals", "Metalloids"],
+        answer: 2,
+        explanation: "Alkali metals have one valence electron and usually lose it to form a +1 ion."
+      },
+      {
+        topic: "Chemical Families",
+        text: "Which family usually gains 1 electron and forms a -1 ion?",
+        options: ["Halogens", "Alkali metals", "Alkaline earth metals", "Noble gases"],
+        answer: 0,
+        explanation: "Halogens are missing one electron in their outer shell, so they often gain one and form -1 ions."
+      },
+      {
+        topic: "Chemical Bonding",
+        text: "An ionic compound is usually formed between:",
+        options: ["A metal and a non-metal", "Two non-metals", "Two noble gases", "A neutron and an electron"],
+        answer: 0,
+        explanation: "Ionic compounds form between a metal and a non-metal through electron transfer."
+      },
+      {
+        topic: "Chemical Bonding",
+        text: "A molecular (covalent) compound is usually formed between:",
+        options: ["A metal and a non-metal", "Two non-metals", "A metal and a metalloid only", "Two ions only"],
+        answer: 1,
+        explanation: "Molecular compounds form when non-metals share electrons."
+      },
+      {
+        topic: "Chemical Bonding",
+        text: "What happens to electrons when an ionic bond forms?",
+        options: ["They are shared equally", "They disappear", "They are transferred from one atom to another", "They become neutrons"],
+        answer: 2,
+        explanation: "In ionic bonding, electrons are transferred, usually from a metal to a non-metal."
+      },
+      {
+        topic: "Chemical Bonding",
+        text: "What happens to electrons in a molecular (covalent) bond?",
+        options: ["They are transferred", "They are shared", "They are lost forever", "They stay only in the nucleus"],
+        answer: 1,
+        explanation: "Covalent bonds form when atoms share electrons."
+      },
+      {
+        topic: "Chemical Formulas",
+        text: "What does the formula H₂O tell you?",
+        options: ["2 hydrogen atoms and 1 oxygen atom", "1 hydrogen atom and 2 oxygen atoms", "2 atoms total", "Hydrogen and oxygen are ionic"],
+        answer: 0,
+        explanation: "The subscript 2 applies only to hydrogen, so H₂O has 2 H atoms and 1 O atom."
+      },
+      {
+        topic: "Chemical Formulas",
+        text: "Which of the following is an ionic compound?",
+        options: ["CO₂", "H₂O", "NaCl", "O₂"],
+        answer: 2,
+        explanation: "NaCl is made from sodium (metal) and chlorine (non-metal), so it is ionic."
+      },
+      {
+        topic: "Chemical Bonding",
+        text: "Why are noble gases generally unreactive?",
+        options: ["They have no protons", "Their outer energy levels are full", "They only exist as liquids", "They always lose electrons"],
+        answer: 1,
+        explanation: "Noble gases are stable because their outermost energy levels are full."
+      },
+      {
+        topic: "Atomic Theory",
+        text: "Which scientist is credited with the discovery of the electron?",
+        options: ["Mendeleev", "Dalton", "Thomson", "Rutherford"],
+        answer: 2,
+        explanation: "J. J. Thomson discovered the electron through cathode ray experiments."
+      },
+      {
+        topic: "Atomic Structure",
+        text: "Which relationship best describes the relative mass of subatomic particles?",
+        options: ["Proton > Neutron > Electron", "Proton > Electron > Neutron", "Proton = Neutron > Electron", "Proton = Neutron = Electron"],
+        answer: 2,
+        explanation: "Protons and neutrons have nearly equal mass, and both are much heavier than electrons."
+      },
+      {
+        topic: "Elements and Compounds",
+        text: "Which of the following is NOT a molecular element?",
+        options: ["Hydrogen", "Oxygen", "Carbon", "Bromine"],
+        answer: 2,
+        explanation: "Carbon is not one of the common molecular elements like H₂, O₂, N₂, F₂, Cl₂, Br₂, or I₂."
+      },
+      {
+        topic: "Elements and Compounds",
+        text: "The particle diagram shows bonded black and white pairs. What does it represent?",
+        options: ["Atom only", "Element only", "Compound only", "Mixture of elements"],
+        answer: 2,
+        explanation: "Each particle is made of two different atoms bonded together, so it represents a compound."
+      },
+      {
+        topic: "Periodic Table",
+        text: "Using the phosphorus tile, what is the atomic number of phosphorus?",
+        options: ["15", "30.974", "31", "45.974"],
+        answer: 0,
+        explanation: "The atomic number is the top number on the element tile. For phosphorus, it is 15."
+      },
+      {
+        topic: "Periodic Table",
+        text: "Using the phosphorus tile, what is the mass number of phosphorus rounded to the nearest whole number?",
+        options: ["15", "16", "31", "30.974"],
+        answer: 2,
+        explanation: "Phosphorus has an atomic mass of about 30.974, which rounds to a mass number of 31."
+      },
+      {
+        topic: "Atomic Structure",
+        text: "How many protons, neutrons, and electrons are in a neutral phosphorus atom?",
+        options: ["15 p⁺, 15 n⁰, 15 e⁻", "15 p⁺, 16 n⁰, 16 e⁻", "15 p⁺, 16 n⁰, 15 e⁻", "30 p⁺, 16 n⁰, 15 e⁻"],
+        answer: 2,
+        explanation: "Atomic number 15 gives 15 protons and 15 electrons in a neutral atom. Mass number 31 means neutrons = 31 − 15 = 16."
+      },
+      {
+        topic: "Bohr-Rutherford Diagrams",
+        text: "A Bohr-Rutherford diagram shows 13 protons in the nucleus. Which element is it?",
+        options: ["Boron", "Aluminum", "Gallium", "Indium"],
+        answer: 1,
+        explanation: "An atom with 13 protons has atomic number 13, which is aluminum."
+      },
+      {
+        topic: "Bohr-Rutherford Diagrams",
+        text: "A condensed Bohr-Rutherford diagram shows 11 p⁺ and electrons arranged 2e⁻, 8e⁻, 1e⁻. Which element is it?",
+        options: ["Lithium", "Sodium", "Potassium", "Rubidium"],
+        answer: 1,
+        explanation: "11 protons means atomic number 11, which is sodium. The electron arrangement 2-8-1 also matches sodium."
+      },
+      {
+        topic: "Periodic Table",
+        text: "Which element has 7 electrons in its valence shell?",
+        options: ["Magnesium", "Oxygen", "Neon", "Fluorine"],
+        answer: 3,
+        explanation: "Fluorine is in group 17 and has 7 valence electrons."
+      },
+      {
+        topic: "Chemical Bonding",
+        text: "Ionic bonds are generally formed between:",
+        options: ["Two metals", "A metal and a non-metal", "A metalloid and a non-metal only", "Two non-metals"],
+        answer: 1,
+        explanation: "Ionic bonding usually happens when a metal transfers electrons to a non-metal."
+      },
+      {
+        topic: "Chemical Bonding",
+        text: "The Ca²⁺ cation is formed due to the:",
+        options: ["Gain of two protons", "Gain of two electrons", "Loss of two protons", "Loss of two electrons"],
+        answer: 3,
+        explanation: "A positive ion forms when electrons are lost. Calcium loses two electrons to become Ca²⁺."
+      },
+      {
+        topic: "Chemical Bonding",
+        text: "When iron and chromium combine, they form what type of bond?",
+        options: ["Ionic", "Covalent", "Semi-covalent", "Metallic"],
+        answer: 3,
+        explanation: "Two metals together form metallic bonding."
+      },
+      {
+        topic: "Elements and Compounds",
+        text: "Graphite, charcoal, and diamond are all made of carbon but differ in arrangement. This is an example of a(n):",
+        options: ["Ion", "Isotope", "Allotrope", "Cation"],
+        answer: 2,
+        explanation: "Different structural forms of the same element are called allotropes."
+      },
+      {
+        topic: "Chemical Bonding",
+        text: "How many electrons are in an oxide ion, O²⁻?",
+        options: ["6", "8", "10", "16"],
+        answer: 2,
+        explanation: "Neutral oxygen has 8 electrons. As O²⁻, it has gained 2 more, so it has 10 electrons."
+      },
+      {
+        topic: "Chemical Properties",
+        text: "Which of the following is NOT a physical property?",
+        options: ["Boiling point", "Temperature", "Density", "Toxicity"],
+        answer: 3,
+        explanation: "Toxicity describes how a substance can chemically affect organisms, so it is not a physical property."
+      },
+      {
+        topic: "Changes in Matter",
+        text: "Which of the following is NOT a chemical change?",
+        options: ["Change of shape", "Change of odour", "Formation of gas", "Formation of a precipitate"],
+        answer: 0,
+        explanation: "A change of shape is usually a physical change, not a chemical change."
+      },
+      {
+        topic: "Changes in Matter",
+        text: "When a gas changes directly into a solid, this is known as:",
+        options: ["Melting", "Freezing", "Sublimation", "Deposition"],
+        answer: 3,
+        explanation: "Gas changing directly to a solid is called deposition."
+      },
+      {
+        topic: "Atomic Structure",
+        text: "An iodine atom is written as ¹²⁷₅₃I. How many neutrons does it have?",
+        options: ["53", "74", "127", "180"],
+        answer: 1,
+        explanation: "Neutrons = mass number − atomic number = 127 − 53 = 74."
+      },
+      {
+        topic: "Chemical Families",
+        text: "Which statement about halogens is correct?",
+        options: ["They are gases at room temperature only", "They have seven valence electrons", "Their reactivity increases going up the group", "I and III only"],
+        answer: 1,
+        explanation: "The clearest correct statement here is that halogens have seven valence electrons."
+      },
+      {
+        topic: "Periodic Table",
+        text: "In the periodic table, elements in the same __________ have similar properties.",
+        options: ["Group", "Section", "Period", "Class"],
+        answer: 0,
+        explanation: "Elements in the same group usually have similar chemical properties because they have the same number of valence electrons."
+      },
+      {
+        topic: "Naming and Classification",
+        text: "N₂O₄ is best classified as ionic or covalent?",
+        options: ["Ionic", "Covalent", "Metallic", "Alloy"],
+        answer: 1,
+        explanation: "N₂O₄ is made of two non-metals, so it is covalent."
+      },
+      {
+        topic: "Naming and Classification",
+        text: "CsCl is best classified as ionic or covalent?",
+        options: ["Ionic", "Covalent", "Molecular element", "Allotrope"],
+        answer: 0,
+        explanation: "Cesium is a metal and chlorine is a non-metal, so CsCl is ionic."
+      },
+      {
+        topic: "Naming and Classification",
+        text: "Na₃N is best classified as ionic or covalent?",
+        options: ["Ionic", "Covalent", "Metallic", "Molecular element"],
+        answer: 0,
+        explanation: "Sodium is a metal and nitrogen is a non-metal, so Na₃N is ionic."
+      },
+      {
+        topic: "Naming and Classification",
+        text: "SO₃ is best classified as ionic or covalent?",
+        options: ["Ionic", "Covalent", "Metallic", "Alloy"],
+        answer: 1,
+        explanation: "Sulfur and oxygen are both non-metals, so SO₃ is covalent."
+      },
+      {
+        topic: "Naming and Classification",
+        text: "BaO is best classified as ionic or covalent?",
+        options: ["Ionic", "Covalent", "Molecular element", "Allotrope"],
+        answer: 0,
+        explanation: "Barium is a metal and oxygen is a non-metal, so BaO is ionic."
+      }
+    ];
+
+    let currentIndex = 0;
+    let answers = Array(questions.length).fill(null);
+    let flagged = Array(questions.length).fill(false);
+    let submitted = false;
+
+    const questionNumber = document.getElementById('questionNumber');
+    const questionTopic = document.getElementById('questionTopic');
+    const questionText = document.getElementById('questionText');
+    const optionsContainer = document.getElementById('optionsContainer');
+    const explanationContainer = document.getElementById('explanationContainer');
+    const navGrid = document.getElementById('navGrid');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const flagBtn = document.getElementById('flagBtn');
+    const resetBtn = document.getElementById('resetBtn');
+    const submitBtn = document.getElementById('submitBtn');
+    const answeredCount = document.getElementById('answeredCount');
+    const flaggedCount = document.getElementById('flaggedCount');
+    const currentDisplay = document.getElementById('currentDisplay');
+    const resultBox = document.getElementById('resultBox');
+    const topicBox = document.getElementById('topicBox');
+    const totalQuestionsEl = document.getElementById('totalQuestions');
+    const timerDisplay = document.getElementById('timerDisplay');
+
+    totalQuestionsEl.textContent = questions.length;
+
+    let timeLeft = 30 * 60;
+    let timerId = null;
+
+    function renderNav() {
+      navGrid.innerHTML = '';
+      questions.forEach((_, i) => {
+        const btn = document.createElement('button');
+        btn.className = 'q-btn';
+        if (i === currentIndex) btn.classList.add('current');
+        if (answers[i] !== null) btn.classList.add('answered');
+        if (flagged[i]) btn.classList.add('flagged');
+        btn.textContent = i + 1;
+        btn.addEventListener('click', () => {
+          currentIndex = i;
+          function updateTimerDisplay() {
+      const mins = String(Math.floor(timeLeft / 60)).padStart(2, '0');
+      const secs = String(timeLeft % 60).padStart(2, '0');
+      timerDisplay.textContent = `${mins}:${secs}`;
+    }
+
+    function stopTimer() {
+      if (timerId) {
+        clearInterval(timerId);
+        timerId = null;
+      }
+    }
+
+    function startTimer() {
+      stopTimer();
+      updateTimerDisplay();
+      timerId = setInterval(() => {
+        if (submitted) {
+          stopTimer();
+          return;
+        }
+        timeLeft -= 1;
+        updateTimerDisplay();
+        if (timeLeft <= 0) {
+          submitted = true;
+          stopTimer();
+          alert('Time is up. Your test will now be submitted.');
+          showResults();
+          render();
+        }
+      }, 1000);
+    }
+
+    updateTimerDisplay();
+    startTimer();
+    render();
+        });
+        navGrid.appendChild(btn);
+      });
+    }
+
+    function renderQuestion() {
+      const q = questions[currentIndex];
+      questionNumber.textContent = `Question ${currentIndex + 1} of ${questions.length}`;
+      questionTopic.textContent = q.topic;
+      questionText.textContent = q.text;
+      currentDisplay.textContent = currentIndex + 1;
+      flagBtn.textContent = flagged[currentIndex] ? 'Unflag Question' : 'Flag for Review';
+
+      optionsContainer.innerHTML = '';
+
+      q.options.forEach((opt, idx) => {
+        const label = document.createElement('label');
+        label.className = 'option';
+
+        if (submitted) {
+          if (idx === q.answer) label.classList.add('correct');
+          if (answers[currentIndex] === idx && idx !== q.answer) label.classList.add('incorrect');
+        }
+
+        const input = document.createElement('input');
+        input.type = 'radio';
+        input.name = 'question';
+        input.checked = answers[currentIndex] === idx;
+        input.disabled = submitted;
+        input.addEventListener('change', () => {
+          answers[currentIndex] = idx;
+          updateStats();
+          renderNav();
+        });
+
+        const letter = document.createElement('span');
+        letter.className = 'option-letter';
+        letter.textContent = String.fromCharCode(65 + idx);
+
+        const text = document.createElement('div');
+        text.textContent = opt;
+
+        label.appendChild(input);
+        label.appendChild(letter);
+        label.appendChild(text);
+        optionsContainer.appendChild(label);
+      });
+
+      explanationContainer.innerHTML = '';
+      if (submitted) {
+        const box = document.createElement('div');
+        box.className = 'explanation';
+        box.innerHTML = `<strong>Explanation:</strong> ${q.explanation}`;
+        explanationContainer.appendChild(box);
+      }
+
+      prevBtn.disabled = currentIndex === 0;
+      nextBtn.disabled = currentIndex === questions.length - 1;
+    }
+
+    function updateStats() {
+      answeredCount.textContent = answers.filter(a => a !== null).length;
+      flaggedCount.textContent = flagged.filter(Boolean).length;
+    }
+
+    function showResults() {
+      const score = answers.reduce((sum, ans, i) => sum + (ans === questions[i].answer ? 1 : 0), 0);
+      const percent = Math.round((score / questions.length) * 100);
+      const wrong = questions
+        .map((q, i) => ({ q, i, user: answers[i] }))
+        .filter(item => item.user !== item.q.answer);
+
+      const topicStats = {};
+      questions.forEach((q, i) => {
+        if (!topicStats[q.topic]) {
+          topicStats[q.topic] = { total: 0, correct: 0 };
+        }
+        topicStats[q.topic].total += 1;
+        if (answers[i] === q.answer) topicStats[q.topic].correct += 1;
+      });
+
+      resultBox.style.display = 'block';
+      resultBox.innerHTML = `
+        <h3 class="mini-title">Your Results</h3>
+        <p class="score ${percent >= 80 ? 'good' : 'bad'}">${score} / ${questions.length} (${percent}%)</p>
+        <p class="muted">Use the navigator to review all questions. Correct answers are shown in green after submission.</p>
+        <div class="review-list">
+          ${wrong.length === 0 ? '<div class="review-item"><strong>Amazing work.</strong> You got every question correct.</div>' : wrong.map(item => `
+            <div class="review-item">
+              <strong>Q${item.i + 1}</strong> - ${item.q.topic}<br>
+              <span class="muted">Correct answer:</span> ${item.q.options[item.q.answer]}
+            </div>
+          `).join('')}
+        </div>
+      `;
+
+      topicBox.style.display = 'block';
+      topicBox.innerHTML = `
+        <h3 class="mini-title">Topic Breakdown</h3>
+        <div class="review-list">
+          ${Object.entries(topicStats).map(([topic, data]) => {
+            const pct = Math.round((data.correct / data.total) * 100);
+            return `
+              <div class="review-item">
+                <strong>${topic}</strong><br>
+                <span class="muted">Score:</span> ${data.correct} / ${data.total} (${pct}%)
+              </div>
+            `;
+          }).join('')}
+        </div>
+      `;
+    }
+
+    function render() {
+      renderQuestion();
+      renderNav();
+      updateStats();
+    }
+
+    prevBtn.addEventListener('click', () => {
+      if (currentIndex > 0) {
+        currentIndex -= 1;
+        render();
+      }
+    });
+
+    nextBtn.addEventListener('click', () => {
+      if (currentIndex < questions.length - 1) {
+        currentIndex += 1;
+        render();
+      }
+    });
+
+    flagBtn.addEventListener('click', () => {
+      flagged[currentIndex] = !flagged[currentIndex];
+      render();
+    });
+
+    resetBtn.addEventListener('click', () => {
+      if (!confirm('Reset all answers and start over?')) return;
+      currentIndex = 0;
+      answers = Array(questions.length).fill(null);
+      flagged = Array(questions.length).fill(false);
+      submitted = false;
+      timeLeft = 30 * 60;
+      resultBox.style.display = 'none';
+      topicBox.style.display = 'none';
+      startTimer();
+      render();
+    });
+
+    submitBtn.addEventListener('click', () => {
+      const unanswered = answers.filter(a => a === null).length;
+      const proceed = unanswered > 0
+        ? confirm(`You still have ${unanswered} unanswered question(s). Submit anyway?`)
+        : confirm('Submit your test now?');
+      if (!proceed) return;
+      submitted = true;
+      stopTimer();
+      showResults();
+      render();
+    });
+
+    render();
+  </script>
+</body>
+</html>
