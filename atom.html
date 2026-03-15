@@ -1,0 +1,1096 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Atomic Diagrams Teaching Page</title>
+  <style>
+    :root {
+      --bg: #f4f7fb;
+      --card: #ffffff;
+      --text: #17324d;
+      --muted: #5f7186;
+      --line: #d7e0ea;
+      --accent: #2f80ed;
+      --accent-2: #56ccf2;
+      --good: #27ae60;
+      --warn: #f2994a;
+      --danger: #c0392b;
+      --shadow: 0 14px 34px rgba(18, 52, 86, 0.12);
+      --radius: 20px;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: linear-gradient(180deg, #eef4fb 0%, #f8fbff 100%);
+      color: var(--text);
+    }
+
+    .page {
+      max-width: 1380px;
+      margin: 0 auto;
+      padding: 24px;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #1e5fbf 0%, #3f8cff 55%, #7dc9ff 100%);
+      color: white;
+      border-radius: 28px;
+      padding: 28px;
+      box-shadow: var(--shadow);
+      margin-bottom: 22px;
+    }
+
+    .hero h1 {
+      margin: 0 0 8px;
+      font-size: clamp(28px, 4vw, 42px);
+    }
+
+    .hero p {
+      margin: 0;
+      max-width: 900px;
+      line-height: 1.5;
+      font-size: 16px;
+      color: rgba(255,255,255,0.95);
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: 360px 1fr;
+      gap: 22px;
+      align-items: start;
+    }
+
+    .panel, .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .panel {
+      padding: 18px;
+      position: sticky;
+      top: 16px;
+    }
+
+    .panel h2, .section-title {
+      margin: 0 0 14px;
+      font-size: 22px;
+    }
+
+    .section {
+      margin-bottom: 18px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid #ebf0f5;
+    }
+
+    .section:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    label {
+      display: block;
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: var(--text);
+    }
+
+    select, button, input[type="text"] {
+      width: 100%;
+      border: 1px solid #cfd9e4;
+      border-radius: 14px;
+      padding: 12px 14px;
+      font-size: 15px;
+      background: white;
+      color: var(--text);
+    }
+
+    button {
+      cursor: pointer;
+      font-weight: 700;
+      transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.12s ease;
+    }
+
+    button:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 8px 18px rgba(47, 128, 237, 0.18);
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: white;
+      border-color: transparent;
+    }
+
+    .btn-secondary {
+      background: #eef6ff;
+      color: var(--accent);
+      border-color: #cfe3ff;
+    }
+
+    .btn-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .toggle-list {
+      display: grid;
+      gap: 10px;
+    }
+
+    .toggle {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 10px 12px;
+      background: #f8fbff;
+      border: 1px solid #e1edf8;
+      border-radius: 14px;
+    }
+
+    .toggle label {
+      margin: 0;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .toggle input {
+      width: 18px;
+      height: 18px;
+    }
+
+    .content {
+      display: grid;
+      gap: 22px;
+    }
+
+    .tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      padding: 10px;
+      background: white;
+      border-radius: 18px;
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+    }
+
+    .tab {
+      border: 1px solid #dbe5ef;
+      background: #f7fbff;
+      color: var(--text);
+      border-radius: 999px;
+      padding: 10px 16px;
+      font-size: 14px;
+      font-weight: 700;
+      width: auto;
+    }
+
+    .tab.active {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: white;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(250px, 1fr));
+      gap: 18px;
+    }
+
+    .diagram-card {
+      padding: 16px;
+      min-height: 420px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .diagram-card h3 {
+      margin: 0;
+      font-size: 20px;
+    }
+
+    .diagram-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.45;
+      min-height: 40px;
+    }
+
+    .diagram-wrap {
+      flex: 1;
+      background: radial-gradient(circle at top, #fbfdff 0%, #f3f8fd 100%);
+      border: 1px solid #dbe8f4;
+      border-radius: 18px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 320px;
+    }
+
+    svg {
+      width: 100%;
+      height: 100%;
+      min-height: 320px;
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(140px, 1fr));
+      gap: 14px;
+    }
+
+    .stat {
+      padding: 14px;
+      background: white;
+      border-radius: 18px;
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+    }
+
+    .stat .label {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+
+    .stat .value {
+      font-size: 22px;
+      font-weight: 800;
+    }
+
+    .lesson, .quiz {
+      padding: 18px;
+    }
+
+    .lesson-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .mini-box {
+      background: #f8fbff;
+      border: 1px solid #e2ecf7;
+      border-radius: 16px;
+      padding: 14px;
+    }
+
+    .mini-box h4 {
+      margin: 0 0 8px;
+      font-size: 17px;
+    }
+
+    .mini-box ul {
+      margin: 0;
+      padding-left: 18px;
+      line-height: 1.6;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .quiz-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 14px;
+    }
+
+    .quiz-stage {
+      display: grid;
+      grid-template-columns: minmax(280px, 420px) 1fr;
+      gap: 18px;
+      align-items: start;
+    }
+
+    .quiz-diagram {
+      min-height: 360px;
+      background: radial-gradient(circle at top, #fbfdff 0%, #f3f8fd 100%);
+      border: 1px solid #dbe8f4;
+      border-radius: 18px;
+      overflow: hidden;
+    }
+
+    .question {
+      font-size: 20px;
+      font-weight: 800;
+      margin-bottom: 14px;
+    }
+
+    .options {
+      display: grid;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+
+    .option {
+      text-align: left;
+      background: white;
+      color: var(--text);
+    }
+
+    .option.correct {
+      background: #ecfff3;
+      border-color: #9fe0b8;
+      color: #136c39;
+    }
+
+    .option.wrong {
+      background: #fff2f2;
+      border-color: #ffc7c7;
+      color: #ab3030;
+    }
+
+    .feedback {
+      min-height: 52px;
+      border-radius: 14px;
+      padding: 12px 14px;
+      background: #f8fbff;
+      border: 1px solid #dce8f4;
+      color: var(--text);
+      line-height: 1.45;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      border-radius: 999px;
+      padding: 7px 12px;
+      background: #eef6ff;
+      color: var(--accent);
+      font-size: 13px;
+      font-weight: 700;
+      margin-right: 8px;
+      margin-bottom: 8px;
+      user-select: none;
+    }
+
+    .footer-note {
+      color: var(--muted);
+      font-size: 13px;
+      margin-top: 8px;
+    }
+
+    .test-box {
+      margin-top: 18px;
+      padding: 12px 14px;
+      border-radius: 14px;
+      background: #f8fbff;
+      border: 1px solid #dce8f4;
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    .test-box.pass {
+      border-color: #b6e4c5;
+      background: #f2fff6;
+      color: #135c32;
+    }
+
+    .test-box.fail {
+      border-color: #f3b5b5;
+      background: #fff3f3;
+      color: #8d2525;
+    }
+
+    @media (max-width: 1100px) {
+      .layout {
+        grid-template-columns: 1fr;
+      }
+      .panel {
+        position: static;
+      }
+      .grid-3,
+      .lesson-grid,
+      .quiz-stage,
+      .info-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <div class="hero">
+      <h1>Atomic Diagram Explorer</h1>
+      <p>
+        Learn and compare <strong>Bohr-Rutherford</strong>, <strong>Simplified Bohr</strong>, and <strong>Lewis Dot</strong> diagrams in one place.
+        Choose an element, explore how electrons are arranged, switch to ion mode, and practice with quiz questions.
+      </p>
+    </div>
+
+    <div class="layout">
+      <aside class="panel">
+        <h2>Controls</h2>
+
+        <div class="section">
+          <label for="elementSelect">Choose an element</label>
+          <select id="elementSelect"></select>
+          <div class="btn-row">
+            <button class="btn-secondary" id="prevElementBtn" type="button">◀ Previous</button>
+            <button class="btn-secondary" id="nextElementBtn" type="button">Next ▶</button>
+          </div>
+        </div>
+
+        <div class="section">
+          <label for="displayModeSelect">Main view mode</label>
+          <select id="displayModeSelect">
+            <option value="compare">Compare all three</option>
+            <option value="bohr">Bohr-Rutherford only</option>
+            <option value="simple">Simplified Bohr only</option>
+            <option value="lewis">Lewis Dot only</option>
+          </select>
+        </div>
+
+        <div class="section">
+          <label for="isotopeSelect">Choose common isotope</label>
+          <select id="isotopeSelect"></select>
+          <div class="footer-note">Neutrons update automatically based on the selected isotope.</div>
+        </div>
+
+        <div class="section">
+          <div class="toggle-list">
+            <div class="toggle"><label for="showLabels">Show shell labels</label><input id="showLabels" type="checkbox" checked /></div>
+            <div class="toggle"><label for="showElectronCount">Show electron count text</label><input id="showElectronCount" type="checkbox" checked /></div>
+            <div class="toggle"><label for="showNucleusLabels">Show p⁺ / n° in nucleus</label><input id="showNucleusLabels" type="checkbox" checked /></div>
+            <div class="toggle"><label for="showIon">Show common ion</label><input id="showIon" type="checkbox" /></div>
+          </div>
+          <div class="btn-row">
+            <button class="btn-secondary" id="neutralBtn" type="button">Neutral Atom</button>
+            <button class="btn-primary" id="commonIonBtn" type="button">Common Ion</button>
+          </div>
+        </div>
+
+        <div class="section">
+          <div style="margin-bottom:8px;font-weight:700;">Quick examples</div>
+          <div>
+            <span class="pill" data-pick="Li">Lithium</span>
+            <span class="pill" data-pick="C">Carbon</span>
+            <span class="pill" data-pick="Mg">Magnesium</span>
+            <span class="pill" data-pick="F">Fluorine</span>
+            <span class="pill" data-pick="Ar">Argon</span>
+          </div>
+        </div>
+
+        <div id="testResults" class="test-box">Running self-checks...</div>
+      </aside>
+
+      <main class="content">
+        <div class="tabs">
+          <button class="tab active" data-tab="viewer" type="button">Diagram Viewer</button>
+          <button class="tab" data-tab="lesson" type="button">Lesson Notes</button>
+          <button class="tab" data-tab="quiz" type="button">Quiz Mode</button>
+        </div>
+
+        <section id="viewerTab" class="tab-panel">
+          <div class="info-grid" id="infoGrid"></div>
+          <div class="grid-3" id="diagramGrid"></div>
+        </section>
+
+        <section id="lessonTab" class="tab-panel" hidden>
+          <div class="card lesson">
+            <div class="section-title">How to read the three diagrams</div>
+            <div class="lesson-grid">
+              <div class="mini-box">
+                <h4>Bohr-Rutherford Diagram</h4>
+                <ul>
+                  <li>Shows the nucleus and the electron shells.</li>
+                  <li>The nucleus includes the number of protons and neutrons.</li>
+                  <li>Use it when learning full atomic structure.</li>
+                  <li>Ion versions show gained or lost electrons and the final charge.</li>
+                </ul>
+              </div>
+              <div class="mini-box">
+                <h4>Simplified Bohr Diagram</h4>
+                <ul>
+                  <li>Shows only the element symbol and the electron shells.</li>
+                  <li>It is faster to draw than the full Bohr-Rutherford model.</li>
+                  <li>Good for seeing shell arrangement such as 2, 8, 2.</li>
+                  <li>Often used in Grade 9 chemistry worksheets.</li>
+                </ul>
+              </div>
+              <div class="mini-box">
+                <h4>Lewis Dot Diagram</h4>
+                <ul>
+                  <li>Shows only the valence electrons.</li>
+                  <li>Place one dot on each side before pairing.</li>
+                  <li>Used to predict bonding and common ion charge.</li>
+                  <li>For carbon, the correct Lewis diagram has 4 single dots.</li>
+                </ul>
+              </div>
+              <div class="mini-box">
+                <h4>Quick rules</h4>
+                <ul>
+                  <li>Atomic number = number of protons.</li>
+                  <li>Neutral atom: protons = electrons.</li>
+                  <li>Ion: electrons change, protons stay the same.</li>
+                  <li>Valence electrons = electrons in the outer shell.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="quizTab" class="tab-panel" hidden>
+          <div class="card quiz">
+            <div class="quiz-top">
+              <div>
+                <div class="section-title" style="margin-bottom:6px;">Quiz Mode</div>
+                <div class="footer-note">Identify the element, valence electrons, or common ion from the diagram.</div>
+              </div>
+              <div class="btn-row" style="width:260px;max-width:100%;margin-top:0;">
+                <button class="btn-secondary" id="newQuizBtn" type="button">New Question</button>
+                <button class="btn-primary" id="revealBtn" type="button">Reveal Answer</button>
+              </div>
+            </div>
+
+            <div class="quiz-stage">
+              <div class="quiz-diagram" id="quizDiagram"></div>
+              <div>
+                <div class="question" id="quizQuestion">Loading question...</div>
+                <div class="options" id="quizOptions"></div>
+                <div class="feedback" id="quizFeedback">Choose an answer.</div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <script>
+    const ELEMENTS = [
+      { symbol: 'H', name: 'Hydrogen', atomicNumber: 1, isotopes: [1, 2], commonCharge: 1 },
+      { symbol: 'He', name: 'Helium', atomicNumber: 2, isotopes: [4], commonCharge: 0 },
+      { symbol: 'Li', name: 'Lithium', atomicNumber: 3, isotopes: [6, 7], commonCharge: 1 },
+      { symbol: 'Be', name: 'Beryllium', atomicNumber: 4, isotopes: [9], commonCharge: 2 },
+      { symbol: 'B', name: 'Boron', atomicNumber: 5, isotopes: [10, 11], commonCharge: 3 },
+      { symbol: 'C', name: 'Carbon', atomicNumber: 6, isotopes: [12, 13, 14], commonCharge: 0 },
+      { symbol: 'N', name: 'Nitrogen', atomicNumber: 7, isotopes: [14, 15], commonCharge: -3 },
+      { symbol: 'O', name: 'Oxygen', atomicNumber: 8, isotopes: [16, 17, 18], commonCharge: -2 },
+      { symbol: 'F', name: 'Fluorine', atomicNumber: 9, isotopes: [19], commonCharge: -1 },
+      { symbol: 'Ne', name: 'Neon', atomicNumber: 10, isotopes: [20, 21, 22], commonCharge: 0 },
+      { symbol: 'Na', name: 'Sodium', atomicNumber: 11, isotopes: [23], commonCharge: 1 },
+      { symbol: 'Mg', name: 'Magnesium', atomicNumber: 12, isotopes: [24, 25, 26], commonCharge: 2 },
+      { symbol: 'Al', name: 'Aluminum', atomicNumber: 13, isotopes: [27], commonCharge: 3 },
+      { symbol: 'Si', name: 'Silicon', atomicNumber: 14, isotopes: [28, 29, 30], commonCharge: 0 },
+      { symbol: 'P', name: 'Phosphorus', atomicNumber: 15, isotopes: [31], commonCharge: -3 },
+      { symbol: 'S', name: 'Sulfur', atomicNumber: 16, isotopes: [32, 33, 34, 36], commonCharge: -2 },
+      { symbol: 'Cl', name: 'Chlorine', atomicNumber: 17, isotopes: [35, 37], commonCharge: -1 },
+      { symbol: 'Ar', name: 'Argon', atomicNumber: 18, isotopes: [36, 38, 40], commonCharge: 0 },
+      { symbol: 'K', name: 'Potassium', atomicNumber: 19, isotopes: [39, 40, 41], commonCharge: 1 },
+      { symbol: 'Ca', name: 'Calcium', atomicNumber: 20, isotopes: [40, 42, 43, 44], commonCharge: 2 }
+    ];
+
+    const shellCapacities = [2, 8, 8, 2];
+
+    const state = {
+      selectedSymbol: 'C',
+      selectedMass: 12,
+      displayMode: 'compare',
+      showLabels: true,
+      showElectronCount: true,
+      showNucleusLabels: true,
+      showIon: false,
+      activeTab: 'viewer',
+      quiz: null
+    };
+
+    const refs = {
+      elementSelect: document.getElementById('elementSelect'),
+      isotopeSelect: document.getElementById('isotopeSelect'),
+      displayModeSelect: document.getElementById('displayModeSelect'),
+      showLabels: document.getElementById('showLabels'),
+      showElectronCount: document.getElementById('showElectronCount'),
+      showNucleusLabels: document.getElementById('showNucleusLabels'),
+      showIon: document.getElementById('showIon'),
+      infoGrid: document.getElementById('infoGrid'),
+      diagramGrid: document.getElementById('diagramGrid'),
+      quizDiagram: document.getElementById('quizDiagram'),
+      quizQuestion: document.getElementById('quizQuestion'),
+      quizOptions: document.getElementById('quizOptions'),
+      quizFeedback: document.getElementById('quizFeedback'),
+      testResults: document.getElementById('testResults')
+    };
+
+    function electronShells(totalElectrons) {
+      const safeElectrons = Math.max(0, Number(totalElectrons) || 0);
+      const shells = [];
+      let remaining = safeElectrons;
+      for (const cap of shellCapacities) {
+        if (remaining <= 0) break;
+        const use = Math.min(cap, remaining);
+        shells.push(use);
+        remaining -= use;
+      }
+      return shells;
+    }
+
+    function getElement(symbol) {
+      return ELEMENTS.find(e => e.symbol === symbol) || ELEMENTS[0];
+    }
+
+    function getCurrentElement() {
+      return getElement(state.selectedSymbol);
+    }
+
+    function formatCharge(charge) {
+      if (charge === 0) return '0';
+      if (charge === 1) return '+1';
+      if (charge === -1) return '-1';
+      return charge > 0 ? `+${charge}` : `${charge}`;
+    }
+
+    function ionSymbol(symbol, charge) {
+      if (charge === 0) return symbol;
+      const abs = Math.abs(charge);
+      const sign = charge > 0 ? '+' : '−';
+      return abs === 1 ? `${symbol}${sign}` : `${symbol}${abs}${sign}`;
+    }
+
+    function getAtomData(element, massNumber, ionMode) {
+      const protons = element.atomicNumber;
+      const neutrons = Math.max(0, massNumber - protons);
+      const charge = ionMode ? element.commonCharge : 0;
+      const electrons = Math.max(0, protons - charge);
+      const shells = electronShells(electrons);
+      const neutralShells = electronShells(protons);
+      return {
+        ...element,
+        massNumber,
+        protons,
+        neutrons,
+        electrons,
+        charge,
+        shells,
+        neutralShells,
+        valence: shells[shells.length - 1] || 0,
+        neutralValence: neutralShells[neutralShells.length - 1] || 0,
+        displaySymbol: ionSymbol(element.symbol, charge)
+      };
+    }
+
+    function createSvgParts(width = 360, height = 320) {
+      return [`<svg viewBox="0 0 ${width} ${height}" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Atomic diagram">`];
+    }
+
+    function endSvg(parts) {
+      parts.push('</svg>');
+      return parts.join('');
+    }
+
+    function drawElectronsOnShell(parts, cx, cy, radius, count) {
+      for (let i = 0; i < count; i++) {
+        const angle = (-Math.PI / 2) + (Math.PI * 2 * i / count);
+        const x = cx + radius * Math.cos(angle);
+        const y = cy + radius * Math.sin(angle);
+        parts.push(`<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="5.5" fill="#17324d" />`);
+      }
+    }
+
+    function shellLabelText(index, count) {
+      return `Shell ${index + 1}: ${count} e−`;
+    }
+
+    function bohrSvg(atom) {
+      const parts = createSvgParts();
+      const cx = 180;
+      const cy = 170;
+      const shells = atom.shells;
+      parts.push('<defs><radialGradient id="nucleusGradBohr" cx="50%" cy="45%" r="60%"><stop offset="0%" stop-color="#ffffff"/><stop offset="100%" stop-color="#dfeaf6"/></radialGradient></defs>');
+      parts.push(`<text x="180" y="28" text-anchor="middle" font-size="20" font-weight="700" fill="#17324d">${atom.name} (${atom.displaySymbol})</text>`);
+
+      shells.forEach((count, index) => {
+        const radius = 48 + index * 42;
+        parts.push(`<circle cx="${cx}" cy="${cy}" r="${radius}" fill="none" stroke="#9ab2c9" stroke-width="2" />`);
+        drawElectronsOnShell(parts, cx, cy, radius, count);
+        if (state.showLabels) {
+          parts.push(`<text x="${cx}" y="${cy - radius - 8}" text-anchor="middle" font-size="11" fill="#5f7186">${shellLabelText(index, count)}</text>`);
+        }
+      });
+
+      parts.push(`<circle cx="${cx}" cy="${cy}" r="34" fill="url(#nucleusGradBohr)" stroke="#6e8ba7" stroke-width="2" />`);
+      parts.push(`<text x="${cx}" y="${cy + 4}" text-anchor="middle" font-size="24" font-weight="800" fill="#17324d">${atom.symbol}</text>`);
+
+      if (state.showNucleusLabels) {
+        parts.push(`<text x="${cx}" y="${cy - 12}" text-anchor="middle" font-size="12" font-weight="700" fill="#17324d">${atom.protons} p⁺</text>`);
+        parts.push(`<text x="${cx}" y="${cy + 14}" text-anchor="middle" font-size="12" fill="#17324d">${atom.neutrons} n°</text>`);
+      }
+
+      if (state.showElectronCount) {
+        parts.push(`<text x="180" y="305" text-anchor="middle" font-size="13" fill="#17324d">Electrons: ${atom.electrons} | Charge: ${formatCharge(atom.charge)}</text>`);
+      }
+      return endSvg(parts);
+    }
+
+    function simplifiedBohrSvg(atom) {
+      const parts = createSvgParts();
+      const cx = 180;
+      const cy = 170;
+      const shells = atom.shells;
+      parts.push(`<text x="180" y="28" text-anchor="middle" font-size="20" font-weight="700" fill="#17324d">${atom.name} (${atom.displaySymbol})</text>`);
+
+      shells.forEach((count, index) => {
+        const radius = 54 + index * 44;
+        parts.push(`<circle cx="${cx}" cy="${cy}" r="${radius}" fill="none" stroke="#9ab2c9" stroke-width="2" />`);
+        drawElectronsOnShell(parts, cx, cy, radius, count);
+        if (state.showLabels) {
+          parts.push(`<text x="${cx}" y="${cy - radius - 8}" text-anchor="middle" font-size="11" fill="#5f7186">${count}</text>`);
+        }
+      });
+
+      parts.push(`<circle cx="${cx}" cy="${cy}" r="32" fill="#eef5fd" stroke="#6e8ba7" stroke-width="2" />`);
+      parts.push(`<text x="${cx}" y="${cy + 5}" text-anchor="middle" font-size="24" font-weight="800" fill="#17324d">${atom.displaySymbol}</text>`);
+
+      if (state.showElectronCount) {
+        parts.push(`<text x="180" y="305" text-anchor="middle" font-size="13" fill="#17324d">Shell arrangement: ${atom.shells.join(', ') || '0'}</text>`);
+      }
+      return endSvg(parts);
+    }
+
+    function lewisPositions(cx, cy, spread = 52, pairShift = 18) {
+      return [
+        [cx, cy - spread],
+        [cx + spread, cy],
+        [cx, cy + spread],
+        [cx - spread, cy],
+        [cx + pairShift, cy - spread],
+        [cx + spread, cy + pairShift],
+        [cx + pairShift, cy + spread],
+        [cx - spread, cy + pairShift]
+      ];
+    }
+
+    function lewisSvg(atom) {
+      const parts = createSvgParts();
+      const cx = 180;
+      const cy = 170;
+      const dots = atom.valence;
+      const positions = lewisPositions(cx, cy);
+      parts.push(`<text x="180" y="28" text-anchor="middle" font-size="20" font-weight="700" fill="#17324d">${atom.name} (${atom.displaySymbol})</text>`);
+      parts.push(`<text x="${cx}" y="${cy + 8}" text-anchor="middle" font-size="42" font-weight="800" fill="#17324d">${atom.symbol}</text>`);
+
+      for (let i = 0; i < dots && i < 8; i++) {
+        const [x, y] = positions[i];
+        parts.push(`<text x="${x}" y="${y}" text-anchor="middle" dominant-baseline="middle" font-size="28" font-weight="800" fill="#17324d">•</text>`);
+      }
+
+      if (atom.charge !== 0) {
+        parts.push(`<text x="264" y="115" text-anchor="middle" font-size="28" font-weight="800" fill="#2f80ed">${formatCharge(atom.charge)}</text>`);
+      }
+
+      if (state.showElectronCount) {
+        parts.push(`<text x="180" y="305" text-anchor="middle" font-size="13" fill="#17324d">Valence electrons: ${atom.valence}</text>`);
+      }
+      return endSvg(parts);
+    }
+
+    function viewerCards(atom) {
+      const items = {
+        bohr: {
+          title: 'Bohr-Rutherford',
+          desc: 'Shows protons, neutrons, shells, and electrons.',
+          svg: bohrSvg(atom)
+        },
+        simple: {
+          title: 'Simplified Bohr',
+          desc: 'Shows only shells and electrons around the element symbol.',
+          svg: simplifiedBohrSvg(atom)
+        },
+        lewis: {
+          title: 'Lewis Dot',
+          desc: 'Shows only the valence electrons around the element symbol.',
+          svg: lewisSvg(atom)
+        }
+      };
+
+      if (state.displayMode === 'compare') return ['bohr', 'simple', 'lewis'].map(key => items[key]);
+      return [items[state.displayMode]];
+    }
+
+    function renderInfo(atom) {
+      refs.infoGrid.innerHTML = `
+        <div class="stat"><div class="label">Element</div><div class="value">${atom.name}</div></div>
+        <div class="stat"><div class="label">Atomic Number</div><div class="value">${atom.atomicNumber}</div></div>
+        <div class="stat"><div class="label">Mass Number</div><div class="value">${atom.massNumber}</div></div>
+        <div class="stat"><div class="label">Valence Electrons</div><div class="value">${atom.valence}</div></div>
+      `;
+    }
+
+    function renderViewer() {
+      const element = getCurrentElement();
+      const atom = getAtomData(element, state.selectedMass, state.showIon);
+      renderInfo(atom);
+      const cards = viewerCards(atom);
+      refs.diagramGrid.style.gridTemplateColumns = cards.length === 1 ? '1fr' : `repeat(${cards.length}, minmax(250px, 1fr))`;
+      refs.diagramGrid.innerHTML = cards.map(card => `
+        <div class="card diagram-card">
+          <h3>${card.title}</h3>
+          <p>${card.desc}</p>
+          <div class="diagram-wrap">${card.svg}</div>
+        </div>
+      `).join('');
+    }
+
+    function populateElementSelect() {
+      refs.elementSelect.innerHTML = ELEMENTS.map(el => `<option value="${el.symbol}">${el.name} (${el.symbol})</option>`).join('');
+      refs.elementSelect.value = state.selectedSymbol;
+    }
+
+    function populateIsotopeSelect() {
+      const element = getCurrentElement();
+      refs.isotopeSelect.innerHTML = element.isotopes.map(mass => `<option value="${mass}">${element.name}-${mass}</option>`).join('');
+      if (!element.isotopes.includes(state.selectedMass)) state.selectedMass = element.isotopes[0];
+      refs.isotopeSelect.value = String(state.selectedMass);
+    }
+
+    function setElement(symbol) {
+      state.selectedSymbol = symbol;
+      const element = getCurrentElement();
+      state.selectedMass = element.isotopes[0];
+      refs.elementSelect.value = symbol;
+      populateIsotopeSelect();
+      renderAll();
+    }
+
+    function renderAll() {
+      refs.displayModeSelect.value = state.displayMode;
+      refs.showLabels.checked = state.showLabels;
+      refs.showElectronCount.checked = state.showElectronCount;
+      refs.showNucleusLabels.checked = state.showNucleusLabels;
+      refs.showIon.checked = state.showIon;
+      renderViewer();
+      renderQuizIfNeeded();
+    }
+
+    function switchTab(tab) {
+      state.activeTab = tab;
+      document.querySelectorAll('.tab').forEach(btn => btn.classList.toggle('active', btn.dataset.tab === tab));
+      document.getElementById('viewerTab').hidden = tab !== 'viewer';
+      document.getElementById('lessonTab').hidden = tab !== 'lesson';
+      document.getElementById('quizTab').hidden = tab !== 'quiz';
+      if (tab === 'quiz' && !state.quiz) generateQuiz();
+    }
+
+    function sample(arr, count = 1) {
+      const copy = [...arr];
+      for (let i = copy.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [copy[i], copy[j]] = [copy[j], copy[i]];
+      }
+      return copy.slice(0, count);
+    }
+
+    function buildNeutralQuizAtom(atom) {
+      return {
+        ...atom,
+        charge: 0,
+        displaySymbol: atom.symbol,
+        electrons: atom.protons,
+        shells: atom.neutralShells,
+        valence: atom.neutralValence
+      };
+    }
+
+    function generateQuiz() {
+      const types = ['identify-element', 'valence', 'charge'];
+      const type = sample(types)[0];
+      const element = sample(ELEMENTS.filter(e => e.atomicNumber <= 20))[0];
+      const massNumber = element.isotopes[0];
+      const ionMode = type === 'charge' ? Math.random() > 0.35 : false;
+      const atom = getAtomData(element, massNumber, ionMode);
+      let question = '';
+      let answer = '';
+      let options = [];
+
+      if (type === 'identify-element') {
+        question = 'Which element is shown in this diagram?';
+        answer = atom.name;
+        options = sample(ELEMENTS.filter(e => e.name !== answer).map(e => e.name), 3).concat(answer);
+      } else if (type === 'valence') {
+        question = 'How many valence electrons does this atom have?';
+        answer = String(atom.neutralValence);
+        const candidates = Array.from(new Set([0,1,2,3,4,5,6,7,8].filter(n => String(n) !== answer)));
+        options = sample(candidates.map(String), 3).concat(answer);
+      } else {
+        question = ionMode
+          ? 'What is the charge of this ion?'
+          : 'What common ion charge does this element usually form?';
+        answer = formatCharge(element.commonCharge);
+        const pool = ['+1', '+2', '+3', '-1', '-2', '-3', '0'].filter(v => v !== answer);
+        options = sample(pool, 3).concat(answer);
+      }
+
+      options = sample(options, options.length);
+      state.quiz = { type, atom, question, answer, options, answered: false };
+      renderQuiz();
+    }
+
+    function renderQuiz() {
+      const quiz = state.quiz;
+      if (!quiz) return;
+      refs.quizQuestion.textContent = quiz.question;
+      if (quiz.type === 'valence') {
+        refs.quizDiagram.innerHTML = simplifiedBohrSvg(buildNeutralQuizAtom(quiz.atom));
+      } else if (quiz.type === 'charge') {
+        refs.quizDiagram.innerHTML = lewisSvg(quiz.atom);
+      } else {
+        refs.quizDiagram.innerHTML = bohrSvg(buildNeutralQuizAtom(quiz.atom));
+      }
+      refs.quizOptions.innerHTML = '';
+      quiz.options.forEach(option => {
+        const btn = document.createElement('button');
+        btn.className = 'option';
+        btn.type = 'button';
+        btn.textContent = option;
+        btn.addEventListener('click', () => answerQuiz(option, btn));
+        refs.quizOptions.appendChild(btn);
+      });
+      refs.quizFeedback.textContent = 'Choose an answer.';
+    }
+
+    function answerQuiz(option, button) {
+      if (!state.quiz || state.quiz.answered) return;
+      state.quiz.answered = true;
+      const correct = option === state.quiz.answer;
+      document.querySelectorAll('#quizOptions .option').forEach(btn => {
+        if (btn.textContent === state.quiz.answer) btn.classList.add('correct');
+      });
+      if (!correct) button.classList.add('wrong');
+      refs.quizFeedback.innerHTML = correct
+        ? `<strong>Correct.</strong> ${explainQuiz(state.quiz)}`
+        : `<strong>Not quite.</strong> The correct answer is <strong>${state.quiz.answer}</strong>. ${explainQuiz(state.quiz)}`;
+    }
+
+    function explainQuiz(quiz) {
+      const atom = quiz.atom;
+      if (quiz.type === 'identify-element') {
+        return `${atom.name} has ${atom.protons} protons, so its atomic number is ${atom.protons}.`;
+      }
+      if (quiz.type === 'valence') {
+        return `${atom.name} has shell arrangement ${atom.neutralShells.join(', ')}, so the outer shell has ${atom.neutralValence} electrons.`;
+      }
+      const action = atom.charge > 0 ? 'lose' : atom.charge < 0 ? 'gain' : 'keep';
+      return `${atom.name} commonly forms ${ionSymbol(atom.symbol, atom.charge)} because it tends to ${action} electrons to reach a stable outer shell.`;
+    }
+
+    function revealQuiz() {
+      if (!state.quiz || state.quiz.answered) return;
+      state.quiz.answered = true;
+      document.querySelectorAll('#quizOptions .option').forEach(btn => {
+        if (btn.textContent === state.quiz.answer) btn.classList.add('correct');
+      });
+      refs.quizFeedback.innerHTML = `<strong>Answer revealed:</strong> ${state.quiz.answer}. ${explainQuiz(state.quiz)}`;
+    }
+
+    function renderQuizIfNeeded() {
+      if (state.activeTab === 'quiz' && state.quiz) renderQuiz();
+    }
+
+    function moveElement(step) {
+      const index = ELEMENTS.findIndex(el => el.symbol === state.selectedSymbol);
+      const nextIndex = (index + step + ELEMENTS.length) % ELEMENTS.length;
+      setElement(ELEMENTS[nextIndex].symbol);
+    }
+
+    function bindEvents() {
+      refs.elementSelect.addEventListener('change', e => setElement(e.target.value));
+      refs.isotopeSelect.addEventListener('change', e => {
+        state.selectedMass = Number(e.target.value);
+        renderAll();
+      });
+      refs.displayModeSelect.addEventListener('change', e => {
+        state.displayMode = e.target.value;
+        renderViewer();
+      });
+      refs.showLabels.addEventListener('change', e => { state.showLabels = e.target.checked; renderAll(); });
+      refs.showElectronCount.addEventListener('change', e => { state.showElectronCount = e.target.checked; renderAll(); });
+      refs.showNucleusLabels.addEventListener('change', e => { state.showNucleusLabels = e.target.checked; renderAll(); });
+      refs.showIon.addEventListener('change', e => { state.showIon = e.target.checked; renderAll(); });
+      document.getElementById('neutralBtn').addEventListener('click', () => { state.showIon = false; renderAll(); });
+      document.getElementById('commonIonBtn').addEventListener('click', () => { state.showIon = true; renderAll(); });
+      document.getElementById('prevElementBtn').addEventListener('click', () => moveElement(-1));
+      document.getElementById('nextElementBtn').addEventListener('click', () => moveElement(1));
+      document.querySelectorAll('.tab').forEach(btn => btn.addEventListener('click', () => switchTab(btn.dataset.tab)));
+      document.getElementById('newQuizBtn').addEventListener('click', generateQuiz);
+      document.getElementById('revealBtn').addEventListener('click', revealQuiz);
+      document.querySelectorAll('[data-pick]').forEach(pill => {
+        pill.style.cursor = 'pointer';
+        pill.addEventListener('click', () => setElement(pill.dataset.pick));
+      });
+    }
+
+    function runSelfTests() {
+      const results = [];
+      function assert(condition, message) {
+        if (!condition) {
+          throw new Error(message);
+        }
+        results.push(`✔ ${message}`);
+      }
+
+      try {
+        const svgParts = createSvgParts();
+        assert(Array.isArray(svgParts), 'createSvgParts returns an array');
+        svgParts.push('</svg>');
+        assert(svgParts.join('').startsWith('<svg'), 'SVG parts can be appended with push()');
+
+        assert(JSON.stringify(electronShells(6)) === JSON.stringify([2, 4]), 'electronShells(6) produces [2,4]');
+        assert(JSON.stringify(electronShells(12)) === JSON.stringify([2, 8, 2]), 'electronShells(12) produces [2,8,2]');
+
+        const carbon = getElement('C');
+        assert(carbon.name === 'Carbon', 'getElement finds Carbon');
+
+        const magnesiumIon = getAtomData(getElement('Mg'), 24, true);
+        assert(magnesiumIon.electrons === 10, 'Mg common ion has 10 electrons');
+        assert(magnesiumIon.charge === 2, 'Mg common ion has +2 charge');
+
+        const fluorineIon = getAtomData(getElement('F'), 19, true);
+        assert(fluorineIon.electrons === 10, 'F common ion has 10 electrons');
+        assert(fluorineIon.valence === 8, 'F common ion has 8 valence electrons');
+
+        const carbonLewis = lewisSvg(getAtomData(carbon, 12, false));
+        const carbonDotCount = (carbonLewis.match(/•/g) || []).length;
+        assert(carbonDotCount === 4, 'Neutral carbon Lewis diagram shows 4 dots');
+
+        const argon = getAtomData(getElement('Ar'), 40, false);
+        assert(argon.valence === 8, 'Neutral argon has 8 valence electrons');
+
+        refs.testResults.className = 'test-box pass';
+        refs.testResults.innerHTML = `<strong>Self-checks passed.</strong><br>${results.join('<br>')}`;
+        console.log('Atomic Diagram Explorer tests passed:', results);
+      } catch (error) {
+        refs.testResults.className = 'test-box fail';
+        refs.testResults.innerHTML = `<strong>Self-check failed:</strong> ${error.message}`;
+        console.error('Atomic Diagram Explorer self-test failed:', error);
+      }
+    }
+
+    function init() {
+      populateElementSelect();
+      populateIsotopeSelect();
+      bindEvents();
+      renderAll();
+      switchTab('viewer');
+      runSelfTests();
+    }
+
+    init();
+  </script>
+</body>
+</html>
