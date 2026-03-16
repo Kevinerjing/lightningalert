@@ -1,67 +1,225 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Element Heroes</title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Element Heroes Online</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
-
 <body>
+  <div class="app-shell">
+    <section id="lobbyPanel" class="lobby-panel">
+      <div class="topbar">
+        <div>
+          <div class="title">Element Heroes Online</div>
+          <div class="subtitle">Room-code multiplayer</div>
+        </div>
+        <div class="status-strip">
+          <span class="pill" id="connectionPill">Disconnected</span>
+          <span class="pill" id="roomPill">No room</span>
+        </div>
+      </div>
 
-<h1>Element Heroes</h1>
+      <div class="lobby-grid">
+        <div class="panel-box">
+          <div class="section-title">Create or Join</div>
+          <div class="section-subtitle">Host creates a room. Another player joins from a second computer.</div>
 
-<div id="lobby">
+          <div class="lobby-stack">
+            <button id="hostBtn">Create Room</button>
 
-<button id="createGame">Create Game</button>
+            <div class="join-row">
+              <input id="joinCodeInput" maxlength="6" placeholder="Enter room code" />
+              <button class="secondary" id="joinBtn">Join Room</button>
+            </div>
+          </div>
+        </div>
 
-<div>
-<input id="roomInput" placeholder="Room Code">
-<button id="joinGame">Join Game</button>
-</div>
+        <div class="panel-box">
+          <div class="section-title">How to play</div>
+          <div class="rules-text">
+            <div>1. Host clicks <strong>Create Room</strong>.</div>
+            <div>2. Share the room code.</div>
+            <div>3. Second player enters the code and joins.</div>
+            <div>4. Play cards when it is your turn.</div>
+          </div>
+          <div id="lobbyMessage" class="lobby-message">Ready.</div>
+        </div>
+      </div>
+    </section>
 
-</div>
+    <section id="gamePanel" class="game-panel hidden">
+      <div class="topbar">
+        <div>
+          <div class="title">Element Heroes</div>
+          <div class="subtitle" id="playerRoleText">Connecting...</div>
+        </div>
+        <div class="status-strip">
+          <span class="pill" id="gameRoomCodePill">Room: ----</span>
+          <span class="pill" id="turnPill">Turn: --</span>
+          <button class="ghost small-btn" id="leaveBtn">Leave Room</button>
+        </div>
+      </div>
 
+      <div class="game-shell">
+        <div class="main-board">
+          <section class="player-area">
+            <div class="player-header">
+              <div class="player-meta">
+                <div class="badge p2">P2</div>
+                <div>
+                  <div class="player-name">Player 2 - Corrosion Deck</div>
+                  <div class="stats">
+                    <div class="stat-chip">Deck: <span id="p2DeckCount"></span></div>
+                    <div class="stat-chip">Hand: <span id="p2HandCount"></span></div>
+                    <div class="stat-chip">Discard: <span id="p2DiscardCount"></span></div>
+                  </div>
+                </div>
+              </div>
+              <div class="turn-pill" id="turnBanner">Waiting</div>
+            </div>
 
-<div id="game" style="display:none">
+            <div class="bar-wrap">
+              <div class="bar-label"><span>HP</span><span id="p2HpText"></span></div>
+              <div class="bar"><div class="bar-fill hp-fill" id="p2HpBar"></div></div>
+            </div>
 
-<h2 id="roomCode"></h2>
+            <div class="bar-wrap">
+              <div class="bar-label"><span>Energy</span><span id="p2EnergyText"></span></div>
+              <div class="bar"><div class="bar-fill energy-fill" id="p2EnergyBar"></div></div>
+            </div>
 
-<div class="board">
+            <div>
+              <div class="zone-label">Statuses</div>
+              <div class="status-row" id="p2Statuses"></div>
+            </div>
 
-<div class="enemy">
-<h3>Opponent</h3>
-HP: <span id="enemyHP"></span>
-<div id="enemyField"></div>
-</div>
+            <div>
+              <div class="zone-label">Field</div>
+              <div class="field-row" id="p2Field"></div>
+            </div>
 
-<div class="center">
+            <div>
+              <div class="zone-label">Hand</div>
+              <div class="hand-row" id="p2Hand"></div>
+            </div>
+          </section>
 
-<div class="log" id="log"></div>
+          <section class="center-panel">
+            <div class="battlebox">
+              <div class="section-title">Battlefield</div>
+              <div class="section-subtitle">Build element combos, then trigger attacks and reactions.</div>
 
-<button onclick="endTurn()">End Turn</button>
-<button onclick="restartMatch()">Restart</button>
+              <div class="battlefield">
+                <div class="player-preview">
+                  <h4>Player 2 Field Summary</h4>
+                  <div class="preview-field" id="p2FieldPreview"></div>
+                </div>
+                <div class="player-preview">
+                  <h4>Player 1 Field Summary</h4>
+                  <div class="preview-field" id="p1FieldPreview"></div>
+                </div>
+              </div>
 
-</div>
+              <div class="controls">
+                <button id="endTurnBtn">End Turn</button>
+                <button class="secondary" id="restartBtn">Restart Match</button>
+              </div>
 
-<div class="player">
+              <div class="tiny" id="roomStateText">Waiting for room state...</div>
+            </div>
 
-<h3>You</h3>
+            <div class="actionbox">
+              <div class="section-title">Action Panel</div>
+              <div class="section-subtitle">Select a hand card or one of your field cards.</div>
 
-HP: <span id="myHP"></span>
-Energy: <span id="energy"></span>
+              <div class="selected-card-box" id="selectedCardBox">No card selected.</div>
 
-<div id="myField"></div>
+              <div class="controls">
+                <button id="playCardBtn" disabled>Play Selected Card</button>
+                <button id="removeFieldCardBtn" class="ghost" disabled>Remove Selected Field Card</button>
+                <button class="ghost" id="clearSelectionBtn">Clear Selection</button>
+              </div>
 
-<h3>Your Hand</h3>
-<div id="hand"></div>
+              <div class="log-list" id="combatLog"></div>
+            </div>
+          </section>
 
-</div>
+          <section class="player-area">
+            <div class="player-header">
+              <div class="player-meta">
+                <div class="badge p1">P1</div>
+                <div>
+                  <div class="player-name">Player 1 - Combustion Deck</div>
+                  <div class="stats">
+                    <div class="stat-chip">Deck: <span id="p1DeckCount"></span></div>
+                    <div class="stat-chip">Hand: <span id="p1HandCount"></span></div>
+                    <div class="stat-chip">Discard: <span id="p1DiscardCount"></span></div>
+                  </div>
+                </div>
+              </div>
+            </div>
 
-</div>
+            <div class="bar-wrap">
+              <div class="bar-label"><span>HP</span><span id="p1HpText"></span></div>
+              <div class="bar"><div class="bar-fill hp-fill" id="p1HpBar"></div></div>
+            </div>
 
-</div>
+            <div class="bar-wrap">
+              <div class="bar-label"><span>Energy</span><span id="p1EnergyText"></span></div>
+              <div class="bar"><div class="bar-fill energy-fill" id="p1EnergyBar"></div></div>
+            </div>
 
-<script src="game.js"></script>
+            <div>
+              <div class="zone-label">Statuses</div>
+              <div class="status-row" id="p1Statuses"></div>
+            </div>
 
+            <div>
+              <div class="zone-label">Field</div>
+              <div class="field-row" id="p1Field"></div>
+            </div>
+
+            <div>
+              <div class="zone-label">Hand</div>
+              <div class="hand-row" id="p1Hand"></div>
+            </div>
+          </section>
+        </div>
+
+        <aside class="side-panel">
+          <div class="panel-box">
+            <div class="section-title">Starter Rules</div>
+            <div class="log-list static-rules">
+              <div class="log-item"><strong>Combustion</strong><br>Sulfur + Oxygen = 7 damage.</div>
+              <div class="log-item"><strong>Steam Burst</strong><br>Water + Oxygen = 5 damage and Wet.</div>
+              <div class="log-item"><strong>Rust</strong><br>Iron + Oxygen = 4 damage and Corroded.</div>
+              <div class="log-item"><strong>Explosion</strong><br>Hydrogen + Oxygen = 8 damage.</div>
+              <div class="log-item"><strong>Salt Formation</strong><br>Sodium + Chlorine = 5 damage and cleanse Wet.</div>
+              <div class="log-item"><strong>Carbon Burn</strong><br>Carbon + Oxygen = 5 damage.</div>
+              <div class="log-item"><strong>Fireball</strong><br>3 damage. If enemy is Wet, +2 damage.</div>
+              <div class="log-item"><strong>Corrode</strong><br>Destroy one enemy field card if the enemy is Corroded.</div>
+            </div>
+          </div>
+
+          <div class="panel-box">
+            <div class="section-title">Connection Log</div>
+            <div class="log-list" id="connectionLog"></div>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </div>
+
+  <div class="overlay hidden" id="gameOverlay">
+    <div class="overlay-card">
+      <h2 id="overlayTitle">Waiting</h2>
+      <p id="overlayText">Please wait.</p>
+      <div class="winner hidden" id="winnerText"></div>
+      <button id="overlayBtn">OK</button>
+    </div>
+  </div>
+
+  <script src="game.js"></script>
 </body>
 </html>
