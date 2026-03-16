@@ -359,7 +359,13 @@
   <div class="page">
     <div class="hero">
       <h1>Ionic Bond Teaching App</h1>
-      <p>This mini lesson shows exactly how to draw the <strong>Lewis ionic structure</strong> and the <strong>Bohr-Rutherford electron transfer</strong> for <strong>Li₂S</strong>, <strong>NaCl</strong>, and <strong>MgCl₂</strong>. You can step through the formation process, compare the two diagram styles, and try a short practice mode.</p>
+      <p>
+        This mini lesson shows exactly how to draw the <strong>Lewis ionic structure</strong>
+        and the <strong>Bohr-Rutherford electron transfer</strong> for
+        <strong>Li₂S</strong>, <strong>NaCl</strong>, and <strong>MgCl₂</strong>.
+        You can step through the formation process, compare the two diagram styles,
+        and try a short practice mode.
+      </p>
     </div>
 
     <div class="layout">
@@ -395,8 +401,14 @@
         </div>
 
         <div class="section">
-          <div class="toggle"><label for="showLabels">Show labels</label><input id="showLabels" type="checkbox" checked></div>
-          <div class="toggle"><label for="showHints">Show teacher hints</label><input id="showHints" type="checkbox" checked></div>
+          <div class="toggle">
+            <label for="showLabels">Show labels</label>
+            <input id="showLabels" type="checkbox" checked />
+          </div>
+          <div class="toggle">
+            <label for="showHints">Show teacher hints</label>
+            <input id="showHints" type="checkbox" />
+          </div>
         </div>
 
         <div class="section">
@@ -419,7 +431,7 @@
             <div class="stat"><div class="label">Compound</div><div class="value" id="statCompound">Li₂S</div></div>
             <div class="stat"><div class="label">Bond Type</div><div class="value">Ionic</div></div>
             <div class="stat"><div class="label">Metal Ion</div><div class="value" id="statMetalIon">Li⁺</div></div>
-            <div class="stat"><div class="label">Non-metal Ion</div><div class="value" id="statNonmetalIon">S⁻²</div></div>
+            <div class="stat"><div class="label">Non-metal Ion</div><div class="value" id="statNonmetalIon">S²⁻</div></div>
           </div>
 
           <div class="card viewer">
@@ -493,7 +505,7 @@
         metalValence: 1,
         nonmetalValence: 6,
         metalChargeText: 'Li⁺',
-        nonmetalChargeText: 'S⁻²',
+        nonmetalChargeText: 'S²⁻',
         metalShellsNeutral: '2,1',
         metalShellsIon: '2',
         nonmetalShellsNeutral: '2,8,6',
@@ -568,7 +580,7 @@
         nonmetalCount: 2,
         metalValence: 2,
         nonmetalValence: 7,
-        metalChargeText: 'Mg⁺²',
+        metalChargeText: 'Mg²⁺',
         nonmetalChargeText: 'Cl⁻',
         metalShellsNeutral: '2,8,2',
         metalShellsIon: '2,8',
@@ -601,7 +613,7 @@
       view: 'split',
       step: 0,
       showLabels: true,
-      showHints: true,
+      showHints: false,
       playTimer: null,
       practice: null,
       compound: 'Li2S'
@@ -669,76 +681,99 @@
       return text.split(',').map((v) => Number(v.trim())).filter((v) => !Number.isNaN(v));
     }
 
+    function getOuterRadius(shellText) {
+      const shells = shellFromText(shellText);
+      return shells.length === 1 ? 58 : shells.length === 2 ? 86 : 112;
+    }
+
     function drawBohrAtom(parts, cx, cy, config) {
-  const shells = shellFromText(config.shells);
-  const radii = shells.length === 1 ? [58] : shells.length === 2 ? [52, 86] : [44, 78, 112];
+      const shells = shellFromText(config.shells);
+      const radii = shells.length === 1 ? [58] : shells.length === 2 ? [52, 86] : [44, 78, 112];
 
-  function drawShellElectrons(radius, count) {
-    const points = [];
+      function drawShellElectrons(radius, count) {
+        const points = [];
 
-    const top = { x: cx, y: cy - radius };
-    const right = { x: cx + radius, y: cy };
-    const bottom = { x: cx, y: cy + radius };
-    const left = { x: cx - radius, y: cy };
+        const top = { x: cx, y: cy - radius };
+        const right = { x: cx + radius, y: cy };
+        const bottom = { x: cx, y: cy + radius };
+        const left = { x: cx - radius, y: cy };
 
-    if (count === 1) {
-      points.push(top);
-    } else if (count === 2) {
-      points.push(top, bottom);
-    } else if (count === 3) {
-      points.push(top, right, bottom);
-    } else if (count === 4) {
-      points.push(top, right, bottom, left);
-    } else {
-      points.push(top, right, bottom, left);
+        if (count === 1) {
+          points.push(top);
+        } else if (count === 2) {
+          points.push(top, bottom);
+        } else if (count === 3) {
+          points.push(top, right, bottom);
+        } else if (count === 4) {
+          points.push(top, right, bottom, left);
+        } else {
+          points.push(top, right, bottom, left);
 
-      const pairOffsets = [
-        { dx: 18, dy: 0 },
-        { dx: 0, dy: 18 },
-        { dx: 18, dy: 0 },
-        { dx: 0, dy: 18 }
-      ];
+          const pairOffsets = [
+            { dx: 18, dy: 0 },
+            { dx: 0, dy: 18 },
+            { dx: 18, dy: 0 },
+            { dx: 0, dy: 18 }
+          ];
 
-      const bases = [top, right, bottom, left];
-      for (let i = 0; i < count - 4 && i < 4; i += 1) {
-        points.push({
-          x: bases[i].x + pairOffsets[i].dx,
-          y: bases[i].y + pairOffsets[i].dy
+          const bases = [top, right, bottom, left];
+          for (let i = 0; i < count - 4 && i < 4; i += 1) {
+            points.push({
+              x: bases[i].x + pairOffsets[i].dx,
+              y: bases[i].y + pairOffsets[i].dy
+            });
+          }
+        }
+
+        points.forEach((p) => {
+          electronCircle(parts, p.x.toFixed(1), p.y.toFixed(1));
         });
+      }
+
+      shells.forEach((count, index) => {
+        shell(parts, cx, cy, radii[index]);
+        drawShellElectrons(radii[index], count);
+      });
+
+      nucleus(parts, cx, cy, config.symbol, config.protons, config.neutrons);
+
+      if (state.showLabels) {
+        const outer = radii[radii.length - 1];
+        parts.push(
+          '<text x="' + cx + '" y="' + (cy - (outer + 26)) +
+          '" text-anchor="middle" font-size="22" font-weight="800" fill="#18324a">' +
+          config.label + '</text>'
+        );
+        parts.push(
+          '<text x="' + cx + '" y="' + (cy + outer + 36) +
+          '" text-anchor="middle" font-size="13" fill="#5d7288">' +
+          config.shells + '</text>'
+        );
       }
     }
 
-    points.forEach((p) => {
-      electronCircle(parts, p.x.toFixed(1), p.y.toFixed(1));
-    });
-  }
+    function drawArrow(parts, x1, y1, x2, y2, color = '#7a2fa1', curve = 0) {
+      parts.push(`
+        <defs>
+          <marker id="arrowhead" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto">
+            <polygon points="0 0, 10 4, 0 8" fill="${color}"/>
+          </marker>
+        </defs>
+      `);
 
-  shells.forEach((count, index) => {
-    shell(parts, cx, cy, radii[index]);
-    drawShellElectrons(radii[index], count);
-  });
+      const mx = (x1 + x2) / 2;
+      const my = (y1 + y2) / 2 + curve;
 
-  nucleus(parts, cx, cy, config.symbol, config.protons, config.neutrons);
-
-  if (state.showLabels) {
-    const outer = radii[radii.length - 1];
-    parts.push(
-      '<text x="' + cx + '" y="' + (cy - (outer + 26)) +
-      '" text-anchor="middle" font-size="22" font-weight="800" fill="#18324a">' +
-      config.label + '</text>'
-    );
-    parts.push(
-      '<text x="' + cx + '" y="' + (cy + outer + 36) +
-      '" text-anchor="middle" font-size="13" fill="#5d7288">' +
-      config.shells + '</text>'
-    );
-  }
-}
-
-    function drawArrow(parts, x1, y1, x2, y2, dashed) {
-      const dash = dashed ? 'stroke-dasharray="7 7"' : '';
-      parts.push('<defs><marker id="arrowHead" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#1f7aec"/></marker></defs>');
-      parts.push('<line x1="' + x1 + '" y1="' + y1 + '" x2="' + x2 + '" y2="' + y2 + '" stroke="#1f7aec" stroke-width="4" ' + dash + ' marker-end="url(#arrowHead)"/>');
+      parts.push(`
+        <path
+          d="M ${x1} ${y1} Q ${mx} ${my} ${x2} ${y2}"
+          fill="none"
+          stroke="${color}"
+          stroke-width="6"
+          stroke-dasharray="12 8"
+          marker-end="url(#arrowhead)"
+        />
+      `);
     }
 
     function lewisDotPositions(cx, cy, spread, pairOffset) {
@@ -800,49 +835,188 @@
 
       if (c.key === 'Li2S') {
         if (step < 2) {
-          drawBohrAtom(p, 120, 215, { symbol: 'Li', label: 'Li', shells: c.metalShellsNeutral, protons: c.metalProtons, neutrons: c.metalNeutrons });
-          drawBohrAtom(p, 360, 215, { symbol: 'Li', label: 'Li', shells: c.metalShellsNeutral, protons: c.metalProtons, neutrons: c.metalNeutrons });
-          drawBohrAtom(p, 700, 210, { symbol: 'S', label: 'S', shells: c.nonmetalShellsNeutral, protons: c.nonmetalProtons, neutrons: c.nonmetalNeutrons });
+          const liLeftX = 180;
+          const sX = 520;
+          const liRightX = 860;
+          const y = 210;
+
+          drawBohrAtom(p, liLeftX, y, {
+            symbol: 'Li',
+            label: 'Li',
+            shells: c.metalShellsNeutral,
+            protons: c.metalProtons,
+            neutrons: c.metalNeutrons
+          });
+
+          drawBohrAtom(p, sX, y, {
+            symbol: 'S',
+            label: 'S',
+            shells: c.nonmetalShellsNeutral,
+            protons: c.nonmetalProtons,
+            neutrons: c.nonmetalNeutrons
+          });
+
+          drawBohrAtom(p, liRightX, y, {
+            symbol: 'Li',
+            label: 'Li',
+            shells: c.metalShellsNeutral,
+            protons: c.metalProtons,
+            neutrons: c.metalNeutrons
+          });
+
           if (step >= 1) {
-            drawArrow(p, 212, 215, 574, 160, true);
-            drawArrow(p, 452, 215, 596, 258, true);
+            const liOuter = getOuterRadius(c.metalShellsNeutral);
+            const sOuter = getOuterRadius(c.nonmetalShellsNeutral);
+
+            drawArrow(
+              p,
+              liLeftX + liOuter, y,
+              sX - sOuter + 10, y - 34,
+              '#7a2fa1',
+              -18
+            );
+
+            drawArrow(
+              p,
+              liRightX - liOuter, y,
+              sX + sOuter - 10, y + 34,
+              '#7a2fa1',
+              18
+            );
           }
         } else {
-          drawBohrAtom(p, 150, 215, { symbol: 'Li', label: c.metalChargeText, shells: c.metalShellsIon, protons: c.metalProtons, neutrons: c.metalNeutrons });
-          drawBohrAtom(p, 520, 210, { symbol: 'S', label: c.nonmetalChargeText, shells: c.nonmetalShellsIon, protons: c.nonmetalProtons, neutrons: c.nonmetalNeutrons });
-          drawBohrAtom(p, 890, 215, { symbol: 'Li', label: c.metalChargeText, shells: c.metalShellsIon, protons: c.metalProtons, neutrons: c.metalNeutrons });
+          drawBohrAtom(p, 180, 210, {
+            symbol: 'Li',
+            label: c.metalChargeText,
+            shells: c.metalShellsIon,
+            protons: c.metalProtons,
+            neutrons: c.metalNeutrons
+          });
+
+          drawBohrAtom(p, 520, 210, {
+            symbol: 'S',
+            label: c.nonmetalChargeText,
+            shells: c.nonmetalShellsIon,
+            protons: c.nonmetalProtons,
+            neutrons: c.nonmetalNeutrons
+          });
+
+          drawBohrAtom(p, 860, 210, {
+            symbol: 'Li',
+            label: c.metalChargeText,
+            shells: c.metalShellsIon,
+            protons: c.metalProtons,
+            neutrons: c.metalNeutrons
+          });
         }
       } else if (c.key === 'NaCl') {
         if (step < 2) {
-          drawBohrAtom(p, 220, 210, { symbol: 'Na', label: 'Na', shells: c.metalShellsNeutral, protons: c.metalProtons, neutrons: c.metalNeutrons });
-          drawBohrAtom(p, 720, 210, { symbol: 'Cl', label: 'Cl', shells: c.nonmetalShellsNeutral, protons: c.nonmetalProtons, neutrons: c.nonmetalNeutrons });
-          if (step >= 1) drawArrow(p, 332, 210, 592, 170, true);
+          drawBohrAtom(p, 220, 210, {
+            symbol: 'Na',
+            label: 'Na',
+            shells: c.metalShellsNeutral,
+            protons: c.metalProtons,
+            neutrons: c.metalNeutrons
+          });
+          drawBohrAtom(p, 720, 210, {
+            symbol: 'Cl',
+            label: 'Cl',
+            shells: c.nonmetalShellsNeutral,
+            protons: c.nonmetalProtons,
+            neutrons: c.nonmetalNeutrons
+          });
+
+          if (step >= 1) {
+            const naOuter = getOuterRadius(c.metalShellsNeutral);
+            const clOuter = getOuterRadius(c.nonmetalShellsNeutral);
+            drawArrow(
+              p,
+              220 + naOuter, 210,
+              720 - clOuter + 8, 190,
+              '#7a2fa1',
+              -16
+            );
+          }
         } else {
-          drawBohrAtom(p, 280, 210, { symbol: 'Na', label: c.metalChargeText, shells: c.metalShellsIon, protons: c.metalProtons, neutrons: c.metalNeutrons });
-          drawBohrAtom(p, 760, 210, { symbol: 'Cl', label: c.nonmetalChargeText, shells: c.nonmetalShellsIon, protons: c.nonmetalProtons, neutrons: c.nonmetalNeutrons });
+          drawBohrAtom(p, 280, 210, {
+            symbol: 'Na',
+            label: c.metalChargeText,
+            shells: c.metalShellsIon,
+            protons: c.metalProtons,
+            neutrons: c.metalNeutrons
+          });
+          drawBohrAtom(p, 760, 210, {
+            symbol: 'Cl',
+            label: c.nonmetalChargeText,
+            shells: c.nonmetalShellsIon,
+            protons: c.nonmetalProtons,
+            neutrons: c.nonmetalNeutrons
+          });
         }
       } else {
         if (step < 2) {
-          drawBohrAtom(p, 180, 210, { symbol: 'Mg', label: 'Mg', shells: c.metalShellsNeutral, protons: c.metalProtons, neutrons: c.metalNeutrons });
-          drawBohrAtom(p, 620, 140, { symbol: 'Cl', label: 'Cl', shells: c.nonmetalShellsNeutral, protons: c.nonmetalProtons, neutrons: c.nonmetalNeutrons });
-          drawBohrAtom(p, 620, 300, { symbol: 'Cl', label: 'Cl', shells: c.nonmetalShellsNeutral, protons: c.nonmetalProtons, neutrons: c.nonmetalNeutrons });
+          drawBohrAtom(p, 180, 210, {
+            symbol: 'Mg',
+            label: 'Mg',
+            shells: c.metalShellsNeutral,
+            protons: c.metalProtons,
+            neutrons: c.metalNeutrons
+          });
+          drawBohrAtom(p, 620, 140, {
+            symbol: 'Cl',
+            label: 'Cl',
+            shells: c.nonmetalShellsNeutral,
+            protons: c.nonmetalProtons,
+            neutrons: c.nonmetalNeutrons
+          });
+          drawBohrAtom(p, 620, 300, {
+            symbol: 'Cl',
+            label: 'Cl',
+            shells: c.nonmetalShellsNeutral,
+            protons: c.nonmetalProtons,
+            neutrons: c.nonmetalNeutrons
+          });
+
           if (step >= 1) {
-            drawArrow(p, 292, 176, 490, 132, true);
-            drawArrow(p, 292, 244, 490, 288, true);
+            drawArrow(p, 292, 176, 490, 132, '#7a2fa1', -18);
+            drawArrow(p, 292, 244, 490, 288, '#7a2fa1', 18);
           }
         } else {
-          drawBohrAtom(p, 180, 210, { symbol: 'Mg', label: c.metalChargeText, shells: c.metalShellsIon, protons: c.metalProtons, neutrons: c.metalNeutrons });
-          drawBohrAtom(p, 620, 140, { symbol: 'Cl', label: c.nonmetalChargeText, shells: c.nonmetalShellsIon, protons: c.nonmetalProtons, neutrons: c.nonmetalNeutrons });
-          drawBohrAtom(p, 620, 300, { symbol: 'Cl', label: c.nonmetalChargeText, shells: c.nonmetalShellsIon, protons: c.nonmetalProtons, neutrons: c.nonmetalNeutrons });
+          drawBohrAtom(p, 180, 210, {
+            symbol: 'Mg',
+            label: c.metalChargeText,
+            shells: c.metalShellsIon,
+            protons: c.metalProtons,
+            neutrons: c.metalNeutrons
+          });
+          drawBohrAtom(p, 620, 140, {
+            symbol: 'Cl',
+            label: c.nonmetalChargeText,
+            shells: c.nonmetalShellsIon,
+            protons: c.nonmetalProtons,
+            neutrons: c.nonmetalNeutrons
+          });
+          drawBohrAtom(p, 620, 300, {
+            symbol: 'Cl',
+            label: c.nonmetalChargeText,
+            shells: c.nonmetalShellsIon,
+            protons: c.nonmetalProtons,
+            neutrons: c.nonmetalNeutrons
+          });
         }
       }
 
       if (state.showHints) {
-        const hint = step === 0 ? 'Start with neutral atoms.' : step === 1 ? 'Show electron transfer to the non-metal.' : 'Write the final ions after transfer.';
+        const hint = step === 0
+          ? 'Start with neutral atoms.'
+          : step === 1
+            ? 'Show electron transfer to the non-metal.'
+            : 'Write the final ions after transfer.';
         p.push('<rect x="36" y="360" width="1000" height="40" rx="12" fill="#eef6ff" stroke="#d6e7fb"/>');
         p.push('<text x="56" y="385" font-size="16" font-weight="700" fill="#1f7aec">Teacher hint:</text>');
         p.push('<text x="180" y="385" font-size="16" fill="#18324a">' + hint + '</text>');
       }
+
       return svgEnd(p);
     }
 
@@ -853,19 +1027,20 @@
 
       if (c.key === 'Li2S') {
         if (step === 0) {
-          lewisNeutralMetal(p, 110, 145, 'Li', 1);
-          lewisNeutralMetal(p, 110, 260, 'Li', 1);
-          lewisNeutralNonmetal(p, 370, 202, 'S', 6);
+          lewisNeutralMetal(p, 160, 205, 'Li', 1);
+          lewisNeutralNonmetal(p, 420, 205, 'S', 6);
+          lewisNeutralMetal(p, 700, 205, 'Li', 1);
         } else if (step === 1) {
-          lewisNeutralMetal(p, 110, 145, 'Li', 1);
-          lewisNeutralMetal(p, 110, 260, 'Li', 1);
-          lewisNeutralNonmetal(p, 370, 202, 'S', 6);
-          drawArrow(p, 150, 132, 320, 160, false);
-          drawArrow(p, 150, 247, 320, 230, false);
+          lewisNeutralMetal(p, 160, 205, 'Li', 1);
+          lewisNeutralNonmetal(p, 420, 205, 'S', 6);
+          lewisNeutralMetal(p, 700, 205, 'Li', 1);
+
+          drawArrow(p, 210, 190, 350, 175, '#1f7aec', -16);
+          drawArrow(p, 650, 220, 490, 235, '#1f7aec', 16);
         } else {
-          lewisIonMetal(p, 120, 205, '[Li]⁺');
-          lewisIonNonmetal(p, 390, 205, 'S', '⁻²');
-          lewisIonMetal(p, 680, 205, '[Li]⁺');
+          lewisIonMetal(p, 160, 205, '[Li]⁺');
+          lewisIonNonmetal(p, 420, 205, 'S', '²⁻');
+          lewisIonMetal(p, 700, 205, '[Li]⁺');
         }
       } else if (c.key === 'NaCl') {
         if (step === 0) {
@@ -874,7 +1049,7 @@
         } else if (step === 1) {
           lewisNeutralMetal(p, 140, 205, 'Na', 1);
           lewisNeutralNonmetal(p, 420, 205, 'Cl', 7);
-          drawArrow(p, 190, 192, 340, 192, false);
+          drawArrow(p, 190, 192, 340, 192, '#1f7aec', -8);
         } else {
           lewisIonMetal(p, 170, 205, '[Na]⁺');
           lewisIonNonmetal(p, 470, 205, 'Cl', '⁻');
@@ -888,27 +1063,36 @@
           lewisNeutralMetal(p, 160, 205, 'Mg', 2);
           lewisNeutralNonmetal(p, 450, 130, 'Cl', 7);
           lewisNeutralNonmetal(p, 450, 290, 'Cl', 7);
-          drawArrow(p, 210, 182, 360, 138, false);
-          drawArrow(p, 210, 230, 360, 272, false);
+          drawArrow(p, 210, 182, 360, 138, '#1f7aec', -16);
+          drawArrow(p, 210, 230, 360, 272, '#1f7aec', 16);
         } else {
           lewisIonNonmetal(p, 210, 130, 'Cl', '⁻');
-          lewisIonMetal(p, 500, 205, '[Mg]⁺²');
+          lewisIonMetal(p, 500, 205, '[Mg]²⁺');
           lewisIonNonmetal(p, 790, 290, 'Cl', '⁻');
         }
       }
 
       if (state.showHints) {
-        const hint = step === 0 ? 'Count valence electrons first.' : step === 1 ? 'Show electron transfer arrows clearly.' : 'Final negative ions must have 8 dots.';
+        const hint = step === 0
+          ? 'Count valence electrons first.'
+          : step === 1
+            ? 'Show electron transfer arrows clearly.'
+            : 'Final negative ions must have 8 dots.';
         p.push('<rect x="36" y="360" width="1000" height="40" rx="12" fill="#eef6ff" stroke="#d6e7fb"/>');
         p.push('<text x="56" y="385" font-size="16" font-weight="700" fill="#1f7aec">Teacher hint:</text>');
         p.push('<text x="180" y="385" font-size="16" fill="#18324a">' + hint + '</text>');
       }
+
       return svgEnd(p);
     }
 
     function renderSplit() {
       refs.viewerTitle.textContent = 'Teaching View: Step ' + (state.step + 1);
-      refs.diagramStage.innerHTML = '<div class="grid-2"><div class="mini"><div class="stage">' + drawBohrStep(state.step) + '</div></div><div class="mini"><div class="stage">' + drawLewisStep(state.step) + '</div></div></div>';
+      refs.diagramStage.innerHTML =
+        '<div class="grid-2">' +
+          '<div class="mini"><div class="stage">' + drawBohrStep(state.step) + '</div></div>' +
+          '<div class="mini"><div class="stage">' + drawLewisStep(state.step) + '</div></div>' +
+        '</div>';
     }
 
     function renderSingle(type) {
@@ -932,26 +1116,37 @@
       refs.statCompound.textContent = c.formula;
       refs.statMetalIon.textContent = c.metalChargeText;
       refs.statNonmetalIon.textContent = c.nonmetalChargeText;
+
       refs.quickFacts.innerHTML =
         '<span class="pill">' + c.metalSymbol + ' has ' + c.metalValence + ' valence electron' + (c.metalValence > 1 ? 's' : '') + '</span>' +
         '<span class="pill">' + c.nonmetalSymbol + ' has ' + c.nonmetalValence + ' valence electron' + (c.nonmetalValence > 1 ? 's' : '') + '</span>' +
         '<span class="pill">' + c.metalCount + ' ' + c.metalSymbol + ' atom' + (c.metalCount > 1 ? 's are' : ' is') + ' needed</span>' +
         '<span class="pill">Final ions: ' + c.metalChargeText + ' and ' + c.nonmetalChargeText + '</span>';
 
-      document.getElementById('lessonLewisStep1').textContent = 'Draw the neutral atoms first. Show ' + c.metalCount + ' ' + c.metalName + ' atom' + (c.metalCount > 1 ? 's' : '') + ' and ' + c.nonmetalCount + ' ' + c.nonmetalName + ' atom' + (c.nonmetalCount > 1 ? 's' : '') + ' with the correct valence electrons.';
-      document.getElementById('lessonLewisStep2').textContent = 'Draw electron-transfer arrows from the ' + c.metalName + ' side to the ' + c.nonmetalName + ' side.';
-      document.getElementById('lessonLewisStep3').textContent = 'After transfer, write the final ions in brackets. Use ' + c.metalChargeText + ' and ' + c.nonmetalChargeText + '.';
-      document.getElementById('lessonBohrStep1').textContent = 'Start with neutral Bohr-Rutherford diagrams. ' + c.metalSymbol + ' is ' + c.metalShellsNeutral + ' and ' + c.nonmetalSymbol + ' is ' + c.nonmetalShellsNeutral + '.';
-      document.getElementById('lessonBohrStep2').textContent = 'Show ' + c.transferElectrons + ' electron' + (c.transferElectrons > 1 ? 's' : '') + ' moving from the metal side to the non-metal side.';
-      document.getElementById('lessonBohrStep3').textContent = 'After transfer, redraw the ions. ' + c.metalChargeText + ' has shells ' + c.metalShellsIon + '. ' + c.nonmetalChargeText + ' has shells ' + c.nonmetalShellsIon + '.';
+      document.getElementById('lessonLewisStep1').textContent =
+        'Draw the neutral atoms first. Show ' + c.metalCount + ' ' + c.metalName + ' atom' + (c.metalCount > 1 ? 's' : '') + ' and ' + c.nonmetalCount + ' ' + c.nonmetalName + ' atom' + (c.nonmetalCount > 1 ? 's' : '') + ' with the correct valence electrons.';
+      document.getElementById('lessonLewisStep2').textContent =
+        'Draw electron-transfer arrows from the ' + c.metalName + ' side to the ' + c.nonmetalName + ' side.';
+      document.getElementById('lessonLewisStep3').textContent =
+        'After transfer, write the final ions in brackets. Use ' + c.metalChargeText + ' and ' + c.nonmetalChargeText + '.';
+
+      document.getElementById('lessonBohrStep1').textContent =
+        'Start with neutral Bohr-Rutherford diagrams. ' + c.metalSymbol + ' is ' + c.metalShellsNeutral + ' and ' + c.nonmetalSymbol + ' is ' + c.nonmetalShellsNeutral + '.';
+      document.getElementById('lessonBohrStep2').textContent =
+        'Show ' + c.transferElectrons + ' electron' + (c.transferElectrons > 1 ? 's' : '') + ' moving from the metal side to the non-metal side.';
+      document.getElementById('lessonBohrStep3').textContent =
+        'After transfer, redraw the ions. ' + c.metalChargeText + ' has shells ' + c.metalShellsIon + '. ' + c.nonmetalChargeText + ' has shells ' + c.nonmetalShellsIon + '.';
+
       document.getElementById('mistake1').textContent = 'Using the wrong number of ' + c.metalSymbol + ' or ' + c.nonmetalSymbol + ' atoms';
       document.getElementById('mistake2').textContent = 'Leaving dots around the positive ion';
       document.getElementById('mistake3').textContent = 'Not giving the negative ion a full octet';
       document.getElementById('mistake4').textContent = 'Writing the wrong charge instead of ' + c.metalChargeText + ' / ' + c.nonmetalChargeText;
+
       document.getElementById('check1').textContent = 'Correct number of atoms for ' + c.formula;
       document.getElementById('check2').textContent = 'Correct electron transfer shown';
       document.getElementById('check3').textContent = 'Correct final ion shells shown';
       document.getElementById('check4').textContent = 'Correct final ion charges shown';
+
       document.getElementById('remember1').textContent = c.metalName.charAt(0).toUpperCase() + c.metalName.slice(1) + ' loses electron(s).';
       document.getElementById('remember2').textContent = c.nonmetalName.charAt(0).toUpperCase() + c.nonmetalName.slice(1) + ' gains electron(s).';
       document.getElementById('remember3').textContent = 'The compound is neutral overall.';
@@ -979,7 +1174,12 @@
 
     function newPracticeQuestion() {
       const item = sample(currentCompound().practice, 1)[0];
-      state.practice = { q: item.q, a: item.a, options: item.options.slice(), answered: false };
+      state.practice = {
+        q: item.q,
+        a: item.a,
+        options: item.options.slice(),
+        answered: false
+      };
       renderPractice();
     }
 
@@ -1041,6 +1241,7 @@
 
     function bindEvents() {
       document.querySelectorAll('.tab').forEach((btn) => btn.addEventListener('click', () => setTab(btn.dataset.tab)));
+
       refs.compoundSelect.addEventListener('change', (e) => {
         stopPlay();
         state.compound = e.target.value;
@@ -1049,23 +1250,28 @@
         renderViewer();
         if (state.tab === 'practice') newPracticeQuestion();
       });
+
       refs.viewSelect.addEventListener('change', (e) => {
         state.view = e.target.value;
         renderViewer();
       });
+
       refs.showLabels.addEventListener('change', (e) => {
         state.showLabels = e.target.checked;
         renderViewer();
       });
+
       refs.showHints.addEventListener('change', (e) => {
         state.showHints = e.target.checked;
         renderViewer();
       });
+
       document.querySelectorAll('[data-step]').forEach((btn) => btn.addEventListener('click', () => {
         stopPlay();
         state.step = Number(btn.dataset.step);
         renderViewer();
       }));
+
       document.getElementById('playBtn').addEventListener('click', togglePlay);
       document.getElementById('newQuestionBtn').addEventListener('click', newPracticeQuestion);
       document.getElementById('showAnswerBtn').addEventListener('click', revealPractice);
@@ -1083,17 +1289,21 @@
       assert(shellFromText('2,8,7').join(',') === '2,8,7', 'shellFromText parses shell text');
       assert(lewisMetalPositions(100, 200, 2).length === 2, 'metal dot positions match valence count');
       assert(currentCompound().formula === 'Li₂S', 'default compound is Li₂S');
+
       state.compound = 'MgCl2';
-      assert(currentCompound().metalChargeText === 'Mg⁺²', 'compound switching works for MgCl₂');
+      assert(currentCompound().metalChargeText === 'Mg²⁺', 'compound switching works for MgCl₂');
+
       const liBohr = drawBohrStep(0);
       const electronDots = (liBohr.match(/<circle cx="[^"]+" cy="[^"]+" r="6" fill="#18324a"\/>/g) || []).length;
       assert(electronDots >= 8, 'Bohr step renders visible electron dots');
+
       const lewisSvg = drawLewisStep(0);
       assert(lewisSvg.indexOf('Mg') !== -1, 'Lewis drawing for MgCl₂ renders symbol text');
-      const bohrSvg = drawBohrStep(2);
-      assert(bohrSvg.indexOf('Mg⁺²') !== -1, 'Bohr final step renders ion charge label');
-      state.compound = 'Li2S';
 
+      const bohrSvg = drawBohrStep(2);
+      assert(bohrSvg.indexOf('Mg²⁺') !== -1, 'Bohr final step renders ion charge label');
+
+      state.compound = 'Li2S';
       refs.testResults.textContent = 'Self-checks passed:\n' + results.join('\n');
     }
 
