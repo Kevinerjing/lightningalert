@@ -518,10 +518,10 @@
               <div class="mini-box">
                 <h4>Simplified Bohr Diagram</h4>
                 <ul>
-                  <li>Shows only the element symbol and the electron shells.</li>
-                  <li>It is faster to draw than the full Bohr-Rutherford model.</li>
-                  <li>Good for seeing shell arrangement such as 2, 8, 2.</li>
-                  <li>Often used in Grade 9 chemistry worksheets.</li>
+                  <li>Shows the nucleus with protons and neutrons plus right-facing shell arcs.</li>
+                  <li>Instead of drawing every electron, it shows shell counts like 2e⁻, 8e⁻, 1e⁻.</li>
+                  <li>The numbers sit on the shell area, like common classroom notes.</li>
+                  <li>Often used in Grade 9 chemistry worksheets and teacher diagrams.</li>
                 </ul>
               </div>
               <div class="mini-box">
@@ -740,26 +740,39 @@
 
     function simplifiedBohrSvg(atom) {
       const parts = createSvgParts();
-      const cx = 180;
+      const nucleusX = 110;
       const cy = 170;
+      const arcCenterX = nucleusX + 30;
       const shells = atom.shells;
+
       parts.push(`<text x="180" y="28" text-anchor="middle" font-size="20" font-weight="700" fill="#17324d">${atom.name} (${atom.displaySymbol})</text>`);
 
+      parts.push(`<circle cx="${nucleusX}" cy="${cy}" r="36" fill="#eef5fd" stroke="#6e8ba7" stroke-width="2" />`);
+      if (state.showNucleusLabels) {
+        parts.push(`<text x="${nucleusX}" y="${cy - 6}" text-anchor="middle" font-size="15" font-weight="700" fill="#17324d">${atom.protons} p⁺</text>`);
+        parts.push(`<text x="${nucleusX}" y="${cy + 16}" text-anchor="middle" font-size="15" fill="#17324d">${atom.neutrons} n°</text>`);
+      } else {
+        parts.push(`<text x="${nucleusX}" y="${cy + 5}" text-anchor="middle" font-size="24" font-weight="800" fill="#17324d">${atom.symbol}</text>`);
+      }
+
       shells.forEach((count, index) => {
-        const radius = 54 + index * 44;
-        parts.push(`<circle cx="${cx}" cy="${cy}" r="${radius}" fill="none" stroke="#9ab2c9" stroke-width="2" />`);
-        drawElectronsOnShell(parts, cx, cy, radius, count);
-        if (state.showLabels) {
-          parts.push(`<text x="${cx}" y="${cy - radius - 8}" text-anchor="middle" font-size="11" fill="#5f7186">${count}</text>`);
-        }
+        const r = 46 + index * 30;
+        const startX = arcCenterX;
+        const startY = cy - r;
+        const endX = arcCenterX;
+        const endY = cy + r;
+        parts.push(`<path d="M ${startX} ${startY} A ${r} ${r} 0 0 1 ${endX} ${endY}" fill="none" stroke="#6f879d" stroke-width="3" />`);
       });
 
-      parts.push(`<circle cx="${cx}" cy="${cy}" r="32" fill="#eef5fd" stroke="#6e8ba7" stroke-width="2" />`);
-      parts.push(`<text x="${cx}" y="${cy + 5}" text-anchor="middle" font-size="24" font-weight="800" fill="#17324d">${atom.displaySymbol}</text>`);
-
       if (state.showElectronCount) {
-        parts.push(`<text x="180" y="305" text-anchor="middle" font-size="13" fill="#17324d">Shell arrangement: ${atom.shells.join(', ') || '0'}</text>`);
+        const label = shells.map(n => `${n}e⁻`).join('  ');
+        parts.push(`<text x="${arcCenterX + 20}" y="${cy + 6}" font-size="20" font-weight="700" fill="#17324d">${label}</text>`);
       }
+
+      if (state.showLabels) {
+        parts.push(`<text x="180" y="72" text-anchor="middle" font-size="13" fill="#5f7186">Simplified shell count diagram</text>`);
+      }
+
       return endSvg(parts);
     }
 
@@ -809,7 +822,7 @@
         },
         simple: {
           title: 'Simplified Bohr',
-          desc: 'Shows only shells and electrons around the element symbol.',
+          desc: 'Shows the nucleus, classroom-style right-facing shell arcs, and shell counts such as 2e⁻ 8e⁻ 1e⁻.',
           svg: simplifiedBohrSvg(atom)
         },
         lewis: {
@@ -1070,6 +1083,19 @@
 
         const argon = getAtomData(getElement('Ar'), 40, false);
         assert(argon.valence === 8, 'Neutral argon has 8 valence electrons');
+
+        const sodiumSimple = simplifiedBohrSvg(getAtomData(getElement('Na'), 23, false));
+        assert(sodiumSimple.includes('11 p⁺'), 'Simplified Bohr shows nucleus proton count');
+        assert(sodiumSimple.includes('12 n°'), 'Simplified Bohr shows nucleus neutron count');
+        assert(sodiumSimple.includes('2e⁻  8e⁻  1e⁻'), 'Simplified Bohr shows classroom-style shell counts');
+        assert(sodiumSimple.includes('M 140 124 A 46 46 0 0 1 140 216'), 'Simplified Bohr uses right-facing semicircle shell arcs');
+
+        const sodiumIonSimple = simplifiedBohrSvg(getAtomData(getElement('Na'), 23, true));
+        assert(sodiumIonSimple.includes('2e⁻  8e⁻'), 'Simplified Bohr updates shell counts for ions');
+
+        const potassiumSimple = simplifiedBohrSvg(getAtomData(getElement('K'), 39, false));
+        assert(potassiumSimple.includes('2e⁻  8e⁻  8e⁻  1e⁻'), 'Simplified Bohr shows four shell counts for potassium');
+        assert(potassiumSimple.includes('M 140 34 A 136 136 0 0 1 140 306'), 'Simplified Bohr renders outer potassium shell arc');
 
         refs.testResults.className = 'test-box pass';
         refs.testResults.innerHTML = `<strong>Self-checks passed.</strong><br>${results.join('<br>')}`;
