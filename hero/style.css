@@ -1,0 +1,65 @@
+body
+{
+font-family: Arial;
+background:#1e1e2e;
+color:white;
+text-align:center;
+}
+
+.board
+{
+display:flex;
+justify-content:center;
+gap:40px;
+margin-top:20px;
+}
+
+.enemy
+{
+width:250px;
+}
+
+.player
+{
+width:250px;
+}
+
+.center
+{
+width:300px;
+}
+
+#hand button
+{
+display:block;
+width:200px;
+margin:6px auto;
+padding:8px;
+background:#444;
+color:white;
+border:none;
+cursor:pointer;
+}
+
+#hand button:hover
+{
+background:#666;
+}
+
+#myField div,
+#enemyField div
+{
+background:#333;
+padding:6px;
+margin:4px;
+cursor:pointer;
+}
+
+.log
+{
+height:150px;
+overflow:auto;
+background:#111;
+padding:10px;
+margin-bottom:10px;
+}
