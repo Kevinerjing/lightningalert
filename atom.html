@@ -695,11 +695,48 @@
     }
 
     function drawElectronsOnShell(parts, cx, cy, radius, count) {
-      for (let i = 0; i < count; i++) {
-        const angle = (-Math.PI / 2) + (Math.PI * 2 * i / count);
-        const x = cx + radius * Math.cos(angle);
-        const y = cy + radius * Math.sin(angle);
-        parts.push(`<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="5.5" fill="#17324d" />`);
+      // Classroom-style Bohr electron placement.
+      // Special case: 2 electrons are opposite each other (top and bottom),
+      // matching the common first-shell diagram style.
+      const points = [];
+
+      const top = { x: cx, y: cy - radius };
+      const right = { x: cx + radius, y: cy };
+      const bottom = { x: cx, y: cy + radius };
+      const left = { x: cx - radius, y: cy };
+
+      if (count === 1) {
+        points.push(top);
+      } else if (count === 2) {
+        points.push(top, bottom);
+      } else if (count === 3) {
+        points.push(top, right, bottom);
+      } else if (count === 4) {
+        points.push(top, right, bottom, left);
+      } else {
+        // For 5-8 electrons, start with one on each side,
+        // then add a close partner beside each one.
+        points.push(top, right, bottom, left);
+
+        const pairOffsets = [
+          { dx: 18, dy: 0 },  // top pair spaced more
+          { dx: 0, dy: 18 },  // right pair spaced more
+          { dx: 18, dy: 0 },  // bottom pair spaced more
+          { dx: 0, dy: 18 }   // left pair spaced more
+        ];
+
+        const bases = [top, right, bottom, left];
+        for (let i = 0; i < count - 4 && i < 4; i++) {
+          points.push({
+            x: bases[i].x + pairOffsets[i].dx,
+            y: bases[i].y + pairOffsets[i].dy
+          });
+        }
+      }
+
+      for (let i = 0; i < points.length; i++) {
+        const p = points[i];
+        parts.push(`<circle cx="${p.x.toFixed(1)}" cy="${p.y.toFixed(1)}" r="5.5" fill="#17324d" />`);
       }
     }
 
@@ -1080,6 +1117,13 @@
         const carbonLewis = lewisSvg(getAtomData(carbon, 12, false));
         const carbonDotCount = (carbonLewis.match(/•/g) || []).length;
         assert(carbonDotCount === 4, 'Neutral carbon Lewis diagram shows 4 dots');
+
+        const oxygenBohr = bohrSvg(getAtomData(getElement('O'), 16, false));
+        const oxygenElectronCount = (oxygenBohr.match(/<circle cx="[^"]+" cy="[^"]+" r="5\.5" fill="#17324d" \/>/g) || []).length;
+        assert(oxygenElectronCount >= 8, 'Bohr-Rutherford renders visible electron dots');
+
+        const heliumBohr = bohrSvg(getAtomData(getElement('He'), 4, false));
+        assert(heliumBohr.includes('Helium (He)'), 'Bohr-Rutherford renders helium title');
 
         const argon = getAtomData(getElement('Ar'), 40, false);
         assert(argon.valence === 8, 'Neutral argon has 8 valence electrons');
