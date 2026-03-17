@@ -532,12 +532,7 @@ button:disabled {
   }
 }
 
-.desk-area {
-  position: relative;
-  margin: 10px 0 14px;
-  border-radius: 16px;
-  pointer-events: none;
-}
+
 
 #battle-effects-root {
   position: fixed;
