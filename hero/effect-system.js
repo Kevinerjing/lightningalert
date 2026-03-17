@@ -221,8 +221,8 @@
 
       .ehx-shockwave {
         position: fixed;
-        width: 120px;
-        height: 120px;
+        width: 300px;
+        height: 300px;
         margin-left: -60px;
         margin-top: -60px;
         border-radius: 50%;
@@ -259,8 +259,8 @@
 
       .ehx-cloud {
         position: fixed;
-        width: 280px;
-        height: 170px;
+        width: 300px;
+        height: 280px;
         pointer-events: none;
         filter: blur(2px);
         animation: ehxCloudHover 2.3s ease-in-out forwards;
@@ -296,8 +296,8 @@
 
       .ehx-poison-fog {
         position: fixed;
-        width: 220px;
-        height: 220px;
+        width: 300px;
+        height: 300px;
         margin-left: -110px;
         margin-top: -35px;
         border-radius: 50%;
@@ -379,8 +379,8 @@
 
       .ehx-steam {
         position: fixed;
-        width: 220px;
-        height: 140px;
+        width: 300px;
+        height: 260px;
         pointer-events: none;
         filter: blur(2px);
         animation: ehxSteamExpand 1.2s ease-out forwards;
@@ -405,8 +405,8 @@
 
       .ehx-wet-drop {
         position: fixed;
-        width: 16px;
-        height: 26px;
+        width: 160px;
+        height: 260px;
         border-radius: 50% 50% 55% 55%;
         background: linear-gradient(180deg, rgba(180,240,255,0.95), rgba(50,160,255,0.78));
         box-shadow: 0 0 12px rgba(100,200,255,0.45);
@@ -423,8 +423,8 @@
 
       .ehx-rust-layer {
         position: fixed;
-        width: 190px;
-        height: 190px;
+        width: 300px;
+        height: 300px;
         pointer-events: none;
         animation: ehxRustFade 1.8s ease-out forwards;
         z-index: 10007;
@@ -449,8 +449,8 @@
 
       .ehx-salt {
         position: fixed;
-        width: 12px;
-        height: 12px;
+        width: 120px;
+        height: 120px;
         border-radius: 3px;
         background: white;
         box-shadow: 0 0 10px rgba(255,255,255,0.95);
