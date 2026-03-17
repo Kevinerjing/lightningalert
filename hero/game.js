@@ -1,6 +1,9 @@
 const WORKER_URL = "https://element-heroes-worker.jingkevin0408.workers.dev";
 
 let socket = null;
+let reconnectTimer = null;
+let manualClose = false;
+
 let roomCode = "";
 let playerId = null;
 let isHost = false;
@@ -9,150 +12,323 @@ let selectedCardIndex = null;
 let selectedFieldIndex = null;
 
 const CARD_LIBRARY = {
-  sulfur: { id: "sulfur", name: "Sulfur", type: "Element", cost: 1, symbol: "S", text: "Combustible element used in fire reactions.", className: "element-sulfur", tags: ["element", "fire"] },
-  oxygen: { id: "oxygen", name: "Oxygen", type: "Element", cost: 1, symbol: "O", text: "Supports combustion and oxidation.", className: "element-oxygen", tags: ["element", "air"] },
-  water: { id: "water", name: "Water", type: "Element", cost: 1, symbol: "H2O", text: "Liquid element enabling steam reactions.", className: "element-water", tags: ["element", "liquid"] },
-  iron: { id: "iron", name: "Iron", type: "Element", cost: 1, symbol: "Fe", text: "Metal used for rust reactions.", className: "element-iron", tags: ["element", "metal"] },
-  hydrogen: { id: "hydrogen", name: "Hydrogen", type: "Element", cost: 1, symbol: "H", text: "Highly flammable gas element.", className: "element-hydrogen", tags: ["element", "gas"] },
-  carbon: { id: "carbon", name: "Carbon", type: "Element", cost: 1, symbol: "C", text: "Foundation of many reactions.", className: "element-carbon", tags: ["element", "solid"] },
-  chlorine: { id: "chlorine", name: "Chlorine", type: "Element", cost: 1, symbol: "Cl", text: "Reactive gas useful for salt and poison combos.", className: "element-chlorine", tags: ["element", "gas"] },
-  sodium: { id: "sodium", name: "Sodium", type: "Element", cost: 1, symbol: "Na", text: "Reactive metal that pairs with chlorine.", className: "element-sodium", tags: ["element", "metal"] },
-  combustion: { id: "combustion", name: "Combustion", type: "Reaction", cost: 2, symbol: "RXN", text: "Sulfur + Oxygen = 7 damage.", tags: ["reaction", "fire"] },
-  steamBurst: { id: "steamBurst", name: "Steam Burst", type: "Reaction", cost: 2, symbol: "RXN", text: "Water + Oxygen = 5 damage and Wet.", tags: ["reaction", "steam"] },
-  acidRain: { id: "acidRain", name: "Acid Rain", type: "Reaction", cost: 2, symbol: "RXN", text: "Sulfur + Water = 4 damage and Corroded.", tags: ["reaction", "acid"] },
-  rust: { id: "rust", name: "Rust", type: "Reaction", cost: 2, symbol: "RXN", text: "Iron + Oxygen = 4 damage and Corroded.", tags: ["reaction", "metal"] },
-  explosion: { id: "explosion", name: "Explosion", type: "Reaction", cost: 3, symbol: "RXN", text: "Hydrogen + Oxygen = 8 damage.", tags: ["reaction", "burst"] },
-  saltFormation: { id: "saltFormation", name: "Salt Formation", type: "Reaction", cost: 2, symbol: "RXN", text: "Sodium + Chlorine = 5 damage and cleanse your Wet.", tags: ["reaction", "salt"] },
-  carbonBurn: { id: "carbonBurn", name: "Carbon Burn", type: "Reaction", cost: 2, symbol: "RXN", text: "Carbon + Oxygen = 5 damage.", tags: ["reaction", "fire"] },
-  fireball: { id: "fireball", name: "Fireball", type: "Attack", cost: 1, symbol: "ATK", text: "Deal 3 damage. +2 if enemy Wet.", tags: ["attack", "fire"] },
-  hammerStrike: { id: "hammerStrike", name: "Hammer Strike", type: "Attack", cost: 1, symbol: "ATK", text: "Deal 2 damage. +2 if Iron on field.", tags: ["attack", "metal"] },
-  corrode: { id: "corrode", name: "Corrode", type: "Attack", cost: 2, symbol: "ATK", text: "Destroy enemy field card if enemy Corroded.", tags: ["attack", "control"] },
-  lightning: { id: "lightning", name: "Lightning", type: "Attack", cost: 2, symbol: "ATK", text: "Deal 4 damage.", tags: ["attack", "shock"] },
-  poisonCloud: { id: "poisonCloud", name: "Poison Cloud", type: "Attack", cost: 2, symbol: "ATK", text: "Deal 2 damage and apply Corroded.", tags: ["attack", "poison"] },
-  catalyst: { id: "catalyst", name: "Catalyst", type: "Utility", cost: 1, symbol: "UTL", text: "Gain 1 energy.", tags: ["utility", "lab"] },
-  shield: { id: "shield", name: "Lab Shield", type: "Utility", cost: 1, symbol: "UTL", text: "Heal 2 HP.", tags: ["utility", "defense"] },
-  potassium: { 
-    id: "potassium", 
-    name: "Potassium", 
-    type: "Element", 
-    cost: 1, 
-    symbol: "K", 
-    text: "Highly reactive alkali metal. Violent with water.", 
-    className: "element-potassium", 
-    tags: ["element", "metal", "alkali"] 
+  sulfur: {
+    id: "sulfur",
+    name: "Sulfur",
+    type: "Element",
+    cost: 1,
+    symbol: "S",
+    text: "Combustible element used in fire reactions.",
+    className: "element-sulfur",
+    tags: ["element", "fire"],
   },
-
-  helium: { 
-    id: "helium", 
-    name: "Helium", 
-    type: "Element", 
-    cost: 1, 
-    symbol: "He", 
-    text: "Stable noble gas. Hard to react with.", 
-    className: "element-helium", 
-    tags: ["element", "gas", "noble"] 
+  oxygen: {
+    id: "oxygen",
+    name: "Oxygen",
+    type: "Element",
+    cost: 1,
+    symbol: "O",
+    text: "Supports combustion and oxidation.",
+    className: "element-oxygen",
+    tags: ["element", "air"],
   },
-
-  calcium: { 
-    id: "calcium", 
-    name: "Calcium", 
-    type: "Element", 
-    cost: 1, 
-    symbol: "Ca", 
-    text: "Reactive metal forming lime and minerals.", 
-    className: "element-calcium", 
-    tags: ["element", "metal", "earth"] 
+  water: {
+    id: "water",
+    name: "Water",
+    type: "Element",
+    cost: 1,
+    symbol: "H2O",
+    text: "Liquid element enabling steam reactions.",
+    className: "element-water",
+    tags: ["element", "liquid"],
   },
-
-  potassiumWater: { 
-    id: "potassiumWater", 
-    name: "Alkali Reaction", 
-    type: "Reaction", 
-    cost: 3, 
-    symbol: "RXN", 
-    text: "Potassium + Water = 9 damage and Wet.", 
-    tags: ["reaction", "alkali"] 
+  iron: {
+    id: "iron",
+    name: "Iron",
+    type: "Element",
+    cost: 1,
+    symbol: "Fe",
+    text: "Metal used for rust reactions.",
+    className: "element-iron",
+    tags: ["element", "metal"],
   },
-
-  limeFormation: { 
-    id: "limeFormation", 
-    name: "Lime Formation", 
-    type: "Reaction", 
-    cost: 2, 
-    symbol: "RXN", 
-    text: "Calcium + Water = 5 damage and gain 1 energy.", 
-    tags: ["reaction", "earth"] 
+  hydrogen: {
+    id: "hydrogen",
+    name: "Hydrogen",
+    type: "Element",
+    cost: 1,
+    symbol: "H",
+    text: "Highly flammable gas element.",
+    className: "element-hydrogen",
+    tags: ["element", "gas"],
   },
-
-  hydrogenBurn: { 
-    id: "hydrogenBurn", 
-    name: "Hydrogen Burn", 
-    type: "Reaction", 
-    cost: 2, 
-    symbol: "RXN", 
-    text: "Hydrogen + Fire = 6 damage.", 
-    tags: ["reaction", "fire"] 
+  carbon: {
+    id: "carbon",
+    name: "Carbon",
+    type: "Element",
+    cost: 1,
+    symbol: "C",
+    text: "Foundation of many reactions.",
+    className: "element-carbon",
+    tags: ["element", "solid"],
   },
-
-  calciumSteam: { 
-    id: "calciumSteam", 
-    name: "Calcium Steam", 
-    type: "Reaction", 
-    cost: 3, 
-    symbol: "RXN", 
-    text: "Calcium + Water = Apply Wet and deal 6 damage.", 
-    tags: ["reaction", "steam"] 
+  chlorine: {
+    id: "chlorine",
+    name: "Chlorine",
+    type: "Element",
+    cost: 1,
+    symbol: "Cl",
+    text: "Reactive gas useful for salt and poison combos.",
+    className: "element-chlorine",
+    tags: ["element", "gas"],
   },
-
-  alkaliExplosion: { 
-    id: "alkaliExplosion", 
-    name: "Alkali Explosion", 
-    type: "Reaction", 
-    cost: 3, 
-    symbol: "RXN", 
-    text: "Potassium + Oxygen = 8 damage.", 
-    tags: ["reaction", "burst"] 
+  sodium: {
+    id: "sodium",
+    name: "Sodium",
+    type: "Element",
+    cost: 1,
+    symbol: "Na",
+    text: "Reactive metal that pairs with chlorine.",
+    className: "element-sodium",
+    tags: ["element", "metal"],
   },
-
-  plasmaShock: { 
-    id: "plasmaShock", 
-    name: "Plasma Shock", 
-    type: "Attack", 
-    cost: 2, 
-    symbol: "ATK", 
-    text: "Deal 5 damage. +2 if Oxygen present.", 
-    tags: ["attack", "shock"] 
+  combustion: {
+    id: "combustion",
+    name: "Combustion",
+    type: "Reaction",
+    cost: 2,
+    symbol: "RXN",
+    text: "Sulfur + Oxygen = 7 damage.",
+    tags: ["reaction", "fire"],
   },
-
-  alkaliBlast: { 
-    id: "alkaliBlast", 
-    name: "Alkali Blast", 
-    type: "Attack", 
-    cost: 2, 
-    symbol: "ATK", 
-    text: "Deal 4 damage. +3 if Potassium on field.", 
-    tags: ["attack", "alkali"] 
+  steamBurst: {
+    id: "steamBurst",
+    name: "Steam Burst",
+    type: "Reaction",
+    cost: 2,
+    symbol: "RXN",
+    text: "Water + Oxygen = 5 damage and Wet.",
+    tags: ["reaction", "steam"],
   },
-
-  metalCrush: { 
-    id: "metalCrush", 
-    name: "Metal Crush", 
-    type: "Attack", 
-    cost: 2, 
-    symbol: "ATK", 
-    text: "Deal 3 damage. +2 if Calcium or Iron on field.", 
-    tags: ["attack", "metal"] 
+  acidRain: {
+    id: "acidRain",
+    name: "Acid Rain",
+    type: "Reaction",
+    cost: 2,
+    symbol: "RXN",
+    text: "Sulfur + Water = 4 damage and Corroded.",
+    tags: ["reaction", "acid"],
   },
-
-  noblePressure: { 
-    id: "noblePressure", 
-    name: "Noble Pressure", 
-    type: "Attack", 
-    cost: 1, 
-    symbol: "ATK", 
-    text: "Deal 2 damage. Draw 1 card if Helium on field.", 
-    tags: ["attack", "gas"] 
-  }
+  rust: {
+    id: "rust",
+    name: "Rust",
+    type: "Reaction",
+    cost: 2,
+    symbol: "RXN",
+    text: "Iron + Oxygen = 4 damage and Corroded.",
+    tags: ["reaction", "metal"],
+  },
+  explosion: {
+    id: "explosion",
+    name: "Explosion",
+    type: "Reaction",
+    cost: 3,
+    symbol: "RXN",
+    text: "Hydrogen + Oxygen = 8 damage.",
+    tags: ["reaction", "burst"],
+  },
+  saltFormation: {
+    id: "saltFormation",
+    name: "Salt Formation",
+    type: "Reaction",
+    cost: 2,
+    symbol: "RXN",
+    text: "Sodium + Chlorine = 5 damage and cleanse your Wet.",
+    tags: ["reaction", "salt"],
+  },
+  carbonBurn: {
+    id: "carbonBurn",
+    name: "Carbon Burn",
+    type: "Reaction",
+    cost: 2,
+    symbol: "RXN",
+    text: "Carbon + Oxygen = 5 damage.",
+    tags: ["reaction", "fire"],
+  },
+  fireball: {
+    id: "fireball",
+    name: "Fireball",
+    type: "Attack",
+    cost: 1,
+    symbol: "ATK",
+    text: "Deal 3 damage. +2 if enemy Wet.",
+    tags: ["attack", "fire"],
+  },
+  hammerStrike: {
+    id: "hammerStrike",
+    name: "Hammer Strike",
+    type: "Attack",
+    cost: 1,
+    symbol: "ATK",
+    text: "Deal 2 damage. +2 if Iron on field.",
+    tags: ["attack", "metal"],
+  },
+  corrode: {
+    id: "corrode",
+    name: "Corrode",
+    type: "Attack",
+    cost: 2,
+    symbol: "ATK",
+    text: "Destroy enemy field card if enemy Corroded.",
+    tags: ["attack", "control"],
+  },
+  lightning: {
+    id: "lightning",
+    name: "Lightning",
+    type: "Attack",
+    cost: 2,
+    symbol: "ATK",
+    text: "Deal 4 damage.",
+    tags: ["attack", "shock"],
+  },
+  poisonCloud: {
+    id: "poisonCloud",
+    name: "Poison Cloud",
+    type: "Attack",
+    cost: 2,
+    symbol: "ATK",
+    text: "Deal 2 damage and apply Corroded.",
+    tags: ["attack", "poison"],
+  },
+  catalyst: {
+    id: "catalyst",
+    name: "Catalyst",
+    type: "Utility",
+    cost: 1,
+    symbol: "UTL",
+    text: "Gain 1 energy.",
+    tags: ["utility", "lab"],
+  },
+  shield: {
+    id: "shield",
+    name: "Lab Shield",
+    type: "Utility",
+    cost: 1,
+    symbol: "UTL",
+    text: "Heal 2 HP.",
+    tags: ["utility", "defense"],
+  },
+  potassium: {
+    id: "potassium",
+    name: "Potassium",
+    type: "Element",
+    cost: 1,
+    symbol: "K",
+    text: "Highly reactive alkali metal. Violent with water.",
+    className: "element-potassium",
+    tags: ["element", "metal", "alkali"],
+  },
+  helium: {
+    id: "helium",
+    name: "Helium",
+    type: "Element",
+    cost: 1,
+    symbol: "He",
+    text: "Stable noble gas. Hard to react with.",
+    className: "element-helium",
+    tags: ["element", "gas", "noble"],
+  },
+  calcium: {
+    id: "calcium",
+    name: "Calcium",
+    type: "Element",
+    cost: 1,
+    symbol: "Ca",
+    text: "Reactive metal forming lime and minerals.",
+    className: "element-calcium",
+    tags: ["element", "metal", "earth"],
+  },
+  potassiumWater: {
+    id: "potassiumWater",
+    name: "Alkali Reaction",
+    type: "Reaction",
+    cost: 3,
+    symbol: "RXN",
+    text: "Potassium + Water = 9 damage and Wet.",
+    tags: ["reaction", "alkali"],
+  },
+  limeFormation: {
+    id: "limeFormation",
+    name: "Lime Formation",
+    type: "Reaction",
+    cost: 2,
+    symbol: "RXN",
+    text: "Calcium + Water = 5 damage and gain 1 energy.",
+    tags: ["reaction", "earth"],
+  },
+  hydrogenBurn: {
+    id: "hydrogenBurn",
+    name: "Hydrogen Burn",
+    type: "Reaction",
+    cost: 2,
+    symbol: "RXN",
+    text: "Hydrogen + Fire = 6 damage.",
+    tags: ["reaction", "fire"],
+  },
+  calciumSteam: {
+    id: "calciumSteam",
+    name: "Calcium Steam",
+    type: "Reaction",
+    cost: 3,
+    symbol: "RXN",
+    text: "Calcium + Water = Apply Wet and deal 6 damage.",
+    tags: ["reaction", "steam"],
+  },
+  alkaliExplosion: {
+    id: "alkaliExplosion",
+    name: "Alkali Explosion",
+    type: "Reaction",
+    cost: 3,
+    symbol: "RXN",
+    text: "Potassium + Oxygen = 8 damage.",
+    tags: ["reaction", "burst"],
+  },
+  plasmaShock: {
+    id: "plasmaShock",
+    name: "Plasma Shock",
+    type: "Attack",
+    cost: 2,
+    symbol: "ATK",
+    text: "Deal 5 damage. +2 if Oxygen present.",
+    tags: ["attack", "shock"],
+  },
+  alkaliBlast: {
+    id: "alkaliBlast",
+    name: "Alkali Blast",
+    type: "Attack",
+    cost: 2,
+    symbol: "ATK",
+    text: "Deal 4 damage. +3 if Potassium on field.",
+    tags: ["attack", "alkali"],
+  },
+  metalCrush: {
+    id: "metalCrush",
+    name: "Metal Crush",
+    type: "Attack",
+    cost: 2,
+    symbol: "ATK",
+    text: "Deal 3 damage. +2 if Calcium or Iron on field.",
+    tags: ["attack", "metal"],
+  },
+  noblePressure: {
+    id: "noblePressure",
+    name: "Noble Pressure",
+    type: "Attack",
+    cost: 1,
+    symbol: "ATK",
+    text: "Deal 2 damage. Draw 1 card if Helium on field.",
+    tags: ["attack", "gas"],
+  },
 };
 
 function escapeHtml(value) {
@@ -178,11 +354,21 @@ function addConnectionLog(message) {
 
 function updateHeaderState() {
   document.getElementById("connectionPill").textContent =
-    socket && socket.readyState === WebSocket.OPEN ? "Connected" : "Disconnected";
-  document.getElementById("roomPill").textContent = roomCode ? `Room ${roomCode}` : "No room";
-  document.getElementById("gameRoomCodePill").textContent = roomCode ? `Room: ${roomCode}` : "Room: ----";
-  document.getElementById("playerRoleText").textContent =
-    playerId ? `You are Player ${playerId}${isHost ? " (Host)" : ""}` : "Not in a room";
+    socket && socket.readyState === WebSocket.OPEN
+      ? "Connected"
+      : "Disconnected";
+
+  document.getElementById("roomPill").textContent = roomCode
+    ? `Room ${roomCode}`
+    : "No room";
+
+  document.getElementById("gameRoomCodePill").textContent = roomCode
+    ? `Room: ${roomCode}`
+    : "Room: ----";
+
+  document.getElementById("playerRoleText").textContent = playerId
+    ? `You are Player ${playerId}${isHost ? " (Host)" : ""}`
+    : "Not in a room";
 }
 
 function showLobby() {
@@ -199,6 +385,7 @@ function showOverlay(title, text, winnerText = "") {
   document.getElementById("overlayTitle").textContent = title;
   document.getElementById("overlayText").textContent = text;
   const winner = document.getElementById("winnerText");
+
   if (winnerText) {
     winner.textContent = winnerText;
     winner.classList.remove("hidden");
@@ -206,6 +393,7 @@ function showOverlay(title, text, winnerText = "") {
     winner.textContent = "";
     winner.classList.add("hidden");
   }
+
   document.getElementById("gameOverlay").classList.remove("hidden");
 }
 
@@ -216,15 +404,19 @@ function hideOverlay() {
 async function createRoom() {
   try {
     const response = await fetch(`${WORKER_URL}/create-room`, {
-      method: "POST"
+      method: "POST",
     });
     const data = await response.json();
+
     if (data.type === "error") {
       throw new Error(data.message);
     }
+
     roomCode = data.roomCode;
     playerId = data.playerId;
     isHost = true;
+    manualClose = false;
+
     updateHeaderState();
     showGame();
     addConnectionLog(`Room created: ${roomCode}`);
@@ -236,7 +428,11 @@ async function createRoom() {
 
 async function joinRoom() {
   try {
-    const code = document.getElementById("joinCodeInput").value.trim().toUpperCase();
+    const code = document
+      .getElementById("joinCodeInput")
+      .value.trim()
+      .toUpperCase();
+
     if (!code) {
       throw new Error("Enter a room code.");
     }
@@ -244,12 +440,13 @@ async function joinRoom() {
     const response = await fetch(`${WORKER_URL}/join-room`, {
       method: "POST",
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
       },
-      body: JSON.stringify({ roomCode: code })
+      body: JSON.stringify({ roomCode: code }),
     });
 
     const data = await response.json();
+
     if (data.type === "error") {
       throw new Error(data.message);
     }
@@ -257,6 +454,8 @@ async function joinRoom() {
     roomCode = data.roomCode;
     playerId = data.playerId;
     isHost = false;
+    manualClose = false;
+
     updateHeaderState();
     showGame();
     addConnectionLog(`Joined room: ${roomCode}`);
@@ -267,16 +466,33 @@ async function joinRoom() {
 }
 
 function connectSocket() {
-  if (socket) {
-    socket.close();
+  if (!roomCode || !playerId) {
+    addConnectionLog("Missing room or player info.");
+    return;
+  }
+
+  if (
+    socket &&
+    (socket.readyState === WebSocket.OPEN ||
+      socket.readyState === WebSocket.CONNECTING)
+  ) {
+    return;
   }
 
   const wsBase = WORKER_URL.replace(/^https:/, "wss:");
-  socket = new WebSocket(`${wsBase}/ws?room=${encodeURIComponent(roomCode)}&player=${encodeURIComponent(playerId)}`);
+  const wsUrl = `${wsBase}/ws?room=${encodeURIComponent(roomCode)}&player=${encodeURIComponent(playerId)}`;
+
+  addConnectionLog(`Connecting to room ${roomCode}...`);
+  socket = new WebSocket(wsUrl);
 
   socket.addEventListener("open", () => {
     updateHeaderState();
     addConnectionLog("WebSocket connected.");
+
+    if (reconnectTimer) {
+      clearTimeout(reconnectTimer);
+      reconnectTimer = null;
+    }
   });
 
   socket.addEventListener("message", (event) => {
@@ -298,11 +514,14 @@ function connectSocket() {
       selectedCardIndex = null;
       selectedFieldIndex = null;
       render();
+
       if (gameState && gameState.winner) {
         showOverlay(
           "Match Over",
           "The duel has ended.",
-          gameState.winner === "Draw" ? "It is a draw." : `${gameState.winner} wins!`
+          gameState.winner === "Draw"
+            ? "It is a draw."
+            : `${gameState.winner} wins!`,
         );
       } else {
         hideOverlay();
@@ -310,9 +529,23 @@ function connectSocket() {
     }
   });
 
-  socket.addEventListener("close", () => {
+  socket.addEventListener("close", (event) => {
     updateHeaderState();
-    addConnectionLog("WebSocket disconnected.");
+    addConnectionLog(
+      `WebSocket disconnected.${event?.code ? ` code=${event.code}` : ""}${event?.reason ? ` reason=${event.reason}` : ""}`,
+    );
+
+    socket = null;
+
+    if (manualClose) return;
+    if (!roomCode || !playerId) return;
+    if (reconnectTimer) return;
+
+    addConnectionLog("Reconnecting in 2 seconds...");
+    reconnectTimer = setTimeout(() => {
+      reconnectTimer = null;
+      connectSocket();
+    }, 2000);
   });
 
   socket.addEventListener("error", () => {
@@ -325,17 +558,21 @@ function sendAction(action, payload = {}) {
     addConnectionLog("Not connected.");
     return;
   }
+
   socket.send(JSON.stringify({ action, payload }));
 }
 
 function isMyTurn() {
-  return !!gameState && playerId === gameState.currentPlayer && !gameState.winner;
+  return (
+    !!gameState && playerId === gameState.currentPlayer && !gameState.winner
+  );
 }
 
 function selectCard(index) {
   if (!isMyTurn()) return;
   const player = gameState.players[playerId];
   if (!player.hand[index]) return;
+
   selectedCardIndex = index;
   selectedFieldIndex = null;
   render();
@@ -345,6 +582,7 @@ function selectFieldCard(index) {
   if (!isMyTurn()) return;
   const player = gameState.players[playerId];
   if (!player.field[index]) return;
+
   selectedFieldIndex = index;
   selectedCardIndex = null;
   render();
@@ -353,9 +591,11 @@ function selectFieldCard(index) {
 function createCardElement(card, isSelected, onClick) {
   const el = document.createElement("div");
   const tags = Array.isArray(card.tags) ? card.tags : [];
-  el.className = (`card ${card.className || ""} ${isSelected ? "selected" : ""}`).trim();
-  el.innerHTML =
-    `<div class="card-top">
+
+  el.className =
+    `card ${card.className || ""} ${isSelected ? "selected" : ""}`.trim();
+
+  el.innerHTML = `<div class="card-top">
       <div class="card-name">${escapeHtml(card.name || "")}</div>
       <div class="card-cost">${escapeHtml(String(card.cost || 0))}</div>
     </div>
@@ -364,7 +604,9 @@ function createCardElement(card, isSelected, onClick) {
       <div class="card-type">${escapeHtml(card.type || "")}</div>
       <div class="card-text">${escapeHtml(card.text || "")}</div>
     </div>
-    <div class="card-tags">${tags.map(tag => `<span class="tag">${escapeHtml(tag)}</span>`).join("")}</div>`;
+    <div class="card-tags">${tags
+      .map((tag) => `<span class="tag">${escapeHtml(tag)}</span>`)
+      .join("")}</div>`;
 
   el.addEventListener("click", onClick);
   return el;
@@ -380,6 +622,7 @@ function createMiniCard(card) {
 function renderStatuses(containerId, statuses) {
   const container = document.getElementById(containerId);
   container.innerHTML = "";
+
   if (!statuses.length) {
     const chip = document.createElement("div");
     chip.className = "status-chip";
@@ -387,6 +630,7 @@ function renderStatuses(containerId, statuses) {
     container.appendChild(chip);
     return;
   }
+
   statuses.forEach((status) => {
     const chip = document.createElement("div");
     chip.className = "status-chip";
@@ -398,6 +642,7 @@ function renderStatuses(containerId, statuses) {
 function renderField(containerId, pid) {
   const container = document.getElementById(containerId);
   container.innerHTML = "";
+
   const player = gameState.players[pid];
   const clickable = pid === playerId && isMyTurn();
 
@@ -406,8 +651,8 @@ function renderField(containerId, pid) {
       createCardElement(
         card,
         clickable && selectedFieldIndex === index,
-        clickable ? () => selectFieldCard(index) : () => {}
-      )
+        clickable ? () => selectFieldCard(index) : () => {},
+      ),
     );
   });
 
@@ -422,6 +667,7 @@ function renderField(containerId, pid) {
 function renderHand(containerId, pid) {
   const container = document.getElementById(containerId);
   container.innerHTML = "";
+
   const player = gameState.players[pid];
 
   if (pid !== playerId) {
@@ -431,6 +677,7 @@ function renderHand(containerId, pid) {
       slot.textContent = "Hidden card";
       container.appendChild(slot);
     }
+
     if (!player.hand.length) {
       const slot = document.createElement("div");
       slot.className = "slot";
@@ -442,7 +689,9 @@ function renderHand(containerId, pid) {
 
   player.hand.forEach((card, index) => {
     container.appendChild(
-      createCardElement(card, selectedCardIndex === index, () => selectCard(index))
+      createCardElement(card, selectedCardIndex === index, () =>
+        selectCard(index),
+      ),
     );
   });
 
@@ -457,6 +706,7 @@ function renderHand(containerId, pid) {
 function renderPreview(containerId, pid) {
   const container = document.getElementById(containerId);
   container.innerHTML = "";
+
   const player = gameState.players[pid];
 
   if (!player.field.length) {
@@ -488,7 +738,9 @@ function renderSelectedCardBox() {
   }
 
   if (!isMyTurn()) {
-    box.textContent = gameState.winner ? "Match finished." : "Wait for your turn.";
+    box.textContent = gameState.winner
+      ? "Match finished."
+      : "Wait for your turn.";
     return;
   }
 
@@ -496,8 +748,7 @@ function renderSelectedCardBox() {
 
   if (selectedCardIndex !== null && player.hand[selectedCardIndex]) {
     const card = player.hand[selectedCardIndex];
-    box.innerHTML =
-      `<strong style="font-size:18px;">${escapeHtml(card.name || "")}</strong><br>
+    box.innerHTML = `<strong style="font-size:18px;">${escapeHtml(card.name || "")}</strong><br>
       <span style="color: var(--muted); text-transform: uppercase; letter-spacing: .08em; font-size: 12px;">${escapeHtml(card.type || "")}</span>
       <p style="line-height:1.55;">${escapeHtml(card.text || "")}</p>
       <div style="color: var(--muted);">Cost: ${escapeHtml(String(card.cost || 0))} energy</div>`;
@@ -507,8 +758,7 @@ function renderSelectedCardBox() {
 
   if (selectedFieldIndex !== null && player.field[selectedFieldIndex]) {
     const card = player.field[selectedFieldIndex];
-    box.innerHTML =
-      `<strong style="font-size:18px;">${escapeHtml(card.name || "")}</strong><br>
+    box.innerHTML = `<strong style="font-size:18px;">${escapeHtml(card.name || "")}</strong><br>
       <span style="color: var(--muted); text-transform: uppercase; letter-spacing: .08em; font-size: 12px;">Field Card</span>
       <p style="line-height:1.55;">This card is on your field. Remove it if you want to free a slot or change your combo.</p>
       <div style="color: var(--muted);">Remove cost: 0 energy</div>`;
@@ -522,6 +772,7 @@ function renderSelectedCardBox() {
 function renderCombatLog() {
   const log = document.getElementById("combatLog");
   log.innerHTML = "";
+
   const items = Array.isArray(gameState.log) ? gameState.log : [];
   items.forEach((item) => {
     const el = document.createElement("div");
@@ -533,10 +784,14 @@ function renderCombatLog() {
 
 function updatePlayerBars(pid) {
   const p = gameState.players[pid];
+
   document.getElementById(`p${pid}HpText`).textContent = `${p.hp} / ${p.maxHp}`;
-  document.getElementById(`p${pid}EnergyText`).textContent = `${p.energy} / ${p.maxEnergy}`;
-  document.getElementById(`p${pid}HpBar`).style.width = `${(p.hp / p.maxHp) * 100}%`;
-  document.getElementById(`p${pid}EnergyBar`).style.width = `${(p.energy / p.maxEnergy) * 100}%`;
+  document.getElementById(`p${pid}EnergyText`).textContent =
+    `${p.energy} / ${p.maxEnergy}`;
+  document.getElementById(`p${pid}HpBar`).style.width =
+    `${(p.hp / p.maxHp) * 100}%`;
+  document.getElementById(`p${pid}EnergyBar`).style.width =
+    `${(p.energy / p.maxEnergy) * 100}%`;
   document.getElementById(`p${pid}DeckCount`).textContent = p.deck.length;
   document.getElementById(`p${pid}HandCount`).textContent = p.hand.length;
   document.getElementById(`p${pid}DiscardCount`).textContent = p.discard.length;
@@ -559,17 +814,19 @@ function render() {
   renderCombatLog();
 
   document.getElementById("turnPill").textContent = `Turn: ${gameState.turn}`;
-  document.getElementById("turnBanner").textContent =
-    gameState.winner ? "Finished" : `Turn ${gameState.turn} - Player ${gameState.currentPlayer}`;
-  document.getElementById("roomStateText").textContent =
-    gameState.winner
-      ? `Winner: ${gameState.winner}`
-      : isMyTurn()
+  document.getElementById("turnBanner").textContent = gameState.winner
+    ? "Finished"
+    : `Turn ${gameState.turn} - Player ${gameState.currentPlayer}`;
+
+  document.getElementById("roomStateText").textContent = gameState.winner
+    ? `Winner: ${gameState.winner}`
+    : isMyTurn()
       ? "Your turn."
       : "Opponent turn.";
 
   document.getElementById("endTurnBtn").disabled = !isMyTurn();
   document.getElementById("restartBtn").disabled = !isHost;
+
   updateHeaderState();
 }
 
@@ -600,9 +857,17 @@ function restartMatch() {
 }
 
 function leaveRoom() {
+  manualClose = true;
+
+  if (reconnectTimer) {
+    clearTimeout(reconnectTimer);
+    reconnectTimer = null;
+  }
+
   if (socket) {
     socket.close();
   }
+
   socket = null;
   roomCode = "";
   playerId = null;
@@ -610,16 +875,43 @@ function leaveRoom() {
   gameState = null;
   selectedCardIndex = null;
   selectedFieldIndex = null;
+
   updateHeaderState();
   showLobby();
   addConnectionLog("Left room.");
 }
 
+window.addEventListener("online", () => {
+  addConnectionLog("Network back online.");
+  if (!manualClose && roomCode && playerId && !socket) {
+    connectSocket();
+  }
+});
+
+document.addEventListener("visibilitychange", () => {
+  if (
+    document.visibilityState === "visible" &&
+    !manualClose &&
+    roomCode &&
+    playerId &&
+    !socket
+  ) {
+    addConnectionLog("Page visible again, checking connection...");
+    connectSocket();
+  }
+});
+
 document.getElementById("hostBtn").addEventListener("click", createRoom);
 document.getElementById("joinBtn").addEventListener("click", joinRoom);
-document.getElementById("playCardBtn").addEventListener("click", playSelectedCard);
-document.getElementById("removeFieldCardBtn").addEventListener("click", removeSelectedFieldCard);
-document.getElementById("clearSelectionBtn").addEventListener("click", clearSelection);
+document
+  .getElementById("playCardBtn")
+  .addEventListener("click", playSelectedCard);
+document
+  .getElementById("removeFieldCardBtn")
+  .addEventListener("click", removeSelectedFieldCard);
+document
+  .getElementById("clearSelectionBtn")
+  .addEventListener("click", clearSelection);
 document.getElementById("endTurnBtn").addEventListener("click", endTurn);
 document.getElementById("restartBtn").addEventListener("click", restartMatch);
 document.getElementById("leaveBtn").addEventListener("click", leaveRoom);
