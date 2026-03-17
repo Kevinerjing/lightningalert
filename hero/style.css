@@ -746,3 +746,89 @@ button:disabled {
     max-height: 160px;
   }
 }
+
+/* ===== Player Header Compact Layout ===== */
+
+.player-header {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 10px;
+}
+
+
+.badge {
+  width: 36px;
+  height: 36px;
+  font-size: 14px;
+}
+
+
+.player-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.player-name {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+
+.stats {
+  display: flex;
+  gap: 6px;
+}
+
+.stat-chip {
+  padding: 4px 8px;
+  font-size: 12px;
+  border-radius: 999px;
+}
+
+
+
+.bar-wrap {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+
+.bar-wrap > div {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+
+.bar-label {
+  font-size: 11px;
+}
+
+
+.bar {
+  height: 10px;
+}
+
+
+.bar-label span:last-child {
+  font-size: 11px;
+}
+
+
+
+.zone-label {
+  font-size: 11px;
+  margin-bottom: 4px;
+}
+
+.status-row {
+  gap: 6px;
+}
+
+.status-chip {
+  padding: 4px 8px;
+  font-size: 11px;
+}
