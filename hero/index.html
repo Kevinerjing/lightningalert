@@ -38,10 +38,11 @@
         <div class="panel-box">
           <div class="section-title">How to play</div>
           <div class="rules-text">
-            <div>1. Host clicks <strong>Create Room</strong>.</div>
-            <div>2. Share the room code.</div>
-            <div>3. Second player enters the code and joins.</div>
-            <div>4. Play cards when it is your turn.</div>
+            <div>1. Enter your name.</div>
+            <div>2. Host clicks <strong>Create Room</strong>.</div>
+            <div>3. Share the room code.</div>
+            <div>4. Second player enters the code and clicks <strong>Join Room</strong>.</div>
+            <div>5. Play cards when it is your turn.</div>
           </div>
           <div id="lobbyMessage" class="lobby-message">Ready.</div>
         </div>
@@ -68,7 +69,7 @@
               <div class="player-meta">
                 <div class="badge p2">P2</div>
                 <div>
-                  <div class="player-name" id="playerLabel">Player --</div>
+                  <div class="player-name" id="p2NameLabel">Player 2</div>
                   <div class="stats">
                     <div class="stat-chip">Deck: <span id="p2DeckCount"></span></div>
                     <div class="stat-chip">Hand: <span id="p2HandCount"></span></div>
@@ -150,7 +151,7 @@
               <div class="player-meta">
                 <div class="badge p1">P1</div>
                 <div>
-                  <div class="player-name" id="playerLabel">Player --</div>
+                  <div class="player-name" id="p1NameLabel">Player 1</div>
                   <div class="stats">
                     <div class="stat-chip">Deck: <span id="p1DeckCount"></span></div>
                     <div class="stat-chip">Hand: <span id="p1HandCount"></span></div>
@@ -220,13 +221,12 @@
     </div>
   </div>
 
-<div id="nameModal" class="name-modal">
-  <div class="name-box">
-    <h2>Enter Your Name</h2>
-    <input id="playerNameInput" type="text" maxlength="20" placeholder="Your name" />
-    <button id="nameConfirmBtn">Continue</button>
+  <div id="nameModal" class="name-modal">
+    <div class="name-box">
+      <h2>Enter Your Name</h2>
+      <input id="playerNameInput" type="text" maxlength="20" placeholder="Your name" />
+    </div>
   </div>
-</div>
 
   <script src="game.js"></script>
 </body>

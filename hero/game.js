@@ -36,38 +36,53 @@ const CARD_LIBRARY = {
 
 const nameModal = document.getElementById("nameModal");
 const playerNameInput = document.getElementById("playerNameInput");
-const nameConfirmBtn = document.getElementById("nameConfirmBtn");
-const playerLabel = document.getElementById("playerLabel");
+const p1NameLabel = document.getElementById("p1NameLabel");
+const p2NameLabel = document.getElementById("p2NameLabel");
 
-function updatePlayerLabel() {
-  if (!playerLabel) return;
-
-  if (playerId !== null) {
-    playerLabel.textContent = `Player ${playerId} - ${playerName || "Guest"}`;
-  } else {
-    playerLabel.textContent = `Player -- - ${playerName || "Guest"}`;
-  }
-}
-
-function confirmPlayerName() {
-  if (!playerNameInput) return;
+function getEnteredPlayerName() {
+  if (!playerNameInput) return "Guest";
   const rawName = playerNameInput.value.trim();
-  playerName = rawName ? rawName.slice(0, 20) : "Guest";
-  updatePlayerLabel();
+  return rawName ? rawName.slice(0, 20) : "Guest";
+}
 
+function syncPlayerNameFromInput() {
+  playerName = getEnteredPlayerName();
+  updatePlayerLabels();
+}
+
+function hideNameModal() {
   if (nameModal) {
-    nameModal.style.display = "none";
+    nameModal.classList.add("hidden");
   }
 }
 
-if (nameConfirmBtn) {
-  nameConfirmBtn.addEventListener("click", confirmPlayerName);
+function showNameModal() {
+  if (nameModal) {
+    nameModal.classList.remove("hidden");
+  }
+}
+
+function updatePlayerLabels() {
+  if (p1NameLabel) {
+    p1NameLabel.textContent =
+      playerId === 1 ? `Player 1 - ${playerName || "Guest"}` : "Player 1";
+  }
+
+  if (p2NameLabel) {
+    p2NameLabel.textContent =
+      playerId === 2 ? `Player 2 - ${playerName || "Guest"}` : "Player 2";
+  }
 }
 
 if (playerNameInput) {
+  playerNameInput.addEventListener("input", () => {
+    syncPlayerNameFromInput();
+  });
+
   playerNameInput.addEventListener("keydown", (e) => {
     if (e.key === "Enter") {
-      confirmPlayerName();
+      e.preventDefault();
+      document.getElementById("hostBtn")?.click();
     }
   });
 }
@@ -132,6 +147,8 @@ function hideOverlay() {
 
 async function createRoom() {
   try {
+    syncPlayerNameFromInput();
+
     const response = await fetch(`${WORKER_URL}/create-room`, {
       method: "POST",
       headers: {
@@ -150,7 +167,9 @@ async function createRoom() {
     roomCode = data.roomCode;
     playerId = data.playerId;
     isHost = true;
-    updatePlayerLabel();
+
+    hideNameModal();
+    updatePlayerLabels();
     updateHeaderState();
     showGame();
     addConnectionLog(`Room created: ${roomCode}`);
@@ -162,6 +181,8 @@ async function createRoom() {
 
 async function joinRoom() {
   try {
+    syncPlayerNameFromInput();
+
     const code = document.getElementById("joinCodeInput").value.trim().toUpperCase();
     if (!code) {
       throw new Error("Enter a room code.");
@@ -186,7 +207,9 @@ async function joinRoom() {
     roomCode = data.roomCode;
     playerId = data.playerId;
     isHost = false;
-    updatePlayerLabel();
+
+    hideNameModal();
+    updatePlayerLabels();
     updateHeaderState();
     showGame();
     addConnectionLog(`Joined room: ${roomCode}`);
@@ -501,6 +524,7 @@ function render() {
 
   document.getElementById("endTurnBtn").disabled = !isMyTurn();
   document.getElementById("restartBtn").disabled = !isHost;
+  updatePlayerLabels();
   updateHeaderState();
 }
 
@@ -541,7 +565,8 @@ function leaveRoom() {
   gameState = null;
   selectedCardIndex = null;
   selectedFieldIndex = null;
-  updatePlayerLabel();
+  showNameModal();
+  updatePlayerLabels();
   updateHeaderState();
   showLobby();
   addConnectionLog("Left room.");
@@ -557,6 +582,6 @@ document.getElementById("restartBtn").addEventListener("click", restartMatch);
 document.getElementById("leaveBtn").addEventListener("click", leaveRoom);
 document.getElementById("overlayBtn").addEventListener("click", hideOverlay);
 
-updatePlayerLabel();
+updatePlayerLabels();
 updateHeaderState();
-addConnectionLog("Ready.");
+addConnectionLog("Ready."); now?
