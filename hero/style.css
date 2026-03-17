@@ -533,7 +533,7 @@ button:disabled {
 
 .desk-area {
   position: relative;
-  height: 12px;
+  height: 1px;
   margin: 10px 0 14px;
   border-radius: 16px;
   pointer-events: none;
@@ -544,4 +544,9 @@ button:disabled {
   inset: 0;
   pointer-events: none;
   z-index: 9998;
+}
+
+.player-area {
+  position: relative;
+  overflow: visible;
 }

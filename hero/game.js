@@ -406,9 +406,9 @@ function hideOverlay() {
 
 function getDeskSelectorForPid(pid) {
   if (!playerId) {
-    return Number(pid) === 1 ? "#player-desk" : "#enemy-desk";
+    return Number(pid) === 1 ? "#player-area" : "#enemy-area";
   }
-  return Number(pid) === Number(playerId) ? "#player-desk" : "#enemy-desk";
+  return Number(pid) === Number(playerId) ? "#player-area" : "#enemy-area";
 }
 
 function hasEffectSystem() {
