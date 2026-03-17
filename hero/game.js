@@ -384,14 +384,11 @@ function updateHeaderState() {
 function showLobby() {
   document.getElementById("lobbyPanel").classList.remove("hidden");
   document.getElementById("gamePanel").classList.add("hidden");
-  setCommandBarVisibility();
-  closeMobileSheet();
 }
 
 function showGame() {
   document.getElementById("lobbyPanel").classList.add("hidden");
   document.getElementById("gamePanel").classList.remove("hidden");
-  setCommandBarVisibility();
 }
 
 function showOverlay(title, text, winnerText = "") {
@@ -891,7 +888,7 @@ function createCardElement(card, isSelected, onClick) {
   const el = document.createElement("div");
   const tags = Array.isArray(card.tags) ? card.tags : [];
 
-  el.className = `card ${card.className || ""} ${isSelected ? "selected playable-pulse" : ""}`.trim();
+  el.className = `card ${card.className || ""} ${isSelected ? "selected" : ""}`.trim();
 
   el.innerHTML = `<div class="card-top">
       <div class="card-name">${escapeHtml(card.name || "")}</div>
@@ -1020,35 +1017,23 @@ function renderPreview(containerId, pid) {
   });
 }
 
-
 function renderSelectedCardBox() {
   const box = document.getElementById("selectedCardBox");
-  const mobileBox = getOptionalEl("mobileSelectedCardBox");
   const playBtn = document.getElementById("playCardBtn");
   const removeBtn = document.getElementById("removeFieldCardBtn");
-  const boxTargets = [box, mobileBox].filter(Boolean);
+  const clearBtn = document.getElementById("clearSelectionBtn");
 
   playBtn.disabled = true;
   removeBtn.disabled = true;
-
-  const setBoxMarkup = (markup, isActive = false) => {
-    boxTargets.forEach((target) => {
-      target.innerHTML = markup;
-      target.classList.toggle("active-selection", isActive);
-    });
-  };
+  clearBtn.disabled = selectedCardIndex === null && selectedFieldIndex === null;
 
   if (!gameState) {
-    setBoxMarkup("No card selected.");
-    syncButtonState("playCardBtn", ["mobilePlayBtn"]);
-    syncButtonState("removeFieldCardBtn", ["mobileRemoveFieldBtn"]);
+    box.textContent = "No card selected.";
     return;
   }
 
   if (!isMyTurn()) {
-    setBoxMarkup(gameState.winner ? "Match finished." : "Wait for your turn.");
-    syncButtonState("playCardBtn", ["mobilePlayBtn"]);
-    syncButtonState("removeFieldCardBtn", ["mobileRemoveFieldBtn"]);
+    box.textContent = gameState.winner ? "Match finished." : "Wait for your turn.";
     return;
   }
 
@@ -1056,26 +1041,27 @@ function renderSelectedCardBox() {
 
   if (selectedCardIndex !== null && player.hand[selectedCardIndex]) {
     const card = player.hand[selectedCardIndex];
-    setBoxMarkup(buildSelectedCardMarkup(card, "hand"), true);
+    box.innerHTML = `<div class="selection-title">${escapeHtml(card.name || "")}</div>
+      <div class="selection-meta">${escapeHtml(card.type || "")}</div>
+      <p class="selection-text">${escapeHtml(card.text || "")}</p>
+      <div class="selection-cost">Cost: ${escapeHtml(String(card.cost || 0))} energy</div>`;
     playBtn.disabled = false;
-    syncButtonState("playCardBtn", ["mobilePlayBtn"]);
-    syncButtonState("removeFieldCardBtn", ["mobileRemoveFieldBtn"]);
     return;
   }
 
   if (selectedFieldIndex !== null && player.field[selectedFieldIndex]) {
     const card = player.field[selectedFieldIndex];
-    setBoxMarkup(buildSelectedCardMarkup(card, "field"), true);
+    box.innerHTML = `<div class="selection-title">${escapeHtml(card.name || "")}</div>
+      <div class="selection-meta">Field Card</div>
+      <p class="selection-text">This card is on your field. Remove it if you want to free a slot or change your combo.</p>
+      <div class="selection-cost">Remove cost: 0 energy</div>`;
     removeBtn.disabled = false;
-    syncButtonState("playCardBtn", ["mobilePlayBtn"]);
-    syncButtonState("removeFieldCardBtn", ["mobileRemoveFieldBtn"]);
     return;
   }
 
-  setBoxMarkup("No card selected.");
-  syncButtonState("playCardBtn", ["mobilePlayBtn"]);
-  syncButtonState("removeFieldCardBtn", ["mobileRemoveFieldBtn"]);
+  box.textContent = "No card selected.";
 }
+
 function renderCombatLog() {
   const log = document.getElementById("combatLog");
   log.innerHTML = "";
@@ -1125,18 +1111,11 @@ function render() {
   document.getElementById("roomStateText").textContent = gameState.winner
     ? `Winner: ${gameState.winner}`
     : isMyTurn()
-      ? "Your turn."
-      : "Opponent turn.";
+      ? "Your turn — choose a hand card or field card."
+      : "Opponent turn — wait for their move.";
 
   document.getElementById("endTurnBtn").disabled = !isMyTurn();
   document.getElementById("restartBtn").disabled = !isHost;
-
-  syncButtonState("playCardBtn", ["mobilePlayBtn"]);
-  syncButtonState("removeFieldCardBtn", ["mobileRemoveFieldBtn"]);
-  syncButtonState("endTurnBtn", ["mobileEndTurnBtn"]);
-  syncButtonState("restartBtn", ["mobileRestartBtn"]);
-  updateSelectionHints();
-  setCommandBarVisibility();
 
   updateHeaderState();
 }
@@ -1204,7 +1183,6 @@ function leaveRoom() {
 
   updateHeaderState();
   showLobby();
-  setCommandBarVisibility();
   addConnectionLog("Left room.");
 }
 
