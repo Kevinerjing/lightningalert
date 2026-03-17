@@ -684,22 +684,12 @@
     }
   }
 
-  function getDefaultElement(side) {
-    if (side === "player") {
-      return (
-        qs("#player-hero") ||
-        qs(".player-hero") ||
-        qs(".player") ||
-        qs("[data-side='player']")
-      );
-    }
-    return (
-      qs("#enemy-hero") ||
-      qs(".enemy-hero") ||
-      qs(".enemy") ||
-      qs("[data-side='enemy']")
-    );
+function getDefaultElement(side) {
+  if (side === "player") {
+    return qs("#player-desk");
   }
+  return qs("#enemy-desk");
+}
 
   function getElementFromContext(ctx, kind) {
     const direct = kind === "source" ? ctx.sourceEl : ctx.targetEl;
