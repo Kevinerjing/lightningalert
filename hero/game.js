@@ -384,11 +384,14 @@ function updateHeaderState() {
 function showLobby() {
   document.getElementById("lobbyPanel").classList.remove("hidden");
   document.getElementById("gamePanel").classList.add("hidden");
+  setCommandBarVisibility();
+  closeMobileSheet();
 }
 
 function showGame() {
   document.getElementById("lobbyPanel").classList.add("hidden");
   document.getElementById("gamePanel").classList.remove("hidden");
+  setCommandBarVisibility();
 }
 
 function showOverlay(title, text, winnerText = "") {
@@ -888,7 +891,7 @@ function createCardElement(card, isSelected, onClick) {
   const el = document.createElement("div");
   const tags = Array.isArray(card.tags) ? card.tags : [];
 
-  el.className = `card ${card.className || ""} ${isSelected ? "selected" : ""}`.trim();
+  el.className = `card ${card.className || ""} ${isSelected ? "selected playable-pulse" : ""}`.trim();
 
   el.innerHTML = `<div class="card-top">
       <div class="card-name">${escapeHtml(card.name || "")}</div>
@@ -1017,21 +1020,35 @@ function renderPreview(containerId, pid) {
   });
 }
 
+
 function renderSelectedCardBox() {
   const box = document.getElementById("selectedCardBox");
+  const mobileBox = getOptionalEl("mobileSelectedCardBox");
   const playBtn = document.getElementById("playCardBtn");
   const removeBtn = document.getElementById("removeFieldCardBtn");
+  const boxTargets = [box, mobileBox].filter(Boolean);
 
   playBtn.disabled = true;
   removeBtn.disabled = true;
 
+  const setBoxMarkup = (markup, isActive = false) => {
+    boxTargets.forEach((target) => {
+      target.innerHTML = markup;
+      target.classList.toggle("active-selection", isActive);
+    });
+  };
+
   if (!gameState) {
-    box.textContent = "No card selected.";
+    setBoxMarkup("No card selected.");
+    syncButtonState("playCardBtn", ["mobilePlayBtn"]);
+    syncButtonState("removeFieldCardBtn", ["mobileRemoveFieldBtn"]);
     return;
   }
 
   if (!isMyTurn()) {
-    box.textContent = gameState.winner ? "Match finished." : "Wait for your turn.";
+    setBoxMarkup(gameState.winner ? "Match finished." : "Wait for your turn.");
+    syncButtonState("playCardBtn", ["mobilePlayBtn"]);
+    syncButtonState("removeFieldCardBtn", ["mobileRemoveFieldBtn"]);
     return;
   }
 
@@ -1039,27 +1056,26 @@ function renderSelectedCardBox() {
 
   if (selectedCardIndex !== null && player.hand[selectedCardIndex]) {
     const card = player.hand[selectedCardIndex];
-    box.innerHTML = `<strong style="font-size:18px;">${escapeHtml(card.name || "")}</strong><br>
-      <span style="color: var(--muted); text-transform: uppercase; letter-spacing: .08em; font-size: 12px;">${escapeHtml(card.type || "")}</span>
-      <p style="line-height:1.55;">${escapeHtml(card.text || "")}</p>
-      <div style="color: var(--muted);">Cost: ${escapeHtml(String(card.cost || 0))} energy</div>`;
+    setBoxMarkup(buildSelectedCardMarkup(card, "hand"), true);
     playBtn.disabled = false;
+    syncButtonState("playCardBtn", ["mobilePlayBtn"]);
+    syncButtonState("removeFieldCardBtn", ["mobileRemoveFieldBtn"]);
     return;
   }
 
   if (selectedFieldIndex !== null && player.field[selectedFieldIndex]) {
     const card = player.field[selectedFieldIndex];
-    box.innerHTML = `<strong style="font-size:18px;">${escapeHtml(card.name || "")}</strong><br>
-      <span style="color: var(--muted); text-transform: uppercase; letter-spacing: .08em; font-size: 12px;">Field Card</span>
-      <p style="line-height:1.55;">This card is on your field. Remove it if you want to free a slot or change your combo.</p>
-      <div style="color: var(--muted);">Remove cost: 0 energy</div>`;
+    setBoxMarkup(buildSelectedCardMarkup(card, "field"), true);
     removeBtn.disabled = false;
+    syncButtonState("playCardBtn", ["mobilePlayBtn"]);
+    syncButtonState("removeFieldCardBtn", ["mobileRemoveFieldBtn"]);
     return;
   }
 
-  box.textContent = "No card selected.";
+  setBoxMarkup("No card selected.");
+  syncButtonState("playCardBtn", ["mobilePlayBtn"]);
+  syncButtonState("removeFieldCardBtn", ["mobileRemoveFieldBtn"]);
 }
-
 function renderCombatLog() {
   const log = document.getElementById("combatLog");
   log.innerHTML = "";
@@ -1114,6 +1130,13 @@ function render() {
 
   document.getElementById("endTurnBtn").disabled = !isMyTurn();
   document.getElementById("restartBtn").disabled = !isHost;
+
+  syncButtonState("playCardBtn", ["mobilePlayBtn"]);
+  syncButtonState("removeFieldCardBtn", ["mobileRemoveFieldBtn"]);
+  syncButtonState("endTurnBtn", ["mobileEndTurnBtn"]);
+  syncButtonState("restartBtn", ["mobileRestartBtn"]);
+  updateSelectionHints();
+  setCommandBarVisibility();
 
   updateHeaderState();
 }
@@ -1181,6 +1204,7 @@ function leaveRoom() {
 
   updateHeaderState();
   showLobby();
+  setCommandBarVisibility();
   addConnectionLog("Left room.");
 }
 
