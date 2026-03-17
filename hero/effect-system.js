@@ -1012,18 +1012,32 @@ function getDefaultElement(side) {
     setTimeout(() => showDamage(targetEl, damage, color), 140);
   }
 
-  function pressureWaveAt(targetEl, damage = 2) {
-    const { x, y } = rectCenter(targetEl);
-    const ring = createNode("ehx-air-ring", {
-      left: `${x}px`,
-      top: `${y}px`,
-    });
-    removeLater(ring, 720);
-    screenFlash(
-      "radial-gradient(circle, rgba(220,240,255,0.14), rgba(180,210,255,0.05), rgba(0,0,0,0))"
-    );
-    setTimeout(() => showDamage(targetEl, damage, "#d8f1ff"), 80);
+function pressureWaveAt(targetEl, damage = 2) {
+  const { x, y } = rectCenter(targetEl);
+
+  if (targetEl) {
+    targetEl.style.transition = "transform 120ms ease-out";
+    targetEl.style.transform = "scale(0.95)";
   }
+
+  const ring = createNode("ehx-air-ring", {
+    left: `${x}px`,
+    top: `${y}px`,
+  });
+  removeLater(ring, 720);
+
+  screenFlash(
+    "radial-gradient(circle, rgba(220,240,255,0.14), rgba(180,210,255,0.05), rgba(0,0,0,0))"
+  );
+
+  setTimeout(() => {
+    if (targetEl) {
+      targetEl.style.transform = "";
+    }
+  }, 120);
+
+  setTimeout(() => showDamage(targetEl, damage, "#d8f1ff"), 80);
+}
 
   function metalImpactAt(targetEl, damage = 3) {
     const { x, y } = rectCenter(targetEl);
