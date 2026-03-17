@@ -46,6 +46,19 @@
           <div id="lobbyMessage" class="lobby-message">Ready.</div>
         </div>
       </div>
+
+      <div class="lobby-footer">
+  <div class="footer-left">
+    <div class="footer-version">Version 0.3.0</div>
+    <div class="footer-credits">
+      Director: Eric Jing · Manager: Kevin Jing · Digital Worker: AI · March Break Project
+    </div>
+  </div>
+
+  <div class="footer-right">
+    <a href="tutorial.html" class="tutorial-btn">📘 Tutorial</a>
+  </div>
+</div>
     </section>
 
     <section id="gamePanel" class="game-panel hidden">
@@ -81,7 +94,6 @@
               <div class="turn-pill" id="turnBanner">Waiting</div>
             </div>
 
-            <!-- EFFECT DESK: enemy -->
             <div id="enemy-desk" class="desk-area" data-desk="enemy"></div>
 
             <div class="bar-wrap">
@@ -167,7 +179,6 @@
               </div>
             </div>
 
-            <!-- EFFECT DESK: player -->
             <div id="player-desk" class="desk-area" data-desk="player"></div>
 
             <div class="bar-wrap">
@@ -221,8 +232,50 @@
     </section>
   </div>
 
-  <!-- optional future global fx layer -->
   <div id="battle-effects-root"></div>
+
+  <div class="overlay hidden" id="tutorialOverlay">
+    <div class="overlay-card tutorial-card">
+      <h2>How to Play</h2>
+      <p>
+        Welcome to Element Heroes. In this game, you build element combos, use reactions,
+        and attack your opponent using chemistry-based strategy.
+      </p>
+
+      <div class="tutorial-steps">
+        <div class="tutorial-step">
+          <strong>1. Build your field</strong>
+          <div>Play element cards like Oxygen, Water, Iron, Hydrogen, or Sodium onto your field.</div>
+        </div>
+
+        <div class="tutorial-step">
+          <strong>2. Trigger reactions</strong>
+          <div>Reaction cards only work when the correct elements are already on your field.</div>
+        </div>
+
+        <div class="tutorial-step">
+          <strong>3. Use attacks wisely</strong>
+          <div>Some attacks become stronger if the enemy is Wet or Corroded.</div>
+        </div>
+
+        <div class="tutorial-step">
+          <strong>4. Watch your statuses</strong>
+          <div>Wet and Corroded can change what happens each turn.</div>
+        </div>
+
+        <div class="tutorial-step">
+          <strong>5. Win the match</strong>
+          <div>Reduce your opponent’s HP to 0 before they defeat you.</div>
+        </div>
+      </div>
+
+      <div class="tutorial-note">
+        Tip: You can only keep up to 3 element cards on your field, so choose your setup carefully.
+      </div>
+
+      <button id="closeTutorialBtn">Got It</button>
+    </div>
+  </div>
 
   <div class="overlay hidden" id="gameOverlay">
     <div class="overlay-card">

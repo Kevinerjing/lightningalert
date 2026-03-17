@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Element Heroes Tutorial</title>
+  <style>
+    :root {
+      --panel: rgba(12, 24, 39, 0.92);
+      --panel-2: rgba(18, 34, 53, 0.95);
+      --line: #24425d;
+      --text: #eaf7ff;
+      --muted: #9ab2c6;
+      --p1: #55d6ff;
+      --p2: #ffad42;
+      --danger: #ff6b6b;
+      --good: #5ae09a;
+      --accent: #b1f56e;
+      --shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
+      --radius: 18px;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top, rgba(65, 124, 194, 0.22), transparent 35%),
+        linear-gradient(180deg, #08121f 0%, #050b12 100%);
+      min-height: 100vh;
+    }
+
+    .app-shell {
+      width: min(1100px, 94vw);
+      margin: 18px auto 28px;
+    }
+
+    .page {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      padding: 16px 20px;
+      background: rgba(255,255,255,0.03);
+      border-bottom: 1px solid var(--line);
+      flex-wrap: wrap;
+    }
+
+    .title {
+      font-size: 30px;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+    }
+
+    .subtitle {
+      color: var(--muted);
+      font-size: 14px;
+      margin-top: 4px;
+    }
+
+    .pill {
+      padding: 9px 14px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid var(--line);
+      font-weight: 700;
+      font-size: 13px;
+      color: var(--accent);
+    }
+
+    .content {
+      padding: 18px;
+      display: grid;
+      gap: 16px;
+    }
+
+    .hero-box,
+    .section-box,
+    .card-box {
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: rgba(255,255,255,0.03);
+      padding: 16px;
+    }
+
+    .hero-box {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 16px;
+      align-items: center;
+    }
+
+    .hero-heading {
+      font-size: 24px;
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+
+    .hero-text {
+      color: #d8e9f5;
+      line-height: 1.7;
+      font-size: 15px;
+    }
+
+    .hero-side {
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: linear-gradient(180deg, rgba(85,214,255,0.08), rgba(255,173,66,0.06));
+      padding: 14px;
+    }
+
+    .mini-stat {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px 12px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      margin-bottom: 10px;
+      background: rgba(255,255,255,0.04);
+      font-size: 14px;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .section-title {
+      font-size: 20px;
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+
+    .section-subtitle {
+      color: var(--muted);
+      font-size: 13px;
+      margin-bottom: 14px;
+    }
+
+    .step-list {
+      display: grid;
+      gap: 10px;
+    }
+
+    .step {
+      display: grid;
+      grid-template-columns: 46px 1fr;
+      gap: 12px;
+      align-items: start;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: rgba(255,255,255,0.04);
+      padding: 12px;
+    }
+
+    .step-num {
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      font-weight: 800;
+      color: #04111a;
+      background: linear-gradient(180deg, #8bf7ff, #55d6ff);
+    }
+
+    .step strong {
+      display: block;
+      margin-bottom: 4px;
+      font-size: 15px;
+    }
+
+    .step p {
+      margin: 0;
+      color: #d8e9f5;
+      line-height: 1.6;
+      font-size: 14px;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+    }
+
+    .card-box {
+      min-height: 170px;
+      display: grid;
+      gap: 8px;
+      align-content: start;
+    }
+
+    .card-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      font-weight: 800;
+      color: #04111a;
+      background: linear-gradient(180deg, #ffd48b, #ffad42);
+    }
+
+    .card-box h3 {
+      margin: 0;
+      font-size: 17px;
+    }
+
+    .card-box p {
+      margin: 0;
+      color: #d8e9f5;
+      line-height: 1.6;
+      font-size: 14px;
+    }
+
+    .reaction-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .reaction {
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: rgba(255,255,255,0.04);
+      padding: 12px;
+    }
+
+    .reaction strong {
+      color: var(--accent);
+      display: block;
+      margin-bottom: 6px;
+      font-size: 15px;
+    }
+
+    .reaction div {
+      color: #d8e9f5;
+      line-height: 1.6;
+      font-size: 14px;
+    }
+
+    .tip-box {
+      border: 1px solid rgba(177,245,110,0.25);
+      background: rgba(177,245,110,0.08);
+      color: #e8ffd0;
+      border-radius: 14px;
+      padding: 14px;
+      line-height: 1.7;
+      font-size: 14px;
+    }
+
+    .controls {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 8px;
+    }
+
+    button, a.btn {
+      border: none;
+      border-radius: 12px;
+      padding: 12px 16px;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      color: #04111a;
+      background: linear-gradient(180deg, #8bf7ff, #55d6ff);
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    button.secondary, a.btn.secondary {
+      background: linear-gradient(180deg, #ffd48b, #ffad42);
+    }
+
+    button.ghost, a.btn.ghost {
+      background: rgba(255,255,255,0.08);
+      color: var(--text);
+      border: 1px solid var(--line);
+    }
+
+    .footer {
+      padding: 14px 20px 18px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 12px;
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    .quiz-box {
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: rgba(255,255,255,0.03);
+      padding: 16px;
+    }
+
+    .quiz-question {
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .quiz-options {
+      display: grid;
+      gap: 10px;
+    }
+
+    .quiz-option {
+      width: 100%;
+      text-align: left;
+      color: var(--text);
+      background: rgba(255,255,255,0.06);
+      border: 1px solid var(--line);
+    }
+
+    .quiz-option.correct {
+      background: rgba(90,224,154,0.16);
+      border-color: rgba(90,224,154,0.45);
+    }
+
+    .quiz-option.wrong {
+      background: rgba(255,107,107,0.16);
+      border-color: rgba(255,107,107,0.45);
+    }
+
+    .quiz-result {
+      margin-top: 12px;
+      font-size: 14px;
+      color: #d8e9f5;
+      min-height: 24px;
+    }
+
+    @media (max-width: 900px) {
+      .hero-box,
+      .grid-2,
+      .card-grid,
+      .reaction-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="app-shell">
+    <div class="page">
+      <div class="topbar">
+        <div>
+          <div class="title">Element Heroes Tutorial</div>
+          <div class="subtitle">Learn the rules, reactions, and strategy before you play</div>
+        </div>
+        <div class="pill">Version 0.3.0</div>
+      </div>
+
+      <div class="content">
+        <section class="hero-box">
+          <div>
+            <div class="hero-heading">Welcome to Element Heroes</div>
+            <div class="hero-text">
+              Element Heroes is a 2-player chemistry battle game. You place element cards on your field,
+              use reaction cards when the correct elements are ready, and attack your opponent with smart combos.
+              To win, reduce the other player’s HP to 0 before they defeat you.
+            </div>
+            <div class="controls">
+              <a class="btn" href="index.html">Back to Game</a>
+              <button class="secondary" id="jumpQuizBtn">Try Mini Quiz</button>
+            </div>
+          </div>
+
+          <div class="hero-side">
+            <div class="mini-stat"><span>Starting HP</span><strong>30</strong></div>
+            <div class="mini-stat"><span>Starting Energy</span><strong>3</strong></div>
+            <div class="mini-stat"><span>Starting Hand</span><strong>5 cards</strong></div>
+            <div class="mini-stat"><span>Field Limit</span><strong>3 elements</strong></div>
+            <div class="mini-stat"><span>Players</span><strong>2</strong></div>
+          </div>
+        </section>
+
+        <div class="grid-2">
+          <section class="section-box">
+            <div class="section-title">How a Turn Works</div>
+            <div class="section-subtitle">A simple guide for your first match</div>
+
+            <div class="step-list">
+              <div class="step">
+                <div class="step-num">1</div>
+                <div>
+                  <strong>Build your field</strong>
+                  <p>Play element cards like Oxygen, Water, Iron, Hydrogen, Sodium, or Calcium onto your field.</p>
+                </div>
+              </div>
+
+              <div class="step">
+                <div class="step-num">2</div>
+                <div>
+                  <strong>Check your energy</strong>
+                  <p>Each card has an energy cost. You need enough energy to play it.</p>
+                </div>
+              </div>
+
+              <div class="step">
+                <div class="step-num">3</div>
+                <div>
+                  <strong>Use reactions</strong>
+                  <p>Reaction cards only work when the required elements are already on your field.</p>
+                </div>
+              </div>
+
+              <div class="step">
+                <div class="step-num">4</div>
+                <div>
+                  <strong>Attack smartly</strong>
+                  <p>Some attacks become stronger if the enemy is Wet or Corroded.</p>
+                </div>
+              </div>
+
+              <div class="step">
+                <div class="step-num">5</div>
+                <div>
+                  <strong>End your turn</strong>
+                  <p>When you are done, click End Turn so your opponent can play.</p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="section-box">
+            <div class="section-title">Important Rules</div>
+            <div class="section-subtitle">These rules matter a lot during the game</div>
+
+            <div class="step-list">
+              <div class="step">
+                <div class="step-num">A</div>
+                <div>
+                  <strong>You can only keep 3 elements on your field</strong>
+                  <p>Choose carefully. Your field setup decides which reactions you can use.</p>
+                </div>
+              </div>
+
+              <div class="step">
+                <div class="step-num">B</div>
+                <div>
+                  <strong>Reactions fail without the right elements</strong>
+                  <p>If the required elements are not on your field, the reaction card cannot be used.</p>
+                </div>
+              </div>
+
+              <div class="step">
+                <div class="step-num">C</div>
+                <div>
+                  <strong>Status effects change the battle</strong>
+                  <p>Wet can make some attacks stronger. Corroded causes damage over time.</p>
+                </div>
+              </div>
+
+              <div class="step">
+                <div class="step-num">D</div>
+                <div>
+                  <strong>Utility cards help you survive</strong>
+                  <p>Catalyst gives extra energy. Lab Shield heals HP.</p>
+                </div>
+              </div>
+
+              <div class="step">
+                <div class="step-num">E</div>
+                <div>
+                  <strong>Plan ahead</strong>
+                  <p>Strong players do not just play random cards. They build a combo first.</p>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <section class="section-box">
+          <div class="section-title">Card Types</div>
+          <div class="section-subtitle">Every card belongs to one of these groups</div>
+
+          <div class="card-grid">
+            <div class="card-box">
+              <div class="card-icon">E</div>
+              <h3>Element</h3>
+              <p>These are the building blocks of the game. Put them on your field to unlock reactions.</p>
+            </div>
+
+            <div class="card-box">
+              <div class="card-icon">R</div>
+              <h3>Reaction</h3>
+              <p>These cards represent chemistry reactions. They need the correct elements already on your field.</p>
+            </div>
+
+            <div class="card-box">
+              <div class="card-icon">A</div>
+              <h3>Attack</h3>
+              <p>These deal direct damage or apply effects like Wet or Corroded to your opponent.</p>
+            </div>
+
+            <div class="card-box">
+              <div class="card-icon">U</div>
+              <h3>Utility</h3>
+              <p>These help your side with energy gain, healing, and support.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="section-box">
+          <div class="section-title">Reaction Examples</div>
+          <div class="section-subtitle">Learn these and you will play better</div>
+
+          <div class="reaction-grid">
+            <div class="reaction">
+              <strong>Combustion</strong>
+              <div>Sulfur + Oxygen = 7 damage</div>
+            </div>
+
+            <div class="reaction">
+              <strong>Steam Burst</strong>
+              <div>Water + Oxygen = 5 damage and Wet</div>
+            </div>
+
+            <div class="reaction">
+              <strong>Rust</strong>
+              <div>Iron + Oxygen = 4 damage and Corroded</div>
+            </div>
+
+            <div class="reaction">
+              <strong>Explosion</strong>
+              <div>Hydrogen + Oxygen = 8 damage</div>
+            </div>
+
+            <div class="reaction">
+              <strong>Salt Formation</strong>
+              <div>Sodium + Chlorine = 5 damage and cleanse your Wet</div>
+            </div>
+
+            <div class="reaction">
+              <strong>Alkali Reaction</strong>
+              <div>Potassium + Water = 9 damage and Wet</div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section-box">
+          <div class="section-title">Strategy Tips</div>
+          <div class="tip-box">
+            Build your field first, then use the reaction card when the combo is ready. Try to notice when your
+            opponent is Wet or Corroded, because that can make some cards much stronger. Keep your field slots open
+            for the elements you really need instead of filling all 3 spots too early.
+          </div>
+        </section>
+
+        <section class="quiz-box" id="miniQuiz">
+          <div class="section-title">Mini Quiz</div>
+          <div class="section-subtitle">Check if you are ready to play</div>
+
+          <div class="quiz-question" id="quizQuestion"></div>
+          <div class="quiz-options" id="quizOptions"></div>
+          <div class="quiz-result" id="quizResult"></div>
+
+          <div class="controls">
+            <button id="nextQuestionBtn" class="ghost">Next Question</button>
+          </div>
+        </section>
+      </div>
+
+      <div class="footer">
+        <div>Director: Eric Jing · Manager: Kevin Jing · Digital Worker: AI</div>
+        <div>Element Heroes Tutorial Page</div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const quizData = [
+      {
+        question: "What do you need before using a reaction card?",
+        options: [
+          "Only enough HP",
+          "The correct elements already on your field",
+          "A full hand of cards",
+          "No status effects"
+        ],
+        answer: 1,
+        explanation: "Reaction cards only work when the required elements are already on your field."
+      },
+      {
+        question: "What does Corroded do?",
+        options: [
+          "It heals HP",
+          "It gives extra energy",
+          "It causes damage over time",
+          "It removes cards from your hand"
+        ],
+        answer: 2,
+        explanation: "Corroded is a status effect that slowly damages the player."
+      },
+      {
+        question: "Which reaction causes 8 damage?",
+        options: [
+          "Rust",
+          "Explosion",
+          "Steam Burst",
+          "Salt Formation"
+        ],
+        answer: 1,
+        explanation: "Explosion is Hydrogen + Oxygen and deals 8 damage."
+      },
+      {
+        question: "How many element cards can stay on your field?",
+        options: [
+          "2",
+          "3",
+          "4",
+          "5"
+        ],
+        answer: 1,
+        explanation: "You can keep up to 3 elements on your field."
+      }
+    ];
+
+    let quizIndex = 0;
+    let answered = false;
+
+    const questionEl = document.getElementById("quizQuestion");
+    const optionsEl = document.getElementById("quizOptions");
+    const resultEl = document.getElementById("quizResult");
+    const nextBtn = document.getElementById("nextQuestionBtn");
+    const jumpQuizBtn = document.getElementById("jumpQuizBtn");
+
+    function renderQuiz() {
+      const item = quizData[quizIndex];
+      answered = false;
+      questionEl.textContent = item.question;
+      optionsEl.innerHTML = "";
+      resultEl.textContent = "";
+
+      item.options.forEach((option, i) => {
+        const btn = document.createElement("button");
+        btn.className = "quiz-option";
+        btn.textContent = option;
+        btn.addEventListener("click", () => chooseAnswer(i, btn));
+        optionsEl.appendChild(btn);
+      });
+    }
+
+    function chooseAnswer(index, clickedBtn) {
+      if (answered) return;
+      answered = true;
+
+      const item = quizData[quizIndex];
+      const buttons = [...optionsEl.querySelectorAll(".quiz-option")];
+
+      buttons.forEach((btn, i) => {
+        if (i === item.answer) btn.classList.add("correct");
+        if (i === index && i !== item.answer) btn.classList.add("wrong");
+        btn.disabled = true;
+      });
+
+      resultEl.textContent =
+        index === item.answer
+          ? "Correct. " + item.explanation
+          : "Not quite. " + item.explanation;
+    }
+
+    nextBtn.addEventListener("click", () => {
+      quizIndex = (quizIndex + 1) % quizData.length;
+      renderQuiz();
+    });
+
+    jumpQuizBtn.addEventListener("click", () => {
+      document.getElementById("miniQuiz").scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+
+    renderQuiz();
+  </script>
+</body>
+</html>
