@@ -549,4 +549,5 @@ button:disabled {
 .player-area {
   position: relative;
   overflow: visible;
+  z-index: 1;
 }
