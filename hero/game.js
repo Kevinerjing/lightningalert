@@ -7,7 +7,6 @@ let isHost = false;
 let gameState = null;
 let selectedCardIndex = null;
 let selectedFieldIndex = null;
-let playerName = "";
 
 const CARD_LIBRARY = {
   sulfur: { id: "sulfur", name: "Sulfur", type: "Element", cost: 1, symbol: "S", text: "Combustible element used in fire reactions.", className: "element-sulfur", tags: ["element", "fire"] },
@@ -33,62 +32,6 @@ const CARD_LIBRARY = {
   catalyst: { id: "catalyst", name: "Catalyst", type: "Utility", cost: 1, symbol: "UTL", text: "Gain 1 energy.", tags: ["utility", "lab"] },
   shield: { id: "shield", name: "Lab Shield", type: "Utility", cost: 1, symbol: "UTL", text: "Heal 2 HP.", tags: ["utility", "defense"] }
 };
-
-const nameModal = document.getElementById("nameModal");
-const playerNameInput = document.getElementById("playerNameInput");
-const p1NameLabel = document.getElementById("p1NameLabel");
-const p2NameLabel = document.getElementById("p2NameLabel");
-
-function getEnteredPlayerName() {
-  if (!playerNameInput) return "Guest";
-  const rawName = playerNameInput.value.trim();
-  return rawName ? rawName.slice(0, 20) : "Guest";
-}
-
-function syncPlayerNameFromInput() {
-  playerName = getEnteredPlayerName();
-  updatePlayerLabels();
-}
-
-function hideNameModal() {
-  if (nameModal) {
-    nameModal.classList.add("hidden");
-  }
-}
-
-function showNameModal() {
-  if (nameModal) {
-    nameModal.classList.remove("hidden");
-  }
-}
-
-function updatePlayerLabels() {
-  if (!p1NameLabel || !p2NameLabel) return;
-
-  if (playerId === 1) {
-    p1NameLabel.textContent = `Player 1 - ${playerName || "Guest"}`;
-    p2NameLabel.textContent = "Player 2";
-  } else if (playerId === 2) {
-    p1NameLabel.textContent = "Player 1";
-    p2NameLabel.textContent = `Player 2 - ${playerName || "Guest"}`;
-  } else {
-    p1NameLabel.textContent = "Player 1";
-    p2NameLabel.textContent = "Player 2";
-  }
-}
-
-if (playerNameInput) {
-  playerNameInput.addEventListener("input", () => {
-    syncPlayerNameFromInput();
-  });
-
-  playerNameInput.addEventListener("keydown", (e) => {
-    if (e.key === "Enter") {
-      e.preventDefault();
-      document.getElementById("hostBtn")?.click();
-    }
-  });
-}
 
 function escapeHtml(value) {
   return String(value)
@@ -150,29 +93,16 @@ function hideOverlay() {
 
 async function createRoom() {
   try {
-    syncPlayerNameFromInput();
-
     const response = await fetch(`${WORKER_URL}/create-room`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        name: playerName || "Guest"
-      })
+      method: "POST"
     });
-
     const data = await response.json();
     if (data.type === "error") {
       throw new Error(data.message);
     }
-
     roomCode = data.roomCode;
     playerId = data.playerId;
     isHost = true;
-
-    hideNameModal();
-    updatePlayerLabels();
     updateHeaderState();
     showGame();
     addConnectionLog(`Room created: ${roomCode}`);
@@ -184,8 +114,6 @@ async function createRoom() {
 
 async function joinRoom() {
   try {
-    syncPlayerNameFromInput();
-
     const code = document.getElementById("joinCodeInput").value.trim().toUpperCase();
     if (!code) {
       throw new Error("Enter a room code.");
@@ -196,10 +124,7 @@ async function joinRoom() {
       headers: {
         "Content-Type": "application/json"
       },
-      body: JSON.stringify({
-        roomCode: code,
-        name: playerName || "Guest"
-      })
+      body: JSON.stringify({ roomCode: code })
     });
 
     const data = await response.json();
@@ -210,9 +135,6 @@ async function joinRoom() {
     roomCode = data.roomCode;
     playerId = data.playerId;
     isHost = false;
-
-    hideNameModal();
-    updatePlayerLabels();
     updateHeaderState();
     showGame();
     addConnectionLog(`Joined room: ${roomCode}`);
@@ -254,7 +176,6 @@ function connectSocket() {
       selectedCardIndex = null;
       selectedFieldIndex = null;
       render();
-
       if (gameState && gameState.winner) {
         showOverlay(
           "Match Over",
@@ -527,7 +448,6 @@ function render() {
 
   document.getElementById("endTurnBtn").disabled = !isMyTurn();
   document.getElementById("restartBtn").disabled = !isHost;
-  updatePlayerLabels();
   updateHeaderState();
 }
 
@@ -568,8 +488,6 @@ function leaveRoom() {
   gameState = null;
   selectedCardIndex = null;
   selectedFieldIndex = null;
-  showNameModal();
-  updatePlayerLabels();
   updateHeaderState();
   showLobby();
   addConnectionLog("Left room.");
@@ -585,6 +503,5 @@ document.getElementById("restartBtn").addEventListener("click", restartMatch);
 document.getElementById("leaveBtn").addEventListener("click", leaveRoom);
 document.getElementById("overlayBtn").addEventListener("click", hideOverlay);
 
-updatePlayerLabels();
 updateHeaderState();
-addConnectionLog("Ready."); now?
+addConnectionLog("Ready.");
