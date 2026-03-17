@@ -30,7 +30,129 @@ const CARD_LIBRARY = {
   lightning: { id: "lightning", name: "Lightning", type: "Attack", cost: 2, symbol: "ATK", text: "Deal 4 damage.", tags: ["attack", "shock"] },
   poisonCloud: { id: "poisonCloud", name: "Poison Cloud", type: "Attack", cost: 2, symbol: "ATK", text: "Deal 2 damage and apply Corroded.", tags: ["attack", "poison"] },
   catalyst: { id: "catalyst", name: "Catalyst", type: "Utility", cost: 1, symbol: "UTL", text: "Gain 1 energy.", tags: ["utility", "lab"] },
-  shield: { id: "shield", name: "Lab Shield", type: "Utility", cost: 1, symbol: "UTL", text: "Heal 2 HP.", tags: ["utility", "defense"] }
+  shield: { id: "shield", name: "Lab Shield", type: "Utility", cost: 1, symbol: "UTL", text: "Heal 2 HP.", tags: ["utility", "defense"] },
+  potassium: { 
+    id: "potassium", 
+    name: "Potassium", 
+    type: "Element", 
+    cost: 1, 
+    symbol: "K", 
+    text: "Highly reactive alkali metal. Violent with water.", 
+    className: "element-potassium", 
+    tags: ["element", "metal", "alkali"] 
+  },
+
+  helium: { 
+    id: "helium", 
+    name: "Helium", 
+    type: "Element", 
+    cost: 1, 
+    symbol: "He", 
+    text: "Stable noble gas. Hard to react with.", 
+    className: "element-helium", 
+    tags: ["element", "gas", "noble"] 
+  },
+
+  calcium: { 
+    id: "calcium", 
+    name: "Calcium", 
+    type: "Element", 
+    cost: 1, 
+    symbol: "Ca", 
+    text: "Reactive metal forming lime and minerals.", 
+    className: "element-calcium", 
+    tags: ["element", "metal", "earth"] 
+  },
+
+  potassiumWater: { 
+    id: "potassiumWater", 
+    name: "Alkali Reaction", 
+    type: "Reaction", 
+    cost: 3, 
+    symbol: "RXN", 
+    text: "Potassium + Water = 9 damage and Wet.", 
+    tags: ["reaction", "alkali"] 
+  },
+
+  limeFormation: { 
+    id: "limeFormation", 
+    name: "Lime Formation", 
+    type: "Reaction", 
+    cost: 2, 
+    symbol: "RXN", 
+    text: "Calcium + Water = 5 damage and gain 1 energy.", 
+    tags: ["reaction", "earth"] 
+  },
+
+  hydrogenBurn: { 
+    id: "hydrogenBurn", 
+    name: "Hydrogen Burn", 
+    type: "Reaction", 
+    cost: 2, 
+    symbol: "RXN", 
+    text: "Hydrogen + Fire = 6 damage.", 
+    tags: ["reaction", "fire"] 
+  },
+
+  calciumSteam: { 
+    id: "calciumSteam", 
+    name: "Calcium Steam", 
+    type: "Reaction", 
+    cost: 3, 
+    symbol: "RXN", 
+    text: "Calcium + Water = Apply Wet and deal 6 damage.", 
+    tags: ["reaction", "steam"] 
+  },
+
+  alkaliExplosion: { 
+    id: "alkaliExplosion", 
+    name: "Alkali Explosion", 
+    type: "Reaction", 
+    cost: 3, 
+    symbol: "RXN", 
+    text: "Potassium + Oxygen = 8 damage.", 
+    tags: ["reaction", "burst"] 
+  },
+
+  plasmaShock: { 
+    id: "plasmaShock", 
+    name: "Plasma Shock", 
+    type: "Attack", 
+    cost: 2, 
+    symbol: "ATK", 
+    text: "Deal 5 damage. +2 if Oxygen present.", 
+    tags: ["attack", "shock"] 
+  },
+
+  alkaliBlast: { 
+    id: "alkaliBlast", 
+    name: "Alkali Blast", 
+    type: "Attack", 
+    cost: 2, 
+    symbol: "ATK", 
+    text: "Deal 4 damage. +3 if Potassium on field.", 
+    tags: ["attack", "alkali"] 
+  },
+
+  metalCrush: { 
+    id: "metalCrush", 
+    name: "Metal Crush", 
+    type: "Attack", 
+    cost: 2, 
+    symbol: "ATK", 
+    text: "Deal 3 damage. +2 if Calcium or Iron on field.", 
+    tags: ["attack", "metal"] 
+  },
+
+  noblePressure: { 
+    id: "noblePressure", 
+    name: "Noble Pressure", 
+    type: "Attack", 
+    cost: 1, 
+    symbol: "ATK", 
+    text: "Deal 2 damage. Draw 1 card if Helium on field.", 
+    tags: ["attack", "gas"] 
+  }
 };
 
 function escapeHtml(value) {
