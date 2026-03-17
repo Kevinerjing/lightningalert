@@ -356,9 +356,11 @@ function addConnectionLog(message) {
   item.className = "log-item";
   item.textContent = message;
   log.prepend(item);
+
   while (log.children.length > 20) {
     log.removeChild(log.lastChild);
   }
+
   document.getElementById("lobbyMessage").textContent = message;
 }
 
@@ -392,8 +394,8 @@ function showGame() {
 function showOverlay(title, text, winnerText = "") {
   document.getElementById("overlayTitle").textContent = title;
   document.getElementById("overlayText").textContent = text;
-  const winner = document.getElementById("winnerText");
 
+  const winner = document.getElementById("winnerText");
   if (winnerText) {
     winner.textContent = winnerText;
     winner.classList.remove("hidden");
@@ -434,19 +436,26 @@ function cardExistsOnField(pid, cardId) {
   return player.field.some((card) => card && card.id === cardId);
 }
 
+function shouldForceEnemyEffect(cardId) {
+  const card = CARD_LIBRARY[cardId];
+  if (!card) return false;
+  return card.type === "Attack" || card.type === "Reaction";
+}
+
 function getCardEffectContext(cardId, actorPid) {
   const card = CARD_LIBRARY[cardId];
   if (!card) return null;
 
-  const opponentPid = Number(actorPid) === 1 ? 2 : 1;
   const actorDesk = getDeskSelectorForPid(actorPid);
-  const targetDesk = getDeskSelectorForPid(opponentPid);
+  const targetDesk = getOpponentDeskSelector();
   const actorField = gameState?.players?.[actorPid]?.field || [];
+  const opponentPid = Number(actorPid) === 1 ? 2 : 1;
   const opponentStatuses = gameState?.players?.[opponentPid]?.statuses || [];
 
   const ctx = {
     sourceSelector: actorDesk,
-    targetSelector: targetDesk,
+    targetSelector:
+      card.type === "Attack" || card.type === "Reaction" ? targetDesk : actorDesk,
   };
 
   switch (cardId) {
@@ -534,6 +543,8 @@ function getCardEffectContext(cardId, actorPid) {
       if (card.type === "Utility" || card.type === "Element") {
         ctx.sourceSelector = actorDesk;
         ctx.targetSelector = actorDesk;
+      } else {
+        ctx.targetSelector = targetDesk;
       }
       break;
   }
@@ -584,7 +595,7 @@ function detectCardIdFromLogText(text) {
   const lower = text.toLowerCase();
 
   const entries = Object.entries(CARD_NAME_TO_ID).sort(
-    (a, b) => b[0].length - a[0].length,
+    (a, b) => b[0].length - a[0].length
   );
 
   for (const [name, id] of entries) {
@@ -644,24 +655,17 @@ function handleIncomingEffect(effect) {
   if (!cardId || !CARD_LIBRARY[cardId]) return;
 
   const actorPid = Number(effect.actorPid || effect.sourcePid || effect.source || playerId || 1);
-  const targetPid = Number(
-    effect.targetPid ||
-    effect.target ||
-    (Number(actorPid) === 1 ? 2 : 1),
-  );
-
   const fallbackCtx = getCardEffectContext(cardId, actorPid) || {};
   const card = CARD_LIBRARY[cardId];
+  const forceEnemy = shouldForceEnemyEffect(cardId);
 
   const ctx = {
     ...fallbackCtx,
-    sourceSelector: effect.sourceSelector || fallbackCtx.sourceSelector || getDeskSelectorForPid(actorPid),
-    targetSelector:
-      effect.targetSelector ||
-      fallbackCtx.targetSelector ||
-      (card?.type === "Utility" || card?.type === "Element"
-        ? getDeskSelectorForPid(actorPid)
-        : getDeskSelectorForPid(targetPid)),
+    sourceSelector:
+      effect.sourceSelector || fallbackCtx.sourceSelector || getDeskSelectorForPid(actorPid),
+    targetSelector: forceEnemy
+      ? getOpponentDeskSelector()
+      : (effect.targetSelector || fallbackCtx.targetSelector || getSelfDeskSelector()),
     damage: effect.damage ?? fallbackCtx.damage,
     heal: effect.heal ?? fallbackCtx.heal,
     energy: effect.energy ?? fallbackCtx.energy,
@@ -676,6 +680,10 @@ function handleIncomingEffect(effect) {
     applyStatus: effect.applyStatus ?? fallbackCtx.applyStatus,
     effectGroup: effect.effectGroup ?? fallbackCtx.effectGroup,
   };
+
+  if (card?.type === "Utility" || card?.type === "Element") {
+    ctx.targetSelector = effect.targetSelector || fallbackCtx.targetSelector || getSelfDeskSelector();
+  }
 
   try {
     window.playCardEffect(cardId, ctx);
@@ -808,13 +816,13 @@ function connectSocket() {
         showOverlay(
           "Match Over",
           "The duel has ended.",
-          gameState.winner === "Draw" ? "It is a draw." : `${gameState.winner} wins!`,
+          gameState.winner === "Draw" ? "It is a draw." : `${gameState.winner} wins!`
         );
       } else {
         hideOverlay();
       }
 
-      pendingLocalEffect = null;
+      handleEffectsFromLogTransition(prevState, gameState);
       return;
     }
   });
@@ -822,7 +830,7 @@ function connectSocket() {
   socket.addEventListener("close", (event) => {
     updateHeaderState();
     addConnectionLog(
-      `WebSocket disconnected.${event?.code ? ` code=${event.code}` : ""}${event?.reason ? ` reason=${event.reason}` : ""}`,
+      `WebSocket disconnected.${event?.code ? ` code=${event.code}` : ""}${event?.reason ? ` reason=${event.reason}` : ""}`
     );
 
     socket = null;
@@ -938,8 +946,8 @@ function renderField(containerId, pid) {
       createCardElement(
         card,
         clickable && selectedFieldIndex === index,
-        clickable ? () => selectFieldCard(index) : () => {},
-      ),
+        clickable ? () => selectFieldCard(index) : () => {}
+      )
     );
   });
 
@@ -976,7 +984,7 @@ function renderHand(containerId, pid) {
 
   player.hand.forEach((card, index) => {
     container.appendChild(
-      createCardElement(card, selectedCardIndex === index, () => selectCard(index)),
+      createCardElement(card, selectedCardIndex === index, () => selectCard(index))
     );
   });
 
