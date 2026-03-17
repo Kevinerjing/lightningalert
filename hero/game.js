@@ -7,6 +7,7 @@ let isHost = false;
 let gameState = null;
 let selectedCardIndex = null;
 let selectedFieldIndex = null;
+let playerName = "";
 
 const CARD_LIBRARY = {
   sulfur: { id: "sulfur", name: "Sulfur", type: "Element", cost: 1, symbol: "S", text: "Combustible element used in fire reactions.", className: "element-sulfur", tags: ["element", "fire"] },
@@ -32,6 +33,44 @@ const CARD_LIBRARY = {
   catalyst: { id: "catalyst", name: "Catalyst", type: "Utility", cost: 1, symbol: "UTL", text: "Gain 1 energy.", tags: ["utility", "lab"] },
   shield: { id: "shield", name: "Lab Shield", type: "Utility", cost: 1, symbol: "UTL", text: "Heal 2 HP.", tags: ["utility", "defense"] }
 };
+
+const nameModal = document.getElementById("nameModal");
+const playerNameInput = document.getElementById("playerNameInput");
+const nameConfirmBtn = document.getElementById("nameConfirmBtn");
+const playerLabel = document.getElementById("playerLabel");
+
+function updatePlayerLabel() {
+  if (!playerLabel) return;
+
+  if (playerId !== null) {
+    playerLabel.textContent = `Player ${playerId} - ${playerName || "Guest"}`;
+  } else {
+    playerLabel.textContent = `Player -- - ${playerName || "Guest"}`;
+  }
+}
+
+function confirmPlayerName() {
+  if (!playerNameInput) return;
+  const rawName = playerNameInput.value.trim();
+  playerName = rawName ? rawName.slice(0, 20) : "Guest";
+  updatePlayerLabel();
+
+  if (nameModal) {
+    nameModal.style.display = "none";
+  }
+}
+
+if (nameConfirmBtn) {
+  nameConfirmBtn.addEventListener("click", confirmPlayerName);
+}
+
+if (playerNameInput) {
+  playerNameInput.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") {
+      confirmPlayerName();
+    }
+  });
+}
 
 function escapeHtml(value) {
   return String(value)
@@ -94,15 +133,24 @@ function hideOverlay() {
 async function createRoom() {
   try {
     const response = await fetch(`${WORKER_URL}/create-room`, {
-      method: "POST"
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        name: playerName || "Guest"
+      })
     });
+
     const data = await response.json();
     if (data.type === "error") {
       throw new Error(data.message);
     }
+
     roomCode = data.roomCode;
     playerId = data.playerId;
     isHost = true;
+    updatePlayerLabel();
     updateHeaderState();
     showGame();
     addConnectionLog(`Room created: ${roomCode}`);
@@ -124,7 +172,10 @@ async function joinRoom() {
       headers: {
         "Content-Type": "application/json"
       },
-      body: JSON.stringify({ roomCode: code })
+      body: JSON.stringify({
+        roomCode: code,
+        name: playerName || "Guest"
+      })
     });
 
     const data = await response.json();
@@ -135,6 +186,7 @@ async function joinRoom() {
     roomCode = data.roomCode;
     playerId = data.playerId;
     isHost = false;
+    updatePlayerLabel();
     updateHeaderState();
     showGame();
     addConnectionLog(`Joined room: ${roomCode}`);
@@ -176,6 +228,7 @@ function connectSocket() {
       selectedCardIndex = null;
       selectedFieldIndex = null;
       render();
+
       if (gameState && gameState.winner) {
         showOverlay(
           "Match Over",
@@ -488,6 +541,7 @@ function leaveRoom() {
   gameState = null;
   selectedCardIndex = null;
   selectedFieldIndex = null;
+  updatePlayerLabel();
   updateHeaderState();
   showLobby();
   addConnectionLog("Left room.");
@@ -503,5 +557,6 @@ document.getElementById("restartBtn").addEventListener("click", restartMatch);
 document.getElementById("leaveBtn").addEventListener("click", leaveRoom);
 document.getElementById("overlayBtn").addEventListener("click", hideOverlay);
 
+updatePlayerLabel();
 updateHeaderState();
 addConnectionLog("Ready.");

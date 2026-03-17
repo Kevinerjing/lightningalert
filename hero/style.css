@@ -530,3 +530,56 @@ button:disabled {
     grid-template-columns: 1fr;
   }
 }
+
+.name-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.name-box {
+  background: #1e2430;
+  color: white;
+  padding: 24px;
+  border-radius: 14px;
+  width: 320px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+}
+
+.name-box h2 {
+  margin-top: 0;
+  margin-bottom: 14px;
+  font-size: 24px;
+}
+
+.name-box input {
+  width: 100%;
+  padding: 10px 12px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: 1px solid #666;
+  outline: none;
+  margin-bottom: 12px;
+  box-sizing: border-box;
+}
+
+.name-box button {
+  width: 100%;
+  padding: 10px 12px;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  background: #4caf50;
+  color: white;
+  cursor: pointer;
+}
+
+.name-box button:hover {
+  background: #43a047;
+}
