@@ -534,7 +534,6 @@ button:disabled {
 
 .desk-area {
   position: relative;
-  height: 1px;
   margin: 10px 0 14px;
   border-radius: 16px;
   pointer-events: none;
@@ -620,4 +619,130 @@ button:disabled {
 /* click effect */
 .tutorial-btn:active {
   transform: translateY(0px);
+}
+
+/* ===== Center panel compact tuning ===== */
+
+.center-panel {
+  gap: 10px;
+  align-items: start;
+}
+
+.battlebox,
+.actionbox {
+  padding: 12px;
+  border-radius: 14px;
+}
+
+.section-title {
+  font-size: 16px;
+  margin-bottom: 2px;
+}
+
+.section-subtitle {
+  font-size: 12px;
+  margin-top: 0;
+  margin-bottom: 8px;
+  line-height: 1.3;
+}
+
+/* Battlefield summary smaller */
+.battlefield {
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.player-preview {
+  padding: 10px;
+  border-radius: 12px;
+}
+
+.player-preview h4 {
+  margin: 0 0 6px;
+  font-size: 13px;
+}
+
+.preview-field .slot {
+  min-height: 82px !important;
+  font-size: 12px;
+  border-radius: 12px;
+}
+
+/* Selected card box smaller */
+.selected-card-box {
+  min-height: 88px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  font-size: 13px;
+}
+
+/* Buttons side by side instead of full vertical stack */
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.controls button {
+  flex: 1 1 calc(50% - 4px);
+  min-width: 160px;
+  padding: 10px 12px;
+  font-size: 13px;
+  border-radius: 10px;
+}
+
+/* Make restart less dominant */
+#restartBtn,
+#removeFieldCardBtn,
+#clearSelectionBtn {
+  flex: 1 1 calc(50% - 4px);
+}
+
+/* End turn + Play slightly more important */
+#endTurnBtn,
+#playCardBtn {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+/* Room state / small text more compact */
+#roomStateText {
+  margin-top: 6px;
+  font-size: 12px;
+  line-height: 1.25;
+}
+
+/* Combat log shorter so panel doesn't become too tall */
+#combatLog.log-list {
+  max-height: 120px;
+  margin-top: 8px;
+}
+
+#combatLog .log-item {
+  padding: 8px 10px;
+  font-size: 12px;
+  border-radius: 10px;
+}
+
+/* On narrower screens, go back to stacked buttons */
+@media (max-width: 900px) {
+  .controls {
+    display: grid;
+    gap: 8px;
+  }
+
+  .controls button {
+    min-width: 0;
+    width: 100%;
+    flex: none;
+  }
+
+  .selected-card-box {
+    min-height: 96px;
+  }
+
+  #combatLog.log-list {
+    max-height: 160px;
+  }
 }
