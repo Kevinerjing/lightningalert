@@ -1323,13 +1323,14 @@ function getDefaultElement(side) {
         }, 150);
         break;
 
-      case "pressureWave":
+        case "pressureWave":
         pressureWaveAt(ctx.targetEl, ctx.damage ?? 2);
-        if (ctx.hasHelium || cardId === "noblePressure") {
-          setTimeout(() => {
+
+        if ((ctx.draw ?? 0) > 0) {
+            setTimeout(() => {
             const self = ctx.sourceEl || getDefaultElement("player");
-            showDraw(self, ctx.draw ?? 1);
-          }, 160);
+            showDraw(self, ctx.draw);
+            }, 160);
         }
         break;
 
