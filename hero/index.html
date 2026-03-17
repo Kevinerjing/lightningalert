@@ -63,7 +63,9 @@
 
       <div class="game-shell">
         <div class="main-board">
-          <section class="player-area">
+
+          <!-- PLAYER 2 / ENEMY -->
+          <section class="player-area enemy-area" data-side="enemy">
             <div class="player-header">
               <div class="player-meta">
                 <div class="badge p2">P2</div>
@@ -78,6 +80,9 @@
               </div>
               <div class="turn-pill" id="turnBanner">Waiting</div>
             </div>
+
+            <!-- EFFECT DESK: enemy -->
+            <div id="enemy-desk" class="desk-area" data-desk="enemy"></div>
 
             <div class="bar-wrap">
               <div class="bar-label"><span>HP</span><span id="p2HpText"></span></div>
@@ -105,6 +110,7 @@
             </div>
           </section>
 
+          <!-- CENTER -->
           <section class="center-panel">
             <div class="battlebox">
               <div class="section-title">Battlefield</div>
@@ -145,7 +151,8 @@
             </div>
           </section>
 
-          <section class="player-area">
+          <!-- PLAYER 1 / SELF -->
+          <section class="player-area player-self-area" data-side="player">
             <div class="player-header">
               <div class="player-meta">
                 <div class="badge p1">P1</div>
@@ -159,6 +166,9 @@
                 </div>
               </div>
             </div>
+
+            <!-- EFFECT DESK: player -->
+            <div id="player-desk" class="desk-area" data-desk="player"></div>
 
             <div class="bar-wrap">
               <div class="bar-label"><span>HP</span><span id="p1HpText"></span></div>
@@ -211,6 +221,9 @@
     </section>
   </div>
 
+  <!-- optional future global fx layer -->
+  <div id="battle-effects-root"></div>
+
   <div class="overlay hidden" id="gameOverlay">
     <div class="overlay-card">
       <h2 id="overlayTitle">Waiting</h2>
@@ -220,6 +233,7 @@
     </div>
   </div>
 
+  <script src="effect-system.js"></script>
   <script src="game.js"></script>
 </body>
 </html>

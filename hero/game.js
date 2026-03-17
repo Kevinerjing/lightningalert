@@ -8,8 +8,10 @@ let roomCode = "";
 let playerId = null;
 let isHost = false;
 let gameState = null;
+let previousGameState = null;
 let selectedCardIndex = null;
 let selectedFieldIndex = null;
+let pendingLocalEffect = null;
 
 const CARD_LIBRARY = {
   sulfur: {
@@ -331,6 +333,11 @@ const CARD_LIBRARY = {
   },
 };
 
+const CARD_NAME_TO_ID = Object.values(CARD_LIBRARY).reduce((map, card) => {
+  map[card.name.toLowerCase()] = card.id;
+  return map;
+}, {});
+
 function escapeHtml(value) {
   return String(value)
     .replace(/&/g, "&amp;")
@@ -354,9 +361,7 @@ function addConnectionLog(message) {
 
 function updateHeaderState() {
   document.getElementById("connectionPill").textContent =
-    socket && socket.readyState === WebSocket.OPEN
-      ? "Connected"
-      : "Disconnected";
+    socket && socket.readyState === WebSocket.OPEN ? "Connected" : "Disconnected";
 
   document.getElementById("roomPill").textContent = roomCode
     ? `Room ${roomCode}`
@@ -401,6 +406,227 @@ function hideOverlay() {
   document.getElementById("gameOverlay").classList.add("hidden");
 }
 
+function getSelfDeskSelector() {
+  return Number(playerId) === 1 ? "#player-desk" : "#enemy-desk";
+}
+
+function getOpponentDeskSelector() {
+  return Number(playerId) === 1 ? "#enemy-desk" : "#player-desk";
+}
+
+function getDeskSelectorForPid(pid) {
+  return Number(pid) === 1 ? "#player-desk" : "#enemy-desk";
+}
+
+function hasEffectSystem() {
+  return typeof window.playCardEffect === "function";
+}
+
+function cardExistsOnField(pid, cardId) {
+  const player = gameState?.players?.[pid];
+  if (!player || !Array.isArray(player.field)) return false;
+  return player.field.some((card) => card && card.id === cardId);
+}
+
+function getCardEffectContext(cardId, actorPid) {
+  const card = CARD_LIBRARY[cardId];
+  if (!card) return null;
+
+  const actorDesk = getDeskSelectorForPid(actorPid);
+  const targetDesk = getDeskSelectorForPid(actorPid === 1 ? 2 : 1);
+  const actorField = gameState?.players?.[actorPid]?.field || [];
+  const opponentPid = actorPid === 1 ? 2 : 1;
+  const opponentStatuses = gameState?.players?.[opponentPid]?.statuses || [];
+
+  const ctx = {
+    sourceSelector: actorDesk,
+    targetSelector: targetDesk,
+  };
+
+  switch (cardId) {
+    case "fireball":
+      ctx.damage = opponentStatuses.includes("Wet") ? 5 : 3;
+      ctx.enemyWet = opponentStatuses.includes("Wet");
+      break;
+    case "hammerStrike":
+      ctx.damage = actorField.some((c) => c?.id === "iron") ? 4 : 2;
+      break;
+    case "lightning":
+      ctx.damage = 4;
+      break;
+    case "poisonCloud":
+      ctx.pulses = 2;
+      ctx.damagePerPulse = 1;
+      break;
+    case "plasmaShock":
+      ctx.damage = actorField.some((c) => c?.id === "oxygen") ? 7 : 5;
+      break;
+    case "alkaliBlast":
+      ctx.damage = actorField.some((c) => c?.id === "potassium") ? 7 : 4;
+      break;
+    case "metalCrush":
+      ctx.damage = actorField.some((c) => c?.id === "calcium" || c?.id === "iron")
+        ? 5
+        : 3;
+      break;
+    case "noblePressure":
+      ctx.damage = 2;
+      ctx.draw = actorField.some((c) => c?.id === "helium") ? 1 : 0;
+      ctx.hasHelium = actorField.some((c) => c?.id === "helium");
+      break;
+    case "combustion":
+      ctx.damage = 7;
+      break;
+    case "steamBurst":
+      ctx.damage = 5;
+      break;
+    case "acidRain":
+      ctx.ticks = 2;
+      ctx.damagePerTick = 2;
+      break;
+    case "rust":
+      ctx.damage = 4;
+      break;
+    case "explosion":
+      ctx.damage = 8;
+      break;
+    case "saltFormation":
+      ctx.damage = 5;
+      break;
+    case "carbonBurn":
+      ctx.damage = 5;
+      break;
+    case "potassiumWater":
+      ctx.damage = 9;
+      break;
+    case "limeFormation":
+      ctx.damage = 5;
+      break;
+    case "hydrogenBurn":
+      ctx.damage = 6;
+      break;
+    case "calciumSteam":
+      ctx.damage = 6;
+      break;
+    case "alkaliExplosion":
+      ctx.damage = 8;
+      break;
+    case "catalyst":
+      ctx.sourceSelector = actorDesk;
+      ctx.energy = 1;
+      break;
+    case "shield":
+      ctx.sourceSelector = actorDesk;
+      ctx.heal = 2;
+      break;
+    default:
+      if (card.type === "Utility" || card.type === "Element") {
+        ctx.sourceSelector = actorDesk;
+      }
+      break;
+  }
+
+  return ctx;
+}
+
+function triggerEffectForCard(cardId, actorPid) {
+  if (!hasEffectSystem()) return;
+  if (!CARD_LIBRARY[cardId]) return;
+
+  const ctx = getCardEffectContext(cardId, actorPid);
+  if (!ctx) return;
+
+  try {
+    window.playCardEffect(cardId, ctx);
+  } catch (error) {
+    console.warn("Effect play failed:", cardId, error);
+  }
+}
+
+function extractNewLogItems(prevLog = [], nextLog = []) {
+  if (!Array.isArray(prevLog) || !Array.isArray(nextLog)) return [];
+
+  if (!prevLog.length) return nextLog.slice(0, 3);
+
+  // append style
+  const appended =
+    nextLog.length >= prevLog.length &&
+    prevLog.every((item, i) => nextLog[i] === item);
+
+  if (appended) {
+    return nextLog.slice(prevLog.length);
+  }
+
+  // prepend style
+  const offset = nextLog.length - prevLog.length;
+  if (
+    offset >= 0 &&
+    prevLog.every((item, i) => nextLog[i + offset] === item)
+  ) {
+    return nextLog.slice(0, offset);
+  }
+
+  // fallback
+  return nextLog.slice(-3);
+}
+
+function detectCardIdFromLogText(text) {
+  if (!text) return null;
+  const lower = text.toLowerCase();
+
+  const entries = Object.entries(CARD_NAME_TO_ID).sort(
+    (a, b) => b[0].length - a[0].length,
+  );
+
+  for (const [name, id] of entries) {
+    if (lower.includes(name)) return id;
+  }
+
+  return null;
+}
+
+function detectActorPidFromLogText(text) {
+  if (!text) return null;
+  const match = text.match(/player\s+([12])/i);
+  if (!match) return null;
+  return Number(match[1]);
+}
+
+function handleEffectsFromLogTransition(prevState, nextState) {
+  if (!hasEffectSystem()) return;
+  if (!nextState) return;
+
+  const prevLog = Array.isArray(prevState?.log) ? prevState.log : [];
+  const nextLog = Array.isArray(nextState?.log) ? nextState.log : [];
+  const newItems = extractNewLogItems(prevLog, nextLog);
+
+  let localEffectAlreadyPlayed = false;
+
+  newItems.forEach((line) => {
+    const cardId = detectCardIdFromLogText(line);
+    const actorPid = detectActorPidFromLogText(line);
+
+    if (!cardId || !actorPid) return;
+
+    if (
+      pendingLocalEffect &&
+      pendingLocalEffect.cardId === cardId &&
+      Number(pendingLocalEffect.actorPid) === Number(actorPid)
+    ) {
+      localEffectAlreadyPlayed = true;
+      return;
+    }
+
+    triggerEffectForCard(cardId, actorPid);
+  });
+
+  if (pendingLocalEffect && !localEffectAlreadyPlayed) {
+    triggerEffectForCard(pendingLocalEffect.cardId, pendingLocalEffect.actorPid);
+  }
+
+  pendingLocalEffect = null;
+}
+
 async function createRoom() {
   try {
     const response = await fetch(`${WORKER_URL}/create-room`, {
@@ -413,7 +639,7 @@ async function createRoom() {
     }
 
     roomCode = data.roomCode;
-    playerId = data.playerId;
+    playerId = Number(data.playerId);
     isHost = true;
     manualClose = false;
 
@@ -428,10 +654,7 @@ async function createRoom() {
 
 async function joinRoom() {
   try {
-    const code = document
-      .getElementById("joinCodeInput")
-      .value.trim()
-      .toUpperCase();
+    const code = document.getElementById("joinCodeInput").value.trim().toUpperCase();
 
     if (!code) {
       throw new Error("Enter a room code.");
@@ -452,7 +675,7 @@ async function joinRoom() {
     }
 
     roomCode = data.roomCode;
-    playerId = data.playerId;
+    playerId = Number(data.playerId);
     isHost = false;
     manualClose = false;
 
@@ -473,8 +696,7 @@ function connectSocket() {
 
   if (
     socket &&
-    (socket.readyState === WebSocket.OPEN ||
-      socket.readyState === WebSocket.CONNECTING)
+    (socket.readyState === WebSocket.OPEN || socket.readyState === WebSocket.CONNECTING)
   ) {
     return;
   }
@@ -504,24 +726,27 @@ function connectSocket() {
     }
 
     if (message.type === "error") {
+      pendingLocalEffect = null;
       addConnectionLog(`Server error: ${message.message}`);
       showOverlay("Action Rejected", message.message);
       return;
     }
 
     if (message.type === "state") {
+      const prevState = gameState;
+      previousGameState = prevState;
       gameState = message.game;
       selectedCardIndex = null;
       selectedFieldIndex = null;
+
       render();
+      handleEffectsFromLogTransition(prevState, gameState);
 
       if (gameState && gameState.winner) {
         showOverlay(
           "Match Over",
           "The duel has ended.",
-          gameState.winner === "Draw"
-            ? "It is a draw."
-            : `${gameState.winner} wins!`,
+          gameState.winner === "Draw" ? "It is a draw." : `${gameState.winner} wins!`,
         );
       } else {
         hideOverlay();
@@ -563,9 +788,7 @@ function sendAction(action, payload = {}) {
 }
 
 function isMyTurn() {
-  return (
-    !!gameState && playerId === gameState.currentPlayer && !gameState.winner
-  );
+  return !!gameState && Number(playerId) === Number(gameState.currentPlayer) && !gameState.winner;
 }
 
 function selectCard(index) {
@@ -592,8 +815,7 @@ function createCardElement(card, isSelected, onClick) {
   const el = document.createElement("div");
   const tags = Array.isArray(card.tags) ? card.tags : [];
 
-  el.className =
-    `card ${card.className || ""} ${isSelected ? "selected" : ""}`.trim();
+  el.className = `card ${card.className || ""} ${isSelected ? "selected" : ""}`.trim();
 
   el.innerHTML = `<div class="card-top">
       <div class="card-name">${escapeHtml(card.name || "")}</div>
@@ -644,7 +866,7 @@ function renderField(containerId, pid) {
   container.innerHTML = "";
 
   const player = gameState.players[pid];
-  const clickable = pid === playerId && isMyTurn();
+  const clickable = Number(pid) === Number(playerId) && isMyTurn();
 
   player.field.forEach((card, index) => {
     container.appendChild(
@@ -670,7 +892,7 @@ function renderHand(containerId, pid) {
 
   const player = gameState.players[pid];
 
-  if (pid !== playerId) {
+  if (Number(pid) !== Number(playerId)) {
     for (let i = 0; i < player.hand.length; i += 1) {
       const slot = document.createElement("div");
       slot.className = "slot";
@@ -689,9 +911,7 @@ function renderHand(containerId, pid) {
 
   player.hand.forEach((card, index) => {
     container.appendChild(
-      createCardElement(card, selectedCardIndex === index, () =>
-        selectCard(index),
-      ),
+      createCardElement(card, selectedCardIndex === index, () => selectCard(index)),
     );
   });
 
@@ -738,9 +958,7 @@ function renderSelectedCardBox() {
   }
 
   if (!isMyTurn()) {
-    box.textContent = gameState.winner
-      ? "Match finished."
-      : "Wait for your turn.";
+    box.textContent = gameState.winner ? "Match finished." : "Wait for your turn.";
     return;
   }
 
@@ -786,12 +1004,9 @@ function updatePlayerBars(pid) {
   const p = gameState.players[pid];
 
   document.getElementById(`p${pid}HpText`).textContent = `${p.hp} / ${p.maxHp}`;
-  document.getElementById(`p${pid}EnergyText`).textContent =
-    `${p.energy} / ${p.maxEnergy}`;
-  document.getElementById(`p${pid}HpBar`).style.width =
-    `${(p.hp / p.maxHp) * 100}%`;
-  document.getElementById(`p${pid}EnergyBar`).style.width =
-    `${(p.energy / p.maxEnergy) * 100}%`;
+  document.getElementById(`p${pid}EnergyText`).textContent = `${p.energy} / ${p.maxEnergy}`;
+  document.getElementById(`p${pid}HpBar`).style.width = `${(p.hp / p.maxHp) * 100}%`;
+  document.getElementById(`p${pid}EnergyBar`).style.width = `${(p.energy / p.maxEnergy) * 100}%`;
   document.getElementById(`p${pid}DeckCount`).textContent = p.deck.length;
   document.getElementById(`p${pid}HandCount`).textContent = p.hand.length;
   document.getElementById(`p${pid}DiscardCount`).textContent = p.discard.length;
@@ -832,11 +1047,23 @@ function render() {
 
 function playSelectedCard() {
   if (!isMyTurn() || selectedCardIndex === null) return;
+
+  const player = gameState.players[playerId];
+  const card = player.hand[selectedCardIndex];
+
+  if (card) {
+    pendingLocalEffect = {
+      cardId: card.id,
+      actorPid: Number(playerId),
+    };
+  }
+
   sendAction("play_card", { handIndex: selectedCardIndex });
 }
 
 function removeSelectedFieldCard() {
   if (!isMyTurn() || selectedFieldIndex === null) return;
+  pendingLocalEffect = null;
   sendAction("remove_field_card", { fieldIndex: selectedFieldIndex });
 }
 
@@ -853,6 +1080,7 @@ function endTurn() {
 
 function restartMatch() {
   if (!isHost) return;
+  pendingLocalEffect = null;
   sendAction("restart_match", {});
 }
 
@@ -873,8 +1101,10 @@ function leaveRoom() {
   playerId = null;
   isHost = false;
   gameState = null;
+  previousGameState = null;
   selectedCardIndex = null;
   selectedFieldIndex = null;
+  pendingLocalEffect = null;
 
   updateHeaderState();
   showLobby();
@@ -903,15 +1133,9 @@ document.addEventListener("visibilitychange", () => {
 
 document.getElementById("hostBtn").addEventListener("click", createRoom);
 document.getElementById("joinBtn").addEventListener("click", joinRoom);
-document
-  .getElementById("playCardBtn")
-  .addEventListener("click", playSelectedCard);
-document
-  .getElementById("removeFieldCardBtn")
-  .addEventListener("click", removeSelectedFieldCard);
-document
-  .getElementById("clearSelectionBtn")
-  .addEventListener("click", clearSelection);
+document.getElementById("playCardBtn").addEventListener("click", playSelectedCard);
+document.getElementById("removeFieldCardBtn").addEventListener("click", removeSelectedFieldCard);
+document.getElementById("clearSelectionBtn").addEventListener("click", clearSelection);
 document.getElementById("endTurnBtn").addEventListener("click", endTurn);
 document.getElementById("restartBtn").addEventListener("click", restartMatch);
 document.getElementById("leaveBtn").addEventListener("click", leaveRoom);

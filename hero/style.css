@@ -530,3 +530,18 @@ button:disabled {
     grid-template-columns: 1fr;
   }
 }
+
+.desk-area {
+  position: relative;
+  height: 120px;
+  margin: 10px 0 14px;
+  border-radius: 16px;
+  pointer-events: none;
+}
+
+#battle-effects-root {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9998;
+}
