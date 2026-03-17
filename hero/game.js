@@ -94,6 +94,37 @@ const CARD_LIBRARY = {
     className: "element-sodium",
     tags: ["element", "metal"],
   },
+  potassium: {
+    id: "potassium",
+    name: "Potassium",
+    type: "Element",
+    cost: 1,
+    symbol: "K",
+    text: "Highly reactive alkali metal. Violent with water.",
+    className: "element-potassium",
+    tags: ["element", "metal", "alkali"],
+  },
+  helium: {
+    id: "helium",
+    name: "Helium",
+    type: "Element",
+    cost: 1,
+    symbol: "He",
+    text: "Stable noble gas. Hard to react with.",
+    className: "element-helium",
+    tags: ["element", "gas", "noble"],
+  },
+  calcium: {
+    id: "calcium",
+    name: "Calcium",
+    type: "Element",
+    cost: 1,
+    symbol: "Ca",
+    text: "Reactive metal forming lime and minerals.",
+    className: "element-calcium",
+    tags: ["element", "metal", "earth"],
+  },
+
   combustion: {
     id: "combustion",
     name: "Combustion",
@@ -157,99 +188,6 @@ const CARD_LIBRARY = {
     text: "Carbon + Oxygen = 5 damage.",
     tags: ["reaction", "fire"],
   },
-  fireball: {
-    id: "fireball",
-    name: "Fireball",
-    type: "Attack",
-    cost: 1,
-    symbol: "ATK",
-    text: "Deal 3 damage. +2 if enemy Wet.",
-    tags: ["attack", "fire"],
-  },
-  hammerStrike: {
-    id: "hammerStrike",
-    name: "Hammer Strike",
-    type: "Attack",
-    cost: 1,
-    symbol: "ATK",
-    text: "Deal 2 damage. +2 if Iron on field.",
-    tags: ["attack", "metal"],
-  },
-  corrode: {
-    id: "corrode",
-    name: "Corrode",
-    type: "Attack",
-    cost: 2,
-    symbol: "ATK",
-    text: "Destroy enemy field card if enemy Corroded.",
-    tags: ["attack", "control"],
-  },
-  lightning: {
-    id: "lightning",
-    name: "Lightning",
-    type: "Attack",
-    cost: 2,
-    symbol: "ATK",
-    text: "Deal 4 damage.",
-    tags: ["attack", "shock"],
-  },
-  poisonCloud: {
-    id: "poisonCloud",
-    name: "Poison Cloud",
-    type: "Attack",
-    cost: 2,
-    symbol: "ATK",
-    text: "Deal 2 damage and apply Corroded.",
-    tags: ["attack", "poison"],
-  },
-  catalyst: {
-    id: "catalyst",
-    name: "Catalyst",
-    type: "Utility",
-    cost: 1,
-    symbol: "UTL",
-    text: "Gain 1 energy.",
-    tags: ["utility", "lab"],
-  },
-  shield: {
-    id: "shield",
-    name: "Lab Shield",
-    type: "Utility",
-    cost: 1,
-    symbol: "UTL",
-    text: "Heal 2 HP.",
-    tags: ["utility", "defense"],
-  },
-  potassium: {
-    id: "potassium",
-    name: "Potassium",
-    type: "Element",
-    cost: 1,
-    symbol: "K",
-    text: "Highly reactive alkali metal. Violent with water.",
-    className: "element-potassium",
-    tags: ["element", "metal", "alkali"],
-  },
-  helium: {
-    id: "helium",
-    name: "Helium",
-    type: "Element",
-    cost: 1,
-    symbol: "He",
-    text: "Stable noble gas. Hard to react with.",
-    className: "element-helium",
-    tags: ["element", "gas", "noble"],
-  },
-  calcium: {
-    id: "calcium",
-    name: "Calcium",
-    type: "Element",
-    cost: 1,
-    symbol: "Ca",
-    text: "Reactive metal forming lime and minerals.",
-    className: "element-calcium",
-    tags: ["element", "metal", "earth"],
-  },
   potassiumWater: {
     id: "potassiumWater",
     name: "Alkali Reaction",
@@ -295,6 +233,52 @@ const CARD_LIBRARY = {
     text: "Potassium + Oxygen = 8 damage.",
     tags: ["reaction", "burst"],
   },
+
+  fireball: {
+    id: "fireball",
+    name: "Fireball",
+    type: "Attack",
+    cost: 1,
+    symbol: "ATK",
+    text: "Deal 3 damage. +2 if enemy Wet.",
+    tags: ["attack", "fire"],
+  },
+  hammerStrike: {
+    id: "hammerStrike",
+    name: "Hammer Strike",
+    type: "Attack",
+    cost: 1,
+    symbol: "ATK",
+    text: "Deal 2 damage. +2 if Iron on field.",
+    tags: ["attack", "metal"],
+  },
+  corrode: {
+    id: "corrode",
+    name: "Corrode",
+    type: "Attack",
+    cost: 2,
+    symbol: "ATK",
+    text: "Destroy enemy field card if enemy Corroded.",
+    tags: ["attack", "control"],
+  },
+  lightning: {
+    id: "lightning",
+    name: "Lightning",
+    type: "Attack",
+    cost: 2,
+    symbol: "ATK",
+    text: "Deal 4 damage.",
+    tags: ["attack", "shock"],
+  },
+  poisonCloud: {
+    id: "poisonCloud",
+    name: "Poison Cloud",
+    type: "Attack",
+    cost: 2,
+    symbol: "ATK",
+    text: "Deal 2 damage and apply Corroded.",
+    tags: ["attack", "poison"],
+  },
   plasmaShock: {
     id: "plasmaShock",
     name: "Plasma Shock",
@@ -330,6 +314,25 @@ const CARD_LIBRARY = {
     symbol: "ATK",
     text: "Deal 2 damage. Draw 1 card if Helium on field.",
     tags: ["attack", "gas"],
+  },
+
+  catalyst: {
+    id: "catalyst",
+    name: "Catalyst",
+    type: "Utility",
+    cost: 1,
+    symbol: "UTL",
+    text: "Gain 1 energy.",
+    tags: ["utility", "lab"],
+  },
+  shield: {
+    id: "shield",
+    name: "Lab Shield",
+    type: "Utility",
+    cost: 1,
+    symbol: "UTL",
+    text: "Heal 2 HP.",
+    tags: ["utility", "defense"],
   },
 };
 
@@ -407,15 +410,18 @@ function hideOverlay() {
 }
 
 function getSelfDeskSelector() {
-  return Number(playerId) === 1 ? "#player-desk" : "#enemy-desk";
+  return "#player-desk";
 }
 
 function getOpponentDeskSelector() {
-  return Number(playerId) === 1 ? "#enemy-desk" : "#player-desk";
+  return "#enemy-desk";
 }
 
 function getDeskSelectorForPid(pid) {
-  return Number(pid) === 1 ? "#player-desk" : "#enemy-desk";
+  if (!playerId) {
+    return Number(pid) === 1 ? "#player-desk" : "#enemy-desk";
+  }
+  return Number(pid) === Number(playerId) ? "#player-desk" : "#enemy-desk";
 }
 
 function hasEffectSystem() {
@@ -432,10 +438,10 @@ function getCardEffectContext(cardId, actorPid) {
   const card = CARD_LIBRARY[cardId];
   if (!card) return null;
 
+  const opponentPid = Number(actorPid) === 1 ? 2 : 1;
   const actorDesk = getDeskSelectorForPid(actorPid);
-  const targetDesk = getDeskSelectorForPid(actorPid === 1 ? 2 : 1);
+  const targetDesk = getDeskSelectorForPid(opponentPid);
   const actorField = gameState?.players?.[actorPid]?.field || [];
-  const opponentPid = actorPid === 1 ? 2 : 1;
   const opponentStatuses = gameState?.players?.[opponentPid]?.statuses || [];
 
   const ctx = {
@@ -455,6 +461,7 @@ function getCardEffectContext(cardId, actorPid) {
       ctx.damage = 4;
       break;
     case "poisonCloud":
+      ctx.damage = 2;
       ctx.pulses = 2;
       ctx.damagePerPulse = 1;
       break;
@@ -481,6 +488,7 @@ function getCardEffectContext(cardId, actorPid) {
       ctx.damage = 5;
       break;
     case "acidRain":
+      ctx.damage = 4;
       ctx.ticks = 2;
       ctx.damagePerTick = 2;
       break;
@@ -501,6 +509,7 @@ function getCardEffectContext(cardId, actorPid) {
       break;
     case "limeFormation":
       ctx.damage = 5;
+      ctx.energy = 1;
       break;
     case "hydrogenBurn":
       ctx.damage = 6;
@@ -513,15 +522,18 @@ function getCardEffectContext(cardId, actorPid) {
       break;
     case "catalyst":
       ctx.sourceSelector = actorDesk;
+      ctx.targetSelector = actorDesk;
       ctx.energy = 1;
       break;
     case "shield":
       ctx.sourceSelector = actorDesk;
+      ctx.targetSelector = actorDesk;
       ctx.heal = 2;
       break;
     default:
       if (card.type === "Utility" || card.type === "Element") {
         ctx.sourceSelector = actorDesk;
+        ctx.targetSelector = actorDesk;
       }
       break;
   }
@@ -548,7 +560,6 @@ function extractNewLogItems(prevLog = [], nextLog = []) {
 
   if (!prevLog.length) return nextLog.slice(0, 3);
 
-  // append style
   const appended =
     nextLog.length >= prevLog.length &&
     prevLog.every((item, i) => nextLog[i] === item);
@@ -557,7 +568,6 @@ function extractNewLogItems(prevLog = [], nextLog = []) {
     return nextLog.slice(prevLog.length);
   }
 
-  // prepend style
   const offset = nextLog.length - prevLog.length;
   if (
     offset >= 0 &&
@@ -566,7 +576,6 @@ function extractNewLogItems(prevLog = [], nextLog = []) {
     return nextLog.slice(0, offset);
   }
 
-  // fallback
   return nextLog.slice(-3);
 }
 
@@ -625,6 +634,54 @@ function handleEffectsFromLogTransition(prevState, nextState) {
   }
 
   pendingLocalEffect = null;
+}
+
+function handleIncomingEffect(effect) {
+  if (!hasEffectSystem()) return;
+  if (!effect) return;
+
+  const cardId = effect.effectType || effect.cardId;
+  if (!cardId || !CARD_LIBRARY[cardId]) return;
+
+  const actorPid = Number(effect.actorPid || effect.sourcePid || effect.source || playerId || 1);
+  const targetPid = Number(
+    effect.targetPid ||
+    effect.target ||
+    (Number(actorPid) === 1 ? 2 : 1),
+  );
+
+  const fallbackCtx = getCardEffectContext(cardId, actorPid) || {};
+  const card = CARD_LIBRARY[cardId];
+
+  const ctx = {
+    ...fallbackCtx,
+    sourceSelector: effect.sourceSelector || fallbackCtx.sourceSelector || getDeskSelectorForPid(actorPid),
+    targetSelector:
+      effect.targetSelector ||
+      fallbackCtx.targetSelector ||
+      (card?.type === "Utility" || card?.type === "Element"
+        ? getDeskSelectorForPid(actorPid)
+        : getDeskSelectorForPid(targetPid)),
+    damage: effect.damage ?? fallbackCtx.damage,
+    heal: effect.heal ?? fallbackCtx.heal,
+    energy: effect.energy ?? fallbackCtx.energy,
+    enemyWet: effect.enemyWet ?? fallbackCtx.enemyWet,
+    pulses: effect.pulses ?? fallbackCtx.pulses,
+    damagePerPulse: effect.damagePerPulse ?? fallbackCtx.damagePerPulse,
+    ticks: effect.ticks ?? fallbackCtx.ticks,
+    damagePerTick: effect.damagePerTick ?? fallbackCtx.damagePerTick,
+    draw: effect.draw ?? fallbackCtx.draw,
+    hasHelium: effect.hasHelium ?? fallbackCtx.hasHelium,
+    duration: effect.duration ?? fallbackCtx.duration,
+    applyStatus: effect.applyStatus ?? fallbackCtx.applyStatus,
+    effectGroup: effect.effectGroup ?? fallbackCtx.effectGroup,
+  };
+
+  try {
+    window.playCardEffect(cardId, ctx);
+  } catch (error) {
+    console.warn("Effect play failed:", cardId, error);
+  }
 }
 
 async function createRoom() {
@@ -732,6 +789,12 @@ function connectSocket() {
       return;
     }
 
+    if (message.type === "play_effect") {
+      const effect = message.effect || message;
+      handleIncomingEffect(effect);
+      return;
+    }
+
     if (message.type === "state") {
       const prevState = gameState;
       previousGameState = prevState;
@@ -740,7 +803,6 @@ function connectSocket() {
       selectedFieldIndex = null;
 
       render();
-      handleEffectsFromLogTransition(prevState, gameState);
 
       if (gameState && gameState.winner) {
         showOverlay(
@@ -751,6 +813,9 @@ function connectSocket() {
       } else {
         hideOverlay();
       }
+
+      pendingLocalEffect = null;
+      return;
     }
   });
 
