@@ -63,14 +63,17 @@ function showNameModal() {
 }
 
 function updatePlayerLabels() {
-  if (p1NameLabel) {
-    p1NameLabel.textContent =
-      playerId === 1 ? `Player 1 - ${playerName || "Guest"}` : "Player 1";
-  }
+  if (!p1NameLabel || !p2NameLabel) return;
 
-  if (p2NameLabel) {
-    p2NameLabel.textContent =
-      playerId === 2 ? `Player 2 - ${playerName || "Guest"}` : "Player 2";
+  if (playerId === 1) {
+    p1NameLabel.textContent = `Player 1 - ${playerName || "Guest"}`;
+    p2NameLabel.textContent = "Player 2";
+  } else if (playerId === 2) {
+    p1NameLabel.textContent = "Player 1";
+    p2NameLabel.textContent = `Player 2 - ${playerName || "Guest"}`;
+  } else {
+    p1NameLabel.textContent = "Player 1";
+    p2NameLabel.textContent = "Player 2";
   }
 }
 
