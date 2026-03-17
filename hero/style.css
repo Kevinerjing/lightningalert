@@ -533,7 +533,7 @@ button:disabled {
 
 .desk-area {
   position: relative;
-  height: 120px;
+  height: 12px;
   margin: 10px 0 14px;
   border-radius: 16px;
   pointer-events: none;
