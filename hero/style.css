@@ -534,7 +534,7 @@ button:disabled {
 .name-modal {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.65);
+  background: rgba(3, 10, 24, 0.82);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -542,44 +542,50 @@ button:disabled {
 }
 
 .name-box {
-  background: #1e2430;
-  color: white;
-  padding: 24px;
-  border-radius: 14px;
-  width: 320px;
-  text-align: center;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+  width: min(420px, 92vw);
+  background: linear-gradient(180deg, rgba(20, 36, 60, 0.98), rgba(10, 22, 40, 0.98));
+  border: 1px solid rgba(120, 190, 255, 0.28);
+  border-radius: 18px;
+  box-shadow: 0 18px 48px rgba(0, 0, 0, 0.45);
+  padding: 28px;
+  color: #fff;
 }
 
 .name-box h2 {
-  margin-top: 0;
-  margin-bottom: 14px;
-  font-size: 24px;
+  margin: 0 0 16px 0;
+  font-size: 32px;
+  line-height: 1.1;
 }
 
 .name-box input {
   width: 100%;
-  padding: 10px 12px;
+  height: 48px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+  padding: 0 14px;
   font-size: 16px;
-  border-radius: 8px;
-  border: 1px solid #666;
-  outline: none;
-  margin-bottom: 12px;
+  margin-bottom: 14px;
   box-sizing: border-box;
 }
 
+.name-box input::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
 .name-box button {
-  width: 100%;
-  padding: 10px 12px;
-  font-size: 16px;
-  font-weight: bold;
+  min-width: 140px;
+  height: 44px;
   border: none;
-  border-radius: 8px;
-  background: #4caf50;
-  color: white;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #7ce8ff, #54d0ff);
+  color: #04111f;
+  font-size: 16px;
+  font-weight: 700;
   cursor: pointer;
 }
 
 .name-box button:hover {
-  background: #43a047;
+  transform: translateY(-1px);
 }
