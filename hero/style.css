@@ -122,9 +122,9 @@ body {
 }
 
 .section-title {
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 700;
-  margin-bottom: 6px;
+  margin-bottom: 2px;
 }
 
 .lobby-stack {
@@ -377,7 +377,7 @@ body {
 .center-panel {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 14px;
+  gap: 10px;
 }
 
 .battlefield {
@@ -454,11 +454,12 @@ button:disabled {
 }
 
 .selected-card-box {
-  min-height: 120px;
+  min-height: 88px;
   border: 1px dashed var(--line);
-  border-radius: 14px;
-  padding: 12px;
+  border-radius: 12px;
+  padding: 10px 12px;
   color: var(--muted);
+  font-size: 13px;
 }
 
 .log-list {
