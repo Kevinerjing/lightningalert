@@ -977,31 +977,48 @@ function renderCombatLog() {
   });
 }
 
-function updatePlayerBars(pid) {
+function getPerspectivePids() {
+  const me = Number(playerId);
+  const enemy = me === 1 ? 2 : 1;
+  return { me, enemy };
+}
+
+function updatePlayerBars(slot, pid) {
   const p = gameState.players[pid];
 
-  document.getElementById(`p${pid}HpText`).textContent = `${p.hp} / ${p.maxHp}`;
-  document.getElementById(`p${pid}EnergyText`).textContent = `${p.energy} / ${p.maxEnergy}`;
-  document.getElementById(`p${pid}HpBar`).style.width = `${(p.hp / p.maxHp) * 100}%`;
-  document.getElementById(`p${pid}EnergyBar`).style.width = `${(p.energy / p.maxEnergy) * 100}%`;
-  document.getElementById(`p${pid}DeckCount`).textContent = p.deck.length;
-  document.getElementById(`p${pid}HandCount`).textContent = p.hand.length;
-  document.getElementById(`p${pid}DiscardCount`).textContent = p.discard.length;
+  document.getElementById(`${slot}HpText`).textContent = `${p.hp} / ${p.maxHp}`;
+  document.getElementById(`${slot}EnergyText`).textContent = `${p.energy} / ${p.maxEnergy}`;
+  document.getElementById(`${slot}HpBar`).style.width = `${(p.hp / p.maxHp) * 100}%`;
+  document.getElementById(`${slot}EnergyBar`).style.width = `${(p.energy / p.maxEnergy) * 100}%`;
+  document.getElementById(`${slot}DeckCount`).textContent = p.deck.length;
+  document.getElementById(`${slot}HandCount`).textContent = p.hand.length;
+  document.getElementById(`${slot}DiscardCount`).textContent = p.discard.length;
 }
 
 function render() {
-  if (!gameState) return;
+  if (!gameState || !playerId) return;
 
-  updatePlayerBars(1);
-  updatePlayerBars(2);
-  renderStatuses("p1Statuses", gameState.players[1].statuses);
-  renderStatuses("p2Statuses", gameState.players[2].statuses);
-  renderField("p1Field", 1);
-  renderField("p2Field", 2);
-  renderHand("p1Hand", 1);
-  renderHand("p2Hand", 2);
-  renderPreview("p1FieldPreview", 1);
-  renderPreview("p2FieldPreview", 2);
+  const { me, enemy } = getPerspectivePids();
+
+
+  const topSlot = "p1";
+  const bottomSlot = "p2";
+
+  updatePlayerBars(topSlot, enemy);
+  updatePlayerBars(bottomSlot, me);
+
+  renderStatuses(`${topSlot}Statuses`, gameState.players[enemy].statuses);
+  renderStatuses(`${bottomSlot}Statuses`, gameState.players[me].statuses);
+
+  renderField(`${topSlot}Field`, enemy);
+  renderField(`${bottomSlot}Field`, me);
+
+  renderHand(`${topSlot}Hand`, enemy);
+  renderHand(`${bottomSlot}Hand`, me);
+
+  renderPreview(`${topSlot}FieldPreview`, enemy);
+  renderPreview(`${bottomSlot}FieldPreview`, me);
+
   renderSelectedCardBox();
   renderCombatLog();
 
