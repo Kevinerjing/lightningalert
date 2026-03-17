@@ -405,8 +405,8 @@
 
       .ehx-wet-drop {
         position: fixed;
-        width: 160px;
-        height: 260px;
+        width: 32px;
+        height: 52px;
         border-radius: 50% 50% 55% 55%;
         background: linear-gradient(180deg, rgba(180,240,255,0.95), rgba(50,160,255,0.78));
         box-shadow: 0 0 12px rgba(100,200,255,0.45);
