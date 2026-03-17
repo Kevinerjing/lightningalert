@@ -336,11 +336,6 @@ const CARD_LIBRARY = {
   },
 };
 
-const CARD_NAME_TO_ID = Object.values(CARD_LIBRARY).reduce((map, card) => {
-  map[card.name.toLowerCase()] = card.id;
-  return map;
-}, {});
-
 function escapeHtml(value) {
   return String(value)
     .replace(/&/g, "&amp;")
@@ -409,14 +404,6 @@ function hideOverlay() {
   document.getElementById("gameOverlay").classList.add("hidden");
 }
 
-function getSelfDeskSelector() {
-  return "#player-desk";
-}
-
-function getOpponentDeskSelector() {
-  return "#enemy-desk";
-}
-
 function getDeskSelectorForPid(pid) {
   if (!playerId) {
     return Number(pid) === 1 ? "#player-desk" : "#enemy-desk";
@@ -428,21 +415,22 @@ function hasEffectSystem() {
   return typeof window.playCardEffect === "function";
 }
 
-function cardExistsOnField(pid, cardId) {
-  const player = gameState?.players?.[pid];
-  if (!player || !Array.isArray(player.field)) return false;
-  return player.field.some((card) => card && card.id === cardId);
-}
-
 function getCardEffectContext(cardId, actorPid) {
   const card = CARD_LIBRARY[cardId];
   if (!card) return null;
 
-  const opponentPid = Number(actorPid) === 1 ? 2 : 1;
-  const actorDesk = getDeskSelectorForPid(actorPid);
-  const targetDesk = getDeskSelectorForPid(opponentPid);
-  const actorField = gameState?.players?.[actorPid]?.field || [];
+  const actorPidNum = Number(actorPid);
+  const opponentPid = actorPidNum === 1 ? 2 : 1;
+  const actorDesk = getDeskSelectorForPid(actorPidNum);
+  const targetDesk =
+    card.type === "Utility" || card.type === "Element"
+      ? actorDesk
+      : getDeskSelectorForPid(opponentPid);
+
+  const actorField = gameState?.players?.[actorPidNum]?.field || [];
   const opponentStatuses = gameState?.players?.[opponentPid]?.statuses || [];
+
+  const hasField = (id) => actorField.some((c) => c?.id === id);
 
   const ctx = {
     sourceSelector: actorDesk,
@@ -455,7 +443,7 @@ function getCardEffectContext(cardId, actorPid) {
       ctx.enemyWet = opponentStatuses.includes("Wet");
       break;
     case "hammerStrike":
-      ctx.damage = actorField.some((c) => c?.id === "iron") ? 4 : 2;
+      ctx.damage = hasField("iron") ? 4 : 2;
       break;
     case "lightning":
       ctx.damage = 4;
@@ -466,20 +454,18 @@ function getCardEffectContext(cardId, actorPid) {
       ctx.damagePerPulse = 1;
       break;
     case "plasmaShock":
-      ctx.damage = actorField.some((c) => c?.id === "oxygen") ? 7 : 5;
+      ctx.damage = hasField("oxygen") ? 7 : 5;
       break;
     case "alkaliBlast":
-      ctx.damage = actorField.some((c) => c?.id === "potassium") ? 7 : 4;
+      ctx.damage = hasField("potassium") ? 7 : 4;
       break;
     case "metalCrush":
-      ctx.damage = actorField.some((c) => c?.id === "calcium" || c?.id === "iron")
-        ? 5
-        : 3;
+      ctx.damage = hasField("calcium") || hasField("iron") ? 5 : 3;
       break;
     case "noblePressure":
       ctx.damage = 2;
-      ctx.draw = actorField.some((c) => c?.id === "helium") ? 1 : 0;
-      ctx.hasHelium = actorField.some((c) => c?.id === "helium");
+      ctx.draw = hasField("helium") ? 1 : 0;
+      ctx.hasHelium = hasField("helium");
       break;
     case "combustion":
       ctx.damage = 7;
@@ -521,119 +507,35 @@ function getCardEffectContext(cardId, actorPid) {
       ctx.damage = 8;
       break;
     case "catalyst":
-      ctx.sourceSelector = actorDesk;
       ctx.targetSelector = actorDesk;
       ctx.energy = 1;
       break;
     case "shield":
-      ctx.sourceSelector = actorDesk;
       ctx.targetSelector = actorDesk;
       ctx.heal = 2;
       break;
     default:
-      if (card.type === "Utility" || card.type === "Element") {
-        ctx.sourceSelector = actorDesk;
-        ctx.targetSelector = actorDesk;
-      }
       break;
   }
 
   return ctx;
 }
 
-function triggerEffectForCard(cardId, actorPid) {
+function triggerEffectForCard(cardId, actorPid, overrideCtx = null) {
   if (!hasEffectSystem()) return;
   if (!CARD_LIBRARY[cardId]) return;
 
-  const ctx = getCardEffectContext(cardId, actorPid);
-  if (!ctx) return;
+  const baseCtx = getCardEffectContext(cardId, actorPid);
+  const ctx = {
+    ...(baseCtx || {}),
+    ...(overrideCtx || {}),
+  };
 
   try {
     window.playCardEffect(cardId, ctx);
   } catch (error) {
     console.warn("Effect play failed:", cardId, error);
   }
-}
-
-function extractNewLogItems(prevLog = [], nextLog = []) {
-  if (!Array.isArray(prevLog) || !Array.isArray(nextLog)) return [];
-
-  if (!prevLog.length) return nextLog.slice(0, 3);
-
-  const appended =
-    nextLog.length >= prevLog.length &&
-    prevLog.every((item, i) => nextLog[i] === item);
-
-  if (appended) {
-    return nextLog.slice(prevLog.length);
-  }
-
-  const offset = nextLog.length - prevLog.length;
-  if (
-    offset >= 0 &&
-    prevLog.every((item, i) => nextLog[i + offset] === item)
-  ) {
-    return nextLog.slice(0, offset);
-  }
-
-  return nextLog.slice(-3);
-}
-
-function detectCardIdFromLogText(text) {
-  if (!text) return null;
-  const lower = text.toLowerCase();
-
-  const entries = Object.entries(CARD_NAME_TO_ID).sort(
-    (a, b) => b[0].length - a[0].length,
-  );
-
-  for (const [name, id] of entries) {
-    if (lower.includes(name)) return id;
-  }
-
-  return null;
-}
-
-function detectActorPidFromLogText(text) {
-  if (!text) return null;
-  const match = text.match(/player\s+([12])/i);
-  if (!match) return null;
-  return Number(match[1]);
-}
-
-function handleEffectsFromLogTransition(prevState, nextState) {
-  if (!hasEffectSystem()) return;
-  if (!nextState) return;
-
-  const prevLog = Array.isArray(prevState?.log) ? prevState.log : [];
-  const nextLog = Array.isArray(nextState?.log) ? nextState.log : [];
-  const newItems = extractNewLogItems(prevLog, nextLog);
-
-  let localEffectAlreadyPlayed = false;
-
-  newItems.forEach((line) => {
-    const cardId = detectCardIdFromLogText(line);
-    const actorPid = detectActorPidFromLogText(line);
-
-    if (!cardId || !actorPid) return;
-
-    if (
-      pendingLocalEffect &&
-      pendingLocalEffect.cardId === cardId &&
-      Number(pendingLocalEffect.actorPid) === Number(actorPid)
-    ) {
-      localEffectAlreadyPlayed = true;
-      return;
-    }
-
-    triggerEffectForCard(cardId, actorPid);
-  });
-
-  if (pendingLocalEffect && !localEffectAlreadyPlayed) {
-    triggerEffectForCard(pendingLocalEffect.cardId, pendingLocalEffect.actorPid);
-  }
-
-  pendingLocalEffect = null;
 }
 
 function handleIncomingEffect(effect) {
@@ -644,10 +546,21 @@ function handleIncomingEffect(effect) {
   if (!cardId || !CARD_LIBRARY[cardId]) return;
 
   const actorPid = Number(effect.actorPid || effect.sourcePid || effect.source || playerId || 1);
+
+  if (
+    pendingLocalEffect &&
+    pendingLocalEffect.cardId === cardId &&
+    Number(pendingLocalEffect.actorPid) === actorPid &&
+    pendingLocalEffect.localOnly
+  ) {
+    pendingLocalEffect = null;
+    return;
+  }
+
   const targetPid = Number(
     effect.targetPid ||
-    effect.target ||
-    (Number(actorPid) === 1 ? 2 : 1),
+      effect.target ||
+      (actorPid === 1 ? 2 : 1),
   );
 
   const fallbackCtx = getCardEffectContext(cardId, actorPid) || {};
@@ -655,7 +568,10 @@ function handleIncomingEffect(effect) {
 
   const ctx = {
     ...fallbackCtx,
-    sourceSelector: effect.sourceSelector || fallbackCtx.sourceSelector || getDeskSelectorForPid(actorPid),
+    sourceSelector:
+      effect.sourceSelector ||
+      fallbackCtx.sourceSelector ||
+      getDeskSelectorForPid(actorPid),
     targetSelector:
       effect.targetSelector ||
       fallbackCtx.targetSelector ||
@@ -677,11 +593,7 @@ function handleIncomingEffect(effect) {
     effectGroup: effect.effectGroup ?? fallbackCtx.effectGroup,
   };
 
-  try {
-    window.playCardEffect(cardId, ctx);
-  } catch (error) {
-    console.warn("Effect play failed:", cardId, error);
-  }
+  triggerEffectForCard(cardId, actorPid, ctx);
 }
 
 async function createRoom() {
@@ -1115,13 +1027,16 @@ function playSelectedCard() {
 
   const player = gameState.players[playerId];
   const card = player.hand[selectedCardIndex];
+  if (!card) return;
 
-  if (card) {
-    pendingLocalEffect = {
-      cardId: card.id,
-      actorPid: Number(playerId),
-    };
-  }
+  pendingLocalEffect = {
+    cardId: card.id,
+    actorPid: Number(playerId),
+    localOnly: true,
+    playedAt: Date.now(),
+  };
+
+  triggerEffectForCard(card.id, Number(playerId));
 
   sendAction("play_card", { handIndex: selectedCardIndex });
 }
@@ -1140,6 +1055,7 @@ function clearSelection() {
 
 function endTurn() {
   if (!isMyTurn()) return;
+  pendingLocalEffect = null;
   sendAction("end_turn", {});
 }
 
