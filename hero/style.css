@@ -1719,3 +1719,112 @@ button:disabled {
     font-size: 20px;
   }
 }
+
+/* ===== Card Preview Overlay ===== */
+.card-preview-overlay { 
+  position: fixed; 
+  inset: 0; 
+  z-index: 9999; 
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+}
+
+.card-preview-overlay.hidden { 
+  display: none; 
+}
+
+.card-preview-backdrop { 
+  position: absolute; 
+  inset: 0; 
+  background: rgba(0,0,0,0.55); 
+}
+
+.card-preview-box img { 
+  position: relative; 
+  z-index: 1; 
+  width: min(360px, 68vw); 
+  max-height: 80vh; 
+  object-fit: contain; 
+  border-radius: 18px; 
+}
+
+/* ===== Card Preview Overlay ===== */
+.card-preview-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 1;
+  pointer-events: none;
+  transition: opacity 0.35s ease;
+}
+
+.card-preview-overlay.hidden {
+  display: none;
+}
+
+.card-preview-overlay.fade-out {
+  opacity: 0;
+}
+
+.card-preview-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.58);
+  backdrop-filter: blur(4px);
+}
+
+.card-preview-box {
+  position: relative;
+  z-index: 1;
+  transform: scale(0.86);
+  opacity: 0;
+}
+
+.card-preview-overlay.show .card-preview-box {
+  animation: cardPreviewPopIn 0.28s ease forwards;
+}
+
+.card-preview-overlay.fade-out .card-preview-box {
+  animation: cardPreviewFadeOut 0.3s ease forwards;
+}
+
+.card-preview-box img {
+  display: block;
+  width: min(380px, 70vw);
+  max-height: 80vh;
+  object-fit: contain;
+  border-radius: 20px;
+  box-shadow:
+    0 24px 70px rgba(0, 0, 0, 0.55),
+    0 0 28px rgba(255, 255, 255, 0.08);
+}
+
+@keyframes cardPreviewPopIn {
+  0% {
+    transform: scale(0.82);
+    opacity: 0;
+  }
+  60% {
+    transform: scale(1.04);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes cardPreviewFadeOut {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0.94);
+    opacity: 0;
+  }
+}

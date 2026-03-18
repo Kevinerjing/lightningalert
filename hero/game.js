@@ -378,6 +378,42 @@ const CARD_NAME_TO_ID = Object.values(CARD_LIBRARY).reduce((map, card) => {
   return map;
 }, {});
 
+let cardPreviewHideTimer = null;
+let cardPreviewFadeTimer = null;
+
+function showPlayedCardPreview(card) {
+  if (!card || !card.image) return;
+
+  const overlay = document.getElementById("card-preview-overlay");
+  const image = document.getElementById("card-preview-image");
+
+  if (!overlay || !image) return;
+
+  clearTimeout(cardPreviewFadeTimer);
+  clearTimeout(cardPreviewHideTimer);
+
+  image.src = card.image;
+  image.alt = card.name || "Card Preview";
+
+  overlay.classList.remove("hidden", "fade-out", "show");
+
+
+  void overlay.offsetWidth;
+
+  overlay.classList.add("show");
+
+  cardPreviewFadeTimer = setTimeout(() => {
+    overlay.classList.remove("show");
+    overlay.classList.add("fade-out");
+  }, 1700);
+
+  cardPreviewHideTimer = setTimeout(() => {
+    overlay.classList.add("hidden");
+    overlay.classList.remove("fade-out", "show");
+    image.src = "";
+  }, 2000);
+}
+
 function maskRoomCode(code) {
   if (!code) return "----";
   if (code.length <= 3) return code;
@@ -1595,13 +1631,17 @@ function playSelectedCard() {
   if (!isMyTurn() || selectedCardIndex === null) return;
 
   const player = gameState.players[playerId];
+  if (!player || !player.hand || !player.hand[selectedCardIndex]) return;
+
   const card = player.hand[selectedCardIndex];
 
-  if (card) {
-    pendingLocalEffect = {
-      cardId: card.id,
-      actorPid: Number(playerId),
-    };
+  pendingLocalEffect = {
+    cardId: card.id,
+    actorPid: Number(playerId),
+  };
+
+  if (card.image) {
+    showPlayedCardPreview(card);
   }
 
   sendAction("play_card", { handIndex: selectedCardIndex });

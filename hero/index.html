@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Element Heroes Online</title>
-  <link rel="stylesheet" href="style.css?v=18" />
+  <link rel="stylesheet" href="style.css?v=19" />
 </head>
 <body>
   <div class="app-shell">
@@ -357,6 +357,7 @@
 
   <!-- ===== BATTLE EFFECT ROOT ===== -->
   <div id="battle-effects-root"></div>
+  
 
   <!-- ===== TUTORIAL OVERLAY ===== -->
   <div class="overlay hidden" id="tutorialOverlay">
@@ -413,6 +414,14 @@
   </div>
 
   <script src="effect-system.js"></script>
-  <script src="game.js?v=8"></script>
+  <script src="game.js?v=9"></script>
+
+<div id="card-preview-overlay" class="card-preview-overlay hidden">
+  <div class="card-preview-backdrop"></div>
+  <div class="card-preview-box">
+    <img id="card-preview-image" src="" alt="Card Preview" />
+  </div>
+</div>
+
 </body>
 </html>
