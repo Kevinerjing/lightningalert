@@ -1438,13 +1438,12 @@ button:disabled {
     gap: 8px;
   }
 
-  .controls button,
-  button,
-  button.secondary,
-  button.ghost {
-    width: 100%;
-    min-width: 0;
-  }
+.controls button,
+button {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 
   .selected-card-box {
     min-height: 84px;
