@@ -36,6 +36,8 @@ body {
   margin: 14px auto;
 }
 
+/* ===== Main panels ===== */
+
 .lobby-panel,
 .game-panel,
 .side-panel,
@@ -73,13 +75,22 @@ body {
 
 .subtitle,
 .section-subtitle {
-  font-size: 13px;
-  margin-top: 4px;
+  font-size: 12px;
+  margin-top: 2px;
+  line-height: 1.3;
 }
 
 .tiny {
   font-size: 12px;
 }
+
+.section-title {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 2px;
+}
+
+/* ===== Pills / chips ===== */
 
 .status-strip,
 .stats,
@@ -95,36 +106,25 @@ body {
 .turn-pill {
   padding: 8px 12px;
   border-radius: 999px;
-  background: rgba(255,255,255,0.08);
+  background: rgba(255, 255, 255, 0.08);
   border: 1px solid var(--line);
   font-weight: 700;
   font-size: 13px;
 }
 
 .turn-pill {
-  padding: 10px 16px;
+  padding: 8px 14px;
+  font-size: 13px;
+  min-height: 0;
 }
+
+/* ===== Lobby ===== */
 
 .lobby-grid {
   display: grid;
   grid-template-columns: 1.15fr 0.85fr;
   gap: 14px;
   padding: 16px;
-}
-
-.panel-box,
-.battlebox,
-.actionbox {
-  border: 1px solid var(--line);
-  border-radius: 16px;
-  padding: 14px;
-  background: rgba(255,255,255,0.03);
-}
-
-.section-title {
-  font-size: 16px;
-  font-weight: 700;
-  margin-bottom: 2px;
 }
 
 .lobby-stack {
@@ -152,6 +152,66 @@ body {
   font-size: 14px;
 }
 
+.lobby-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 12px 16px 16px;
+  flex-wrap: wrap;
+}
+
+.footer-left {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.footer-right {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-left: auto;
+}
+
+.footer-version {
+  font-size: 13px;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.footer-credits {
+  font-size: 12px;
+  color: #9ab2c6;
+  line-height: 1.5;
+}
+
+.tutorial-btn {
+  background: linear-gradient(180deg, #8bf7ff, #55d6ff);
+  color: #04111a;
+  border: none;
+  border-radius: 12px;
+  padding: 10px 18px;
+  font-weight: 700;
+  font-size: 14px;
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(85, 214, 255, 0.25);
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.tutorial-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 26px rgba(85, 214, 255, 0.4);
+}
+
+.tutorial-btn:active {
+  transform: translateY(0);
+}
+
+/* ===== Layout ===== */
+
 .game-shell {
   display: grid;
   grid-template-columns: 1fr 320px;
@@ -164,60 +224,117 @@ body {
   gap: 14px;
 }
 
-.player-area {
-  padding: 14px;
-  display: grid;
-  gap: 12px;
-  background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+.panel-box,
+.battlebox,
+.actionbox {
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.03);
 }
 
+.center-panel {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  align-items: start;
+}
+
+/* ===== Player area ===== */
+
+.player-area {
+  padding: 10px 12px;
+  display: grid;
+  gap: 8px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+  position: relative;
+  overflow: visible;
+  z-index: 1;
+}
+
+/* Top row */
 .player-header {
-  display: flex;
-  justify-content: space-between;
-  gap: 16px;
+  display: grid;
+  grid-template-columns: minmax(220px, 260px) 1fr;
   align-items: center;
-  flex-wrap: wrap;
+  gap: 12px;
 }
 
 .player-meta {
-  display: flex;
+  display: grid;
+  grid-template-columns: 40px 1fr;
+  grid-template-areas:
+    "badge name"
+    "badge stats";
+  column-gap: 10px;
+  row-gap: 4px;
   align-items: center;
-  gap: 12px;
-  flex-wrap: wrap;
 }
 
 .badge {
-  width: 44px;
-  height: 44px;
+  grid-area: badge;
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
   display: grid;
   place-items: center;
   font-weight: 800;
+  font-size: 14px;
   color: #051018;
 }
 
-.badge.p1 { background: var(--p1); }
-.badge.p2 { background: var(--p2); }
+.badge.p1 {
+  background: var(--p1);
+}
+
+.badge.p2 {
+  background: var(--p2);
+}
 
 .player-name {
-  font-size: 20px;
+  grid-area: name;
+  font-size: 15px;
   font-weight: 700;
+  line-height: 1.1;
+  margin: 0;
 }
+
+.stats {
+  grid-area: stats;
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.stat-chip {
+  padding: 3px 8px;
+  font-size: 12px;
+  line-height: 1.2;
+}
+
+/* ===== Bars ===== */
 
 .bar-wrap {
   display: grid;
-  gap: 8px;
+  gap: 4px;
 }
 
 .bar-label {
   display: flex;
   justify-content: space-between;
-  font-size: 13px;
+  align-items: center;
+  font-size: 12px;
   color: var(--muted);
+  margin-bottom: 2px;
+}
+
+.bar-label span:first-child,
+.bar-label span:last-child {
+  color: var(--text);
 }
 
 .bar {
-  height: 14px;
+  height: 10px;
   background: rgba(255,255,255,0.08);
   border-radius: 999px;
   overflow: hidden;
@@ -237,12 +354,23 @@ body {
   background: linear-gradient(90deg, #5edfff, #4c7fff);
 }
 
+/* ===== Zones ===== */
+
 .zone-label {
-  font-size: 13px;
+  font-size: 11px;
   color: var(--muted);
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  margin-bottom: 8px;
+  margin-bottom: 4px;
+}
+
+.status-row {
+  gap: 6px;
+}
+
+.status-chip {
+  padding: 4px 8px;
+  font-size: 11px;
 }
 
 .field-row,
@@ -253,10 +381,15 @@ body {
   flex-wrap: wrap;
 }
 
-.field-row,
+.field-row {
+  min-height: 120px;
+}
+
 .hand-row {
   min-height: 150px;
 }
+
+/* ===== Cards ===== */
 
 .slot,
 .card {
@@ -374,11 +507,7 @@ body {
   color: var(--muted);
 }
 
-.center-panel {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 10px;
-}
+/* ===== Battlefield summary ===== */
 
 .battlefield {
   display: grid;
@@ -395,8 +524,15 @@ body {
 }
 
 .player-preview h4 {
-  margin: 0 0 8px;
-  font-size: 15px;
+  margin: 0 0 6px;
+  font-size: 13px;
+}
+
+.preview-field .slot {
+  width: 100%;
+  min-height: 82px;
+  border-radius: 12px;
+  font-size: 12px;
 }
 
 .mini-card {
@@ -416,10 +552,21 @@ body {
   font-size: 12px;
 }
 
+/* ===== Buttons / controls ===== */
+
 .controls {
-  display: grid;
-  gap: 10px;
-  margin-top: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.controls button {
+  flex: 1 1 calc(50% - 4px);
+  min-width: 160px;
+  padding: 10px 12px;
+  font-size: 13px;
+  border-radius: 10px;
 }
 
 button {
@@ -453,6 +600,14 @@ button:disabled {
   cursor: not-allowed;
 }
 
+#endTurnBtn,
+#playCardBtn {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+/* ===== Selected card / logs ===== */
+
 .selected-card-box {
   min-height: 88px;
   border: 1px dashed var(--line);
@@ -475,6 +630,11 @@ button:disabled {
   max-height: none;
 }
 
+#combatLog.log-list {
+  max-height: 120px;
+  margin-top: 8px;
+}
+
 .log-item {
   border: 1px solid var(--line);
   background: rgba(255,255,255,0.04);
@@ -483,6 +643,20 @@ button:disabled {
   font-size: 13px;
   color: #d4e6f4;
 }
+
+#combatLog .log-item {
+  padding: 8px 10px;
+  font-size: 12px;
+  border-radius: 10px;
+}
+
+#roomStateText {
+  margin-top: 6px;
+  font-size: 12px;
+  line-height: 1.25;
+}
+
+/* ===== Overlay ===== */
 
 .overlay {
   position: fixed;
@@ -523,6 +697,17 @@ button:disabled {
   margin: 12px 0;
 }
 
+/* ===== Effects ===== */
+
+#battle-effects-root {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9998;
+}
+
+/* ===== Responsive ===== */
+
 @media (max-width: 1100px) {
   .lobby-grid,
   .game-shell,
@@ -532,196 +717,16 @@ button:disabled {
   }
 }
 
-
-
-#battle-effects-root {
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: 9998;
-}
-
-.player-area {
-  position: relative;
-  overflow: visible;
-  z-index: 1;
-}
-
-.lobby-footer {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 16px;
-  padding: 12px 16px 16px;
-  flex-wrap: wrap;
-}
-
-.footer-left {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  min-width: 0;
-}
-
-.footer-right {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  margin-left: auto;
-}
-
-.footer-version {
-  font-size: 13px;
-  font-weight: 700;
-  color: #ffffff;
-}
-
-.footer-credits {
-  font-size: 12px;
-  color: #9ab2c6;
-  line-height: 1.5;
-}
-
-.tutorial-btn {
-  background: linear-gradient(180deg, #8bf7ff, #55d6ff);
-  color: #04111a;
-  border: none;
-  border-radius: 12px;
-  padding: 10px 18px;
-  font-weight: 700;
-  font-size: 14px;
-  cursor: pointer;
-  box-shadow: 0 6px 18px rgba(85, 214, 255, 0.25);
-  transition: all 0.2s ease;
-  white-space: nowrap;
-}
-
-.tutorial-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 26px rgba(85, 214, 255, 0.4);
-}
-
-.tutorial-btn:active {
-  transform: translateY(0);
-}
-
-/* hover effect */
-.tutorial-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 26px rgba(85, 214, 255, 0.4);
-}
-
-/* click effect */
-.tutorial-btn:active {
-  transform: translateY(0px);
-}
-
-/* ===== Center panel compact tuning ===== */
-
-.center-panel {
-  gap: 10px;
-  align-items: start;
-}
-
-.battlebox,
-.actionbox {
-  padding: 12px;
-  border-radius: 14px;
-}
-
-.section-title {
-  font-size: 16px;
-  margin-bottom: 2px;
-}
-
-.section-subtitle {
-  font-size: 12px;
-  margin-top: 0;
-  margin-bottom: 8px;
-  line-height: 1.3;
-}
-
-/* Battlefield summary smaller */
-.battlefield {
-  gap: 10px;
-  margin-top: 8px;
-}
-
-.player-preview {
-  padding: 10px;
-  border-radius: 12px;
-}
-
-.player-preview h4 {
-  margin: 0 0 6px;
-  font-size: 13px;
-}
-
-.preview-field .slot {
-  min-height: 82px !important;
-  font-size: 12px;
-  border-radius: 12px;
-}
-
-/* Selected card box smaller */
-.selected-card-box {
-  min-height: 88px;
-  padding: 10px 12px;
-  border-radius: 12px;
-  font-size: 13px;
-}
-
-/* Buttons side by side instead of full vertical stack */
-.controls {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-top: 10px;
-}
-
-.controls button {
-  flex: 1 1 calc(50% - 4px);
-  min-width: 160px;
-  padding: 10px 12px;
-  font-size: 13px;
-  border-radius: 10px;
-}
-
-/* Make restart less dominant */
-#restartBtn,
-#removeFieldCardBtn,
-#clearSelectionBtn {
-  flex: 1 1 calc(50% - 4px);
-}
-
-/* End turn + Play slightly more important */
-#endTurnBtn,
-#playCardBtn {
-  font-size: 14px;
-  font-weight: 700;
-}
-
-/* Room state / small text more compact */
-#roomStateText {
-  margin-top: 6px;
-  font-size: 12px;
-  line-height: 1.25;
-}
-
-/* Combat log shorter so panel doesn't become too tall */
-#combatLog.log-list {
-  max-height: 120px;
-  margin-top: 8px;
-}
-
-#combatLog .log-item {
-  padding: 8px 10px;
-  font-size: 12px;
-  border-radius: 10px;
-}
-
-/* On narrower screens, go back to stacked buttons */
 @media (max-width: 900px) {
+  .player-header {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .turn-pill {
+    justify-self: start;
+  }
+
   .controls {
     display: grid;
     gap: 8px;
@@ -739,232 +744,5 @@ button:disabled {
 
   #combatLog.log-list {
     max-height: 160px;
-  }
-}
-
-/* ===== Player Header Compact Layout ===== */
-
-.player-header {
-  display: grid;
-  grid-template-columns: auto 1fr auto;
-  align-items: center;
-  gap: 10px;
-}
-
-
-.badge {
-  width: 36px;
-  height: 36px;
-  font-size: 14px;
-}
-
-
-.player-meta {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-
-.player-name {
-  font-size: 16px;
-  font-weight: 700;
-}
-
-
-.stats {
-  display: flex;
-  gap: 6px;
-}
-
-.stat-chip {
-  padding: 4px 8px;
-  font-size: 12px;
-  border-radius: 999px;
-}
-
-
-
-.bar-wrap {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
-}
-
-
-.bar-wrap > div {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-
-
-.bar-label {
-  font-size: 11px;
-}
-
-
-.bar {
-  height: 10px;
-}
-
-
-.bar-label span:last-child {
-  font-size: 11px;
-}
-
-
-
-.zone-label {
-  font-size: 11px;
-  margin-bottom: 4px;
-}
-
-.status-row {
-  gap: 6px;
-}
-
-.status-chip {
-  padding: 4px 8px;
-  font-size: 11px;
-}
-
-/* ===== REAL compact player area header ===== */
-
-.player-area {
-  gap: 8px;
-  padding: 10px 12px;
-}
-
-
-.player-header {
-  display: grid;
-  grid-template-columns: 240px 1fr;
-  align-items: center;
-  gap: 12px;
-}
-
-.player-meta {
-  display: grid;
-  grid-template-columns: 40px 1fr;
-  grid-template-areas:
-    "badge name"
-    "badge stats";
-  column-gap: 10px;
-  row-gap: 4px;
-  align-items: center;
-}
-
-.badge {
-  grid-area: badge;
-  width: 36px;
-  height: 36px;
-  font-size: 14px;
-}
-
-.player-name {
-  grid-area: name;
-  font-size: 15px;
-  line-height: 1.1;
-  margin: 0;
-}
-
-.stats {
-  grid-area: stats;
-  display: flex;
-  gap: 6px;
-  flex-wrap: wrap;
-}
-
-.stat-chip {
-  padding: 3px 8px;
-  font-size: 12px;
-  line-height: 1.2;
-}
-
-
-.turn-pill {
-  justify-self: stretch;
-  padding: 8px 14px;
-  font-size: 13px;
-  border-radius: 999px;
-  min-height: 0;
-}
-
-
-.bar-wrap {
-  display: grid;
-  gap: 6px;
-}
-
-.bar-label {
-  display: grid;
-  grid-template-columns: 64px 1fr 52px;
-  align-items: center;
-  gap: 8px;
-  font-size: 12px;
-}
-
-.bar-label span:first-child {
-  color: var(--text);
-  font-size: 12px;
-}
-
-.bar-label span:last-child {
-  justify-self: end;
-  color: var(--text);
-  font-size: 12px;
-}
-
-
-.bar-wrap .bar {
-  margin-top: -24px;
-  margin-left: 64px;
-  width: calc(100% - 116px);
-  height: 10px;
-}
-
-.bar {
-  height: 10px;
-}
-
-
-.zone-label {
-  font-size: 11px;
-  margin-bottom: 4px;
-}
-
-.status-row {
-  gap: 6px;
-}
-
-.status-chip {
-  padding: 4px 8px;
-  font-size: 11px;
-}
-
-
-.player-area > div {
-  margin-top: 0;
-}
-
-
-@media (max-width: 900px) {
-  .player-header {
-    grid-template-columns: 1fr;
-    gap: 8px;
-  }
-
-  .turn-pill {
-    justify-self: start;
-  }
-
-  .bar-label {
-    grid-template-columns: 52px 1fr 44px;
-    font-size: 11px;
-  }
-
-  .bar-wrap .bar {
-    margin-left: 52px;
-    width: calc(100% - 96px);
   }
 }
