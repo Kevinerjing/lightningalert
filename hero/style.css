@@ -1251,7 +1251,7 @@ button:disabled {
 @media (max-width: 768px) {
   html,
   body {
-    overflow-x: hidden;
+    overflow-x: visible;
   }
 
   body {
@@ -1311,7 +1311,7 @@ button:disabled {
   #enemy-area {
     width: 100%;
     max-width: 100%;
-    overflow-x: hidden;
+    overflow-x: visible;
     overflow-y: visible;
   }
 
@@ -1416,23 +1416,24 @@ button:disabled {
   }
 
   /* HAND */
-  #p1Hand,
-  #p2Hand {
-  display: grid !important;
-  grid-auto-flow: column !important;
-  grid-auto-columns: max-content !important;
+#p1Hand,
+#p2Hand {
+  display: flex !important;
+  flex-wrap: nowrap !important;
   gap: 10px !important;
-    width: 100% !important;
-    max-width: 100% !important;
-    min-width: 0 !important;
-    overflow-x: auto !important;
-    overflow-y: hidden !important;
-    overscroll-behavior-x: contain !important;
-    -webkit-overflow-scrolling: touch !important;
-    touch-action: pan-x !important;
-    padding: 0 8px 10px 0 !important;
-    scrollbar-width: thin !important;
-  }
+
+  width: 100% !important;
+  max-width: 100% !important;
+  min-width: 0 !important;
+
+  overflow-x: auto !important;
+  overflow-y: hidden !important;
+
+  -webkit-overflow-scrolling: touch !important;
+  touch-action: pan-x !important;
+
+  padding: 0 8px 10px 0 !important;
+}
 
   #p1Hand > .card,
   #p2Hand > .card,
@@ -1440,6 +1441,7 @@ button:disabled {
   #p2Hand > .slot {
     width: 124px !important;
     min-width: 124px !important;
+    flex: 0 0 auto !important;
   }
 
   #p1Hand > .card,
