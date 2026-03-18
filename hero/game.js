@@ -229,16 +229,6 @@ const CARD_LIBRARY = {
     tags: ["reaction", "earth"],
     image: "images/cards/lime_formation.png",
   },
-  hydrogenBurn: {
-    id: "hydrogenBurn",
-    name: "Hydrogen Burn",
-    type: "Reaction",
-    cost: 2,
-    symbol: "RXN",
-    text: "Hydrogen + Fire = 6 damage.",
-    tags: ["reaction", "fire"],
-    image: "images/cards/hydrogen_burn.png",
-  },
   calciumSteam: {
     id: "calciumSteam",
     name: "Calcium Steam",
