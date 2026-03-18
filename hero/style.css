@@ -1727,3 +1727,197 @@ button {
     overflow: hidden;
   }
 }
+
+/* ===== FINAL MOBILE FIX: self player area ===== */
+
+@media (max-width: 768px) {
+  /* prevent grid/flex children from forcing parent wider */
+  .app-shell,
+  .game-panel,
+  .game-shell,
+  .main-board,
+  .player-area,
+  .player-self-area,
+  .enemy-area,
+  .center-panel,
+  .side-panel,
+  .panel-box,
+  .battlebox,
+  .actionbox,
+  .bar-wrap,
+  .bar-label {
+    min-width: 0;
+  }
+
+  /* keep each player panel from being stretched by children */
+  .player-area {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  /* HP / Energy bars must always fit */
+  .bar-wrap,
+  .bar,
+  .bar-fill {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .bar-label {
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+  }
+
+  .bar-label span {
+    min-width: 0;
+  }
+
+  /* field stays 3 columns */
+  .field-row {
+    display: grid !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 8px;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  .field-row > .slot,
+  .field-row > .card {
+    width: 100% !important;
+    min-width: 0 !important;
+  }
+
+  /* only hand should scroll horizontally */
+  .hand-row {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    align-items: stretch;
+    gap: 8px;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x proximity;
+    padding: 0 2px 10px 0;
+    touch-action: pan-x;
+  }
+
+  .hand-row > .card,
+  .hand-row > .slot {
+    flex: 0 0 124px !important;
+    width: 124px !important;
+    min-width: 124px !important;
+    max-width: 124px !important;
+    scroll-snap-align: start;
+  }
+
+  .hand-row > .card {
+    height: 266px !important;
+  }
+
+  /* prevent scaled cards from breaking mobile layout */
+  .hand-row .card:hover,
+  .hand-row .card.selected,
+  .hand-row .card:active {
+    transform: none !important;
+  }
+
+  .hand-row::-webkit-scrollbar {
+    height: 6px;
+  }
+
+  .hand-row::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.18);
+    border-radius: 999px;
+  }
+
+  /* compact card internals */
+  .hand-row .card-top {
+    padding: 8px 8px 5px;
+  }
+
+  .hand-row .card-name {
+    font-size: 12px;
+    max-width: 80px;
+  }
+
+  .hand-row .card-cost {
+    min-width: 28px;
+    height: 28px;
+    font-size: 13px;
+  }
+
+  .hand-row .card-art {
+    margin: 0 8px;
+    height: 88px !important;
+    min-height: 88px !important;
+    max-height: 88px !important;
+    flex: 0 0 88px !important;
+    border-radius: 12px;
+  }
+
+  .hand-row .card-mid-badge,
+  .hand-row .card-badge {
+    width: 40px;
+    height: 40px;
+    min-height: 40px;
+    flex: 0 0 40px;
+    font-size: 17px;
+    margin-top: -12px;
+  }
+
+  .hand-row .card-body {
+    padding: 7px 8px 8px;
+  }
+
+  .hand-row .card-type {
+    font-size: 10px;
+    margin-bottom: 5px;
+  }
+
+  .hand-row .card-text {
+    font-size: 10px;
+    line-height: 1.25;
+    max-height: 38px;
+    overflow: hidden;
+    margin-bottom: 6px;
+  }
+
+  .hand-row .tag,
+  .hand-row .card-tag {
+    font-size: 9px;
+    padding: 4px 6px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hand-row > .card,
+  .hand-row > .slot {
+    flex: 0 0 118px !important;
+    width: 118px !important;
+    min-width: 118px !important;
+    max-width: 118px !important;
+  }
+
+  .hand-row > .card {
+    height: 258px !important;
+  }
+
+  .hand-row .card-art {
+    height: 82px !important;
+    min-height: 82px !important;
+    max-height: 82px !important;
+    flex: 0 0 82px !important;
+  }
+
+  .hand-row .card-name {
+    font-size: 11px;
+    max-width: 74px;
+  }
+}
