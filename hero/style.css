@@ -1968,4 +1968,187 @@ button:disabled {
     background: rgba(255, 255, 255, 0.2) !important;
     border-radius: 999px !important;
   }
+
+  
+}
+
+/* ===== FORCE FIX: mobile hand scroll + bars ===== */
+@media (max-width: 768px) {
+  #player-area,
+  #enemy-area {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    overflow-x: hidden !important;
+    overflow-y: visible !important;
+  }
+
+  #player-area .bar-wrap,
+  #enemy-area .bar-wrap,
+  #player-area .bar,
+  #enemy-area .bar,
+  #player-area .bar-fill,
+  #enemy-area .bar-fill {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+  }
+
+  #player-area .bar-label,
+  #enemy-area .bar-label {
+    display: flex !important;
+    justify-content: space-between !important;
+    gap: 8px !important;
+    min-width: 0 !important;
+  }
+
+  #player-area .bar-label span,
+  #enemy-area .bar-label span {
+    min-width: 0 !important;
+    white-space: nowrap !important;
+  }
+
+  #p1Field,
+  #p2Field {
+    display: grid !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 8px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    overflow: hidden !important;
+  }
+
+  #p1Field > .slot,
+  #p2Field > .slot,
+  #p1Field > .card,
+  #p2Field > .card {
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+  }
+
+  #p1Hand,
+  #p2Hand {
+    display: grid !important;
+    grid-auto-flow: column !important;
+    grid-auto-columns: 116px !important;
+    gap: 8px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    overscroll-behavior-x: contain !important;
+    -webkit-overflow-scrolling: touch !important;
+    touch-action: pan-x !important;
+    padding: 0 8px 10px 0 !important;
+    scrollbar-width: thin !important;
+  }
+
+  #p1Hand > .card,
+  #p2Hand > .card,
+  #p1Hand > .slot,
+  #p2Hand > .slot {
+    width: 116px !important;
+    min-width: 116px !important;
+    max-width: 116px !important;
+  }
+
+  #p1Hand > .card,
+  #p2Hand > .card {
+    height: 254px !important;
+    overflow: hidden !important;
+  }
+
+  #p1Hand .card:hover,
+  #p2Hand .card:hover,
+  #p1Hand .card.selected,
+  #p2Hand .card.selected,
+  #p1Hand .card:active,
+  #p2Hand .card:active {
+    transform: none !important;
+  }
+
+  #p1Hand .card-top,
+  #p2Hand .card-top {
+    padding: 8px 8px 5px !important;
+  }
+
+  #p1Hand .card-name,
+  #p2Hand .card-name {
+    font-size: 11px !important;
+    line-height: 1.1 !important;
+    max-width: 70px !important;
+    overflow-wrap: break-word !important;
+    word-break: break-word !important;
+  }
+
+  #p1Hand .card-cost,
+  #p2Hand .card-cost {
+    width: 28px !important;
+    min-width: 28px !important;
+    height: 28px !important;
+    font-size: 13px !important;
+  }
+
+  #p1Hand .card-art,
+  #p2Hand .card-art {
+    margin: 0 8px !important;
+    height: 78px !important;
+    min-height: 78px !important;
+    max-height: 78px !important;
+    flex: 0 0 78px !important;
+  }
+
+  #p1Hand .card-mid-badge,
+  #p2Hand .card-mid-badge,
+  #p1Hand .card-badge,
+  #p2Hand .card-badge {
+    width: 38px !important;
+    height: 38px !important;
+    min-height: 38px !important;
+    flex: 0 0 38px !important;
+    font-size: 16px !important;
+    margin-top: -10px !important;
+  }
+
+  #p1Hand .card-body,
+  #p2Hand .card-body {
+    padding: 6px 8px 8px !important;
+  }
+
+  #p1Hand .card-type,
+  #p2Hand .card-type {
+    font-size: 10px !important;
+    margin-bottom: 4px !important;
+  }
+
+  #p1Hand .card-text,
+  #p2Hand .card-text {
+    font-size: 10px !important;
+    line-height: 1.2 !important;
+    max-height: 34px !important;
+    overflow: hidden !important;
+    margin-bottom: 6px !important;
+  }
+
+  #p1Hand .tag,
+  #p2Hand .tag,
+  #p1Hand .card-tag,
+  #p2Hand .card-tag {
+    font-size: 9px !important;
+    padding: 4px 6px !important;
+  }
+
+  #p1Hand::-webkit-scrollbar,
+  #p2Hand::-webkit-scrollbar {
+    height: 6px !important;
+  }
+
+  #p1Hand::-webkit-scrollbar-thumb,
+  #p2Hand::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2) !important;
+    border-radius: 999px !important;
+  }
 }
