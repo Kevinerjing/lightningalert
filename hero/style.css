@@ -1438,9 +1438,8 @@ button:disabled {
   #p2Hand > .card,
   #p1Hand > .slot,
   #p2Hand > .slot {
-    width: 116px !important;
-    min-width: 116px !important;
-    max-width: 116px !important;
+    width: 124px !important;
+    min-width: 124px !important;
   }
 
   #p1Hand > .card,
