@@ -45,10 +45,11 @@ body {
   display: none !important;
 }
 
+/*
 .app-shell {
   width: min(1420px, 96vw);
   margin: 14px auto;
-}
+}*/
 
 /* ===== Main panels ===== */
 
@@ -1817,11 +1818,12 @@ body {
   width: 100%;
 }
 
+.player-area,
+.bar-wrap,
 .bar {
   width: 100%;
   max-width: 100%;
-  overflow: hidden;
-  border-radius: 999px;
+  min-width: 0;
 }
 
 .bar-fill {
