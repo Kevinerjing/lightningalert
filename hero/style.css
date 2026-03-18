@@ -591,10 +591,10 @@ body {
   position: relative;
   z-index: 2;
   margin: 0 9px;
-  height: 128px;
-  min-height: 128px;
-  max-height: 128px;
-  flex: 0 0 128px;
+  height: 136px;
+  min-height: 136px;
+  max-height: 136px;
+  flex: 0 0 136px;
   border-radius: 14px;
   overflow: hidden;
   border: 1px solid rgba(255,255,255,0.08);
