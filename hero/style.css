@@ -1755,3 +1755,113 @@ button:disabled {
     font-size: 20px;
   }
 }
+
+html,
+body {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+.app-shell,
+.lobby-panel,
+.game-panel,
+.lobby-grid,
+.game-shell,
+.main-board,
+.center-panel,
+.battlefield,
+.player-area,
+.side-panel,
+.panel-box,
+.battlebox,
+.actionbox,
+.player-preview,
+.room-list-box,
+.topbar,
+.status-strip,
+.bar-wrap,
+.bar,
+.bar-label {
+  min-width: 0;
+  max-width: 100%;
+}
+
+.app-shell {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: clip;
+}
+
+.topbar,
+.status-strip,
+.controls,
+.room-list-header,
+.room-list-tools,
+.room-row,
+.player-header,
+.player-meta,
+.stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.bar-wrap {
+  width: 100%;
+}
+
+.bar {
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+  border-radius: 999px;
+}
+
+.bar-fill {
+  max-width: 100%;
+}
+
+.hand-row {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 10px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  max-width: 100%;
+  min-width: 0;
+  padding-bottom: 6px;
+  -webkit-overflow-scrolling: touch;
+}
+
+.hand-row .card,
+.field-row .card,
+.status-row .card {
+  flex: 0 0 auto;
+}
+
+.field-row,
+.status-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  max-width: 100%;
+  min-width: 0;
+}
+
+.player-area,
+.panel-box,
+.battlebox,
+.actionbox,
+.side-panel,
+.center-panel,
+.main-board {
+  width: 100%;
+  max-width: 100%;
+}
