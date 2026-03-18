@@ -26,6 +26,7 @@ const CARD_LIBRARY = {
     text: "Combustible element used in fire reactions.",
     className: "element-sulfur",
     tags: ["element", "fire"],
+    image: "images/cards/sulfur.png",
   },
   oxygen: {
     id: "oxygen",
@@ -36,6 +37,7 @@ const CARD_LIBRARY = {
     text: "Supports combustion and oxidation.",
     className: "element-oxygen",
     tags: ["element", "air"],
+    image: "images/cards/oxygen.png",
   },
   water: {
     id: "water",
@@ -46,6 +48,7 @@ const CARD_LIBRARY = {
     text: "Liquid element enabling steam reactions.",
     className: "element-water",
     tags: ["element", "liquid"],
+    image: "images/cards/water.png",
   },
   iron: {
     id: "iron",
@@ -56,6 +59,7 @@ const CARD_LIBRARY = {
     text: "Metal used for rust reactions.",
     className: "element-iron",
     tags: ["element", "metal"],
+    image: "images/cards/iron.png",
   },
   hydrogen: {
     id: "hydrogen",
@@ -66,6 +70,7 @@ const CARD_LIBRARY = {
     text: "Highly flammable gas element.",
     className: "element-hydrogen",
     tags: ["element", "gas"],
+    image: "images/cards/hydrogen.png",
   },
   carbon: {
     id: "carbon",
@@ -76,6 +81,7 @@ const CARD_LIBRARY = {
     text: "Foundation of many reactions.",
     className: "element-carbon",
     tags: ["element", "solid"],
+    image: "images/cards/carbon.png",
   },
   chlorine: {
     id: "chlorine",
@@ -86,6 +92,7 @@ const CARD_LIBRARY = {
     text: "Reactive gas useful for salt and poison combos.",
     className: "element-chlorine",
     tags: ["element", "gas"],
+    image: "images/cards/chlorine.png",
   },
   sodium: {
     id: "sodium",
@@ -96,6 +103,7 @@ const CARD_LIBRARY = {
     text: "Reactive metal that pairs with chlorine.",
     className: "element-sodium",
     tags: ["element", "metal"],
+    image: "images/cards/sodium.png",
   },
   potassium: {
     id: "potassium",
@@ -106,6 +114,7 @@ const CARD_LIBRARY = {
     text: "Highly reactive alkali metal. Violent with water.",
     className: "element-potassium",
     tags: ["element", "metal", "alkali"],
+    image: "images/cards/potassium.png",
   },
   helium: {
     id: "helium",
@@ -116,6 +125,7 @@ const CARD_LIBRARY = {
     text: "Stable noble gas. Hard to react with.",
     className: "element-helium",
     tags: ["element", "gas", "noble"],
+    image: "images/cards/helium.png",
   },
   calcium: {
     id: "calcium",
@@ -126,6 +136,7 @@ const CARD_LIBRARY = {
     text: "Reactive metal forming lime and minerals.",
     className: "element-calcium",
     tags: ["element", "metal", "earth"],
+    image: "images/cards/calcium.png",
   },
 
   combustion: {
@@ -136,6 +147,7 @@ const CARD_LIBRARY = {
     symbol: "RXN",
     text: "Sulfur + Oxygen = 7 damage.",
     tags: ["reaction", "fire"],
+    image: "images/cards/combustion.png",
   },
   steamBurst: {
     id: "steamBurst",
@@ -145,6 +157,7 @@ const CARD_LIBRARY = {
     symbol: "RXN",
     text: "Water + Oxygen = 5 damage and Wet.",
     tags: ["reaction", "steam"],
+    image: "images/cards/steam_burst.png",
   },
   acidRain: {
     id: "acidRain",
@@ -154,6 +167,7 @@ const CARD_LIBRARY = {
     symbol: "RXN",
     text: "Sulfur + Water = 4 damage and Corroded.",
     tags: ["reaction", "acid"],
+    image: "images/cards/acid_rain.png",
   },
   rust: {
     id: "rust",
@@ -163,6 +177,7 @@ const CARD_LIBRARY = {
     symbol: "RXN",
     text: "Iron + Oxygen = 4 damage and Corroded.",
     tags: ["reaction", "metal"],
+    image: "images/cards/rust.png",
   },
   explosion: {
     id: "explosion",
@@ -172,6 +187,7 @@ const CARD_LIBRARY = {
     symbol: "RXN",
     text: "Hydrogen + Oxygen = 8 damage.",
     tags: ["reaction", "burst"],
+    image: "images/cards/explosion.png",
   },
   saltFormation: {
     id: "saltFormation",
@@ -181,6 +197,7 @@ const CARD_LIBRARY = {
     symbol: "RXN",
     text: "Sodium + Chlorine = 5 damage and cleanse your Wet.",
     tags: ["reaction", "salt"],
+    image: "images/cards/salt_formation.png",
   },
   carbonBurn: {
     id: "carbonBurn",
@@ -190,6 +207,7 @@ const CARD_LIBRARY = {
     symbol: "RXN",
     text: "Carbon + Oxygen = 5 damage.",
     tags: ["reaction", "fire"],
+    image: "images/cards/carbon_burn.png",
   },
   potassiumWater: {
     id: "potassiumWater",
@@ -199,6 +217,7 @@ const CARD_LIBRARY = {
     symbol: "RXN",
     text: "Potassium + Water = 9 damage and Wet.",
     tags: ["reaction", "alkali"],
+    image: "images/cards/potassium_water.png",
   },
   limeFormation: {
     id: "limeFormation",
@@ -208,6 +227,7 @@ const CARD_LIBRARY = {
     symbol: "RXN",
     text: "Calcium + Water = 5 damage and gain 1 energy.",
     tags: ["reaction", "earth"],
+    image: "images/cards/lime_formation.png",
   },
   hydrogenBurn: {
     id: "hydrogenBurn",
@@ -217,6 +237,7 @@ const CARD_LIBRARY = {
     symbol: "RXN",
     text: "Hydrogen + Fire = 6 damage.",
     tags: ["reaction", "fire"],
+    image: "images/cards/hydrogen_burn.png",
   },
   calciumSteam: {
     id: "calciumSteam",
@@ -226,6 +247,7 @@ const CARD_LIBRARY = {
     symbol: "RXN",
     text: "Calcium + Water = Apply Wet and deal 6 damage.",
     tags: ["reaction", "steam"],
+    image: "images/cards/calcium_steam.png",
   },
   alkaliExplosion: {
     id: "alkaliExplosion",
@@ -235,6 +257,7 @@ const CARD_LIBRARY = {
     symbol: "RXN",
     text: "Potassium + Oxygen = 8 damage.",
     tags: ["reaction", "burst"],
+    image: "images/cards/alkali_explosion.png",
   },
 
   fireball: {
@@ -245,6 +268,7 @@ const CARD_LIBRARY = {
     symbol: "ATK",
     text: "Deal 3 damage. +2 if enemy Wet.",
     tags: ["attack", "fire"],
+    image: "images/cards/fireball.png",
   },
   hammerStrike: {
     id: "hammerStrike",
@@ -254,6 +278,7 @@ const CARD_LIBRARY = {
     symbol: "ATK",
     text: "Deal 2 damage. +2 if Iron on field.",
     tags: ["attack", "metal"],
+    image: "images/cards/hammer_strike.png",
   },
   corrode: {
     id: "corrode",
@@ -263,6 +288,7 @@ const CARD_LIBRARY = {
     symbol: "ATK",
     text: "Destroy enemy field card if enemy Corroded.",
     tags: ["attack", "control"],
+    image: "images/cards/corrode.png",
   },
   lightning: {
     id: "lightning",
@@ -272,6 +298,7 @@ const CARD_LIBRARY = {
     symbol: "ATK",
     text: "Deal 4 damage.",
     tags: ["attack", "shock"],
+    image: "images/cards/lightning.png",
   },
   poisonCloud: {
     id: "poisonCloud",
@@ -281,6 +308,7 @@ const CARD_LIBRARY = {
     symbol: "ATK",
     text: "Deal 2 damage and apply Corroded.",
     tags: ["attack", "poison"],
+    image: "images/cards/poison_cloud.png",
   },
   plasmaShock: {
     id: "plasmaShock",
@@ -290,6 +318,7 @@ const CARD_LIBRARY = {
     symbol: "ATK",
     text: "Deal 5 damage. +2 if Oxygen present.",
     tags: ["attack", "shock"],
+    image: "images/cards/plasma_shock.png",
   },
   alkaliBlast: {
     id: "alkaliBlast",
@@ -299,6 +328,7 @@ const CARD_LIBRARY = {
     symbol: "ATK",
     text: "Deal 4 damage. +3 if Potassium on field.",
     tags: ["attack", "alkali"],
+    image: "images/cards/alkali_blast.png",
   },
   metalCrush: {
     id: "metalCrush",
@@ -308,6 +338,7 @@ const CARD_LIBRARY = {
     symbol: "ATK",
     text: "Deal 3 damage. +2 if Calcium or Iron on field.",
     tags: ["attack", "metal"],
+    image: "images/cards/metal_crush.png",
   },
   noblePressure: {
     id: "noblePressure",
@@ -317,6 +348,7 @@ const CARD_LIBRARY = {
     symbol: "ATK",
     text: "Deal 2 damage. Draw 1 card if Helium on field.",
     tags: ["attack", "gas"],
+    image: "images/cards/noble_pressure.png",
   },
 
   catalyst: {
@@ -327,6 +359,7 @@ const CARD_LIBRARY = {
     symbol: "UTL",
     text: "Gain 1 energy.",
     tags: ["utility", "lab"],
+    image: "images/cards/catalyst.png",
   },
   shield: {
     id: "shield",
@@ -336,6 +369,7 @@ const CARD_LIBRARY = {
     symbol: "UTL",
     text: "Heal 2 HP.",
     tags: ["utility", "defense"],
+    image: "images/cards/shield.png",
   },
 };
 
@@ -406,16 +440,20 @@ function updateHeaderState() {
 }
 
 function updateHostRoomCard() {
-  const codeEl = document.getElementById("hostRoomCodeDisplay");
-  const statusEl = document.getElementById("hostRoomStatus");
+  const cardEl = document.getElementById("hostRoomCard");
+  const codeEl = document.getElementById("hostRoomCodeText");
+  const statusEl = document.getElementById("hostRoomStatusText");
 
-  if (!codeEl || !statusEl) return;
+  if (!cardEl || !codeEl || !statusEl) return;
 
   if (!roomCode) {
-    codeEl.textContent = "----";
+    cardEl.classList.add("hidden");
+    codeEl.textContent = "------";
     statusEl.textContent = "Not hosting";
     return;
   }
+
+  cardEl.classList.remove("hidden");
 
   let playerCount = 0;
   let started = false;
@@ -565,6 +603,8 @@ function joinListedRoom(code) {
   }
   joinRoom();
 }
+
+window.joinListedRoom = joinListedRoom;
 
 function startRoomListAutoRefresh() {
   stopRoomListAutoRefresh();
@@ -1058,6 +1098,12 @@ function isMyTurn() {
   return !!gameState && Number(playerId) === Number(gameState.currentPlayer) && !gameState.winner;
 }
 
+function canPlayCard(card, pid) {
+  const player = gameState?.players?.[pid];
+  if (!player || !card) return false;
+  return (player.energy ?? 0) >= (card.cost ?? 0);
+}
+
 function selectCard(index) {
   if (!isMyTurn()) return;
   const player = gameState.players[playerId];
@@ -1078,33 +1124,154 @@ function selectFieldCard(index) {
   render();
 }
 
-function createCardElement(card, isSelected, onClick) {
+function getCardCssType(card) {
+  const type = String(card?.type || "").toLowerCase();
+
+  if (type === "element") return "element";
+  if (type === "reaction" || type === "rxn") return "rxn";
+  if (type === "attack" || type === "atk") return "atk";
+  if (type === "utility") return "utility";
+
+  return "element";
+}
+
+function normalizeCardTypeLabel(type) {
+  const t = String(type || "").toLowerCase();
+
+  if (t === "element") return "ELEMENT";
+  if (t === "reaction" || t === "rxn") return "REACTION";
+  if (t === "attack" || t === "atk") return "ATTACK";
+  if (t === "utility") return "UTILITY";
+
+  return String(type || "CARD").toUpperCase();
+}
+
+function getCardBadge(card) {
+  if (card?.symbol) return card.symbol;
+
+  const type = String(card?.type || "").toLowerCase();
+  if (type === "reaction" || type === "rxn") return "RXN";
+  if (type === "attack" || type === "atk") return "ATK";
+  if (type === "utility") return "U";
+
+  return "?";
+}
+
+function getFallbackArtText(card) {
+  if (card?.symbol) return card.symbol;
+  return (card?.name || "CARD").slice(0, 3).toUpperCase();
+}
+
+function getCardImage(card) {
+  if (!card) return "";
+  if (card.image) return card.image;
+
+  const libCard = CARD_LIBRARY[card.id];
+  if (libCard?.image) return libCard.image;
+
+  return "";
+}
+
+function createCardElement(card, options = {}) {
+  const {
+    selected = false,
+    playable = true,
+    onClick = null,
+  } = options;
+
   const el = document.createElement("div");
   const tags = Array.isArray(card.tags) ? card.tags : [];
+  const cssType = getCardCssType(card);
+  const extraClass = card.className ? ` ${card.className}` : "";
 
-  el.className = `card ${card.className || ""} ${isSelected ? "selected" : ""}`.trim();
+  el.className = `card ${cssType}${extraClass}${selected ? " selected" : ""}${playable ? " playable" : " unplayable"}`.trim();
 
-  el.innerHTML = `<div class="card-top">
-      <div class="card-name">${escapeHtml(card.name || "")}</div>
-      <div class="card-cost">${escapeHtml(String(card.cost || 0))}</div>
-    </div>
-    <div class="card-art">${escapeHtml(card.symbol || "")}</div>
-    <div>
-      <div class="card-type">${escapeHtml(card.type || "")}</div>
-      <div class="card-text">${escapeHtml(card.text || "")}</div>
-    </div>
-    <div class="card-tags">${tags
-      .map((tag) => `<span class="tag">${escapeHtml(tag)}</span>`)
-      .join("")}</div>`;
+  const top = document.createElement("div");
+  top.className = "card-top";
 
-  el.addEventListener("click", onClick);
+  const name = document.createElement("div");
+  name.className = "card-name";
+  name.textContent = card.name || "Unknown";
+
+  const cost = document.createElement("div");
+  cost.className = "card-cost";
+  cost.textContent = card.cost ?? 0;
+
+  top.appendChild(name);
+  top.appendChild(cost);
+
+  const art = document.createElement("div");
+  const imgPath = getCardImage(card);
+
+  if (imgPath) {
+    art.className = "card-art";
+
+    const img = document.createElement("img");
+    img.src = imgPath;
+    img.alt = card.name || "Card";
+    img.loading = "lazy";
+
+    img.onerror = () => {
+      art.className = "card-art no-image";
+      art.innerHTML = "";
+      art.textContent = getFallbackArtText(card);
+    };
+
+    art.appendChild(img);
+  } else {
+    art.className = "card-art no-image";
+    art.textContent = getFallbackArtText(card);
+  }
+
+  const badge = document.createElement("div");
+  badge.className = "card-mid-badge";
+  badge.textContent = getCardBadge(card);
+
+  const body = document.createElement("div");
+  body.className = "card-body";
+
+  const type = document.createElement("div");
+  type.className = "card-type";
+  type.textContent = normalizeCardTypeLabel(card.type);
+
+  const text = document.createElement("div");
+  text.className = "card-text";
+  text.textContent = card.text || "No description.";
+
+  const tagWrap = document.createElement("div");
+  tagWrap.className = "card-tags";
+
+  tags.forEach((tagText) => {
+    const tag = document.createElement("span");
+    tag.className = "tag";
+    tag.textContent = tagText;
+    tagWrap.appendChild(tag);
+  });
+
+  body.appendChild(type);
+  body.appendChild(text);
+  body.appendChild(tagWrap);
+
+  el.appendChild(top);
+  el.appendChild(art);
+  el.appendChild(badge);
+  el.appendChild(body);
+
+  if (typeof onClick === "function") {
+    el.addEventListener("click", onClick);
+  }
+
   return el;
 }
 
 function createMiniCard(card) {
   const el = document.createElement("div");
   el.className = "mini-card";
-  el.innerHTML = `<strong>${escapeHtml(card.name || "")}</strong><span>${escapeHtml(card.symbol || "")}</span><span>${escapeHtml(card.type || "")}</span>`;
+  el.innerHTML = `
+    <strong>${escapeHtml(card.name || "")}</strong>
+    <span>${escapeHtml(card.symbol || "")}</span>
+    <span>${escapeHtml(normalizeCardTypeLabel(card.type))}</span>
+  `;
   return el;
 }
 
@@ -1132,7 +1299,7 @@ function renderStatuses(containerId, statuses) {
 
 function renderField(containerId, pid) {
   const container = document.getElementById(containerId);
-  if (!container) return;
+  if (!container || !gameState?.players?.[pid]) return;
 
   container.innerHTML = "";
 
@@ -1141,11 +1308,11 @@ function renderField(containerId, pid) {
 
   player.field.forEach((card, index) => {
     container.appendChild(
-      createCardElement(
-        card,
-        clickable && selectedFieldIndex === index,
-        clickable ? () => selectFieldCard(index) : () => {}
-      )
+      createCardElement(card, {
+        selected: clickable && selectedFieldIndex === index,
+        playable: true,
+        onClick: clickable ? () => selectFieldCard(index) : null,
+      })
     );
   });
 
@@ -1159,7 +1326,7 @@ function renderField(containerId, pid) {
 
 function renderHand(containerId, pid) {
   const container = document.getElementById(containerId);
-  if (!container) return;
+  if (!container || !gameState?.players?.[pid]) return;
 
   container.innerHTML = "";
 
@@ -1183,8 +1350,15 @@ function renderHand(containerId, pid) {
   }
 
   player.hand.forEach((card, index) => {
+    const isSelected = selectedCardIndex === index;
+    const playable = canPlayCard(card, pid);
+
     container.appendChild(
-      createCardElement(card, selectedCardIndex === index, () => selectCard(index))
+      createCardElement(card, {
+        selected: isSelected,
+        playable,
+        onClick: () => selectCard(index),
+      })
     );
   });
 
@@ -1198,7 +1372,7 @@ function renderHand(containerId, pid) {
 
 function renderPreview(containerId, pid) {
   const container = document.getElementById(containerId);
-  if (!container) return;
+  if (!container || !gameState?.players?.[pid]) return;
 
   container.innerHTML = "";
 
@@ -1244,10 +1418,10 @@ function renderSelectedCardBox() {
   if (selectedCardIndex !== null && player.hand[selectedCardIndex]) {
     const card = player.hand[selectedCardIndex];
     box.innerHTML = `<strong style="font-size:18px;">${escapeHtml(card.name || "")}</strong><br>
-      <span style="color: var(--muted); text-transform: uppercase; letter-spacing: .08em; font-size: 12px;">${escapeHtml(card.type || "")}</span>
+      <span style="color: var(--muted); text-transform: uppercase; letter-spacing: .08em; font-size: 12px;">${escapeHtml(normalizeCardTypeLabel(card.type))}</span>
       <p style="line-height:1.55;">${escapeHtml(card.text || "")}</p>
       <div style="color: var(--muted);">Cost: ${escapeHtml(String(card.cost || 0))} energy</div>`;
-    playBtn.disabled = false;
+    playBtn.disabled = !canPlayCard(card, playerId);
     return;
   }
 
@@ -1270,7 +1444,7 @@ function renderCombatLog() {
 
   log.innerHTML = "";
 
-  const items = Array.isArray(gameState.log) ? gameState.log : [];
+  const items = Array.isArray(gameState?.log) ? gameState.log : [];
   items.forEach((item) => {
     const el = document.createElement("div");
     el.className = "log-item";
@@ -1280,15 +1454,24 @@ function renderCombatLog() {
 }
 
 function updatePlayerBars(pid) {
-  const p = gameState.players[pid];
+  const p = gameState?.players?.[pid];
+  if (!p) return;
 
-  document.getElementById(`p${pid}HpText`).textContent = `${p.hp} / ${p.maxHp}`;
-  document.getElementById(`p${pid}EnergyText`).textContent = `${p.energy} / ${p.maxEnergy}`;
-  document.getElementById(`p${pid}HpBar`).style.width = `${(p.hp / p.maxHp) * 100}%`;
-  document.getElementById(`p${pid}EnergyBar`).style.width = `${(p.energy / p.maxEnergy) * 100}%`;
-  document.getElementById(`p${pid}DeckCount`).textContent = p.deck.length;
-  document.getElementById(`p${pid}HandCount`).textContent = p.hand.length;
-  document.getElementById(`p${pid}DiscardCount`).textContent = p.discard.length;
+  const hpText = document.getElementById(`p${pid}HpText`);
+  const energyText = document.getElementById(`p${pid}EnergyText`);
+  const hpBar = document.getElementById(`p${pid}HpBar`);
+  const energyBar = document.getElementById(`p${pid}EnergyBar`);
+  const deckCount = document.getElementById(`p${pid}DeckCount`);
+  const handCount = document.getElementById(`p${pid}HandCount`);
+  const discardCount = document.getElementById(`p${pid}DiscardCount`);
+
+  if (hpText) hpText.textContent = `${p.hp} / ${p.maxHp}`;
+  if (energyText) energyText.textContent = `${p.energy} / ${p.maxEnergy}`;
+  if (hpBar) hpBar.style.width = `${(p.hp / p.maxHp) * 100}%`;
+  if (energyBar) energyBar.style.width = `${(p.energy / p.maxEnergy) * 100}%`;
+  if (deckCount) deckCount.textContent = p.deck.length;
+  if (handCount) handCount.textContent = p.hand.length;
+  if (discardCount) discardCount.textContent = p.discard.length;
 }
 
 function render() {
@@ -1307,19 +1490,29 @@ function render() {
   renderSelectedCardBox();
   renderCombatLog();
 
-  document.getElementById("turnPill").textContent = `Turn: ${gameState.turn}`;
-  document.getElementById("turnBanner").textContent = gameState.winner
-    ? "Finished"
-    : `Turn ${gameState.turn} - Player ${gameState.currentPlayer}`;
+  const turnPill = document.getElementById("turnPill");
+  const turnBanner = document.getElementById("turnBanner");
+  const roomStateText = document.getElementById("roomStateText");
+  const endTurnBtn = document.getElementById("endTurnBtn");
+  const restartBtn = document.getElementById("restartBtn");
 
-  document.getElementById("roomStateText").textContent = gameState.winner
-    ? `Winner: ${gameState.winner}`
-    : isMyTurn()
-      ? "Your turn."
-      : "Opponent turn.";
+  if (turnPill) turnPill.textContent = `Turn: ${gameState.turn}`;
+  if (turnBanner) {
+    turnBanner.textContent = gameState.winner
+      ? "Finished"
+      : `Turn ${gameState.turn} - Player ${gameState.currentPlayer}`;
+  }
 
-  document.getElementById("endTurnBtn").disabled = !isMyTurn();
-  document.getElementById("restartBtn").disabled = !isHost;
+  if (roomStateText) {
+    roomStateText.textContent = gameState.winner
+      ? `Winner: ${gameState.winner}`
+      : isMyTurn()
+        ? "Your turn."
+        : "Opponent turn.";
+  }
+
+  if (endTurnBtn) endTurnBtn.disabled = !isMyTurn();
+  if (restartBtn) restartBtn.disabled = !isHost;
 
   updateHeaderState();
   updateHostRoomCard();
@@ -1393,6 +1586,16 @@ function leaveRoom() {
   addConnectionLog("Left room.");
 }
 
+function showTutorial() {
+  const overlay = document.getElementById("tutorialOverlay");
+  if (overlay) overlay.classList.remove("hidden");
+}
+
+function hideTutorial() {
+  const overlay = document.getElementById("tutorialOverlay");
+  if (overlay) overlay.classList.add("hidden");
+}
+
 window.addEventListener("online", () => {
   addConnectionLog("Network back online.");
   if (!manualClose && roomCode && playerId && !socket) {
@@ -1413,26 +1616,44 @@ document.addEventListener("visibilitychange", () => {
   }
 });
 
-document.getElementById("hostBtn").addEventListener("click", createRoom);
-document.getElementById("joinBtn").addEventListener("click", joinRoom);
-document.getElementById("playCardBtn").addEventListener("click", playSelectedCard);
-document.getElementById("removeFieldCardBtn").addEventListener("click", removeSelectedFieldCard);
-document.getElementById("clearSelectionBtn").addEventListener("click", clearSelection);
-document.getElementById("endTurnBtn").addEventListener("click", endTurn);
-document.getElementById("restartBtn").addEventListener("click", restartMatch);
-document.getElementById("leaveBtn").addEventListener("click", leaveRoom);
-document.getElementById("overlayBtn").addEventListener("click", hideOverlay);
-
+const hostBtn = document.getElementById("hostBtn");
+const joinBtn = document.getElementById("joinBtn");
+const playCardBtn = document.getElementById("playCardBtn");
+const removeFieldCardBtn = document.getElementById("removeFieldCardBtn");
+const clearSelectionBtn = document.getElementById("clearSelectionBtn");
+const endTurnBtn = document.getElementById("endTurnBtn");
+const restartBtn = document.getElementById("restartBtn");
+const leaveBtn = document.getElementById("leaveBtn");
+const overlayBtn = document.getElementById("overlayBtn");
 const refreshRoomsBtn = document.getElementById("refreshRoomsBtn");
-if (refreshRoomsBtn) {
-  refreshRoomsBtn.addEventListener("click", loadRoomList);
-}
-
 const joinCodeInput = document.getElementById("joinCodeInput");
+const closeTutorialBtn = document.getElementById("closeTutorialBtn");
+
+if (hostBtn) hostBtn.addEventListener("click", createRoom);
+if (joinBtn) joinBtn.addEventListener("click", joinRoom);
+if (playCardBtn) playCardBtn.addEventListener("click", playSelectedCard);
+if (removeFieldCardBtn) removeFieldCardBtn.addEventListener("click", removeSelectedFieldCard);
+if (clearSelectionBtn) clearSelectionBtn.addEventListener("click", clearSelection);
+if (endTurnBtn) endTurnBtn.addEventListener("click", endTurn);
+if (restartBtn) restartBtn.addEventListener("click", restartMatch);
+if (leaveBtn) leaveBtn.addEventListener("click", leaveRoom);
+if (overlayBtn) overlayBtn.addEventListener("click", hideOverlay);
+if (refreshRoomsBtn) refreshRoomsBtn.addEventListener("click", loadRoomList);
+if (closeTutorialBtn) closeTutorialBtn.addEventListener("click", hideTutorial);
+
 if (joinCodeInput) {
   joinCodeInput.addEventListener("keydown", (event) => {
     if (event.key === "Enter") {
       joinRoom();
+    }
+  });
+}
+
+const tutorialOverlay = document.getElementById("tutorialOverlay");
+if (tutorialOverlay) {
+  tutorialOverlay.addEventListener("click", (event) => {
+    if (event.target === tutorialOverlay) {
+      hideTutorial();
     }
   });
 }
