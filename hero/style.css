@@ -1618,3 +1618,112 @@ button {
     font-size: 20px;
   }
 }
+
+/* ===== Mobile fix for Player 1 area ===== */
+
+@media (max-width: 768px) {
+  .app-shell,
+  .game-shell,
+  .main-board,
+  .player-area,
+  .player-header,
+  .player-meta,
+  .center-panel,
+  .side-panel,
+  .panel-box,
+  .battlebox,
+  .actionbox {
+    min-width: 0;
+  }
+
+  .player-area {
+    overflow-x: hidden;
+  }
+
+  .bar-wrap,
+  .bar,
+  .bar-fill {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .field-row {
+    display: grid !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 8px;
+    width: 100%;
+    min-width: 0;
+  }
+
+  .field-row .slot {
+    width: 100% !important;
+    min-width: 0 !important;
+  }
+
+  .hand-row {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    align-items: stretch;
+    gap: 8px;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    padding-bottom: 10px;
+    padding-right: 8px;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x proximity;
+    overscroll-behavior-x: contain;
+  }
+
+  .hand-row .card {
+    flex: 0 0 124px !important;
+    width: 124px !important;
+    min-width: 124px !important;
+    max-width: 124px !important;
+    height: 266px !important;
+    scroll-snap-align: start;
+  }
+
+  .hand-row .card:hover,
+  .hand-row .card.selected {
+    transform: none !important;
+  }
+
+  .hand-row::-webkit-scrollbar {
+    height: 6px;
+  }
+
+  .hand-row::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.18);
+    border-radius: 999px;
+  }
+
+  .card-art {
+    height: 88px !important;
+    min-height: 88px !important;
+    max-height: 88px !important;
+    flex-basis: 88px !important;
+  }
+
+  .card-top {
+    padding: 8px 8px 5px;
+  }
+
+  .card-body {
+    padding: 7px 8px 8px;
+  }
+
+  .card-name {
+    font-size: 12px;
+    max-width: 80px;
+  }
+
+  .card-text {
+    font-size: 10px;
+    line-height: 1.25;
+    max-height: 38px;
+    overflow: hidden;
+  }
+}
