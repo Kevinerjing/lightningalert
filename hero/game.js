@@ -1633,15 +1633,22 @@ function playSelectedCard() {
   const player = gameState.players[playerId];
   if (!player || !player.hand || !player.hand[selectedCardIndex]) return;
 
-  const card = player.hand[selectedCardIndex];
+  const rawCard = player.hand[selectedCardIndex];
+  const card = rawCard.image ? rawCard : CARD_LIBRARY[rawCard.id || rawCard];
 
-  pendingLocalEffect = {
-    cardId: card.id,
-    actorPid: Number(playerId),
-  };
+  console.log("PLAY CLICKED:", card);
 
-  if (card.image) {
+  if (card?.id) {
+    pendingLocalEffect = {
+      cardId: card.id,
+      actorPid: Number(playerId),
+    };
+  }
+
+  if (card?.image) {
     showPlayedCardPreview(card);
+  } else {
+    console.warn("No image found for selected card:", rawCard);
   }
 
   sendAction("play_card", { handIndex: selectedCardIndex });
