@@ -1867,3 +1867,45 @@ body {
   width: 100%;
   max-width: 100%;
 }
+
+
+
+.app-shell,
+.game-panel,
+.lobby-panel {
+  width: 100%;
+  max-width: 100%;
+}
+
+
+.player-area,
+.bar-wrap,
+.bar,
+.main-board,
+.center-panel {
+  min-width: 0;
+  max-width: 100%;
+}
+
+
+.bar {
+  overflow: hidden;
+  border-radius: 999px;
+}
+
+
+.hand-row {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 10px;
+
+  overflow-x: auto;
+  overflow-y: hidden;
+
+  padding-bottom: 6px;
+  -webkit-overflow-scrolling: touch;
+}
+
+.hand-row .card {
+  flex: 0 0 auto;
+}
