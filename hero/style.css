@@ -25,6 +25,12 @@
   box-sizing: border-box;
 }
 
+html,
+body {
+  width: 100%;
+  max-width: 100%;
+}
+
 body {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
@@ -208,6 +214,7 @@ body {
   box-shadow: 0 6px 18px rgba(85, 214, 255, 0.25);
   transition: all 0.2s ease;
   white-space: nowrap;
+  text-decoration: none;
 }
 
 .tutorial-btn:hover {
@@ -240,6 +247,7 @@ body {
   border-radius: 14px;
   padding: 12px;
   background: rgba(255, 255, 255, 0.03);
+  min-width: 0;
 }
 
 .center-panel {
@@ -247,6 +255,7 @@ body {
   grid-template-columns: 1fr 1fr;
   gap: 10px;
   align-items: start;
+  min-width: 0;
 }
 
 /* ===== Player area ===== */
@@ -259,6 +268,7 @@ body {
   position: relative;
   overflow: visible;
   z-index: 1;
+  min-width: 0;
 }
 
 .player-header {
@@ -266,6 +276,7 @@ body {
   grid-template-columns: minmax(220px, 260px) 1fr;
   align-items: center;
   gap: 12px;
+  min-width: 0;
 }
 
 .player-meta {
@@ -277,6 +288,7 @@ body {
   column-gap: 10px;
   row-gap: 4px;
   align-items: center;
+  min-width: 0;
 }
 
 .badge {
@@ -305,6 +317,7 @@ body {
   font-weight: 700;
   line-height: 1.1;
   margin: 0;
+  min-width: 0;
 }
 
 .stats {
@@ -325,15 +338,22 @@ body {
 .bar-wrap {
   display: grid;
   gap: 4px;
+  min-width: 0;
 }
 
 .bar-label {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 8px;
   font-size: 12px;
   color: var(--muted);
   margin-bottom: 2px;
+  min-width: 0;
+}
+
+.bar-label span {
+  min-width: 0;
 }
 
 .bar-label span:first-child,
@@ -343,6 +363,8 @@ body {
 
 .bar {
   height: 10px;
+  width: 100%;
+  max-width: 100%;
   background: rgba(255,255,255,0.08);
   border-radius: 999px;
   overflow: hidden;
@@ -351,6 +373,8 @@ body {
 
 .bar-fill {
   height: 100%;
+  width: 0;
+  max-width: 100%;
   transition: width 0.25s ease;
 }
 
@@ -388,6 +412,7 @@ body {
   gap: 12px;
   flex-wrap: wrap;
   align-items: flex-start;
+  min-width: 0;
 }
 
 .field-row {
@@ -398,8 +423,10 @@ body {
   min-height: 255px;
   flex-wrap: nowrap;
   overflow-x: auto;
+  overflow-y: hidden;
   padding-bottom: 6px;
   scrollbar-width: thin;
+  -webkit-overflow-scrolling: touch;
 }
 
 .hand-row::-webkit-scrollbar {
@@ -436,9 +463,7 @@ body {
 }
 
 .card {
-  width: 158px;
-  min-width: 158px;
-  height: 355px;              
+  height: 355px;
   border-radius: 18px;
   border: 1px solid var(--line);
   position: relative;
@@ -609,6 +634,7 @@ body {
   font-weight: 800;
   padding: 0;
 }
+
 .card-art img {
   width: 100%;
   height: 100%;
@@ -782,6 +808,7 @@ body {
   grid-template-columns: repeat(2, 1fr);
   gap: 10px;
   margin-top: 8px;
+  min-width: 0;
 }
 
 .player-preview {
@@ -1246,8 +1273,6 @@ button:disabled {
 @media (max-width: 768px) {
   html,
   body {
-    width: 100%;
-    max-width: 100%;
     overflow-x: hidden;
   }
 
@@ -1260,6 +1285,27 @@ button:disabled {
     max-width: 100%;
     margin: 0;
     padding: 8px;
+  }
+
+  .game-panel,
+  .game-shell,
+  .main-board,
+  .center-panel,
+  .side-panel,
+  .player-area,
+  .player-header,
+  .player-meta,
+  .panel-box,
+  .battlebox,
+  .actionbox,
+  .bar-wrap,
+  .bar-label,
+  .field-row,
+  .hand-row,
+  #player-area,
+  #enemy-area {
+    min-width: 0;
+    max-width: 100%;
   }
 
   .game-shell,
@@ -1277,7 +1323,14 @@ button:disabled {
   .actionbox {
     padding: 8px;
     border-radius: 14px;
-    min-width: 0;
+  }
+
+  .player-area,
+  #player-area,
+  #enemy-area {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
   }
 
   .topbar {
@@ -1326,54 +1379,124 @@ button:disabled {
 
   .bar {
     height: 8px;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .bar-fill {
+    max-width: 100%;
+  }
+
+  .bar-label {
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+  }
+
+  .bar-label span {
+    min-width: 0;
+    white-space: nowrap;
   }
 
   .zone-label {
     font-size: 11px;
   }
 
-  /* FIELD */
   .field-row {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    display: grid !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
     gap: 8px;
     width: 100%;
-    min-width: 0;
+    overflow: hidden;
   }
 
-  .slot {
-    width: 100%;
-    min-width: 0;
-    min-height: 130px;
+  .field-row > .slot,
+  .field-row > .card {
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+  }
+
+  .field-row > .slot {
+    min-height: 124px;
     border-radius: 14px;
     font-size: 12px;
     padding: 6px;
   }
 
-  /* HAND */
-  .hand-row {
-    display: flex;
-    flex-wrap: nowrap;
+  .hand-row,
+  #p1Hand,
+  #p2Hand {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    align-items: stretch;
     gap: 8px;
-    overflow-x: auto;
-    overflow-y: hidden;
     width: 100%;
+    max-width: 100%;
     min-width: 0;
-    padding-bottom: 8px;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
     -webkit-overflow-scrolling: touch;
+    overscroll-behavior-x: contain;
     scroll-snap-type: x proximity;
+    touch-action: pan-x;
+    padding: 0 0 10px 0;
   }
 
-  .hand-row::-webkit-scrollbar {
+  .hand-row > *,
+  #p1Hand > *,
+  #p2Hand > * {
+    flex-shrink: 0 !important;
+  }
+
+  .hand-row > .card,
+  .hand-row > .slot,
+  #p1Hand > .card,
+  #p2Hand > .card,
+  #p1Hand > .slot,
+  #p2Hand > .slot {
+    flex: 0 0 124px !important;
+    width: 124px !important;
+    min-width: 124px !important;
+    max-width: 124px !important;
+    scroll-snap-align: start;
+  }
+
+  .hand-row > .card,
+  #p1Hand > .card,
+  #p2Hand > .card {
+    height: 266px !important;
+    overflow: hidden;
+  }
+
+  .hand-row .card:hover,
+  .hand-row .card.selected,
+  .hand-row .card:active,
+  #p1Hand .card:hover,
+  #p2Hand .card:hover,
+  #p1Hand .card.selected,
+  #p2Hand .card.selected,
+  #p1Hand .card:active,
+  #p2Hand .card:active {
+    transform: none !important;
+  }
+
+  .hand-row::-webkit-scrollbar,
+  #p1Hand::-webkit-scrollbar,
+  #p2Hand::-webkit-scrollbar {
     height: 6px;
   }
 
+  .hand-row::-webkit-scrollbar-thumb,
+  #p1Hand::-webkit-scrollbar-thumb,
+  #p2Hand::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.18);
+    border-radius: 999px;
+  }
+
   .card {
-    flex: 0 0 132px;
-    width: 132px;
-    min-width: 132px;
-    height: 290px;
-    scroll-snap-align: start;
+    overflow: hidden;
   }
 
   .card-top {
@@ -1381,55 +1504,70 @@ button:disabled {
   }
 
   .card-name {
-    font-size: 13px;
-    max-width: 90px;
+    font-size: 12px !important;
+    line-height: 1.15;
+    max-width: 78px !important;
+    overflow-wrap: break-word;
+    word-break: break-word;
   }
 
   .card-cost {
     min-width: 28px;
+    width: 28px;
     height: 28px;
     font-size: 13px;
   }
 
-  .card-art {
-    margin: 0 8px;
-    height: 104px;
-    min-height: 104px;
-    max-height: 104px;
-    flex-basis: 104px;
+  .card-art,
+  #p1Hand .card-art,
+  #p2Hand .card-art {
+    margin: 0 8px !important;
+    height: 88px !important;
+    min-height: 88px !important;
+    max-height: 88px !important;
+    flex: 0 0 88px !important;
     border-radius: 12px;
   }
 
   .card-badge,
   .card-mid-badge {
-    width: 40px;
-    height: 40px;
-    min-height: 40px;
-    flex-basis: 40px;
-    font-size: 17px;
-    margin-top: -12px;
+    width: 40px !important;
+    height: 40px !important;
+    min-height: 40px !important;
+    flex: 0 0 40px !important;
+    font-size: 17px !important;
+    margin-top: -12px !important;
   }
 
   .card-body {
-    padding: 7px 8px 8px;
+    padding: 7px 8px 8px !important;
+    min-height: 0;
   }
 
   .card-type {
-    font-size: 10px;
-    margin-bottom: 5px;
+    font-size: 10px !important;
+    margin-bottom: 5px !important;
   }
 
-  .card-text {
-    font-size: 10px;
-    line-height: 1.3;
-    max-height: 42px;
-    margin-bottom: 6px;
+  .card-text,
+  #p1Hand .card-text,
+  #p2Hand .card-text {
+    font-size: 10px !important;
+    line-height: 1.25 !important;
+    max-height: 38px !important;
+    overflow: hidden !important;
+    margin-bottom: 6px !important;
+  }
+
+  .card-tags {
+    gap: 4px;
   }
 
   .tag,
   .card-tag {
-    font-size: 9px;
-    padding: 4px 6px;
+    font-size: 9px !important;
+    padding: 4px 6px !important;
+    max-width: 100%;
   }
 
   .controls {
@@ -1438,12 +1576,14 @@ button:disabled {
     gap: 8px;
   }
 
-.controls button,
-button {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
+  .controls button,
+  button {
+    min-width: 0;
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 
   .selected-card-box {
     min-height: 84px;
@@ -1509,21 +1649,32 @@ button {
     gap: 8px;
   }
 
-  .card {
-    flex: 0 0 124px;
-    width: 124px;
-    min-width: 124px;
-    height: 278px;
+  .hand-row > .card,
+  .hand-row > .slot,
+  #p1Hand > .card,
+  #p2Hand > .card,
+  #p1Hand > .slot,
+  #p2Hand > .slot {
+    flex: 0 0 124px !important;
+    width: 124px !important;
+    min-width: 124px !important;
+    max-width: 124px !important;
+  }
+
+  .hand-row > .card,
+  #p1Hand > .card,
+  #p2Hand > .card {
+    height: 278px !important;
   }
 
   .card-art {
-    height: 96px;
-    min-height: 96px;
-    max-height: 96px;
-    flex-basis: 96px;
+    height: 96px !important;
+    min-height: 96px !important;
+    max-height: 96px !important;
+    flex: 0 0 96px !important;
   }
 
-  .slot {
+  .field-row > .slot {
     min-height: 120px;
   }
 
@@ -1579,34 +1730,48 @@ button {
     gap: 6px;
   }
 
-  .slot {
+  .field-row > .slot {
     min-height: 112px;
     border-radius: 12px;
     font-size: 11px;
   }
 
-  .card {
-    flex: 0 0 118px;
-    width: 118px;
-    min-width: 118px;
-    height: 266px;
+  .hand-row > .card,
+  .hand-row > .slot,
+  #p1Hand > .card,
+  #p2Hand > .card,
+  #p1Hand > .slot,
+  #p2Hand > .slot {
+    flex: 0 0 116px !important;
+    width: 116px !important;
+    min-width: 116px !important;
+    max-width: 116px !important;
   }
 
-  .card-art {
-    height: 88px;
-    min-height: 88px;
-    max-height: 88px;
-    flex-basis: 88px;
+  .hand-row > .card,
+  #p1Hand > .card,
+  #p2Hand > .card {
+    height: 254px !important;
   }
 
-  .card-name {
-    font-size: 12px;
-    max-width: 82px;
+  .card-art,
+  #p1Hand .card-art,
+  #p2Hand .card-art {
+    height: 80px !important;
+    min-height: 80px !important;
+    max-height: 80px !important;
+    flex: 0 0 80px !important;
+  }
+
+  .card-name,
+  #p1Hand .card-name,
+  #p2Hand .card-name {
+    font-size: 11px !important;
+    max-width: 72px !important;
   }
 
   .card-text {
-    font-size: 10px;
-    max-height: 38px;
+    max-height: 34px !important;
   }
 
   .selected-card-box,
@@ -1616,692 +1781,5 @@ button {
 
   .host-room-code {
     font-size: 20px;
-  }
-}
-
-/* ===== Mobile fix for Player 1 area ===== */
-
-@media (max-width: 768px) {
-  .app-shell,
-  .game-shell,
-  .main-board,
-  .player-area,
-  .player-header,
-  .player-meta,
-  .center-panel,
-  .side-panel,
-  .panel-box,
-  .battlebox,
-  .actionbox {
-    min-width: 0;
-  }
-
-  .player-area {
-    overflow-x: hidden;
-  }
-
-  .bar-wrap,
-  .bar,
-  .bar-fill {
-    width: 100%;
-    max-width: 100%;
-  }
-
-  .field-row {
-    display: grid !important;
-    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
-    gap: 8px;
-    width: 100%;
-    min-width: 0;
-  }
-
-  .field-row .slot {
-    width: 100% !important;
-    min-width: 0 !important;
-  }
-
-  .hand-row {
-    display: flex !important;
-    flex-wrap: nowrap !important;
-    align-items: stretch;
-    gap: 8px;
-    width: 100%;
-    max-width: 100%;
-    min-width: 0;
-    overflow-x: auto !important;
-    overflow-y: hidden !important;
-    padding-bottom: 10px;
-    padding-right: 8px;
-    -webkit-overflow-scrolling: touch;
-    scroll-snap-type: x proximity;
-    overscroll-behavior-x: contain;
-  }
-
-  .hand-row .card {
-    flex: 0 0 124px !important;
-    width: 124px !important;
-    min-width: 124px !important;
-    max-width: 124px !important;
-    height: 266px !important;
-    scroll-snap-align: start;
-  }
-
-  .hand-row .card:hover,
-  .hand-row .card.selected {
-    transform: none !important;
-  }
-
-  .hand-row::-webkit-scrollbar {
-    height: 6px;
-  }
-
-  .hand-row::-webkit-scrollbar-thumb {
-    background: rgba(255, 255, 255, 0.18);
-    border-radius: 999px;
-  }
-
-  .card-art {
-    height: 88px !important;
-    min-height: 88px !important;
-    max-height: 88px !important;
-    flex-basis: 88px !important;
-  }
-
-  .card-top {
-    padding: 8px 8px 5px;
-  }
-
-  .card-body {
-    padding: 7px 8px 8px;
-  }
-
-  .card-name {
-    font-size: 12px;
-    max-width: 80px;
-  }
-
-  .card-text {
-    font-size: 10px;
-    line-height: 1.25;
-    max-height: 38px;
-    overflow: hidden;
-  }
-}
-
-/* ===== FINAL MOBILE FIX: self player area ===== */
-
-@media (max-width: 768px) {
-  /* prevent grid/flex children from forcing parent wider */
-  .app-shell,
-  .game-panel,
-  .game-shell,
-  .main-board,
-  .player-area,
-  .player-self-area,
-  .enemy-area,
-  .center-panel,
-  .side-panel,
-  .panel-box,
-  .battlebox,
-  .actionbox,
-  .bar-wrap,
-  .bar-label {
-    min-width: 0;
-  }
-
-  /* keep each player panel from being stretched by children */
-  .player-area {
-    width: 100%;
-    max-width: 100%;
-    overflow-x: hidden;
-  }
-
-  /* HP / Energy bars must always fit */
-  .bar-wrap,
-  .bar,
-  .bar-fill {
-    width: 100%;
-    max-width: 100%;
-  }
-
-  .bar-label {
-    display: flex;
-    justify-content: space-between;
-    gap: 8px;
-  }
-
-  .bar-label span {
-    min-width: 0;
-  }
-
-  /* field stays 3 columns */
-  .field-row {
-    display: grid !important;
-    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
-    gap: 8px;
-    width: 100%;
-    max-width: 100%;
-    min-width: 0;
-  }
-
-  .field-row > .slot,
-  .field-row > .card {
-    width: 100% !important;
-    min-width: 0 !important;
-  }
-
-  /* only hand should scroll horizontally */
-  .hand-row {
-    display: flex !important;
-    flex-wrap: nowrap !important;
-    align-items: stretch;
-    gap: 8px;
-    width: 100%;
-    max-width: 100%;
-    min-width: 0;
-    overflow-x: auto !important;
-    overflow-y: hidden !important;
-    -webkit-overflow-scrolling: touch;
-    overscroll-behavior-x: contain;
-    scroll-snap-type: x proximity;
-    padding: 0 2px 10px 0;
-    touch-action: pan-x;
-  }
-
-  .hand-row > .card,
-  .hand-row > .slot {
-    flex: 0 0 124px !important;
-    width: 124px !important;
-    min-width: 124px !important;
-    max-width: 124px !important;
-    scroll-snap-align: start;
-  }
-
-  .hand-row > .card {
-    height: 266px !important;
-  }
-
-  /* prevent scaled cards from breaking mobile layout */
-  .hand-row .card:hover,
-  .hand-row .card.selected,
-  .hand-row .card:active {
-    transform: none !important;
-  }
-
-  .hand-row::-webkit-scrollbar {
-    height: 6px;
-  }
-
-  .hand-row::-webkit-scrollbar-thumb {
-    background: rgba(255, 255, 255, 0.18);
-    border-radius: 999px;
-  }
-
-  /* compact card internals */
-  .hand-row .card-top {
-    padding: 8px 8px 5px;
-  }
-
-  .hand-row .card-name {
-    font-size: 12px;
-    max-width: 80px;
-  }
-
-  .hand-row .card-cost {
-    min-width: 28px;
-    height: 28px;
-    font-size: 13px;
-  }
-
-  .hand-row .card-art {
-    margin: 0 8px;
-    height: 88px !important;
-    min-height: 88px !important;
-    max-height: 88px !important;
-    flex: 0 0 88px !important;
-    border-radius: 12px;
-  }
-
-  .hand-row .card-mid-badge,
-  .hand-row .card-badge {
-    width: 40px;
-    height: 40px;
-    min-height: 40px;
-    flex: 0 0 40px;
-    font-size: 17px;
-    margin-top: -12px;
-  }
-
-  .hand-row .card-body {
-    padding: 7px 8px 8px;
-  }
-
-  .hand-row .card-type {
-    font-size: 10px;
-    margin-bottom: 5px;
-  }
-
-  .hand-row .card-text {
-    font-size: 10px;
-    line-height: 1.25;
-    max-height: 38px;
-    overflow: hidden;
-    margin-bottom: 6px;
-  }
-
-  .hand-row .tag,
-  .hand-row .card-tag {
-    font-size: 9px;
-    padding: 4px 6px;
-  }
-}
-
-@media (max-width: 480px) {
-  .hand-row > .card,
-  .hand-row > .slot {
-    flex: 0 0 118px !important;
-    width: 118px !important;
-    min-width: 118px !important;
-    max-width: 118px !important;
-  }
-
-  .hand-row > .card {
-    height: 258px !important;
-  }
-
-  .hand-row .card-art {
-    height: 82px !important;
-    min-height: 82px !important;
-    max-height: 82px !important;
-    flex: 0 0 82px !important;
-  }
-
-  .hand-row .card-name {
-    font-size: 11px;
-    max-width: 74px;
-  }
-}
-
-/* ===== HARD MOBILE LAYOUT FIX FOR BOTH PLAYERS ===== */
-
-@media (max-width: 768px) {
-  html,
-  body {
-    width: 100%;
-    max-width: 100%;
-    overflow-x: hidden;
-  }
-
-  .app-shell,
-  .game-panel,
-  .game-shell,
-  .main-board,
-  .center-panel,
-  .side-panel,
-  .player-area,
-  .player-self-area,
-  .enemy-area,
-  .panel-box,
-  .battlebox,
-  .actionbox,
-  .player-header,
-  .player-meta,
-  .bar-wrap,
-  .bar-label,
-  .field-row,
-  .hand-row {
-    min-width: 0 !important;
-    max-width: 100%;
-  }
-
-  .player-area {
-    width: 100%;
-    overflow-x: clip;
-  }
-
-  /* bars must never be wider than panel */
-  .bar-wrap,
-  .bar,
-  .bar-fill {
-    width: 100%;
-    max-width: 100%;
-  }
-
-  .bar-label {
-    display: flex;
-    justify-content: space-between;
-    gap: 8px;
-  }
-
-  .bar-label span {
-    min-width: 0;
-    white-space: nowrap;
-  }
-
-  /* FIELD */
-  .field-row {
-    display: grid !important;
-    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
-    gap: 8px;
-    width: 100%;
-    overflow: hidden;
-  }
-
-  .field-row > .slot,
-  .field-row > .card {
-    width: 100% !important;
-    min-width: 0 !important;
-    max-width: 100% !important;
-  }
-
-  .field-row > .slot {
-    min-height: 124px;
-  }
-
-  /* HAND */
-  .hand-row {
-    display: flex !important;
-    flex-direction: row !important;
-    flex-wrap: nowrap !important;
-    align-items: stretch;
-    gap: 8px;
-    width: 100%;
-    overflow-x: auto !important;
-    overflow-y: hidden !important;
-    -webkit-overflow-scrolling: touch;
-    overscroll-behavior-x: contain;
-    scroll-snap-type: x proximity;
-    touch-action: pan-x;
-    padding: 0 0 10px 0;
-  }
-
-  .hand-row > * {
-    flex-shrink: 0 !important;
-  }
-
-  .hand-row > .card,
-  .hand-row > .slot {
-    flex: 0 0 124px !important;
-    width: 124px !important;
-    min-width: 124px !important;
-    max-width: 124px !important;
-    scroll-snap-align: start;
-  }
-
-  .hand-row > .card {
-    height: 266px !important;
-    overflow: hidden;
-  }
-
-  /* kill mobile layout breaking transforms */
-  .hand-row .card:hover,
-  .hand-row .card.selected,
-  .hand-row .card:active {
-    transform: none !important;
-  }
-
-  .card {
-    overflow: hidden;
-  }
-
-  .card-top {
-    padding: 8px 8px 5px;
-  }
-
-  .card-name {
-    font-size: 12px !important;
-    line-height: 1.15;
-    max-width: 78px !important;
-    overflow-wrap: break-word;
-    word-break: break-word;
-  }
-
-  .card-cost {
-    min-width: 28px;
-    width: 28px;
-    height: 28px;
-    font-size: 13px;
-  }
-
-  .card-art {
-    margin: 0 8px !important;
-    height: 88px !important;
-    min-height: 88px !important;
-    max-height: 88px !important;
-    flex: 0 0 88px !important;
-    border-radius: 12px;
-  }
-
-  .card-art img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
-  .card-badge,
-  .card-mid-badge {
-    width: 40px !important;
-    height: 40px !important;
-    min-height: 40px !important;
-    flex: 0 0 40px !important;
-    font-size: 17px !important;
-    margin-top: -12px !important;
-  }
-
-  .card-body {
-    padding: 7px 8px 8px !important;
-    min-height: 0;
-  }
-
-  .card-type {
-    font-size: 10px !important;
-    margin-bottom: 5px !important;
-  }
-
-  .card-text {
-    font-size: 10px !important;
-    line-height: 1.25 !important;
-    max-height: 38px !important;
-    overflow: hidden !important;
-    margin-bottom: 6px !important;
-  }
-
-  .card-tags {
-    gap: 4px;
-  }
-
-  .tag,
-  .card-tag {
-    font-size: 9px !important;
-    padding: 4px 6px !important;
-    max-width: 100%;
-  }
-
-  .hand-row::-webkit-scrollbar {
-    height: 6px;
-  }
-
-  .hand-row::-webkit-scrollbar-thumb {
-    background: rgba(255, 255, 255, 0.18);
-    border-radius: 999px;
-  }
-}
-
-@media (max-width: 480px) {
-  .hand-row > .card,
-  .hand-row > .slot {
-    flex: 0 0 116px !important;
-    width: 116px !important;
-    min-width: 116px !important;
-    max-width: 116px !important;
-  }
-
-  .hand-row > .card {
-    height: 254px !important;
-  }
-
-  .card-art {
-    height: 80px !important;
-    min-height: 80px !important;
-    max-height: 80px !important;
-    flex: 0 0 80px !important;
-  }
-
-  .card-name {
-    font-size: 11px !important;
-    max-width: 72px !important;
-  }
-
-  .card-text {
-    max-height: 34px !important;
-  }
-
-  .field-row > .slot {
-    min-height: 112px;
-  }
-}
-
-/* ===== REAL HAND SCROLL FIX ===== */
-
-@media (max-width: 768px) {
-  #p1Hand,
-  #p2Hand {
-    display: flex !important;
-    flex-direction: row !important;
-    flex-wrap: nowrap !important;
-    align-items: stretch;
-    gap: 8px;
-    width: 100%;
-    max-width: 100%;
-    min-width: 0;
-    overflow-x: auto !important;
-    overflow-y: hidden !important;
-    -webkit-overflow-scrolling: touch;
-    overscroll-behavior-x: contain;
-    scroll-snap-type: x proximity;
-    touch-action: pan-x;
-    padding: 0 0 10px 0;
-  }
-
-  #p1Hand > *,
-  #p2Hand > * {
-    flex-shrink: 0 !important;
-  }
-
-  #p1Hand > .card,
-  #p2Hand > .card,
-  #p1Hand > .slot,
-  #p2Hand > .slot {
-    flex: 0 0 124px !important;
-    width: 124px !important;
-    min-width: 124px !important;
-    max-width: 124px !important;
-    scroll-snap-align: start;
-  }
-
-  #p1Hand > .card,
-  #p2Hand > .card {
-    height: 266px !important;
-    overflow: hidden;
-  }
-
-  #p1Hand .card:hover,
-  #p2Hand .card:hover,
-  #p1Hand .card.selected,
-  #p2Hand .card.selected,
-  #p1Hand .card:active,
-  #p2Hand .card:active {
-    transform: none !important;
-  }
-
-  #p1Hand .card-art,
-  #p2Hand .card-art {
-    margin: 0 8px !important;
-    height: 88px !important;
-    min-height: 88px !important;
-    max-height: 88px !important;
-    flex: 0 0 88px !important;
-  }
-
-  #p1Hand .card-name,
-  #p2Hand .card-name {
-    font-size: 12px !important;
-    max-width: 78px !important;
-    overflow-wrap: break-word;
-    word-break: break-word;
-  }
-
-  #p1Hand .card-text,
-  #p2Hand .card-text {
-    font-size: 10px !important;
-    line-height: 1.25 !important;
-    max-height: 38px !important;
-    overflow: hidden !important;
-  }
-
-  #p1Hand::-webkit-scrollbar,
-  #p2Hand::-webkit-scrollbar {
-    height: 6px;
-  }
-
-  #p1Hand::-webkit-scrollbar-thumb,
-  #p2Hand::-webkit-scrollbar-thumb {
-    background: rgba(255, 255, 255, 0.18);
-    border-radius: 999px;
-  }
-
-  #player-area,
-  #enemy-area {
-    overflow-x: hidden;
-    min-width: 0;
-  }
-
-  .bar-wrap,
-  .bar,
-  .bar-fill {
-    width: 100%;
-    max-width: 100%;
-  }
-
-  .bar-label {
-    display: flex;
-    justify-content: space-between;
-    gap: 8px;
-  }
-
-  .bar-label span {
-    min-width: 0;
-    white-space: nowrap;
-  }
-}
-
-@media (max-width: 480px) {
-  #p1Hand > .card,
-  #p2Hand > .card,
-  #p1Hand > .slot,
-  #p2Hand > .slot {
-    flex: 0 0 116px !important;
-    width: 116px !important;
-    min-width: 116px !important;
-    max-width: 116px !important;
-  }
-
-  #p1Hand > .card,
-  #p2Hand > .card {
-    height: 254px !important;
-  }
-
-  #p1Hand .card-art,
-  #p2Hand .card-art {
-    height: 80px !important;
-    min-height: 80px !important;
-    max-height: 80px !important;
-    flex: 0 0 80px !important;
-  }
-
-  #p1Hand .card-name,
-  #p2Hand .card-name {
-    font-size: 11px !important;
-    max-width: 72px !important;
   }
 }
