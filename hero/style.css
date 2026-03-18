@@ -438,7 +438,7 @@ body {
 .card {
   width: 158px;
   min-width: 158px;
-  height: 295px;              
+  height: 395px;              
   border-radius: 18px;
   border: 1px solid var(--line);
   position: relative;
@@ -591,10 +591,10 @@ body {
   position: relative;
   z-index: 2;
   margin: 0 9px;
-  height: 98px;
-  min-height: 98px;
-  max-height: 98px;
-  flex: 0 0 98px;
+  height: 108px;
+  min-height: 108px;
+  max-height: 108px;
+  flex: 0 0 108px;
   border-radius: 14px;
   overflow: hidden;
   border: 1px solid rgba(255,255,255,0.08);
