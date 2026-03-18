@@ -2160,3 +2160,148 @@ button {
     min-height: 112px;
   }
 }
+
+/* ===== REAL HAND SCROLL FIX ===== */
+
+@media (max-width: 768px) {
+  #p1Hand,
+  #p2Hand {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    align-items: stretch;
+    gap: 8px;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x proximity;
+    touch-action: pan-x;
+    padding: 0 0 10px 0;
+  }
+
+  #p1Hand > *,
+  #p2Hand > * {
+    flex-shrink: 0 !important;
+  }
+
+  #p1Hand > .card,
+  #p2Hand > .card,
+  #p1Hand > .slot,
+  #p2Hand > .slot {
+    flex: 0 0 124px !important;
+    width: 124px !important;
+    min-width: 124px !important;
+    max-width: 124px !important;
+    scroll-snap-align: start;
+  }
+
+  #p1Hand > .card,
+  #p2Hand > .card {
+    height: 266px !important;
+    overflow: hidden;
+  }
+
+  #p1Hand .card:hover,
+  #p2Hand .card:hover,
+  #p1Hand .card.selected,
+  #p2Hand .card.selected,
+  #p1Hand .card:active,
+  #p2Hand .card:active {
+    transform: none !important;
+  }
+
+  #p1Hand .card-art,
+  #p2Hand .card-art {
+    margin: 0 8px !important;
+    height: 88px !important;
+    min-height: 88px !important;
+    max-height: 88px !important;
+    flex: 0 0 88px !important;
+  }
+
+  #p1Hand .card-name,
+  #p2Hand .card-name {
+    font-size: 12px !important;
+    max-width: 78px !important;
+    overflow-wrap: break-word;
+    word-break: break-word;
+  }
+
+  #p1Hand .card-text,
+  #p2Hand .card-text {
+    font-size: 10px !important;
+    line-height: 1.25 !important;
+    max-height: 38px !important;
+    overflow: hidden !important;
+  }
+
+  #p1Hand::-webkit-scrollbar,
+  #p2Hand::-webkit-scrollbar {
+    height: 6px;
+  }
+
+  #p1Hand::-webkit-scrollbar-thumb,
+  #p2Hand::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.18);
+    border-radius: 999px;
+  }
+
+  #player-area,
+  #enemy-area {
+    overflow-x: hidden;
+    min-width: 0;
+  }
+
+  .bar-wrap,
+  .bar,
+  .bar-fill {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .bar-label {
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+  }
+
+  .bar-label span {
+    min-width: 0;
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: 480px) {
+  #p1Hand > .card,
+  #p2Hand > .card,
+  #p1Hand > .slot,
+  #p2Hand > .slot {
+    flex: 0 0 116px !important;
+    width: 116px !important;
+    min-width: 116px !important;
+    max-width: 116px !important;
+  }
+
+  #p1Hand > .card,
+  #p2Hand > .card {
+    height: 254px !important;
+  }
+
+  #p1Hand .card-art,
+  #p2Hand .card-art {
+    height: 80px !important;
+    min-height: 80px !important;
+    max-height: 80px !important;
+    flex: 0 0 80px !important;
+  }
+
+  #p1Hand .card-name,
+  #p2Hand .card-name {
+    font-size: 11px !important;
+    max-width: 72px !important;
+  }
+}
