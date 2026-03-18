@@ -827,3 +827,144 @@ button:disabled {
   padding: 4px 8px;
   font-size: 11px;
 }
+
+/* ===== REAL compact player area header ===== */
+
+.player-area {
+  gap: 8px;
+  padding: 10px 12px;
+}
+
+
+.player-header {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  align-items: center;
+  gap: 12px;
+}
+
+.player-meta {
+  display: grid;
+  grid-template-columns: 40px 1fr;
+  grid-template-areas:
+    "badge name"
+    "badge stats";
+  column-gap: 10px;
+  row-gap: 4px;
+  align-items: center;
+}
+
+.badge {
+  grid-area: badge;
+  width: 36px;
+  height: 36px;
+  font-size: 14px;
+}
+
+.player-name {
+  grid-area: name;
+  font-size: 15px;
+  line-height: 1.1;
+  margin: 0;
+}
+
+.stats {
+  grid-area: stats;
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.stat-chip {
+  padding: 3px 8px;
+  font-size: 12px;
+  line-height: 1.2;
+}
+
+
+.turn-pill {
+  justify-self: stretch;
+  padding: 8px 14px;
+  font-size: 13px;
+  border-radius: 999px;
+  min-height: 0;
+}
+
+
+.bar-wrap {
+  display: grid;
+  gap: 6px;
+}
+
+.bar-label {
+  display: grid;
+  grid-template-columns: 64px 1fr 52px;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+}
+
+.bar-label span:first-child {
+  color: var(--text);
+  font-size: 12px;
+}
+
+.bar-label span:last-child {
+  justify-self: end;
+  color: var(--text);
+  font-size: 12px;
+}
+
+
+.bar-wrap .bar {
+  margin-top: -24px;
+  margin-left: 64px;
+  width: calc(100% - 116px);
+  height: 10px;
+}
+
+.bar {
+  height: 10px;
+}
+
+
+.zone-label {
+  font-size: 11px;
+  margin-bottom: 4px;
+}
+
+.status-row {
+  gap: 6px;
+}
+
+.status-chip {
+  padding: 4px 8px;
+  font-size: 11px;
+}
+
+
+.player-area > div {
+  margin-top: 0;
+}
+
+
+@media (max-width: 900px) {
+  .player-header {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .turn-pill {
+    justify-self: start;
+  }
+
+  .bar-label {
+    grid-template-columns: 52px 1fr 44px;
+    font-size: 11px;
+  }
+
+  .bar-wrap .bar {
+    margin-left: 52px;
+    width: calc(100% - 96px);
+  }
+}
