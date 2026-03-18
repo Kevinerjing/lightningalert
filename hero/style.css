@@ -1418,10 +1418,10 @@ button:disabled {
   /* HAND */
   #p1Hand,
   #p2Hand {
-    display: grid !important;
-    grid-auto-flow: column !important;
-    grid-auto-columns: max-content !important;
-    gap: 8px !important;
+  display: grid !important;
+  grid-auto-flow: column !important;
+  grid-auto-columns: max-content !important;
+  gap: 10px !important;
     width: 100% !important;
     max-width: 100% !important;
     min-width: 0 !important;
