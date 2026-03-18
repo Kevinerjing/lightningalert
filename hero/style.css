@@ -1701,19 +1701,19 @@ button:disabled {
     font-size: 11px;
   }
 
-  #p1Hand > .card,
-  #p2Hand > .card,
-  #p1Hand > .slot,
-  #p2Hand > .slot {
-    width: 108px !important;
-    min-width: 108px !important;
-    max-width: 108px !important;
-  }
+#p1Hand > .card,
+#p2Hand > .card,
+#p1Hand > .slot,
+#p2Hand > .slot {
+  width: 124px !important;
+  min-width: 124px !important;
+  max-width: 124px !important;
+}
 
-  #p1Hand > .card,
-  #p2Hand > .card {
-    height: 244px !important;
-  }
+#p1Hand > .card,
+#p2Hand > .card {
+  height: 254px !important;
+}
 
   #p1Hand .card-art,
   #p2Hand .card-art,
