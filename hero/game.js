@@ -1210,6 +1210,7 @@ function createCardElement(card, options = {}) {
     img.src = imgPath;
     img.alt = card.name || "Card";
     img.loading = "lazy";
+    img.draggable = false;
 
     img.onerror = () => {
       art.className = "card-art no-image";
@@ -1257,8 +1258,26 @@ function createCardElement(card, options = {}) {
   el.appendChild(badge);
   el.appendChild(body);
 
+  el.draggable = false;
+
+  if (window.innerWidth <= 768) {
+    el.style.width = "116px";
+    el.style.minWidth = "116px";
+    el.style.maxWidth = "116px";
+    el.style.height = "254px";
+    el.style.overflow = "hidden";
+  }
+
   if (typeof onClick === "function") {
-    el.addEventListener("click", onClick);
+    el.addEventListener("click", (event) => {
+      const handRow = el.closest("#p1Hand, #p2Hand");
+      if (handRow && handRow.dataset.dragging === "1") {
+        event.preventDefault();
+        event.stopPropagation();
+        return;
+      }
+      onClick();
+    });
   }
 
   return el;
@@ -1324,6 +1343,70 @@ function renderField(containerId, pid) {
   }
 }
 
+function applyMobileHandBehavior(container) {
+  if (!container) return;
+
+  const isMobile = window.innerWidth <= 768;
+
+  if (!isMobile) {
+    container.style.display = "";
+    container.style.gridAutoFlow = "";
+    container.style.gridAutoColumns = "";
+    container.style.gap = "";
+    container.style.overflowX = "";
+    container.style.overflowY = "";
+    container.style.webkitOverflowScrolling = "";
+    container.style.touchAction = "";
+    container.style.paddingBottom = "";
+    container.style.maxWidth = "";
+    return;
+  }
+
+  container.style.display = "grid";
+  container.style.gridAutoFlow = "column";
+  container.style.gridAutoColumns = "116px";
+  container.style.gap = "8px";
+  container.style.overflowX = "auto";
+  container.style.overflowY = "hidden";
+  container.style.webkitOverflowScrolling = "touch";
+  container.style.touchAction = "pan-x";
+  container.style.paddingBottom = "10px";
+  container.style.maxWidth = "100%";
+
+  let isDown = false;
+  let startX = 0;
+  let startScrollLeft = 0;
+  let moved = false;
+
+  container.onpointerdown = (e) => {
+    isDown = true;
+    moved = false;
+    startX = e.clientX;
+    startScrollLeft = container.scrollLeft;
+  };
+
+  container.onpointermove = (e) => {
+    if (!isDown) return;
+    const dx = e.clientX - startX;
+    if (Math.abs(dx) > 6) moved = true;
+    container.scrollLeft = startScrollLeft - dx;
+  };
+
+  container.onpointerup = () => {
+    isDown = false;
+    setTimeout(() => {
+      moved = false;
+    }, 0);
+  };
+
+  container.onpointercancel = () => {
+    isDown = false;
+    moved = false;
+  };
+
+  container.dataset.dragging = moved ? "1" : "0";
+}
+
 function renderHand(containerId, pid) {
   const container = document.getElementById(containerId);
   if (!container || !gameState?.players?.[pid]) return;
@@ -1337,6 +1420,14 @@ function renderHand(containerId, pid) {
       const slot = document.createElement("div");
       slot.className = "slot";
       slot.textContent = "Hidden card";
+
+      if (window.innerWidth <= 768) {
+        slot.style.width = "116px";
+        slot.style.minWidth = "116px";
+        slot.style.maxWidth = "116px";
+        slot.style.height = "254px";
+      }
+
       container.appendChild(slot);
     }
 
@@ -1344,8 +1435,18 @@ function renderHand(containerId, pid) {
       const slot = document.createElement("div");
       slot.className = "slot";
       slot.textContent = "No cards in hand";
+
+      if (window.innerWidth <= 768) {
+        slot.style.width = "116px";
+        slot.style.minWidth = "116px";
+        slot.style.maxWidth = "116px";
+        slot.style.height = "254px";
+      }
+
       container.appendChild(slot);
     }
+
+    applyMobileHandBehavior(container);
     return;
   }
 
@@ -1366,8 +1467,18 @@ function renderHand(containerId, pid) {
     const slot = document.createElement("div");
     slot.className = "slot";
     slot.textContent = "No cards in hand";
+
+    if (window.innerWidth <= 768) {
+      slot.style.width = "116px";
+      slot.style.minWidth = "116px";
+      slot.style.maxWidth = "116px";
+      slot.style.height = "254px";
+    }
+
     container.appendChild(slot);
   }
+
+  applyMobileHandBehavior(container);
 }
 
 function renderPreview(containerId, pid) {
