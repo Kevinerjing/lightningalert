@@ -13,6 +13,9 @@ let selectedCardIndex = null;
 let selectedFieldIndex = null;
 let pendingLocalEffect = null;
 
+let roomListRefreshTimer = null;
+let currentRoomList = [];
+
 const CARD_LIBRARY = {
   sulfur: {
     id: "sulfur",
@@ -341,17 +344,25 @@ const CARD_NAME_TO_ID = Object.values(CARD_LIBRARY).reduce((map, card) => {
   return map;
 }, {});
 
-function escapeHtml(value) {
-  return String(value)
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;")
-    .replace(/'/g, "&#39;");
+function maskRoomCode(code) {
+  if (!code) return "----";
+  if (code.length <= 3) return code;
+  return code.slice(0, 3) + "***";
+}
+
+function escapeHtml(text) {
+  return String(text ?? "")
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#039;");
 }
 
 function addConnectionLog(message) {
   const log = document.getElementById("connectionLog");
+  if (!log) return;
+
   const item = document.createElement("div");
   item.className = "log-item";
   item.textContent = message;
@@ -361,34 +372,223 @@ function addConnectionLog(message) {
     log.removeChild(log.lastChild);
   }
 
-  document.getElementById("lobbyMessage").textContent = message;
+  const lobbyMessage = document.getElementById("lobbyMessage");
+  if (lobbyMessage) {
+    lobbyMessage.textContent = message;
+  }
 }
 
 function updateHeaderState() {
-  document.getElementById("connectionPill").textContent =
-    socket && socket.readyState === WebSocket.OPEN ? "Connected" : "Disconnected";
+  const connected = socket && socket.readyState === WebSocket.OPEN;
 
-  document.getElementById("roomPill").textContent = roomCode
-    ? `Room ${roomCode}`
-    : "No room";
+  const connectionPill = document.getElementById("connectionPill");
+  const roomPill = document.getElementById("roomPill");
+  const gameRoomCodePill = document.getElementById("gameRoomCodePill");
+  const playerRoleText = document.getElementById("playerRoleText");
 
-  document.getElementById("gameRoomCodePill").textContent = roomCode
-    ? `Room: ${roomCode}`
-    : "Room: ----";
+  if (connectionPill) {
+    connectionPill.textContent = connected ? "Connected" : "Disconnected";
+  }
 
-  document.getElementById("playerRoleText").textContent = playerId
-    ? `You are Player ${playerId}${isHost ? " (Host)" : ""}`
-    : "Not in a room";
+  if (roomPill) {
+    roomPill.textContent = roomCode ? `Room ${roomCode}` : "No room";
+  }
+
+  if (gameRoomCodePill) {
+    gameRoomCodePill.textContent = roomCode ? `Room: ${roomCode}` : "Room: ----";
+  }
+
+  if (playerRoleText) {
+    playerRoleText.textContent = playerId
+      ? `You are Player ${playerId}${isHost ? " (Host)" : ""}`
+      : "Not in a room";
+  }
+}
+
+function updateHostRoomCard() {
+  const codeEl = document.getElementById("hostRoomCodeDisplay");
+  const statusEl = document.getElementById("hostRoomStatus");
+
+  if (!codeEl || !statusEl) return;
+
+  if (!roomCode) {
+    codeEl.textContent = "----";
+    statusEl.textContent = "Not hosting";
+    return;
+  }
+
+  let playerCount = 0;
+  let started = false;
+
+  if (gameState?.players) {
+    const p1Exists = !!gameState.players[1];
+    const p2Exists = !!gameState.players[2];
+    playerCount = Number(p1Exists) + Number(p2Exists);
+    started = !gameState.winner && playerCount >= 2;
+  } else {
+    const found = currentRoomList.find((r) => r.code === roomCode);
+    if (found) {
+      playerCount = found.playerCount || 0;
+      started = !!found.started;
+    }
+  }
+
+  if (playerCount >= 2 || started) {
+    codeEl.textContent = maskRoomCode(roomCode);
+  } else {
+    codeEl.textContent = roomCode;
+  }
+
+  if (started) {
+    statusEl.textContent = "Battle started";
+  } else if (playerCount >= 2) {
+    statusEl.textContent = "Room full";
+  } else if (isHost) {
+    statusEl.textContent = "Waiting for player...";
+  } else {
+    statusEl.textContent = "Joined room";
+  }
+}
+
+async function loadRoomList() {
+  const listEl = document.getElementById("roomList");
+  const countPill = document.getElementById("roomListCountPill");
+  const summaryEl = document.getElementById("roomWaitingSummary");
+
+  if (!listEl || !countPill || !summaryEl) return;
+
+  try {
+    const res = await fetch(`${WORKER_URL}/rooms`, {
+      method: "GET",
+      cache: "no-store",
+    });
+
+    if (!res.ok) {
+      throw new Error(`Failed to load rooms: ${res.status}`);
+    }
+
+    const data = await res.json();
+    currentRoomList = Array.isArray(data.rooms) ? data.rooms : [];
+
+    renderRoomList(currentRoomList);
+    updateHostRoomCard();
+  } catch (err) {
+    console.error(err);
+    countPill.textContent = "0 rooms";
+    summaryEl.textContent = "Could not load room list.";
+    listEl.innerHTML = `
+      <div class="room-empty-card">
+        <div class="room-empty-title">Unable to load rooms</div>
+        <div class="room-empty-subtitle">Please try refreshing again.</div>
+      </div>
+    `;
+  }
+}
+
+function renderRoomList(rooms) {
+  const listEl = document.getElementById("roomList");
+  const countPill = document.getElementById("roomListCountPill");
+  const summaryEl = document.getElementById("roomWaitingSummary");
+
+  if (!listEl || !countPill || !summaryEl) return;
+
+  const visibleRooms = Array.isArray(rooms) ? rooms : [];
+  const waitingCount = visibleRooms.filter((r) => (r.playerCount || 0) < 2 && !r.started).length;
+
+  countPill.textContent = `${visibleRooms.length} room${visibleRooms.length === 1 ? "" : "s"}`;
+
+  if (!visibleRooms.length) {
+    summaryEl.textContent = "No rooms available right now.";
+    listEl.innerHTML = `
+      <div class="room-empty-card">
+        <div class="room-empty-title">No open rooms</div>
+        <div class="room-empty-subtitle">Create a room to start a match, or refresh to check again.</div>
+      </div>
+    `;
+    return;
+  }
+
+  summaryEl.textContent =
+    waitingCount > 0
+      ? `${waitingCount} room${waitingCount === 1 ? "" : "s"} waiting for players.`
+      : "All listed rooms are currently full or already in battle.";
+
+  listEl.innerHTML = visibleRooms
+    .map((room) => {
+      const code = room.code || "----";
+      const hostName = room.hostName || "Host";
+      const playerCount = room.playerCount || 0;
+      const started = !!room.started;
+
+      let statusText = "Waiting";
+      let statusClass = "waiting";
+      let canJoin = true;
+
+      if (started) {
+        statusText = "In Battle";
+        statusClass = "battle";
+        canJoin = false;
+      } else if (playerCount >= 2) {
+        statusText = "Full";
+        statusClass = "full";
+        canJoin = false;
+      }
+
+      const displayCode = canJoin ? code : maskRoomCode(code);
+
+      return `
+        <div class="room-row">
+          <div class="room-row-main">
+            <div class="room-row-code">${escapeHtml(displayCode)}</div>
+            <div class="room-row-meta">
+              Host: ${escapeHtml(hostName)} · Players: ${playerCount}/2
+            </div>
+          </div>
+          <div class="room-row-status ${statusClass}">${statusText}</div>
+          <button
+            class="secondary small-btn"
+            ${canJoin ? "" : "disabled"}
+            onclick="joinListedRoom('${escapeHtml(code)}')"
+          >
+            ${canJoin ? "Join" : "Locked"}
+          </button>
+        </div>
+      `;
+    })
+    .join("");
+}
+
+function joinListedRoom(code) {
+  const input = document.getElementById("joinCodeInput");
+  if (input) {
+    input.value = code;
+  }
+  joinRoom();
+}
+
+function startRoomListAutoRefresh() {
+  stopRoomListAutoRefresh();
+  loadRoomList();
+  roomListRefreshTimer = setInterval(loadRoomList, 5000);
+}
+
+function stopRoomListAutoRefresh() {
+  if (roomListRefreshTimer) {
+    clearInterval(roomListRefreshTimer);
+    roomListRefreshTimer = null;
+  }
 }
 
 function showLobby() {
   document.getElementById("lobbyPanel").classList.remove("hidden");
   document.getElementById("gamePanel").classList.add("hidden");
+  startRoomListAutoRefresh();
 }
 
 function showGame() {
   document.getElementById("lobbyPanel").classList.add("hidden");
   document.getElementById("gamePanel").classList.remove("hidden");
+  stopRoomListAutoRefresh();
 }
 
 function showOverlay(title, text, winnerText = "") {
@@ -428,12 +628,6 @@ function getDeskSelectorForPid(pid) {
 
 function hasEffectSystem() {
   return typeof window.playCardEffect === "function";
-}
-
-function cardExistsOnField(pid, cardId) {
-  const player = gameState?.players?.[pid];
-  if (!player || !Array.isArray(player.field)) return false;
-  return player.field.some((card) => card && card.id === cardId);
 }
 
 function shouldForceEnemyEffect(cardId) {
@@ -481,9 +675,7 @@ function getCardEffectContext(cardId, actorPid) {
       ctx.damage = actorField.some((c) => c?.id === "potassium") ? 7 : 4;
       break;
     case "metalCrush":
-      ctx.damage = actorField.some((c) => c?.id === "calcium" || c?.id === "iron")
-        ? 5
-        : 3;
+      ctx.damage = actorField.some((c) => c?.id === "calcium" || c?.id === "iron") ? 5 : 3;
       break;
     case "noblePressure":
       ctx.damage = 2;
@@ -580,10 +772,7 @@ function extractNewLogItems(prevLog = [], nextLog = []) {
   }
 
   const offset = nextLog.length - prevLog.length;
-  if (
-    offset >= 0 &&
-    prevLog.every((item, i) => nextLog[i + offset] === item)
-  ) {
+  if (offset >= 0 && prevLog.every((item, i) => nextLog[i + offset] === item)) {
     return nextLog.slice(0, offset);
   }
 
@@ -594,9 +783,7 @@ function detectCardIdFromLogText(text) {
   if (!text) return null;
   const lower = text.toLowerCase();
 
-  const entries = Object.entries(CARD_NAME_TO_ID).sort(
-    (a, b) => b[0].length - a[0].length
-  );
+  const entries = Object.entries(CARD_NAME_TO_ID).sort((a, b) => b[0].length - a[0].length);
 
   for (const [name, id] of entries) {
     if (lower.includes(name)) return id;
@@ -709,6 +896,8 @@ async function createRoom() {
     manualClose = false;
 
     updateHeaderState();
+    updateHostRoomCard();
+    loadRoomList();
     showGame();
     addConnectionLog(`Room created: ${roomCode}`);
     connectSocket();
@@ -745,6 +934,8 @@ async function joinRoom() {
     manualClose = false;
 
     updateHeaderState();
+    updateHostRoomCard();
+    loadRoomList();
     showGame();
     addConnectionLog(`Joined room: ${roomCode}`);
     connectSocket();
@@ -774,6 +965,7 @@ function connectSocket() {
 
   socket.addEventListener("open", () => {
     updateHeaderState();
+    updateHostRoomCard();
     addConnectionLog("WebSocket connected.");
 
     if (reconnectTimer) {
@@ -823,12 +1015,14 @@ function connectSocket() {
       }
 
       handleEffectsFromLogTransition(prevState, gameState);
+      updateHostRoomCard();
       return;
     }
   });
 
   socket.addEventListener("close", (event) => {
     updateHeaderState();
+    updateHostRoomCard();
     addConnectionLog(
       `WebSocket disconnected.${event?.code ? ` code=${event.code}` : ""}${event?.reason ? ` reason=${event.reason}` : ""}`
     );
@@ -867,7 +1061,7 @@ function isMyTurn() {
 function selectCard(index) {
   if (!isMyTurn()) return;
   const player = gameState.players[playerId];
-  if (!player.hand[index]) return;
+  if (!player?.hand?.[index]) return;
 
   selectedCardIndex = index;
   selectedFieldIndex = null;
@@ -877,7 +1071,7 @@ function selectCard(index) {
 function selectFieldCard(index) {
   if (!isMyTurn()) return;
   const player = gameState.players[playerId];
-  if (!player.field[index]) return;
+  if (!player?.field?.[index]) return;
 
   selectedFieldIndex = index;
   selectedCardIndex = null;
@@ -916,6 +1110,8 @@ function createMiniCard(card) {
 
 function renderStatuses(containerId, statuses) {
   const container = document.getElementById(containerId);
+  if (!container) return;
+
   container.innerHTML = "";
 
   if (!statuses.length) {
@@ -936,6 +1132,8 @@ function renderStatuses(containerId, statuses) {
 
 function renderField(containerId, pid) {
   const container = document.getElementById(containerId);
+  if (!container) return;
+
   container.innerHTML = "";
 
   const player = gameState.players[pid];
@@ -961,6 +1159,8 @@ function renderField(containerId, pid) {
 
 function renderHand(containerId, pid) {
   const container = document.getElementById(containerId);
+  if (!container) return;
+
   container.innerHTML = "";
 
   const player = gameState.players[pid];
@@ -998,6 +1198,8 @@ function renderHand(containerId, pid) {
 
 function renderPreview(containerId, pid) {
   const container = document.getElementById(containerId);
+  if (!container) return;
+
   container.innerHTML = "";
 
   const player = gameState.players[pid];
@@ -1021,6 +1223,8 @@ function renderSelectedCardBox() {
   const box = document.getElementById("selectedCardBox");
   const playBtn = document.getElementById("playCardBtn");
   const removeBtn = document.getElementById("removeFieldCardBtn");
+
+  if (!box || !playBtn || !removeBtn) return;
 
   playBtn.disabled = true;
   removeBtn.disabled = true;
@@ -1062,6 +1266,8 @@ function renderSelectedCardBox() {
 
 function renderCombatLog() {
   const log = document.getElementById("combatLog");
+  if (!log) return;
+
   log.innerHTML = "";
 
   const items = Array.isArray(gameState.log) ? gameState.log : [];
@@ -1116,6 +1322,7 @@ function render() {
   document.getElementById("restartBtn").disabled = !isHost;
 
   updateHeaderState();
+  updateHostRoomCard();
 }
 
 function playSelectedCard() {
@@ -1180,7 +1387,9 @@ function leaveRoom() {
   pendingLocalEffect = null;
 
   updateHeaderState();
+  updateHostRoomCard();
   showLobby();
+  loadRoomList();
   addConnectionLog("Left room.");
 }
 
@@ -1214,5 +1423,22 @@ document.getElementById("restartBtn").addEventListener("click", restartMatch);
 document.getElementById("leaveBtn").addEventListener("click", leaveRoom);
 document.getElementById("overlayBtn").addEventListener("click", hideOverlay);
 
+const refreshRoomsBtn = document.getElementById("refreshRoomsBtn");
+if (refreshRoomsBtn) {
+  refreshRoomsBtn.addEventListener("click", loadRoomList);
+}
+
+const joinCodeInput = document.getElementById("joinCodeInput");
+if (joinCodeInput) {
+  joinCodeInput.addEventListener("keydown", (event) => {
+    if (event.key === "Enter") {
+      joinRoom();
+    }
+  });
+}
+
 updateHeaderState();
+updateHostRoomCard();
+showLobby();
+loadRoomList();
 addConnectionLog("Ready.");

@@ -28,6 +28,12 @@
           <div class="lobby-stack">
             <button id="hostBtn">Create Room</button>
 
+            <div class="host-room-card">
+              <div class="host-room-label">Your Room</div>
+              <div class="host-room-code" id="hostRoomCodeDisplay">----</div>
+              <div class="host-room-status" id="hostRoomStatus">Not hosting</div>
+            </div>
+
             <div class="join-row">
               <input id="joinCodeInput" maxlength="6" placeholder="Enter room code" />
               <button class="secondary" id="joinBtn">Join Room</button>
@@ -47,18 +53,53 @@
         </div>
       </div>
 
-      <div class="lobby-footer">
-  <div class="footer-left">
-    <div class="footer-version">Version 0.3.0</div>
-    <div class="footer-credits">
-      Director: Eric Jing · Manager: Kevin Jing · Digital Worker: AI · March Break Project
-    </div>
-  </div>
+      <div class="panel-box room-list-box">
+        <div class="room-list-header">
+          <div>
+            <div class="section-title">Room List</div>
+            <div class="section-subtitle">See open rooms and waiting status before joining.</div>
+          </div>
+          <div class="room-list-tools">
+            <span class="pill soft" id="roomListCountPill">0 rooms</span>
+            <button class="ghost small-btn" id="refreshRoomsBtn" type="button">Refresh</button>
+          </div>
+        </div>
 
-  <div class="footer-right">
-    <a href="tutorial.html" class="tutorial-btn">📘 Tutorial</a>
-  </div>
-</div>
+        <div class="room-list-waiting-bar">
+          <div class="waiting-summary" id="roomWaitingSummary">No rooms available right now.</div>
+        </div>
+
+        <div id="roomList" class="room-list">
+          <div class="room-empty-card">
+            <div class="room-empty-title">No open rooms</div>
+            <div class="room-empty-subtitle">Create a room to start a match, or refresh to check again.</div>
+          </div>
+
+          <!-- Example row structure for game.js rendering
+          <div class="room-row">
+            <div class="room-row-main">
+              <div class="room-row-code">ABC123</div>
+              <div class="room-row-meta">Host: Eric · Players: 1/2</div>
+            </div>
+            <div class="room-row-status waiting">Waiting</div>
+            <button class="secondary small-btn">Join</button>
+          </div>
+          -->
+        </div>
+      </div>
+
+      <div class="lobby-footer">
+        <div class="footer-left">
+          <div class="footer-version">Version 0.3.0</div>
+          <div class="footer-credits">
+            Director: Eric Jing · Manager: Kevin Jing · Digital Worker: AI · March Break Project
+          </div>
+        </div>
+
+        <div class="footer-right">
+          <a href="tutorial.html" class="tutorial-btn">📘 Tutorial</a>
+        </div>
+      </div>
     </section>
 
     <section id="gamePanel" class="game-panel hidden">
