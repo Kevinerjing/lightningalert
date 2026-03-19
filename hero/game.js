@@ -1675,6 +1675,11 @@ function leaveRoom() {
     reconnectTimer = null;
   }
 
+  // Tell the server we are leaving so it can free the player slot immediately.
+  if (socket && socket.readyState === WebSocket.OPEN) {
+    socket.send(JSON.stringify({ action: "leave_room", payload: {} }));
+  }
+
   if (socket) {
     socket.close();
   }
