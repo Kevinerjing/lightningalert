@@ -368,10 +368,351 @@ const CARD_NAME_TO_ID = Object.values(CARD_LIBRARY).reduce((map, card) => {
   return map;
 }, {});
 
+const LEARNING_GOAL_CONFIG = [
+  {
+    id: "steam_combo",
+    title: "Trigger a steam reaction",
+    description: "Use Steam Burst or Calcium Steam after setting up the right elements.",
+  },
+  {
+    id: "corrosion",
+    title: "Cause corrosion",
+    description: "Apply Corroded with Rust, Acid Rain, or Poison Cloud.",
+  },
+  {
+    id: "lightning_combo",
+    title: "Use Wet to strengthen Lightning",
+    description: "Apply Wet first, then use Lightning for the conductivity bonus.",
+  },
+];
+
+const DEFAULT_SCIENCE_INSIGHT = {
+  title: "Build a combo to start learning.",
+  equation: "Place elements, then trigger a reaction or attack.",
+  body:
+    "Reactions teach reactants and products. Attacks teach how statuses like Wet and Corroded can change later outcomes.",
+};
+
+const SCIENCE_NOTES = {
+  sulfur: {
+    title: "Sulfur Is a Reactant",
+    equation: "Sulfur -> fuel-like reactant",
+    body: "Sulfur is a setup element that helps unlock fire and acid style reactions.",
+    preview: "Place Sulfur first if you want to unlock Combustion or Acid Rain.",
+  },
+  oxygen: {
+    title: "Oxygen Supports Reactions",
+    equation: "Oxygen -> combustion and oxidation support",
+    body: "Oxygen appears in many reactions because it helps drive burning, rusting, and energy release.",
+    preview: "Oxygen is a strong setup card because it supports several reactions and boosts Plasma Shock.",
+  },
+  water: {
+    title: "Water Creates Conditions",
+    equation: "Water -> Wet status and steam combos",
+    body: "Water helps create Wet-based setups that make later effects, especially Lightning, more meaningful.",
+    preview: "Water is often a setup card. Use it to enable Wet and steam combinations.",
+  },
+  iron: {
+    title: "Iron Shows Oxidation",
+    equation: "Iron + Oxygen -> Rust",
+    body: "Iron helps students connect oxidation to gameplay through Rust and metal-based attacks.",
+    preview: "Iron unlocks Rust and also improves Hammer Strike.",
+  },
+  combustion: {
+    title: "Combustion Reaction",
+    equation: "Sulfur + Oxygen -> energy release",
+    body: "This reaction models the idea that a fuel and oxygen combine to release energy.",
+    reason: "Combustion worked because Sulfur and Oxygen were both already on the field.",
+    preview: "Combustion needs Sulfur and Oxygen on your field before you can use it.",
+  },
+  steamBurst: {
+    title: "Steam Reaction",
+    equation: "Water + Oxygen -> Wet target",
+    body: "Steam Burst teaches that combining water-based and oxygen-based resources can create a new condition for later plays.",
+    reason: "Steam Burst created Wet, which can set up stronger follow-up attacks.",
+    preview: "Steam Burst is a setup reaction. It damages now and prepares Wet for later combos.",
+  },
+  acidRain: {
+    title: "Acidic Reaction",
+    equation: "Sulfur + Water -> Corroded",
+    body: "Acid Rain links chemical combination to corrosion by turning the target into a Corroded state.",
+    reason: "Acid Rain applied Corroded, showing that one reaction can change later turns.",
+    preview: "Acid Rain is useful when you want a reaction that also creates a status effect.",
+  },
+  rust: {
+    title: "Rust and Oxidation",
+    equation: "Iron + Oxygen -> rust",
+    body: "Rust models oxidation by linking iron and oxygen to a corrosion-style effect.",
+    reason: "Rust worked because Iron and Oxygen were both on the field, modeling oxidation.",
+    preview: "Rust is a clear science card because it directly shows oxidation.",
+  },
+  explosion: {
+    title: "Explosive Combination",
+    equation: "Hydrogen + Oxygen -> burst of energy",
+    body: "Explosion highlights that some element combinations release a large amount of energy quickly.",
+    reason: "Explosion rewards setting up a high-energy pair before attacking.",
+    preview: "Hydrogen and Oxygen create one of the strongest burst reactions in the game.",
+  },
+  saltFormation: {
+    title: "Salt Formation",
+    equation: "Sodium + Chlorine -> stable product",
+    body: "Salt Formation helps students see that two reactive elements can combine into a more stable result.",
+    reason: "This reaction also cleanses Wet, showing that a reaction can remove as well as create conditions.",
+    preview: "Salt Formation is a good example of a reaction that changes your own status too.",
+  },
+  carbonBurn: {
+    title: "Carbon Burning",
+    equation: "Carbon + Oxygen -> combustion",
+    body: "Carbon Burn reinforces that carbon-based materials release energy when burned with oxygen.",
+    reason: "Carbon Burn succeeded because Carbon and Oxygen were already prepared on the field.",
+    preview: "Use Carbon Burn to show a simple fuel-plus-oxygen pattern.",
+  },
+  potassiumWater: {
+    title: "Alkali Metal Reaction",
+    equation: "Potassium + Water -> violent reaction + Wet",
+    body: "This is a strong teaching card because it links alkali metals with highly reactive behavior in water.",
+    reason: "Potassium Water creates Wet, which can prepare the target for a stronger Lightning attack next.",
+    preview: "Potassium Water is both a big hit and a setup move for conductivity combos.",
+  },
+  limeFormation: {
+    title: "Lime Formation",
+    equation: "Calcium + Water -> product + energy gain",
+    body: "Lime Formation shows that some reactions can create useful products and extra resources at the same time.",
+    reason: "The bonus energy teaches that reactions can change both matter and momentum.",
+    preview: "Lime Formation is a reaction with both science value and strategy value.",
+  },
+  calciumSteam: {
+    title: "Steam and Metal Reaction",
+    equation: "Calcium + Water -> Wet + damage",
+    body: "Calcium Steam shows that a reactive metal plus water can create a strong effect and change the target's condition.",
+    reason: "Calcium Steam applied Wet, which sets up a later Lightning bonus.",
+    preview: "Calcium Steam bridges reaction learning and attack combo planning.",
+  },
+  lightning: {
+    title: "Conductivity Matters",
+    equation: "Wet target + Lightning -> extra damage",
+    body: "Lightning teaches conductivity: when the target is Wet, electricity travels more effectively and the attack becomes stronger.",
+    reason: (context) =>
+      context.enemyWet
+        ? "Lightning gained +2 damage because the target was Wet, demonstrating conductivity."
+        : "Lightning dealt base damage because the target was not Wet yet.",
+    preview: "Try to apply Wet first, then use Lightning to show a conductivity-based combo.",
+  },
+  fireball: {
+    title: "Direct Heat Attack",
+    equation: "Fireball -> steady heat damage",
+    body: "Fireball is a straightforward attack card, which helps students compare simple damage with more conditional combo cards.",
+    reason: "Fireball acts as a baseline attack so students can compare simple damage with science-based combos.",
+    preview: "Fireball is useful for comparing simple attacks with conditional combo attacks.",
+  },
+  poisonCloud: {
+    title: "Corrosion Setup",
+    equation: "Poison Cloud -> Corroded",
+    body: "Poison Cloud teaches that attacks can create conditions that make later turns more dangerous.",
+    reason: "Poison Cloud applied Corroded, which can set up Corrode or ongoing damage.",
+    preview: "Use Poison Cloud to set up the Corroded status before a control play.",
+  },
+  corrode: {
+    title: "Condition-Based Control",
+    equation: "Corroded target + Corrode -> destroy field card",
+    body: "Corrode is useful for teaching prerequisites because it only works when the opponent is already Corroded.",
+    reason: "Corrode only works after the Corroded status is present, so students must plan the sequence first.",
+    preview: "Corrode is strongest when you think one step ahead and create Corroded first.",
+  },
+};
+
 let cardPreviewHideTimer = null;
 let cardPreviewFadeTimer = null;
 const ROOM_LIST_REFRESH_INTERVAL_MS = 30000;
 let roomListRequestInFlight = false;
+let learningGoalState = createInitialLearningGoalState();
+let scienceInsight = { ...DEFAULT_SCIENCE_INSIGHT };
+let scienceReasonLog = [];
+
+function createInitialLearningGoalState() {
+  return LEARNING_GOAL_CONFIG.reduce((state, goal) => {
+    state[goal.id] = false;
+    return state;
+  }, {});
+}
+
+function getScienceNote(cardId, context = {}) {
+  const note = SCIENCE_NOTES[cardId];
+  const card = CARD_LIBRARY[cardId];
+
+  if (note) {
+    return {
+      title: note.title || card?.name || "Science Insight",
+      equation: note.equation || card?.text || "",
+      body:
+        typeof note.body === "function"
+          ? note.body(context)
+          : note.body || note.preview || card?.text || "",
+      reason:
+        typeof note.reason === "function"
+          ? note.reason(context)
+          : note.reason || note.preview || note.body || card?.text || "",
+      preview: note.preview || note.body || card?.text || "",
+    };
+  }
+
+  if (!card) return null;
+
+  if (card.type === "Reaction") {
+    return {
+      title: `${card.name} Reaction`,
+      equation: card.text || "",
+      body: "Reaction cards teach that the right reactants must already be present before a scientific change can happen.",
+      reason: "This move worked because its field requirements were met first.",
+      preview: "Check which elements must already be on the field before you play this reaction.",
+    };
+  }
+
+  if (card.type === "Attack") {
+    return {
+      title: `${card.name} Attack`,
+      equation: card.text || "",
+      body: "Attack cards help students compare direct effects with more conditional combo-based effects.",
+      reason: "This attack shows how battle outcomes can depend on field setup and status effects.",
+      preview: "Think about whether another element or status could make this attack even better.",
+    };
+  }
+
+  if (card.type === "Element") {
+    return {
+      title: `${card.name} Element`,
+      equation: card.text || "",
+      body: "Element cards act as reactants and building blocks for later science-based combinations.",
+      reason: "Placing elements first teaches that reactions need preparation before results appear.",
+      preview: "Ask which reactions this element can unlock on your field.",
+    };
+  }
+
+  return {
+    title: card.name || "Science Insight",
+    equation: card.text || "",
+    body: "This card supports the overall system of setup, reaction, and consequence.",
+    reason: card.text || "",
+    preview: card.text || "",
+  };
+}
+
+function renderLearningGoals() {
+  const container = document.getElementById("learningGoals");
+  if (!container) return;
+
+  container.innerHTML = LEARNING_GOAL_CONFIG.map((goal) => {
+    const complete = !!learningGoalState[goal.id];
+    return `
+      <div class="learning-goal${complete ? " complete" : ""}">
+        <div class="learning-goal-mark">${complete ? "OK" : "?"}</div>
+        <div>
+          <div class="learning-goal-title">${escapeHtml(goal.title)}</div>
+          <div class="learning-goal-desc">${escapeHtml(goal.description)}</div>
+        </div>
+      </div>
+    `;
+  }).join("");
+}
+
+function renderScienceInsight() {
+  const card = document.getElementById("scienceInsightCard");
+  if (!card) return;
+
+  const nextInsight = scienceInsight || DEFAULT_SCIENCE_INSIGHT;
+  card.innerHTML = `
+    <div class="insight-kicker">Science Insight</div>
+    <div class="insight-title">${escapeHtml(nextInsight.title || DEFAULT_SCIENCE_INSIGHT.title)}</div>
+    <div class="insight-equation">${escapeHtml(nextInsight.equation || DEFAULT_SCIENCE_INSIGHT.equation)}</div>
+    <div class="insight-body">${escapeHtml(nextInsight.body || DEFAULT_SCIENCE_INSIGHT.body)}</div>
+  `;
+}
+
+function renderScienceReasonLog() {
+  const container = document.getElementById("scienceReasonLog");
+  if (!container) return;
+
+  if (!scienceReasonLog.length) {
+    container.innerHTML = `
+      <div class="science-reason-item">
+        <strong>Why It Worked</strong>
+        Your latest reaction or attack will be explained here.
+      </div>
+    `;
+    return;
+  }
+
+  container.innerHTML = scienceReasonLog.map((item) => `
+    <div class="science-reason-item">
+      <strong>${escapeHtml(item.title)}</strong>
+      ${escapeHtml(item.reason)}
+    </div>
+  `).join("");
+}
+
+function pushScienceReason(title, reason) {
+  if (!reason) return;
+
+  scienceReasonLog.unshift({ title, reason });
+  scienceReasonLog = scienceReasonLog.slice(0, 4);
+  renderScienceReasonLog();
+}
+
+function applyLearningUpdate(cardId, effect = {}) {
+  const note = getScienceNote(cardId, effect);
+
+  if (note) {
+    scienceInsight = {
+      title: note.title,
+      equation: note.equation,
+      body: note.body,
+    };
+    renderScienceInsight();
+    pushScienceReason(note.title, note.reason);
+  }
+
+  if (cardId === "steamBurst" || cardId === "calciumSteam") {
+    learningGoalState.steam_combo = true;
+  }
+
+  if (effect.applyStatus === "Corroded" || ["acidRain", "rust", "poisonCloud"].includes(cardId)) {
+    learningGoalState.corrosion = true;
+  }
+
+  if (cardId === "lightning" && effect.enemyWet) {
+    learningGoalState.lightning_combo = true;
+  }
+
+  renderLearningGoals();
+}
+
+function getSelectedCardScienceHtml(card) {
+  const note = getScienceNote(card?.id || card);
+  if (!note?.preview) return "";
+
+  return `
+    <div class="science-link">
+      <strong>Science Link</strong>
+      <div>${escapeHtml(note.preview)}</div>
+    </div>
+  `;
+}
+
+function resetLearningState() {
+  learningGoalState = createInitialLearningGoalState();
+  scienceInsight = { ...DEFAULT_SCIENCE_INSIGHT };
+  scienceReasonLog = [];
+  renderLearningGoals();
+  renderScienceInsight();
+  renderScienceReasonLog();
+}
+
+function shouldResetLearningForNewMatch(prevState, nextState) {
+  if (!nextState || nextState.turn !== 1 || nextState.winner) return false;
+  if (!Array.isArray(nextState.log) || !nextState.log[0]?.includes("Match initialized")) return false;
+  if (!prevState) return true;
+  return !!prevState.winner || prevState.turn !== 1;
+}
 
 function showPlayedCardPreview(card) {
   if (!card || !card.image) return;
@@ -909,7 +1250,6 @@ function handleEffectsFromLogTransition(prevState, nextState) {
 }
 
 function handleIncomingEffect(effect) {
-  if (!hasEffectSystem()) return;
   if (!effect) return;
 
   const cardId = effect.effectType || effect.cardId;
@@ -946,11 +1286,15 @@ function handleIncomingEffect(effect) {
     ctx.targetSelector = effect.targetSelector || fallbackCtx.targetSelector || getSelfDeskSelector();
   }
 
-  try {
-    window.playCardEffect(cardId, ctx);
-  } catch (error) {
-    console.warn("Effect play failed:", cardId, error);
+  if (hasEffectSystem()) {
+    try {
+      window.playCardEffect(cardId, ctx);
+    } catch (error) {
+      console.warn("Effect play failed:", cardId, error);
+    }
   }
+
+  applyLearningUpdate(cardId, ctx);
 }
 
 async function createRoom() {
@@ -968,6 +1312,7 @@ async function createRoom() {
     playerId = Number(data.playerId);
     isHost = true;
     manualClose = false;
+    resetLearningState();
 
     updateHeaderState();
     updateHostRoomCard();
@@ -1006,6 +1351,7 @@ async function joinRoom() {
     playerId = Number(data.playerId);
     isHost = false;
     manualClose = false;
+    resetLearningState();
 
     updateHeaderState();
     updateHostRoomCard();
@@ -1086,6 +1432,10 @@ function connectSocket() {
         );
       } else {
         hideOverlay();
+      }
+
+      if (shouldResetLearningForNewMatch(prevState, gameState)) {
+        resetLearningState();
       }
 
       handleEffectsFromLogTransition(prevState, gameState);
@@ -1527,7 +1877,8 @@ function renderSelectedCardBox() {
     box.innerHTML = `<strong style="font-size:18px;">${escapeHtml(card.name || "")}</strong><br>
       <span style="color: var(--muted); text-transform: uppercase; letter-spacing: .08em; font-size: 12px;">${escapeHtml(normalizeCardTypeLabel(card.type))}</span>
       <p style="line-height:1.55;">${escapeHtml(card.text || "")}</p>
-      <div style="color: var(--muted);">Cost: ${escapeHtml(String(card.cost || 0))} energy</div>`;
+      <div style="color: var(--muted);">Cost: ${escapeHtml(String(card.cost || 0))} energy</div>
+      ${getSelectedCardScienceHtml(card)}`;
     playBtn.disabled = !canPlayCard(card, playerId);
     return;
   }
@@ -1701,6 +2052,7 @@ function leaveRoom() {
   selectedCardIndex = null;
   selectedFieldIndex = null;
   pendingLocalEffect = null;
+  resetLearningState();
 
   updateHeaderState();
   updateHostRoomCard();
@@ -1799,4 +2151,5 @@ if (tutorialOverlay) {
 updateHeaderState();
 updateHostRoomCard();
 showLobby();
+resetLearningState();
 addConnectionLog("Ready.");

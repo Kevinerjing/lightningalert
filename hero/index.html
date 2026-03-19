@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Element Heroes Online</title>
-  <link rel="stylesheet" href="style.css?v=19" />
+  <link rel="stylesheet" href="style.css?v=20" />
 </head>
 <body>
   <div class="app-shell">
@@ -291,6 +291,31 @@
         <!-- ===== SIDE PANEL ===== -->
         <aside class="side-panel">
           <div class="panel-box">
+            <div class="section-title">Learning Goals</div>
+            <div class="section-subtitle">
+              Complete these science goals during the match.
+            </div>
+            <div class="learning-goals" id="learningGoals"></div>
+          </div>
+
+          <div class="panel-box">
+            <div class="section-title">Science Coach</div>
+            <div class="section-subtitle">
+              See the science idea behind your latest move.
+            </div>
+            <div class="science-insight-card" id="scienceInsightCard">
+              <div class="insight-kicker">Science Insight</div>
+              <div class="insight-title">Build a combo to start learning.</div>
+              <div class="insight-equation">Place elements, then trigger a reaction or attack.</div>
+              <div class="insight-body">
+                Reactions teach reactants and products. Attacks teach how states like Wet and
+                Corroded change later outcomes.
+              </div>
+            </div>
+            <div class="science-reason-list" id="scienceReasonLog"></div>
+          </div>
+
+          <div class="panel-box">
             <div class="section-title">Starter Rules</div>
             <div class="log-list static-rules">
               <div class="log-item"><strong>Combustion</strong><br />Sulfur + Oxygen = 7 damage.</div>
@@ -414,7 +439,7 @@
   </div>
 
   <script src="effect-system.js"></script>
-  <script src="game.js?v=11"></script>
+  <script src="game.js?v=12"></script>
 
 
 <div id="card-preview-overlay" class="card-preview-overlay hidden">
