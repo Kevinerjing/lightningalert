@@ -80,7 +80,7 @@
     steamBurst: "STEAM BURST!",
     calciumSteam: "STEAM!",
     acidRain: "ACID RAIN!",
-    lightning: "SHOCK!",
+    lightning: "LIGHTNING STRIKE!",
     plasmaShock: "PLASMA SHOCK!",
     poisonCloud: "TOXIC HIT!",
     rust: "RUST!",
@@ -178,6 +178,28 @@
           0 2px 18px rgba(0,0,0,0.32);
         box-shadow: 0 18px 36px rgba(0,0,0,0.28);
         animation: ehxScreenHitText 0.7s ease-out forwards;
+      }
+
+      .screen-hit-effect.lightning-hit {
+        background:
+          radial-gradient(circle, rgba(255,255,255,0.95) 0%, rgba(210,245,255,0.78) 10%, rgba(148,232,255,0.34) 26%, rgba(94,184,255,0.14) 42%, rgba(0,0,0,0) 74%);
+        box-shadow:
+          0 0 40px rgba(180, 240, 255, 0.34),
+          0 0 120px rgba(110, 185, 255, 0.28),
+          0 0 220px rgba(80, 130, 255, 0.14);
+      }
+
+      .screen-hit-text.lightning-hit {
+        background: rgba(8, 14, 30, 0.88);
+        border-color: rgba(169, 230, 255, 0.44);
+        color: #f2fbff;
+        text-shadow:
+          0 0 20px rgba(170,230,255,0.42),
+          0 0 40px rgba(120,170,255,0.24),
+          0 2px 18px rgba(0,0,0,0.32);
+        box-shadow:
+          0 0 0 1px rgba(169, 230, 255, 0.16),
+          0 18px 36px rgba(0,0,0,0.28);
       }
 
       @keyframes ehxScreenHitText {
@@ -973,6 +995,10 @@ function getDefaultElement(side) {
     const layer = getFxLayer();
     const burst = createNode("screen-hit-effect", {}, layer);
     const label = createNode("screen-hit-text", {}, layer);
+    if (cardId === "lightning") {
+      burst.classList.add("lightning-hit");
+      label.classList.add("lightning-hit");
+    }
     label.textContent = getScreenHitLabel(cardId);
     removeLater(burst, 560);
     removeLater(label, 760);
