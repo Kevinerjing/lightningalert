@@ -528,12 +528,21 @@ let roomListRequestInFlight = false;
 let learningGoalState = createInitialLearningGoalState();
 let scienceInsight = { ...DEFAULT_SCIENCE_INSIGHT };
 let scienceReasonLog = [];
+let matchScienceSummary = createInitialMatchScienceSummary();
 
 function createInitialLearningGoalState() {
   return LEARNING_GOAL_CONFIG.reduce((state, goal) => {
     state[goal.id] = false;
     return state;
   }, {});
+}
+
+function createInitialMatchScienceSummary() {
+  return {
+    reactionsUsed: {},
+    statusesApplied: {},
+    comboHighlights: [],
+  };
 }
 
 function getScienceNote(cardId, context = {}) {
@@ -658,7 +667,73 @@ function pushScienceReason(title, reason) {
   renderScienceReasonLog();
 }
 
+function incrementScienceSummaryCount(bucket, key) {
+  if (!key) return;
+  bucket[key] = (bucket[key] || 0) + 1;
+}
+
+function addScienceSummaryHighlight(text) {
+  if (!text || matchScienceSummary.comboHighlights.includes(text)) return;
+  matchScienceSummary.comboHighlights.push(text);
+}
+
+function formatScienceSummaryCounts(counts) {
+  const entries = Object.entries(counts).sort((a, b) => b[1] - a[1]);
+  if (!entries.length) return "None this match.";
+  return entries
+    .slice(0, 3)
+    .map(([label, value]) => `${label} x${value}`)
+    .join(", ");
+}
+
+function renderEndOfGameScienceSummary() {
+  const summaryEl = document.getElementById("scienceSummary");
+  if (!summaryEl) return;
+
+  const completedGoals = LEARNING_GOAL_CONFIG
+    .filter((goal) => learningGoalState[goal.id])
+    .map((goal) => goal.title);
+
+  const reactionText = formatScienceSummaryCounts(matchScienceSummary.reactionsUsed);
+  const statusText = formatScienceSummaryCounts(matchScienceSummary.statusesApplied);
+  const goalsText = completedGoals.length ? completedGoals.join(", ") : "No learning goals completed yet.";
+  const highlightsText = matchScienceSummary.comboHighlights.length
+    ? matchScienceSummary.comboHighlights.slice(0, 3).join(" ")
+    : "No major science combo was recorded this match.";
+
+  summaryEl.innerHTML = `
+    <div class="science-summary-title">End-of-Game Science Summary</div>
+    <div class="science-summary-grid">
+      <div class="science-summary-item">
+        <strong>Reactions Used</strong>
+        <div>${escapeHtml(reactionText)}</div>
+      </div>
+      <div class="science-summary-item">
+        <strong>Statuses Applied</strong>
+        <div>${escapeHtml(statusText)}</div>
+      </div>
+      <div class="science-summary-item">
+        <strong>Learning Goals Met</strong>
+        <div>${escapeHtml(goalsText)}</div>
+      </div>
+      <div class="science-summary-item">
+        <strong>Science Takeaway</strong>
+        <div>${escapeHtml(highlightsText)}</div>
+      </div>
+    </div>
+  `;
+  summaryEl.classList.remove("hidden");
+}
+
+function hideEndOfGameScienceSummary() {
+  const summaryEl = document.getElementById("scienceSummary");
+  if (!summaryEl) return;
+  summaryEl.classList.add("hidden");
+  summaryEl.innerHTML = "";
+}
+
 function applyLearningUpdate(cardId, effect = {}) {
+  const card = CARD_LIBRARY[cardId];
   const note = getScienceNote(cardId, effect);
 
   if (note) {
@@ -671,16 +746,27 @@ function applyLearningUpdate(cardId, effect = {}) {
     pushScienceReason(note.title, note.reason);
   }
 
+  if (card?.type === "Reaction") {
+    incrementScienceSummaryCount(matchScienceSummary.reactionsUsed, card.name);
+  }
+
+  if (effect.applyStatus) {
+    incrementScienceSummaryCount(matchScienceSummary.statusesApplied, effect.applyStatus);
+  }
+
   if (cardId === "steamBurst" || cardId === "calciumSteam") {
     learningGoalState.steam_combo = true;
+    addScienceSummaryHighlight("Steam-style reactions can create Wet and set up later combo damage.");
   }
 
   if (effect.applyStatus === "Corroded" || ["acidRain", "rust", "poisonCloud"].includes(cardId)) {
     learningGoalState.corrosion = true;
+    addScienceSummaryHighlight("Corroded shows how a reaction or attack can change later turns, not just immediate damage.");
   }
 
   if (cardId === "lightning" && effect.enemyWet) {
     learningGoalState.lightning_combo = true;
+    addScienceSummaryHighlight("Lightning became stronger after Wet, demonstrating conductivity in a simple game rule.");
   }
 
   renderLearningGoals();
@@ -702,9 +788,11 @@ function resetLearningState() {
   learningGoalState = createInitialLearningGoalState();
   scienceInsight = { ...DEFAULT_SCIENCE_INSIGHT };
   scienceReasonLog = [];
+  matchScienceSummary = createInitialMatchScienceSummary();
   renderLearningGoals();
   renderScienceInsight();
   renderScienceReasonLog();
+  hideEndOfGameScienceSummary();
 }
 
 function shouldResetLearningForNewMatch(prevState, nextState) {
@@ -1024,6 +1112,7 @@ function showOverlay(title, text, winnerText = "") {
 
 function hideOverlay() {
   document.getElementById("gameOverlay").classList.add("hidden");
+  hideEndOfGameScienceSummary();
 }
 
 function getSelfDeskSelector() {
@@ -1430,8 +1519,10 @@ function connectSocket() {
           "The duel has ended.",
           gameState.winner === "Draw" ? "It is a draw." : `${gameState.winner} wins!`
         );
+        renderEndOfGameScienceSummary();
       } else {
         hideOverlay();
+        hideEndOfGameScienceSummary();
       }
 
       if (shouldResetLearningForNewMatch(prevState, gameState)) {

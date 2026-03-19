@@ -1152,6 +1152,47 @@ button:disabled {
   margin: 12px 0;
 }
 
+.science-summary {
+  margin: 16px 0;
+  padding: 14px;
+  border-radius: 16px;
+  border: 1px solid rgba(113, 208, 255, 0.22);
+  background: rgba(255,255,255,0.035);
+  text-align: left;
+}
+
+.science-summary-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 10px;
+}
+
+.science-summary-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.science-summary-item {
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 12px;
+  padding: 10px;
+  background: rgba(255,255,255,0.02);
+}
+
+.science-summary-item strong {
+  display: block;
+  color: #91dfff;
+  margin-bottom: 6px;
+}
+
+.science-summary-item div {
+  color: #d6e7f3;
+  font-size: 13px;
+  line-height: 1.45;
+}
+
 /* ===== Effects ===== */
 
 #battle-effects-root {
@@ -1440,6 +1481,10 @@ button:disabled {
 
   .title {
     font-size: 22px;
+  }
+
+  .science-summary-grid {
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .player-header {
