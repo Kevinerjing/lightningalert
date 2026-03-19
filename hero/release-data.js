@@ -1,5 +1,17 @@
 window.HERO_RELEASES = [
   {
+    version: "0.5.0",
+    date: "2026-03-19",
+    title: "Classroom Dashboard Update",
+    summary: "Added class codes, student names, and a teacher dashboard so classroom sessions can be reviewed after students play.",
+    highlights: [
+      "Added student name and class code fields such as SCN1W-10 in the lobby.",
+      "Added a teacher dashboard page that loads saved classroom summaries by class code.",
+      "Practice mode and multiplayer now save end-of-match science summaries for classroom review.",
+      "Added a Teacher Dashboard footer link from the main game page.",
+    ],
+  },
+  {
     version: "0.4.0",
     date: "2026-03-19",
     title: "Guided Practice Update",

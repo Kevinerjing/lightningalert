@@ -23,6 +23,8 @@ let practiceAiRunId = 0;
 let practiceGuideExpanded = false;
 let soundEnabled = true;
 let soundContext = null;
+let activeMatchSummaryId = "";
+let lastUploadedMatchSummaryId = "";
 
 const PLAYER_META_STORAGE_KEY = "heroPlayerMeta";
 
@@ -81,6 +83,18 @@ function refreshPlayerMetaFromInputs() {
   classCode = normalizeClassCode(classCodeInput?.value);
   syncPlayerMetaInputs();
   savePlayerMeta();
+}
+
+function createMatchSummaryId() {
+  return `summary-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`;
+}
+
+function beginTrackedMatch() {
+  activeMatchSummaryId = createMatchSummaryId();
+}
+
+function clearTrackedMatch() {
+  activeMatchSummaryId = "";
 }
 
 function updateSoundToggleUI() {
@@ -1590,6 +1604,7 @@ function applyLocalStateUpdate(result = {}, actionLabel = "") {
           : `${gameState.winner} wins!`
     );
     renderEndOfGameScienceSummary();
+    uploadTeacherSummaryIfNeeded();
   } else {
     hideOverlay();
   }
@@ -1603,6 +1618,7 @@ function startPracticeMode() {
   refreshPlayerMetaFromInputs();
   practiceGuideExpanded = false;
   resetLearningState();
+  beginTrackedMatch();
   isPracticeMode = true;
   roomCode = PRACTICE_ROOM_CODE;
   playerId = 1;
@@ -1663,6 +1679,7 @@ function sendLocalAction(action, payload = {}) {
   if (action === "end_turn") result = endLocalTurn(gameState, Number(playerId));
   if (action === "restart_match") {
     resetLearningState();
+    beginTrackedMatch();
     gameState = createPracticeGame();
     result = { ok: true };
   }
@@ -1839,16 +1856,12 @@ function renderEndOfGameScienceSummary() {
   const summaryEl = document.getElementById("scienceSummary");
   if (!summaryEl) return;
 
-  const completedGoals = LEARNING_GOAL_CONFIG
-    .filter((goal) => learningGoalState[goal.id])
-    .map((goal) => goal.title);
+  const completedGoals = getCompletedLearningGoalTitles();
 
   const reactionText = formatScienceSummaryCounts(matchScienceSummary.reactionsUsed);
   const statusText = formatScienceSummaryCounts(matchScienceSummary.statusesApplied);
   const goalsText = completedGoals.length ? completedGoals.join(", ") : "No learning goals completed yet.";
-  const highlightsText = matchScienceSummary.comboHighlights.length
-    ? matchScienceSummary.comboHighlights.slice(0, 3).join(" ")
-    : "No major science combo was recorded this match.";
+  const highlightsText = getScienceTakeawayText();
 
   summaryEl.innerHTML = `
     <div class="science-summary-title">End-of-Game Science Summary</div>
@@ -1872,6 +1885,69 @@ function renderEndOfGameScienceSummary() {
     </div>
   `;
   summaryEl.classList.remove("hidden");
+}
+
+function getCompletedLearningGoalTitles() {
+  return LEARNING_GOAL_CONFIG
+    .filter((goal) => learningGoalState[goal.id])
+    .map((goal) => goal.title);
+}
+
+function getScienceTakeawayText() {
+  return matchScienceSummary.comboHighlights.length
+    ? matchScienceSummary.comboHighlights.slice(0, 3).join(" ")
+    : "No major science combo was recorded this match.";
+}
+
+function getTeacherSummaryPayload() {
+  if (!classCode || !gameState?.winner || !activeMatchSummaryId) return null;
+
+  const completedGoals = getCompletedLearningGoalTitles();
+  const playerWinnerLabel =
+    isPracticeMode && gameState.winner === "Player 2"
+      ? "Computer"
+      : gameState.winner;
+
+  return {
+    id: activeMatchSummaryId,
+    classCode,
+    studentName: studentName || "Anonymous Student",
+    mode: isPracticeMode ? "practice" : "multiplayer",
+    roomCode: roomCode || "",
+    playerId: Number(playerId) || 1,
+    winner: gameState.winner,
+    winnerLabel: playerWinnerLabel,
+    completedGoals,
+    reactionText: formatScienceSummaryCounts(matchScienceSummary.reactionsUsed),
+    statusText: formatScienceSummaryCounts(matchScienceSummary.statusesApplied),
+    takeaway: getScienceTakeawayText(),
+    uploadedAt: Date.now(),
+  };
+}
+
+async function uploadTeacherSummaryIfNeeded() {
+  const payload = getTeacherSummaryPayload();
+  if (!payload) return;
+  if (payload.id === lastUploadedMatchSummaryId) return;
+
+  try {
+    const response = await fetch(`${WORKER_URL}/teacher-summary`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(payload),
+    });
+
+    if (!response.ok) {
+      const data = await response.json().catch(() => ({}));
+      throw new Error(data?.message || `Teacher summary failed: ${response.status}`);
+    }
+
+    lastUploadedMatchSummaryId = payload.id;
+  } catch (error) {
+    console.warn("Teacher summary upload failed:", error);
+  }
 }
 
 function hideEndOfGameScienceSummary() {
@@ -1980,6 +2056,7 @@ function renderElementInfoCard(card = null) {
 
 function resetLearningState() {
   practiceGuideExpanded = false;
+  clearTrackedMatch();
   learningGoalState = createInitialLearningGoalState();
   scienceInsight = { ...DEFAULT_SCIENCE_INSIGHT };
   scienceReasonLog = [];
@@ -2628,6 +2705,7 @@ async function createRoom() {
     stopPracticeAi();
     isPracticeMode = false;
     refreshPlayerMetaFromInputs();
+    beginTrackedMatch();
     const response = await fetch(`${WORKER_URL}/create-room`, {
       method: "POST",
       headers: {
@@ -2649,6 +2727,7 @@ async function createRoom() {
     isHost = true;
     manualClose = false;
     resetLearningState();
+    beginTrackedMatch();
 
     updateHeaderState();
     updateHostRoomCard();
@@ -2659,6 +2738,7 @@ async function createRoom() {
     );
     connectSocket();
   } catch (error) {
+    clearTrackedMatch();
     addConnectionLog(`Create Room failed: ${error.message}`);
   }
 }
@@ -2668,6 +2748,7 @@ async function joinRoom() {
     stopPracticeAi();
     isPracticeMode = false;
     refreshPlayerMetaFromInputs();
+    beginTrackedMatch();
     const code = document.getElementById("joinCodeInput").value.trim().toUpperCase();
 
     if (!code) {
@@ -2697,6 +2778,7 @@ async function joinRoom() {
     isHost = false;
     manualClose = false;
     resetLearningState();
+    beginTrackedMatch();
 
     updateHeaderState();
     updateHostRoomCard();
@@ -2707,6 +2789,7 @@ async function joinRoom() {
     );
     connectSocket();
   } catch (error) {
+    clearTrackedMatch();
     addConnectionLog(`Join Room failed: ${error.message}`);
   }
 }
@@ -2779,6 +2862,7 @@ function connectSocket() {
           gameState.winner === "Draw" ? "It is a draw." : `${gameState.winner} wins!`
         );
         renderEndOfGameScienceSummary();
+        uploadTeacherSummaryIfNeeded();
       } else {
         hideOverlay();
         hideEndOfGameScienceSummary();
@@ -2786,6 +2870,7 @@ function connectSocket() {
 
       if (shouldResetLearningForNewMatch(prevState, gameState)) {
         resetLearningState();
+        beginTrackedMatch();
       }
 
       handleEffectsFromLogTransition(prevState, gameState);

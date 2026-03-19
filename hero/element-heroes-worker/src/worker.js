@@ -46,6 +46,14 @@ export class GameRoom {
       return this.handleRegistryRemove(request);
     }
 
+    if (url.pathname === "/registry/session" && request.method === "POST") {
+      return this.handleRegistrySessionWrite(request);
+    }
+
+    if (url.pathname === "/registry/classroom") {
+      return this.handleRegistryClassroomList(url);
+    }
+
     // ---------------------------
     // Room mode
     // ---------------------------
@@ -204,6 +212,55 @@ export class GameRoom {
     const rooms = ((await this.state.storage.get("rooms")) || []).filter((item) => item !== code);
     await this.state.storage.put("rooms", rooms);
     return jsonInternal({ ok: true, rooms });
+  }
+
+  async handleRegistrySessionWrite(request) {
+    const body = await safeJson(request);
+    const classCode = normalizeClassCode(body?.classCode);
+    if (!classCode) {
+      return jsonInternal({ type: "error", message: "Missing class code." }, 400);
+    }
+
+    const summary = {
+      id: String(body?.id || crypto.randomUUID()),
+      classCode,
+      studentName: normalizeDisplayName(body?.studentName, "Anonymous Student"),
+      mode: body?.mode === "multiplayer" ? "multiplayer" : "practice",
+      roomCode: String(body?.roomCode || ""),
+      playerId: Number(body?.playerId) === 2 ? 2 : 1,
+      winner: String(body?.winner || ""),
+      winnerLabel: normalizeDisplayName(body?.winnerLabel, String(body?.winner || "Unknown")),
+      completedGoals: Array.isArray(body?.completedGoals) ? body.completedGoals.slice(0, 8) : [],
+      reactionText: String(body?.reactionText || "None this match."),
+      statusText: String(body?.statusText || "None this match."),
+      takeaway: String(body?.takeaway || ""),
+      uploadedAt: Number(body?.uploadedAt) || Date.now(),
+    };
+
+    const storageKey = `classroom:${classCode}`;
+    const existing = (await this.state.storage.get(storageKey)) || [];
+    const filtered = existing.filter((item) => item?.id !== summary.id);
+    filtered.unshift(summary);
+    await this.state.storage.put(storageKey, filtered.slice(0, 120));
+
+    return jsonInternal({ ok: true, saved: summary.id });
+  }
+
+  async handleRegistryClassroomList(url) {
+    const classCode = normalizeClassCode(url.searchParams.get("classCode"));
+    if (!classCode) {
+      return jsonInternal({ type: "error", message: "Missing class code." }, 400);
+    }
+
+    const storageKey = `classroom:${classCode}`;
+    const sessions = (await this.state.storage.get(storageKey)) || [];
+    return jsonInternal({
+      ok: true,
+      classCode,
+      sessions: sessions
+        .slice()
+        .sort((a, b) => (b?.uploadedAt || 0) - (a?.uploadedAt || 0)),
+    });
   }
 
   // ===========================
@@ -592,6 +649,8 @@ export default {
       "/join-room",
       "/rooms",
       "/ws",
+      "/teacher-summaries",
+      "/teacher-summary",
     ].includes(url.pathname);
 
     if (request.method === "OPTIONS") {
@@ -745,6 +804,47 @@ export default {
         );
 
         return json({ rooms }, 200, origin);
+      }
+
+      if (request.method === "POST" && url.pathname === "/teacher-summary") {
+        const body = await safeJson(request);
+        const registryStub = getRegistryStub(env);
+        const saveResponse = await registryStub.fetch("https://room.internal/registry/session", {
+          method: "POST",
+          body: JSON.stringify(body),
+        });
+        const saveData = await safeResponseJson(saveResponse);
+        return json(
+          saveResponse.ok
+            ? { ok: true, saved: saveData?.saved || null }
+            : { type: "error", message: saveData?.message || "Could not save class summary." },
+          saveResponse.status,
+          origin,
+        );
+      }
+
+      if (request.method === "GET" && url.pathname === "/teacher-summaries") {
+        const classCode = normalizeClassCode(url.searchParams.get("classCode"));
+        if (!classCode) {
+          return json({ type: "error", message: "Missing class code." }, 400, origin);
+        }
+
+        const registryStub = getRegistryStub(env);
+        const listResponse = await registryStub.fetch(
+          `https://room.internal/registry/classroom?classCode=${encodeURIComponent(classCode)}`,
+        );
+        const listData = await safeResponseJson(listResponse);
+        return json(
+          listResponse.ok
+            ? {
+                ok: true,
+                classCode,
+                sessions: Array.isArray(listData?.sessions) ? listData.sessions : [],
+              }
+            : { type: "error", message: listData?.message || "Could not load classroom summaries." },
+          listResponse.status,
+          origin,
+        );
       }
 
       if (url.pathname === "/ws") {
