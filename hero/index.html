@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Element Heroes Online</title>
-  <link rel="stylesheet" href="style.css?v=20" />
+  <link rel="stylesheet" href="style.css?v=21" />
 </head>
 <body>
   <div class="app-shell">
@@ -31,6 +31,7 @@
 
           <div class="lobby-stack">
             <button id="hostBtn" type="button">Create Room</button>
+            <button class="secondary" id="practiceBtn" type="button">Practice Mode vs Computer</button>
 
             <div class="join-row">
               <input
@@ -290,6 +291,19 @@
 
         <!-- ===== SIDE PANEL ===== -->
         <aside class="side-panel">
+          <div class="panel-box" id="practiceGuidePanel">
+            <div class="section-title">Practice Guide</div>
+            <div class="section-subtitle">
+              Follow the next hint to learn the game one move at a time.
+            </div>
+            <div class="practice-guide-card" id="practiceGuideCard">
+              <div class="practice-guide-kicker">Next Step</div>
+              <div class="practice-guide-title">Start a practice match.</div>
+              <div class="practice-guide-body">Use Practice Mode to see step-by-step help here.</div>
+            </div>
+            <div class="practice-guide-steps" id="practiceGuideSteps"></div>
+          </div>
+
           <div class="panel-box">
             <div class="section-title">Learning Goals</div>
             <div class="section-subtitle">
@@ -452,7 +466,7 @@
   </div>
 
   <script src="effect-system.js"></script>
-  <script src="game.js?v=12"></script>
+  <script src="game.js?v=13"></script>
 
 
 <div id="card-preview-overlay" class="card-preview-overlay hidden">

@@ -961,6 +961,97 @@ button:disabled {
   margin-bottom: 4px;
 }
 
+.practice-guide-card {
+  margin-top: 10px;
+  padding: 12px;
+  border-radius: 14px;
+  border: 1px solid rgba(123, 255, 195, 0.25);
+  background:
+    radial-gradient(circle at top right, rgba(123, 255, 195, 0.12), transparent 42%),
+    rgba(255,255,255,0.03);
+}
+
+.practice-guide-kicker {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #8bf5bf;
+  margin-bottom: 8px;
+}
+
+.practice-guide-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.practice-guide-body {
+  margin-top: 8px;
+  color: #d6e7f3;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.practice-guide-steps {
+  display: grid;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.practice-guide-step {
+  display: grid;
+  grid-template-columns: 24px 1fr;
+  gap: 10px;
+  align-items: start;
+  padding: 10px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.08);
+  background: rgba(255,255,255,0.025);
+}
+
+.practice-guide-step.current {
+  border-color: rgba(139, 245, 191, 0.4);
+  background: rgba(123, 255, 195, 0.08);
+}
+
+.practice-guide-step.complete {
+  border-color: rgba(90, 224, 154, 0.45);
+  background: rgba(90, 224, 154, 0.08);
+}
+
+.practice-guide-mark {
+  width: 24px;
+  height: 24px;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  font-size: 12px;
+  font-weight: 700;
+  color: #08231b;
+  background: rgba(255,255,255,0.12);
+}
+
+.practice-guide-step.current .practice-guide-mark {
+  background: #8bf5bf;
+}
+
+.practice-guide-step.complete .practice-guide-mark {
+  background: var(--good);
+}
+
+.practice-guide-step-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.practice-guide-step-desc {
+  margin-top: 3px;
+  font-size: 12px;
+  line-height: 1.4;
+  color: var(--muted);
+}
+
 .learning-goals {
   display: grid;
   gap: 8px;

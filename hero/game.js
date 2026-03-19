@@ -15,6 +15,27 @@ let pendingLocalEffect = null;
 
 let roomListRefreshTimer = null;
 let currentRoomList = [];
+let isPracticeMode = false;
+let practiceAiTimer = null;
+let practiceAiRunId = 0;
+
+const PRACTICE_ROOM_CODE = "PRACTICE";
+const PRACTICE_DECKS = {
+  1: [
+    "sulfur", "oxygen", "water", "hydrogen", "carbon", "sodium", "potassium", "helium", "iron",
+    "chlorine", "calcium", "combustion", "steamBurst", "acidRain", "explosion", "carbonBurn",
+    "potassiumWater", "alkaliExplosion", "alkaliBlast", "fireball", "lightning", "poisonCloud",
+    "plasmaShock", "noblePressure", "catalyst", "shield", "corrode", "rust", "saltFormation",
+    "limeFormation", "calciumSteam", "hammerStrike", "metalCrush",
+  ],
+  2: [
+    "sulfur", "oxygen", "water", "hydrogen", "carbon", "sodium", "potassium", "helium", "iron",
+    "chlorine", "calcium", "combustion", "steamBurst", "acidRain", "explosion", "carbonBurn",
+    "potassiumWater", "alkaliExplosion", "alkaliBlast", "fireball", "lightning", "poisonCloud",
+    "plasmaShock", "noblePressure", "catalyst", "shield", "corrode", "rust", "saltFormation",
+    "limeFormation", "calciumSteam", "hammerStrike", "metalCrush",
+  ],
+};
 
 const CARD_LIBRARY = {
   sulfur: {
@@ -386,6 +407,29 @@ const LEARNING_GOAL_CONFIG = [
   },
 ];
 
+const PRACTICE_GUIDE_STEPS = [
+  {
+    id: "select_card",
+    title: "Select a card",
+    description: "Click a card in your hand to see what it does before you play it.",
+  },
+  {
+    id: "place_element",
+    title: "Place an element",
+    description: "Elements go on your field first. They are the building blocks for reactions.",
+  },
+  {
+    id: "use_action",
+    title: "Use a reaction or attack",
+    description: "After setup, play a reaction or attack to see the science effect happen.",
+  },
+  {
+    id: "end_turn",
+    title: "End your turn",
+    description: "Pass to the computer and watch how the next turn changes the board.",
+  },
+];
+
 const DEFAULT_SCIENCE_INSIGHT = {
   title: "Build a combo to start learning.",
   equation: "Place elements, then trigger a reaction or attack.",
@@ -587,6 +631,719 @@ let learningGoalState = createInitialLearningGoalState();
 let scienceInsight = { ...DEFAULT_SCIENCE_INSIGHT };
 let scienceReasonLog = [];
 let matchScienceSummary = createInitialMatchScienceSummary();
+
+function getPracticeGuideStatus() {
+  if (!isPracticeMode || !gameState || !playerId || !gameState.players?.[playerId]) {
+    return {
+      title: "Start a practice match.",
+      body: "Use Practice Mode to see step-by-step help here.",
+      steps: PRACTICE_GUIDE_STEPS.map((step) => ({ ...step, state: "pending" })),
+    };
+  }
+
+  const player = gameState.players[playerId];
+  const selectedCard = selectedCardIndex !== null ? player.hand?.[selectedCardIndex] : null;
+  const hasSelectedAnyCard =
+    selectedCardIndex !== null || selectedFieldIndex !== null || player.field.length > 0 || player.discard.length > 0;
+  const hasPlacedElement =
+    player.field.some((card) => card.type === "Element") || player.discard.some((card) => card.type === "Element");
+  const hasUsedAction =
+    player.discard.some((card) => ["Reaction", "Attack", "Utility"].includes(card.type));
+  const hasEndedTurn = gameState.turn > 1 || gameState.currentPlayer === 2;
+  const selectableElement = player.hand.find((card) => card.type === "Element" && canPlayCard(card, playerId));
+  const playableReaction = player.hand.find((card) => card.type === "Reaction" && resolveLocalReactionPreview(card, player).ok);
+  const playableAttack = player.hand.find((card) => card.type === "Attack" && resolveLocalAttackPreview(card, player, gameState.players[2]).ok && canPlayCard(card, playerId));
+  const lightningReady =
+    player.hand.some((card) => card.id === "lightning" && canPlayCard(card, playerId)) &&
+    gameState.players[2]?.statuses?.includes("Wet");
+
+  let title = "Select a card in your hand.";
+  let body = "Start by clicking one card so the Action Panel can explain what it does.";
+
+  if (!hasSelectedAnyCard) {
+    title = "Select a card in your hand.";
+    body = "Start by clicking one card so the Action Panel can explain what it does.";
+  } else if (!hasPlacedElement) {
+    if (selectedCard?.type === "Element") {
+      title = `Play ${selectedCard.name} onto your field.`;
+      body = "Elements stay on the field and unlock future reactions, so they are usually your first setup move.";
+    } else if (selectableElement) {
+      title = `Choose ${selectableElement.name} or another element next.`;
+      body = "Elements are the easiest way to start because reactions need the right materials on the field first.";
+    } else {
+      title = "No element ready yet. End your turn to draw more cards.";
+      body = "If your hand has no playable element, pass the turn and look for one on the next draw.";
+    }
+  } else if (!hasUsedAction) {
+    if (lightningReady) {
+      title = "Play Lightning now for the Wet bonus.";
+      body = "This is the clearest combo in the game: Wet first, then Lightning for extra damage.";
+    } else if (playableReaction) {
+      title = `Try ${playableReaction.name} next.`;
+      body = "You already have part of a combo setup. A reaction will show how elements combine into a bigger effect.";
+    } else if (playableAttack) {
+      title = `Use ${playableAttack.name} to see a battle effect.`;
+      body = "If a reaction is not ready yet, attacks still teach how conditions and field setup change damage.";
+    } else {
+      title = "Build your setup, then end the turn if needed.";
+      body = "Place another useful element if you can. Otherwise, pass so you can draw toward a reaction.";
+    }
+  } else if (!hasEndedTurn) {
+    title = "Click End Turn to watch the computer respond.";
+    body = "Seeing the next turn helps students understand that statuses and field setup carry forward.";
+  } else if (gameState.currentPlayer === 2 && !gameState.winner) {
+    title = "Watch the computer's move.";
+    body = "Notice which element or action the computer chooses, then compare it with the hints on your next turn.";
+  } else if (!gameState.winner) {
+    title = "Keep following the combo hints.";
+    body = "Now try to place matching elements, trigger a reaction, or use Wet to strengthen Lightning.";
+  }
+
+  const steps = PRACTICE_GUIDE_STEPS.map((step) => {
+    let complete = false;
+    if (step.id === "select_card") complete = hasSelectedAnyCard;
+    if (step.id === "place_element") complete = hasPlacedElement;
+    if (step.id === "use_action") complete = hasUsedAction;
+    if (step.id === "end_turn") complete = hasEndedTurn;
+    return { ...step, state: complete ? "complete" : "pending" };
+  });
+
+  const currentStep = steps.find((step) => step.state !== "complete");
+  if (currentStep) {
+    currentStep.state = "current";
+  }
+
+  return { title, body, steps };
+}
+
+function renderPracticeGuide() {
+  const panel = document.getElementById("practiceGuidePanel");
+  const card = document.getElementById("practiceGuideCard");
+  const stepsEl = document.getElementById("practiceGuideSteps");
+  if (!panel || !card || !stepsEl) return;
+
+  if (!isPracticeMode) {
+    panel.classList.add("hidden");
+    return;
+  }
+
+  panel.classList.remove("hidden");
+  const guide = getPracticeGuideStatus();
+
+  card.innerHTML = `
+    <div class="practice-guide-kicker">Next Step</div>
+    <div class="practice-guide-title">${escapeHtml(guide.title)}</div>
+    <div class="practice-guide-body">${escapeHtml(guide.body)}</div>
+  `;
+
+  stepsEl.innerHTML = guide.steps.map((step) => `
+    <div class="practice-guide-step ${step.state}">
+      <div class="practice-guide-mark">${step.state === "complete" ? "OK" : step.state === "current" ? ">" : "?"}</div>
+      <div>
+        <div class="practice-guide-step-title">${escapeHtml(step.title)}</div>
+        <div class="practice-guide-step-desc">${escapeHtml(step.description)}</div>
+      </div>
+    </div>
+  `).join("");
+}
+
+function cloneCard(cardId) {
+  return JSON.parse(JSON.stringify(CARD_LIBRARY[cardId]));
+}
+
+function shuffleCards(array) {
+  const copy = array.slice();
+  for (let i = copy.length - 1; i > 0; i -= 1) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [copy[i], copy[j]] = [copy[j], copy[i]];
+  }
+  return copy;
+}
+
+function isElementCard(card) {
+  return !!card && card.type === "Element";
+}
+
+function moveCardFromDeckToHand(player, deckIndex) {
+  if (deckIndex < 0 || deckIndex >= player.deck.length || player.hand.length >= 6) {
+    return false;
+  }
+  const drawn = player.deck.splice(deckIndex, 1)[0];
+  player.hand.push(drawn);
+  return true;
+}
+
+function drawCardForMode(player, count) {
+  const requested = typeof count === "number" ? count : 1;
+  const availableSpace = Math.max(0, 6 - player.hand.length);
+  const drawCount = Math.min(requested, availableSpace, player.deck.length);
+  if (drawCount <= 0) return 0;
+
+  const deckHasElement = player.deck.some(isElementCard);
+  const mustGuaranteeElement = drawCount > 0 && deckHasElement;
+  let drewElement = mustGuaranteeElement
+    ? player.deck.slice(0, drawCount).some(isElementCard)
+    : false;
+
+  let cardsDrawn = 0;
+  for (let i = 0; i < drawCount; i += 1) {
+    const remainingDraws = drawCount - i;
+    let deckIndex = 0;
+    if (mustGuaranteeElement && !drewElement && remainingDraws === 1) {
+      deckIndex = player.deck.findIndex(isElementCard);
+    }
+    if (!moveCardFromDeckToHand(player, deckIndex)) break;
+    cardsDrawn += 1;
+    if (isElementCard(player.hand[player.hand.length - 1])) {
+      drewElement = true;
+    }
+  }
+  return cardsDrawn;
+}
+
+function createPracticePlayer(id) {
+  const player = {
+    id,
+    hp: 10,
+    maxHp: 10,
+    energy: 3,
+    maxEnergy: 3,
+    deck: shuffleCards(PRACTICE_DECKS[id].map((cardId) => cloneCard(cardId))),
+    hand: [],
+    field: [],
+    discard: [],
+    statuses: [],
+  };
+  drawCardForMode(player, 5);
+  return player;
+}
+
+function createPracticeGame() {
+  return {
+    turn: 1,
+    currentPlayer: 1,
+    players: {
+      1: createPracticePlayer(1),
+      2: createPracticePlayer(2),
+    },
+    log: ["Practice match initialized. Player 1 starts against the computer."],
+    winner: null,
+  };
+}
+
+function getOpponentId(playerPid) {
+  return Number(playerPid) === 1 ? 2 : 1;
+}
+
+function logGameMessage(localGame, text) {
+  localGame.log.unshift(text);
+  localGame.log = localGame.log.slice(0, 16);
+}
+
+function playerHasFieldCard(player, cardId) {
+  return player.field.some((card) => card.id === cardId);
+}
+
+function addPlayerStatus(player, status) {
+  if (!player.statuses.includes(status)) {
+    player.statuses.push(status);
+  }
+}
+
+function removePlayerStatus(player, status) {
+  player.statuses = player.statuses.filter((item) => item !== status);
+}
+
+function checkGameWinner(localGame) {
+  if (localGame.players[1].hp <= 0 && localGame.players[2].hp <= 0) {
+    localGame.winner = "Draw";
+  } else if (localGame.players[1].hp <= 0) {
+    localGame.winner = "Player 2";
+  } else if (localGame.players[2].hp <= 0) {
+    localGame.winner = "Player 1";
+  } else {
+    localGame.winner = null;
+  }
+}
+
+function applyPracticeStartTurnEffects(localGame, player) {
+  if (player.statuses.includes("Corroded")) {
+    player.hp = Math.max(0, player.hp - 1);
+    logGameMessage(localGame, `Player ${player.id} suffers 1 corrosion damage.`);
+  }
+  if (player.statuses.includes("Wet")) {
+    removePlayerStatus(player, "Wet");
+    logGameMessage(localGame, `Player ${player.id} is no longer Wet.`);
+  }
+}
+
+function createLocalEffectBase(card, player, opponent, overrides = {}) {
+  const isSelfTarget = card.type === "Utility" || card.type === "Element";
+  const now = Date.now();
+
+  return {
+    effectId: `${card.id}-${now}-${Math.random().toString(36).slice(2, 8)}`,
+    effectType: card.id,
+    cardId: card.id,
+    cardType: card.type,
+    actorPid: player.id,
+    sourcePid: player.id,
+    targetPid: isSelfTarget ? player.id : opponent.id,
+    source: player.id,
+    target: isSelfTarget ? player.id : opponent.id,
+    createdAt: now,
+    duration: 900,
+    ...overrides,
+  };
+}
+
+function buildLocalEffectPayload(card, player, opponent) {
+  if (!card) return null;
+  const baseDamage = getCardEffectContext(card.id, player.id) || {};
+
+  if (card.type === "Element") {
+    return createLocalEffectBase(card, player, opponent, { effectGroup: "summon", duration: 700 });
+  }
+
+  return createLocalEffectBase(card, player, opponent, {
+    effectGroup: String(card.type || "").toLowerCase(),
+    damage: baseDamage.damage,
+    heal: baseDamage.heal,
+    energy: baseDamage.energy,
+    enemyWet: baseDamage.enemyWet,
+    pulses: baseDamage.pulses,
+    damagePerPulse: baseDamage.damagePerPulse,
+    ticks: baseDamage.ticks,
+    damagePerTick: baseDamage.damagePerTick,
+    draw: baseDamage.draw,
+    hasHelium: baseDamage.hasHelium,
+    applyStatus: baseDamage.applyStatus,
+  });
+}
+
+function resolveLocalAttackPreview(card, player, opponent) {
+  void player;
+  if (card.id === "corrode" && !(opponent.statuses.includes("Corroded") && opponent.field.length > 0)) {
+    return { ok: false, message: "That attack cannot be used right now." };
+  }
+  return { ok: true };
+}
+
+function resolveLocalReactionPreview(card, player) {
+  const checks = {
+    combustion: ["sulfur", "oxygen"],
+    steamBurst: ["water", "oxygen"],
+    acidRain: ["sulfur", "water"],
+    rust: ["iron", "oxygen"],
+    explosion: ["hydrogen", "oxygen"],
+    saltFormation: ["sodium", "chlorine"],
+    carbonBurn: ["carbon", "oxygen"],
+    potassiumWater: ["potassium", "water"],
+    limeFormation: ["calcium", "water"],
+    calciumSteam: ["calcium", "water"],
+    alkaliExplosion: ["potassium", "oxygen"],
+  };
+
+  const required = checks[card.id];
+  if (required && !required.every((requiredCardId) => playerHasFieldCard(player, requiredCardId))) {
+    return { ok: false, message: "Reaction requirements were not met." };
+  }
+
+  return { ok: true };
+}
+
+function resolveLocalAttack(localGame, card, player, opponent) {
+  if (card.id === "fireball") {
+    opponent.hp = Math.max(0, opponent.hp - 3);
+    logGameMessage(localGame, `Player ${player.id} cast Fireball for 3 damage.`);
+    return true;
+  }
+  if (card.id === "hammerStrike") {
+    const damage = playerHasFieldCard(player, "iron") ? 4 : 2;
+    opponent.hp = Math.max(0, opponent.hp - damage);
+    logGameMessage(localGame, `Player ${player.id} used Hammer Strike for ${damage} damage.`);
+    return true;
+  }
+  if (card.id === "lightning") {
+    const damage = opponent.statuses.includes("Wet") ? 6 : 4;
+    opponent.hp = Math.max(0, opponent.hp - damage);
+    logGameMessage(localGame, `Player ${player.id} used Lightning for ${damage} damage.`);
+    return true;
+  }
+  if (card.id === "poisonCloud") {
+    opponent.hp = Math.max(0, opponent.hp - 2);
+    addPlayerStatus(opponent, "Corroded");
+    logGameMessage(localGame, `Player ${player.id} used Poison Cloud for 2 damage. Player ${opponent.id} became Corroded.`);
+    return true;
+  }
+  if (card.id === "corrode") {
+    if (opponent.statuses.includes("Corroded") && opponent.field.length > 0) {
+      const destroyed = opponent.field.pop();
+      opponent.discard.push(destroyed);
+      logGameMessage(localGame, `Player ${player.id} used Corrode and destroyed ${destroyed.name} on Player ${opponent.id} field.`);
+      return true;
+    }
+    return false;
+  }
+  if (card.id === "plasmaShock") {
+    const damage = playerHasFieldCard(player, "oxygen") ? 7 : 5;
+    opponent.hp = Math.max(0, opponent.hp - damage);
+    logGameMessage(localGame, `Player ${player.id} used Plasma Shock for ${damage} damage.`);
+    return true;
+  }
+  if (card.id === "alkaliBlast") {
+    const damage = playerHasFieldCard(player, "potassium") ? 7 : 4;
+    opponent.hp = Math.max(0, opponent.hp - damage);
+    logGameMessage(localGame, `Player ${player.id} used Alkali Blast for ${damage} damage.`);
+    return true;
+  }
+  if (card.id === "metalCrush") {
+    const damage = playerHasFieldCard(player, "calcium") || playerHasFieldCard(player, "iron") ? 5 : 3;
+    opponent.hp = Math.max(0, opponent.hp - damage);
+    logGameMessage(localGame, `Player ${player.id} used Metal Crush for ${damage} damage.`);
+    return true;
+  }
+  if (card.id === "noblePressure") {
+    opponent.hp = Math.max(0, opponent.hp - 2);
+    if (playerHasFieldCard(player, "helium")) {
+      const drawn = drawCardForMode(player, 1);
+      logGameMessage(localGame, `Player ${player.id} used Noble Pressure for 2 damage and drew ${drawn} card.`);
+    } else {
+      logGameMessage(localGame, `Player ${player.id} used Noble Pressure for 2 damage.`);
+    }
+    return true;
+  }
+  return false;
+}
+
+function resolveLocalReaction(localGame, card, player, opponent) {
+  if (card.id === "combustion" && playerHasFieldCard(player, "sulfur") && playerHasFieldCard(player, "oxygen")) {
+    opponent.hp = Math.max(0, opponent.hp - 7);
+    logGameMessage(localGame, `Player ${player.id} triggered Combustion for 7 damage.`);
+    return true;
+  }
+  if (card.id === "steamBurst" && playerHasFieldCard(player, "water") && playerHasFieldCard(player, "oxygen")) {
+    opponent.hp = Math.max(0, opponent.hp - 5);
+    addPlayerStatus(opponent, "Wet");
+    logGameMessage(localGame, `Player ${player.id} used Steam Burst for 5 damage. Player ${opponent.id} became Wet.`);
+    return true;
+  }
+  if (card.id === "acidRain" && playerHasFieldCard(player, "sulfur") && playerHasFieldCard(player, "water")) {
+    opponent.hp = Math.max(0, opponent.hp - 4);
+    addPlayerStatus(opponent, "Corroded");
+    logGameMessage(localGame, `Player ${player.id} cast Acid Rain for 4 damage. Player ${opponent.id} became Corroded.`);
+    return true;
+  }
+  if (card.id === "rust" && playerHasFieldCard(player, "iron") && playerHasFieldCard(player, "oxygen")) {
+    opponent.hp = Math.max(0, opponent.hp - 4);
+    addPlayerStatus(opponent, "Corroded");
+    logGameMessage(localGame, `Player ${player.id} triggered Rust for 4 damage. Player ${opponent.id} became Corroded.`);
+    return true;
+  }
+  if (card.id === "explosion" && playerHasFieldCard(player, "hydrogen") && playerHasFieldCard(player, "oxygen")) {
+    opponent.hp = Math.max(0, opponent.hp - 8);
+    logGameMessage(localGame, `Player ${player.id} triggered Explosion for 8 damage.`);
+    return true;
+  }
+  if (card.id === "saltFormation" && playerHasFieldCard(player, "sodium") && playerHasFieldCard(player, "chlorine")) {
+    opponent.hp = Math.max(0, opponent.hp - 5);
+    removePlayerStatus(player, "Wet");
+    logGameMessage(localGame, `Player ${player.id} formed Salt for 5 damage and removed Wet from self.`);
+    return true;
+  }
+  if (card.id === "carbonBurn" && playerHasFieldCard(player, "carbon") && playerHasFieldCard(player, "oxygen")) {
+    opponent.hp = Math.max(0, opponent.hp - 5);
+    logGameMessage(localGame, `Player ${player.id} used Carbon Burn for 5 damage.`);
+    return true;
+  }
+  if (card.id === "potassiumWater" && playerHasFieldCard(player, "potassium") && playerHasFieldCard(player, "water")) {
+    opponent.hp = Math.max(0, opponent.hp - 9);
+    addPlayerStatus(opponent, "Wet");
+    logGameMessage(localGame, `Player ${player.id} triggered Alkali Reaction for 9 damage. Player ${opponent.id} became Wet.`);
+    return true;
+  }
+  if (card.id === "limeFormation" && playerHasFieldCard(player, "calcium") && playerHasFieldCard(player, "water")) {
+    opponent.hp = Math.max(0, opponent.hp - 5);
+    player.energy = Math.min(player.maxEnergy, player.energy + 1);
+    logGameMessage(localGame, `Player ${player.id} used Lime Formation for 5 damage and gained 1 energy.`);
+    return true;
+  }
+  if (card.id === "calciumSteam" && playerHasFieldCard(player, "calcium") && playerHasFieldCard(player, "water")) {
+    opponent.hp = Math.max(0, opponent.hp - 6);
+    addPlayerStatus(opponent, "Wet");
+    logGameMessage(localGame, `Player ${player.id} used Calcium Steam for 6 damage. Player ${opponent.id} became Wet.`);
+    return true;
+  }
+  if (card.id === "alkaliExplosion" && playerHasFieldCard(player, "potassium") && playerHasFieldCard(player, "oxygen")) {
+    opponent.hp = Math.max(0, opponent.hp - 8);
+    logGameMessage(localGame, `Player ${player.id} triggered Alkali Explosion for 8 damage.`);
+    return true;
+  }
+  return false;
+}
+
+function playLocalCard(localGame, currentPid, handIndex) {
+  if (localGame.winner) return { ok: false, message: "The match is already over." };
+  if (currentPid !== localGame.currentPlayer) return { ok: false, message: "It is not your turn." };
+
+  const player = localGame.players[currentPid];
+  const opponent = localGame.players[getOpponentId(currentPid)];
+  const card = player.hand[handIndex];
+
+  if (!card) return { ok: false, message: "Invalid hand card." };
+  if (player.energy < card.cost) return { ok: false, message: "Not enough energy." };
+  if (card.type === "Element" && player.field.length >= 3) return { ok: false, message: "Your field is full." };
+
+  if (card.type === "Attack") {
+    const canUse = resolveLocalAttackPreview(card, player, opponent);
+    if (!canUse.ok) return canUse;
+  }
+
+  if (card.type === "Reaction") {
+    const canUse = resolveLocalReactionPreview(card, player);
+    if (!canUse.ok) return canUse;
+  }
+
+  const effect = buildLocalEffectPayload(card, player, opponent);
+
+  player.energy -= card.cost;
+  player.hand.splice(handIndex, 1);
+
+  if (card.type === "Element") {
+    player.field.push(card);
+    logGameMessage(localGame, `Player ${player.id} placed ${card.name} on the field.`);
+  } else if (card.id === "catalyst") {
+    player.energy = Math.min(player.maxEnergy, player.energy + 1);
+    player.discard.push(card);
+    logGameMessage(localGame, `Player ${player.id} used Catalyst and gained 1 energy.`);
+  } else if (card.id === "shield") {
+    player.hp = Math.min(player.maxHp, player.hp + 2);
+    player.discard.push(card);
+    logGameMessage(localGame, `Player ${player.id} used Lab Shield and healed 2 HP.`);
+  } else if (card.type === "Attack") {
+    resolveLocalAttack(localGame, card, player, opponent);
+    player.discard.push(card);
+  } else {
+    resolveLocalReaction(localGame, card, player, opponent);
+    player.discard.push(card);
+  }
+
+  checkGameWinner(localGame);
+  return { ok: true, effect };
+}
+
+function removeLocalFieldCard(localGame, currentPid, fieldIndex) {
+  if (localGame.winner) return { ok: false, message: "The match is already over." };
+  if (currentPid !== localGame.currentPlayer) return { ok: false, message: "It is not your turn." };
+  const player = localGame.players[currentPid];
+  if (fieldIndex < 0 || fieldIndex >= player.field.length) return { ok: false, message: "Invalid field card." };
+  const removed = player.field.splice(fieldIndex, 1)[0];
+  player.discard.push(removed);
+  logGameMessage(localGame, `Player ${player.id} removed ${removed.name} from the field.`);
+  return { ok: true };
+}
+
+function endLocalTurn(localGame, currentPid) {
+  if (localGame.winner) return { ok: false, message: "The match is already over." };
+  if (currentPid !== localGame.currentPlayer) return { ok: false, message: "It is not your turn." };
+
+  localGame.currentPlayer = getOpponentId(localGame.currentPlayer);
+  if (localGame.currentPlayer === 1) {
+    localGame.turn += 1;
+  }
+
+  const player = localGame.players[localGame.currentPlayer];
+  player.energy = player.maxEnergy;
+  applyPracticeStartTurnEffects(localGame, player);
+  checkGameWinner(localGame);
+
+  if (!localGame.winner && localGame.turn > 1) {
+    drawCardForMode(player, 2);
+  }
+
+  checkGameWinner(localGame);
+  return { ok: true };
+}
+
+function getPracticeCardScore(card, player, opponent) {
+  if (!card || player.energy < card.cost) return -Infinity;
+
+  if (card.type === "Reaction") {
+    if (!resolveLocalReactionPreview(card, player).ok) return -Infinity;
+    const effect = buildLocalEffectPayload(card, player, opponent) || {};
+    return 85 + (effect.damage || 0) + (effect.applyStatus ? 4 : 0) + (effect.energy || 0);
+  }
+
+  if (card.type === "Attack") {
+    if (!resolveLocalAttackPreview(card, player, opponent).ok) return -Infinity;
+    const effect = buildLocalEffectPayload(card, player, opponent) || {};
+    return 65 + (effect.damage || 0) + (effect.applyStatus ? 4 : 0) + (effect.draw || 0);
+  }
+
+  if (card.id === "shield") {
+    return player.hp <= 5 ? 58 : 12;
+  }
+
+  if (card.id === "catalyst") {
+    return player.energy <= 1 ? 24 : 14;
+  }
+
+  if (card.type === "Element") {
+    if (player.field.length >= 3) return -Infinity;
+    let score = 18;
+    const handIds = player.hand.map((handCard) => handCard.id);
+    if (card.id === "oxygen" && handIds.some((id) => ["combustion", "steamBurst", "rust", "explosion", "carbonBurn", "alkaliExplosion", "plasmaShock"].includes(id))) score += 9;
+    if (card.id === "water" && handIds.some((id) => ["steamBurst", "acidRain", "potassiumWater", "limeFormation", "calciumSteam"].includes(id))) score += 8;
+    if (card.id === "potassium" && handIds.some((id) => ["potassiumWater", "alkaliExplosion", "alkaliBlast"].includes(id))) score += 8;
+    if (card.id === "iron" && handIds.some((id) => ["rust", "hammerStrike", "metalCrush"].includes(id))) score += 6;
+    if (card.id === "calcium" && handIds.some((id) => ["limeFormation", "calciumSteam", "metalCrush"].includes(id))) score += 6;
+    return score;
+  }
+
+  return 10;
+}
+
+function choosePracticeCardIndex(localGame, currentPid) {
+  const player = localGame.players[currentPid];
+  const opponent = localGame.players[getOpponentId(currentPid)];
+  let bestIndex = -1;
+  let bestScore = -Infinity;
+
+  player.hand.forEach((card, index) => {
+    const score = getPracticeCardScore(card, player, opponent);
+    if (score > bestScore) {
+      bestScore = score;
+      bestIndex = index;
+    }
+  });
+
+  return bestScore >= 18 ? bestIndex : -1;
+}
+
+function sleep(ms) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+function stopPracticeAi() {
+  practiceAiRunId += 1;
+  if (practiceAiTimer) {
+    clearTimeout(practiceAiTimer);
+    practiceAiTimer = null;
+  }
+}
+
+function applyLocalStateUpdate(result = {}, actionLabel = "") {
+  if (!result.ok) {
+    if (result.message) {
+      addConnectionLog(actionLabel ? `${actionLabel}: ${result.message}` : result.message);
+      showOverlay("Action Rejected", result.message);
+    }
+    return false;
+  }
+
+  selectedCardIndex = null;
+  selectedFieldIndex = null;
+  render();
+
+  if (result.effect) {
+    handleIncomingEffect(result.effect);
+  }
+
+  if (gameState && gameState.winner) {
+    showOverlay(
+      "Match Over",
+      isPracticeMode ? "Practice match complete." : "The duel has ended.",
+      gameState.winner === "Draw"
+        ? "It is a draw."
+        : isPracticeMode && gameState.winner === "Player 2"
+          ? "Computer wins!"
+          : `${gameState.winner} wins!`
+    );
+    renderEndOfGameScienceSummary();
+  } else {
+    hideOverlay();
+  }
+
+  updateHostRoomCard();
+  return true;
+}
+
+function startPracticeMode() {
+  stopPracticeAi();
+  resetLearningState();
+  isPracticeMode = true;
+  roomCode = PRACTICE_ROOM_CODE;
+  playerId = 1;
+  isHost = true;
+  manualClose = true;
+  currentRoomList = [];
+  previousGameState = null;
+  gameState = createPracticeGame();
+  selectedCardIndex = null;
+  selectedFieldIndex = null;
+  pendingLocalEffect = null;
+
+  updateHeaderState();
+  updateHostRoomCard();
+  showGame();
+  render();
+  addConnectionLog("Practice mode started: 10 HP match versus the computer.");
+}
+
+async function runPracticeAiTurn(runId) {
+  while (isPracticeMode && gameState && !gameState.winner && gameState.currentPlayer === 2 && runId === practiceAiRunId) {
+    const cardIndex = choosePracticeCardIndex(gameState, 2);
+
+    if (cardIndex < 0) {
+      await sleep(350);
+      if (!isPracticeMode || runId !== practiceAiRunId || !gameState || gameState.currentPlayer !== 2) return;
+      applyLocalStateUpdate(endLocalTurn(gameState, 2), "Computer turn");
+      return;
+    }
+
+    const chosenCard = gameState.players[2].hand[cardIndex];
+    await sleep(500);
+    if (!isPracticeMode || runId !== practiceAiRunId || !gameState || gameState.currentPlayer !== 2) return;
+    addConnectionLog(`Computer played ${chosenCard.name}.`);
+    applyLocalStateUpdate(playLocalCard(gameState, 2, cardIndex), "Computer move");
+  }
+}
+
+function schedulePracticeAiTurn() {
+  if (!isPracticeMode || !gameState || gameState.winner || gameState.currentPlayer !== 2) return;
+  stopPracticeAi();
+  const runId = practiceAiRunId;
+  practiceAiTimer = setTimeout(() => {
+    practiceAiTimer = null;
+    runPracticeAiTurn(runId);
+  }, 450);
+}
+
+function sendLocalAction(action, payload = {}) {
+  if (!isPracticeMode || !gameState) return;
+
+  previousGameState = JSON.parse(JSON.stringify(gameState));
+  let result = { ok: false, message: "Unknown action." };
+  if (action === "play_card") result = playLocalCard(gameState, Number(playerId), payload.handIndex);
+  if (action === "remove_field_card") result = removeLocalFieldCard(gameState, Number(playerId), payload.fieldIndex);
+  if (action === "end_turn") result = endLocalTurn(gameState, Number(playerId));
+  if (action === "restart_match") {
+    resetLearningState();
+    gameState = createPracticeGame();
+    result = { ok: true };
+  }
+
+  const applied = applyLocalStateUpdate(result, "Practice mode");
+  if (!applied) return;
+
+  if (action === "restart_match") {
+    addConnectionLog("Practice match restarted.");
+  }
+
+  if (gameState && !gameState.winner && gameState.currentPlayer === 2) {
+    schedulePracticeAiTurn();
+  }
+}
 
 function createInitialLearningGoalState() {
   return LEARNING_GOAL_CONFIG.reduce((state, goal) => {
@@ -895,6 +1652,7 @@ function resetLearningState() {
   renderLearningGoals();
   renderScienceInsight();
   renderScienceReasonLog();
+  renderPracticeGuide();
   hideEndOfGameScienceSummary();
 }
 
@@ -979,6 +1737,16 @@ function updateHeaderState() {
   const roomPill = document.getElementById("roomPill");
   const gameRoomCodePill = document.getElementById("gameRoomCodePill");
   const playerRoleText = document.getElementById("playerRoleText");
+  const leaveBtn = document.getElementById("leaveBtn");
+
+  if (isPracticeMode) {
+    if (connectionPill) connectionPill.textContent = "Practice";
+    if (roomPill) roomPill.textContent = "Practice Lab";
+    if (gameRoomCodePill) gameRoomCodePill.textContent = "Mode: Practice";
+    if (playerRoleText) playerRoleText.textContent = "You are Player 1 vs Computer";
+    if (leaveBtn) leaveBtn.textContent = "Leave Practice";
+    return;
+  }
 
   if (connectionPill) {
     connectionPill.textContent = connected ? "Connected" : "Disconnected";
@@ -997,6 +1765,10 @@ function updateHeaderState() {
       ? `You are Player ${playerId}${isHost ? " (Host)" : ""}`
       : "Not in a room";
   }
+
+  if (leaveBtn) {
+    leaveBtn.textContent = "Leave Room";
+  }
 }
 
 function updateHostRoomCard() {
@@ -1005,6 +1777,13 @@ function updateHostRoomCard() {
   const statusEl = document.getElementById("hostRoomStatusText");
 
   if (!cardEl || !codeEl || !statusEl) return;
+
+  if (isPracticeMode) {
+    cardEl.classList.remove("hidden");
+    codeEl.textContent = "SOLO";
+    statusEl.textContent = gameState?.winner ? "Practice complete" : "Vs Computer";
+    return;
+  }
 
   if (!roomCode) {
     cardEl.classList.add("hidden");
@@ -1054,6 +1833,7 @@ async function loadRoomList() {
   const summaryEl = document.getElementById("roomWaitingSummary");
 
   if (!listEl || !countPill || !summaryEl) return;
+  if (isPracticeMode) return;
   if (roomListRequestInFlight) return;
   if (document.visibilityState === "hidden") return;
 
@@ -1188,6 +1968,7 @@ function stopRoomListAutoRefresh() {
 function showLobby() {
   document.getElementById("lobbyPanel").classList.remove("hidden");
   document.getElementById("gamePanel").classList.add("hidden");
+  isPracticeMode = false;
   startRoomListAutoRefresh();
 }
 
@@ -1491,6 +2272,8 @@ function handleIncomingEffect(effect) {
 
 async function createRoom() {
   try {
+    stopPracticeAi();
+    isPracticeMode = false;
     const response = await fetch(`${WORKER_URL}/create-room`, {
       method: "POST",
     });
@@ -1519,6 +2302,8 @@ async function createRoom() {
 
 async function joinRoom() {
   try {
+    stopPracticeAi();
+    isPracticeMode = false;
     const code = document.getElementById("joinCodeInput").value.trim().toUpperCase();
 
     if (!code) {
@@ -1557,6 +2342,7 @@ async function joinRoom() {
 }
 
 function connectSocket() {
+  if (isPracticeMode) return;
   if (!roomCode || !playerId) {
     addConnectionLog("Missing room or player info.");
     return;
@@ -1664,6 +2450,11 @@ function connectSocket() {
 }
 
 function sendAction(action, payload = {}) {
+  if (isPracticeMode) {
+    sendLocalAction(action, payload);
+    return;
+  }
+
   if (!socket || socket.readyState !== WebSocket.OPEN) {
     addConnectionLog("Not connected.");
     return;
@@ -2130,6 +2921,15 @@ function updatePlayerBars(pid) {
 function render() {
   if (!gameState) return;
 
+  const selfPlayerName = document.getElementById("selfPlayerName");
+  const enemyPlayerName = document.getElementById("enemyPlayerName");
+  if (selfPlayerName) {
+    selfPlayerName.textContent = isPracticeMode ? "Player 1 - Practice Deck" : "Player 1 - Combustion Deck";
+  }
+  if (enemyPlayerName) {
+    enemyPlayerName.textContent = isPracticeMode ? "Computer - Science Bot" : "Player 2 - Corrosion Deck";
+  }
+
   updatePlayerBars(1);
   updatePlayerBars(2);
   renderStatuses("p1Statuses", gameState.players[1].statuses);
@@ -2142,6 +2942,7 @@ function render() {
   renderPreview("p2FieldPreview", 2);
   renderSelectedCardBox();
   renderCombatLog();
+  renderPracticeGuide();
 
   const turnPill = document.getElementById("turnPill");
   const turnBanner = document.getElementById("turnBanner");
@@ -2158,10 +2959,12 @@ function render() {
 
   if (roomStateText) {
     roomStateText.textContent = gameState.winner
-      ? `Winner: ${gameState.winner}`
+      ? `Winner: ${isPracticeMode && gameState.winner === "Player 2" ? "Computer" : gameState.winner}`
       : isMyTurn()
         ? "Your turn."
-        : "Opponent turn.";
+        : isPracticeMode
+          ? "Computer turn."
+          : "Opponent turn.";
   }
 
   if (endTurnBtn) endTurnBtn.disabled = !isMyTurn();
@@ -2222,6 +3025,7 @@ function restartMatch() {
 }
 
 function leaveRoom() {
+  stopPracticeAi();
   manualClose = true;
 
   if (reconnectTimer) {
@@ -2239,6 +3043,7 @@ function leaveRoom() {
   }
 
   socket = null;
+  isPracticeMode = false;
   roomCode = "";
   playerId = null;
   isHost = false;
@@ -2267,7 +3072,7 @@ function hideTutorial() {
 
 window.addEventListener("online", () => {
   addConnectionLog("Network back online.");
-  if (!manualClose && roomCode && playerId && !socket) {
+  if (!isPracticeMode && !manualClose && roomCode && playerId && !socket) {
     connectSocket();
   }
 });
@@ -2284,6 +3089,7 @@ document.addEventListener("visibilitychange", () => {
 
   if (
     document.visibilityState === "visible" &&
+    !isPracticeMode &&
     !manualClose &&
     roomCode &&
     playerId &&
@@ -2302,6 +3108,7 @@ window.addEventListener("resize", () => {
 });
 
 const hostBtn = document.getElementById("hostBtn");
+const practiceBtn = document.getElementById("practiceBtn");
 const joinBtn = document.getElementById("joinBtn");
 const playCardBtn = document.getElementById("playCardBtn");
 const removeFieldCardBtn = document.getElementById("removeFieldCardBtn");
@@ -2315,6 +3122,7 @@ const joinCodeInput = document.getElementById("joinCodeInput");
 const closeTutorialBtn = document.getElementById("closeTutorialBtn");
 
 if (hostBtn) hostBtn.addEventListener("click", createRoom);
+if (practiceBtn) practiceBtn.addEventListener("click", startPracticeMode);
 if (joinBtn) joinBtn.addEventListener("click", joinRoom);
 if (playCardBtn) playCardBtn.addEventListener("click", playSelectedCard);
 if (removeFieldCardBtn) removeFieldCardBtn.addEventListener("click", removeSelectedFieldCard);
