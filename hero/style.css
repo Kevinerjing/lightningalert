@@ -290,7 +290,11 @@ body {
 #practiceGuidePanel {
   position: sticky;
   top: 12px;
-  z-index: 2;
+  z-index: 1;
+  align-self: start;
+  max-height: calc(100vh - 24px);
+  overflow: auto;
+  scrollbar-width: thin;
 }
 
 .center-panel {
@@ -1002,6 +1006,15 @@ button:disabled {
   display: grid;
   gap: 8px;
   margin-top: 10px;
+}
+
+.practice-guide-toggle {
+  width: 100%;
+  margin-top: 10px;
+}
+
+#practiceGuidePanel.compact .practice-guide-steps {
+  display: none;
 }
 
 .practice-guide-step {

@@ -18,6 +18,7 @@ let currentRoomList = [];
 let isPracticeMode = false;
 let practiceAiTimer = null;
 let practiceAiRunId = 0;
+let practiceGuideExpanded = false;
 
 const PRACTICE_ROOM_CODE = "PRACTICE";
 const PRACTICE_DECKS = {
@@ -719,8 +720,9 @@ function getPracticeGuideStatus() {
 function renderPracticeGuide() {
   const panel = document.getElementById("practiceGuidePanel");
   const card = document.getElementById("practiceGuideCard");
+  const toggleBtn = document.getElementById("practiceGuideToggleBtn");
   const stepsEl = document.getElementById("practiceGuideSteps");
-  if (!panel || !card || !stepsEl) return;
+  if (!panel || !card || !toggleBtn || !stepsEl) return;
 
   if (!isPracticeMode) {
     panel.classList.add("hidden");
@@ -728,6 +730,7 @@ function renderPracticeGuide() {
   }
 
   panel.classList.remove("hidden");
+  panel.classList.toggle("compact", !practiceGuideExpanded);
   const guide = getPracticeGuideStatus();
 
   card.innerHTML = `
@@ -735,6 +738,8 @@ function renderPracticeGuide() {
     <div class="practice-guide-title">${escapeHtml(guide.title)}</div>
     <div class="practice-guide-body">${escapeHtml(guide.body)}</div>
   `;
+
+  toggleBtn.textContent = practiceGuideExpanded ? "Hide Step Checklist" : "Show Step Checklist";
 
   stepsEl.innerHTML = guide.steps.map((step) => `
     <div class="practice-guide-step ${step.state}">
@@ -1404,6 +1409,7 @@ function applyLocalStateUpdate(result = {}, actionLabel = "") {
 
 function startPracticeMode() {
   stopPracticeAi();
+  practiceGuideExpanded = false;
   resetLearningState();
   isPracticeMode = true;
   roomCode = PRACTICE_ROOM_CODE;
@@ -1779,6 +1785,7 @@ function renderElementInfoCard(card = null) {
 }
 
 function resetLearningState() {
+  practiceGuideExpanded = false;
   learningGoalState = createInitialLearningGoalState();
   scienceInsight = { ...DEFAULT_SCIENCE_INSIGHT };
   scienceReasonLog = [];
@@ -3185,6 +3192,7 @@ function leaveRoom() {
 
   socket = null;
   isPracticeMode = false;
+  practiceGuideExpanded = false;
   roomCode = "";
   playerId = null;
   isHost = false;
@@ -3209,6 +3217,12 @@ function showTutorial() {
 function hideTutorial() {
   const overlay = document.getElementById("tutorialOverlay");
   if (overlay) overlay.classList.add("hidden");
+}
+
+function togglePracticeGuideDetails() {
+  if (!isPracticeMode) return;
+  practiceGuideExpanded = !practiceGuideExpanded;
+  renderPracticeGuide();
 }
 
 window.addEventListener("online", () => {
@@ -3250,6 +3264,7 @@ window.addEventListener("resize", () => {
 
 const hostBtn = document.getElementById("hostBtn");
 const practiceBtn = document.getElementById("practiceBtn");
+const practiceGuideToggleBtn = document.getElementById("practiceGuideToggleBtn");
 const joinBtn = document.getElementById("joinBtn");
 const playCardBtn = document.getElementById("playCardBtn");
 const removeFieldCardBtn = document.getElementById("removeFieldCardBtn");
@@ -3264,6 +3279,7 @@ const closeTutorialBtn = document.getElementById("closeTutorialBtn");
 
 if (hostBtn) hostBtn.addEventListener("click", createRoom);
 if (practiceBtn) practiceBtn.addEventListener("click", startPracticeMode);
+if (practiceGuideToggleBtn) practiceGuideToggleBtn.addEventListener("click", togglePracticeGuideDetails);
 if (joinBtn) joinBtn.addEventListener("click", joinRoom);
 if (playCardBtn) playCardBtn.addEventListener("click", playSelectedCard);
 if (removeFieldCardBtn) removeFieldCardBtn.addEventListener("click", removeSelectedFieldCard);
