@@ -570,6 +570,12 @@ export default {
   async fetch(request, env) {
     const url = new URL(request.url);
     const origin = request.headers.get("Origin") || "https://www.kevin-apps.com";
+    const requiresGameRoomBinding = [
+      "/create-room",
+      "/join-room",
+      "/rooms",
+      "/ws",
+    ].includes(url.pathname);
 
     if (request.method === "OPTIONS") {
       return new Response(null, {
@@ -578,172 +584,200 @@ export default {
       });
     }
 
-    if (request.method === "POST" && url.pathname === "/create-room") {
-      let roomCode = "";
-      let created = false;
-
-      for (let i = 0; i < 12; i += 1) {
-        const candidate = generateRoomCode();
-        const id = env.GAME_ROOM.idFromName(candidate);
-        const stub = env.GAME_ROOM.get(id);
-        const existsResponse = await stub.fetch(`https://room.internal/exists?room=${candidate}`);
-
-        if (existsResponse.status === 404) {
-          roomCode = candidate;
-          await stub.fetch(`https://room.internal/init?room=${roomCode}`);
-          created = true;
-          break;
-        }
-      }
-
-      if (!created || !roomCode) {
-        return json(
-          { type: "error", message: "Could not create a unique room. Please try again." },
-          500,
-          origin,
-        );
-      }
-
-      const registryStub = getRegistryStub(env);
-      await registryStub.fetch("https://room.internal/registry/register", {
-        method: "POST",
-        body: JSON.stringify({ code: roomCode }),
-      });
-
+    if (requiresGameRoomBinding && !hasGameRoomBinding(env)) {
       return json(
         {
-          type: "room_created",
-          roomCode,
-          playerId: 1,
+          type: "error",
+          message: "Worker is missing the GAME_ROOM Durable Object binding.",
         },
-        200,
+        500,
         origin,
       );
     }
 
-    if (request.method === "POST" && url.pathname === "/join-room") {
-      const body = await safeJson(request);
-      const roomCode = String(body?.roomCode || "").toUpperCase();
+    try {
+      if (request.method === "POST" && url.pathname === "/create-room") {
+        let roomCode = "";
+        let created = false;
 
-      if (!roomCode) {
-        return json(
-          { type: "error", message: "Missing room code." },
-          400,
-          origin,
-        );
-      }
+        for (let i = 0; i < 12; i += 1) {
+          const candidate = generateRoomCode();
+          const id = env.GAME_ROOM.idFromName(candidate);
+          const stub = env.GAME_ROOM.get(id);
+          const existsResponse = await stub.fetch(`https://room.internal/exists?room=${candidate}`);
 
-      const id = env.GAME_ROOM.idFromName(roomCode);
-      const stub = env.GAME_ROOM.get(id);
-      const existsResponse = await stub.fetch(`https://room.internal/exists?room=${roomCode}`);
-
-      if (existsResponse.status !== 200) {
-        return json(
-          { type: "error", message: "Room not found." },
-          404,
-          origin,
-        );
-      }
-
-      const reserveResponse = await stub.fetch(`https://room.internal/reserve-player?room=${roomCode}`, {
-        method: "POST",
-        body: JSON.stringify({ playerId: 2 }),
-      });
-
-      const reserveData = await safeResponseJson(reserveResponse);
-
-      if (!reserveResponse.ok) {
-        return json(
-          { type: "error", message: reserveData?.message || "Room is full." },
-          reserveResponse.status,
-          origin,
-        );
-      }
-
-      return json(
-        {
-          type: "room_joined",
-          roomCode,
-          playerId: 2,
-        },
-        200,
-        origin,
-      );
-    }
-
-    if (request.method === "GET" && url.pathname === "/rooms") {
-      const registryStub = getRegistryStub(env);
-      const listResponse = await registryStub.fetch("https://room.internal/registry/list");
-      const listData = await safeResponseJson(listResponse);
-      const roomCodes = Array.isArray(listData?.rooms) ? listData.rooms : [];
-
-      const summaries = await Promise.all(
-        roomCodes.map(async (code) => {
-          try {
-            const id = env.GAME_ROOM.idFromName(code);
-            const stub = env.GAME_ROOM.get(id);
-            const summaryResponse = await stub.fetch(`https://room.internal/summary?room=${code}`);
-
-            if (!summaryResponse.ok) return null;
-            const summaryData = await safeResponseJson(summaryResponse);
-            return summaryData?.room || null;
-          } catch {
-            return null;
+          if (existsResponse.status === 404) {
+            roomCode = candidate;
+            await stub.fetch(`https://room.internal/init?room=${roomCode}`);
+            created = true;
+            break;
           }
-        }),
-      );
+        }
 
-const validRooms = summaries.filter(
-  (room) => room && room.active !== false && room.connectedCount > 0
-);
+        if (!created || !roomCode) {
+          return json(
+            { type: "error", message: "Could not create a unique room. Please try again." },
+            500,
+            origin,
+          );
+        }
 
-const rooms = validRooms.sort(
-  (a, b) => (b.createdAt || 0) - (a.createdAt || 0)
-);
-
-      return json({ rooms }, 200, origin);
-    }
-
-    if (url.pathname === "/ws") {
-      const roomCode = String(url.searchParams.get("room") || "").toUpperCase();
-      const playerId = Number(url.searchParams.get("player"));
-
-      if (!roomCode) {
-        return new Response("Missing room", {
-          status: 400,
-          headers: {
-            "Access-Control-Allow-Origin": "https://www.kevin-apps.com",
-          },
+        const registryStub = getRegistryStub(env);
+        await registryStub.fetch("https://room.internal/registry/register", {
+          method: "POST",
+          body: JSON.stringify({ code: roomCode }),
         });
+
+        return json(
+          {
+            type: "room_created",
+            roomCode,
+            playerId: 1,
+          },
+          200,
+          origin,
+        );
       }
 
-      if (playerId !== 1 && playerId !== 2) {
-        return new Response("Invalid player", {
-          status: 400,
-          headers: {
-            "Access-Control-Allow-Origin": "https://www.kevin-apps.com",
-          },
+      if (request.method === "POST" && url.pathname === "/join-room") {
+        const body = await safeJson(request);
+        const roomCode = String(body?.roomCode || "").toUpperCase();
+
+        if (!roomCode) {
+          return json(
+            { type: "error", message: "Missing room code." },
+            400,
+            origin,
+          );
+        }
+
+        const id = env.GAME_ROOM.idFromName(roomCode);
+        const stub = env.GAME_ROOM.get(id);
+        const existsResponse = await stub.fetch(`https://room.internal/exists?room=${roomCode}`);
+
+        if (existsResponse.status !== 200) {
+          return json(
+            { type: "error", message: "Room not found." },
+            404,
+            origin,
+          );
+        }
+
+        const reserveResponse = await stub.fetch(`https://room.internal/reserve-player?room=${roomCode}`, {
+          method: "POST",
+          body: JSON.stringify({ playerId: 2 }),
         });
+
+        const reserveData = await safeResponseJson(reserveResponse);
+
+        if (!reserveResponse.ok) {
+          return json(
+            { type: "error", message: reserveData?.message || "Room is full." },
+            reserveResponse.status,
+            origin,
+          );
+        }
+
+        return json(
+          {
+            type: "room_joined",
+            roomCode,
+            playerId: 2,
+          },
+          200,
+          origin,
+        );
       }
 
-      const id = env.GAME_ROOM.idFromName(roomCode);
-      const stub = env.GAME_ROOM.get(id);
+      if (request.method === "GET" && url.pathname === "/rooms") {
+        const registryStub = getRegistryStub(env);
+        const listResponse = await registryStub.fetch("https://room.internal/registry/list");
+        const listData = await safeResponseJson(listResponse);
+        const roomCodes = Array.isArray(listData?.rooms) ? listData.rooms : [];
 
-      return stub.fetch(
-        new Request(`https://room.internal/ws?room=${encodeURIComponent(roomCode)}&player=${encodeURIComponent(playerId)}`, {
-          method: "GET",
-          headers: request.headers,
-        }),
+        const summaries = await Promise.all(
+          roomCodes.map(async (code) => {
+            try {
+              const id = env.GAME_ROOM.idFromName(code);
+              const stub = env.GAME_ROOM.get(id);
+              const summaryResponse = await stub.fetch(`https://room.internal/summary?room=${code}`);
+
+              if (!summaryResponse.ok) return null;
+              const summaryData = await safeResponseJson(summaryResponse);
+              return summaryData?.room || null;
+            } catch {
+              return null;
+            }
+          }),
+        );
+
+        const validRooms = summaries.filter(
+          (room) => room && room.active !== false && room.connectedCount > 0,
+        );
+
+        const rooms = validRooms.sort(
+          (a, b) => (b.createdAt || 0) - (a.createdAt || 0),
+        );
+
+        return json({ rooms }, 200, origin);
+      }
+
+      if (url.pathname === "/ws") {
+        const roomCode = String(url.searchParams.get("room") || "").toUpperCase();
+        const playerId = Number(url.searchParams.get("player"));
+
+        if (!roomCode) {
+          return new Response("Missing room", {
+            status: 400,
+            headers: {
+              "Access-Control-Allow-Origin": "https://www.kevin-apps.com",
+            },
+          });
+        }
+
+        if (playerId !== 1 && playerId !== 2) {
+          return new Response("Invalid player", {
+            status: 400,
+            headers: {
+              "Access-Control-Allow-Origin": "https://www.kevin-apps.com",
+            },
+          });
+        }
+
+        const id = env.GAME_ROOM.idFromName(roomCode);
+        const stub = env.GAME_ROOM.get(id);
+
+        return stub.fetch(
+          new Request(`https://room.internal/ws?room=${encodeURIComponent(roomCode)}&player=${encodeURIComponent(playerId)}`, {
+            method: "GET",
+            headers: request.headers,
+          }),
+        );
+      }
+
+      return new Response("OK", {
+        headers: {
+          "Access-Control-Allow-Origin": "https://www.kevin-apps.com",
+        },
+      });
+    } catch (error) {
+      console.error("Top-level worker fetch failed:", error);
+      return json(
+        {
+          type: "error",
+          message: "Worker request failed.",
+          detail: error instanceof Error ? error.message : String(error),
+        },
+        500,
+        origin,
       );
     }
-
-    return new Response("OK", {
-      headers: {
-        "Access-Control-Allow-Origin": "https://www.kevin-apps.com",
-      },
-    });
   },
 };
+
+function hasGameRoomBinding(env) {
+  return !!env?.GAME_ROOM && typeof env.GAME_ROOM.idFromName === "function";
+}
 
 function getRegistryStub(env) {
   const id = env.GAME_ROOM.idFromName("__ROOM_REGISTRY__");

@@ -370,6 +370,8 @@ const CARD_NAME_TO_ID = Object.values(CARD_LIBRARY).reduce((map, card) => {
 
 let cardPreviewHideTimer = null;
 let cardPreviewFadeTimer = null;
+const ROOM_LIST_REFRESH_INTERVAL_MS = 30000;
+let roomListRequestInFlight = false;
 
 function showPlayedCardPreview(card) {
   if (!card || !card.image) return;
@@ -520,6 +522,10 @@ async function loadRoomList() {
   const summaryEl = document.getElementById("roomWaitingSummary");
 
   if (!listEl || !countPill || !summaryEl) return;
+  if (roomListRequestInFlight) return;
+  if (document.visibilityState === "hidden") return;
+
+  roomListRequestInFlight = true;
 
   try {
     const res = await fetch(`${WORKER_URL}/rooms`, {
@@ -546,6 +552,8 @@ async function loadRoomList() {
         <div class="room-empty-subtitle">Please try refreshing again.</div>
       </div>
     `;
+  } finally {
+    roomListRequestInFlight = false;
   }
 }
 
@@ -635,7 +643,7 @@ window.joinListedRoom = joinListedRoom;
 function startRoomListAutoRefresh() {
   stopRoomListAutoRefresh();
   loadRoomList();
-  roomListRefreshTimer = setInterval(loadRoomList, 5000);
+  roomListRefreshTimer = setInterval(loadRoomList, ROOM_LIST_REFRESH_INTERVAL_MS);
 }
 
 function stopRoomListAutoRefresh() {
@@ -1697,7 +1705,6 @@ function leaveRoom() {
   updateHeaderState();
   updateHostRoomCard();
   showLobby();
-  loadRoomList();
   addConnectionLog("Left room.");
 }
 
@@ -1719,6 +1726,15 @@ window.addEventListener("online", () => {
 });
 
 document.addEventListener("visibilitychange", () => {
+  if (!roomCode) {
+    if (document.visibilityState === "visible") {
+      loadRoomList();
+      startRoomListAutoRefresh();
+    } else {
+      stopRoomListAutoRefresh();
+    }
+  }
+
   if (
     document.visibilityState === "visible" &&
     !manualClose &&
@@ -1783,5 +1799,4 @@ if (tutorialOverlay) {
 updateHeaderState();
 updateHostRoomCard();
 showLobby();
-loadRoomList();
 addConnectionLog("Ready.");
