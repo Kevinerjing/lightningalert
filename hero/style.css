@@ -1127,8 +1127,8 @@ button.guide-focus::after,
 .log-list.guide-focus::after {
   content: "Next";
   position: absolute;
-  top: -10px;
-  right: 10px;
+  top: 8px;
+  right: 8px;
   padding: 3px 8px;
   border-radius: 999px;
   background: #8bf5bf;
@@ -1137,6 +1137,14 @@ button.guide-focus::after,
   font-weight: 800;
   letter-spacing: 0.06em;
   text-transform: uppercase;
+  z-index: 4;
+}
+
+button.guide-focus::after,
+.selected-card-box.guide-focus::after,
+.log-list.guide-focus::after {
+  top: -10px;
+  right: 10px;
 }
 
 @keyframes guidePulse {
