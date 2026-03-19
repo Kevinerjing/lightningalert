@@ -1013,7 +1013,7 @@ const CARD_LIBRARY = {
     type: "Attack",
     cost: 1,
     symbol: "ATK",
-    text: "Deal 3 damage. +2 if enemy Wet.",
+    text: "Deal 3 damage.",
     tags: ["attack", "fire"],
   },
   hammerStrike: {
@@ -1040,7 +1040,7 @@ const CARD_LIBRARY = {
     type: "Attack",
     cost: 2,
     symbol: "ATK",
-    text: "Deal 4 damage.",
+    text: "Deal 4 damage. +2 if enemy Wet.",
     tags: ["attack", "shock"],
   },
   poisonCloud: {
@@ -1343,11 +1343,9 @@ function buildEffectPayload(card, player, opponent) {
   }
 
   if (card.id === "fireball") {
-    const enemyWet = opponent.statuses.includes("Wet");
     return createEffectBase(card, player, opponent, {
       effectGroup: "attack",
-      damage: enemyWet ? 5 : 3,
-      enemyWet,
+      damage: 3,
       duration: 1000,
     });
   }
@@ -1361,9 +1359,11 @@ function buildEffectPayload(card, player, opponent) {
   }
 
   if (card.id === "lightning") {
+    const enemyWet = opponent.statuses.includes("Wet");
     return createEffectBase(card, player, opponent, {
       effectGroup: "attack",
-      damage: 4,
+      damage: enemyWet ? 6 : 4,
+      enemyWet,
       duration: 900,
     });
   }
@@ -1545,10 +1545,8 @@ function buildEffectPayload(card, player, opponent) {
 
 function resolveAttack(game, card, player, opponent) {
   if (card.id === "fireball") {
-    let damage = 3;
-    if (opponent.statuses.includes("Wet")) damage += 2;
-    opponent.hp = Math.max(0, opponent.hp - damage);
-    logMessage(game, "Player " + player.id + " cast Fireball for " + damage + " damage.");
+    opponent.hp = Math.max(0, opponent.hp - 3);
+    logMessage(game, "Player " + player.id + " cast Fireball for 3 damage.");
     return true;
   }
 
@@ -1561,8 +1559,10 @@ function resolveAttack(game, card, player, opponent) {
   }
 
   if (card.id === "lightning") {
-    opponent.hp = Math.max(0, opponent.hp - 4);
-    logMessage(game, "Player " + player.id + " used Lightning for 4 damage.");
+    let damage = 4;
+    if (opponent.statuses.includes("Wet")) damage += 2;
+    opponent.hp = Math.max(0, opponent.hp - damage);
+    logMessage(game, "Player " + player.id + " used Lightning for " + damage + " damage.");
     return true;
   }
 

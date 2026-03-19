@@ -1317,6 +1317,14 @@ function pressureWaveAt(targetEl, damage = 2) {
 
       case "lightningStrike":
         lightningAt(ctx.targetEl, ctx.damage ?? 4, "#c9f3ff");
+        if (ctx.enemyWet) {
+          setTimeout(() => {
+            floatText(rectCenter(ctx.targetEl).x, rectCenter(ctx.targetEl).y - 45, "Wet Bonus!", {
+              color: "#9fdcff",
+              fontSize: "24px",
+            });
+          }, 90);
+        }
         break;
 
       case "toxicCloud":

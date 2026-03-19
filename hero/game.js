@@ -256,7 +256,7 @@ const CARD_LIBRARY = {
     type: "Attack",
     cost: 1,
     symbol: "ATK",
-    text: "Deal 3 damage. +2 if enemy Wet.",
+    text: "Deal 3 damage.",
     tags: ["attack", "fire"],
     image: "images/cards/fireball.png",
   },
@@ -286,7 +286,7 @@ const CARD_LIBRARY = {
     type: "Attack",
     cost: 2,
     symbol: "ATK",
-    text: "Deal 4 damage.",
+    text: "Deal 4 damage. +2 if enemy Wet.",
     tags: ["attack", "shock"],
     image: "images/cards/lightning.png",
   },
@@ -720,14 +720,14 @@ function getCardEffectContext(cardId, actorPid) {
 
   switch (cardId) {
     case "fireball":
-      ctx.damage = opponentStatuses.includes("Wet") ? 5 : 3;
-      ctx.enemyWet = opponentStatuses.includes("Wet");
+      ctx.damage = 3;
       break;
     case "hammerStrike":
       ctx.damage = actorField.some((c) => c?.id === "iron") ? 4 : 2;
       break;
     case "lightning":
-      ctx.damage = 4;
+      ctx.damage = opponentStatuses.includes("Wet") ? 6 : 4;
+      ctx.enemyWet = opponentStatuses.includes("Wet");
       break;
     case "poisonCloud":
       ctx.damage = 2;
