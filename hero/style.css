@@ -71,6 +71,30 @@ body {
   max-width: 100%;
 }
 
+.lobby-panel {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.lobby-panel::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(8, 18, 31, 0.16), rgba(8, 18, 31, 0.5)),
+    url("images/Periodic_table_large.png") center center / cover no-repeat;
+  opacity: 0.13;
+  pointer-events: none;
+  z-index: 0;
+  filter: saturate(0.72);
+}
+
+.lobby-panel > * {
+  position: relative;
+  z-index: 1;
+}
+
 .lobby-panel,
 .game-panel,
 .lobby-grid,
