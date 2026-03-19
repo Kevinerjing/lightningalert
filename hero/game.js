@@ -521,6 +521,64 @@ const SCIENCE_NOTES = {
   },
 };
 
+const ELEMENT_INFO = {
+  sulfur: {
+    category: "Nonmetal",
+    property: "Combustible reactant that supports fire and acid-style combinations.",
+    reactions: ["Combustion", "Acid Rain"],
+  },
+  oxygen: {
+    category: "Gas",
+    property: "Supports combustion, oxidation, and several high-value reactions.",
+    reactions: ["Combustion", "Steam Burst", "Rust", "Explosion", "Carbon Burn", "Alkali Explosion"],
+  },
+  water: {
+    category: "Liquid",
+    property: "Creates Wet setups and enables steam or metal-water reactions.",
+    reactions: ["Steam Burst", "Acid Rain", "Alkali Reaction", "Lime Formation", "Calcium Steam"],
+  },
+  iron: {
+    category: "Metal",
+    property: "Useful for oxidation examples and metal-based attacks.",
+    reactions: ["Rust"],
+  },
+  hydrogen: {
+    category: "Gas",
+    property: "Highly flammable and useful for high-energy combinations.",
+    reactions: ["Explosion"],
+  },
+  carbon: {
+    category: "Solid nonmetal",
+    property: "Acts like a fuel source in combustion-style play.",
+    reactions: ["Carbon Burn"],
+  },
+  chlorine: {
+    category: "Gas",
+    property: "Reactive element that helps form salt-based combinations.",
+    reactions: ["Salt Formation"],
+  },
+  sodium: {
+    category: "Metal",
+    property: "Reactive metal that pairs with chlorine to form a stable product.",
+    reactions: ["Salt Formation"],
+  },
+  potassium: {
+    category: "Alkali metal",
+    property: "Very reactive, especially with water, making it strong for teaching reactivity.",
+    reactions: ["Alkali Reaction", "Alkali Explosion"],
+  },
+  helium: {
+    category: "Noble gas",
+    property: "Chemically stable, so it teaches contrast with more reactive elements.",
+    reactions: ["No direct reaction card"],
+  },
+  calcium: {
+    category: "Alkaline earth metal",
+    property: "Reactive metal used in water-based reactions and material-forming combos.",
+    reactions: ["Lime Formation", "Calcium Steam"],
+  },
+};
+
 let cardPreviewHideTimer = null;
 let cardPreviewFadeTimer = null;
 const ROOM_LIST_REFRESH_INTERVAL_MS = 30000;
@@ -781,6 +839,51 @@ function getSelectedCardScienceHtml(card) {
       <strong>Science Link</strong>
       <div>${escapeHtml(note.preview)}</div>
     </div>
+  `;
+}
+
+function getSelectedElementCard() {
+  if (!gameState || !playerId || !gameState.players?.[playerId]) return null;
+
+  const player = gameState.players[playerId];
+
+  if (selectedCardIndex !== null && player.hand?.[selectedCardIndex]?.type === "Element") {
+    return player.hand[selectedCardIndex];
+  }
+
+  if (selectedFieldIndex !== null && player.field?.[selectedFieldIndex]?.type === "Element") {
+    return player.field[selectedFieldIndex];
+  }
+
+  return null;
+}
+
+function renderElementInfoCard(card = null) {
+  const container = document.getElementById("elementInfoCard");
+  if (!container) return;
+
+  const info = card ? ELEMENT_INFO[card.id] : null;
+
+  if (!card || !info) {
+    container.innerHTML = `
+      <div class="element-info-name">Select an element</div>
+      <div class="element-info-line">Choose Sulfur, Oxygen, Water, Iron, or another element card.</div>
+      <div class="element-info-line">Its science summary will appear here.</div>
+    `;
+    return;
+  }
+
+  const reactions = Array.isArray(info.reactions) ? info.reactions.join(", ") : "No linked reactions";
+
+  container.innerHTML = `
+    <div class="element-info-kicker">Element Profile</div>
+    <div class="element-info-name">${escapeHtml(card.name)}</div>
+    <div class="element-info-chip-row">
+      <span class="element-info-chip">${escapeHtml(info.category)}</span>
+      <span class="element-info-chip">${escapeHtml(card.symbol || "Element")}</span>
+    </div>
+    <div class="element-info-line"><strong>Key Property:</strong> ${escapeHtml(info.property)}</div>
+    <div class="element-info-line"><strong>Used In:</strong> ${escapeHtml(reactions)}</div>
   `;
 }
 
@@ -1950,6 +2053,7 @@ function renderSelectedCardBox() {
 
   playBtn.disabled = true;
   removeBtn.disabled = true;
+  renderElementInfoCard(getSelectedElementCard());
 
   if (!gameState) {
     box.textContent = "No card selected.";
