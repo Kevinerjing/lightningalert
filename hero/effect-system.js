@@ -957,6 +957,20 @@ function getDefaultElement(side) {
     return impactCards.has(cardId);
   }
 
+  function shouldRunViewerAnimation(cardId, ctx) {
+    const currentPlayerId = Number(window.playerId || ctx?.playerId || 0);
+    if (!ctx || !currentPlayerId) return true;
+
+    const actorPid = Number(ctx.actorPid || 0);
+    const targetPid = Number(ctx.targetPid || 0);
+
+    if (actorPid && targetPid && actorPid !== targetPid) {
+      return currentPlayerId !== actorPid;
+    }
+
+    return true;
+  }
+
   function screenFlash(background) {
     const flash = createNode("ehx-screen-flash", {
       background,
@@ -1480,6 +1494,9 @@ function pressureWaveAt(targetEl, damage = 2) {
     if (!effect) return false;
 
     showCardCastFlash(cardId, ctx.actorPid);
+    if (!shouldRunViewerAnimation(cardId, ctx)) {
+      return true;
+    }
     if (shouldShowScreenHit(cardId, ctx)) {
       showScreenHit(cardId, ctx.targetPid, ctx);
     }

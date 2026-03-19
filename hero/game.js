@@ -2542,9 +2542,9 @@ function getCardEffectContext(cardId, actorPid) {
   if (!card) return null;
 
   const actorDesk = getDeskSelectorForPid(actorPid);
-  const targetDesk = getOpponentDeskSelector();
   const actorField = gameState?.players?.[actorPid]?.field || [];
   const opponentPid = Number(actorPid) === 1 ? 2 : 1;
+  const targetDesk = getDeskSelectorForPid(opponentPid);
   const opponentStatuses = gameState?.players?.[opponentPid]?.statuses || [];
 
   const ctx = {
@@ -2751,23 +2751,22 @@ function handleIncomingEffect(effect) {
   const actorPid = Number(effect.actorPid || effect.sourcePid || effect.source || playerId || 1);
   const fallbackCtx = getCardEffectContext(cardId, actorPid) || {};
   const card = CARD_LIBRARY[cardId];
-  const forceEnemy = shouldForceEnemyEffect(cardId);
+  const resolvedTargetPid = Number(
+    effect.targetPid
+    || effect.target
+    || fallbackCtx.targetPid
+    || ((card?.type === "Attack" || card?.type === "Reaction") ? (actorPid === 1 ? 2 : 1) : actorPid)
+  );
 
   const ctx = {
     ...fallbackCtx,
     actorPid,
-    targetPid: Number(
-      effect.targetPid
-      || effect.target
-      || fallbackCtx.targetPid
-      || (forceEnemy ? (actorPid === 1 ? 2 : 1) : actorPid)
-    ),
+    targetPid: resolvedTargetPid,
     playerId: Number(playerId || 0),
     sourceSelector:
       effect.sourceSelector || fallbackCtx.sourceSelector || getDeskSelectorForPid(actorPid),
-    targetSelector: forceEnemy
-      ? getOpponentDeskSelector()
-      : (effect.targetSelector || fallbackCtx.targetSelector || getSelfDeskSelector()),
+    targetSelector:
+      effect.targetSelector || fallbackCtx.targetSelector || getDeskSelectorForPid(resolvedTargetPid),
     damage: effect.damage ?? fallbackCtx.damage,
     heal: effect.heal ?? fallbackCtx.heal,
     energy: effect.energy ?? fallbackCtx.energy,
