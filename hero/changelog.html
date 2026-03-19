@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Element Heroes Release Notes</title>
+  <link rel="stylesheet" href="style.css?v=23" />
+  <style>
+    .release-page {
+      width: min(1100px, 94vw);
+      margin: 18px auto 28px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .release-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      padding: 16px 20px;
+      background: rgba(255,255,255,0.03);
+      border-bottom: 1px solid var(--line);
+      flex-wrap: wrap;
+    }
+
+    .release-content {
+      padding: 18px;
+      display: grid;
+      gap: 16px;
+    }
+
+    .release-card {
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: rgba(255,255,255,0.03);
+      padding: 16px;
+    }
+
+    .release-card.current {
+      border-color: rgba(123, 255, 195, 0.35);
+      background:
+        radial-gradient(circle at top right, rgba(123, 255, 195, 0.12), transparent 42%),
+        rgba(255,255,255,0.04);
+    }
+
+    .release-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .release-version {
+      font-size: 24px;
+      font-weight: 800;
+      color: #ffffff;
+    }
+
+    .release-date {
+      color: var(--accent);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .release-title {
+      margin-top: 10px;
+      font-size: 18px;
+      font-weight: 700;
+      color: #8fe7ff;
+    }
+
+    .release-summary {
+      margin-top: 8px;
+      color: #d6e7f3;
+      line-height: 1.6;
+      font-size: 14px;
+    }
+
+    .release-list {
+      margin: 12px 0 0;
+      padding-left: 20px;
+      color: #d6e7f3;
+      line-height: 1.6;
+    }
+
+    .release-list li + li {
+      margin-top: 6px;
+    }
+
+    .release-nav {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+  </style>
+</head>
+<body>
+  <div class="release-page">
+    <div class="release-header">
+      <div>
+        <div class="title">Element Heroes Release Notes</div>
+        <div class="subtitle">Track the latest changes, learning features, and version history.</div>
+      </div>
+
+      <div class="release-nav">
+        <div class="pill" id="releaseVersionPill">Version --</div>
+        <a href="index.html" class="tutorial-btn">Back to Game</a>
+      </div>
+    </div>
+
+    <div class="release-content">
+      <div class="panel-box">
+        <div class="section-title">Latest Update</div>
+        <div class="section-subtitle" id="latestReleaseSummary">
+          Loading the newest release details...
+        </div>
+      </div>
+
+      <div id="releaseList"></div>
+    </div>
+  </div>
+
+  <script src="release-data.js"></script>
+  <script>
+    (function renderReleaseNotes() {
+      const releases = Array.isArray(window.HERO_RELEASES) ? window.HERO_RELEASES : [];
+      const latest = window.HERO_CURRENT_RELEASE || releases[0];
+      const listEl = document.getElementById("releaseList");
+      const pillEl = document.getElementById("releaseVersionPill");
+      const summaryEl = document.getElementById("latestReleaseSummary");
+
+      if (latest && pillEl) {
+        pillEl.textContent = `Version ${latest.version}`;
+      }
+
+      if (latest && summaryEl) {
+        summaryEl.textContent = `${latest.title} - ${latest.summary}`;
+      }
+
+      if (!listEl) return;
+
+      if (!releases.length) {
+        listEl.innerHTML = `
+          <div class="release-card">
+            <div class="release-title">No release notes yet.</div>
+            <div class="release-summary">Add entries to release-data.js to publish future updates.</div>
+          </div>
+        `;
+        return;
+      }
+
+      listEl.innerHTML = releases.map((release, index) => `
+        <section class="release-card${index === 0 ? " current" : ""}">
+          <div class="release-meta">
+            <div class="release-version">Version ${release.version}</div>
+            <div class="release-date">${release.date}</div>
+          </div>
+          <div class="release-title">${release.title}</div>
+          <div class="release-summary">${release.summary}</div>
+          <ul class="release-list">
+            ${(release.highlights || []).map((item) => `<li>${item}</li>`).join("")}
+          </ul>
+        </section>
+      `).join("");
+    }());
+  </script>
+</body>
+</html>

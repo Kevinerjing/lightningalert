@@ -225,7 +225,9 @@ body {
   display: flex;
   align-items: center;
   justify-content: flex-end;
+  gap: 10px;
   margin-left: auto;
+  flex-wrap: wrap;
 }
 
 .footer-version {
@@ -262,6 +264,17 @@ body {
 
 .tutorial-btn:active {
   transform: translateY(0);
+}
+
+.tutorial-btn.secondary-link {
+  background: rgba(255,255,255,0.08);
+  color: var(--text);
+  border: 1px solid var(--line);
+  box-shadow: none;
+}
+
+.tutorial-btn.secondary-link:hover {
+  box-shadow: 0 10px 26px rgba(255,255,255,0.08);
 }
 
 /* ===== Layout ===== */
