@@ -47,14 +47,14 @@
     steamBurst: "steamCloud",
     acidRain: "acidRain",
     rust: "rustSpread",
-    explosion: "bigExplosion",
-    saltFormation: "crystalBurst",
+    explosion: "hydrogenExplosion",
+    saltFormation: "saltFormation",
     carbonBurn: "smokeBurn",
-    potassiumWater: "alkaliExplosion",
-    limeFormation: "crystalBurst",
+    potassiumWater: "alkaliReaction",
+    limeFormation: "limeFormation",
     hydrogenBurn: "fireBurst",
     calciumSteam: "steamCloud",
-    alkaliExplosion: "bigExplosion",
+    alkaliExplosion: "alkaliExplosion",
 
     // Attacks
     fireball: "fireball",
@@ -63,9 +63,9 @@
     lightning: "lightningStrike",
     poisonCloud: "toxicCloud",
     plasmaShock: "plasmaShock",
-    alkaliBlast: "bigExplosion",
-    metalCrush: "metalImpact",
-    noblePressure: "pressureWave",
+    alkaliBlast: "alkaliBlast",
+    metalCrush: "metalCrush",
+    noblePressure: "noblePressure",
 
     // Utility
     catalyst: "energyBoost",
@@ -1475,6 +1475,123 @@ function pressureWaveAt(targetEl, damage = 2) {
     });
   }
 
+  function hydrogenExplosionAt(targetEl, damage = 8) {
+    const { x, y } = rectCenter(targetEl);
+    explosionAt(x, y, {
+      size: 360,
+      ringColor: "rgba(255, 236, 166, 0.95)",
+      flashBg: "radial-gradient(circle, rgba(255,244,190,0.22), rgba(255,166,60,0.12), rgba(0,0,0,0))",
+    });
+    setTimeout(() => explosionAt(x, y, {
+      size: 240,
+      ringColor: "rgba(255, 255, 255, 0.82)",
+      flash: false,
+    }), 110);
+    smokeAt(targetEl, 12);
+    embersAt(targetEl, 20);
+    setTimeout(() => showDamage(targetEl, damage, "#ffe08a"), 110);
+  }
+
+  function alkaliReactionAt(targetEl, damage = 9) {
+    const { x, y } = rectCenter(targetEl);
+    explosionAt(x, y, {
+      size: 300,
+      ringColor: "rgba(225, 255, 130, 0.92)",
+      flashBg: "radial-gradient(circle, rgba(224,255,160,0.18), rgba(96,220,96,0.1), rgba(0,0,0,0))",
+    });
+    steamAt(x, y);
+    wetAt(targetEl, 10);
+    gasFloatAt(targetEl, 8, "rgba(242,255,160,0.95)", "rgba(92,210,86,0)");
+    embersAt(targetEl, 8);
+    setTimeout(() => showDamage(targetEl, damage, "#e6ff8a"), 100);
+  }
+
+  function alkaliBlastAt(targetEl, damage = 4) {
+    const { x, y } = rectCenter(targetEl);
+    explosionAt(x, y, {
+      size: 300,
+      ringColor: "rgba(230, 255, 135, 0.92)",
+      flashBg: "radial-gradient(circle, rgba(246,255,190,0.18), rgba(180,255,90,0.12), rgba(0,0,0,0))",
+    });
+    for (let i = 0; i < 8; i += 1) {
+      const size = random(14, 28);
+      const spark = createNode("ehx-corrode-drop", {
+        width: `${size}px`,
+        height: `${size * random(0.7, 1.1)}px`,
+        left: `${x - size / 2}px`,
+        top: `${y - size / 2}px`,
+        "--dx": `${random(-120, 120)}px`,
+        "--dy": `${random(-70, 85)}px`,
+      });
+      removeLater(spark, 760);
+    }
+    gasFloatAt(targetEl, 6, "rgba(255,255,180,0.95)", "rgba(160,255,88,0)");
+    setTimeout(() => showDamage(targetEl, damage, "#f1ff8a"), 90);
+  }
+
+  function metalCrushAt(targetEl, damage = 3) {
+    const { x, y } = rectCenter(targetEl);
+    metalImpactAt(targetEl, damage);
+    setTimeout(() => {
+      const hit = createNode("ehx-metal-hit", {
+        left: `${x + 24}px`,
+        top: `${y - 12}px`,
+        transform: "scale(0.9) rotate(18deg)",
+      });
+      removeLater(hit, 340);
+    }, 70);
+    dustAt(targetEl, 12);
+    screenFlash(
+      "radial-gradient(circle, rgba(255,255,255,0.12), rgba(160,180,200,0.06), rgba(0,0,0,0))"
+    );
+  }
+
+  function noblePressureAt(targetEl, damage = 2) {
+    const { x, y } = rectCenter(targetEl);
+    pressureWaveAt(targetEl, damage);
+    setTimeout(() => {
+      const ring = createNode("ehx-air-ring", {
+        left: `${x}px`,
+        top: `${y}px`,
+        width: "110px",
+        height: "110px",
+        marginLeft: "-55px",
+        marginTop: "-55px",
+        borderColor: "rgba(234,244,255,0.9)",
+        borderWidth: "7px",
+      });
+      removeLater(ring, 760);
+    }, 90);
+    gasFloatAt(targetEl, 5, "rgba(245,250,255,0.94)", "rgba(180,220,255,0)");
+  }
+
+  function saltFormationAt(sourceEl, targetEl, damage = 5) {
+    crystalBurstAt(targetEl, 26);
+    gasFloatAt(targetEl, 6, "rgba(255,255,255,0.96)", "rgba(220,240,255,0)");
+    setTimeout(() => showDamage(targetEl, damage, "#ffffff"), 100);
+    if (sourceEl) {
+      setTimeout(() => {
+        crystalBurstAt(sourceEl, 10);
+        floatText(rectCenter(sourceEl).x, rectCenter(sourceEl).y - 35, "Cleanse Wet", {
+          color: "#eef7ff",
+          fontSize: "24px",
+        });
+      }, 180);
+    }
+  }
+
+  function limeFormationAt(sourceEl, targetEl, damage = 5, energy = 1) {
+    crystalBurstAt(targetEl, 18);
+    dustAt(targetEl, 10);
+    setTimeout(() => showDamage(targetEl, damage, "#f7fafc"), 100);
+    if (sourceEl) {
+      setTimeout(() => {
+        energyAt(sourceEl);
+        showEnergy(sourceEl, energy);
+      }, 140);
+    }
+  }
+
   function resolveEffectContext(context = {}) {
     ensureEffectStyles();
 
@@ -1529,6 +1646,10 @@ function pressureWaveAt(targetEl, damage = 2) {
         }
         break;
 
+      case "hydrogenExplosion":
+        hydrogenExplosionAt(ctx.targetEl, ctx.damage ?? 8);
+        break;
+
       case "steamCloud":
         {
           const c = rectCenter(ctx.targetEl);
@@ -1555,22 +1676,14 @@ function pressureWaveAt(targetEl, damage = 2) {
       case "crystalBurst":
         crystalBurstAt(ctx.targetEl, 22);
         setTimeout(() => showDamage(ctx.targetEl, ctx.damage ?? 5, "#ffffff"), 100);
-        if (cardId === "saltFormation") {
-          const self = ctx.sourceEl || getDefaultElement("player");
-          setTimeout(() => {
-            floatText(rectCenter(self).x, rectCenter(self).y - 35, "Cleanse Wet", {
-              color: "#eef7ff",
-              fontSize: "24px",
-            });
-          }, 180);
-        }
-        if (cardId === "limeFormation") {
-          const self = ctx.sourceEl || getDefaultElement("player");
-          setTimeout(() => {
-            energyAt(self);
-            showEnergy(self, 1);
-          }, 140);
-        }
+        break;
+
+      case "saltFormation":
+        saltFormationAt(ctx.sourceEl || getDefaultElement("player"), ctx.targetEl, ctx.damage ?? 5);
+        break;
+
+      case "limeFormation":
+        limeFormationAt(ctx.sourceEl || getDefaultElement("player"), ctx.targetEl, ctx.damage ?? 5, ctx.energy ?? 1);
         break;
 
       case "fireBurst":
@@ -1583,6 +1696,10 @@ function pressureWaveAt(targetEl, damage = 2) {
 
       case "metalImpact":
         metalImpactAt(ctx.targetEl, ctx.damage ?? 3);
+        break;
+
+      case "metalCrush":
+        metalCrushAt(ctx.targetEl, ctx.damage ?? 3);
         break;
 
       case "corrodeDestroy":
@@ -1611,6 +1728,18 @@ function pressureWaveAt(targetEl, damage = 2) {
         toxicCloudAt(ctx.targetEl, ctx.pulses ?? 3, ctx.damagePerPulse ?? 1);
         break;
 
+      case "alkaliReaction":
+        alkaliReactionAt(ctx.targetEl, ctx.damage ?? 9);
+        break;
+
+      case "alkaliExplosion":
+        alkaliBlastAt(ctx.targetEl, ctx.damage ?? 8);
+        break;
+
+      case "alkaliBlast":
+        alkaliBlastAt(ctx.targetEl, ctx.damage ?? 4);
+        break;
+
       case "plasmaShock":
         lightningAt(ctx.targetEl, ctx.damage ?? 5, "#d7a8ff");
         setTimeout(() => {
@@ -1633,6 +1762,16 @@ function pressureWaveAt(targetEl, damage = 2) {
             const self = ctx.sourceEl || getDefaultElement("player");
             showDraw(self, ctx.draw);
             }, 160);
+        }
+        break;
+
+      case "noblePressure":
+        noblePressureAt(ctx.targetEl, ctx.damage ?? 2);
+        if ((ctx.draw ?? 0) > 0) {
+          setTimeout(() => {
+            const self = ctx.sourceEl || getDefaultElement("player");
+            showDraw(self, ctx.draw);
+          }, 160);
         }
         break;
 
