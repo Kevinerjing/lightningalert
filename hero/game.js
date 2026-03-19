@@ -31,6 +31,7 @@ const floatingTurnDragState = {
   initialized: false,
   active: false,
   moved: false,
+  startedOnButton: false,
   pointerId: null,
   startX: 0,
   startY: 0,
@@ -3832,6 +3833,10 @@ function wireFloatingTurnUiDrag() {
     if (!floatingTurnDragState.moved && Math.abs(dx) + Math.abs(dy) > 6) {
       floatingTurnDragState.moved = true;
       floatingTurnUi.classList.add("dragging");
+      floatingTurnUi.setPointerCapture?.(event.pointerId);
+      if (floatingTurnDragState.startedOnButton) {
+        suppressEndTurnClickUntil = Date.now() + 350;
+      }
     }
 
     if (!floatingTurnDragState.moved) return;
@@ -3853,6 +3858,7 @@ function wireFloatingTurnUiDrag() {
 
     floatingTurnDragState.active = false;
     floatingTurnDragState.moved = false;
+    floatingTurnDragState.startedOnButton = false;
     floatingTurnDragState.pointerId = null;
   };
 
@@ -3863,12 +3869,12 @@ function wireFloatingTurnUiDrag() {
     const rect = floatingTurnUi.getBoundingClientRect();
     floatingTurnDragState.active = true;
     floatingTurnDragState.moved = false;
+    floatingTurnDragState.startedOnButton = !!event.target.closest("#endTurnBtn");
     floatingTurnDragState.pointerId = event.pointerId;
     floatingTurnDragState.startX = event.clientX;
     floatingTurnDragState.startY = event.clientY;
     floatingTurnDragState.originLeft = rect.left;
     floatingTurnDragState.originTop = rect.top;
-    floatingTurnUi.setPointerCapture?.(event.pointerId);
   });
 
   floatingTurnUi.addEventListener("pointermove", onPointerMove);

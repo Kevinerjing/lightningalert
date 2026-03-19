@@ -662,6 +662,98 @@
         100% { opacity: 0; transform: scale(1.8); }
       }
 
+      .ehx-corrode-darkwash {
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        background:
+          radial-gradient(circle at center, rgba(15, 30, 15, 0.12) 0%, rgba(6, 10, 10, 0.3) 52%, rgba(0, 0, 0, 0.58) 100%);
+        animation: ehxCorrodeDarkwash 0.9s ease-out forwards;
+        z-index: 10009;
+      }
+
+      @keyframes ehxCorrodeDarkwash {
+        0% { opacity: 0; }
+        18% { opacity: 1; }
+        100% { opacity: 0; }
+      }
+
+      .ehx-corrode-splash {
+        position: fixed;
+        width: 220px;
+        height: 220px;
+        margin-left: -110px;
+        margin-top: -110px;
+        border-radius: 50%;
+        pointer-events: none;
+        background:
+          radial-gradient(circle at 46% 44%, rgba(244,255,160,0.96) 0%, rgba(140,255,80,0.92) 18%, rgba(44,220,74,0.72) 38%, rgba(5, 60, 20, 0.16) 66%, rgba(0,0,0,0) 100%);
+        box-shadow:
+          0 0 40px rgba(120,255,80,0.42),
+          0 0 96px rgba(50,180,60,0.22);
+        animation: ehxCorrodeSplash 0.8s ease-out forwards;
+        z-index: 10013;
+      }
+
+      @keyframes ehxCorrodeSplash {
+        0% { opacity: 0; transform: scale(0.3) rotate(-8deg); }
+        18% { opacity: 1; transform: scale(0.92) rotate(0deg); }
+        100% { opacity: 0; transform: scale(1.45) rotate(10deg); }
+      }
+
+      .ehx-corrode-drop {
+        position: fixed;
+        border-radius: 50% 50% 60% 40%;
+        pointer-events: none;
+        background:
+          radial-gradient(circle at 32% 28%, rgba(244,255,180,0.95) 0%, rgba(120,255,80,0.92) 30%, rgba(44,220,74,0.62) 60%, rgba(0,0,0,0) 100%);
+        box-shadow: 0 0 18px rgba(120,255,80,0.38);
+        animation: ehxCorrodeDrop 0.76s ease-out forwards;
+        z-index: 10014;
+      }
+
+      @keyframes ehxCorrodeDrop {
+        0% { opacity: 0; transform: scale(0.55) translate(0, 0); }
+        16% { opacity: 1; }
+        100% { opacity: 0; transform: scale(0.92) translate(var(--dx), var(--dy)); }
+      }
+
+      .ehx-corrode-vapor {
+        position: fixed;
+        border-radius: 50%;
+        pointer-events: none;
+        background:
+          radial-gradient(circle, rgba(170,255,120,0.4) 0%, rgba(56,170,70,0.18) 42%, rgba(0,0,0,0) 100%);
+        filter: blur(6px);
+        animation: ehxCorrodeVapor 1.4s ease-out forwards;
+        z-index: 10011;
+      }
+
+      @keyframes ehxCorrodeVapor {
+        0% { opacity: 0; transform: translateY(10px) scale(0.56); }
+        18% { opacity: 1; }
+        100% { opacity: 0; transform: translateY(-56px) scale(1.22); }
+      }
+
+      .ehx-corrode-hole {
+        position: fixed;
+        border-radius: 50%;
+        pointer-events: none;
+        background:
+          radial-gradient(circle at 42% 38%, rgba(26,26,26,0.98) 0%, rgba(10,10,10,0.94) 46%, rgba(70,40,18,0.52) 68%, rgba(0,0,0,0) 100%);
+        box-shadow:
+          inset 0 0 12px rgba(0,0,0,0.85),
+          0 0 12px rgba(80,40,18,0.3);
+        animation: ehxCorrodeHole 1.15s ease-out forwards;
+        z-index: 10015;
+      }
+
+      @keyframes ehxCorrodeHole {
+        0% { opacity: 0; transform: scale(0.2); }
+        24% { opacity: 0.95; transform: scale(1); }
+        100% { opacity: 0; transform: scale(1.14); }
+      }
+
       .ehx-ember {
         position: fixed;
         width: 9px;
@@ -1206,20 +1298,64 @@ function pressureWaveAt(targetEl, damage = 2) {
 
   function corrodeAt(targetEl) {
     const { x, y } = rectCenter(targetEl);
+    const darkwash = createNode("ehx-corrode-darkwash");
     const pulse = createNode("ehx-corrode-beam", {
       left: `${x}px`,
       top: `${y}px`,
     });
-    removeLater(pulse, 780);
-
+    const splash = createNode("ehx-corrode-splash", {
+      left: `${x}px`,
+      top: `${y}px`,
+    });
     const fog = createNode("ehx-poison-fog", {
       left: `${x}px`,
       top: `${y + 12}px`,
+      background:
+        "radial-gradient(circle, rgba(130,255,120,0.34) 0%, rgba(46,160,64,0.2) 35%, rgba(6,22,10,0.08) 60%, rgba(0,0,0,0) 100%)",
     });
-    removeLater(fog, 1000);
+
+    removeLater(darkwash, 920);
+    removeLater(pulse, 840);
+    removeLater(splash, 860);
+    removeLater(fog, 1180);
+
+    for (let i = 0; i < 9; i += 1) {
+      const size = random(18, 34);
+      const drop = createNode("ehx-corrode-drop", {
+        width: `${size}px`,
+        height: `${size * random(0.8, 1.2)}px`,
+        left: `${x - size / 2}px`,
+        top: `${y - size / 2}px`,
+        "--dx": `${random(-90, 90)}px`,
+        "--dy": `${random(-50, 110)}px`,
+      });
+      removeLater(drop, 820);
+    }
+
+    for (let i = 0; i < 10; i += 1) {
+      const size = random(34, 72);
+      const vapor = createNode("ehx-corrode-vapor", {
+        width: `${size}px`,
+        height: `${size * random(0.8, 1.3)}px`,
+        left: `${x + random(-70, 70) - size / 2}px`,
+        top: `${y + random(-6, 40) - size / 2}px`,
+      });
+      removeLater(vapor, 1450);
+    }
+
+    for (let i = 0; i < 5; i += 1) {
+      const size = random(16, 34);
+      const hole = createNode("ehx-corrode-hole", {
+        width: `${size}px`,
+        height: `${size * random(0.9, 1.2)}px`,
+        left: `${x + random(-44, 44) - size / 2}px`,
+        top: `${y + random(-36, 36) - size / 2}px`,
+      });
+      removeLater(hole, 1180);
+    }
 
     screenFlash(
-      "radial-gradient(circle, rgba(120,255,120,0.12), rgba(20,120,20,0.06), rgba(0,0,0,0))"
+      "radial-gradient(circle, rgba(170,255,120,0.14), rgba(12,36,12,0.14), rgba(0,0,0,0.38))"
     );
   }
 
