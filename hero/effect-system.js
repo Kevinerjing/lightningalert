@@ -72,6 +72,29 @@
     shield: "shieldGlow",
   };
 
+  const SCREEN_HIT_LABELS = {
+    fireball: "FIREBALL!",
+    combustion: "BOOM!",
+    explosion: "BOOM!",
+    alkaliExplosion: "BOOM!",
+    steamBurst: "STEAM BURST!",
+    calciumSteam: "STEAM!",
+    acidRain: "ACID RAIN!",
+    lightning: "SHOCK!",
+    plasmaShock: "PLASMA SHOCK!",
+    poisonCloud: "TOXIC HIT!",
+    rust: "RUST!",
+    hammerStrike: "SMASH!",
+    metalCrush: "CRUSH!",
+    alkaliBlast: "BLAST!",
+    carbonBurn: "BURN!",
+    corrode: "CORRODE!",
+  };
+
+  function getFxLayer() {
+    return document.getElementById("fx-layer") || document.body;
+  }
+
   function ensureEffectStyles() {
     if (document.getElementById(DEFAULT_STYLE_ID)) return;
 
@@ -84,6 +107,83 @@
         pointer-events: none;
         overflow: hidden;
         z-index: 9999;
+      }
+
+      #fx-layer {
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        overflow: hidden;
+        z-index: 10040;
+      }
+
+      .card-cast-flash {
+        position: fixed;
+        border-radius: 18px;
+        border: 2px solid rgba(139, 247, 255, 0.85);
+        background:
+          radial-gradient(circle at center, rgba(139, 247, 255, 0.28), rgba(139, 247, 255, 0.04) 55%, rgba(0, 0, 0, 0) 100%);
+        box-shadow:
+          0 0 0 2px rgba(139, 247, 255, 0.18),
+          0 0 24px rgba(85, 214, 255, 0.22),
+          inset 0 0 28px rgba(139, 247, 255, 0.16);
+        animation: ehxCardCastFlash 0.45s ease-out forwards;
+      }
+
+      @keyframes ehxCardCastFlash {
+        0% { opacity: 0; transform: scale(0.9); }
+        18% { opacity: 1; transform: scale(1.03); }
+        100% { opacity: 0; transform: scale(1.08); }
+      }
+
+      .screen-hit-effect {
+        position: fixed;
+        left: 50%;
+        top: 50%;
+        width: 320px;
+        height: 320px;
+        margin-left: -160px;
+        margin-top: -160px;
+        border-radius: 50%;
+        background:
+          radial-gradient(circle, rgba(255,255,255,0.85) 0%, rgba(139,247,255,0.42) 18%, rgba(85,214,255,0.16) 38%, rgba(0,0,0,0) 72%);
+        box-shadow:
+          0 0 34px rgba(139,247,255,0.28),
+          0 0 120px rgba(85,214,255,0.18);
+        animation: ehxScreenHit 0.52s ease-out forwards;
+      }
+
+      @keyframes ehxScreenHit {
+        0% { opacity: 0; transform: scale(0.42); }
+        20% { opacity: 1; transform: scale(0.94); }
+        100% { opacity: 0; transform: scale(1.24); }
+      }
+
+      .screen-hit-text {
+        position: fixed;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        padding: 14px 18px;
+        border-radius: 999px;
+        background: rgba(7, 18, 29, 0.84);
+        border: 1px solid rgba(139, 247, 255, 0.28);
+        color: #ecfbff;
+        font-size: 28px;
+        font-weight: 900;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        text-shadow:
+          0 0 18px rgba(139,247,255,0.28),
+          0 2px 18px rgba(0,0,0,0.32);
+        box-shadow: 0 18px 36px rgba(0,0,0,0.28);
+        animation: ehxScreenHitText 0.7s ease-out forwards;
+      }
+
+      @keyframes ehxScreenHitText {
+        0% { opacity: 0; transform: translate(-50%, -34%) scale(0.8); }
+        18% { opacity: 1; transform: translate(-50%, -50%) scale(1.04); }
+        100% { opacity: 0; transform: translate(-50%, -70%) scale(1); }
       }
 
       .ehx-float-text {
@@ -745,6 +845,58 @@ function getDefaultElement(side) {
     return el;
   }
 
+  function findActorHandCard(cardId, actorPid) {
+    const currentPlayerId = Number(window.playerId || 0);
+    if (!cardId || !actorPid || currentPlayerId !== Number(actorPid)) return null;
+
+    const handRoot = currentPlayerId === 1 ? qs("#p1Hand") : qs("#p2Hand");
+    if (!handRoot) return null;
+
+    return handRoot.querySelector(`.card.selected[data-card-id="${cardId}"]`)
+      || handRoot.querySelector(`.card[data-card-id="${cardId}"]`);
+  }
+
+  function showCardCastFlash(cardId, actorPid) {
+    const cardEl = findActorHandCard(cardId, actorPid);
+    if (!cardEl) return;
+
+    const rect = cardEl.getBoundingClientRect();
+    const flash = createNode("card-cast-flash", {
+      left: `${rect.left - 4}px`,
+      top: `${rect.top - 4}px`,
+      width: `${rect.width + 8}px`,
+      height: `${rect.height + 8}px`,
+    }, getFxLayer());
+    removeLater(flash, 520);
+  }
+
+  function getScreenHitLabel(cardId) {
+    return SCREEN_HIT_LABELS[cardId] || "HIT!";
+  }
+
+  function showScreenHit(cardId, targetPid, context = {}) {
+    const currentPlayerId = Number(window.playerId || context.playerId || 0);
+    if (!targetPid || currentPlayerId !== Number(targetPid)) return;
+
+    const layer = getFxLayer();
+    const burst = createNode("screen-hit-effect", {}, layer);
+    const label = createNode("screen-hit-text", {}, layer);
+    label.textContent = getScreenHitLabel(cardId);
+    removeLater(burst, 560);
+    removeLater(label, 760);
+  }
+
+  function shouldShowScreenHit(cardId, ctx) {
+    if (!ctx || Number(ctx.actorPid) === Number(ctx.targetPid)) return false;
+    const impactCards = new Set([
+      "fireball", "hammerStrike", "corrode", "lightning", "poisonCloud", "plasmaShock",
+      "alkaliBlast", "metalCrush", "noblePressure", "combustion", "steamBurst", "acidRain",
+      "rust", "explosion", "saltFormation", "carbonBurn", "potassiumWater", "limeFormation",
+      "calciumSteam", "alkaliExplosion", "hydrogenBurn",
+    ]);
+    return impactCards.has(cardId);
+  }
+
   function screenFlash(background) {
     const flash = createNode("ehx-screen-flash", {
       background,
@@ -1220,6 +1372,11 @@ function pressureWaveAt(targetEl, damage = 2) {
     const ctx = resolveEffectContext(context);
     const effect = CARD_EFFECT_MAP[cardId];
     if (!effect) return false;
+
+    showCardCastFlash(cardId, ctx.actorPid);
+    if (shouldShowScreenHit(cardId, ctx)) {
+      showScreenHit(cardId, ctx.targetPid, ctx);
+    }
 
     switch (effect) {
       case "fireball":

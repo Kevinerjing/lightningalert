@@ -2550,6 +2550,11 @@ function getCardEffectContext(cardId, actorPid) {
     sourceSelector: actorDesk,
     targetSelector:
       card.type === "Attack" || card.type === "Reaction" ? targetDesk : actorDesk,
+    actorPid: Number(actorPid),
+    targetPid:
+      card.type === "Attack" || card.type === "Reaction"
+        ? opponentPid
+        : Number(actorPid),
   };
 
   switch (cardId) {
@@ -2749,6 +2754,14 @@ function handleIncomingEffect(effect) {
 
   const ctx = {
     ...fallbackCtx,
+    actorPid,
+    targetPid: Number(
+      effect.targetPid
+      || effect.target
+      || fallbackCtx.targetPid
+      || (forceEnemy ? (actorPid === 1 ? 2 : 1) : actorPid)
+    ),
+    playerId: Number(playerId || 0),
     sourceSelector:
       effect.sourceSelector || fallbackCtx.sourceSelector || getDeskSelectorForPid(actorPid),
     targetSelector: forceEnemy
