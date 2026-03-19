@@ -221,7 +221,6 @@
               </div>
 
               <div class="controls">
-                <button id="endTurnBtn" type="button">End Turn</button>
                 <button class="secondary" id="restartBtn" type="button">Restart Match</button>
               </div>
 
@@ -269,6 +268,7 @@
             </div>
 
             <div class="practice-inline-guide hidden" id="practiceInlineGuide"></div>
+            <div class="status-hint" id="statusHint">Select a card to play.</div>
 
             <div id="player-desk" class="desk-area" data-desk="player"></div>
 
@@ -307,6 +307,11 @@
               <div class="hand-row" id="p1Hand"></div>
             </div>
           </section>
+        </div>
+
+        <div class="floating-turn-ui" id="floatingTurnUi">
+          <div class="floating-turn-meta">Turn Action · Drag to move</div>
+          <button id="endTurnBtn" class="end-turn-btn" type="button">End Turn</button>
         </div>
 
         <!-- ===== SIDE PANEL ===== -->

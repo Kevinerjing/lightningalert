@@ -25,6 +25,18 @@ let soundEnabled = true;
 let soundContext = null;
 let activeMatchSummaryId = "";
 let lastUploadedMatchSummaryId = "";
+let suppressEndTurnClickUntil = 0;
+const FLOATING_TURN_UI_STORAGE_KEY = "heroFloatingTurnUiPos";
+const floatingTurnDragState = {
+  initialized: false,
+  active: false,
+  moved: false,
+  pointerId: null,
+  startX: 0,
+  startY: 0,
+  originLeft: 0,
+  originTop: 0,
+};
 
 const PLAYER_META_STORAGE_KEY = "heroPlayerMeta";
 
@@ -95,6 +107,78 @@ function beginTrackedMatch() {
 
 function clearTrackedMatch() {
   activeMatchSummaryId = "";
+}
+
+function clampFloatingTurnPosition(left, top, elementRect = null) {
+  const width = elementRect?.width || 196;
+  const height = elementRect?.height || 96;
+  const minLeft = 12;
+  const minTop = 86;
+  const maxLeft = Math.max(minLeft, window.innerWidth - width - 12);
+  const maxTop = Math.max(minTop, window.innerHeight - height - 12);
+
+  return {
+    left: Math.min(maxLeft, Math.max(minLeft, left)),
+    top: Math.min(maxTop, Math.max(minTop, top)),
+  };
+}
+
+function saveFloatingTurnUiPosition(left, top) {
+  try {
+    window.localStorage.setItem(
+      FLOATING_TURN_UI_STORAGE_KEY,
+      JSON.stringify({ left: Math.round(left), top: Math.round(top) }),
+    );
+  } catch {}
+}
+
+function loadFloatingTurnUiPosition() {
+  try {
+    const raw = window.localStorage.getItem(FLOATING_TURN_UI_STORAGE_KEY);
+    if (!raw) return null;
+    const parsed = JSON.parse(raw);
+    if (typeof parsed?.left !== "number" || typeof parsed?.top !== "number") return null;
+    return parsed;
+  } catch {
+    return null;
+  }
+}
+
+function setFloatingTurnUiPosition(left, top) {
+  const floatingTurnUi = document.getElementById("floatingTurnUi");
+  if (!floatingTurnUi) return;
+
+  const rect = floatingTurnUi.getBoundingClientRect();
+  const clamped = clampFloatingTurnPosition(left, top, rect);
+  floatingTurnUi.style.left = `${clamped.left}px`;
+  floatingTurnUi.style.top = `${clamped.top}px`;
+}
+
+function positionFloatingTurnUiDefault() {
+  const floatingTurnUi = document.getElementById("floatingTurnUi");
+  if (!floatingTurnUi) return;
+
+  const saved = loadFloatingTurnUiPosition();
+  if (saved) {
+    setFloatingTurnUiPosition(saved.left, saved.top);
+    floatingTurnDragState.initialized = true;
+    return;
+  }
+
+  const mainBoard = document.querySelector(".main-board");
+  const boardRect = mainBoard?.getBoundingClientRect();
+  const uiRect = floatingTurnUi.getBoundingClientRect();
+  const fallbackLeft = window.innerWidth * 0.68;
+  const fallbackTop = window.innerHeight * 0.72;
+  const targetLeft = boardRect
+    ? boardRect.left + Math.max(18, boardRect.width - uiRect.width - 170)
+    : fallbackLeft;
+  const targetTop = boardRect
+    ? boardRect.top + Math.max(120, boardRect.height - uiRect.height - 36)
+    : fallbackTop;
+
+  setFloatingTurnUiPosition(targetLeft, targetTop);
+  floatingTurnDragState.initialized = true;
 }
 
 function updateSoundToggleUI() {
@@ -2390,12 +2474,14 @@ function showLobby() {
   document.getElementById("gamePanel").classList.add("hidden");
   isPracticeMode = false;
   startRoomListAutoRefresh();
+  updateFloatingTurnUi();
 }
 
 function showGame() {
   document.getElementById("lobbyPanel").classList.add("hidden");
   document.getElementById("gamePanel").classList.remove("hidden");
   stopRoomListAutoRefresh();
+  updateFloatingTurnUi();
 }
 
 function showOverlay(title, text, winnerText = "") {
@@ -2928,6 +3014,83 @@ function canPlayCard(card, pid) {
   return (player.energy ?? 0) >= (card.cost ?? 0);
 }
 
+function meetsReactionRequirements(card, player) {
+  const checks = {
+    combustion: ["sulfur", "oxygen"],
+    steamBurst: ["water", "oxygen"],
+    acidRain: ["sulfur", "water"],
+    rust: ["iron", "oxygen"],
+    explosion: ["hydrogen", "oxygen"],
+    saltFormation: ["sodium", "chlorine"],
+    carbonBurn: ["carbon", "oxygen"],
+    potassiumWater: ["potassium", "water"],
+    limeFormation: ["calcium", "water"],
+    calciumSteam: ["calcium", "water"],
+    alkaliExplosion: ["potassium", "oxygen"],
+  };
+
+  const required = checks[card?.id];
+  if (!required) return true;
+  return required.every((requiredCardId) => player?.field?.some((fieldCard) => fieldCard?.id === requiredCardId));
+}
+
+function isCardPlayableNow(card, pid) {
+  const player = gameState?.players?.[pid];
+  const opponentPid = Number(pid) === 1 ? 2 : 1;
+  const opponent = gameState?.players?.[opponentPid];
+  if (!player || !card || !canPlayCard(card, pid)) return false;
+
+  if (card.type === "Element") {
+    return player.field.length < 3;
+  }
+
+  if (card.type === "Reaction") {
+    return meetsReactionRequirements(card, player);
+  }
+
+  if (card.id === "corrode") {
+    return opponent?.statuses?.includes("Corroded") && (opponent?.field?.length || 0) > 0;
+  }
+
+  return true;
+}
+
+function getCardActionConfig(card, zone, index, pid) {
+  const isOwned = Number(pid) === Number(playerId);
+  const isTurn = isMyTurn();
+  if (!isOwned) return [];
+
+  const isHandCard = zone === "hand";
+  const isFieldCard = zone === "field";
+  const playDisabled = !(isTurn && isHandCard && isCardPlayableNow(card, pid));
+  const removeDisabled = !(isTurn && isFieldCard);
+
+  return [
+    {
+      label: "Play",
+      kind: "primary",
+      disabled: playDisabled,
+      onClick: () => {
+        if (playDisabled) return;
+        selectedFieldIndex = null;
+        selectedCardIndex = index;
+        playSelectedCard();
+      },
+    },
+    {
+      label: "Remove",
+      kind: "ghost",
+      disabled: removeDisabled,
+      onClick: () => {
+        if (removeDisabled) return;
+        selectedCardIndex = null;
+        selectedFieldIndex = index;
+        removeSelectedFieldCard();
+      },
+    },
+  ];
+}
+
 function selectCard(index) {
   if (!isMyTurn()) return;
   const player = gameState.players[playerId];
@@ -3001,6 +3164,7 @@ function createCardElement(card, options = {}) {
     selected = false,
     playable = true,
     onClick = null,
+    actions = [],
   } = options;
 
   const el = document.createElement("div");
@@ -3082,6 +3246,28 @@ function createCardElement(card, options = {}) {
   el.appendChild(badge);
   el.appendChild(body);
 
+  if (Array.isArray(actions) && actions.length) {
+    const actionWrap = document.createElement("div");
+    actionWrap.className = "card-actions";
+
+    actions.forEach((actionConfig) => {
+      const actionBtn = document.createElement("button");
+      actionBtn.type = "button";
+      actionBtn.className = `card-action-btn ${actionConfig.kind || "ghost"}`;
+      actionBtn.textContent = actionConfig.label;
+      actionBtn.disabled = !!actionConfig.disabled;
+      actionBtn.addEventListener("click", (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+        if (actionBtn.disabled || typeof actionConfig.onClick !== "function") return;
+        actionConfig.onClick();
+      });
+      actionWrap.appendChild(actionBtn);
+    });
+
+    el.appendChild(actionWrap);
+  }
+
   el.draggable = false;
 
   if (typeof onClick === "function") {
@@ -3146,6 +3332,7 @@ function renderField(containerId, pid) {
       selected: clickable && selectedFieldIndex === index,
       playable: true,
       onClick: clickable ? () => selectFieldCard(index) : null,
+      actions: clickable ? getCardActionConfig(card, "field", index, pid) : [],
     });
     cardEl.dataset.zone = "field";
     cardEl.dataset.index = String(index);
@@ -3248,12 +3435,13 @@ function renderHand(containerId, pid) {
 
   player.hand.forEach((card, index) => {
     const isSelected = selectedCardIndex === index;
-    const playable = canPlayCard(card, pid);
+    const playable = isCardPlayableNow(card, pid);
 
     const cardEl = createCardElement(card, {
       selected: isSelected,
       playable,
       onClick: () => selectCard(index),
+      actions: getCardActionConfig(card, "hand", index, pid),
     });
     cardEl.dataset.zone = "hand";
     cardEl.dataset.index = String(index);
@@ -3324,7 +3512,7 @@ function renderSelectedCardBox() {
       <p style="line-height:1.55;">${escapeHtml(card.text || "")}</p>
       <div style="color: var(--muted);">Cost: ${escapeHtml(String(card.cost || 0))} energy</div>
       ${getSelectedCardScienceHtml(card)}`;
-    playBtn.disabled = !canPlayCard(card, playerId);
+    playBtn.disabled = !isCardPlayableNow(card, playerId);
     return;
   }
 
@@ -3339,6 +3527,42 @@ function renderSelectedCardBox() {
   }
 
   box.textContent = "No card selected.";
+}
+
+function getStatusHintText() {
+  if (!gameState) return "Select a card to play.";
+  if (gameState.winner) {
+    return `Match finished. ${isPracticeMode && gameState.winner === "Player 2" ? "Computer" : gameState.winner} won.`;
+  }
+
+  if (!isMyTurn()) {
+    return isPracticeMode ? "Opponent's turn. Watch the computer's move." : "Opponent's turn.";
+  }
+
+  const player = gameState.players[playerId];
+
+  if (selectedCardIndex !== null && player?.hand?.[selectedCardIndex]) {
+    const card = player.hand[selectedCardIndex];
+    return isCardPlayableNow(card, playerId)
+      ? `Card selected: ${card.name}. Tap Play on the card or use the action panel.`
+      : `Card selected: ${card.name}. It is not ready yet.`;
+  }
+
+  if (selectedFieldIndex !== null && player?.field?.[selectedFieldIndex]) {
+    const card = player.field[selectedFieldIndex];
+    return `Field card selected: ${card.name}. You can remove it to free a slot.`;
+  }
+
+  const hasPlayableMove = player?.hand?.some((card) => isCardPlayableNow(card, playerId));
+  return hasPlayableMove
+    ? "Select a card to play."
+    : "No valid move right now. You can end your turn.";
+}
+
+function renderStatusHint() {
+  const statusHint = document.getElementById("statusHint");
+  if (!statusHint) return;
+  statusHint.textContent = getStatusHintText();
 }
 
 function renderCombatLog() {
@@ -3377,6 +3601,25 @@ function updatePlayerBars(pid) {
   if (discardCount) discardCount.textContent = p.discard.length;
 }
 
+function updateFloatingTurnUi() {
+  const floatingTurnUi = document.getElementById("floatingTurnUi");
+  const endTurnBtn = document.getElementById("endTurnBtn");
+  if (!floatingTurnUi || !endTurnBtn) return;
+
+  if (!gameState || !roomCode) {
+    floatingTurnUi.classList.add("hidden");
+    return;
+  }
+
+  floatingTurnUi.classList.remove("hidden");
+  if (!floatingTurnDragState.initialized) {
+    requestAnimationFrame(positionFloatingTurnUiDefault);
+  }
+  const canEndTurn = isMyTurn();
+  endTurnBtn.disabled = !canEndTurn;
+  floatingTurnUi.classList.toggle("active-turn", canEndTurn);
+}
+
 function render() {
   if (!gameState) return;
 
@@ -3403,6 +3646,7 @@ function render() {
   renderPreview("p1FieldPreview", 1);
   renderPreview("p2FieldPreview", 2);
   renderSelectedCardBox();
+  renderStatusHint();
   renderCombatLog();
   renderPracticeGuide();
   renderPracticeInlineGuide();
@@ -3434,6 +3678,7 @@ function render() {
   if (endTurnBtn) endTurnBtn.disabled = !isMyTurn();
   if (restartBtn) restartBtn.disabled = !isHost;
 
+  updateFloatingTurnUi();
   updateHeaderState();
   updateHostRoomCard();
 }
@@ -3478,6 +3723,7 @@ function clearSelection() {
 }
 
 function endTurn() {
+  if (Date.now() < suppressEndTurnClickUntil) return;
   if (!isMyTurn()) return;
   sendAction("end_turn", {});
 }
@@ -3561,6 +3807,62 @@ function wireSoundInteractions() {
   updateSoundToggleUI();
 }
 
+function wireFloatingTurnUiDrag() {
+  const floatingTurnUi = document.getElementById("floatingTurnUi");
+  if (!floatingTurnUi) return;
+
+  const onPointerMove = (event) => {
+    if (!floatingTurnDragState.active || event.pointerId !== floatingTurnDragState.pointerId) return;
+
+    const dx = event.clientX - floatingTurnDragState.startX;
+    const dy = event.clientY - floatingTurnDragState.startY;
+    if (!floatingTurnDragState.moved && Math.abs(dx) + Math.abs(dy) > 6) {
+      floatingTurnDragState.moved = true;
+      floatingTurnUi.classList.add("dragging");
+    }
+
+    if (!floatingTurnDragState.moved) return;
+    setFloatingTurnUiPosition(
+      floatingTurnDragState.originLeft + dx,
+      floatingTurnDragState.originTop + dy,
+    );
+  };
+
+  const finishDrag = () => {
+    if (!floatingTurnDragState.active) return;
+    floatingTurnUi.classList.remove("dragging");
+
+    if (floatingTurnDragState.moved) {
+      const rect = floatingTurnUi.getBoundingClientRect();
+      saveFloatingTurnUiPosition(rect.left, rect.top);
+      suppressEndTurnClickUntil = Date.now() + 250;
+    }
+
+    floatingTurnDragState.active = false;
+    floatingTurnDragState.moved = false;
+    floatingTurnDragState.pointerId = null;
+  };
+
+  floatingTurnUi.addEventListener("pointerdown", (event) => {
+    if (!(event.target instanceof Element)) return;
+    if (event.button !== 0 && event.pointerType !== "touch") return;
+
+    const rect = floatingTurnUi.getBoundingClientRect();
+    floatingTurnDragState.active = true;
+    floatingTurnDragState.moved = false;
+    floatingTurnDragState.pointerId = event.pointerId;
+    floatingTurnDragState.startX = event.clientX;
+    floatingTurnDragState.startY = event.clientY;
+    floatingTurnDragState.originLeft = rect.left;
+    floatingTurnDragState.originTop = rect.top;
+    floatingTurnUi.setPointerCapture?.(event.pointerId);
+  });
+
+  floatingTurnUi.addEventListener("pointermove", onPointerMove);
+  floatingTurnUi.addEventListener("pointerup", finishDrag);
+  floatingTurnUi.addEventListener("pointercancel", finishDrag);
+}
+
 window.addEventListener("online", () => {
   addConnectionLog("Network back online.");
   if (!isPracticeMode && !manualClose && roomCode && playerId && !socket) {
@@ -3591,11 +3893,35 @@ document.addEventListener("visibilitychange", () => {
   }
 });
 
+document.addEventListener("pointerdown", (event) => {
+  if (!roomCode || !gameState) return;
+  const target = event.target;
+  if (!(target instanceof Element)) return;
+  if (!target.closest("#gamePanel")) return;
+  if (
+    target.closest(".card") ||
+    target.closest(".card-actions") ||
+    target.closest("#playCardBtn") ||
+    target.closest("#removeFieldCardBtn") ||
+    target.closest("#clearSelectionBtn") ||
+    target.closest("#endTurnBtn")
+  ) {
+    return;
+  }
+
+  if (selectedCardIndex !== null || selectedFieldIndex !== null) {
+    clearSelection();
+  }
+});
+
 window.addEventListener("resize", () => {
   const p1Hand = document.getElementById("p1Hand");
   const p2Hand = document.getElementById("p2Hand");
   applyMobileHandBehavior(p1Hand);
   applyMobileHandBehavior(p2Hand);
+  if (roomCode) {
+    requestAnimationFrame(positionFloatingTurnUiDefault);
+  }
 });
 
 const hostBtn = document.getElementById("hostBtn");
@@ -3666,4 +3992,5 @@ showLobby();
 loadPlayerMeta();
 resetLearningState();
 wireSoundInteractions();
+wireFloatingTurnUiDrag();
 addConnectionLog("Ready.");
