@@ -55,7 +55,8 @@ export class GameRoom {
         return jsonInternal({ type: "error", message: "Missing room code." }, 400);
       }
 
-      await this.initializeGameIfNeeded(roomCode);
+      const body = request.method === "POST" ? await safeJson(request) : {};
+      await this.initializeGameIfNeeded(roomCode, body);
       return jsonInternal({ ok: true, roomCode });
     }
 
@@ -209,7 +210,7 @@ export class GameRoom {
   // Room handlers
   // ===========================
 
-  async initializeGameIfNeeded(roomCode) {
+  async initializeGameIfNeeded(roomCode, options = {}) {
     if (this.initialized && this.game && this.meta) return;
 
     const [storedGame, storedMeta] = await Promise.all([
@@ -225,10 +226,16 @@ export class GameRoom {
     }
 
     this.game = createInitialGame();
+    const hostName = normalizeDisplayName(options?.studentName, "Host");
+    const classCode = normalizeClassCode(options?.classCode);
     this.meta = {
       roomCode,
       createdAt: Date.now(),
-      hostName: "Host",
+      hostName,
+      classCode,
+      playerNames: {
+        1: hostName,
+      },
       reservedPlayers: [1],
       connectedPlayers: [],
       closed: false,
@@ -255,6 +262,7 @@ export class GameRoom {
     return {
       code: storedMeta.roomCode,
       hostName: storedMeta.hostName || "Host",
+      classCode: storedMeta.classCode || "",
       playerCount: reservedPlayers.length,
       connectedCount: connectedPlayers.length,
       started,
@@ -276,6 +284,8 @@ export class GameRoom {
 
     const body = await safeJson(request);
     const playerId = Number(body?.playerId);
+    const studentName = normalizeDisplayName(body?.studentName, playerId === 1 ? "Host" : `Player ${playerId}`);
+    const classCode = normalizeClassCode(body?.classCode);
 
     if (playerId !== 1 && playerId !== 2) {
       return jsonInternal({ type: "error", message: "Invalid player." }, 400);
@@ -294,6 +304,13 @@ export class GameRoom {
     }
 
     this.meta.reservedPlayers.push(playerId);
+    if (!this.meta.playerNames || typeof this.meta.playerNames !== "object") {
+      this.meta.playerNames = {};
+    }
+    this.meta.playerNames[playerId] = studentName;
+    if (!this.meta.classCode && classCode) {
+      this.meta.classCode = classCode;
+    }
     await this.persistMeta();
 
     return jsonInternal({ ok: true, roomCode, playerId });
@@ -597,6 +614,7 @@ export default {
 
     try {
       if (request.method === "POST" && url.pathname === "/create-room") {
+        const body = await safeJson(request);
         let roomCode = "";
         let created = false;
 
@@ -608,7 +626,10 @@ export default {
 
           if (existsResponse.status === 404) {
             roomCode = candidate;
-            await stub.fetch(`https://room.internal/init?room=${roomCode}`);
+            await stub.fetch(`https://room.internal/init?room=${roomCode}`, {
+              method: "POST",
+              body: JSON.stringify(body),
+            });
             created = true;
             break;
           }
@@ -665,7 +686,11 @@ export default {
 
         const reserveResponse = await stub.fetch(`https://room.internal/reserve-player?room=${roomCode}`, {
           method: "POST",
-          body: JSON.stringify({ playerId: 2 }),
+          body: JSON.stringify({
+            playerId: 2,
+            studentName: body?.studentName,
+            classCode: body?.classCode,
+          }),
         });
 
         const reserveData = await safeResponseJson(reserveResponse);
@@ -814,6 +839,18 @@ async function safeResponseJson(response) {
   } catch {
     return null;
   }
+}
+
+function normalizeDisplayName(value, fallback = "Host") {
+  const clean = String(value || "").trim().slice(0, 24);
+  return clean || fallback;
+}
+
+function normalizeClassCode(value) {
+  return String(value || "")
+    .toUpperCase()
+    .replace(/[^A-Z0-9-]/g, "")
+    .slice(0, 12);
 }
 
 function generateRoomCode() {

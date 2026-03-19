@@ -7,6 +7,8 @@ let manualClose = false;
 let roomCode = "";
 let playerId = null;
 let isHost = false;
+let studentName = "";
+let classCode = "";
 let gameState = null;
 let previousGameState = null;
 let selectedCardIndex = null;
@@ -22,8 +24,63 @@ let practiceGuideExpanded = false;
 let soundEnabled = true;
 let soundContext = null;
 
+const PLAYER_META_STORAGE_KEY = "heroPlayerMeta";
+
 function getSoundToggleButtons() {
   return [...document.querySelectorAll("[data-sound-toggle]")];
+}
+
+function normalizeStudentName(value) {
+  return String(value || "").trim().slice(0, 24);
+}
+
+function normalizeClassCode(value) {
+  return String(value || "")
+    .toUpperCase()
+    .replace(/[^A-Z0-9-]/g, "")
+    .slice(0, 12);
+}
+
+function savePlayerMeta() {
+  try {
+    window.localStorage.setItem(
+      PLAYER_META_STORAGE_KEY,
+      JSON.stringify({ studentName, classCode }),
+    );
+  } catch {}
+}
+
+function syncPlayerMetaInputs() {
+  const studentNameInput = document.getElementById("studentNameInput");
+  const classCodeInput = document.getElementById("classCodeInput");
+  if (studentNameInput) studentNameInput.value = studentName;
+  if (classCodeInput) classCodeInput.value = classCode;
+}
+
+function loadPlayerMeta() {
+  try {
+    const raw = window.localStorage.getItem(PLAYER_META_STORAGE_KEY);
+    if (!raw) {
+      syncPlayerMetaInputs();
+      return;
+    }
+    const parsed = JSON.parse(raw);
+    studentName = normalizeStudentName(parsed?.studentName);
+    classCode = normalizeClassCode(parsed?.classCode);
+  } catch {
+    studentName = "";
+    classCode = "";
+  }
+  syncPlayerMetaInputs();
+}
+
+function refreshPlayerMetaFromInputs() {
+  const studentNameInput = document.getElementById("studentNameInput");
+  const classCodeInput = document.getElementById("classCodeInput");
+  studentName = normalizeStudentName(studentNameInput?.value);
+  classCode = normalizeClassCode(classCodeInput?.value);
+  syncPlayerMetaInputs();
+  savePlayerMeta();
 }
 
 function updateSoundToggleUI() {
@@ -1543,6 +1600,7 @@ function applyLocalStateUpdate(result = {}, actionLabel = "") {
 
 function startPracticeMode() {
   stopPracticeAi();
+  refreshPlayerMetaFromInputs();
   practiceGuideExpanded = false;
   resetLearningState();
   isPracticeMode = true;
@@ -1561,7 +1619,9 @@ function startPracticeMode() {
   updateHostRoomCard();
   showGame();
   render();
-  addConnectionLog("Practice mode started: 10 HP match versus the computer.");
+  addConnectionLog(
+    `Practice mode started${classCode ? ` for ${classCode}` : ""}: 10 HP match versus the computer.`
+  );
 }
 
 async function runPracticeAiTurn(runId) {
@@ -2019,7 +2079,11 @@ function updateHeaderState() {
     if (connectionPill) connectionPill.textContent = "Practice";
     if (roomPill) roomPill.textContent = "Practice Lab";
     if (gameRoomCodePill) gameRoomCodePill.textContent = "Mode: Practice";
-    if (playerRoleText) playerRoleText.textContent = "You are Player 1 vs Computer";
+    if (playerRoleText) {
+      const studentLabel = studentName ? `${studentName} ` : "";
+      const classLabel = classCode ? ` · ${classCode}` : "";
+      playerRoleText.textContent = `${studentLabel}Player 1 vs Computer${classLabel}`;
+    }
     if (leaveBtn) leaveBtn.textContent = "Leave Practice";
     return;
   }
@@ -2037,9 +2101,12 @@ function updateHeaderState() {
   }
 
   if (playerRoleText) {
-    playerRoleText.textContent = playerId
+    const playerBase = playerId
       ? `You are Player ${playerId}${isHost ? " (Host)" : ""}`
       : "Not in a room";
+    const namePrefix = studentName ? `${studentName} · ` : "";
+    const classSuffix = classCode ? ` · ${classCode}` : "";
+    playerRoleText.textContent = `${namePrefix}${playerBase}${classSuffix}`;
   }
 
   if (leaveBtn) {
@@ -2560,8 +2627,16 @@ async function createRoom() {
   try {
     stopPracticeAi();
     isPracticeMode = false;
+    refreshPlayerMetaFromInputs();
     const response = await fetch(`${WORKER_URL}/create-room`, {
       method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        studentName,
+        classCode,
+      }),
     });
     const data = await response.json();
 
@@ -2579,7 +2654,9 @@ async function createRoom() {
     updateHostRoomCard();
     loadRoomList();
     showGame();
-    addConnectionLog(`Room created: ${roomCode}`);
+    addConnectionLog(
+      `Room created: ${roomCode}${classCode ? ` · Class ${classCode}` : ""}`
+    );
     connectSocket();
   } catch (error) {
     addConnectionLog(`Create Room failed: ${error.message}`);
@@ -2590,6 +2667,7 @@ async function joinRoom() {
   try {
     stopPracticeAi();
     isPracticeMode = false;
+    refreshPlayerMetaFromInputs();
     const code = document.getElementById("joinCodeInput").value.trim().toUpperCase();
 
     if (!code) {
@@ -2601,7 +2679,11 @@ async function joinRoom() {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ roomCode: code }),
+      body: JSON.stringify({
+        roomCode: code,
+        studentName,
+        classCode,
+      }),
     });
 
     const data = await response.json();
@@ -2620,7 +2702,9 @@ async function joinRoom() {
     updateHostRoomCard();
     loadRoomList();
     showGame();
-    addConnectionLog(`Joined room: ${roomCode}`);
+    addConnectionLog(
+      `Joined room: ${roomCode}${classCode ? ` · Class ${classCode}` : ""}`
+    );
     connectSocket();
   } catch (error) {
     addConnectionLog(`Join Room failed: ${error.message}`);
@@ -3214,7 +3298,10 @@ function render() {
   const selfPlayerName = document.getElementById("selfPlayerName");
   const enemyPlayerName = document.getElementById("enemyPlayerName");
   if (selfPlayerName) {
-    selfPlayerName.textContent = isPracticeMode ? "Player 1 - Practice Deck" : "Player 1 - Combustion Deck";
+    const selfLabel = studentName || "Player 1";
+    selfPlayerName.textContent = isPracticeMode
+      ? `${selfLabel} - Practice Deck`
+      : `${selfLabel} - Combustion Deck`;
   }
   if (enemyPlayerName) {
     enemyPlayerName.textContent = isPracticeMode ? "Computer - Science Bot" : "Player 2 - Corrosion Deck";
@@ -3439,6 +3526,8 @@ const leaveBtn = document.getElementById("leaveBtn");
 const overlayBtn = document.getElementById("overlayBtn");
 const refreshRoomsBtn = document.getElementById("refreshRoomsBtn");
 const joinCodeInput = document.getElementById("joinCodeInput");
+const studentNameInput = document.getElementById("studentNameInput");
+const classCodeInput = document.getElementById("classCodeInput");
 const closeTutorialBtn = document.getElementById("closeTutorialBtn");
 
 if (hostBtn) hostBtn.addEventListener("click", createRoom);
@@ -3454,6 +3543,20 @@ if (leaveBtn) leaveBtn.addEventListener("click", leaveRoom);
 if (overlayBtn) overlayBtn.addEventListener("click", hideOverlay);
 if (refreshRoomsBtn) refreshRoomsBtn.addEventListener("click", loadRoomList);
 if (closeTutorialBtn) closeTutorialBtn.addEventListener("click", hideTutorial);
+
+if (studentNameInput) {
+  studentNameInput.addEventListener("change", refreshPlayerMetaFromInputs);
+  studentNameInput.addEventListener("blur", refreshPlayerMetaFromInputs);
+}
+
+if (classCodeInput) {
+  classCodeInput.addEventListener("input", () => {
+    classCode = normalizeClassCode(classCodeInput.value);
+    classCodeInput.value = classCode;
+  });
+  classCodeInput.addEventListener("change", refreshPlayerMetaFromInputs);
+  classCodeInput.addEventListener("blur", refreshPlayerMetaFromInputs);
+}
 
 if (joinCodeInput) {
   joinCodeInput.addEventListener("keydown", (event) => {
@@ -3475,6 +3578,7 @@ if (tutorialOverlay) {
 updateHeaderState();
 updateHostRoomCard();
 showLobby();
+loadPlayerMeta();
 resetLearningState();
 wireSoundInteractions();
 addConnectionLog("Ready.");
