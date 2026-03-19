@@ -72,25 +72,6 @@
     shield: "shieldGlow",
   };
 
-  const SCREEN_HIT_LABELS = {
-    fireball: "FIREBALL!",
-    combustion: "BOOM!",
-    explosion: "BOOM!",
-    alkaliExplosion: "BOOM!",
-    steamBurst: "STEAM BURST!",
-    calciumSteam: "STEAM!",
-    acidRain: "ACID RAIN!",
-    lightning: "LIGHTNING STRIKE!",
-    plasmaShock: "PLASMA SHOCK!",
-    poisonCloud: "TOXIC HIT!",
-    rust: "RUST!",
-    hammerStrike: "SMASH!",
-    metalCrush: "CRUSH!",
-    alkaliBlast: "BLAST!",
-    carbonBurn: "BURN!",
-    corrode: "CORRODE!",
-  };
-
   function getFxLayer() {
     return document.getElementById("fx-layer") || document.body;
   }
@@ -159,27 +140,6 @@
         100% { opacity: 0; transform: scale(1.24); }
       }
 
-      .screen-hit-text {
-        position: fixed;
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%, -50%);
-        padding: 14px 18px;
-        border-radius: 999px;
-        background: rgba(7, 18, 29, 0.84);
-        border: 1px solid rgba(139, 247, 255, 0.28);
-        color: #ecfbff;
-        font-size: 28px;
-        font-weight: 900;
-        letter-spacing: 0.12em;
-        text-transform: uppercase;
-        text-shadow:
-          0 0 18px rgba(139,247,255,0.28),
-          0 2px 18px rgba(0,0,0,0.32);
-        box-shadow: 0 18px 36px rgba(0,0,0,0.28);
-        animation: ehxScreenHitText 0.7s ease-out forwards;
-      }
-
       .screen-hit-effect.lightning-hit {
         background:
           radial-gradient(circle, rgba(255,255,255,0.95) 0%, rgba(210,245,255,0.78) 10%, rgba(148,232,255,0.34) 26%, rgba(94,184,255,0.14) 42%, rgba(0,0,0,0) 74%);
@@ -187,19 +147,6 @@
           0 0 40px rgba(180, 240, 255, 0.34),
           0 0 120px rgba(110, 185, 255, 0.28),
           0 0 220px rgba(80, 130, 255, 0.14);
-      }
-
-      .screen-hit-text.lightning-hit {
-        background: rgba(8, 14, 30, 0.88);
-        border-color: rgba(169, 230, 255, 0.44);
-        color: #f2fbff;
-        text-shadow:
-          0 0 20px rgba(170,230,255,0.42),
-          0 0 40px rgba(120,170,255,0.24),
-          0 2px 18px rgba(0,0,0,0.32);
-        box-shadow:
-          0 0 0 1px rgba(169, 230, 255, 0.16),
-          0 18px 36px rgba(0,0,0,0.28);
       }
 
       @keyframes ehxScreenHitText {
@@ -689,7 +636,7 @@
         inset: 0;
         pointer-events: none;
         background:
-          radial-gradient(circle at center, rgba(15, 30, 15, 0.12) 0%, rgba(6, 10, 10, 0.3) 52%, rgba(0, 0, 0, 0.58) 100%);
+          radial-gradient(circle at center, rgba(35, 45, 12, 0.16) 0%, rgba(10, 16, 10, 0.34) 50%, rgba(0, 0, 0, 0.68) 100%);
         animation: ehxCorrodeDarkwash 0.9s ease-out forwards;
         z-index: 10009;
       }
@@ -709,10 +656,10 @@
         border-radius: 50%;
         pointer-events: none;
         background:
-          radial-gradient(circle at 46% 44%, rgba(244,255,160,0.96) 0%, rgba(140,255,80,0.92) 18%, rgba(44,220,74,0.72) 38%, rgba(5, 60, 20, 0.16) 66%, rgba(0,0,0,0) 100%);
+          radial-gradient(circle at 46% 44%, rgba(255,255,190,0.98) 0%, rgba(238,255,82,0.96) 14%, rgba(163,255,58,0.9) 26%, rgba(58,230,66,0.74) 42%, rgba(7, 62, 20, 0.2) 68%, rgba(0,0,0,0) 100%);
         box-shadow:
-          0 0 40px rgba(120,255,80,0.42),
-          0 0 96px rgba(50,180,60,0.22);
+          0 0 42px rgba(214,255,72,0.45),
+          0 0 110px rgba(72,210,62,0.24);
         animation: ehxCorrodeSplash 0.8s ease-out forwards;
         z-index: 10013;
       }
@@ -728,8 +675,10 @@
         border-radius: 50% 50% 60% 40%;
         pointer-events: none;
         background:
-          radial-gradient(circle at 32% 28%, rgba(244,255,180,0.95) 0%, rgba(120,255,80,0.92) 30%, rgba(44,220,74,0.62) 60%, rgba(0,0,0,0) 100%);
-        box-shadow: 0 0 18px rgba(120,255,80,0.38);
+          radial-gradient(circle at 32% 28%, rgba(255,255,210,0.96) 0%, rgba(236,255,102,0.92) 22%, rgba(122,255,70,0.88) 44%, rgba(54,214,76,0.6) 68%, rgba(0,0,0,0) 100%);
+        box-shadow:
+          0 0 14px rgba(214,255,72,0.38),
+          0 0 24px rgba(118,255,88,0.24);
         animation: ehxCorrodeDrop 0.76s ease-out forwards;
         z-index: 10014;
       }
@@ -745,8 +694,8 @@
         border-radius: 50%;
         pointer-events: none;
         background:
-          radial-gradient(circle, rgba(170,255,120,0.4) 0%, rgba(56,170,70,0.18) 42%, rgba(0,0,0,0) 100%);
-        filter: blur(6px);
+          radial-gradient(circle, rgba(205,255,110,0.46) 0%, rgba(84,212,74,0.22) 26%, rgba(36,46,30,0.2) 54%, rgba(0,0,0,0) 100%);
+        filter: blur(8px);
         animation: ehxCorrodeVapor 1.4s ease-out forwards;
         z-index: 10011;
       }
@@ -762,10 +711,11 @@
         border-radius: 50%;
         pointer-events: none;
         background:
-          radial-gradient(circle at 42% 38%, rgba(26,26,26,0.98) 0%, rgba(10,10,10,0.94) 46%, rgba(70,40,18,0.52) 68%, rgba(0,0,0,0) 100%);
+          radial-gradient(circle at 42% 38%, rgba(18,18,18,1) 0%, rgba(8,8,8,0.96) 44%, rgba(102,255,72,0.28) 58%, rgba(88,42,18,0.5) 72%, rgba(0,0,0,0) 100%);
         box-shadow:
           inset 0 0 12px rgba(0,0,0,0.85),
-          0 0 12px rgba(80,40,18,0.3);
+          0 0 12px rgba(98,255,72,0.2),
+          0 0 18px rgba(80,40,18,0.28);
         animation: ehxCorrodeHole 1.15s ease-out forwards;
         z-index: 10015;
       }
@@ -984,24 +934,16 @@ function getDefaultElement(side) {
     removeLater(flash, 520);
   }
 
-  function getScreenHitLabel(cardId) {
-    return SCREEN_HIT_LABELS[cardId] || "HIT!";
-  }
-
   function showScreenHit(cardId, targetPid, context = {}) {
     const currentPlayerId = Number(window.playerId || context.playerId || 0);
     if (!targetPid || currentPlayerId !== Number(targetPid)) return;
 
     const layer = getFxLayer();
     const burst = createNode("screen-hit-effect", {}, layer);
-    const label = createNode("screen-hit-text", {}, layer);
     if (cardId === "lightning") {
       burst.classList.add("lightning-hit");
-      label.classList.add("lightning-hit");
     }
-    label.textContent = getScreenHitLabel(cardId);
     removeLater(burst, 560);
-    removeLater(label, 760);
   }
 
   function shouldShowScreenHit(cardId, ctx) {
@@ -1369,6 +1311,8 @@ function pressureWaveAt(targetEl, damage = 2) {
       removeLater(vapor, 1450);
     }
 
+    smokeAt(targetEl, 10);
+
     for (let i = 0; i < 5; i += 1) {
       const size = random(16, 34);
       const hole = createNode("ehx-corrode-hole", {
@@ -1381,7 +1325,7 @@ function pressureWaveAt(targetEl, damage = 2) {
     }
 
     screenFlash(
-      "radial-gradient(circle, rgba(170,255,120,0.14), rgba(12,36,12,0.14), rgba(0,0,0,0.38))"
+      "radial-gradient(circle, rgba(236,255,102,0.16), rgba(42,92,18,0.18), rgba(0,0,0,0.45))"
     );
   }
 
