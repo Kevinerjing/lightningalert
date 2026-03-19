@@ -366,7 +366,7 @@
           <div class="title">Element Heroes Tutorial</div>
           <div class="subtitle">Learn the rules, reactions, and strategy before you play</div>
         </div>
-        <div class="pill">Version 0.3.2</div>
+        <div class="pill" id="tutorialVersionPill">Version --</div>
       </div>
 
       <div class="content">
@@ -376,10 +376,11 @@
             <div class="hero-text">
               Element Heroes is a 2-player chemistry battle game. You place element cards on your field,
               use reaction cards when the correct elements are ready, and attack your opponent with smart combos.
-              To win, reduce the other playerâ€™s HP to 0 before they defeat you.
+              To win, reduce the other player's HP to 0 before they defeat you.
             </div>
             <div class="controls">
               <a class="btn" href="index.html">Back to Game</a>
+              <a class="btn ghost" href="changelog.html">Release Notes</a>
               <button class="secondary" id="jumpQuizBtn">Try Mini Quiz</button>
             </div>
           </div>
@@ -473,7 +474,7 @@
               <div class="step">
                 <div class="step-num">D</div>
                 <div>
-                  <strong>Utility cards help you survive</strong>
+                  <strong>Utility cards help your side</strong>
                   <p>Catalyst gives extra energy. Lab Shield heals HP.</p>
                 </div>
               </div>
@@ -581,13 +582,26 @@
       </div>
 
       <div class="footer">
-        <div>Director: Eric Jing Â· Manager: Kevin Jing Â· Digital Worker: AI</div>
-        <div>Element Heroes Tutorial Page</div>
+        <div>Director: Eric Jing ¡¤ Manager: Kevin Jing ¡¤ Digital Worker: AI</div>
+        <div id="tutorialFooterVersion">Element Heroes Tutorial Page - Version --</div>
       </div>
     </div>
   </div>
 
+  <script src="release-data.js"></script>
   <script>
+    const latestRelease = window.HERO_CURRENT_RELEASE;
+    const tutorialVersionPill = document.getElementById("tutorialVersionPill");
+    const tutorialFooterVersion = document.getElementById("tutorialFooterVersion");
+
+    if (latestRelease && tutorialVersionPill) {
+      tutorialVersionPill.textContent = `Version ${latestRelease.version}`;
+    }
+
+    if (latestRelease && tutorialFooterVersion) {
+      tutorialFooterVersion.textContent = `Element Heroes Tutorial Page - Version ${latestRelease.version}`;
+    }
+
     const quizData = [
       {
         question: "What do you need before using a reaction card?",
@@ -655,12 +669,12 @@
         const btn = document.createElement("button");
         btn.className = "quiz-option";
         btn.textContent = option;
-        btn.addEventListener("click", () => chooseAnswer(i, btn));
+        btn.addEventListener("click", () => chooseAnswer(i));
         optionsEl.appendChild(btn);
       });
     }
 
-    function chooseAnswer(index, clickedBtn) {
+    function chooseAnswer(index) {
       if (answered) return;
       answered = true;
 
@@ -675,8 +689,8 @@
 
       resultEl.textContent =
         index === item.answer
-          ? "Correct. " + item.explanation
-          : "Not quite. " + item.explanation;
+          ? `Correct. ${item.explanation}`
+          : `Not quite. ${item.explanation}`;
     }
 
     nextBtn.addEventListener("click", () => {
@@ -692,3 +706,4 @@
   </script>
 </body>
 </html>
+
