@@ -747,6 +747,140 @@ function renderPracticeGuide() {
   `).join("");
 }
 
+function getPracticeGuideTarget() {
+  if (!isPracticeMode || !gameState || !playerId || !gameState.players?.[playerId]) return null;
+
+  const player = gameState.players[playerId];
+  const selectedHandCard = selectedCardIndex !== null ? player.hand?.[selectedCardIndex] : null;
+  const hasSelectedAnyCard =
+    selectedCardIndex !== null || selectedFieldIndex !== null || player.field.length > 0 || player.discard.length > 0;
+  const hasPlacedElement =
+    player.field.some((card) => card.type === "Element") || player.discard.some((card) => card.type === "Element");
+  const hasUsedAction =
+    player.discard.some((card) => ["Reaction", "Attack", "Utility"].includes(card.type));
+  const hasEndedTurn = gameState.turn > 1 || gameState.currentPlayer === 2;
+  const playableElementIndex = player.hand.findIndex((card) => card.type === "Element" && canPlayCard(card, playerId));
+  const playableReactionIndex = player.hand.findIndex((card) => card.type === "Reaction" && canPlayCard(card, playerId) && resolveLocalReactionPreview(card, player).ok);
+  const playableAttackIndex = player.hand.findIndex((card) => card.type === "Attack" && canPlayCard(card, playerId) && resolveLocalAttackPreview(card, player, gameState.players[2]).ok);
+  const lightningIndex = player.hand.findIndex((card) => card.id === "lightning" && canPlayCard(card, playerId));
+  const enemyIsWet = gameState.players[2]?.statuses?.includes("Wet");
+
+  if (!hasSelectedAnyCard) {
+    return playableElementIndex >= 0
+      ? { kind: "hand-card", index: playableElementIndex }
+      : player.hand.length
+        ? { kind: "hand-card", index: 0 }
+        : null;
+  }
+
+  if (!hasPlacedElement) {
+    if (selectedHandCard?.type === "Element") {
+      return { kind: "button", id: "playCardBtn" };
+    }
+    if (playableElementIndex >= 0) {
+      return { kind: "hand-card", index: playableElementIndex };
+    }
+    return { kind: "button", id: "endTurnBtn" };
+  }
+
+  if (!hasUsedAction) {
+    if (selectedHandCard && ["Reaction", "Attack", "Utility"].includes(selectedHandCard.type) && canPlayCard(selectedHandCard, playerId)) {
+      return { kind: "button", id: "playCardBtn" };
+    }
+    if (enemyIsWet && lightningIndex >= 0) {
+      return { kind: "hand-card", index: lightningIndex };
+    }
+    if (playableReactionIndex >= 0) {
+      return { kind: "hand-card", index: playableReactionIndex };
+    }
+    if (playableAttackIndex >= 0) {
+      return { kind: "hand-card", index: playableAttackIndex };
+    }
+    return { kind: "button", id: "endTurnBtn" };
+  }
+
+  if (!hasEndedTurn) {
+    return { kind: "button", id: "endTurnBtn" };
+  }
+
+  if (gameState.currentPlayer === 2 && !gameState.winner) {
+    return { kind: "panel", id: "combatLog" };
+  }
+
+  return null;
+}
+
+function applyPracticeGuideHighlights() {
+  document.querySelectorAll(".guide-focus").forEach((node) => node.classList.remove("guide-focus"));
+
+  if (!isPracticeMode) return;
+
+  const target = getPracticeGuideTarget();
+  if (!target) return;
+
+  if (target.kind === "button" && target.id) {
+    document.getElementById(target.id)?.classList.add("guide-focus");
+    return;
+  }
+
+  if (target.kind === "panel" && target.id) {
+    document.getElementById(target.id)?.classList.add("guide-focus");
+    return;
+  }
+
+  if (target.kind === "hand-card") {
+    const cardEl = document.querySelector(`#p1Hand [data-zone="hand"][data-index="${target.index}"]`);
+    cardEl?.classList.add("guide-focus");
+  }
+}
+
+function getPracticeGuideTargetLabel(target) {
+  if (!target || !gameState || !playerId || !gameState.players?.[playerId]) return "Follow the side guide.";
+
+  const player = gameState.players[playerId];
+
+  if (target.kind === "hand-card") {
+    const card = player.hand?.[target.index];
+    return card ? `Try ${card.name} next.` : "Choose the highlighted card next.";
+  }
+
+  if (target.kind === "button") {
+    const labels = {
+      playCardBtn: "Click Play Selected Card.",
+      endTurnBtn: "Click End Turn.",
+      clearSelectionBtn: "Click Clear Selection.",
+    };
+    return labels[target.id] || "Use the highlighted button next.";
+  }
+
+  if (target.kind === "panel") {
+    return "Watch the highlighted panel for the computer's move.";
+  }
+
+  return "Follow the highlighted next step.";
+}
+
+function renderPracticeInlineGuide() {
+  const inlineGuide = document.getElementById("practiceInlineGuide");
+  if (!inlineGuide) return;
+
+  if (!isPracticeMode) {
+    inlineGuide.classList.add("hidden");
+    inlineGuide.innerHTML = "";
+    return;
+  }
+
+  const guide = getPracticeGuideStatus();
+  const target = getPracticeGuideTarget();
+  const targetLabel = getPracticeGuideTargetLabel(target);
+
+  inlineGuide.classList.remove("hidden");
+  inlineGuide.innerHTML = `
+    <strong>Next Move:</strong> ${escapeHtml(targetLabel)}
+    <div>${escapeHtml(guide.body)}</div>
+  `;
+}
+
 function cloneCard(cardId) {
   return JSON.parse(JSON.stringify(CARD_LIBRARY[cardId]));
 }
@@ -1653,6 +1787,7 @@ function resetLearningState() {
   renderScienceInsight();
   renderScienceReasonLog();
   renderPracticeGuide();
+  renderPracticeInlineGuide();
   hideEndOfGameScienceSummary();
 }
 
@@ -2687,13 +2822,15 @@ function renderField(containerId, pid) {
   const clickable = Number(pid) === Number(playerId) && isMyTurn();
 
   player.field.forEach((card, index) => {
-    container.appendChild(
-      createCardElement(card, {
-        selected: clickable && selectedFieldIndex === index,
-        playable: true,
-        onClick: clickable ? () => selectFieldCard(index) : null,
-      })
-    );
+    const cardEl = createCardElement(card, {
+      selected: clickable && selectedFieldIndex === index,
+      playable: true,
+      onClick: clickable ? () => selectFieldCard(index) : null,
+    });
+    cardEl.dataset.zone = "field";
+    cardEl.dataset.index = String(index);
+    cardEl.dataset.cardId = card.id || "";
+    container.appendChild(cardEl);
   });
 
   for (let i = player.field.length; i < 3; i += 1) {
@@ -2793,13 +2930,15 @@ function renderHand(containerId, pid) {
     const isSelected = selectedCardIndex === index;
     const playable = canPlayCard(card, pid);
 
-    container.appendChild(
-      createCardElement(card, {
-        selected: isSelected,
-        playable,
-        onClick: () => selectCard(index),
-      })
-    );
+    const cardEl = createCardElement(card, {
+      selected: isSelected,
+      playable,
+      onClick: () => selectCard(index),
+    });
+    cardEl.dataset.zone = "hand";
+    cardEl.dataset.index = String(index);
+    cardEl.dataset.cardId = card.id || "";
+    container.appendChild(cardEl);
   });
 
   if (!player.hand.length) {
@@ -2943,6 +3082,8 @@ function render() {
   renderSelectedCardBox();
   renderCombatLog();
   renderPracticeGuide();
+  renderPracticeInlineGuide();
+  applyPracticeGuideHighlights();
 
   const turnPill = document.getElementById("turnPill");
   const turnBanner = document.getElementById("turnBanner");
