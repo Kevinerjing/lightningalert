@@ -950,6 +950,10 @@ button.small-btn {
   font-size: 13px;
 }
 
+.sound-toggle-btn {
+  min-width: 96px;
+}
+
 button:disabled {
   opacity: 0.45;
   cursor: not-allowed;

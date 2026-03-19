@@ -19,6 +19,140 @@ let isPracticeMode = false;
 let practiceAiTimer = null;
 let practiceAiRunId = 0;
 let practiceGuideExpanded = false;
+let soundEnabled = true;
+let soundContext = null;
+
+function getSoundToggleButtons() {
+  return [...document.querySelectorAll("[data-sound-toggle]")];
+}
+
+function updateSoundToggleUI() {
+  getSoundToggleButtons().forEach((button) => {
+    button.textContent = soundEnabled ? "Sound: On" : "Sound: Off";
+  });
+}
+
+function getSoundContext() {
+  const AudioCtor = window.AudioContext || window.webkitAudioContext;
+  if (!AudioCtor) return null;
+  if (!soundContext) {
+    soundContext = new AudioCtor();
+  }
+  if (soundContext.state === "suspended") {
+    soundContext.resume().catch(() => {});
+  }
+  return soundContext;
+}
+
+function playTone({ frequency = 440, duration = 0.12, type = "sine", gain = 0.03, delay = 0, frequencyEnd = null }) {
+  if (!soundEnabled) return;
+  const ctx = getSoundContext();
+  if (!ctx) return;
+
+  const start = ctx.currentTime + delay;
+  const end = start + duration;
+  const oscillator = ctx.createOscillator();
+  const gainNode = ctx.createGain();
+
+  oscillator.type = type;
+  oscillator.frequency.setValueAtTime(frequency, start);
+  if (typeof frequencyEnd === "number") {
+    oscillator.frequency.exponentialRampToValueAtTime(Math.max(1, frequencyEnd), end);
+  }
+
+  gainNode.gain.setValueAtTime(0.0001, start);
+  gainNode.gain.exponentialRampToValueAtTime(gain, start + 0.02);
+  gainNode.gain.exponentialRampToValueAtTime(0.0001, end);
+
+  oscillator.connect(gainNode);
+  gainNode.connect(ctx.destination);
+  oscillator.start(start);
+  oscillator.stop(end + 0.01);
+}
+
+function playUiSound(kind) {
+  if (kind === "button") {
+    playTone({ frequency: 620, frequencyEnd: 760, duration: 0.05, type: "triangle", gain: 0.018 });
+    return;
+  }
+  if (kind === "error") {
+    playTone({ frequency: 280, frequencyEnd: 180, duration: 0.16, type: "sawtooth", gain: 0.03 });
+    return;
+  }
+  if (kind === "win") {
+    playTone({ frequency: 523, duration: 0.08, type: "triangle", gain: 0.026 });
+    playTone({ frequency: 659, duration: 0.08, type: "triangle", gain: 0.026, delay: 0.09 });
+    playTone({ frequency: 784, duration: 0.16, type: "triangle", gain: 0.028, delay: 0.18 });
+    return;
+  }
+  if (kind === "draw") {
+    playTone({ frequency: 392, duration: 0.08, type: "triangle", gain: 0.02 });
+    playTone({ frequency: 440, duration: 0.08, type: "triangle", gain: 0.02, delay: 0.09 });
+    return;
+  }
+}
+
+function playCardSound(cardId, effect = {}) {
+  if (!cardId) return;
+
+  const reactionIds = new Set([
+    "combustion", "steamBurst", "acidRain", "rust", "explosion", "saltFormation",
+    "carbonBurn", "potassiumWater", "limeFormation", "calciumSteam", "alkaliExplosion",
+  ]);
+  const attackIds = new Set([
+    "fireball", "hammerStrike", "corrode", "lightning", "poisonCloud", "plasmaShock",
+    "alkaliBlast", "metalCrush", "noblePressure",
+  ]);
+  const utilityIds = new Set(["catalyst", "shield"]);
+
+  if (cardId === "lightning") {
+    playTone({ frequency: 980, frequencyEnd: 480, duration: 0.08, type: "sawtooth", gain: 0.03 });
+    playTone({ frequency: effect.enemyWet ? 1320 : 1100, frequencyEnd: 520, duration: 0.07, type: "square", gain: 0.024, delay: 0.04 });
+    return;
+  }
+
+  if (cardId === "steamBurst" || cardId === "calciumSteam") {
+    playTone({ frequency: 420, frequencyEnd: 820, duration: 0.16, type: "triangle", gain: 0.028 });
+    return;
+  }
+
+  if (cardId === "combustion" || cardId === "explosion" || cardId === "alkaliExplosion") {
+    playTone({ frequency: 180, frequencyEnd: 80, duration: 0.18, type: "sawtooth", gain: 0.035 });
+    playTone({ frequency: 520, frequencyEnd: 220, duration: 0.12, type: "square", gain: 0.018, delay: 0.03 });
+    return;
+  }
+
+  if (cardId === "poisonCloud" || cardId === "acidRain" || cardId === "rust") {
+    playTone({ frequency: 260, frequencyEnd: 180, duration: 0.16, type: "triangle", gain: 0.024 });
+    return;
+  }
+
+  if (attackIds.has(cardId)) {
+    playTone({ frequency: 460, frequencyEnd: 280, duration: 0.09, type: "square", gain: 0.024 });
+    return;
+  }
+
+  if (reactionIds.has(cardId)) {
+    playTone({ frequency: 340, frequencyEnd: 520, duration: 0.12, type: "triangle", gain: 0.024 });
+    return;
+  }
+
+  if (utilityIds.has(cardId)) {
+    playTone({ frequency: 700, duration: 0.08, type: "sine", gain: 0.02 });
+    playTone({ frequency: 900, duration: 0.1, type: "sine", gain: 0.016, delay: 0.06 });
+    return;
+  }
+
+  playTone({ frequency: 520, duration: 0.07, type: "triangle", gain: 0.018 });
+}
+
+function toggleSound() {
+  soundEnabled = !soundEnabled;
+  updateSoundToggleUI();
+  if (soundEnabled) {
+    playUiSound("button");
+  }
+}
 
 const PRACTICE_ROOM_CODE = "PRACTICE";
 const PRACTICE_DECKS = {
@@ -2133,6 +2267,12 @@ function showOverlay(title, text, winnerText = "") {
     winner.classList.add("hidden");
   }
 
+  if (title === "Action Rejected") {
+    playUiSound("error");
+  } else if (title === "Match Over") {
+    playUiSound(winnerText === "It is a draw." ? "draw" : "win");
+  }
+
   document.getElementById("gameOverlay").classList.remove("hidden");
 }
 
@@ -2281,6 +2421,8 @@ function triggerEffectForCard(cardId, actorPid) {
   const ctx = getCardEffectContext(cardId, actorPid);
   if (!ctx) return;
 
+  playCardSound(cardId, ctx);
+
   try {
     window.playCardEffect(cardId, ctx);
   } catch (error) {
@@ -2400,6 +2542,8 @@ function handleIncomingEffect(effect) {
   if (card?.type === "Utility" || card?.type === "Element") {
     ctx.targetSelector = effect.targetSelector || fallbackCtx.targetSelector || getSelfDeskSelector();
   }
+
+  playCardSound(cardId, ctx);
 
   if (hasEffectSystem()) {
     try {
@@ -3225,6 +3369,26 @@ function togglePracticeGuideDetails() {
   renderPracticeGuide();
 }
 
+function wireSoundInteractions() {
+  document.addEventListener("click", (event) => {
+    const button = event.target.closest("button, a.btn, .tutorial-btn");
+    if (!button) return;
+
+    getSoundContext();
+
+    if (button.matches("[data-sound-toggle]")) {
+      toggleSound();
+      return;
+    }
+
+    if (!button.disabled) {
+      playUiSound("button");
+    }
+  });
+
+  updateSoundToggleUI();
+}
+
 window.addEventListener("online", () => {
   addConnectionLog("Network back online.");
   if (!isPracticeMode && !manualClose && roomCode && playerId && !socket) {
@@ -3312,4 +3476,5 @@ updateHeaderState();
 updateHostRoomCard();
 showLobby();
 resetLearningState();
+wireSoundInteractions();
 addConnectionLog("Ready.");
