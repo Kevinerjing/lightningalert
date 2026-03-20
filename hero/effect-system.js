@@ -711,6 +711,49 @@
         100% { opacity: 0; transform: scale(1.18); }
       }
 
+      .ehx-hammer-crack {
+        position: fixed;
+        width: 190px;
+        height: 190px;
+        margin-left: -95px;
+        margin-top: -95px;
+        pointer-events: none;
+        opacity: 0;
+        animation: ehxHammerCrackIn 0.34s ease-out forwards;
+        z-index: 10014;
+      }
+
+      @keyframes ehxHammerCrackIn {
+        0% { opacity: 0; transform: scale(0.72); }
+        20% { opacity: 0.92; transform: scale(1); }
+        100% { opacity: 0.68; transform: scale(1); }
+      }
+
+      .ehx-hammer-crack svg {
+        width: 100%;
+        height: 100%;
+      }
+
+      .ehx-hammer-gravel {
+        position: fixed;
+        width: 12px;
+        height: 10px;
+        pointer-events: none;
+        background: linear-gradient(180deg, #b1aba4, #6c6865);
+        clip-path: polygon(14% 24%, 57% 0, 100% 22%, 87% 76%, 41% 100%, 0 76%);
+        opacity: 0.96;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+        animation: ehxHammerGravelFly 0.72s cubic-bezier(.15,.75,.2,1) forwards;
+        z-index: 10015;
+      }
+
+      @keyframes ehxHammerGravelFly {
+        0% { opacity: 0; transform: translate(0, 0) rotate(0deg) scale(0.88); }
+        16% { opacity: 1; }
+        45% { opacity: 1; transform: translate(calc(var(--dx) * 0.7), var(--peak)) rotate(var(--rot)) scale(1); }
+        100% { opacity: 0; transform: translate(var(--dx), calc(var(--peak) + 76px)) rotate(calc(var(--rot) + 70deg)) scale(0.84); }
+      }
+
       .ehx-corrode-beam {
         position: fixed;
         width: 150px;
@@ -1167,6 +1210,40 @@ function getDefaultElement(side) {
     setTimeout(() => {
       el.style.transform = "";
     }, keyframes.length * 36 + 20);
+  }
+
+  function hammerCrackAt(x, y) {
+    const crack = createNode("ehx-hammer-crack", {
+      left: `${x}px`,
+      top: `${y + 42}px`,
+    });
+    crack.innerHTML = `
+      <svg viewBox="0 0 200 200" fill="none">
+        <path d="M100 100 L78 84 L57 60" stroke="rgba(215,210,202,0.95)" stroke-width="3" stroke-linecap="round"/>
+        <path d="M100 100 L112 76 L136 48" stroke="rgba(215,210,202,0.95)" stroke-width="3" stroke-linecap="round"/>
+        <path d="M100 100 L68 110 L35 114" stroke="rgba(215,210,202,0.95)" stroke-width="3" stroke-linecap="round"/>
+        <path d="M100 100 L126 112 L166 124" stroke="rgba(215,210,202,0.95)" stroke-width="3" stroke-linecap="round"/>
+        <path d="M100 100 L92 126 L84 162" stroke="rgba(215,210,202,0.95)" stroke-width="3" stroke-linecap="round"/>
+        <path d="M100 100 L112 132 L126 166" stroke="rgba(215,210,202,0.95)" stroke-width="3" stroke-linecap="round"/>
+        <path d="M78 84 L71 71 L61 54" stroke="rgba(215,210,202,0.75)" stroke-width="2" stroke-linecap="round"/>
+        <path d="M126 112 L148 110 L177 104" stroke="rgba(215,210,202,0.75)" stroke-width="2" stroke-linecap="round"/>
+        <path d="M92 126 L70 134 L58 150" stroke="rgba(215,210,202,0.75)" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+    `;
+    removeLater(crack, 650);
+  }
+
+  function hammerGravelAt(x, y, count = 12) {
+    for (let i = 0; i < count; i += 1) {
+      const gravel = createNode("ehx-hammer-gravel", {
+        left: `${x}px`,
+        top: `${y}px`,
+        "--dx": `${random(-105, 105)}px`,
+        "--peak": `${random(-70, -24)}px`,
+        "--rot": `${random(-180, 180)}deg`,
+      });
+      removeLater(gravel, 860);
+    }
   }
 
   function floatText(x, y, text, options = {}) {
@@ -1839,6 +1916,8 @@ function pressureWaveAt(targetEl, damage = 2) {
       removeLater(burst, 220);
       removeLater(hit, 300);
       removeLater(ring, 440);
+      hammerCrackAt(x, y);
+      hammerGravelAt(x, y + 14, 14);
 
       if (targetEl) {
         targetEl.style.transition = "transform 45ms ease-out";
@@ -1869,16 +1948,7 @@ function pressureWaveAt(targetEl, damage = 2) {
 
     setTimeout(() => {
       dustAt(targetEl, 10);
-      for (let i = 0; i < 8; i += 1) {
-        const debris = createNode("ehx-rock-dust", {
-          left: `${x}px`,
-          top: `${y + 18}px`,
-          "--dx": `${random(-78, 78)}px`,
-          "--dy": `${random(-18, 46)}px`,
-          "--rot": `${random(-160, 160)}deg`,
-        });
-        removeLater(debris, 520);
-      }
+      hammerGravelAt(x, y + 18, 8);
     }, 255);
   }
 
