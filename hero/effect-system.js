@@ -647,63 +647,122 @@
         100% { opacity: 0; }
       }
 
-      .ehx-corrode-splash {
+      .corrode-liquid {
         position: fixed;
-        width: 220px;
-        height: 220px;
-        margin-left: -110px;
-        margin-top: -110px;
-        border-radius: 50%;
         pointer-events: none;
+        border-radius: 43% 57% 50% 50% / 54% 41% 59% 46%;
         background:
-          radial-gradient(circle at 46% 44%, rgba(255,255,190,0.98) 0%, rgba(238,255,82,0.96) 14%, rgba(163,255,58,0.9) 26%, rgba(58,230,66,0.74) 42%, rgba(7, 62, 20, 0.2) 68%, rgba(0,0,0,0) 100%);
+          radial-gradient(circle at 34% 30%, rgba(252,255,174,0.96) 0%, rgba(221,255,92,0.92) 16%, rgba(112,233,64,0.84) 42%, rgba(40,136,42,0.58) 74%, rgba(8,42,18,0.76) 100%);
         box-shadow:
-          0 0 42px rgba(214,255,72,0.45),
-          0 0 110px rgba(72,210,62,0.24);
-        animation: ehxCorrodeSplash 0.8s ease-out forwards;
+          inset 0 0 34px rgba(255,255,180,0.22),
+          inset 0 0 70px rgba(38,96,26,0.38),
+          0 0 18px rgba(198,255,98,0.34),
+          0 0 44px rgba(78,180,64,0.18);
+        filter: blur(2px) saturate(1.12);
+        transform-origin: center;
+        animation: corrodeLiquidSpread 1s cubic-bezier(.2,.78,.18,1) forwards;
         z-index: 10013;
       }
 
-      @keyframes ehxCorrodeSplash {
-        0% { opacity: 0; transform: scale(0.3) rotate(-8deg); }
-        18% { opacity: 1; transform: scale(0.92) rotate(0deg); }
-        100% { opacity: 0; transform: scale(1.45) rotate(10deg); }
-      }
-
-      .ehx-corrode-drop {
-        position: fixed;
-        border-radius: 50% 50% 60% 40%;
-        pointer-events: none;
+      .corrode-liquid::before {
+        content: "";
+        position: absolute;
+        inset: 10% 14% 18% 12%;
+        border-radius: 52% 48% 61% 39% / 42% 58% 44% 56%;
         background:
-          radial-gradient(circle at 32% 28%, rgba(255,255,210,0.96) 0%, rgba(236,255,102,0.92) 22%, rgba(122,255,70,0.88) 44%, rgba(54,214,76,0.6) 68%, rgba(0,0,0,0) 100%);
-        box-shadow:
-          0 0 14px rgba(214,255,72,0.38),
-          0 0 24px rgba(118,255,88,0.24);
-        animation: ehxCorrodeDrop 0.76s ease-out forwards;
-        z-index: 10014;
+          radial-gradient(circle at 40% 36%, rgba(255,255,210,0.34) 0%, rgba(220,255,130,0.24) 24%, rgba(120,220,88,0.08) 56%, rgba(0,0,0,0) 100%);
+        filter: blur(4px);
+        opacity: 0.9;
       }
 
-      @keyframes ehxCorrodeDrop {
-        0% { opacity: 0; transform: scale(0.55) translate(0, 0); }
-        16% { opacity: 1; }
-        100% { opacity: 0; transform: scale(0.92) translate(var(--dx), var(--dy)); }
+      .corrode-liquid::after {
+        content: "";
+        position: absolute;
+        inset: -4% -3% -2% -5%;
+        border-radius: 58% 42% 47% 53% / 44% 56% 40% 60%;
+        background:
+          radial-gradient(circle at 62% 58%, rgba(0,0,0,0) 0%, rgba(26,76,28,0.08) 42%, rgba(9,26,12,0.42) 78%, rgba(0,0,0,0.18) 100%);
+        filter: blur(5px);
+        opacity: 0.95;
       }
 
-      .ehx-corrode-vapor {
+      @keyframes corrodeLiquidSpread {
+        0% {
+          opacity: 0;
+          transform: scale(0.22) rotate(-7deg);
+          filter: blur(5px) saturate(1.05);
+        }
+        18% {
+          opacity: 1;
+          transform: scale(0.62) rotate(-3deg);
+        }
+        66% {
+          opacity: 0.96;
+          transform: scale(1.02) rotate(2deg);
+          filter: blur(2px) saturate(1.18);
+        }
+        100% {
+          opacity: 0;
+          transform: scale(1.18) rotate(6deg);
+          filter: blur(3px) saturate(1.05);
+        }
+      }
+
+      .corrode-bubble {
         position: fixed;
+        pointer-events: none;
         border-radius: 50%;
-        pointer-events: none;
         background:
-          radial-gradient(circle, rgba(205,255,110,0.46) 0%, rgba(84,212,74,0.22) 26%, rgba(36,46,30,0.2) 54%, rgba(0,0,0,0) 100%);
-        filter: blur(8px);
-        animation: ehxCorrodeVapor 1.4s ease-out forwards;
+          radial-gradient(circle at 34% 30%, rgba(252,255,210,0.95) 0%, rgba(223,255,118,0.88) 18%, rgba(108,228,78,0.72) 54%, rgba(26,88,34,0.16) 100%);
+        box-shadow:
+          inset 0 0 8px rgba(255,255,220,0.28),
+          0 0 10px rgba(188,255,120,0.24);
+        animation: corrodeBubblePop 0.9s ease-out forwards;
+        z-index: 10015;
+      }
+
+      @keyframes corrodeBubblePop {
+        0% {
+          opacity: 0;
+          transform: scale(0.3) translateY(8px);
+        }
+        18% {
+          opacity: 1;
+          transform: scale(0.92) translateY(0);
+        }
+        72% {
+          opacity: 0.92;
+          transform: scale(1.08) translateY(-4px);
+        }
+        100% {
+          opacity: 0;
+          transform: scale(1.36) translateY(-10px);
+        }
+      }
+
+      .corrode-smoke {
+        position: fixed;
+        pointer-events: none;
+        border-radius: 50%;
+        background:
+          radial-gradient(circle, rgba(194,255,118,0.24) 0%, rgba(88,170,72,0.2) 26%, rgba(24,40,22,0.26) 56%, rgba(0,0,0,0) 100%);
+        filter: blur(10px);
+        animation: corrodeSmokeRise 1.05s ease-out forwards;
         z-index: 10011;
       }
 
-      @keyframes ehxCorrodeVapor {
-        0% { opacity: 0; transform: translateY(10px) scale(0.56); }
-        18% { opacity: 1; }
-        100% { opacity: 0; transform: translateY(-56px) scale(1.22); }
+      @keyframes corrodeSmokeRise {
+        0% {
+          opacity: 0;
+          transform: translateY(12px) scale(0.58);
+        }
+        20% {
+          opacity: 1;
+        }
+        100% {
+          opacity: 0;
+          transform: translateY(-46px) scale(1.2);
+        }
       }
 
       .ehx-corrode-hole {
@@ -1279,53 +1338,48 @@ function pressureWaveAt(targetEl, damage = 2) {
   }
 
   function corrodeAt(targetEl) {
-    const { x, y } = rectCenter(targetEl);
+    const { rect, x, y } = rectCenter(targetEl);
     const darkwash = createNode("ehx-corrode-darkwash");
     const pulse = createNode("ehx-corrode-beam", {
       left: `${x}px`,
       top: `${y}px`,
     });
-    const splash = createNode("ehx-corrode-splash", {
-      left: `${x}px`,
-      top: `${y}px`,
-    });
-    const fog = createNode("ehx-poison-fog", {
-      left: `${x}px`,
-      top: `${y + 12}px`,
-      background:
-        "radial-gradient(circle, rgba(130,255,120,0.34) 0%, rgba(46,160,64,0.2) 35%, rgba(6,22,10,0.08) 60%, rgba(0,0,0,0) 100%)",
+    const liquidWidth = Math.max(180, Math.min(280, rect.width + 70));
+    const liquidHeight = Math.max(120, Math.min(190, rect.height + 34));
+    const liquid = createNode("corrode-liquid", {
+      width: `${liquidWidth}px`,
+      height: `${liquidHeight}px`,
+      left: `${x - liquidWidth / 2}px`,
+      top: `${y - liquidHeight / 2 + 8}px`,
     });
 
     removeLater(darkwash, 920);
     removeLater(pulse, 840);
-    removeLater(splash, 860);
-    removeLater(fog, 1180);
+    removeLater(liquid, 1040);
 
-    for (let i = 0; i < 9; i += 1) {
-      const size = random(18, 34);
-      const drop = createNode("ehx-corrode-drop", {
+    for (let i = 0; i < 12; i += 1) {
+      const size = random(14, 28);
+      const bubble = createNode("corrode-bubble", {
         width: `${size}px`,
         height: `${size * random(0.8, 1.2)}px`,
-        left: `${x - size / 2}px`,
-        top: `${y - size / 2}px`,
-        "--dx": `${random(-90, 90)}px`,
-        "--dy": `${random(-50, 110)}px`,
+        left: `${x + random(-liquidWidth * 0.34, liquidWidth * 0.34) - size / 2}px`,
+        top: `${y + random(-liquidHeight * 0.18, liquidHeight * 0.28) - size / 2}px`,
       });
-      removeLater(drop, 820);
+      removeLater(bubble, 940);
     }
 
-    for (let i = 0; i < 10; i += 1) {
-      const size = random(34, 72);
-      const vapor = createNode("ehx-corrode-vapor", {
+    for (let i = 0; i < 8; i += 1) {
+      const size = random(44, 88);
+      const vapor = createNode("corrode-smoke", {
         width: `${size}px`,
         height: `${size * random(0.8, 1.3)}px`,
-        left: `${x + random(-70, 70) - size / 2}px`,
-        top: `${y + random(-6, 40) - size / 2}px`,
+        left: `${x + random(-liquidWidth * 0.32, liquidWidth * 0.32) - size / 2}px`,
+        top: `${y + random(-8, liquidHeight * 0.12) - size / 2}px`,
       });
-      removeLater(vapor, 1450);
+      removeLater(vapor, 1080);
     }
 
-    smokeAt(targetEl, 10);
+    smokeAt(targetEl, 5);
 
     for (let i = 0; i < 5; i += 1) {
       const size = random(16, 34);
