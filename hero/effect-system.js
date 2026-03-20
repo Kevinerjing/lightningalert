@@ -851,7 +851,7 @@
         margin-top: -60px;
         transform-origin: center;
         opacity: 0;
-        animation: corrodeLiquidSpread 0.76s cubic-bezier(.12,.75,.15,1) forwards;
+        animation: corrodeLiquidSpread 2.4s cubic-bezier(.12,.75,.15,1) forwards;
         z-index: 10013;
       }
 
@@ -893,7 +893,7 @@
           radial-gradient(circle at 35% 35%, rgba(255,255,220,.9), rgba(200,255,120,.75) 35%, rgba(124,255,54,.35) 70%, rgba(124,255,54,0) 72%);
         box-shadow:
           0 0 10px rgba(124,255,54,.25);
-        animation: corrodeBubblePop 0.8s ease-out forwards;
+        animation: corrodeBubblePop 1.9s ease-out forwards;
         z-index: 10015;
       }
 
@@ -910,7 +910,7 @@
         background:
           radial-gradient(circle at 50% 50%, rgba(160,255,120,.28), rgba(120,255,120,.12) 48%, rgba(120,255,120,0) 72%);
         filter: blur(10px);
-        animation: corrodeSmokeRise 0.7s ease-out forwards;
+        animation: corrodeSmokeRise 2.2s ease-out forwards;
         z-index: 10011;
       }
 
@@ -931,7 +931,7 @@
         filter:
           drop-shadow(0 0 18px rgba(140,255,80,.28))
           drop-shadow(0 0 38px rgba(70,255,40,.18));
-        animation: corrodeSplatIn 0.52s cubic-bezier(.15,.85,.2,1) forwards;
+        animation: corrodeSplatIn 1.25s cubic-bezier(.15,.85,.2,1) forwards;
         z-index: 10014;
       }
 
@@ -974,7 +974,7 @@
         background:
           radial-gradient(circle at 50% 50%, rgba(236,255,160,.6), rgba(124,255,54,.3) 45%, rgba(124,255,54,0) 75%);
         filter: blur(4px);
-        animation: corrodeImpactFlash 0.2s ease-out forwards;
+        animation: corrodeImpactFlash 0.5s ease-out forwards;
         mix-blend-mode: screen;
         z-index: 10016;
       }
@@ -1039,7 +1039,7 @@
         margin-top: -55px;
         pointer-events: none;
         opacity: 0;
-        animation: corrodeStainFade 1.2s ease-out forwards;
+        animation: corrodeStainFade 4s ease-out forwards;
         z-index: 10010;
       }
 
@@ -1423,12 +1423,12 @@ function getDefaultElement(side) {
         { transform: "translate(-50%, -50%) translate(0,34px)", opacity: 0.95, offset: 0.75 },
         { transform: "translate(-50%, -50%) translate(0,48px)", opacity: 0, offset: 1 },
       ], {
-        duration: 420 + idx * 80,
-        delay: 180 + idx * 50,
+        duration: 1200 + idx * 180,
+        delay: 700 + idx * 220,
         easing: "ease-in",
         fill: "forwards",
       });
-      removeLater(drip, 900);
+      removeLater(drip, 2600);
     });
   }
 
@@ -1449,12 +1449,12 @@ function getDefaultElement(side) {
         { transform: `translate(-50%, -50%) translate(${dx}px, ${dy}px) rotate(${rot + 40}deg) scale(1)`, opacity: .95, offset: .55 },
         { transform: `translate(-50%, -50%) translate(${dx * 1.15}px, ${dy + 40}px) rotate(${rot + 80}deg) scale(.8)`, opacity: 0 },
       ], {
-        duration: 520 + Math.random() * 140,
+        duration: 1200 + Math.random() * 420,
         easing: "cubic-bezier(.15,.75,.2,1)",
         fill: "forwards",
       });
 
-      removeLater(droplet, 820);
+      removeLater(droplet, 2000);
     }
   }
 
@@ -1772,11 +1772,11 @@ function pressureWaveAt(targetEl, damage = 2) {
       top: `${y + 30}px`,
     });
 
-    removeLater(darkwash, 920);
-    removeLater(flash, 220);
-    removeLater(splat, 560);
-    removeLater(liquid, 1040);
-    removeLater(stain, 1250);
+      removeLater(darkwash, 2200);
+      removeLater(flash, 520);
+      removeLater(splat, 1320);
+      removeLater(liquid, 2480);
+      removeLater(stain, 4000);
 
     for (let i = 0; i < 12; i += 1) {
       const size = random(12, 18);
@@ -1793,12 +1793,12 @@ function pressureWaveAt(targetEl, damage = 2) {
         { transform: `translate(${drift * 0.35}px, -${rise * 0.35}px) scale(.9)`, opacity: 0.95, offset: 0.35 },
         { transform: `translate(${drift}px, -${rise}px) scale(1.1)`, opacity: 0, offset: 1 },
       ], {
-        duration: 520 + Math.random() * 220,
-        delay: Math.random() * 220,
+        duration: 1300 + Math.random() * 500,
+        delay: Math.random() * 900,
         easing: "ease-out",
         fill: "forwards",
       });
-      removeLater(bubble, 1000);
+      removeLater(bubble, 2400);
     }
 
     for (let i = 0; i < 3; i += 1) {
@@ -1816,12 +1816,12 @@ function pressureWaveAt(targetEl, damage = 2) {
         { transform: `translate(${dx * 0.4}px, ${dy * 0.4}px) scale(1)`, opacity: 0.8, offset: 0.25 },
         { transform: `translate(${dx}px, ${dy}px) scale(1.35)`, opacity: 0, offset: 1 },
       ], {
-        duration: 520 + Math.random() * 180,
-        delay: 60 + Math.random() * 120,
+        duration: 1500 + Math.random() * 500,
+        delay: 220 + Math.random() * 800,
         easing: "ease-out",
         fill: "forwards",
       });
-      removeLater(vapor, 900);
+      removeLater(vapor, 2800);
     }
 
     corrodeDripsAt(x, y + 36);
