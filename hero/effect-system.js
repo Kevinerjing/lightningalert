@@ -117,6 +117,37 @@
         100% { opacity: 0; transform: scale(1.08); }
       }
 
+      .card-cast-flash.hammer-cast {
+        border-color: rgba(236, 242, 248, 0.88);
+        background:
+          radial-gradient(circle at center, rgba(255,255,255,0.34), rgba(214,224,234,0.12) 48%, rgba(0,0,0,0) 100%);
+        box-shadow:
+          0 0 0 2px rgba(255,255,255,0.12),
+          0 0 24px rgba(214,224,236,0.16),
+          inset 0 0 18px rgba(255,255,255,0.18);
+      }
+
+      .ehx-hammer-cast-trail {
+        position: fixed;
+        width: 96px;
+        height: 18px;
+        margin-left: -48px;
+        margin-top: -9px;
+        border-radius: 999px;
+        pointer-events: none;
+        background:
+          linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(245,248,252,0.94) 45%, rgba(170,188,205,0.32) 78%, rgba(0,0,0,0) 100%);
+        box-shadow: 0 0 12px rgba(240,245,250,0.16);
+        animation: ehxHammerCastTrail 0.28s ease-out forwards;
+        z-index: 10018;
+      }
+
+      @keyframes ehxHammerCastTrail {
+        0% { opacity: 0; transform: translateX(-12px) scaleX(0.4); }
+        22% { opacity: 1; transform: translateX(0) scaleX(1); }
+        100% { opacity: 0; transform: translateX(24px) scaleX(1.08); }
+      }
+
       .screen-hit-effect {
         position: fixed;
         left: 50%;
@@ -607,6 +638,268 @@
         100% { opacity: 0; transform: scale(1.25); }
       }
 
+      .ehx-hammer-shadow {
+        position: fixed;
+        width: 200px;
+        height: 300px;
+        margin-left: -100px;
+        margin-top: -240px;
+        pointer-events: none;
+        filter: blur(1px);
+        opacity: 0.88;
+        animation: ehxHammerShadowDrop 0.48s cubic-bezier(.18,.82,.2,1) forwards;
+        z-index: 10016;
+      }
+
+      .ehx-hammer-shadow::before {
+        content: "";
+        position: absolute;
+        left: 50%;
+        top: 112px;
+        width: 28px;
+        height: 168px;
+        margin-left: -14px;
+        border-radius: 14px;
+        background: linear-gradient(180deg, rgba(40,46,54,0.82), rgba(16,18,22,0.92));
+      }
+
+      .ehx-hammer-shadow::after {
+        content: "";
+        position: absolute;
+        left: 50%;
+        top: 54px;
+        width: 150px;
+        height: 92px;
+        margin-left: -75px;
+        border-radius: 26px;
+        background: linear-gradient(180deg, rgba(26,30,36,0.9), rgba(8,10,12,0.95));
+        box-shadow: 0 10px 20px rgba(0,0,0,0.18);
+      }
+
+      @keyframes ehxHammerShadowDrop {
+        0%   { opacity: 0; transform: translateY(-150px) scale(0.8); }
+        32%  { opacity: 0.92; transform: translateY(0) scale(1); }
+        100% { opacity: 0; transform: translateY(18px) scale(1.02); }
+      }
+
+      .ehx-impact-flash {
+        position: fixed;
+        width: 260px;
+        height: 160px;
+        margin-left: -130px;
+        margin-top: -80px;
+        pointer-events: none;
+        background:
+          linear-gradient(90deg, rgba(0,0,0,0) 0%, rgba(255,255,255,0.96) 16%, rgba(240,246,252,0.5) 40%, rgba(170,188,205,0.12) 68%, rgba(0,0,0,0) 100%);
+        box-shadow:
+          0 0 28px rgba(255,255,255,0.22),
+          0 0 82px rgba(202,220,238,0.12);
+        clip-path: polygon(8% 54%, 22% 34%, 44% 46%, 58% 22%, 74% 44%, 94% 38%, 82% 64%, 100% 82%, 70% 72%, 54% 100%, 38% 76%, 16% 86%);
+        animation: ehxImpactFlash 0.22s ease-out forwards;
+        z-index: 10017;
+      }
+
+      @keyframes ehxImpactFlash {
+        0%   { opacity: 0; transform: scale(0.35) rotate(-10deg); }
+        20%  { opacity: 1; transform: scale(0.98) rotate(-2deg); }
+        100% { opacity: 0; transform: scale(1.16) rotate(6deg); }
+      }
+
+      .ehx-hammer-slam-plate {
+        position: fixed;
+        width: 220px;
+        height: 74px;
+        margin-left: -110px;
+        margin-top: -37px;
+        pointer-events: none;
+        border-radius: 22px;
+        background:
+          linear-gradient(180deg, rgba(238,244,250,0.98), rgba(164,176,190,0.92));
+        box-shadow:
+          inset 0 -8px 14px rgba(76,86,96,0.34),
+          0 8px 18px rgba(0,0,0,0.18),
+          0 0 18px rgba(220,230,240,0.16);
+        clip-path: polygon(8% 0, 92% 0, 100% 28%, 92% 100%, 8% 100%, 0 28%);
+        animation: ehxHammerSlamPlate 0.32s cubic-bezier(.18,.82,.22,1) forwards;
+        z-index: 10018;
+      }
+
+      @keyframes ehxHammerSlamPlate {
+        0%   { opacity: 0; transform: translateY(-120px) scale(0.86); }
+        55%  { opacity: 1; transform: translateY(0) scale(1); }
+        100% { opacity: 0; transform: translateY(10px) scale(1.02); }
+      }
+
+      .ehx-hammer-impact-lines {
+        position: fixed;
+        width: 260px;
+        height: 160px;
+        margin-left: -130px;
+        margin-top: -20px;
+        pointer-events: none;
+        z-index: 10016;
+        animation: ehxHammerImpactLines 0.34s ease-out forwards;
+      }
+
+      .ehx-hammer-impact-lines::before,
+      .ehx-hammer-impact-lines::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          linear-gradient(100deg, transparent 0 14%, rgba(235,240,246,0.9) 14% 15.5%, transparent 15.5% 32%, rgba(235,240,246,0.86) 32% 33.2%, transparent 33.2% 54%, rgba(235,240,246,0.84) 54% 55.1%, transparent 55.1% 100%);
+        clip-path: polygon(6% 18%, 38% 40%, 46% 34%, 54% 44%, 68% 36%, 94% 18%, 82% 62%, 62% 58%, 46% 84%, 26% 60%, 14% 66%);
+      }
+
+      .ehx-hammer-impact-lines::after {
+        transform: scaleX(-1);
+        opacity: 0.72;
+      }
+
+      @keyframes ehxHammerImpactLines {
+        0%   { opacity: 0; transform: scale(0.6); }
+        20%  { opacity: 1; transform: scale(1); }
+        100% { opacity: 0; transform: scale(1.14); }
+      }
+
+      .ehx-ground-crack {
+        position: fixed;
+        width: 240px;
+        height: 140px;
+        margin-left: -120px;
+        margin-top: -16px;
+        pointer-events: none;
+        z-index: 10015;
+        animation: ehxGroundCrackFade 0.58s ease-out forwards;
+      }
+
+      .ehx-ground-crack::before,
+      .ehx-ground-crack::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          linear-gradient(100deg, transparent 0 15%, rgba(24,28,34,0.86) 15% 17%, transparent 17% 36%, rgba(24,28,34,0.82) 36% 38%, transparent 38% 60%, rgba(24,28,34,0.84) 60% 62%, transparent 62% 100%);
+        clip-path: polygon(0 62%, 24% 48%, 38% 60%, 54% 42%, 66% 58%, 84% 46%, 100% 62%, 100% 100%, 0 100%);
+      }
+
+      .ehx-ground-crack::after {
+        transform: scaleX(-1) translateY(10px);
+        opacity: 0.72;
+      }
+
+      @keyframes ehxGroundCrackFade {
+        0%   { opacity: 0; transform: scaleX(0.55) scaleY(0.72); }
+        24%  { opacity: 1; transform: scaleX(1) scaleY(1); }
+        100% { opacity: 0; transform: scaleX(1.08) scaleY(1.02); }
+      }
+
+      .ehx-rock-dust {
+        position: fixed;
+        width: 12px;
+        height: 12px;
+        pointer-events: none;
+        border-radius: 38%;
+        background: linear-gradient(135deg, rgba(232,236,240,0.92), rgba(132,142,152,0.62));
+        animation: ehxRockDust 0.58s ease-out forwards;
+        z-index: 10014;
+      }
+
+      @keyframes ehxRockDust {
+        0%   { opacity: 0; transform: scale(0.45) translate(0, 0) rotate(0deg); }
+        18%  { opacity: 1; }
+        100% { opacity: 0; transform: scale(1) translate(var(--dx), var(--dy)) rotate(var(--rot)); }
+      }
+
+      .ehx-metal-crush {
+        position: fixed;
+        width: 230px;
+        height: 230px;
+        margin-left: -115px;
+        margin-top: -115px;
+        pointer-events: none;
+        border-radius: 34%;
+        background:
+          radial-gradient(circle at 50% 50%, rgba(255,255,255,0.95) 0%, rgba(225,235,245,0.34) 22%, rgba(110,130,150,0.12) 40%, rgba(0,0,0,0) 70%);
+        box-shadow:
+          inset 0 0 26px rgba(255,255,255,0.24),
+          0 0 24px rgba(200,220,235,0.18);
+        animation: ehxMetalCrushCore 0.46s ease-out forwards;
+        z-index: 10013;
+      }
+
+      .ehx-metal-crush::before,
+      .ehx-metal-crush::after {
+        content: "";
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: 200px;
+        height: 32px;
+        margin-left: -100px;
+        margin-top: -16px;
+        border-radius: 999px;
+        background:
+          linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.92) 48%, rgba(255,255,255,0) 100%);
+        box-shadow: 0 0 16px rgba(255,255,255,0.22);
+        animation: ehxMetalCrushBar 0.38s ease-out forwards;
+      }
+
+      .ehx-metal-crush::after {
+        transform: rotate(90deg);
+      }
+
+      @keyframes ehxMetalCrushCore {
+        0%   { opacity: 0; transform: scale(0.35) rotate(-8deg); }
+        22%  { opacity: 1; transform: scale(0.96) rotate(0deg); }
+        100% { opacity: 0; transform: scale(1.18) rotate(4deg); }
+      }
+
+      @keyframes ehxMetalCrushBar {
+        0%   { opacity: 0; transform: scaleX(0.3); }
+        20%  { opacity: 1; transform: scaleX(1); }
+        100% { opacity: 0; transform: scaleX(1.12); }
+      }
+
+      .ehx-metal-crush-ring {
+        position: fixed;
+        width: 120px;
+        height: 120px;
+        margin-left: -60px;
+        margin-top: -60px;
+        border-radius: 50%;
+        border: 8px solid rgba(214, 226, 238, 0.9);
+        box-shadow:
+          0 0 18px rgba(235,245,255,0.22),
+          inset 0 0 10px rgba(255,255,255,0.18);
+        pointer-events: none;
+        animation: ehxMetalCrushRing 0.48s ease-out forwards;
+        z-index: 10012;
+      }
+
+      @keyframes ehxMetalCrushRing {
+        0%   { opacity: 0.95; transform: scale(0.35); }
+        100% { opacity: 0; transform: scale(2.4); }
+      }
+
+      .ehx-metal-shard {
+        position: fixed;
+        width: 18px;
+        height: 12px;
+        pointer-events: none;
+        background: linear-gradient(135deg, rgba(255,255,255,0.92), rgba(160,176,194,0.52));
+        clip-path: polygon(0 50%, 28% 0, 100% 22%, 72% 100%, 12% 84%);
+        box-shadow: 0 0 10px rgba(210,230,240,0.2);
+        animation: ehxMetalShardFly 0.62s ease-out forwards;
+        z-index: 10014;
+      }
+
+      @keyframes ehxMetalShardFly {
+        0%   { opacity: 0; transform: scale(0.55) translate(0, 0) rotate(0deg); }
+        16%  { opacity: 1; }
+        100% { opacity: 0; transform: scale(1) translate(var(--dx), var(--dy)) rotate(var(--rot)); }
+      }
+
       .ehx-corrode-beam {
         position: fixed;
         width: 150px;
@@ -990,6 +1283,14 @@ function getDefaultElement(side) {
       width: `${rect.width + 8}px`,
       height: `${rect.height + 8}px`,
     }, getFxLayer());
+    if (cardId === "hammerStrike") {
+      flash.classList.add("hammer-cast");
+      const trail = createNode("ehx-hammer-cast-trail", {
+        left: `${rect.left + rect.width * 0.72}px`,
+        top: `${rect.top + rect.height * 0.44}px`,
+      }, getFxLayer());
+      removeLater(trail, 340);
+    }
     removeLater(flash, 520);
   }
 
@@ -1007,6 +1308,7 @@ function getDefaultElement(side) {
 
   function shouldShowScreenHit(cardId, ctx) {
     if (!ctx || Number(ctx.actorPid) === Number(ctx.targetPid)) return false;
+    if (cardId === "hammerStrike") return false;
     const impactCards = new Set([
       "fireball", "hammerStrike", "corrode", "lightning", "poisonCloud", "plasmaShock",
       "alkaliBlast", "metalCrush", "noblePressure", "combustion", "steamBurst", "acidRain",
@@ -1655,46 +1957,114 @@ function pressureWaveAt(targetEl, damage = 2) {
 
   function metalCrushAt(targetEl, damage = 3) {
     const { x, y } = rectCenter(targetEl);
-    metalImpactAt(targetEl, damage);
+    const crush = createNode("ehx-metal-crush", {
+      left: `${x}px`,
+      top: `${y}px`,
+    });
+    const ring = createNode("ehx-metal-crush-ring", {
+      left: `${x}px`,
+      top: `${y}px`,
+    });
+    removeLater(crush, 500);
+    removeLater(ring, 520);
+
     setTimeout(() => {
       const hit = createNode("ehx-metal-hit", {
-        left: `${x + 24}px`,
-        top: `${y - 12}px`,
-        transform: "scale(0.9) rotate(18deg)",
+        left: `${x}px`,
+        top: `${y}px`,
+        transform: "scale(0.92) rotate(14deg)",
       });
-      removeLater(hit, 340);
-    }, 70);
-    dustAt(targetEl, 12);
+      removeLater(hit, 320);
+    }, 40);
+
+    for (let i = 0; i < 10; i += 1) {
+      const shard = createNode("ehx-metal-shard", {
+        left: `${x}px`,
+        top: `${y}px`,
+        "--dx": `${random(-110, 110)}px`,
+        "--dy": `${random(-80, 90)}px`,
+        "--rot": `${random(-220, 220)}deg`,
+      });
+      removeLater(shard, 660);
+    }
+
+    dustAt(targetEl, 18);
     screenFlash(
-      "radial-gradient(circle, rgba(255,255,255,0.12), rgba(160,180,200,0.06), rgba(0,0,0,0))"
+      "radial-gradient(circle, rgba(255,255,255,0.16), rgba(170,190,210,0.08), rgba(0,0,0,0))"
     );
+    setTimeout(() => {
+      if (targetEl) {
+        targetEl.style.transition = "transform 90ms ease-out";
+        targetEl.style.transform = "scale(0.94)";
+      }
+    }, 25);
+    setTimeout(() => {
+      if (targetEl) {
+        targetEl.style.transform = "";
+      }
+    }, 150);
+    setTimeout(() => showDamage(targetEl, damage, "#e8edf3"), 95);
   }
 
   function hammerStrikeAt(targetEl, damage = 2) {
     const { x, y } = rectCenter(targetEl);
-    const hit = createNode("ehx-metal-hit", {
+    const shadow = createNode("ehx-hammer-shadow", {
       left: `${x}px`,
-      top: `${y}px`,
-      transform: "scale(0.84) rotate(-10deg)",
+      top: `${y - 8}px`,
     });
-    removeLater(hit, 340);
+    removeLater(shadow, 540);
+
     setTimeout(() => {
-      const spark = createNode("ehx-air-ring", {
+      const plate = createNode("ehx-hammer-slam-plate", {
+        left: `${x}px`,
+        top: `${y - 6}px`,
+      });
+      const flash = createNode("ehx-impact-flash", {
         left: `${x}px`,
         top: `${y}px`,
-        width: "82px",
-        height: "82px",
-        marginLeft: "-41px",
-        marginTop: "-41px",
-        borderColor: "rgba(255,255,255,0.78)",
-        borderWidth: "4px",
       });
-      removeLater(spark, 520);
-    }, 50);
-    screenFlash(
-      "radial-gradient(circle, rgba(255,255,255,0.14), rgba(220,228,235,0.04), rgba(0,0,0,0))"
-    );
-    setTimeout(() => showDamage(targetEl, damage, "#f1f5f9"), 80);
+      const lines = createNode("ehx-hammer-impact-lines", {
+        left: `${x}px`,
+        top: `${y + 18}px`,
+      });
+      const crack = createNode("ehx-ground-crack", {
+        left: `${x}px`,
+        top: `${y + 42}px`,
+      });
+      removeLater(plate, 360);
+      removeLater(flash, 260);
+      removeLater(lines, 360);
+      removeLater(crack, 620);
+    }, 150);
+
+    setTimeout(() => {
+      for (let i = 0; i < 12; i += 1) {
+        const debris = createNode("ehx-rock-dust", {
+          left: `${x}px`,
+          top: `${y + 18}px`,
+          "--dx": `${random(-110, 110)}px`,
+          "--dy": `${random(-35, 70)}px`,
+          "--rot": `${random(-200, 200)}deg`,
+        });
+        removeLater(debris, 620);
+      }
+      dustAt(targetEl, 14);
+      if (targetEl) {
+        targetEl.style.transition = "transform 70ms ease-out";
+        targetEl.style.transform = "scale(0.95)";
+      }
+      screenFlash(
+        "radial-gradient(circle, rgba(255,255,255,0.18), rgba(220,228,235,0.06), rgba(0,0,0,0))"
+      );
+    }, 155);
+
+    setTimeout(() => {
+      if (targetEl) {
+        targetEl.style.transform = "";
+      }
+    }, 250);
+
+    setTimeout(() => showDamage(targetEl, damage, "#f1f5f9"), 180);
   }
 
   function noblePressureAt(targetEl, damage = 2) {
