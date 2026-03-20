@@ -43,22 +43,22 @@
     calcium: "dustAura",
 
     // Reactions
-    combustion: "fireBurst",
-    steamBurst: "steamCloud",
+    combustion: "combustionBlast",
+    steamBurst: "steamBurst",
     acidRain: "acidRain",
     rust: "rustSpread",
     explosion: "hydrogenExplosion",
     saltFormation: "saltFormation",
-    carbonBurn: "smokeBurn",
+    carbonBurn: "carbonBurn",
     potassiumWater: "alkaliReaction",
     limeFormation: "limeFormation",
     hydrogenBurn: "fireBurst",
-    calciumSteam: "steamCloud",
+    calciumSteam: "calciumSteam",
     alkaliExplosion: "alkaliExplosion",
 
     // Attacks
     fireball: "fireball",
-    hammerStrike: "metalImpact",
+    hammerStrike: "hammerStrike",
     corrode: "corrodeDestroy",
     lightning: "lightningStrike",
     poisonCloud: "toxicCloud",
@@ -1517,6 +1517,23 @@ function pressureWaveAt(targetEl, damage = 2) {
     });
   }
 
+  function playCombustionBurst(sourceEl, targetEl, damage = 7) {
+    fireballTravel(sourceEl, targetEl, damage, "#ffe08a", {
+      size: 170,
+      trailSize: 90,
+      explosionSize: 240,
+      onImpact: () => {
+        const { x, y } = rectCenter(targetEl);
+        explosionAt(x, y, {
+          size: 220,
+          ringColor: "rgba(255, 232, 150, 0.92)",
+          flashBg: "radial-gradient(circle, rgba(255,220,120,0.22), rgba(255,120,30,0.12), rgba(0,0,0,0))",
+        });
+        embersAt(targetEl, 22);
+      },
+    });
+  }
+
   function playSmokeBurn(sourceEl, targetEl, damage = 5) {
     fireballTravel(sourceEl, targetEl, damage, "#ffc56b", {
       size: 150,
@@ -1527,6 +1544,59 @@ function pressureWaveAt(targetEl, damage = 2) {
         embersAt(targetEl, 8);
       },
     });
+  }
+
+  function playCarbonBurn(sourceEl, targetEl, damage = 5) {
+    fireballTravel(sourceEl, targetEl, damage, "#d5b07a", {
+      size: 138,
+      trailSize: 72,
+      explosionSize: 180,
+      onImpact: () => {
+        smokeAt(targetEl, 14);
+        embersAt(targetEl, 6);
+        screenFlash(
+          "radial-gradient(circle, rgba(160,160,160,0.12), rgba(78,58,34,0.08), rgba(0,0,0,0))"
+        );
+      },
+    });
+  }
+
+  function playSteamBurst(targetEl, damage = 5) {
+    const { x, y } = rectCenter(targetEl);
+    steamAt(x, y);
+    setTimeout(() => {
+      const ring = createNode("ehx-air-ring", {
+        left: `${x}px`,
+        top: `${y}px`,
+        width: "120px",
+        height: "120px",
+        marginLeft: "-60px",
+        marginTop: "-60px",
+        borderColor: "rgba(236, 244, 255, 0.86)",
+      });
+      removeLater(ring, 760);
+    }, 90);
+    screenFlash(
+      "radial-gradient(circle, rgba(255,255,255,0.24), rgba(216,232,240,0.08), rgba(0,0,0,0))"
+    );
+    setTimeout(() => {
+      showDamage(targetEl, damage, "#f3f4f6");
+      wetAt(targetEl, 8);
+    }, 120);
+  }
+
+  function playCalciumSteam(targetEl, damage = 6) {
+    const { x, y } = rectCenter(targetEl);
+    steamAt(x, y);
+    steamAt(x + 12, y - 8);
+    dustAt(targetEl, 10);
+    screenFlash(
+      "radial-gradient(circle, rgba(255,255,255,0.18), rgba(232,240,244,0.08), rgba(166,176,170,0.05), rgba(0,0,0,0))"
+    );
+    setTimeout(() => {
+      showDamage(targetEl, damage, "#eef2f7");
+      wetAt(targetEl, 7);
+    }, 130);
   }
 
   function hydrogenExplosionAt(targetEl, damage = 8) {
@@ -1598,6 +1668,33 @@ function pressureWaveAt(targetEl, damage = 2) {
     screenFlash(
       "radial-gradient(circle, rgba(255,255,255,0.12), rgba(160,180,200,0.06), rgba(0,0,0,0))"
     );
+  }
+
+  function hammerStrikeAt(targetEl, damage = 2) {
+    const { x, y } = rectCenter(targetEl);
+    const hit = createNode("ehx-metal-hit", {
+      left: `${x}px`,
+      top: `${y}px`,
+      transform: "scale(0.84) rotate(-10deg)",
+    });
+    removeLater(hit, 340);
+    setTimeout(() => {
+      const spark = createNode("ehx-air-ring", {
+        left: `${x}px`,
+        top: `${y}px`,
+        width: "82px",
+        height: "82px",
+        marginLeft: "-41px",
+        marginTop: "-41px",
+        borderColor: "rgba(255,255,255,0.78)",
+        borderWidth: "4px",
+      });
+      removeLater(spark, 520);
+    }, 50);
+    screenFlash(
+      "radial-gradient(circle, rgba(255,255,255,0.14), rgba(220,228,235,0.04), rgba(0,0,0,0))"
+    );
+    setTimeout(() => showDamage(targetEl, damage, "#f1f5f9"), 80);
   }
 
   function noblePressureAt(targetEl, damage = 2) {
@@ -1718,6 +1815,10 @@ function pressureWaveAt(targetEl, damage = 2) {
         }
         break;
 
+      case "steamBurst":
+        playSteamBurst(ctx.targetEl, ctx.damage ?? 5);
+        break;
+
       case "acidRain":
         acidRainAt(ctx.targetEl, ctx.ticks ?? 2, ctx.damagePerTick ?? 2);
         break;
@@ -1744,12 +1845,24 @@ function pressureWaveAt(targetEl, damage = 2) {
         playFireBurst(ctx.sourceEl, ctx.targetEl, ctx.damage ?? 6);
         break;
 
+      case "combustionBlast":
+        playCombustionBurst(ctx.sourceEl, ctx.targetEl, ctx.damage ?? 7);
+        break;
+
       case "smokeBurn":
         playSmokeBurn(ctx.sourceEl, ctx.targetEl, ctx.damage ?? 5);
         break;
 
+      case "carbonBurn":
+        playCarbonBurn(ctx.sourceEl, ctx.targetEl, ctx.damage ?? 5);
+        break;
+
       case "metalImpact":
         metalImpactAt(ctx.targetEl, ctx.damage ?? 3);
+        break;
+
+      case "hammerStrike":
+        hammerStrikeAt(ctx.targetEl, ctx.damage ?? 2);
         break;
 
       case "metalCrush":
@@ -1776,6 +1889,10 @@ function pressureWaveAt(targetEl, damage = 2) {
             });
           }, 90);
         }
+        break;
+
+      case "calciumSteam":
+        playCalciumSteam(ctx.targetEl, ctx.damage ?? 6);
         break;
 
       case "toxicCloud":
