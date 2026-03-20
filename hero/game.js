@@ -2671,20 +2671,20 @@ function extractNewLogItems(prevLog = [], nextLog = []) {
 
   if (!prevLog.length) return nextLog.slice(0, 3);
 
-  const appended =
-    nextLog.length >= prevLog.length &&
-    prevLog.every((item, i) => nextLog[i] === item);
+  for (let newCount = 0; newCount <= nextLog.length; newCount += 1) {
+    const overlap = Math.min(prevLog.length, nextLog.length - newCount);
+    if (overlap <= 0) continue;
 
-  if (appended) {
-    return nextLog.slice(prevLog.length);
+    const matches = prevLog
+      .slice(0, overlap)
+      .every((item, i) => nextLog[newCount + i] === item);
+
+    if (matches) {
+      return nextLog.slice(0, newCount);
+    }
   }
 
-  const offset = nextLog.length - prevLog.length;
-  if (offset >= 0 && prevLog.every((item, i) => nextLog[i + offset] === item)) {
-    return nextLog.slice(0, offset);
-  }
-
-  return nextLog.slice(-3);
+  return nextLog.slice(0, Math.min(3, nextLog.length));
 }
 
 function detectCardIdFromLogText(text) {
@@ -2707,6 +2707,20 @@ function detectActorPidFromLogText(text) {
   return Number(match[1]);
 }
 
+function detectStatusEffectFromLogText(text) {
+  if (!text) return null;
+
+  if (/suffers 1 corrosion damage/i.test(text)) {
+    return {
+      statusId: "Corroded",
+      targetPid: detectActorPidFromLogText(text),
+      amount: 1,
+    };
+  }
+
+  return null;
+}
+
 function handleEffectsFromLogTransition(prevState, nextState) {
   if (!hasEffectSystem()) return;
   if (!nextState) return;
@@ -2718,6 +2732,16 @@ function handleEffectsFromLogTransition(prevState, nextState) {
   let localEffectAlreadyPlayed = false;
 
   newItems.forEach((line) => {
+    const statusEffect = detectStatusEffectFromLogText(line);
+    if (statusEffect?.targetPid && typeof window.playStatusEffect === "function") {
+      window.playStatusEffect(statusEffect.statusId, {
+        targetPid: statusEffect.targetPid,
+        targetSelector: getDeskSelectorForPid(statusEffect.targetPid),
+        amount: statusEffect.amount,
+      });
+      return;
+    }
+
     const cardId = detectCardIdFromLogText(line);
     const actorPid = detectActorPidFromLogText(line);
 
@@ -3546,6 +3570,14 @@ function getStatusHintText() {
   if (!gameState) return "Select a card to play.";
   if (gameState.winner) {
     return `Match finished. ${isPracticeMode && gameState.winner === "Player 2" ? "Computer" : gameState.winner} won.`;
+  }
+
+  const latestLog = Array.isArray(gameState.log) ? gameState.log[0] : "";
+  if (/suffers 1 corrosion damage/i.test(latestLog)) {
+    return "Start of turn: Corroded dealt 1 damage.";
+  }
+  if (/is no longer Wet/i.test(latestLog)) {
+    return "Start of turn: Wet has worn off.";
   }
 
   if (!isMyTurn()) {

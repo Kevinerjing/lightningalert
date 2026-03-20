@@ -1916,8 +1916,22 @@ function pressureWaveAt(targetEl, damage = 2) {
     return true;
   }
 
+  function playStatusEffect(statusId, context = {}) {
+    const ctx = resolveEffectContext(context);
+    const status = String(statusId || "").toLowerCase();
+
+    if (status === "corroded") {
+      corrodeAt(ctx.targetEl);
+      setTimeout(() => showDamage(ctx.targetEl, ctx.amount ?? 1, "#d8ff72"), 90);
+      return true;
+    }
+
+    return false;
+  }
+
   // Expose globals
   window.CARD_EFFECT_MAP = CARD_EFFECT_MAP;
   window.playCardEffect = playCardEffect;
+  window.playStatusEffect = playStatusEffect;
   window.ensureEffectStyles = ensureEffectStyles;
 })();
