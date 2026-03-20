@@ -130,7 +130,7 @@
         pointer-events: none;
         opacity: 0;
         filter: drop-shadow(0 0 10px rgba(124,255,54,.28));
-        animation: corrodeCastSplash 0.3s ease-out forwards;
+        animation: corrodeCastSplash 0.9s ease-out forwards;
         z-index: 10043;
       }
 
@@ -150,9 +150,10 @@
       }
 
       @keyframes corrodeCastSplash {
-        0% { opacity: 0; transform: scale(.32); }
-        25% { opacity: 1; transform: scale(1); }
-        100% { opacity: 0; transform: scale(1.34); }
+        0%{ opacity:0; transform:scale(.3);}
+        20%{ opacity:1; transform:scale(.95);}
+        70%{ opacity:.65; transform:scale(1.18);}
+        100%{ opacity:0; transform:scale(1.3);}
       }
 
       .corrode-cast-trail {
@@ -163,7 +164,7 @@
         pointer-events: none;
         opacity: 0;
         filter: drop-shadow(0 0 10px rgba(124,255,54,.24));
-        animation: corrodeCastTrail 0.18s linear forwards;
+        animation: corrodeCastTrail 0.7s linear forwards;
         z-index: 10042;
       }
 
@@ -178,9 +179,10 @@
       }
 
       @keyframes corrodeCastTrail {
-        0% { opacity: 0; }
-        12% { opacity: 1; }
-        100% { opacity: 0; }
+        0%{ opacity:0; }
+        10%{ opacity:.95; }
+        55%{ opacity:.7; }
+        100%{ opacity:0; }
       }
 
       @keyframes ehxCardCastFlash {
@@ -851,7 +853,7 @@
         margin-top: -60px;
         transform-origin: center;
         opacity: 0;
-        animation: corrodeLiquidSpread 2.4s cubic-bezier(.12,.75,.15,1) forwards;
+        animation: corrodeLiquidSpread 5s cubic-bezier(.12,.75,.15,1) forwards;
         z-index: 10013;
       }
 
@@ -879,10 +881,11 @@
       }
 
       @keyframes corrodeLiquidSpread {
-        0%{ opacity:0; transform:scale(.28) rotate(-6deg);}
-        20%{ opacity:1; transform:scale(.88) rotate(-1deg);}
-        45%{ opacity:1; transform:scale(1) rotate(0deg);}
-        100%{ opacity:0; transform:scale(1.15) rotate(2deg);}
+        0%{ opacity:0; transform:scale(.22) rotate(-6deg);}
+        12%{ opacity:.95; transform:scale(.7) rotate(-2deg);}
+        35%{ opacity:1; transform:scale(1) rotate(0deg);}
+        70%{ opacity:.82; transform:scale(1.08) rotate(1deg);}
+        100%{ opacity:0; transform:scale(1.16) rotate(2deg);}
       }
 
       .corrode-bubble {
@@ -893,7 +896,7 @@
           radial-gradient(circle at 35% 35%, rgba(255,255,220,.9), rgba(200,255,120,.75) 35%, rgba(124,255,54,.35) 70%, rgba(124,255,54,0) 72%);
         box-shadow:
           0 0 10px rgba(124,255,54,.25);
-        animation: corrodeBubblePop 1.9s ease-out forwards;
+        animation: corrodeBubblePop 2.8s ease-out forwards;
         z-index: 10015;
       }
 
@@ -910,7 +913,7 @@
         background:
           radial-gradient(circle at 50% 50%, rgba(160,255,120,.28), rgba(120,255,120,.12) 48%, rgba(120,255,120,0) 72%);
         filter: blur(10px);
-        animation: corrodeSmokeRise 2.2s ease-out forwards;
+        animation: corrodeSmokeRise 3s ease-out forwards;
         z-index: 10011;
       }
 
@@ -931,7 +934,7 @@
         filter:
           drop-shadow(0 0 18px rgba(140,255,80,.28))
           drop-shadow(0 0 38px rgba(70,255,40,.18));
-        animation: corrodeSplatIn 1.25s cubic-bezier(.15,.85,.2,1) forwards;
+        animation: corrodeSplatIn 2.2s cubic-bezier(.15,.85,.2,1) forwards;
         z-index: 10014;
       }
 
@@ -957,10 +960,11 @@
       }
 
       @keyframes corrodeSplatIn{
-        0%{ opacity:0; transform:scale(.25) rotate(-8deg);}
-        18%{ opacity:1; transform:scale(1.03) rotate(1deg);}
-        42%{ opacity:1; transform:scale(1) rotate(0deg);}
-        100%{ opacity:0; transform:scale(1.08) rotate(2deg);}
+        0%{ opacity:0; transform:scale(.2) rotate(-10deg);}
+        10%{ opacity:1; transform:scale(.96) rotate(2deg);}
+        28%{ opacity:1; transform:scale(1.03) rotate(0deg);}
+        60%{ opacity:.95; transform:scale(1.07) rotate(1deg);}
+        100%{ opacity:0; transform:scale(1.12) rotate(2deg);}
       }
 
       .corrode-impact-flash {
@@ -974,15 +978,15 @@
         background:
           radial-gradient(circle at 50% 50%, rgba(236,255,160,.6), rgba(124,255,54,.3) 45%, rgba(124,255,54,0) 75%);
         filter: blur(4px);
-        animation: corrodeImpactFlash 0.5s ease-out forwards;
+        animation: corrodeImpactFlash 0.45s ease-out forwards;
         mix-blend-mode: screen;
         z-index: 10016;
       }
 
       @keyframes corrodeImpactFlash {
-        0% { opacity: 0; transform: scale(.4); }
-        20% { opacity: 1; transform: scale(1); }
-        100% { opacity: 0; transform: scale(1.16); }
+        0%{ opacity:0; transform:scale(.4);}
+        18%{ opacity:1; transform:scale(.95);}
+        100%{ opacity:0; transform:scale(1.12);}
       }
 
       .corrode-droplet {
@@ -1039,7 +1043,7 @@
         margin-top: -55px;
         pointer-events: none;
         opacity: 0;
-        animation: corrodeStainFade 4s ease-out forwards;
+        animation: corrodeStainFade 5.2s ease-out forwards;
         z-index: 10010;
       }
 
@@ -1055,7 +1059,9 @@
 
       @keyframes corrodeStainFade{
         0%{ opacity:0; }
-        20%{ opacity:.75; }
+        12%{ opacity:.3; }
+        28%{ opacity:.75; }
+        75%{ opacity:.55; }
         100%{ opacity:0; }
       }
 
@@ -1292,7 +1298,7 @@ function getDefaultElement(side) {
         left: `${rect.left + rect.width * 0.46}px`,
         top: `${rect.top + rect.height * 0.34}px`,
       }, layer);
-      removeLater(splash, 340);
+      removeLater(splash, 1200);
 
       const trail = createNode("corrode-cast-trail", {
         left: `${rect.left + rect.width * 0.42}px`,
@@ -1300,7 +1306,7 @@ function getDefaultElement(side) {
         width: `${Math.max(56, rect.width * 0.72)}px`,
         transform: "translateY(-50%) rotate(-18deg)",
       }, layer);
-      removeLater(trail, 260);
+      removeLater(trail, 900);
     }
     removeLater(flash, 520);
   }
@@ -1423,12 +1429,12 @@ function getDefaultElement(side) {
         { transform: "translate(-50%, -50%) translate(0,34px)", opacity: 0.95, offset: 0.75 },
         { transform: "translate(-50%, -50%) translate(0,48px)", opacity: 0, offset: 1 },
       ], {
-        duration: 1200 + idx * 180,
-        delay: 700 + idx * 220,
+        duration: 1800 + idx * 500,
+        delay: 900 + idx * 350,
         easing: "ease-in",
         fill: "forwards",
       });
-      removeLater(drip, 2600);
+      removeLater(drip, 4300);
     });
   }
 
@@ -1449,12 +1455,12 @@ function getDefaultElement(side) {
         { transform: `translate(-50%, -50%) translate(${dx}px, ${dy}px) rotate(${rot + 40}deg) scale(1)`, opacity: .95, offset: .55 },
         { transform: `translate(-50%, -50%) translate(${dx * 1.15}px, ${dy + 40}px) rotate(${rot + 80}deg) scale(.8)`, opacity: 0 },
       ], {
-        duration: 1200 + Math.random() * 420,
+        duration: 1800 + Math.random() * 1200,
         easing: "cubic-bezier(.15,.75,.2,1)",
         fill: "forwards",
       });
 
-      removeLater(droplet, 2000);
+      removeLater(droplet, 3600);
     }
   }
 
@@ -1772,11 +1778,11 @@ function pressureWaveAt(targetEl, damage = 2) {
       top: `${y + 30}px`,
     });
 
-      removeLater(darkwash, 2200);
-      removeLater(flash, 520);
-      removeLater(splat, 1320);
-      removeLater(liquid, 2480);
-      removeLater(stain, 4000);
+      removeLater(darkwash, 5200);
+      removeLater(flash, 700);
+      removeLater(splat, 2600);
+      removeLater(liquid, 5400);
+      removeLater(stain, 5600);
 
     for (let i = 0; i < 12; i += 1) {
       const size = random(12, 18);
@@ -1793,12 +1799,12 @@ function pressureWaveAt(targetEl, damage = 2) {
         { transform: `translate(${drift * 0.35}px, -${rise * 0.35}px) scale(.9)`, opacity: 0.95, offset: 0.35 },
         { transform: `translate(${drift}px, -${rise}px) scale(1.1)`, opacity: 0, offset: 1 },
       ], {
-        duration: 1300 + Math.random() * 500,
-        delay: Math.random() * 900,
+        duration: 2200 + Math.random() * 1500,
+        delay: Math.random() * 1400,
         easing: "ease-out",
         fill: "forwards",
       });
-      removeLater(bubble, 2400);
+      removeLater(bubble, 5200);
     }
 
     for (let i = 0; i < 3; i += 1) {
@@ -1816,12 +1822,12 @@ function pressureWaveAt(targetEl, damage = 2) {
         { transform: `translate(${dx * 0.4}px, ${dy * 0.4}px) scale(1)`, opacity: 0.8, offset: 0.25 },
         { transform: `translate(${dx}px, ${dy}px) scale(1.35)`, opacity: 0, offset: 1 },
       ], {
-        duration: 1500 + Math.random() * 500,
-        delay: 220 + Math.random() * 800,
+        duration: 2400 + Math.random() * 1200,
+        delay: 300 + Math.random() * 1000,
         easing: "ease-out",
         fill: "forwards",
       });
-      removeLater(vapor, 2800);
+      removeLater(vapor, 4700);
     }
 
     corrodeDripsAt(x, y + 36);
