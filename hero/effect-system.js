@@ -607,6 +607,110 @@
         100% { opacity: 0; transform: scale(1.25); }
       }
 
+      .ehx-hammer-anticipation {
+        position: fixed;
+        width: 92px;
+        height: 164px;
+        margin-left: -46px;
+        margin-top: -138px;
+        pointer-events: none;
+        z-index: 10013;
+        animation: ehxHammerAnticipation 0.12s ease-out forwards;
+      }
+
+      .ehx-hammer-anticipation::before {
+        content: "";
+        position: absolute;
+        left: 50%;
+        top: 14px;
+        width: 18px;
+        height: 108px;
+        margin-left: -9px;
+        border-radius: 12px;
+        background: linear-gradient(180deg, rgba(54,60,70,0.78), rgba(18,22,28,0.92));
+      }
+
+      .ehx-hammer-anticipation::after {
+        content: "";
+        position: absolute;
+        left: 50%;
+        top: 0;
+        width: 84px;
+        height: 52px;
+        margin-left: -42px;
+        border-radius: 18px;
+        background: linear-gradient(180deg, rgba(28,32,38,0.86), rgba(10,12,15,0.96));
+        box-shadow: 0 8px 20px rgba(0,0,0,0.18);
+      }
+
+      @keyframes ehxHammerAnticipation {
+        0% { opacity: 0; transform: translateY(10px) scale(0.9); }
+        100% { opacity: 0.75; transform: translateY(-12px) scale(1); }
+      }
+
+      .ehx-hammer-slam {
+        position: fixed;
+        width: 108px;
+        height: 198px;
+        margin-left: -54px;
+        margin-top: -170px;
+        pointer-events: none;
+        z-index: 10014;
+        animation: ehxHammerSlam 0.22s cubic-bezier(.15,.9,.18,1) forwards;
+      }
+
+      .ehx-hammer-slam::before {
+        content: "";
+        position: absolute;
+        left: 50%;
+        top: 24px;
+        width: 20px;
+        height: 132px;
+        margin-left: -10px;
+        border-radius: 12px;
+        background: linear-gradient(180deg, rgba(68,76,88,0.92), rgba(24,28,34,0.96));
+      }
+
+      .ehx-hammer-slam::after {
+        content: "";
+        position: absolute;
+        left: 50%;
+        top: 0;
+        width: 104px;
+        height: 62px;
+        margin-left: -52px;
+        border-radius: 20px;
+        background: linear-gradient(180deg, rgba(238,242,248,0.96), rgba(126,138,152,0.94));
+        box-shadow:
+          inset 0 -10px 14px rgba(70,78,90,0.35),
+          0 10px 18px rgba(0,0,0,0.22);
+      }
+
+      @keyframes ehxHammerSlam {
+        0% { opacity: 0; transform: translateY(-160px) scale(0.9); }
+        58% { opacity: 1; transform: translateY(0) scale(1); }
+        100% { opacity: 0; transform: translateY(6px) scale(1.02); }
+      }
+
+      .ehx-hit-stop-burst {
+        position: fixed;
+        width: 160px;
+        height: 160px;
+        margin-left: -80px;
+        margin-top: -80px;
+        border-radius: 50%;
+        pointer-events: none;
+        background: radial-gradient(circle, rgba(255,255,255,0.96) 0%, rgba(240,246,252,0.4) 30%, rgba(0,0,0,0) 72%);
+        animation: ehxHitStopBurst 0.18s ease-out forwards;
+        z-index: 10015;
+      }
+
+      @keyframes ehxHitStopBurst {
+        0% { opacity: 0; transform: scale(0.4); }
+        28% { opacity: 1; transform: scale(1); }
+        100% { opacity: 0; transform: scale(1.18); }
+      }
+
       .ehx-corrode-beam {
         position: fixed;
         width: 150px;
@@ -1042,6 +1146,27 @@ function getDefaultElement(side) {
     if (!el) return;
     el.classList.add("ehx-shake");
     setTimeout(() => el.classList.remove("ehx-shake"), 380);
+  }
+
+  function decayingShake(el) {
+    if (!el) return;
+    const keyframes = [
+      "translate(-8px, 2px)",
+      "translate(6px, -2px)",
+      "translate(-4px, 1px)",
+      "translate(3px, -1px)",
+      "translate(-1px, 0)",
+      "translate(0, 0)",
+    ];
+    keyframes.forEach((transform, index) => {
+      setTimeout(() => {
+        el.style.transition = "transform 36ms ease-out";
+        el.style.transform = transform;
+      }, index * 36);
+    });
+    setTimeout(() => {
+      el.style.transform = "";
+    }, keyframes.length * 36 + 20);
   }
 
   function floatText(x, y, text, options = {}) {
@@ -1672,29 +1797,89 @@ function pressureWaveAt(targetEl, damage = 2) {
 
   function hammerStrikeAt(targetEl, damage = 2) {
     const { x, y } = rectCenter(targetEl);
-    const hit = createNode("ehx-metal-hit", {
+    const anticipation = createNode("ehx-hammer-anticipation", {
       left: `${x}px`,
-      top: `${y}px`,
-      transform: "scale(0.84) rotate(-10deg)",
+      top: `${y - 18}px`,
     });
-    removeLater(hit, 340);
+    removeLater(anticipation, 150);
+
+    if (targetEl) {
+      targetEl.style.transition = "transform 80ms ease-out";
+      targetEl.style.transform = "scale(1.02)";
+    }
+
     setTimeout(() => {
-      const spark = createNode("ehx-air-ring", {
+      const slam = createNode("ehx-hammer-slam", {
+        left: `${x}px`,
+        top: `${y - 6}px`,
+      });
+      removeLater(slam, 260);
+    }, 90);
+
+    setTimeout(() => {
+      const burst = createNode("ehx-hit-stop-burst", {
         left: `${x}px`,
         top: `${y}px`,
-        width: "82px",
-        height: "82px",
-        marginLeft: "-41px",
-        marginTop: "-41px",
-        borderColor: "rgba(255,255,255,0.78)",
-        borderWidth: "4px",
       });
-      removeLater(spark, 520);
-    }, 50);
-    screenFlash(
-      "radial-gradient(circle, rgba(255,255,255,0.14), rgba(220,228,235,0.04), rgba(0,0,0,0))"
-    );
-    setTimeout(() => showDamage(targetEl, damage, "#f1f5f9"), 80);
+      const hit = createNode("ehx-metal-hit", {
+        left: `${x}px`,
+        top: `${y}px`,
+        transform: "scale(0.96) rotate(-8deg)",
+      });
+      const ring = createNode("ehx-air-ring", {
+        left: `${x}px`,
+        top: `${y}px`,
+        width: "98px",
+        height: "98px",
+        marginLeft: "-49px",
+        marginTop: "-49px",
+        borderColor: "rgba(238,244,250,0.86)",
+        borderWidth: "6px",
+      });
+      removeLater(burst, 220);
+      removeLater(hit, 300);
+      removeLater(ring, 440);
+
+      if (targetEl) {
+        targetEl.style.transition = "transform 45ms ease-out";
+        targetEl.style.transform = "scale(0.93)";
+      }
+      screenFlash(
+        "radial-gradient(circle, rgba(255,255,255,0.18), rgba(220,228,235,0.06), rgba(0,0,0,0))"
+      );
+      decayingShake(targetEl);
+    }, 170);
+
+    setTimeout(() => {
+      if (targetEl) {
+        targetEl.style.transition = "transform 110ms cubic-bezier(.2,.9,.2,1)";
+        targetEl.style.transform = "scale(1.015)";
+      }
+    }, 228);
+
+    setTimeout(() => {
+      if (targetEl) {
+        targetEl.style.transform = "";
+      }
+    }, 330);
+
+    setTimeout(() => {
+      showDamage(targetEl, damage, "#f1f5f9");
+    }, 230);
+
+    setTimeout(() => {
+      dustAt(targetEl, 10);
+      for (let i = 0; i < 8; i += 1) {
+        const debris = createNode("ehx-rock-dust", {
+          left: `${x}px`,
+          top: `${y + 18}px`,
+          "--dx": `${random(-78, 78)}px`,
+          "--dy": `${random(-18, 46)}px`,
+          "--rot": `${random(-160, 160)}deg`,
+        });
+        removeLater(debris, 520);
+      }
+    }, 255);
   }
 
   function noblePressureAt(targetEl, damage = 2) {
