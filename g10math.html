@@ -1,0 +1,249 @@
+export default function Grade10GeometrySkillMap() {
+  const skills = [
+    {
+      id: "two-points-distance",
+      title: "Distance Between Two Points",
+      trigger: ["distance between two points", "length of segment", "how far apart"],
+      think: "I have two points, so I need the distance formula.",
+      steps: [
+        "Write down the coordinates of both points.",
+        "Find the horizontal change: x2 - x1.",
+        "Find the vertical change: y2 - y1.",
+        "Use the distance formula.",
+        "Simplify the square root if possible."
+      ],
+      formula: "d = √[(x2 - x1)² + (y2 - y1)²]",
+      example: "A(1, 2), B(5, 7) → d = √[(5-1)² + (7-2)²] = √41",
+      mistake: "Mixing up x and y differences or forgetting to square both changes."
+    },
+    {
+      id: "midpoint",
+      title: "Midpoint",
+      trigger: ["midpoint", "halfway", "middle of segment"],
+      think: "Midpoint means average the x-values and average the y-values.",
+      steps: [
+        "Add the x-coordinates and divide by 2.",
+        "Add the y-coordinates and divide by 2.",
+        "Write the answer as an ordered pair."
+      ],
+      formula: "M = ((x1 + x2)/2, (y1 + y2)/2)",
+      example: "A(2, 4), B(8, 10) → M = (5, 7)",
+      mistake: "Only averaging one coordinate or forgetting the ordered pair format."
+    },
+    {
+      id: "slope",
+      title: "Slope of a Line",
+      trigger: ["slope", "rate of change", "steepness"],
+      think: "Slope means change in y over change in x.",
+      steps: [
+        "Choose two points on the line.",
+        "Subtract the y-values.",
+        "Subtract the x-values.",
+        "Write slope as rise/run.",
+        "Simplify the fraction if needed."
+      ],
+      formula: "m = (y2 - y1) / (x2 - x1)",
+      example: "A(1, 3), B(5, 11) → m = (11-3)/(5-1) = 2",
+      mistake: "Subtracting in different orders for numerator and denominator."
+    },
+    {
+      id: "point-to-line",
+      title: "Shortest Distance from a Point to a Line",
+      trigger: ["shortest distance", "point to line", "perpendicular distance"],
+      think: "Shortest distance means I must draw a perpendicular line through the point.",
+      steps: [
+        "Find the slope of the target line.",
+        "Find the perpendicular slope using m1 × m2 = -1.",
+        "Write the equation of the perpendicular line through the given point.",
+        "Solve the system to find the intersection point (the foot of the perpendicular).",
+        "Use the distance formula between the given point and the intersection point."
+      ],
+      formula: "Use perpendicular slope + line equation + intersection + distance formula",
+      example: {
+        title: "Find the shortest distance from P(1, 2) to the line y = 2x + 3",
+        steps: [
+          "Step 1: Slope of the line is m₁ = 2",
+          "Step 2: Perpendicular slope m₂ = -1/2 (since m₁ × m₂ = -1)",
+          "Step 3: Perpendicular line: y - 2 = (-1/2)(x - 1)",
+          "Step 4: Solve system with y = 2x + 3",
+          "Substitute: 2x + 3 - 2 = (-1/2)(x - 1)",
+          "Simplify: 2x + 1 = (-1/2)x + 1/2",
+          "Multiply by 2: 4x + 2 = -x + 1",
+          "Solve: 5x = -1 → x = -1/5",
+          "Then y = 2(-1/5) + 3 = 13/5",
+          "Intersection: (-1/5, 13/5)",
+          "Step 5: Distance formula",
+          "d = √[(-1/5 - 1)² + (13/5 - 2)²]",
+          "= √[(−6/5)² + (3/5)²]",
+          "= √(45/25) = (3√5)/5"
+        ]
+      },
+      mistake: "Using the distance formula immediately without first constructing the perpendicular line when the teacher expects full steps."
+    },
+    {
+      id: "parallel-lines",
+      title: "Distance Between Two Parallel Lines",
+      trigger: ["parallel lines", "distance between lines", "shortest distance between lines"],
+      think: "Parallel lines stay the same distance apart, so I can choose one point on a line and find its perpendicular distance to the other line.",
+      steps: [
+        "Confirm the two lines are parallel.",
+        "Pick a convenient point on one line.",
+        "Find the slope of the lines.",
+        "Find the perpendicular slope.",
+        "Write the perpendicular line through the chosen point.",
+        "Find the intersection with the other line.",
+        "Use the distance formula between those two points."
+      ],
+      formula: "Parallel lines distance can be solved by turning it into a point-to-line shortest distance problem.",
+      example: {
+        title: "Find the distance between y = 2x + 3 and y = 2x - 1",
+        steps: [
+          "Step 1: Confirm both lines have slope 2 → they are parallel",
+          "Step 2: Choose a point on one line (easy point)",
+          "Let x = 0 → y = 3, so point A(0, 3)",
+          "Step 3: Find perpendicular slope",
+          "Original slope m₁ = 2 → perpendicular slope m₂ = -1/2",
+          "Step 4: Write perpendicular line through A",
+          "y - 3 = (-1/2)(x - 0)",
+          "Step 5: Solve intersection with second line y = 2x - 1",
+          "Substitute: 2x - 1 - 3 = (-1/2)x",
+          "Simplify: 2x - 4 = (-1/2)x",
+          "Multiply by 2: 4x - 8 = -x",
+          "Solve: 5x = 8 → x = 8/5",
+          "Then y = 2(8/5) - 1 = 11/5",
+          "Intersection point B(8/5, 11/5)",
+          "Step 6: Distance between A and B",
+          "d = √[(8/5 - 0)² + (11/5 - 3)²]",
+          "= √[(8/5)² + (-4/5)²]",
+          "= √(80/25) = (4√5)/5"
+        ]
+      },
+      mistake: "Forgetting to check that the lines are actually parallel first."
+    }
+  ];
+
+  const checklist = [
+    "What is the question asking me to find?",
+    "Do I see two points, a point and a line, or two lines?",
+    "Does the question say shortest distance or perpendicular?",
+    "What skill type is this?",
+    "What is my first step?"
+  ];
+
+  return (
+    <div className="min-h-screen bg-slate-50 text-slate-900 p-6 md:p-10">
+      <div className="max-w-6xl mx-auto space-y-8">
+        <header className="bg-white rounded-3xl shadow-sm p-6 md:p-8 border border-slate-200">
+          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-slate-500">Grade 10 Math</p>
+          <h1 className="text-3xl md:text-5xl font-bold mt-2">Geometry Skill Map</h1>
+          <p className="mt-4 text-lg text-slate-600 max-w-3xl">
+            Use this page to train one habit: <span className="font-semibold">identify the skill before solving</span>.
+            Kevin should first decide the type of question, then follow the matching steps.
+          </p>
+        </header>
+
+        <section className="grid md:grid-cols-2 gap-6">
+          <div className="bg-blue-50 border border-blue-200 rounded-3xl p-6 shadow-sm">
+            <h2 className="text-2xl font-bold">Fast Question Check</h2>
+            <ul className="mt-4 space-y-3">
+              {checklist.map((item, idx) => (
+                <li key={idx} className="flex gap-3 items-start">
+                  <span className="mt-1 h-2.5 w-2.5 rounded-full bg-blue-500 shrink-0" />
+                  <span className="text-slate-700">{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="bg-amber-50 border border-amber-200 rounded-3xl p-6 shadow-sm">
+            <h2 className="text-2xl font-bold">Main Goal</h2>
+            <p className="mt-4 text-slate-700 leading-7">
+              Kevin does not need more random practice first. He needs a <span className="font-semibold">skill map</span>.
+              When he sees a problem, he should say: <span className="font-semibold">“This is a two-point distance question”</span>
+              or <span className="font-semibold">“This is a shortest distance from a point to a line question.”</span>
+            </p>
+            <p className="mt-4 text-slate-700 leading-7">
+              Eric can use this page as a coaching guide and ask only two questions first: <span className="font-semibold">What type is this?</span> and <span className="font-semibold">What is the first step?</span>
+            </p>
+          </div>
+        </section>
+
+        <section className="grid lg:grid-cols-2 gap-6">
+          {skills.map((skill) => (
+            <article key={skill.id} className="bg-white rounded-3xl border border-slate-200 shadow-sm p-6 md:p-7">
+              <h3 className="text-2xl font-bold">{skill.title}</h3>
+              <div className="mt-4">
+                <p className="text-sm font-semibold uppercase tracking-wide text-slate-500">Trigger Words</p>
+                <div className="mt-2 flex flex-wrap gap-2">
+                  {skill.trigger.map((word) => (
+                    <span key={word} className="px-3 py-1 rounded-full bg-slate-100 text-slate-700 text-sm">
+                      {word}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              <div className="mt-5 rounded-2xl bg-slate-50 p-4 border border-slate-200">
+                <p className="text-sm font-semibold uppercase tracking-wide text-slate-500">What I should think</p>
+                <p className="mt-2 text-slate-800 font-medium">{skill.think}</p>
+              </div>
+
+              <div className="mt-5">
+                <p className="text-sm font-semibold uppercase tracking-wide text-slate-500">Steps</p>
+                <ol className="mt-3 space-y-2 list-decimal list-inside text-slate-700 leading-7">
+                  {skill.steps.map((step, i) => (
+                    <li key={i}>{step}</li>
+                  ))}
+                </ol>
+              </div>
+
+              <div className="mt-5 grid gap-4">
+                <div className="rounded-2xl bg-emerald-50 border border-emerald-200 p-4">
+                  <p className="text-sm font-semibold uppercase tracking-wide text-emerald-700">Key Formula / Method</p>
+                  <p className="mt-2 font-medium text-slate-800">{skill.formula}</p>
+                </div>
+                <div className="rounded-2xl bg-violet-50 border border-violet-200 p-4">
+                  <p className="text-sm font-semibold uppercase tracking-wide text-violet-700">Example</p>
+                  {typeof skill.example === 'string' ? (
+                    <p className="mt-2 text-slate-800">{skill.example}</p>
+                  ) : (
+                    <div className="mt-3 space-y-2 text-slate-800">
+                      <p className="font-semibold">{skill.example.title}</p>
+                      <div className="bg-white rounded-xl p-3 border text-sm font-mono leading-6">
+                        {skill.example.steps.map((s, i) => (
+                          <div key={i}>{s}</div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                </div>
+                <div className="rounded-2xl bg-rose-50 border border-rose-200 p-4">
+                  <p className="text-sm font-semibold uppercase tracking-wide text-rose-700">Common Mistake</p>
+                  <p className="mt-2 text-slate-800">{skill.mistake}</p>
+                </div>
+              </div>
+            </article>
+          ))}
+        </section>
+
+        <section className="bg-white rounded-3xl border border-slate-200 shadow-sm p-6 md:p-8">
+          <h2 className="text-2xl md:text-3xl font-bold">How to Train Kevin</h2>
+          <div className="grid md:grid-cols-3 gap-5 mt-6">
+            <div className="rounded-2xl bg-slate-50 border border-slate-200 p-5">
+              <p className="font-bold text-lg">1. Name the skill first</p>
+              <p className="mt-2 text-slate-700">Before solving, Kevin must say the type out loud or write it down.</p>
+            </div>
+            <div className="rounded-2xl bg-slate-50 border border-slate-200 p-5">
+              <p className="font-bold text-lg">2. Follow the steps</p>
+              <p className="mt-2 text-slate-700">Do not jump to formulas. Start from the matching procedure for that skill.</p>
+            </div>
+            <div className="rounded-2xl bg-slate-50 border border-slate-200 p-5">
+              <p className="font-bold text-lg">3. Compare similar skills</p>
+              <p className="mt-2 text-slate-700">Train him to tell the difference between two-point distance, point-to-line distance, and parallel-line distance.</p>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  );
+}
