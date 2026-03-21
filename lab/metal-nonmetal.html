@@ -140,6 +140,12 @@
       margin-top: 18px;
     }
 
+    .lab-stack {
+      display: grid;
+      gap: 18px;
+      margin-top: 18px;
+    }
+
     .panel-title {
       font-size: 0.84rem;
       font-weight: 800;
@@ -284,6 +290,194 @@
     .checklist h3 { margin-bottom: 12px; }
     .checklist ul { margin: 0; padding-left: 18px; color: #41556a; line-height: 1.8; }
 
+    .malleability-demo {
+      border-radius: 22px;
+      background: linear-gradient(180deg, #f8fbff 0%, #eef4ff 100%);
+      border: 1px solid rgba(15, 23, 42, 0.06);
+      padding: 18px;
+      margin-top: 16px;
+    }
+
+    .malleability-stage {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .malleability-card {
+      border-radius: 18px;
+      background: #ffffff;
+      border: 1px solid rgba(15, 23, 42, 0.08);
+      padding: 14px;
+    }
+
+    .malleability-label {
+      font-size: 0.84rem;
+      font-weight: 800;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 10px;
+    }
+
+    .malleability-scene {
+      position: relative;
+      height: 150px;
+      overflow: hidden;
+      border-radius: 14px;
+      border: 1px solid #dde7f1;
+      background:
+        radial-gradient(circle at top, rgba(37, 99, 235, 0.08), transparent 40%),
+        linear-gradient(180deg, #f8fafc 0%, #e2e8f0 100%);
+    }
+
+    .anvil {
+      position: absolute;
+      left: 50%;
+      bottom: 18px;
+      width: 92px;
+      height: 22px;
+      transform: translateX(-50%);
+      border-radius: 10px;
+      background: linear-gradient(180deg, #64748b, #334155);
+      box-shadow: inset 0 2px 3px rgba(255,255,255,0.18);
+    }
+
+    .sample-bar {
+      position: absolute;
+      left: 50%;
+      bottom: 38px;
+      width: 84px;
+      height: 16px;
+      transform: translateX(-50%);
+      border-radius: 999px;
+      background: linear-gradient(180deg, #dbe4ee, #8a96a8);
+      box-shadow: 0 3px 8px rgba(15, 23, 42, 0.12);
+      transform-origin: 50% 50%;
+    }
+
+    .sample-bar.malleable { animation: malleableSquash 2.4s ease-in-out infinite; }
+    .sample-bar.brittle { animation: brittleBreak 2.4s ease-in-out infinite; }
+
+    .hammer {
+      position: absolute;
+      left: 50%;
+      top: 8px;
+      width: 70px;
+      height: 68px;
+      transform: translateX(-50%);
+      transform-origin: 50% 85%;
+      animation: hammerHit 2.4s ease-in-out infinite;
+    }
+
+    .hammer-head {
+      position: absolute;
+      left: 8px;
+      top: 0;
+      width: 54px;
+      height: 18px;
+      border-radius: 8px;
+      background: linear-gradient(180deg, #cbd5e1, #64748b);
+    }
+
+    .hammer-handle {
+      position: absolute;
+      left: 29px;
+      top: 14px;
+      width: 8px;
+      height: 50px;
+      border-radius: 999px;
+      background: linear-gradient(180deg, #8b5e34, #5b3718);
+    }
+
+    .spark {
+      position: absolute;
+      left: 50%;
+      bottom: 54px;
+      width: 10px;
+      height: 10px;
+      margin-left: -5px;
+      border-radius: 50%;
+      background: rgba(255, 196, 87, 0.9);
+      filter: blur(1px);
+      opacity: 0;
+    }
+
+    .spark.malleable { animation: softSpark 2.4s ease-in-out infinite; }
+    .spark.brittle { animation: brittleSpark 2.4s ease-in-out infinite; }
+
+    .crack-piece {
+      position: absolute;
+      bottom: 38px;
+      width: 34px;
+      height: 12px;
+      border-radius: 999px;
+      background: linear-gradient(180deg, #dbe4ee, #94a3b8);
+      opacity: 0;
+    }
+
+    .crack-piece.left {
+      left: calc(50% - 34px);
+      transform-origin: right center;
+      animation: brittleLeft 2.4s ease-in-out infinite;
+    }
+
+    .crack-piece.right {
+      left: 50%;
+      transform-origin: left center;
+      animation: brittleRight 2.4s ease-in-out infinite;
+    }
+
+    .scene-caption {
+      margin-top: 10px;
+      font-size: 0.92rem;
+      line-height: 1.55;
+      color: #475569;
+    }
+
+    @keyframes hammerHit {
+      0%, 18% { transform: translateX(-50%) translateY(0) rotate(0deg); }
+      34% { transform: translateX(-50%) translateY(48px) rotate(16deg); }
+      42% { transform: translateX(-50%) translateY(50px) rotate(17deg); }
+      62%, 100% { transform: translateX(-50%) translateY(0) rotate(0deg); }
+    }
+
+    @keyframes malleableSquash {
+      0%, 28%, 100% { transform: translateX(-50%) scaleX(1) scaleY(1); border-radius: 999px; }
+      40% { transform: translateX(-50%) scaleX(1.12) scaleY(0.82); border-radius: 12px; }
+      56% { transform: translateX(-50%) scaleX(1.06) scaleY(0.88); }
+    }
+
+    @keyframes brittleBreak {
+      0%, 30%, 100% { opacity: 1; transform: translateX(-50%) scaleX(1); }
+      42% { opacity: 0; transform: translateX(-50%) scaleX(0.82); }
+      56% { opacity: 0; }
+    }
+
+    @keyframes softSpark {
+      0%, 32%, 100% { opacity: 0; transform: scale(0.4); }
+      40% { opacity: 0.9; transform: scale(1.3); }
+      58% { opacity: 0; transform: scale(1.8); }
+    }
+
+    @keyframes brittleSpark {
+      0%, 32%, 100% { opacity: 0; transform: scale(0.4); }
+      40% { opacity: 1; transform: scale(1.8); }
+      60% { opacity: 0; transform: scale(2.2); }
+    }
+
+    @keyframes brittleLeft {
+      0%, 35%, 100% { opacity: 0; transform: translateX(0) rotate(0deg); }
+      42% { opacity: 1; transform: translateX(-14px) rotate(-18deg); }
+      64% { opacity: 0; transform: translateX(-24px) rotate(-28deg); }
+    }
+
+    @keyframes brittleRight {
+      0%, 35%, 100% { opacity: 0; transform: translateX(0) rotate(0deg); }
+      42% { opacity: 1; transform: translateX(14px) rotate(18deg); }
+      64% { opacity: 0; transform: translateX(24px) rotate(28deg); }
+    }
+
     @media (max-width: 980px) {
       .hero-top, .game-grid { display: grid; grid-template-columns: 1fr; }
       .hero-grid { grid-template-columns: 1fr; }
@@ -297,6 +491,7 @@
       thead th, tbody td { padding: 12px 14px; }
       .nav-box { flex-direction: column; }
       .nav-box .primary-btn, .nav-box .ghost-btn, .nav-box .secondary-btn { width: 100%; }
+      .malleability-stage { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -383,6 +578,83 @@
       );
     }
 
+    function MalleabilityStation({ selected, showResult, onChoose, onReset }) {
+      function buttonClass(choice) {
+        if (!showResult) return "choice-button";
+        if (choice === "A") return choice === selected ? "choice-button correct" : "choice-button dim";
+        if (choice === selected) return "choice-button wrong";
+        return "choice-button dim";
+      }
+
+      return (
+        <section className="panel card">
+          <div className="panel-title">Skill Builder</div>
+          <h2>Malleability Test Station</h2>
+          <p className="hint-box">
+            Students often mix up <strong>malleable</strong> and <strong>not malleable</strong>. Watch the hammer test:
+            the malleable sample changes shape, while the non-malleable sample cracks apart.
+          </p>
+
+          <div className="malleability-demo">
+            <div className="malleability-stage">
+              <div className="malleability-card">
+                <div className="malleability-label">Sample A</div>
+                <div className="malleability-scene">
+                  <div className="hammer">
+                    <div className="hammer-head"></div>
+                    <div className="hammer-handle"></div>
+                  </div>
+                  <div className="spark malleable"></div>
+                  <div className="sample-bar malleable"></div>
+                  <div className="anvil"></div>
+                </div>
+                <div className="scene-caption">This sample flattens and changes shape when struck.</div>
+              </div>
+
+              <div className="malleability-card">
+                <div className="malleability-label">Sample B</div>
+                <div className="malleability-scene">
+                  <div className="hammer">
+                    <div className="hammer-head"></div>
+                    <div className="hammer-handle"></div>
+                  </div>
+                  <div className="spark brittle"></div>
+                  <div className="sample-bar brittle"></div>
+                  <div className="crack-piece left"></div>
+                  <div className="crack-piece right"></div>
+                  <div className="anvil"></div>
+                </div>
+                <div className="scene-caption">This sample cracks and breaks instead of bending.</div>
+              </div>
+            </div>
+          </div>
+
+          <div className="choice-grid">
+            <button type="button" className={buttonClass("A")} onClick={() => onChoose("A")} disabled={showResult}>
+              Sample A is malleable because it flattens under the hammer.
+            </button>
+            <button type="button" className={buttonClass("B")} onClick={() => onChoose("B")} disabled={showResult}>
+              Sample B is malleable because it breaks when struck.
+            </button>
+          </div>
+
+          {showResult && (
+            <div className="result-box">
+              <div className="result-title">
+                {selected === "A" ? "Correct!" : "Try the idea again."}
+              </div>
+              <div className="result-copy">
+                Malleable means a material can be hammered into a new shape without shattering. A sample that breaks or cracks is <strong>not malleable</strong>.
+              </div>
+              <div className="nav-box">
+                <button type="button" className="ghost-btn" onClick={onReset}>Replay Station</button>
+              </div>
+            </div>
+          )}
+        </section>
+      );
+    }
+
     function App() {
       const [samples, setSamples] = useState(() => shuffle(SAMPLES));
       const [index, setIndex] = useState(0);
@@ -390,6 +662,8 @@
       const [showResult, setShowResult] = useState(false);
       const [score, setScore] = useState(0);
       const [finished, setFinished] = useState(false);
+      const [malleabilityChoice, setMalleabilityChoice] = useState(null);
+      const [malleabilityResult, setMalleabilityResult] = useState(false);
 
       const current = samples[index];
       const progress = useMemo(() => (finished ? 100 : Math.round((index / samples.length) * 100)), [finished, index, samples.length]);
@@ -419,6 +693,19 @@
         setShowResult(false);
         setScore(0);
         setFinished(false);
+        setMalleabilityChoice(null);
+        setMalleabilityResult(false);
+      }
+
+      function chooseMalleability(choice) {
+        if (malleabilityResult) return;
+        setMalleabilityChoice(choice);
+        setMalleabilityResult(true);
+      }
+
+      function resetMalleability() {
+        setMalleabilityChoice(null);
+        setMalleabilityResult(false);
       }
 
       function choiceClass(choice) {
@@ -452,6 +739,7 @@
             </div>
           </section>
 
+          <section className="lab-stack">
           {!finished ? (
             <div className="game-grid">
               <ObservationTable sample={current} />
@@ -509,6 +797,14 @@
               </div>
             </section>
           )}
+
+          <MalleabilityStation
+            selected={malleabilityChoice}
+            showResult={malleabilityResult}
+            onChoose={chooseMalleability}
+            onReset={resetMalleability}
+          />
+          </section>
         </main>
       );
     }
