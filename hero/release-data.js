@@ -5,7 +5,7 @@ window.HERO_RELEASES = [
     title: "Classroom Dashboard Update",
     summary: "Added class codes, student names, and a teacher dashboard so classroom sessions can be reviewed after students play.",
     highlights: [
-      "Added student name and class code fields such as SCN1W-10 in the lobby.",
+      "Added student name and class code fields such as SNC1W-10 in the lobby.",
       "Added a teacher dashboard page that loads saved classroom summaries by class code.",
       "Practice mode and multiplayer now save end-of-match science summaries for classroom review.",
       "Added a Teacher Dashboard footer link from the main game page.",
