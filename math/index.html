@@ -202,6 +202,31 @@
       white-space: pre-wrap;
     }
 
+    .math {
+      font-family: "Times New Roman", Georgia, serif;
+      font-size: 1.15rem;
+      line-height: 1.8;
+    }
+
+    .sqrt {
+      display: inline-flex;
+      align-items: flex-start;
+      white-space: nowrap;
+    }
+
+    .sqrt-sign {
+      font-size: 1.45em;
+      line-height: 0.9;
+      padding-right: 1px;
+    }
+
+    .radicand {
+      display: inline-block;
+      border-top: 2px solid currentColor;
+      padding: 0.08em 0.2em 0 0.28em;
+      margin-top: 0.1em;
+    }
+
     .graph-box svg {
       display: block;
       width: 100%;
@@ -327,8 +352,8 @@
           "Use the distance formula.",
           "Simplify the square root if possible."
         ],
-        formula: "d = √[(x₂ - x₁)² + (y₂ - y₁)²]",
-        example: "A(1, 2), B(5, 7) → d = √[(5 - 1)² + (7 - 2)²] = √41",
+        formula: "d = <span class=\"sqrt\"><span class=\"sqrt-sign\">√</span><span class=\"radicand\">(x₂ - x₁)² + (y₂ - y₁)²</span></span>",
+        example: "A(1, 2), B(5, 7) → d = <span class=\"sqrt\"><span class=\"sqrt-sign\">√</span><span class=\"radicand\">(5 - 1)² + (7 - 2)²</span></span> = <span class=\"sqrt\"><span class=\"sqrt-sign\">√</span><span class=\"radicand\">16 + 25</span></span> = <span class=\"sqrt\"><span class=\"sqrt-sign\">√</span><span class=\"radicand\">41</span></span>",
         mistake: "Mixing up x and y differences or forgetting to square both changes.",
         graph: { kind: "segment", points: [{ label: "A", x: 18, y: 72 }, { label: "B", x: 82, y: 28 }] }
       },
@@ -342,7 +367,7 @@
           "Add the y-coordinates and divide by 2.",
           "Write the answer as an ordered pair."
         ],
-        formula: "M = ((x₁ + x₂)/2, (y₁ + y₂)/2)",
+        formula: "M = ((x₁ + x₂) / 2, (y₁ + y₂) / 2)",
         example: "A(2, 4), B(8, 10) → M = (5, 7)",
         mistake: "Only averaging one coordinate or forgetting the ordered pair format.",
         graph: { kind: "midpoint", points: [{ label: "A", x: 16, y: 76 }, { label: "M", x: 50, y: 50 }, { label: "B", x: 84, y: 24 }] }
@@ -534,13 +559,13 @@
 
         <div class="formula">
           <div class="label">Key Formula / Method</div>
-          <div>${skill.formula}</div>
+          <div class="math">${skill.formula}</div>
         </div>
 
         <div class="example">
           <div class="label">Example</div>
           ${skill.example
-            ? `<div style="margin-top:10px; color:#334155;">${skill.example}</div>`
+            ? `<div class="math" style="margin-top:10px; color:#334155;">${skill.example}</div>`
             : `<div style="margin-top:10px;"><strong>${skill.exampleTitle}</strong><div class="example-block">${skill.exampleSteps.join("\n")}</div></div>`
           }
         </div>
