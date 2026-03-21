@@ -112,14 +112,18 @@ export default function Grade10GeometrySkillMap() {
     },
     {
       id: "parallel-lines",
-      title: "Distance Between Two Parallel Lines",
+      title: "Shortest Distance Between Two Parallel Lines",
       graph: {
         kind: "parallel",
         lines: [
           { x1: 16, y1: 68, x2: 84, y2: 38 },
           { x1: 16, y1: 88, x2: 84, y2: 58 }
         ],
-        connector: { x1: 48, y1: 54, x2: 48, y2: 74 }
+        connector: { x1: 56, y1: 50, x2: 44, y2: 76 },
+        corners: [
+          { x: 53.5, y: 49 },
+          { x: 41.5, y: 75 }
+        ]
       },
       trigger: ["parallel lines", "distance between lines", "shortest distance between lines"],
       think: "Parallel lines stay the same distance apart, so I can choose one point on a line and find its perpendicular distance to the other line.",
@@ -262,8 +266,19 @@ export default function Grade10GeometrySkillMap() {
                 strokeWidth="2"
                 strokeDasharray="4 2"
               />
-              <rect x={45.5} y={61.5} width={5} height={5} fill="none" stroke="#ef4444" strokeWidth="1.2" />
-              <text x="52" y="66" fontSize="5.5" fill="#b91c1c">d</text>
+              {skill.graph.corners.map((corner, idx) => (
+                <rect
+                  key={idx}
+                  x={corner.x}
+                  y={corner.y}
+                  width={5}
+                  height={5}
+                  fill="none"
+                  stroke="#ef4444"
+                  strokeWidth="1.2"
+                />
+              ))}
+              <text x="52" y="61" fontSize="5.5" fill="#b91c1c">d</text>
             </>
           )}
         </svg>
