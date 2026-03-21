@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gas Lab Matching Game</title>
+  <style>
+    :root {
+      --panel: rgba(255, 255, 255, 0.94);
+      --line: rgba(15, 23, 42, 0.08);
+      --text: #102033;
+      --muted: #516275;
+      --sky-soft: #e1f3ff;
+      --amber-soft: #fff0d1;
+      --emerald-soft: #e3f7ef;
+      --shadow: 0 24px 48px rgba(15, 23, 42, 0.14);
+    }
+
+    * { box-sizing: border-box; }
+    html, body { margin: 0; min-height: 100%; }
+
+    body {
+      font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top, rgba(47, 157, 244, 0.16), transparent 28%),
+        linear-gradient(180deg, #eff9ff 0%, #ffffff 100%);
+    }
+
+    button { font: inherit; }
+
+    .page-shell {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 24px 18px 48px;
+    }
+
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      box-shadow: var(--shadow);
+    }
+
+    .hero, .panel, .finish-box { padding: 24px; }
+    .eyebrow {
+      display: inline-flex;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: #dff4ff;
+      color: #0a6e9d;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-size: 12px;
+    }
+
+    h1, h2, h3, p { margin: 0; }
+
+    .hero h1 {
+      margin-top: 14px;
+      font-size: clamp(2rem, 4vw, 3.1rem);
+      line-height: 1.03;
+    }
+
+    .hero p {
+      margin-top: 12px;
+      color: var(--muted);
+      line-height: 1.7;
+      max-width: 760px;
+    }
+
+    .gas-clues {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 20px;
+    }
+
+    .clue {
+      padding: 16px 18px;
+      border-radius: 20px;
+      border: 1px solid rgba(15, 23, 42, 0.05);
+    }
+
+    .clue.sky { background: var(--sky-soft); }
+    .clue.amber { background: var(--amber-soft); }
+    .clue.emerald { background: var(--emerald-soft); }
+    .clue .label { color: var(--muted); font-size: 0.9rem; }
+    .clue .value { margin-top: 6px; font-weight: 800; }
+
+    .game-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.18fr) minmax(320px, 0.82fr);
+      gap: 18px;
+      margin-top: 18px;
+    }
+
+    .station-header,
+    .question-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: start;
+      margin-bottom: 18px;
+    }
+
+    .panel-title {
+      font-size: 0.84rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #64748b;
+      margin-bottom: 8px;
+    }
+
+    .station-step,
+    .score-pill {
+      border-radius: 999px;
+      padding: 10px 14px;
+      background: #f2f7fb;
+      color: #4c5e73;
+      font-weight: 800;
+      font-size: 0.9rem;
+      white-space: nowrap;
+    }
+
+    .station-card {
+      border-radius: 24px;
+      border: 1px solid rgba(15, 23, 42, 0.06);
+      background: #f7fbff;
+      padding: 20px;
+    }
+
+    .station-grid {
+      display: grid;
+      grid-template-columns: minmax(220px, 0.95fr) minmax(0, 1.05fr);
+      gap: 18px;
+      align-items: center;
+    }
+
+    .tube-box,
+    .splint-box {
+      border-radius: 24px;
+      background: #ffffff;
+      padding: 18px;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.7);
+    }
+
+    .tube-visual {
+      position: relative;
+      margin: 0 auto;
+      width: 160px;
+      height: 288px;
+    }
+
+    .tube-mouth {
+      position: absolute;
+      left: 50%;
+      top: 0;
+      width: 64px;
+      height: 40px;
+      transform: translateX(-50%);
+      border-radius: 22px 22px 0 0;
+      border: 4px solid #bde2fb;
+      border-bottom: 0;
+      background: rgba(255, 255, 255, 0.85);
+    }
+
+    .tube-body {
+      position: absolute;
+      left: 50%;
+      top: 32px;
+      width: 98px;
+      height: 214px;
+      transform: translateX(-50%);
+      overflow: hidden;
+      border-radius: 18px 18px 30px 30px;
+      border: 4px solid #bde2fb;
+      background: linear-gradient(180deg, #f7fdff, #ffffff);
+      box-shadow: inset 0 -18px 24px rgba(178, 222, 255, 0.16);
+    }
+
+    .liquid-base {
+      position: absolute;
+      inset: auto 0 0;
+      height: 82px;
+      background: rgba(192, 233, 255, 0.55);
+    }
+
+    .bubble {
+      position: absolute;
+      bottom: 22px;
+      border-radius: 50%;
+      background: rgba(105, 199, 255, 0.58);
+      animation-name: gasBubbleRise;
+      animation-timing-function: ease-in-out;
+      animation-iteration-count: infinite;
+    }
+
+    @keyframes gasBubbleRise {
+      0% { transform: translateY(0) scale(0.8); opacity: 0.3; }
+      20% { opacity: 0.9; }
+      100% { transform: translateY(-140px) scale(1.08); opacity: 0; }
+    }
+
+    .gas-cloud {
+      position: absolute;
+      left: 8px;
+      right: 8px;
+      top: 18px;
+      height: 90px;
+      border-radius: 999px;
+      background: rgba(176, 185, 196, 0.48);
+      filter: blur(10px);
+    }
+
+    .splint-stage {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 116px;
+      border-radius: 20px;
+      background: #f5f9fd;
+      padding: 18px;
+    }
+
+    .splint {
+      position: relative;
+      width: 192px;
+      height: 84px;
+    }
+
+    .splint-stick {
+      position: absolute;
+      left: 18px;
+      top: 40px;
+      width: 116px;
+      height: 8px;
+      border-radius: 999px;
+      background: #9b6a3c;
+    }
+
+    .splint-head {
+      position: absolute;
+      left: 128px;
+      top: 33px;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: #4a5565;
+    }
+
+    .flame {
+      position: absolute;
+      left: 130px;
+      top: 12px;
+      width: 18px;
+      height: 26px;
+      border-radius: 50% 50% 44% 44%;
+      background: radial-gradient(circle at 50% 65%, #ff9f33, #ffdf7a 62%, rgba(255, 223, 122, 0) 72%);
+      filter: blur(0.8px);
+      animation: flameFlicker 520ms ease-in-out infinite alternate;
+    }
+
+    .glow {
+      position: absolute;
+      left: 133px;
+      top: 18px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: #ef4444;
+      box-shadow: 0 0 18px rgba(239, 68, 68, 0.72);
+      animation: glowPulse 720ms ease-in-out infinite alternate;
+    }
+
+    @keyframes flameFlicker {
+      from { transform: scale(0.92) translateY(0); opacity: 0.88; }
+      to { transform: scale(1.05) translateY(-1px); opacity: 1; }
+    }
+
+    @keyframes glowPulse {
+      from { transform: scale(0.9); opacity: 0.8; }
+      to { transform: scale(1.08); opacity: 1; }
+    }
+
+    .observation-box,
+    .instruction-box,
+    .warning-box,
+    .result-box {
+      margin-top: 16px;
+      border-radius: 20px;
+      padding: 16px;
+      line-height: 1.65;
+    }
+
+    .observation-box,
+    .instruction-box {
+      background: #f4f8fc;
+      color: #42556a;
+    }
+
+    .warning-box { background: #fff4d8; color: #825300; }
+    .result-box { border: 1px solid rgba(15, 23, 42, 0.08); background: #ffffff; }
+
+    .choice-grid { display: grid; gap: 12px; margin-top: 16px; }
+
+    .choice-button {
+      width: 100%;
+      text-align: left;
+      border: 1px solid #d6dee8;
+      background: #ffffff;
+      border-radius: 18px;
+      padding: 15px 16px;
+      font-size: 1rem;
+      font-weight: 800;
+      cursor: pointer;
+      transition: transform 160ms ease, border-color 160ms ease, background 160ms ease;
+    }
+
+    .choice-button:hover:not(:disabled) { transform: translateY(-1px); border-color: #bfd0df; }
+    .choice-button.correct { border-color: #1f9b56; background: #eafef1; color: #176d3d; }
+    .choice-button.wrong { border-color: #df4d62; background: #fff0f2; color: #b12445; }
+    .choice-button.dim { border-color: #e0e7ef; background: #f3f6f9; color: #74879a; }
+
+    .primary-btn, .secondary-btn, .ghost-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0 18px;
+      border-radius: 16px;
+      border: none;
+      cursor: pointer;
+      font-weight: 800;
+      transition: transform 160ms ease, opacity 160ms ease;
+      text-decoration: none;
+    }
+
+    .primary-btn:hover, .secondary-btn:hover, .ghost-btn:hover { transform: translateY(-1px); }
+    .primary-btn { color: #ffffff; background: linear-gradient(135deg, #2f9df4, #69cfff); }
+    .secondary-btn { color: #ffffff; background: #0f172a; }
+    .ghost-btn { color: #314255; background: #eef4fb; }
+    .disabled { cursor: not-allowed; opacity: 0.58; }
+
+    .finish-box { text-align: center; }
+    .finish-box p { color: var(--muted); line-height: 1.7; }
+
+    .nav-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    @media (max-width: 980px) {
+      .gas-clues, .game-grid, .station-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 640px) {
+      .page-shell { padding: 14px 12px 34px; }
+      .hero, .panel, .finish-box { padding: 18px; }
+      .question-head, .station-header { flex-direction: column; }
+      .nav-row { flex-direction: column; }
+      .nav-row .primary-btn, .nav-row .secondary-btn, .nav-row .ghost-btn { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+  <div id="app"></div>
+
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script type="text/babel">
+    const { useEffect, useMemo, useState } = React;
+
+    const QUESTIONS = [
+      { id: 1, title: "Burning splint test", answer: "Hydrogen", explanation: "Hydrogen is identified by the burning splint pop test.", visual: { splint: "burning", outcome: "pop", gas: "bubbles", note: 'A lit splint is brought to the mouth of the test tube. A small "pop" is heard.' } },
+      { id: 2, title: "Glowing splint test", answer: "Oxygen", explanation: "Oxygen supports combustion, so a glowing splint relights.", visual: { splint: "glowing", outcome: "relight", gas: "bubbles", note: "A glowing splint is inserted into the test tube and bursts back into flame." } },
+      { id: 3, title: "Burning splint test", answer: "Carbon Dioxide", explanation: "Carbon dioxide does not support combustion and puts out the flame.", visual: { splint: "burning", outcome: "out", gas: "cloud", note: "A burning splint is placed near the gas and the flame goes out." } },
+      { id: 4, title: "Acid + metal test", answer: "Hydrogen", explanation: "A metal reacting with acid can produce hydrogen gas, which gives a pop with a burning splint.", visual: { splint: "burning", outcome: "pop", gas: "fast-bubbles", note: "The reaction produces many bubbles. A burning splint gives a quick pop." } },
+      { id: 5, title: "Peroxide test", answer: "Oxygen", explanation: "Oxygen is the gas that relights a glowing splint.", visual: { splint: "glowing", outcome: "relight", gas: "fast-bubbles", note: "The tube fills with gas and a dim red splint reignites when tested." } },
+      { id: 6, title: "Vinegar + baking soda test", answer: "Carbon Dioxide", explanation: "Vinegar and baking soda produce carbon dioxide, which puts out flame.", visual: { splint: "burning", outcome: "out", gas: "cloud", note: "The gas forms quickly and the flame is extinguished during the test." } },
+    ];
+
+    const CHOICES = ["Hydrogen", "Oxygen", "Carbon Dioxide"];
+
+    function getChoiceClass({ option, selected, correctAnswer, showResult }) {
+      if (!showResult) return "choice-button";
+      if (option === correctAnswer) return "choice-button correct";
+      if (option === selected && option !== correctAnswer) return "choice-button wrong";
+      return "choice-button dim";
+    }
+
+    function Splint({ type, phase, outcome }) {
+      const showBurningFlame = type === "burning" && phase !== "result";
+      const relitFlame = type === "glowing" && phase === "result" && outcome === "relight";
+      const flameOut = type === "burning" && phase === "result" && outcome === "out";
+
+      return (
+        <div className="splint">
+          <div className="splint-stick" />
+          <div className="splint-head" />
+          {(showBurningFlame || relitFlame) && <div className="flame" />}
+          {type === "glowing" && !relitFlame && <div className="glow" />}
+          {flameOut && <div className="glow" style={{ background: "#7c5f3e", boxShadow: "none", opacity: 0.65 }} />}
+        </div>
+      );
+    }
+
+    function GasTube({ gasType, phase, outcome }) {
+      const bubbles = gasType === "fast-bubbles" ? 9 : gasType === "bubbles" ? 6 : 3;
+      return (
+        <div className="tube-visual">
+          <div className="tube-mouth" />
+          <div className="tube-body">
+            <div className="liquid-base" />
+            {Array.from({ length: bubbles }).map((_, i) => {
+              const size = 8 + (i % 3) * 3;
+              return (
+                <div
+                  key={i}
+                  className="bubble"
+                  style={{
+                    left: `${15 + ((i * 11) % 60)}%`,
+                    width: `${size}px`,
+                    height: `${size}px`,
+                    animationDuration: `${1 + (i % 3) * 0.35}s`,
+                    animationDelay: `${i * 0.08}s`,
+                    animationPlayState: phase === "idle" ? "paused" : "running",
+                    opacity: phase === "idle" ? 0 : undefined,
+                  }}
+                />
+              );
+            })}
+            {outcome === "cloud" && phase === "result" && <div className="gas-cloud" />}
+          </div>
+        </div>
+      );
+    }
+
+    function ObservationAnimation({ visual, phase, hasPlayed }) {
+      const outcomeText = useMemo(() => {
+        if (phase !== "result") return "Watch the test carefully.";
+        if (visual.outcome === "pop") return 'Result observed: a small "pop" sound.';
+        if (visual.outcome === "relight") return "Result observed: the glowing splint relights.";
+        return "Result observed: the flame goes out.";
+      }, [phase, visual.outcome]);
+
+      const stepLabel = phase === "idle" ? "Step 1: Start" : phase === "observe" ? "Step 2: Observe" : "Step 3: Choose";
+
+      return (
+        <section className="panel card">
+          <div className="station-header">
+            <div><div className="panel-title">Observation station</div><h2>{hasPlayed ? "Animated gas test" : "Ready to observe"}</h2></div>
+            <div className="station-step">{stepLabel}</div>
+          </div>
+
+          <div className="station-card">
+            <div className="station-grid">
+              <div className="tube-box">
+                <GasTube gasType={visual.gas} phase={phase} outcome={visual.outcome === "out" ? "cloud" : visual.outcome} />
+                <div style={{ textAlign: "center", color: "#5d7186", marginTop: "6px" }}>Gas collecting in a test tube</div>
+              </div>
+
+              <div className="splint-box">
+                <div className="panel-title">Splint test</div>
+                <div className="splint-stage"><Splint type={visual.splint} phase={phase} outcome={visual.outcome} /></div>
+                <div className="observation-box">
+                  <div style={{ fontWeight: 800 }}>What you notice</div>
+                  <div style={{ marginTop: "8px" }}>{phase === "idle" ? "Press start to watch the gas test animation." : visual.note}</div>
+                  <div style={{ marginTop: "12px", borderRadius: "16px", background: "#ffffff", padding: "12px 14px", fontWeight: 700, boxShadow: "0 8px 20px rgba(15, 23, 42, 0.06)" }}>{outcomeText}</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      );
+    }
+
+    function App() {
+      const [index, setIndex] = useState(0);
+      const [score, setScore] = useState(0);
+      const [selected, setSelected] = useState(null);
+      const [showResult, setShowResult] = useState(false);
+      const [finished, setFinished] = useState(false);
+      const [animationPhase, setAnimationPhase] = useState("idle");
+      const [hasPlayed, setHasPlayed] = useState(false);
+
+      const current = QUESTIONS[index];
+
+      useEffect(() => {
+        let timer;
+        if (animationPhase === "observe") {
+          timer = window.setTimeout(() => setAnimationPhase("result"), 1800);
+        }
+        return () => { if (timer) window.clearTimeout(timer); };
+      }, [animationPhase, index]);
+
+      function playAnimation() {
+        if (hasPlayed || finished) return;
+        setHasPlayed(true);
+        setAnimationPhase("observe");
+      }
+
+      function choose(option) {
+        if (showResult || finished || animationPhase !== "result") return;
+        setSelected(option);
+        setShowResult(true);
+        if (option === current.answer) setScore((previous) => previous + 1);
+      }
+
+      function nextQuestion() {
+        if (index + 1 < QUESTIONS.length) {
+          setIndex((previous) => previous + 1);
+          setSelected(null);
+          setShowResult(false);
+          setAnimationPhase("idle");
+          setHasPlayed(false);
+          return;
+        }
+        setFinished(true);
+      }
+
+      function restart() {
+        setIndex(0);
+        setScore(0);
+        setSelected(null);
+        setShowResult(false);
+        setFinished(false);
+        setAnimationPhase("idle");
+        setHasPlayed(false);
+      }
+
+      return (
+        <main className="page-shell">
+          <section className="hero card">
+            <div className="eyebrow">Gas Test Lab</div>
+            <h1>Gas Lab Observation Game</h1>
+            <p>Watch the gas test animation first, then choose which gas matches the observation. This station reinforces the classic splint tests for hydrogen, oxygen, and carbon dioxide.</p>
+            <div className="gas-clues">
+              <div className="clue sky"><div className="label">Hydrogen</div><div className="value">Burning splint -> pop</div></div>
+              <div className="clue amber"><div className="label">Oxygen</div><div className="value">Glowing splint -> relights</div></div>
+              <div className="clue emerald"><div className="label">Carbon Dioxide</div><div className="value">Burning splint -> goes out</div></div>
+            </div>
+          </section>
+
+          {!finished ? (
+            <div className="game-grid">
+              <ObservationAnimation visual={current.visual} phase={animationPhase} hasPlayed={hasPlayed} />
+
+              <section className="panel card">
+                <div className="question-head">
+                  <div><div className="panel-title">Question {index + 1} / {QUESTIONS.length}</div><h2>{current.title}</h2></div>
+                  <div className="score-pill">Score: {score}</div>
+                </div>
+
+                <div className="instruction-box">
+                  <div style={{ fontWeight: 800 }}>How to use this station</div>
+                  <div style={{ marginTop: "8px" }}>
+                    1. Press <strong>Start Observation</strong>.<br />
+                    2. Watch the splint and the gas reaction.<br />
+                    3. Choose the gas only after the result appears.
+                  </div>
+                </div>
+
+                <div className="nav-row">
+                  <button type="button" onClick={playAnimation} className={`primary-btn ${hasPlayed ? "disabled" : ""}`} disabled={hasPlayed}>
+                    {hasPlayed ? "Observation Played" : "Start Observation"}
+                  </button>
+                  <a className="ghost-btn" href="./index.html">Back to Lab Hub</a>
+                </div>
+
+                <div className="choice-grid">
+                  {CHOICES.map((option) => (
+                    <button
+                      key={option}
+                      type="button"
+                      className={getChoiceClass({ option, selected, correctAnswer: current.answer, showResult })}
+                      onClick={() => choose(option)}
+                      disabled={showResult || animationPhase !== "result"}
+                    >
+                      {option}
+                    </button>
+                  ))}
+                </div>
+
+                {animationPhase !== "result" && !showResult && <div className="warning-box">Watch until the test result appears before choosing an answer.</div>}
+
+                {showResult && (
+                  <div className="result-box">
+                    <div style={{ fontSize: "1.2rem", fontWeight: 900 }}>{selected === current.answer ? "Correct!" : "Not quite."}</div>
+                    <div style={{ marginTop: "8px", fontWeight: 700 }}>Correct answer: <strong>{current.answer}</strong></div>
+                    <div style={{ marginTop: "8px", color: "#516275" }}>{current.explanation}</div>
+                    <div className="nav-row">
+                      <button type="button" className="secondary-btn" onClick={nextQuestion}>{index + 1 < QUESTIONS.length ? "Next" : "See Result"}</button>
+                    </div>
+                  </div>
+                )}
+              </section>
+            </div>
+          ) : (
+            <section className="finish-box card">
+              <h2>Great job!</h2>
+              <p>Final score: <strong>{score} / {QUESTIONS.length}</strong></p>
+              <p>Remember: Hydrogen pops, oxygen relights, and carbon dioxide puts out the flame.</p>
+              <div className="nav-row" style={{ justifyContent: "center" }}>
+                <button type="button" className="primary-btn" onClick={restart}>Play Again</button>
+                <a className="ghost-btn" href="./index.html">Back to Lab Hub</a>
+              </div>
+            </section>
+          )}
+        </main>
+      );
+    }
+
+    ReactDOM.createRoot(document.getElementById("app")).render(<App />);
+  </script>
+</body>
+</html>

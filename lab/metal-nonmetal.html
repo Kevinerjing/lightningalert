@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Metals and Non-metals Lab</title>
+  <style>
+    :root {
+      --panel: rgba(255, 255, 255, 0.94);
+      --line: rgba(15, 23, 42, 0.08);
+      --text: #0f172a;
+      --muted: #475569;
+      --amber: #f4a900;
+      --amber-soft: #fff4cf;
+      --rose-soft: #ffe2e2;
+      --sky-soft: #dff4ff;
+      --slate-soft: #eef4fb;
+      --shadow: 0 24px 48px rgba(15, 23, 42, 0.14);
+    }
+
+    * { box-sizing: border-box; }
+    html, body { margin: 0; min-height: 100%; }
+
+    body {
+      font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top, rgba(244, 169, 0, 0.13), transparent 26%),
+        linear-gradient(180deg, #fff7e9 0%, #f6fbff 100%);
+    }
+
+    button { font: inherit; }
+
+    .page-shell {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 24px 18px 48px;
+    }
+
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      box-shadow: var(--shadow);
+    }
+
+    .hero, .panel, .finish-box { padding: 24px; }
+
+    .hero-top {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 16px;
+      align-items: end;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      width: fit-content;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: var(--amber-soft);
+      color: #915600;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-size: 12px;
+    }
+
+    h1, h2, h3, p { margin: 0; }
+
+    .hero h1 {
+      margin-top: 14px;
+      font-size: clamp(2rem, 4vw, 3.1rem);
+      line-height: 1.02;
+    }
+
+    .hero p {
+      margin-top: 12px;
+      color: var(--muted);
+      max-width: 780px;
+      line-height: 1.7;
+    }
+
+    .tip {
+      max-width: 320px;
+      padding: 16px 18px;
+      border-radius: 22px;
+      background: linear-gradient(180deg, #fff6d8, #ffefc3);
+      color: #6e4b00;
+      font-size: 0.95rem;
+      line-height: 1.55;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 22px;
+    }
+
+    .mini-stat {
+      border-radius: 20px;
+      padding: 16px 18px;
+      background: #f8fbff;
+      border: 1px solid rgba(15, 23, 42, 0.06);
+    }
+
+    .mini-stat .label { color: var(--muted); font-size: 0.9rem; }
+    .mini-stat .value { margin-top: 6px; font-weight: 800; font-size: 1.05rem; }
+
+    .progress-wrap { margin-top: 20px; }
+    .progress-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      font-size: 0.95rem;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+
+    .progress-bar {
+      height: 12px;
+      border-radius: 999px;
+      background: #ebf1f7;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      height: 100%;
+      border-radius: 999px;
+      background: linear-gradient(90deg, #f5b019, #ffcf58);
+      transition: width 220ms ease;
+    }
+
+    .game-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.25fr) minmax(320px, 0.85fr);
+      gap: 18px;
+      margin-top: 18px;
+    }
+
+    .panel-title {
+      font-size: 0.84rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #64748b;
+      margin-bottom: 8px;
+    }
+
+    .sample-name {
+      font-size: 2rem;
+      font-weight: 900;
+      margin-bottom: 18px;
+    }
+
+    .table-shell {
+      overflow: hidden;
+      border-radius: 24px;
+      border: 1px solid rgba(15, 23, 42, 0.08);
+      background: #ffffff;
+    }
+
+    table { width: 100%; border-collapse: collapse; }
+    thead th {
+      text-align: left;
+      font-size: 0.9rem;
+      padding: 14px 18px;
+      background: #eff4f9;
+      color: #516275;
+    }
+
+    tbody td {
+      padding: 16px 18px;
+      border-top: 1px solid rgba(15, 23, 42, 0.06);
+      vertical-align: top;
+    }
+
+    tbody td:first-child { font-weight: 700; width: 38%; color: #334155; }
+
+    .property-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 9px 14px;
+      border-radius: 999px;
+      font-size: 0.92rem;
+      font-weight: 700;
+    }
+
+    .property-badge.metal { background: var(--sky-soft); color: #0b6ea2; }
+    .property-badge.nonmetal { background: var(--rose-soft); color: #b23452; }
+    .property-badge.neutral { background: var(--slate-soft); color: #516275; }
+
+    .choice-grid { display: grid; gap: 14px; margin-top: 18px; }
+
+    .choice-button {
+      width: 100%;
+      border: 1px solid #d6dee8;
+      background: #ffffff;
+      color: #0f172a;
+      min-height: 70px;
+      border-radius: 20px;
+      padding: 14px 16px;
+      font-size: 1.02rem;
+      font-weight: 800;
+      cursor: pointer;
+      transition: transform 160ms ease, border-color 160ms ease, background 160ms ease;
+      text-align: left;
+    }
+
+    .choice-button:hover:not(:disabled) { transform: translateY(-1px); border-color: #c1ccd8; }
+    .choice-button.correct { border-color: #1f9b56; background: #e9fff1; color: #176d3d; }
+    .choice-button.wrong { border-color: #df4d62; background: #fff0f2; color: #b12445; }
+    .choice-button.dim { background: #f2f5f8; color: #7b8b9b; border-color: #e1e8ee; }
+
+    .hint-box,
+    .result-box,
+    .finish-box,
+    .nav-box {
+      margin-top: 18px;
+      border-radius: 22px;
+      padding: 18px;
+      line-height: 1.65;
+    }
+
+    .hint-box { background: #f5f8fc; color: #4b5d72; }
+    .result-box { border: 1px solid rgba(15, 23, 42, 0.08); background: #ffffff; }
+
+    .result-title { font-size: 1.2rem; font-weight: 900; }
+    .result-answer { margin-top: 8px; font-weight: 700; }
+    .result-copy { margin-top: 8px; color: var(--muted); }
+
+    .strong-note {
+      margin-top: 12px;
+      padding: 14px 16px;
+      border-radius: 18px;
+      background: #f5f8fc;
+      color: #4a5b70;
+    }
+
+    .primary-btn, .secondary-btn, .ghost-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      border-radius: 16px;
+      padding: 0 18px;
+      border: none;
+      cursor: pointer;
+      font-weight: 800;
+      transition: transform 160ms ease;
+      text-decoration: none;
+    }
+
+    .primary-btn:hover, .secondary-btn:hover, .ghost-btn:hover { transform: translateY(-1px); }
+    .primary-btn { background: linear-gradient(135deg, #f7b41a, #ffcc60); color: #5f3b00; }
+    .secondary-btn { background: #0f172a; color: #ffffff; }
+    .ghost-btn { background: #eef4fb; color: #314255; }
+
+    .nav-box {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      background: transparent;
+      padding: 0;
+      margin-top: 22px;
+    }
+
+    .finish-box { text-align: center; }
+    .finish-box h2 { font-size: 2.2rem; margin-bottom: 10px; }
+    .finish-box p { color: var(--muted); line-height: 1.7; }
+
+    .checklist {
+      max-width: 720px;
+      margin: 22px auto 0;
+      text-align: left;
+      border-radius: 24px;
+      background: #f5f8fc;
+      padding: 20px 22px;
+    }
+
+    .checklist h3 { margin-bottom: 12px; }
+    .checklist ul { margin: 0; padding-left: 18px; color: #41556a; line-height: 1.8; }
+
+    @media (max-width: 980px) {
+      .hero-top, .game-grid { display: grid; grid-template-columns: 1fr; }
+      .hero-grid { grid-template-columns: 1fr; }
+      .tip { max-width: none; }
+    }
+
+    @media (max-width: 640px) {
+      .page-shell { padding: 14px 12px 34px; }
+      .hero, .panel, .finish-box { padding: 18px; }
+      .sample-name { font-size: 1.6rem; }
+      thead th, tbody td { padding: 12px 14px; }
+      .nav-box { flex-direction: column; }
+      .nav-box .primary-btn, .nav-box .ghost-btn, .nav-box .secondary-btn { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+  <div id="app"></div>
+
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script type="text/babel">
+    const { useMemo, useState } = React;
+
+    const SAMPLES = [
+      { id: "aluminum", name: "Aluminum", colour: "Grey-silver", lustre: "Lustrous", malleability: "Malleable", magnetism: "Not magnetic", conductivity: "Conducts electricity", answer: "Metal", explanation: "Aluminum is a metal because it is shiny, malleable, and conducts electricity." },
+      { id: "copper", name: "Copper", colour: "Reddish-brown", lustre: "Lustrous", malleability: "Malleable", magnetism: "Not magnetic", conductivity: "Conducts electricity", answer: "Metal", explanation: "Copper is a metal and is well known for excellent electrical conductivity." },
+      { id: "iron", name: "Iron", colour: "Grey", lustre: "Lustrous", malleability: "Malleable", magnetism: "Magnetic", conductivity: "Conducts electricity", answer: "Metal", explanation: "Iron is a metal. It is shiny, conductive, and attracted to a magnet." },
+      { id: "magnesium", name: "Magnesium", colour: "Silver-grey", lustre: "Lustrous", malleability: "Malleable", magnetism: "Not magnetic", conductivity: "Conducts electricity", answer: "Metal", explanation: "Magnesium is a metal with metallic lustre and electrical conductivity." },
+      { id: "nickel", name: "Nickel", colour: "Silver", lustre: "Lustrous", malleability: "Malleable", magnetism: "Magnetic", conductivity: "Conducts electricity", answer: "Metal", explanation: "Nickel is a metal and can be magnetic." },
+      { id: "sulphur", name: "Sulphur", colour: "Yellow", lustre: "Dull", malleability: "Brittle / not malleable", magnetism: "Not magnetic", conductivity: "Does not conduct electricity", answer: "Non-metal", explanation: "Sulphur is a non-metal because it is dull, brittle, and a poor conductor." },
+      { id: "nitrogen", name: "Nitrogen", colour: "Colourless", lustre: "No lustre", malleability: "Not malleable", magnetism: "Not magnetic", conductivity: "Does not conduct electricity", answer: "Non-metal", explanation: "Nitrogen is a non-metal gas at room temperature and does not show metallic properties." },
+      { id: "zinc", name: "Zinc", colour: "Bluish-grey", lustre: "Lustrous", malleability: "Malleable", magnetism: "Not magnetic", conductivity: "Conducts electricity", answer: "Metal", explanation: "Zinc is a metal because it is shiny and conducts electricity." },
+      { id: "unknown-a", name: "Unknown A", colour: "Yellow", lustre: "Dull", malleability: "Brittle / not malleable", magnetism: "Not magnetic", conductivity: "Does not conduct electricity", answer: "Non-metal", explanation: "Unknown A matches non-metal properties: dull, brittle, and non-conductive." },
+      { id: "unknown-b", name: "Unknown B", colour: "Grey-silver", lustre: "Lustrous", malleability: "Malleable", magnetism: "Magnetic", conductivity: "Conducts electricity", answer: "Metal", explanation: "Unknown B matches metal properties: shiny, conductive, and magnetic." },
+    ];
+
+    function shuffle(array) {
+      const copy = [...array];
+      for (let i = copy.length - 1; i > 0; i -= 1) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [copy[i], copy[j]] = [copy[j], copy[i]];
+      }
+      return copy;
+    }
+
+    function propertyBadgeType(value) {
+      const lower = value.toLowerCase();
+      if (lower.includes("conducts") || lower.includes("lustrous") || lower.includes("malleable") || lower === "magnetic") return "metal";
+      if (lower.includes("dull") || lower.includes("does not") || lower.includes("brittle") || lower.includes("not magnetic") || lower.includes("no lustre")) return "nonmetal";
+      return "neutral";
+    }
+
+    function classifyFromProperties(sample) {
+      let metalScore = 0;
+      let nonMetalScore = 0;
+      if (sample.lustre === "Lustrous") metalScore += 1;
+      if (sample.malleability === "Malleable") metalScore += 1;
+      if (sample.magnetism === "Magnetic") metalScore += 1;
+      if (sample.conductivity === "Conducts electricity") metalScore += 1;
+      if (sample.lustre === "Dull" || sample.lustre === "No lustre") nonMetalScore += 1;
+      if (sample.malleability.includes("not malleable") || sample.malleability.includes("Brittle")) nonMetalScore += 1;
+      if (sample.conductivity === "Does not conduct electricity") nonMetalScore += 1;
+      return metalScore >= nonMetalScore ? "Metal" : "Non-metal";
+    }
+
+    function ObservationTable({ sample }) {
+      const rows = [
+        ["Colour", sample.colour],
+        ["Lustre", sample.lustre],
+        ["Malleability", sample.malleability],
+        ["Magnetism", sample.magnetism],
+        ["Electrical conductivity", sample.conductivity],
+      ];
+
+      return (
+        <div className="panel card">
+          <div className="panel-title">Lab sample</div>
+          <div className="sample-name">{sample.name}</div>
+          <div className="table-shell">
+            <table>
+              <thead>
+                <tr><th>Property</th><th>Observation</th></tr>
+              </thead>
+              <tbody>
+                {rows.map(([label, value]) => (
+                  <tr key={label}>
+                    <td>{label}</td>
+                    <td><span className={`property-badge ${propertyBadgeType(value)}`}>{value}</span></td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      );
+    }
+
+    function App() {
+      const [samples, setSamples] = useState(() => shuffle(SAMPLES));
+      const [index, setIndex] = useState(0);
+      const [selected, setSelected] = useState(null);
+      const [showResult, setShowResult] = useState(false);
+      const [score, setScore] = useState(0);
+      const [finished, setFinished] = useState(false);
+
+      const current = samples[index];
+      const progress = useMemo(() => (finished ? 100 : Math.round((index / samples.length) * 100)), [finished, index, samples.length]);
+      const reasoningHint = useMemo(() => classifyFromProperties(current), [current]);
+
+      function choose(answer) {
+        if (showResult || finished) return;
+        setSelected(answer);
+        setShowResult(true);
+        if (answer === current.answer) setScore((previous) => previous + 1);
+      }
+
+      function nextSample() {
+        if (index + 1 < samples.length) {
+          setIndex((previous) => previous + 1);
+          setSelected(null);
+          setShowResult(false);
+          return;
+        }
+        setFinished(true);
+      }
+
+      function restartLab() {
+        setSamples(shuffle(SAMPLES));
+        setIndex(0);
+        setSelected(null);
+        setShowResult(false);
+        setScore(0);
+        setFinished(false);
+      }
+
+      function choiceClass(choice) {
+        if (!showResult) return "choice-button";
+        if (choice === current.answer) return "choice-button correct";
+        if (choice === selected && choice !== current.answer) return "choice-button wrong";
+        return "choice-button dim";
+      }
+
+      return (
+        <main className="page-shell">
+          <section className="hero card">
+            <div className="hero-top">
+              <div>
+                <div className="eyebrow">Observation Lab</div>
+                <h1>Metals and Non-metals Lab</h1>
+                <p>Observe the sample like a real lab station. Use the evidence in the table to decide whether the element should be classified as a metal or a non-metal.</p>
+              </div>
+              <div className="tip">Think like a scientist: look for <strong>lustre</strong>, <strong>malleability</strong>, <strong>magnetism</strong>, and <strong>electrical conductivity</strong>.</div>
+            </div>
+
+            <div className="hero-grid">
+              <div className="mini-stat"><div className="label">Metal clues</div><div className="value">shiny, conductive, malleable</div></div>
+              <div className="mini-stat"><div className="label">Non-metal clues</div><div className="value">dull, brittle, poor conductor</div></div>
+              <div className="mini-stat"><div className="label">Lab progress</div><div className="value">Sample {Math.min(index + 1, samples.length)} / {samples.length}</div></div>
+            </div>
+
+            <div className="progress-wrap">
+              <div className="progress-head"><span>Progress</span><span>{progress}%</span></div>
+              <div className="progress-bar"><div className="progress-fill" style={{ width: `${progress}%` }} /></div>
+            </div>
+          </section>
+
+          {!finished ? (
+            <div className="game-grid">
+              <ObservationTable sample={current} />
+
+              <section className="panel card">
+                <div className="panel-title">Your task</div>
+                <h2>Classify this sample</h2>
+                <p className="hint-box">Based on the observations, decide whether <strong>{current.name}</strong> is a metal or a non-metal.</p>
+
+                <div className="choice-grid">
+                  {["Metal", "Non-metal"].map((choice) => (
+                    <button key={choice} type="button" className={choiceClass(choice)} onClick={() => choose(choice)} disabled={showResult}>
+                      {choice}
+                    </button>
+                  ))}
+                </div>
+
+                <div className="hint-box">Lab thinking hint: based on the listed properties, the pattern looks most like a <strong>{reasoningHint}</strong>.</div>
+
+                {showResult && (
+                  <div className="result-box">
+                    <div className="result-title">{selected === current.answer ? "Correct classification!" : "Check the properties again."}</div>
+                    <div className="result-answer">Correct answer: <strong>{current.answer}</strong></div>
+                    <div className="result-copy">{current.explanation}</div>
+                    <div className="strong-note">Score: <strong>{score}</strong>{selected === current.answer ? " (updated)" : ""}</div>
+                    <div className="nav-box">
+                      <button type="button" className="secondary-btn" onClick={nextSample}>{index + 1 < samples.length ? "Next Sample" : "Finish Lab"}</button>
+                    </div>
+                  </div>
+                )}
+
+                <div className="nav-box">
+                  <a className="ghost-btn" href="./index.html">Back to Lab Hub</a>
+                </div>
+              </section>
+            </div>
+          ) : (
+            <section className="finish-box card">
+              <h2>Lab complete!</h2>
+              <p>Final score: <strong>{score} / {samples.length}</strong></p>
+              <p>Strong lab reasoning comes from matching observed properties to classification patterns. Metals are usually lustrous, conductive, and malleable. Non-metals are often dull, brittle, and poor conductors.</p>
+              <div className="checklist">
+                <h3>Lab checklist</h3>
+                <ul>
+                  <li>Check if the sample is shiny or dull.</li>
+                  <li>Check if it conducts electricity.</li>
+                  <li>Check if it can bend or if it is brittle.</li>
+                  <li>Check whether it is attracted to a magnet.</li>
+                  <li>Use all observations together instead of relying on colour only.</li>
+                </ul>
+              </div>
+              <div className="nav-box" style={{ justifyContent: "center" }}>
+                <button type="button" className="primary-btn" onClick={restartLab}>Start Again</button>
+                <a className="ghost-btn" href="./index.html">Back to Lab Hub</a>
+              </div>
+            </section>
+          )}
+        </main>
+      );
+    }
+
+    ReactDOM.createRoot(document.getElementById("app")).render(<App />);
+  </script>
+</body>
+</html>
