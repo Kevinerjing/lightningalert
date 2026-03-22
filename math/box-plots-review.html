@@ -268,6 +268,11 @@
       padding: 26px;
     }
 
+    .quiz {
+      margin-top: 24px;
+      padding: 26px;
+    }
+
     .practice-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -289,6 +294,41 @@
       font-size: 1rem;
     }
 
+    .quiz-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 18px;
+    }
+
+    .quiz-card {
+      padding: 18px;
+      border-radius: 20px;
+      border: 1px solid var(--line);
+      background: #fff;
+    }
+
+    .quiz-card h3 {
+      margin-top: 0;
+      font-size: 1.2rem;
+    }
+
+    .quiz-card p {
+      margin: 10px 0 0;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .judge-list {
+      margin: 16px 0 0;
+      padding-left: 22px;
+    }
+
+    .judge-list li {
+      color: var(--muted);
+      line-height: 1.75;
+    }
+
     .section-title {
       font-size: clamp(1.7rem, 2.5vw, 2.3rem);
     }
@@ -302,6 +342,7 @@
       .top-grid,
       .example-grid,
       .hero-strip,
+      .quiz-grid,
       .practice-grid,
       .fact-grid {
         grid-template-columns: 1fr;
@@ -365,6 +406,10 @@
             <strong>Skew clue</strong>
             <span>If one whisker is much longer, the data may stretch more in that direction.</span>
           </div>
+          <div class="fact-card">
+            <strong>Outlier rule</strong>
+            <span>A value may be an outlier if it is below Q1 - 1.5 × IQR or above Q3 + 1.5 × IQR.</span>
+          </div>
         </div>
       </article>
 
@@ -376,6 +421,7 @@
           <li>The line inside the box is the median.</li>
           <li>The whiskers extend to the minimum and maximum values unless outliers are handled separately.</li>
           <li>If two data sets have the same median, they can still have very different spread.</li>
+          <li>To test for outliers, first find the IQR, then calculate the lower and upper fences.</li>
         </ul>
 
         <p class="subtle">
@@ -515,6 +561,8 @@ Class B: min 40, Q1 60, median 66, Q3 70, max 74</div>
           </ol>
           <p><strong>Five-number summary:</strong> 12, 15, 18, 22, 55</p>
           <p><strong>IQR:</strong> 22 - 15 = 7</p>
+          <p><strong>Outlier check:</strong> 1.5 × IQR = 10.5, so the fences are 15 - 10.5 = 4.5 and 22 + 10.5 = 32.5.</p>
+          <p><strong>Decision:</strong> 55 is greater than 32.5, so 55 is an outlier.</p>
           <p><strong>Interpretation:</strong> Most homework times are packed between 12 and 24 minutes, but 55 is much larger than the rest. The right whisker would be much longer, so the data looks right-skewed and may contain an outlier.</p>
         </div>
 
@@ -542,6 +590,113 @@ Class B: min 40, Q1 60, median 66, Q3 70, max 74</div>
           This is tricky because the very large maximum can pull your attention away from the middle. A box plot helps you notice that most students are still clustered much lower.
         </div>
       </article>
+    </section>
+
+    <section class="quiz practice">
+      <h2 class="section-title">Quick Quiz: Which Box Plot Is Better?</h2>
+      <p>
+        Use the data set <strong>12, 14, 15, 16, 18, 18, 20, 22, 24, 55</strong>.
+        Four students drew a box plot. Decide which diagram is the best match.
+      </p>
+
+      <div class="practice-grid">
+        <div class="practice-card">
+          <strong>How to judge</strong>
+          <ol class="judge-list">
+            <li>Find the five-number summary first: minimum, Q1, median, Q3, maximum.</li>
+            <li>Check whether the box starts at Q1 and ends at Q3.</li>
+            <li>Check whether the median line is in the correct place inside the box.</li>
+            <li>Check whether the whiskers reach the minimum and maximum or show the outlier properly.</li>
+            <li>Be suspicious if the picture looks neat but the key values are in the wrong places.</li>
+          </ol>
+        </div>
+        <div class="practice-card">
+          <strong>Answer key</strong>
+          <p>
+            The best answer is <strong>Box Plot C</strong> because it matches the summary
+            <strong>12, 15, 18, 22, 55</strong> and shows a very long stretch to the right.
+            If your class separates outliers, you could even mark 55 as a separate outlier point.
+          </p>
+        </div>
+      </div>
+
+      <div class="quiz-grid">
+        <article class="quiz-card">
+          <h3>Box Plot A</h3>
+          <div class="boxplot">
+            <svg viewBox="0 0 420 120" aria-label="Quiz box plot A">
+              <line x1="40" y1="80" x2="390" y2="80" stroke="#17324d" stroke-width="2"></line>
+              <line x1="40" y1="72" x2="40" y2="88" stroke="#17324d" stroke-width="2"></line>
+              <line x1="88" y1="72" x2="88" y2="88" stroke="#17324d" stroke-width="2"></line>
+              <line x1="121" y1="72" x2="121" y2="88" stroke="#17324d" stroke-width="2"></line>
+              <line x1="154" y1="72" x2="154" y2="88" stroke="#17324d" stroke-width="2"></line>
+              <line x1="390" y1="72" x2="390" y2="88" stroke="#17324d" stroke-width="2"></line>
+              <line x1="40" y1="52" x2="88" y2="52" stroke="#0f766e" stroke-width="4"></line>
+              <line x1="154" y1="52" x2="390" y2="52" stroke="#0f766e" stroke-width="4"></line>
+              <rect x="88" y="34" width="66" height="36" fill="#dff5ef" stroke="#0f766e" stroke-width="3"></rect>
+              <line x1="121" y1="34" x2="121" y2="70" stroke="#0f766e" stroke-width="3"></line>
+            </svg>
+          </div>
+          <p>This one places the median too far to the right and makes the middle box too wide.</p>
+        </article>
+
+        <article class="quiz-card">
+          <h3>Box Plot B</h3>
+          <div class="boxplot">
+            <svg viewBox="0 0 420 120" aria-label="Quiz box plot B">
+              <line x1="40" y1="80" x2="390" y2="80" stroke="#17324d" stroke-width="2"></line>
+              <line x1="40" y1="72" x2="40" y2="88" stroke="#17324d" stroke-width="2"></line>
+              <line x1="64" y1="72" x2="64" y2="88" stroke="#17324d" stroke-width="2"></line>
+              <line x1="88" y1="72" x2="88" y2="88" stroke="#17324d" stroke-width="2"></line>
+              <line x1="121" y1="72" x2="121" y2="88" stroke="#17324d" stroke-width="2"></line>
+              <line x1="150" y1="72" x2="150" y2="88" stroke="#17324d" stroke-width="2"></line>
+              <line x1="40" y1="52" x2="64" y2="52" stroke="#d97706" stroke-width="4"></line>
+              <line x1="121" y1="52" x2="150" y2="52" stroke="#d97706" stroke-width="4"></line>
+              <rect x="64" y="34" width="57" height="36" fill="#fff3dd" stroke="#d97706" stroke-width="3"></rect>
+              <line x1="88" y1="34" x2="88" y2="70" stroke="#d97706" stroke-width="3"></line>
+            </svg>
+          </div>
+          <p>This one cuts the maximum off near 24, so it does not represent the data set correctly.</p>
+        </article>
+
+        <article class="quiz-card">
+          <h3>Box Plot C</h3>
+          <div class="boxplot">
+            <svg viewBox="0 0 420 120" aria-label="Quiz box plot C">
+              <line x1="40" y1="80" x2="390" y2="80" stroke="#17324d" stroke-width="2"></line>
+              <line x1="40" y1="72" x2="40" y2="88" stroke="#17324d" stroke-width="2"></line>
+              <line x1="64" y1="72" x2="64" y2="88" stroke="#17324d" stroke-width="2"></line>
+              <line x1="88" y1="72" x2="88" y2="88" stroke="#17324d" stroke-width="2"></line>
+              <line x1="121" y1="72" x2="121" y2="88" stroke="#17324d" stroke-width="2"></line>
+              <line x1="390" y1="72" x2="390" y2="88" stroke="#17324d" stroke-width="2"></line>
+              <line x1="40" y1="52" x2="64" y2="52" stroke="#be123c" stroke-width="4"></line>
+              <line x1="121" y1="52" x2="390" y2="52" stroke="#be123c" stroke-width="4"></line>
+              <rect x="64" y="34" width="57" height="36" fill="#fde7ef" stroke="#be123c" stroke-width="3"></rect>
+              <line x1="88" y1="34" x2="88" y2="70" stroke="#be123c" stroke-width="3"></line>
+            </svg>
+          </div>
+          <p>This one matches the values best: small box on the left and a very long stretch to the maximum.</p>
+        </article>
+
+        <article class="quiz-card">
+          <h3>Box Plot D</h3>
+          <div class="boxplot">
+            <svg viewBox="0 0 420 120" aria-label="Quiz box plot D">
+              <line x1="40" y1="80" x2="390" y2="80" stroke="#17324d" stroke-width="2"></line>
+              <line x1="40" y1="72" x2="40" y2="88" stroke="#17324d" stroke-width="2"></line>
+              <line x1="64" y1="72" x2="64" y2="88" stroke="#17324d" stroke-width="2"></line>
+              <line x1="108" y1="72" x2="108" y2="88" stroke="#17324d" stroke-width="2"></line>
+              <line x1="150" y1="72" x2="150" y2="88" stroke="#17324d" stroke-width="2"></line>
+              <line x1="390" y1="72" x2="390" y2="88" stroke="#17324d" stroke-width="2"></line>
+              <line x1="40" y1="52" x2="64" y2="52" stroke="#1d4ed8" stroke-width="4"></line>
+              <line x1="150" y1="52" x2="390" y2="52" stroke="#1d4ed8" stroke-width="4"></line>
+              <rect x="64" y="34" width="86" height="36" fill="#dbeafe" stroke="#1d4ed8" stroke-width="3"></rect>
+              <line x1="108" y1="34" x2="108" y2="70" stroke="#1d4ed8" stroke-width="3"></line>
+            </svg>
+          </div>
+          <p>This one makes Q3 too large, so the right side of the box is in the wrong position.</p>
+        </article>
+      </div>
     </section>
 
     <section class="practice">
