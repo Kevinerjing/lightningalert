@@ -1,7 +1,7 @@
 {
   "boardDate": "2026-03-22",
-  "generatedAt": "2026-03-22T21:39:33.635Z",
-  "sourceCount": 21,
+  "generatedAt": "2026-03-22T21:49:43.001Z",
+  "sourceCount": 26,
   "weather": [
     {
       "city": "Ottawa",
@@ -60,15 +60,6 @@
       "publishedAt": "2026-03-20T17:41:47.000Z"
     },
     {
-      "title": "War-driven energy price spikes highlight value of renewables: UN climate chief",
-      "whatHappened": "The disruption of global energy supplies is being felt worldwide, the UN’s top climate change official warned on Monday, as conflict in the Middle East drives...",
-      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
-      "keyWord": "renewable energy: energy from sources that can be used again, like sun or wind",
-      "source": "UN Climate",
-      "url": "https://news.un.org/feed/view/en/story/2026/03/1167135",
-      "publishedAt": "2026-03-16T12:00:00.000Z"
-    },
-    {
       "title": "‘It was our little idyll – until the solar farm landed’: the battle raging in the heart of the British countryside",
       "whatHappened": "In one corner, clean energy champion Ed Miliband.",
       "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
@@ -85,6 +76,15 @@
       "source": "The Guardian Environment",
       "url": "https://www.theguardian.com/environment/2026/mar/20/hybrid-organ-trees-fungi-union-loblolly-pines-startup-forest-management",
       "publishedAt": "2026-03-20T10:00:15.000Z"
+    },
+    {
+      "title": "War-driven energy price spikes highlight value of renewables: UN climate chief",
+      "whatHappened": "The disruption of global energy supplies is being felt worldwide, the UN’s top climate change official warned on Monday, as conflict in the Middle East drives...",
+      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
+      "keyWord": "renewable energy: energy from sources that can be used again, like sun or wind",
+      "source": "UN Climate",
+      "url": "https://news.un.org/feed/view/en/story/2026/03/1167135",
+      "publishedAt": "2026-03-16T12:00:00.000Z"
     }
   ],
   "weatherTech": [
@@ -105,18 +105,18 @@
       "source": "UN Climate",
       "url": "https://news.un.org/feed/view/en/story/2026/02/1166995",
       "publishedAt": "2026-02-18T12:00:00.000Z"
-    },
-    {
-      "title": "War-driven energy price spikes highlight value of renewables: UN climate chief",
-      "whatHappened": "The disruption of global energy supplies is being felt worldwide, the UN’s top climate change official warned on Monday, as conflict in the Middle East drives...",
-      "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
-      "keyWord": "weather technology: tools that help people measure, study, or predict weather and climate",
-      "source": "UN Climate",
-      "url": "https://news.un.org/feed/view/en/story/2026/03/1167135",
-      "publishedAt": "2026-03-16T12:00:00.000Z"
     }
   ],
   "universityNews": [
+    {
+      "title": "Carleton Recognised as Only University in Canada to Achieve Bronze Tier in Net-Zero Challenge",
+      "whatHappened": "Carleton University has been recognised as the only university in Canada to achieve the Bronze Tier in the Government of Canada’ Net-Zero Challenge, a significant milestone...",
+      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
+      "keyWord": "sustainability: using resources in a way that can last over time",
+      "source": "Carleton Sustainability",
+      "url": "https://carleton.ca/sustainability/2025/carleton-recognised-as-only-university-in-canada-to-achieve-bronze-tier-in-net-zero-challenge/",
+      "publishedAt": "2025-07-29T18:25:35.000Z"
+    },
     {
       "title": "Tiny Forest Coming to Carleton",
       "whatHappened": "Sustainability Carleton is thrilled to announce that we are partnering with local environmental organization EnviroCentre to establish a tiny forest at Carleton!",
@@ -127,13 +127,31 @@
       "publishedAt": "2025-07-29T18:38:05.000Z"
     },
     {
-      "title": "Carleton Recognised as Only University in Canada to Achieve Bronze Tier in Net-Zero Challenge",
-      "whatHappened": "Carleton University has been recognised as the only university in Canada to achieve the Bronze Tier in the Government of Canada’ Net-Zero Challenge, a significant milestone...",
+      "title": "New Study Reveals Hidden “Chemical Currency” Fueling the Ocean’s Carbon Cycle",
+      "whatHappened": "This research identifies a diverse set of molecules released by marine phytoplankton that fuel microbial life and help drive Earth’s carbon cycle.",
+      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
+      "keyWord": "research: careful study used to discover new knowledge",
+      "source": "Columbia Climate School",
+      "url": "https://news.climate.columbia.edu/2026/03/20/new-study-reveals-hidden-chemical-currency-fueling-the-oceans-carbon-cycle/",
+      "publishedAt": "2026-03-20T17:34:06.000Z"
+    },
+    {
+      "title": "Notre Dame partners with the Vatican's Laudato Si' Center for Higher Education to establish Global Alliance dedicated to integral ecology and global sustainability",
+      "whatHappened": "The University of Notre Dame’s Just Transformations to Sustainability (JTS) Initiative has partnered with the Vatican’s Laudato Si’ Center for Higher Education to establish the Global...",
       "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
       "keyWord": "sustainability: using resources in a way that can last over time",
-      "source": "Carleton Sustainability",
-      "url": "https://carleton.ca/sustainability/2025/carleton-recognised-as-only-university-in-canada-to-achieve-bronze-tier-in-net-zero-challenge/",
-      "publishedAt": "2025-07-29T18:25:35.000Z"
+      "source": "Notre Dame News",
+      "url": "https://news.nd.edu/news/notre-dame-partners-with-vatican-to-establish-global-alliance-dedicated-to-integral-ecology-and-global-sustainability/",
+      "publishedAt": "2026-03-18T20:37:52.000Z"
+    },
+    {
+      "title": "Turning extreme heat into large-scale energy storage",
+      "whatHappened": "Fourth Power, founded by Professor Asegun Henry, is developing thermal batteries for efficiently storing excess electricity from utility grids and power producers.",
+      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
+      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
+      "source": "MIT Climate & Sustainability",
+      "url": "https://news.mit.edu/2026/turning-extreme-heat-large-scale-energy-storage-0318",
+      "publishedAt": "2026-03-18T04:00:00.000Z"
     },
     {
       "title": "Breeding habitat selection in eastern population sandhill cranes",
@@ -145,13 +163,13 @@
       "publishedAt": "2026-03-17T12:00:00.000Z"
     },
     {
-      "title": "Holiday Season Shutdown",
-      "whatHappened": "Holiday Season Shutdown As we approach the holiday season, Carleton University is committed to maintaining our leadership in sustainability while creating a greener campus for everyone.",
+      "title": "Ocean bacteria team up to break down biodegradable plastic",
+      "whatHappened": "MIT researchers uncovered the roles of bacterial species from the environment as they consume biodegradable plastic.",
       "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
-      "keyWord": "sustainability: using resources in a way that can last over time",
-      "source": "Carleton Sustainability",
-      "url": "https://carleton.ca/sustainability/2024/holiday-season-shutdown/",
-      "publishedAt": "2024-11-28T19:19:31.000Z"
+      "keyWord": "research: careful study used to discover new knowledge",
+      "source": "MIT Climate & Sustainability",
+      "url": "https://news.mit.edu/2026/ocean-bacteria-break-down-biodegradable-plastic-0316",
+      "publishedAt": "2026-03-16T14:00:00.000Z"
     },
     {
       "title": "Congratulations to 2026 GRADflix finalists from Environment",
@@ -163,13 +181,40 @@
       "publishedAt": "2026-03-13T12:00:00.000Z"
     },
     {
-      "title": "The evolution of Environment’s Geomatics program",
-      "whatHappened": "Fri, 06 Mar 2026 12:00:00 +0000 The University of Waterloo is announcing an important evolution to one of its longstanding academic programs: Geomatics has been renamed...",
+      "title": "Understanding how “marine snow” acts as a carbon sink",
+      "whatHappened": "A new study finds hitchhiking bacteria dissolve essential ballast in ubiquitous “snow” particles, which could counteract the ocean’s ability to sequester carbon.",
       "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
       "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
-      "source": "Waterloo Environment",
-      "url": "https://uwaterloo.ca/environment/news/evolution-environments-geomatics-program",
-      "publishedAt": "2026-03-06T12:00:00.000Z"
+      "source": "MIT Earth & Atmospheric Sciences",
+      "url": "https://news.mit.edu/2026/understanding-how-marine-snow-acts-as-carbon-sink-0309",
+      "publishedAt": "2026-03-09T19:00:00.000Z"
+    },
+    {
+      "title": "March 22: World Water Day",
+      "whatHappened": "March 22: World Water Day",
+      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
+      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
+      "source": "uOttawa News",
+      "url": "https://www.uottawa.ca/en/news-all/academic-expertise-march-22-world-water-day",
+      "publishedAt": "2026-03-22T21:49:39.160Z"
+    },
+    {
+      "title": "Climate Finance Has Failed Africa Twice Over. Here’s How To Fix It.",
+      "whatHappened": "Credit-rating methodologies must stop treating poverty as a self-fulfilling proxy for default risk.",
+      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
+      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
+      "source": "Columbia Climate School",
+      "url": "https://news.climate.columbia.edu/2026/03/18/climate-finance-has-failed-africa-twice-over-heres-how-to-fix-it/",
+      "publishedAt": "2026-03-18T22:12:29.000Z"
+    },
+    {
+      "title": "Extreme heat has extreme effects–but some like it hot",
+      "whatHappened": "A sweeping new study of the 2021 heat wave reveals major ecological losses—but also surprising species that thrived, offering crucial insight into how climate extremes reshape...",
+      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
+      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
+      "source": "UBC News",
+      "url": "https://news.ubc.ca/2026/03/extreme-heat-has-extreme-effects-but-some-like-it-hot/",
+      "publishedAt": "2026-03-11T14:30:00.000Z"
     }
   ]
 }

@@ -83,7 +83,7 @@ const CATEGORY_KEYWORDS = {
     "renewable", "power grid", "weather model", "climate model"
   ],
   universityNews: [
-    "climate", "weather", "atmospheric", "environment", "environmental", "earth",
+    "climate", "weather", "atmospheric", "environment", "environmental", "earth science",
     "sustainability", "renewable", "emissions", "wildfire", "forest", "ecology",
     "ocean", "water", "storm", "flood", "heat", "carbon", "energy"
   ]
@@ -267,7 +267,7 @@ async function fetchWeather(city) {
   };
 }
 
-async function fetchCategory(category) {
+async function fetchCategory(category, limit = 6) {
   const sources = RSS_SOURCES[category] || [];
   const collected = [];
 
@@ -297,28 +297,42 @@ async function fetchCategory(category) {
   return dedupeStories(collected)
     .filter((story) => isRelevantToCategory(category, story))
     .sort((a, b) => scoreStory(category, b) - scoreStory(category, a) || new Date(b.publishedAt) - new Date(a.publishedAt))
-    .slice(0, 6);
+    .slice(0, limit);
 }
 
 function scoreStory(category, story) {
   const keywords = CATEGORY_KEYWORDS[category] || [];
   const text = String(story._searchText || `${story.title} ${story.whatHappened}`).toLowerCase();
-  let score = keywords.reduce((sum, keyword) => sum + (text.includes(keyword) ? 1 : 0), 0);
+  let score = topicalScore(category, story);
 
   if (
     category === "universityNews" &&
     /carleton|waterloo|uottawa/i.test(String(story.source || ""))
   ) {
-    score += 2;
+    score += 1;
+  }
+
+  if (
+    category === "universityNews" &&
+    /harvard|berkeley|columbia|michigan|northeastern|notre dame|wisconsin|mit/i.test(String(story.source || ""))
+  ) {
+    score += 1;
   }
 
   return score;
 }
 
-function isRelevantToCategory(category, story) {
+function topicalScore(category, story) {
   const keywords = CATEGORY_KEYWORDS[category] || [];
-  if (!keywords.length) return true;
-  return scoreStory(category, story) > 0;
+  const text = String(story._searchText || `${story.title} ${story.whatHappened}`).toLowerCase();
+  return keywords.reduce((sum, keyword) => {
+    const pattern = new RegExp(`\\b${keyword.replace(/[.*+?^${}()|[\]\\]/g, "\\$&").replace(/\s+/g, "\\s+")}\\b`, "i");
+    return sum + (pattern.test(text) ? 1 : 0);
+  }, 0);
+}
+
+function isRelevantToCategory(category, story) {
+  return topicalScore(category, story) > 0;
 }
 
 function stripInternalFields(stories) {
@@ -341,8 +355,19 @@ async function fetchWeatherTechStories() {
 }
 
 async function fetchUniversityNewsStories() {
-  const universityNews = await fetchCategory("universityNews");
-  return stripInternalFields(universityNews.slice(0, 6));
+  const universityNews = await fetchCategory("universityNews", 30);
+  const countsBySource = new Map();
+  const balancedStories = [];
+
+  for (const story of universityNews) {
+    const count = countsBySource.get(story.source) || 0;
+    if (count >= 2) continue;
+    countsBySource.set(story.source, count + 1);
+    balancedStories.push(story);
+    if (balancedStories.length >= 12) break;
+  }
+
+  return stripInternalFields(balancedStories);
 }
 
 async function generateBoard() {
