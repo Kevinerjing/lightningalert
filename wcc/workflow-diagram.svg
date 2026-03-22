@@ -53,8 +53,9 @@
   <rect x="830" y="438" rx="26" ry="26" width="300" height="170" fill="#ffffff" stroke="#d8e2ef" filter="url(#shadow)"/>
   <text x="860" y="480" font-family="Trebuchet MS, Arial, sans-serif" font-size="18" font-weight="700" fill="#135d66">5. Save Output</text>
   <text x="860" y="516" font-family="Trebuchet MS, Arial, sans-serif" font-size="28" font-weight="700" fill="#132033">today.json</text>
-  <text x="860" y="548" font-family="Trebuchet MS, Arial, sans-serif" font-size="18" fill="#596577">Ottawa weather + extreme weather</text>
-  <text x="860" y="576" font-family="Trebuchet MS, Arial, sans-serif" font-size="18" fill="#596577">climate + weather tech in one file.</text>
+  <text x="860" y="546" font-family="Trebuchet MS, Arial, sans-serif" font-size="16" fill="#596577">Ottawa weather</text>
+  <text x="860" y="570" font-family="Trebuchet MS, Arial, sans-serif" font-size="16" fill="#596577">+ extreme weather</text>
+  <text x="860" y="594" font-family="Trebuchet MS, Arial, sans-serif" font-size="16" fill="#596577">+ climate + weather tech</text>
 
   <rect x="350" y="650" rx="28" ry="28" width="500" height="74" fill="#132033" filter="url(#shadow)"/>
   <text x="600" y="693" text-anchor="middle" font-family="Trebuchet MS, Arial, sans-serif" font-size="27" font-weight="700" fill="#ffffff">6. Student Page Loads wcc/index.html</text>
