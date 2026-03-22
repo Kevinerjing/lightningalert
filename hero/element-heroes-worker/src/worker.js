@@ -396,6 +396,10 @@ export class GameRoom {
     const customName = normalizeSurveyLabel(body?.customName, 42);
     const customIdea = normalizeSurveyIdea(body?.idea);
 
+    if (presetChoice && EXISTING_GAME_ELEMENT_VOTE_IDS.has(presetChoice.id)) {
+      return jsonInternal({ type: "error", message: `${presetChoice.label} is already in Element Heroes.` }, 400);
+    }
+
     if (!presetChoice && !customName) {
       return jsonInternal({ type: "error", message: "Choose an element or enter a custom idea." }, 400);
     }
@@ -1405,6 +1409,20 @@ const PRESET_ELEMENT_VOTES = Object.fromEntries(
     },
   ]),
 );
+
+const EXISTING_GAME_ELEMENT_VOTE_IDS = new Set([
+  "sulfur",
+  "oxygen",
+  "water",
+  "iron",
+  "hydrogen",
+  "carbon",
+  "chlorine",
+  "sodium",
+  "potassium",
+  "helium",
+  "calcium",
+]);
 
 function createEmptySurveyOverview() {
   const labels = {};

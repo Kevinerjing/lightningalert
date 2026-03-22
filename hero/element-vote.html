@@ -82,6 +82,10 @@
       color: #04111a;
       border: none;
     }
+    .btn:disabled {
+      opacity: 0.55;
+      cursor: not-allowed;
+    }
     .btn.vote-btn { width: 100%; margin-top: 14px; }
 
     .layout {
@@ -191,7 +195,6 @@
     }
     .candidate-card h3 { margin-top: 12px; font-size: 19px; }
     .candidate-card p { margin-top: 8px; color: var(--muted); line-height: 1.55; min-height: 0; font-size: 14px; }
-    .candidate-meta { margin-top: 10px; color: var(--good); font-size: 12px; font-weight: 700; }
 
     .suggest-card input, .suggest-card textarea {
       width: 100%;
@@ -309,6 +312,19 @@
   <script>
     const WORKER_URL = "https://element-heroes-worker.jingkevin0408.workers.dev";
     const SURVEY_VISITOR_ID_STORAGE_KEY = "heroSurveyVisitorId";
+    const EXISTING_GAME_ELEMENT_IDS = new Set([
+      "sulfur",
+      "oxygen",
+      "water",
+      "iron",
+      "hydrogen",
+      "carbon",
+      "chlorine",
+      "sodium",
+      "potassium",
+      "helium",
+      "calcium",
+    ]);
     let latestSummary = null;
     const CANDIDATES = [
       { id: "hydrogen", label: "Hydrogen", symbol: "H", number: 1 },
@@ -519,17 +535,25 @@
         return;
       }
 
-      target.innerHTML = visibleCandidates.map((candidate) => `
+      target.innerHTML = visibleCandidates.map((candidate) => {
+        const alreadyInGame = EXISTING_GAME_ELEMENT_IDS.has(candidate.id);
+        return `
         <article class="candidate-card">
           <div class="candidate-symbol">${escapeHtml(candidate.symbol)}</div>
           <h3>${escapeHtml(candidate.label)}</h3>
-          <p>Atomic number ${escapeHtml(candidate.number)}</p>
-          <div class="candidate-meta">${currentVote?.choiceId === candidate.id ? "Your current vote" : "Ready to vote"}</div>
-          <button class="btn primary vote-btn" type="button" data-vote-id="${escapeHtml(candidate.id)}" data-vote-label="${escapeHtml(candidate.label)}">Vote</button>
+          <button
+            class="btn primary vote-btn"
+            type="button"
+            data-vote-id="${escapeHtml(candidate.id)}"
+            data-vote-label="${escapeHtml(candidate.label)}"
+            ${alreadyInGame ? "disabled" : ""}
+          >${alreadyInGame ? "Already in game" : "Vote"}</button>
         </article>
-      `).join("");
+        `;
+      }).join("");
 
       target.querySelectorAll("[data-vote-id]").forEach((button) => {
+        if (button.disabled) return;
         button.addEventListener("click", async () => {
           await submitVote({ choiceId: button.dataset.voteId, label: button.dataset.voteLabel });
         });
