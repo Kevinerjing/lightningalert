@@ -26,14 +26,15 @@
   <text x="100" y="322" font-family="Trebuchet MS, Arial, sans-serif" font-size="18" fill="#596577">Runs every day at</text>
   <text x="100" y="348" font-family="Trebuchet MS, Arial, sans-serif" font-size="18" fill="#596577">11:30 UTC</text>
 
-  <rect x="470" y="210" rx="26" ry="26" width="660" height="150" fill="#ffffff" stroke="#d8e2ef" filter="url(#shadow)"/>
+  <rect x="430" y="210" rx="26" ry="26" width="700" height="150" fill="#ffffff" stroke="#d8e2ef" filter="url(#shadow)"/>
   <text x="500" y="252" font-family="Trebuchet MS, Arial, sans-serif" font-size="18" font-weight="700" fill="#135d66">2. Fetch Real Data</text>
-  <rect x="500" y="274" rx="18" ry="18" width="180" height="58" fill="#fff5e8" stroke="#f0d3a7"/>
-  <text x="590" y="309" text-anchor="middle" font-family="Trebuchet MS, Arial, sans-serif" font-size="19" font-weight="700" fill="#d97706">Open-Meteo</text>
-  <rect x="708" y="274" rx="18" ry="18" width="180" height="58" fill="#edf4ff" stroke="#bfd4ff"/>
-  <text x="798" y="309" text-anchor="middle" font-family="Trebuchet MS, Arial, sans-serif" font-size="19" font-weight="700" fill="#1d4ed8">Extreme Weather RSS</text>
-  <rect x="916" y="274" rx="18" ry="18" width="180" height="58" fill="#ecfdf5" stroke="#b7e4d3"/>
-  <text x="1006" y="309" text-anchor="middle" font-family="Trebuchet MS, Arial, sans-serif" font-size="19" font-weight="700" fill="#0f766e">Climate + Weather Tech RSS</text>
+  <rect x="460" y="274" rx="18" ry="18" width="170" height="58" fill="#fff5e8" stroke="#f0d3a7"/>
+  <text x="545" y="309" text-anchor="middle" font-family="Trebuchet MS, Arial, sans-serif" font-size="19" font-weight="700" fill="#d97706">Open-Meteo</text>
+  <rect x="660" y="274" rx="18" ry="18" width="220" height="58" fill="#edf4ff" stroke="#bfd4ff"/>
+  <text x="770" y="309" text-anchor="middle" font-family="Trebuchet MS, Arial, sans-serif" font-size="18" font-weight="700" fill="#1d4ed8">Extreme Weather RSS</text>
+  <rect x="910" y="274" rx="18" ry="18" width="190" height="58" fill="#ecfdf5" stroke="#b7e4d3"/>
+  <text x="1005" y="304" text-anchor="middle" font-family="Trebuchet MS, Arial, sans-serif" font-size="16" font-weight="700" fill="#0f766e">Climate + Weather</text>
+  <text x="1005" y="324" text-anchor="middle" font-family="Trebuchet MS, Arial, sans-serif" font-size="16" font-weight="700" fill="#0f766e">Tech RSS</text>
 
   <rect x="70" y="438" rx="26" ry="26" width="300" height="170" fill="#ffffff" stroke="#d8e2ef" filter="url(#shadow)"/>
   <text x="100" y="480" font-family="Trebuchet MS, Arial, sans-serif" font-size="18" font-weight="700" fill="#135d66">3. Generator Script</text>
@@ -58,7 +59,7 @@
   <rect x="350" y="650" rx="28" ry="28" width="500" height="74" fill="#132033" filter="url(#shadow)"/>
   <text x="600" y="693" text-anchor="middle" font-family="Trebuchet MS, Arial, sans-serif" font-size="27" font-weight="700" fill="#ffffff">6. Student Page Loads wcc/index.html</text>
 
-  <line x1="320" y1="285" x2="470" y2="285" stroke="#4c5b70" stroke-width="4" marker-end="url(#arrow)"/>
+  <line x1="320" y1="285" x2="430" y2="285" stroke="#4c5b70" stroke-width="4" marker-end="url(#arrow)"/>
   <line x1="220" y1="360" x2="220" y2="438" stroke="#4c5b70" stroke-width="4" marker-end="url(#arrow)"/>
   <line x1="800" y1="360" x2="600" y2="438" stroke="#4c5b70" stroke-width="4" marker-end="url(#arrow)"/>
   <line x1="370" y1="523" x2="438" y2="523" stroke="#4c5b70" stroke-width="4" marker-end="url(#arrow)"/>
