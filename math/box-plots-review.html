@@ -453,6 +453,41 @@ Class B: min 40, Q1 60, median 66, Q3 70, max 74</div>
           <p><strong>Conclusion:</strong> Class B had the higher typical mark and was more consistent because it has a slightly higher median and a smaller IQR.</p>
         </div>
 
+        <div class="boxplot">
+          <svg viewBox="0 0 420 170" aria-label="Medium example comparison box plots">
+            <text x="18" y="42" font-size="14" fill="#5b6472">A</text>
+            <text x="18" y="108" font-size="14" fill="#5b6472">B</text>
+
+            <line x1="40" y1="140" x2="390" y2="140" stroke="#17324d" stroke-width="2"></line>
+            <text x="32" y="160" font-size="12" fill="#5b6472">40</text>
+            <text x="95" y="160" font-size="12" fill="#5b6472">48</text>
+            <text x="174" y="160" font-size="12" fill="#5b6472">56</text>
+            <text x="253" y="160" font-size="12" fill="#5b6472">64</text>
+            <text x="330" y="160" font-size="12" fill="#5b6472">72</text>
+            <text x="382" y="160" font-size="12" fill="#5b6472">88</text>
+
+            <line x1="95" y1="46" x2="174" y2="46" stroke="#d97706" stroke-width="4"></line>
+            <rect x="174" y="28" width="156" height="36" fill="#fff3dd" stroke="#d97706" stroke-width="3"></rect>
+            <line x1="252" y1="28" x2="252" y2="64" stroke="#d97706" stroke-width="3"></line>
+            <line x1="330" y1="46" x2="390" y2="46" stroke="#d97706" stroke-width="4"></line>
+            <line x1="95" y1="38" x2="95" y2="54" stroke="#17324d" stroke-width="2"></line>
+            <line x1="174" y1="38" x2="174" y2="54" stroke="#17324d" stroke-width="2"></line>
+            <line x1="252" y1="38" x2="252" y2="54" stroke="#17324d" stroke-width="2"></line>
+            <line x1="330" y1="38" x2="330" y2="54" stroke="#17324d" stroke-width="2"></line>
+            <line x1="390" y1="38" x2="390" y2="54" stroke="#17324d" stroke-width="2"></line>
+
+            <line x1="40" y1="112" x2="253" y2="112" stroke="#be123c" stroke-width="4"></line>
+            <rect x="253" y="94" width="78" height="36" fill="#fde7ef" stroke="#be123c" stroke-width="3"></rect>
+            <line x1="300" y1="94" x2="300" y2="130" stroke="#be123c" stroke-width="3"></line>
+            <line x1="331" y1="112" x2="346" y2="112" stroke="#be123c" stroke-width="4"></line>
+            <line x1="40" y1="104" x2="40" y2="120" stroke="#17324d" stroke-width="2"></line>
+            <line x1="253" y1="104" x2="253" y2="120" stroke="#17324d" stroke-width="2"></line>
+            <line x1="300" y1="104" x2="300" y2="120" stroke="#17324d" stroke-width="2"></line>
+            <line x1="331" y1="104" x2="331" y2="120" stroke="#17324d" stroke-width="2"></line>
+            <line x1="346" y1="104" x2="346" y2="120" stroke="#17324d" stroke-width="2"></line>
+          </svg>
+        </div>
+
         <div class="warning">
           A common mistake is using only the range. The IQR is often better for discussing how tightly grouped the middle half of the data is.
         </div>
@@ -463,7 +498,7 @@ Class B: min 40, Q1 60, median 66, Q3 70, max 74</div>
         <h3>Outlier and skew thinking</h3>
         <p>A team recorded the number of minutes students spent on homework one night.</p>
 
-        <div class="dataset">12, 14, 15, 16, 18, 19, 20, 22, 24, 55</div>
+        <div class="dataset">12, 14, 15, 16, 18, 18, 20, 22, 24, 55</div>
 
         <div class="prompt-box">
           <strong>Question:</strong> Find the five-number summary and explain what the box plot would suggest about the data.
@@ -473,14 +508,34 @@ Class B: min 40, Q1 60, median 66, Q3 70, max 74</div>
           <strong>Worked answer:</strong>
           <ol class="steps">
             <li>The data is already ordered.</li>
-            <li>There are 10 values, so the median is the average of the 5th and 6th values: (18 + 19) / 2 = 18.5.</li>
+            <li>There are 10 values, so the median is the average of the 5th and 6th values: (18 + 18) / 2 = 18.</li>
             <li>The lower half is 12, 14, 15, 16, 18, so Q1 = 15.</li>
-            <li>The upper half is 19, 20, 22, 24, 55, so Q3 = 22.</li>
+            <li>The upper half is 18, 20, 22, 24, 55, so Q3 = 22.</li>
             <li>Minimum = 12 and maximum = 55.</li>
           </ol>
-          <p><strong>Five-number summary:</strong> 12, 15, 18.5, 22, 55</p>
+          <p><strong>Five-number summary:</strong> 12, 15, 18, 22, 55</p>
           <p><strong>IQR:</strong> 22 - 15 = 7</p>
           <p><strong>Interpretation:</strong> Most homework times are packed between 12 and 24 minutes, but 55 is much larger than the rest. The right whisker would be much longer, so the data looks right-skewed and may contain an outlier.</p>
+        </div>
+
+        <div class="boxplot">
+          <svg viewBox="0 0 420 120" aria-label="Tricky example box plot">
+            <line x1="40" y1="80" x2="390" y2="80" stroke="#17324d" stroke-width="2"></line>
+            <line x1="40" y1="72" x2="40" y2="88" stroke="#17324d" stroke-width="2"></line>
+            <line x1="64" y1="72" x2="64" y2="88" stroke="#17324d" stroke-width="2"></line>
+            <line x1="88" y1="72" x2="88" y2="88" stroke="#17324d" stroke-width="2"></line>
+            <line x1="121" y1="72" x2="121" y2="88" stroke="#17324d" stroke-width="2"></line>
+            <line x1="390" y1="72" x2="390" y2="88" stroke="#17324d" stroke-width="2"></line>
+            <line x1="40" y1="52" x2="64" y2="52" stroke="#be123c" stroke-width="4"></line>
+            <line x1="121" y1="52" x2="390" y2="52" stroke="#be123c" stroke-width="4"></line>
+            <rect x="64" y="34" width="57" height="36" fill="#fde7ef" stroke="#be123c" stroke-width="3"></rect>
+            <line x1="88" y1="34" x2="88" y2="70" stroke="#be123c" stroke-width="3"></line>
+            <text x="34" y="102" font-size="14" fill="#5b6472">12</text>
+            <text x="58" y="102" font-size="14" fill="#5b6472">15</text>
+            <text x="82" y="102" font-size="14" fill="#5b6472">18</text>
+            <text x="115" y="102" font-size="14" fill="#5b6472">22</text>
+            <text x="382" y="102" font-size="14" fill="#5b6472">55</text>
+          </svg>
         </div>
 
         <div class="warning">
