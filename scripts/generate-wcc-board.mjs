@@ -112,6 +112,34 @@ function parseRssItems(xml) {
   return items;
 }
 
+function parseHtmlItems(html, source) {
+  const items = [];
+  const matches = html.matchAll(/<a[^>]+href="([^"]+)"[^>]*>([\s\S]*?)<\/a>/gi);
+  const seen = new Set();
+
+  for (const match of matches) {
+    const href = match[1];
+    const title = stripHtml(match[2]);
+
+    if (!href || !title) continue;
+    if (source.linkPattern && !href.includes(source.linkPattern)) continue;
+
+    const key = `${href}|${title}`.toLowerCase();
+    if (seen.has(key)) continue;
+    seen.add(key);
+
+    const url = href.startsWith("http") ? href : new URL(href, source.baseUrl || source.url).toString();
+    items.push({
+      title,
+      description: title,
+      publishedAt: new Date().toISOString(),
+      url
+    });
+  }
+
+  return items;
+}
+
 function readTag(block, tagName) {
   const regex = new RegExp(`<${tagName}(?:\\s[^>]*)?>([\\s\\S]*?)<\\/${tagName}>`, "i");
   const match = block.match(regex);
@@ -252,8 +280,11 @@ async function fetchCategory(category) {
       });
 
       if (!response.ok) continue;
-      const xml = await response.text();
-      const items = parseRssItems(xml)
+      const raw = await response.text();
+      const parsedItems = source.type === "html"
+        ? parseHtmlItems(raw, source)
+        : parseRssItems(raw);
+      const items = parsedItems
         .slice(0, 8)
         .map((item) => rewriteForTeens(category, source.source, item));
 
@@ -272,7 +303,16 @@ async function fetchCategory(category) {
 function scoreStory(category, story) {
   const keywords = CATEGORY_KEYWORDS[category] || [];
   const text = String(story._searchText || `${story.title} ${story.whatHappened}`).toLowerCase();
-  return keywords.reduce((score, keyword) => score + (text.includes(keyword) ? 1 : 0), 0);
+  let score = keywords.reduce((sum, keyword) => sum + (text.includes(keyword) ? 1 : 0), 0);
+
+  if (
+    category === "universityNews" &&
+    /carleton|waterloo|uottawa/i.test(String(story.source || ""))
+  ) {
+    score += 2;
+  }
+
+  return score;
 }
 
 function isRelevantToCategory(category, story) {

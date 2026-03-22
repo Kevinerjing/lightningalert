@@ -21,6 +21,18 @@ export const RSS_SOURCES = {
     { source: "UN Climate", url: "https://news.un.org/feed/subscribe/en/news/topic/climate-change/feed/rss.xml" }
   ],
   universityNews: [
+    { source: "Carleton News", url: "https://carleton.ca/news/feed/" },
+    { source: "Carleton Sustainability", url: "https://carleton.ca/sustainability/feed/" },
+    { source: "Waterloo Environment", url: "https://uwaterloo.ca/environment/news/news.xml" },
+    {
+      source: "uOttawa News",
+      url: "https://www.uottawa.ca/en/news-all",
+      type: "html",
+      baseUrl: "https://www.uottawa.ca",
+      linkPattern: "/en/news-all/"
+    },
+    { source: "Harvard Gazette", url: "https://news.harvard.edu/gazette/feed/" },
+    { source: "Berkeley News", url: "https://news.berkeley.edu/feed/" },
     { source: "UBC Climate News", url: "https://news.ubc.ca/category/climate-change/feed/" },
     { source: "UBC News", url: "https://news.ubc.ca/feed/" },
     { source: "MIT Climate & Sustainability", url: "https://news.mit.edu/rss/topic/climate-change-and-sustainability" },
