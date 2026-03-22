@@ -3,15 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Grade 10 Geometry Skill Map</title>
+  <title>Math Review Pages</title>
   <style>
     :root {
-      --bg: #f8fafc;
-      --card: #ffffff;
-      --ink: #0f172a;
-      --muted: #475569;
-      --line: #dbeafe;
-      --border: #cbd5e1;
+      --bg: #f6efe6;
+      --panel: #fffdf9;
+      --ink: #1f2937;
+      --muted: #5b6472;
+      --border: #ddd4c8;
+      --grade9: #0f766e;
+      --grade10: #1d4ed8;
+      --shadow: 0 18px 40px rgba(31, 41, 55, 0.12);
     }
 
     * {
@@ -20,569 +22,158 @@
 
     body {
       margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      background: var(--bg);
-      color: var(--ink);
-    }
-
-    .page {
-      max-width: 1200px;
-      margin: 0 auto;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
       padding: 24px;
+      font-family: "Trebuchet MS", Arial, sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at top left, rgba(15, 118, 110, 0.14), transparent 28%),
+        radial-gradient(circle at bottom right, rgba(29, 78, 216, 0.14), transparent 30%),
+        linear-gradient(180deg, #fbf7f1 0%, var(--bg) 100%);
     }
 
-    .hero,
-    .card,
-    .training {
-      background: var(--card);
+    .shell {
+      width: min(920px, 100%);
+      padding: 36px;
       border: 1px solid var(--border);
-      border-radius: 24px;
-      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.06);
+      border-radius: 32px;
+      background: var(--panel);
+      box-shadow: var(--shadow);
     }
 
-    .hero {
-      padding: 28px;
-    }
-
-    .hero p.kicker {
+    .eyebrow {
       margin: 0;
-      font-size: 13px;
+      font-size: 0.8rem;
       font-weight: 700;
       letter-spacing: 0.18em;
       text-transform: uppercase;
-      color: #64748b;
+      color: #7c5f3b;
     }
 
     h1 {
-      margin: 10px 0 0;
-      font-size: clamp(2rem, 4vw, 3.3rem);
+      margin: 12px 0 0;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(2.3rem, 5vw, 4rem);
+      line-height: 1.05;
+      color: #18212f;
     }
 
-    .hero .lead {
-      margin-top: 16px;
-      max-width: 780px;
+    .lead {
+      max-width: 680px;
+      margin: 16px 0 0;
       font-size: 1.08rem;
-      line-height: 1.7;
-      color: var(--muted);
-    }
-
-    .top-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 20px;
-      margin-top: 24px;
-    }
-
-    .info-box {
-      padding: 24px;
-      border-radius: 24px;
-      border: 1px solid;
-    }
-
-    .info-box h2 {
-      margin-top: 0;
-      font-size: 1.7rem;
-    }
-
-    .info-box ul {
-      padding-left: 22px;
-      margin: 14px 0 0;
-      color: var(--muted);
       line-height: 1.8;
-    }
-
-    .check {
-      background: #eff6ff;
-      border-color: #bfdbfe;
-    }
-
-    .goal {
-      background: #fffbeb;
-      border-color: #fde68a;
-    }
-
-    .goal p {
       color: var(--muted);
-      line-height: 1.8;
-      margin-bottom: 0;
     }
 
-    .skills-grid {
+    .menu {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 20px;
-      margin-top: 24px;
+      gap: 18px;
+      margin-top: 30px;
     }
 
     .card {
+      display: block;
       padding: 24px;
-    }
-
-    .card h3 {
-      margin: 0;
-      font-size: 1.7rem;
-    }
-
-    .label {
-      margin-top: 18px;
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: #64748b;
-    }
-
-    .chips {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 10px;
-    }
-
-    .chip {
-      padding: 8px 12px;
-      border-radius: 999px;
-      background: #f1f5f9;
-      color: #334155;
-      font-size: 14px;
-    }
-
-    .thought,
-    .formula,
-    .example,
-    .mistake,
-    .graph-box {
-      margin-top: 18px;
-      padding: 16px;
-      border-radius: 18px;
-      border: 1px solid;
-    }
-
-    .thought {
-      background: #f8fafc;
-      border-color: #e2e8f0;
-    }
-
-    .graph-box {
-      background: #f0f9ff;
-      border-color: #bae6fd;
-    }
-
-    .formula {
-      background: #ecfdf5;
-      border-color: #a7f3d0;
-    }
-
-    .example {
-      background: #f5f3ff;
-      border-color: #ddd6fe;
-    }
-
-    .mistake {
-      background: #fff1f2;
-      border-color: #fecdd3;
-    }
-
-    .steps {
-      margin: 10px 0 0;
-      padding-left: 22px;
-      color: var(--muted);
-      line-height: 1.8;
-    }
-
-    .example-block {
-      margin-top: 10px;
-      padding: 12px;
-      border-radius: 14px;
+      border-radius: 24px;
+      border: 1px solid var(--border);
+      text-decoration: none;
       background: #fff;
-      border: 1px solid #ddd6fe;
-      font-family: "Courier New", monospace;
-      font-size: 14px;
-      line-height: 1.6;
-      white-space: pre-wrap;
+      transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
     }
 
-    .math {
-      font-family: "Times New Roman", Georgia, serif;
-      font-size: 1.15rem;
-      line-height: 1.8;
+    .card:hover,
+    .card:focus-visible {
+      transform: translateY(-4px);
+      box-shadow: 0 18px 32px rgba(31, 41, 55, 0.12);
+      outline: none;
     }
 
-    .sqrt {
-      display: inline-flex;
-      align-items: flex-start;
-      white-space: nowrap;
+    .grade9-card:hover,
+    .grade9-card:focus-visible {
+      border-color: rgba(15, 118, 110, 0.4);
     }
 
-    .sqrt-sign {
-      font-size: 1.45em;
-      line-height: 0.9;
-      padding-right: 1px;
+    .grade10-card:hover,
+    .grade10-card:focus-visible {
+      border-color: rgba(29, 78, 216, 0.35);
     }
 
-    .radicand {
+    .tag {
       display: inline-block;
-      border-top: 2px solid currentColor;
-      padding: 0.08em 0.2em 0 0.28em;
-      margin-top: 0.1em;
+      padding: 7px 12px;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #fff;
     }
 
-    .graph-box svg {
-      display: block;
-      width: 100%;
-      margin-top: 12px;
-      border-radius: 18px;
-      background: #fff;
-      border: 1px solid #e0f2fe;
+    .grade9-tag {
+      background: var(--grade9);
     }
 
-    .training {
-      margin-top: 24px;
-      padding: 28px;
+    .grade10-tag {
+      background: var(--grade10);
     }
 
-    .training h2 {
-      margin-top: 0;
-      font-size: 2rem;
+    .card h2 {
+      margin: 14px 0 0;
+      font-size: 1.7rem;
+      color: #18212f;
     }
 
-    .train-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 18px;
-      margin-top: 18px;
-    }
-
-    .train-card {
-      padding: 18px;
-      border-radius: 18px;
-      background: #f8fafc;
-      border: 1px solid #e2e8f0;
-    }
-
-    .train-card strong {
-      display: block;
-      font-size: 1.05rem;
-      margin-bottom: 8px;
-    }
-
-    .train-card p {
-      margin: 0;
+    .card p {
+      margin: 12px 0 0;
       color: var(--muted);
-      line-height: 1.7;
+      line-height: 1.75;
     }
 
-    @media (max-width: 900px) {
-      .top-grid,
-      .skills-grid,
-      .train-grid {
+    .cta {
+      margin-top: 18px;
+      font-weight: 700;
+      color: #18212f;
+    }
+
+    @media (max-width: 760px) {
+      .shell {
+        padding: 26px;
+      }
+
+      .menu {
         grid-template-columns: 1fr;
       }
     }
   </style>
 </head>
 <body>
-  <div class="page">
-    <section class="hero">
-      <p class="kicker">Grade 10 Math</p>
-      <h1>Geometry Skill Map</h1>
-      <p class="lead">
-        Use this page to train one habit: <strong>identify the skill before solving</strong>.
-        Kevin should first decide the type of question, then follow the matching steps.
-      </p>
+  <main class="shell">
+    <p class="eyebrow">Math Home</p>
+    <h1>Choose a Grade Level</h1>
+    <p class="lead">
+      Use this page as the main menu for your math review sheets. Pick Grade 9 for the box plots review,
+      or Grade 10 for the geometry skill map.
+    </p>
+
+    <section class="menu" aria-label="Math page menu">
+      <a class="card grade9-card" href="./box-plots-review.html">
+        <span class="tag grade9-tag">Grade 9</span>
+        <h2>Box Plots Review</h2>
+        <p>Review five-number summaries, quartiles, IQR, comparisons, and worked examples from easy to tricky.</p>
+        <p class="cta">Open Grade 9 page</p>
+      </a>
+
+      <a class="card grade10-card" href="./grade-10-geometry-skill-map.html">
+        <span class="tag grade10-tag">Grade 10</span>
+        <h2>Geometry Skill Map</h2>
+        <p>Practice identifying geometry question types, choosing the right method, and following clear solving steps.</p>
+        <p class="cta">Open Grade 10 page</p>
+      </a>
     </section>
-
-    <section class="top-grid">
-      <div class="info-box check">
-        <h2>Fast Question Check</h2>
-        <ul>
-          <li>What is the question asking me to find?</li>
-          <li>Do I see two points, a point and a line, or two lines?</li>
-          <li>Does the question say shortest distance or perpendicular?</li>
-          <li>What skill type is this?</li>
-          <li>What is my first step?</li>
-        </ul>
-      </div>
-      <div class="info-box goal">
-        <h2>Main Goal</h2>
-        <p>
-          Kevin does not need more random practice first. He needs a <strong>skill map</strong>.
-          When he sees a problem, he should say: <strong>"This is a two-point distance question"</strong>
-          or <strong>"This is a shortest distance from a point to a line question."</strong>
-        </p>
-        <p>
-          Eric can use this page as a coaching guide and ask only two questions first:
-          <strong>What type is this?</strong> and <strong>What is the first step?</strong>
-        </p>
-      </div>
-    </section>
-
-    <section class="skills-grid" id="skills"></section>
-
-    <section class="training">
-      <h2>How to Train Kevin</h2>
-      <div class="train-grid">
-        <div class="train-card">
-          <strong>1. Name the skill first</strong>
-          <p>Before solving, Kevin must say the type out loud or write it down.</p>
-        </div>
-        <div class="train-card">
-          <strong>2. Follow the steps</strong>
-          <p>Do not jump to formulas. Start from the matching procedure for that skill.</p>
-        </div>
-        <div class="train-card">
-          <strong>3. Compare similar skills</strong>
-          <p>Train him to tell the difference between two-point distance, point-to-line distance, and parallel-line distance.</p>
-        </div>
-      </div>
-    </section>
-  </div>
-
-  <script>
-    const skills = [
-      {
-        id: "two-points-distance",
-        title: "Distance Between Two Points",
-        trigger: ["distance between two points", "length of segment", "how far apart"],
-        think: "I have two points, so I need the distance formula.",
-        steps: [
-          "Write down the coordinates of both points.",
-          "Find the horizontal change: x₂ - x₁.",
-          "Find the vertical change: y₂ - y₁.",
-          "Use the distance formula.",
-          "Simplify the square root if possible."
-        ],
-        formula: "d = <span class=\"sqrt\"><span class=\"sqrt-sign\">√</span><span class=\"radicand\">(x₂ - x₁)² + (y₂ - y₁)²</span></span>",
-        example: "A(1, 2), B(5, 7) → d = <span class=\"sqrt\"><span class=\"sqrt-sign\">√</span><span class=\"radicand\">(5 - 1)² + (7 - 2)²</span></span> = <span class=\"sqrt\"><span class=\"sqrt-sign\">√</span><span class=\"radicand\">16 + 25</span></span> = <span class=\"sqrt\"><span class=\"sqrt-sign\">√</span><span class=\"radicand\">41</span></span>",
-        mistake: "Mixing up x and y differences or forgetting to square both changes.",
-        graph: { kind: "segment", points: [{ label: "A", x: 18, y: 72 }, { label: "B", x: 82, y: 28 }] }
-      },
-      {
-        id: "midpoint",
-        title: "Midpoint",
-        trigger: ["midpoint", "halfway", "middle of segment"],
-        think: "Midpoint means average the x-values and average the y-values.",
-        steps: [
-          "Add the x-coordinates and divide by 2.",
-          "Add the y-coordinates and divide by 2.",
-          "Write the answer as an ordered pair."
-        ],
-        formula: "M = ((x₁ + x₂) / 2, (y₁ + y₂) / 2)",
-        example: "A(2, 4), B(8, 10) → M = (5, 7)",
-        mistake: "Only averaging one coordinate or forgetting the ordered pair format.",
-        graph: { kind: "midpoint", points: [{ label: "A", x: 16, y: 76 }, { label: "M", x: 50, y: 50 }, { label: "B", x: 84, y: 24 }] }
-      },
-      {
-        id: "slope",
-        title: "Slope of a Line",
-        trigger: ["slope", "rate of change", "steepness"],
-        think: "Slope means change in y over change in x.",
-        steps: [
-          "Choose two points on the line.",
-          "Subtract the y-values.",
-          "Subtract the x-values.",
-          "Write slope as rise/run.",
-          "Simplify the fraction if needed."
-        ],
-        formula: "m = (y₂ - y₁) / (x₂ - x₁)",
-        example: "A(1, 3), B(5, 11) → m = (11 - 3) / (5 - 1) = 2",
-        mistake: "Subtracting in different orders for numerator and denominator.",
-        graph: { kind: "slope", points: [{ label: "A", x: 18, y: 74 }, { label: "B", x: 82, y: 26 }] }
-      },
-      {
-        id: "point-to-line",
-        title: "Shortest Distance from a Point to a Line",
-        trigger: ["shortest distance", "point to line", "perpendicular distance"],
-        think: "Shortest distance means I must draw a perpendicular line through the point.",
-        steps: [
-          "Find the slope of the target line.",
-          "Find the perpendicular slope using m1 × m2 = -1.",
-          "Write the equation of the perpendicular line through the given point.",
-          "Solve the system to find the intersection point (the foot of the perpendicular).",
-          "Use the distance formula between the given point and the intersection point."
-        ],
-        formula: "Use perpendicular slope + line equation + intersection + distance formula",
-        exampleTitle: "Find the shortest distance from P(1, 2) to the line y = 2x + 3",
-        exampleSteps: [
-          "Step 1: Slope of the line is 2",
-          "Step 2: Perpendicular slope is -1/2",
-          "Step 3: Perpendicular line: y - 2 = (-1/2)(x - 1)",
-          "Step 4: Solve with y = 2x + 3",
-          "Step 5: Find the intersection point and then use the distance formula"
-        ],
-        mistake: "Using the distance formula immediately without first constructing the perpendicular line when the teacher expects full steps.",
-        graph: { kind: "point-line", points: [{ label: "P", x: 28, y: 24 }, { label: "F", x: 56, y: 54 }], line: { x1: 18, y1: 78, x2: 86, y2: 34 } }
-      },
-      {
-        id: "parallel-lines",
-        title: "Shortest Distance Between Two Parallel Lines",
-        trigger: ["parallel lines", "distance between lines", "shortest distance between lines"],
-        think: "Parallel lines stay the same distance apart, so I can choose one point on a line and find its perpendicular distance to the other line.",
-        steps: [
-          "Confirm the two lines are parallel.",
-          "Pick a convenient point on one line.",
-          "Find the slope of the lines.",
-          "Find the perpendicular slope.",
-          "Write the perpendicular line through the chosen point.",
-          "Find the intersection with the other line.",
-          "Use the distance formula between those two points."
-        ],
-        formula: "The shortest distance between two parallel lines is the length of a segment perpendicular to both lines.",
-        exampleTitle: "Find the distance between y = 2x + 3 and y = 2x + 1",
-        exampleSteps: [
-          "Step 1: Confirm both lines have slope 2, so they are parallel",
-          "Step 2: Choose a point on one line, for example A(0, 3)",
-          "Step 3: Find the perpendicular slope",
-          "Step 4: Write the perpendicular line",
-          "Step 5: Find the intersection with the second line",
-          "Step 6: Use the distance formula"
-        ],
-        mistake: "Forgetting to check that the lines are actually parallel first.",
-        graph: {
-          kind: "parallel",
-          points: [
-            { label: "A", x: 10, y: 60 }
-          ],
-          lines: [
-            { x1: 10, y1: 60, x2: 86, y2: 32 },
-            { x1: 10, y1: 81.6, x2: 93, y2: 51 }
-          ],
-          connector: { x1: 10, y1: 60, x2: 17, y2: 79 },
-          corners: [
-            { x: 10, y: 55 },
-            { x: 17, y: 74 }
-          ]
-        }
-      }
-    ];
-
-    function graphSvg(skill) {
-      const grid = [20, 40, 60, 80]
-        .map(n => `
-          <line x1="10" y1="${n}" x2="90" y2="${n}" stroke="#dbeafe" stroke-width="0.8"></line>
-          <line x1="${n}" y1="10" x2="${n}" y2="90" stroke="#dbeafe" stroke-width="0.8"></line>
-        `).join("");
-
-      let content = "";
-
-      if (skill.graph.kind === "segment") {
-        content = `
-          <line x1="18" y1="72" x2="82" y2="28" stroke="#0f172a" stroke-width="2.2"></line>
-          ${skill.graph.points.map(point => `
-            <circle cx="${point.x}" cy="${point.y}" r="3.2" fill="#2563eb"></circle>
-            <text x="${point.x + 3}" y="${point.y - 4}" font-size="6" fill="#0f172a">${point.label}</text>
-          `).join("")}
-        `;
-      }
-
-      if (skill.graph.kind === "midpoint") {
-        content = `
-          <line x1="16" y1="76" x2="84" y2="24" stroke="#0f172a" stroke-width="2.2"></line>
-          <line x1="50" y1="44" x2="50" y2="56" stroke="#f59e0b" stroke-width="2"></line>
-          <line x1="44" y1="50" x2="56" y2="50" stroke="#f59e0b" stroke-width="2"></line>
-          ${skill.graph.points.map(point => `
-            <circle cx="${point.x}" cy="${point.y}" r="${point.label === "M" ? 3.6 : 3.2}" fill="${point.label === "M" ? "#f59e0b" : "#2563eb"}"></circle>
-            <text x="${point.x + 3}" y="${point.y - 4}" font-size="6" fill="#0f172a">${point.label}</text>
-          `).join("")}
-        `;
-      }
-
-      if (skill.graph.kind === "slope") {
-        content = `
-          <line x1="18" y1="74" x2="82" y2="26" stroke="#0f172a" stroke-width="2.2"></line>
-          <line x1="18" y1="74" x2="82" y2="74" stroke="#10b981" stroke-width="2" stroke-dasharray="3 2"></line>
-          <line x1="82" y1="74" x2="82" y2="26" stroke="#f97316" stroke-width="2" stroke-dasharray="3 2"></line>
-          <text x="44" y="70" font-size="5.5" fill="#047857">run</text>
-          <text x="84" y="53" font-size="5.5" fill="#c2410c">rise</text>
-          ${skill.graph.points.map(point => `
-            <circle cx="${point.x}" cy="${point.y}" r="3.2" fill="#2563eb"></circle>
-            <text x="${point.x + 3}" y="${point.y - 4}" font-size="6" fill="#0f172a">${point.label}</text>
-          `).join("")}
-        `;
-      }
-
-      if (skill.graph.kind === "point-line") {
-        content = `
-          <line x1="${skill.graph.line.x1}" y1="${skill.graph.line.y1}" x2="${skill.graph.line.x2}" y2="${skill.graph.line.y2}" stroke="#0f172a" stroke-width="2.2"></line>
-          <line x1="28" y1="24" x2="56" y2="54" stroke="#ef4444" stroke-width="2" stroke-dasharray="4 2"></line>
-          <rect x="53.5" y="51.5" width="5" height="5" fill="none" stroke="#ef4444" stroke-width="1.2"></rect>
-          ${skill.graph.points.map(point => `
-            <circle cx="${point.x}" cy="${point.y}" r="3.2" fill="${point.label === "P" ? "#2563eb" : "#ef4444"}"></circle>
-            <text x="${point.x + 3}" y="${point.y - 4}" font-size="6" fill="#0f172a">${point.label}</text>
-          `).join("")}
-        `;
-      }
-
-      if (skill.graph.kind === "parallel") {
-        content = `
-          ${skill.graph.lines.map(line => `
-            <line x1="${line.x1}" y1="${line.y1}" x2="${line.x2}" y2="${line.y2}" stroke="#0f172a" stroke-width="2.2"></line>
-          `).join("")}
-          <line x1="${skill.graph.connector.x1}" y1="${skill.graph.connector.y1}" x2="${skill.graph.connector.x2}" y2="${skill.graph.connector.y2}" stroke="#ef4444" stroke-width="2" stroke-dasharray="4 2"></line>
-          ${skill.graph.points.map(point => `
-            <circle cx="${point.x}" cy="${point.y}" r="3.2" fill="#7c3aed"></circle>
-            <text x="${point.x + 3}" y="${point.y - 4}" font-size="6" fill="#6d28d9">${point.label}</text>
-          `).join("")}
-          ${skill.graph.corners.map(corner => `
-            <rect x="${corner.x}" y="${corner.y}" width="5" height="5" fill="none" stroke="#ef4444" stroke-width="1.2"></rect>
-          `).join("")}
-          <text x="15" y="72" font-size="5.5" fill="#b91c1c">d</text>
-        `;
-      }
-
-      return `
-        <svg viewBox="0 0 100 100" aria-label="${skill.title} graph">
-          ${grid}
-          <line x1="10" y1="90" x2="90" y2="90" stroke="#334155" stroke-width="1.2"></line>
-          <line x1="10" y1="90" x2="10" y2="10" stroke="#334155" stroke-width="1.2"></line>
-          ${content}
-        </svg>
-      `;
-    }
-
-    document.getElementById("skills").innerHTML = skills.map(skill => `
-      <article class="card">
-        <h3>${skill.title}</h3>
-
-        <div class="label">Trigger Words</div>
-        <div class="chips">
-          ${skill.trigger.map(word => `<span class="chip">${word}</span>`).join("")}
-        </div>
-
-        <div class="thought">
-          <div class="label">What I should think</div>
-          <div>${skill.think}</div>
-        </div>
-
-        <div class="graph-box">
-          <div class="label">Visual Graph</div>
-          ${graphSvg(skill)}
-        </div>
-
-        <div class="label">Steps</div>
-        <ol class="steps">
-          ${skill.steps.map(step => `<li>${step}</li>`).join("")}
-        </ol>
-
-        <div class="formula">
-          <div class="label">Key Formula / Method</div>
-          <div class="math">${skill.formula}</div>
-        </div>
-
-        <div class="example">
-          <div class="label">Example</div>
-          ${skill.example
-            ? `<div class="math" style="margin-top:10px; color:#334155;">${skill.example}</div>`
-            : `<div style="margin-top:10px;"><strong>${skill.exampleTitle}</strong><div class="example-block">${skill.exampleSteps.join("\n")}</div></div>`
-          }
-        </div>
-
-        <div class="mistake">
-          <div class="label">Common Mistake</div>
-          <div>${skill.mistake}</div>
-        </div>
-      </article>
-    `).join("");
-  </script>
+  </main>
 </body>
 </html>
