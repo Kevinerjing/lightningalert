@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Element Heroes Vote Board</title>
+  <style>
+    :root {
+      --bg: #07111d;
+      --panel: rgba(11, 22, 36, 0.92);
+      --panel-soft: rgba(19, 35, 56, 0.92);
+      --line: #24425d;
+      --text: #ecf8ff;
+      --muted: #9eb8cd;
+      --accent: #8bf7ff;
+      --accent-2: #ffd166;
+      --good: #8af5a4;
+      --shadow: 0 20px 44px rgba(0, 0, 0, 0.34);
+      --radius: 20px;
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top, rgba(79, 172, 254, 0.16), transparent 34%),
+        radial-gradient(circle at right, rgba(255, 209, 102, 0.08), transparent 28%),
+        linear-gradient(180deg, #07111d 0%, #040912 100%);
+      min-height: 100vh;
+    }
+
+    .page { max-width: 1240px; margin: 0 auto; padding: 18px; }
+    .topbar, .panel, .stat-card, .leader-row, .candidate-card, .suggest-card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+    .topbar, .panel { padding: 18px 20px; }
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .eyebrow { color: var(--accent); font-size: 13px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; }
+    h1, h2, h3, p { margin: 0; }
+    .title {
+      margin-top: 8px;
+      font-size: clamp(2.3rem, 4vw, 4rem);
+      line-height: 1;
+      font-family: Georgia, "Times New Roman", serif;
+    }
+    .subtitle {
+      margin-top: 12px;
+      max-width: 760px;
+      color: var(--muted);
+      line-height: 1.7;
+      font-size: 1rem;
+    }
+
+    .actions { display: flex; gap: 10px; flex-wrap: wrap; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 11px 16px;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.08);
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    .btn.primary {
+      background: linear-gradient(180deg, #8bf7ff, #59d8ff);
+      color: #04111a;
+      border: none;
+    }
+    .btn.vote-btn { width: 100%; margin-top: 14px; }
+
+    .layout {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 16px;
+      margin-top: 16px;
+    }
+    .stats-grid, .candidate-grid { display: grid; gap: 12px; }
+    .stats-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    .candidate-grid { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+    .stat-card, .candidate-card, .suggest-card { padding: 16px; background: rgba(255,255,255,0.04); }
+    .stat-kicker, .pill {
+      color: var(--muted);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-weight: 700;
+    }
+    .stat-value { margin-top: 8px; font-size: 28px; font-weight: 700; }
+
+    .panel-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 14px;
+    }
+    .panel-head p { color: var(--muted); line-height: 1.65; margin-top: 6px; }
+    .leaderboard { display: grid; gap: 10px; }
+    .leader-row {
+      padding: 14px 16px;
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      gap: 12px;
+      align-items: center;
+      background: var(--panel-soft);
+    }
+    .rank {
+      width: 40px;
+      height: 40px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      background: rgba(139, 247, 255, 0.12);
+      border: 1px solid rgba(139, 247, 255, 0.25);
+      color: var(--accent);
+      font-weight: 700;
+    }
+    .leader-row.top-1 .rank { background: rgba(255, 209, 102, 0.18); border-color: rgba(255, 209, 102, 0.32); color: var(--accent-2); }
+    .leader-row.top-2 .rank { background: rgba(206, 225, 240, 0.14); color: #dbe9f4; }
+    .leader-row.top-3 .rank { background: rgba(226, 146, 90, 0.15); color: #f2b277; }
+    .leader-title { font-size: 18px; font-weight: 700; }
+    .leader-note { color: var(--muted); font-size: 14px; line-height: 1.55; margin-top: 4px; }
+    .leader-metric { text-align: right; }
+    .leader-votes { font-size: 24px; font-weight: 700; }
+    .leader-percent { color: var(--muted); font-size: 13px; margin-top: 4px; }
+
+    .candidate-tools {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin: 6px 0 14px;
+    }
+    .candidate-search {
+      flex: 1 1 260px;
+      padding: 12px 14px;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      background: rgba(0,0,0,0.18);
+      color: var(--text);
+      font: inherit;
+    }
+    .candidate-count {
+      display: inline-flex;
+      align-items: center;
+      padding: 0 12px;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.04);
+      color: var(--muted);
+      font-weight: 700;
+    }
+    .candidate-card { position: relative; overflow: hidden; min-height: 0; }
+    .candidate-card::before {
+      content: "";
+      position: absolute;
+      inset: auto -10% 68% auto;
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      background: radial-gradient(circle, var(--card-glow, rgba(139,247,255,0.2)), transparent 68%);
+      pointer-events: none;
+    }
+    .candidate-symbol {
+      width: 56px;
+      height: 56px;
+      border-radius: 18px;
+      display: grid;
+      place-items: center;
+      font-size: 24px;
+      font-weight: 700;
+      background: var(--card-chip, rgba(255,255,255,0.08));
+      color: var(--card-ink, var(--text));
+      border: 1px solid rgba(255,255,255,0.12);
+    }
+    .candidate-card h3 { margin-top: 12px; font-size: 19px; }
+    .candidate-card p { margin-top: 8px; color: var(--muted); line-height: 1.55; min-height: 0; font-size: 14px; }
+    .candidate-meta { margin-top: 10px; color: var(--good); font-size: 12px; font-weight: 700; }
+
+    .suggest-card input, .suggest-card textarea {
+      width: 100%;
+      margin-top: 12px;
+      padding: 12px 14px;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      background: rgba(0,0,0,0.18);
+      color: var(--text);
+      font: inherit;
+    }
+    .suggest-card textarea { min-height: 110px; resize: vertical; }
+    .status { color: var(--muted); min-height: 22px; font-size: 14px; margin-top: 12px; }
+    .empty {
+      padding: 18px;
+      border-radius: 16px;
+      border: 1px dashed var(--line);
+      color: var(--muted);
+      background: rgba(255,255,255,0.03);
+      text-align: center;
+    }
+    .suggestions { display: grid; gap: 10px; margin-top: 12px; }
+    .suggestion-row {
+      padding: 12px 14px;
+      border-radius: 14px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+    .suggestion-row strong { display: block; font-size: 16px; }
+    .suggestion-row span { display: block; margin-top: 6px; color: var(--muted); line-height: 1.55; }
+
+    @media (max-width: 1080px) {
+      .layout, .stats-grid, .candidate-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 860px) {
+      .candidate-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <div class="topbar">
+      <div>
+        <div class="eyebrow">Element Vote Event</div>
+        <h1 class="title">Choose The Next Hero Element</h1>
+        <p class="subtitle">
+          Vote for the next element you want added to Element Heroes. The live Top 10 updates right away,
+          and students can also suggest original element ideas for future updates.
+        </p>
+      </div>
+      <div class="actions">
+        <button class="btn primary" id="refreshBtn" type="button">Refresh Results</button>
+        <a class="btn" href="index.html">Back to Game</a>
+      </div>
+    </div>
+
+    <div class="panel" style="margin-top: 16px;">
+      <div class="panel-head">
+        <div>
+          <h2 style="margin: 0;">Top 10 Live Stats</h2>
+          <p>See which elements are leading before students cast the next vote.</p>
+        </div>
+        <div class="pill" id="updatedText">Loading live results...</div>
+      </div>
+      <div class="stats-grid" id="statsGrid"></div>
+    </div>
+
+    <div class="layout">
+      <div class="panel">
+        <div class="panel-head">
+          <div>
+            <h2 style="margin: 0;">Top 10 Most Wanted Elements</h2>
+            <p>The leaderboard below is based on live votes from students.</p>
+          </div>
+        </div>
+        <div class="leaderboard" id="leaderboard"></div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-head">
+          <div>
+            <h2 style="margin: 0;">Your Vote</h2>
+            <p>Pick any element from the periodic table below, or suggest a brand-new element idea.</p>
+          </div>
+        </div>
+        <div class="status" id="voteStatus">Loading your current vote...</div>
+        <div class="candidate-tools">
+          <input id="candidateSearchInput" class="candidate-search" type="search" placeholder="Search by element name, symbol, or atomic number" />
+          <div class="candidate-count" id="candidateCountText">0 elements</div>
+        </div>
+        <div class="candidate-grid" id="candidateGrid"></div>
+
+        <div class="suggest-card" style="margin-top: 16px;">
+          <div class="pill">Custom Suggestion</div>
+          <h3 style="margin-top: 10px;">Create your own element idea</h3>
+          <p style="margin-top: 10px; color: var(--muted); line-height: 1.65;">
+            If the element you want is not listed, students can suggest their own idea and vote for it live.
+          </p>
+          <input id="customNameInput" maxlength="42" placeholder="Element name, e.g. Aurora or Gravity" />
+          <textarea id="customIdeaInput" maxlength="160" placeholder="What should this element do in the game?"></textarea>
+          <button class="btn primary vote-btn" id="customVoteBtn" type="button">Submit Custom Vote</button>
+        </div>
+
+        <div class="panel-head" style="margin-top: 18px;">
+          <div>
+            <h2 style="margin: 0; font-size: 20px;">Recent Student Suggestions</h2>
+            <p>Newest custom ideas from the live vote board.</p>
+          </div>
+        </div>
+        <div class="suggestions" id="recentSuggestions"></div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const WORKER_URL = "https://element-heroes-worker.jingkevin0408.workers.dev";
+    const SURVEY_VISITOR_ID_STORAGE_KEY = "heroSurveyVisitorId";
+    let latestSummary = null;
+    const CANDIDATES = [
+      { id: "hydrogen", label: "Hydrogen", symbol: "H", number: 1 },
+      { id: "helium", label: "Helium", symbol: "He", number: 2 },
+      { id: "lithium", label: "Lithium", symbol: "Li", number: 3 },
+      { id: "beryllium", label: "Beryllium", symbol: "Be", number: 4 },
+      { id: "boron", label: "Boron", symbol: "B", number: 5 },
+      { id: "carbon", label: "Carbon", symbol: "C", number: 6 },
+      { id: "nitrogen", label: "Nitrogen", symbol: "N", number: 7 },
+      { id: "oxygen", label: "Oxygen", symbol: "O", number: 8 },
+      { id: "fluorine", label: "Fluorine", symbol: "F", number: 9 },
+      { id: "neon", label: "Neon", symbol: "Ne", number: 10 },
+      { id: "sodium", label: "Sodium", symbol: "Na", number: 11 },
+      { id: "magnesium", label: "Magnesium", symbol: "Mg", number: 12 },
+      { id: "aluminium", label: "Aluminium", symbol: "Al", number: 13 },
+      { id: "silicon", label: "Silicon", symbol: "Si", number: 14 },
+      { id: "phosphorus", label: "Phosphorus", symbol: "P", number: 15 },
+      { id: "sulfur", label: "Sulfur", symbol: "S", number: 16 },
+      { id: "chlorine", label: "Chlorine", symbol: "Cl", number: 17 },
+      { id: "argon", label: "Argon", symbol: "Ar", number: 18 },
+      { id: "potassium", label: "Potassium", symbol: "K", number: 19 },
+      { id: "calcium", label: "Calcium", symbol: "Ca", number: 20 },
+      { id: "scandium", label: "Scandium", symbol: "Sc", number: 21 },
+      { id: "titanium", label: "Titanium", symbol: "Ti", number: 22 },
+      { id: "vanadium", label: "Vanadium", symbol: "V", number: 23 },
+      { id: "chromium", label: "Chromium", symbol: "Cr", number: 24 },
+      { id: "manganese", label: "Manganese", symbol: "Mn", number: 25 },
+      { id: "iron", label: "Iron", symbol: "Fe", number: 26 },
+      { id: "cobalt", label: "Cobalt", symbol: "Co", number: 27 },
+      { id: "nickel", label: "Nickel", symbol: "Ni", number: 28 },
+      { id: "copper", label: "Copper", symbol: "Cu", number: 29 },
+      { id: "zinc", label: "Zinc", symbol: "Zn", number: 30 },
+      { id: "gallium", label: "Gallium", symbol: "Ga", number: 31 },
+      { id: "germanium", label: "Germanium", symbol: "Ge", number: 32 },
+      { id: "arsenic", label: "Arsenic", symbol: "As", number: 33 },
+      { id: "selenium", label: "Selenium", symbol: "Se", number: 34 },
+      { id: "bromine", label: "Bromine", symbol: "Br", number: 35 },
+      { id: "krypton", label: "Krypton", symbol: "Kr", number: 36 },
+      { id: "rubidium", label: "Rubidium", symbol: "Rb", number: 37 },
+      { id: "strontium", label: "Strontium", symbol: "Sr", number: 38 },
+      { id: "yttrium", label: "Yttrium", symbol: "Y", number: 39 },
+      { id: "zirconium", label: "Zirconium", symbol: "Zr", number: 40 },
+      { id: "niobium", label: "Niobium", symbol: "Nb", number: 41 },
+      { id: "molybdenum", label: "Molybdenum", symbol: "Mo", number: 42 },
+      { id: "technetium", label: "Technetium", symbol: "Tc", number: 43 },
+      { id: "ruthenium", label: "Ruthenium", symbol: "Ru", number: 44 },
+      { id: "rhodium", label: "Rhodium", symbol: "Rh", number: 45 },
+      { id: "palladium", label: "Palladium", symbol: "Pd", number: 46 },
+      { id: "silver", label: "Silver", symbol: "Ag", number: 47 },
+      { id: "cadmium", label: "Cadmium", symbol: "Cd", number: 48 },
+      { id: "indium", label: "Indium", symbol: "In", number: 49 },
+      { id: "tin", label: "Tin", symbol: "Sn", number: 50 },
+      { id: "antimony", label: "Antimony", symbol: "Sb", number: 51 },
+      { id: "tellurium", label: "Tellurium", symbol: "Te", number: 52 },
+      { id: "iodine", label: "Iodine", symbol: "I", number: 53 },
+      { id: "xenon", label: "Xenon", symbol: "Xe", number: 54 },
+      { id: "caesium", label: "Caesium", symbol: "Cs", number: 55 },
+      { id: "barium", label: "Barium", symbol: "Ba", number: 56 },
+      { id: "lanthanum", label: "Lanthanum", symbol: "La", number: 57 },
+      { id: "cerium", label: "Cerium", symbol: "Ce", number: 58 },
+      { id: "praseodymium", label: "Praseodymium", symbol: "Pr", number: 59 },
+      { id: "neodymium", label: "Neodymium", symbol: "Nd", number: 60 },
+      { id: "promethium", label: "Promethium", symbol: "Pm", number: 61 },
+      { id: "samarium", label: "Samarium", symbol: "Sm", number: 62 },
+      { id: "europium", label: "Europium", symbol: "Eu", number: 63 },
+      { id: "gadolinium", label: "Gadolinium", symbol: "Gd", number: 64 },
+      { id: "terbium", label: "Terbium", symbol: "Tb", number: 65 },
+      { id: "dysprosium", label: "Dysprosium", symbol: "Dy", number: 66 },
+      { id: "holmium", label: "Holmium", symbol: "Ho", number: 67 },
+      { id: "erbium", label: "Erbium", symbol: "Er", number: 68 },
+      { id: "thulium", label: "Thulium", symbol: "Tm", number: 69 },
+      { id: "ytterbium", label: "Ytterbium", symbol: "Yb", number: 70 },
+      { id: "lutetium", label: "Lutetium", symbol: "Lu", number: 71 },
+      { id: "hafnium", label: "Hafnium", symbol: "Hf", number: 72 },
+      { id: "tantalum", label: "Tantalum", symbol: "Ta", number: 73 },
+      { id: "tungsten", label: "Tungsten", symbol: "W", number: 74 },
+      { id: "rhenium", label: "Rhenium", symbol: "Re", number: 75 },
+      { id: "osmium", label: "Osmium", symbol: "Os", number: 76 },
+      { id: "iridium", label: "Iridium", symbol: "Ir", number: 77 },
+      { id: "platinum", label: "Platinum", symbol: "Pt", number: 78 },
+      { id: "gold", label: "Gold", symbol: "Au", number: 79 },
+      { id: "mercury", label: "Mercury", symbol: "Hg", number: 80 },
+      { id: "thallium", label: "Thallium", symbol: "Tl", number: 81 },
+      { id: "lead", label: "Lead", symbol: "Pb", number: 82 },
+      { id: "bismuth", label: "Bismuth", symbol: "Bi", number: 83 },
+      { id: "polonium", label: "Polonium", symbol: "Po", number: 84 },
+      { id: "astatine", label: "Astatine", symbol: "At", number: 85 },
+      { id: "radon", label: "Radon", symbol: "Rn", number: 86 },
+      { id: "francium", label: "Francium", symbol: "Fr", number: 87 },
+      { id: "radium", label: "Radium", symbol: "Ra", number: 88 },
+      { id: "actinium", label: "Actinium", symbol: "Ac", number: 89 },
+      { id: "thorium", label: "Thorium", symbol: "Th", number: 90 },
+      { id: "protactinium", label: "Protactinium", symbol: "Pa", number: 91 },
+      { id: "uranium", label: "Uranium", symbol: "U", number: 92 },
+      { id: "neptunium", label: "Neptunium", symbol: "Np", number: 93 },
+      { id: "plutonium", label: "Plutonium", symbol: "Pu", number: 94 },
+      { id: "americium", label: "Americium", symbol: "Am", number: 95 },
+      { id: "curium", label: "Curium", symbol: "Cm", number: 96 },
+      { id: "berkelium", label: "Berkelium", symbol: "Bk", number: 97 },
+      { id: "californium", label: "Californium", symbol: "Cf", number: 98 },
+      { id: "einsteinium", label: "Einsteinium", symbol: "Es", number: 99 },
+      { id: "fermium", label: "Fermium", symbol: "Fm", number: 100 },
+      { id: "mendelevium", label: "Mendelevium", symbol: "Md", number: 101 },
+      { id: "nobelium", label: "Nobelium", symbol: "No", number: 102 },
+      { id: "lawrencium", label: "Lawrencium", symbol: "Lr", number: 103 },
+      { id: "rutherfordium", label: "Rutherfordium", symbol: "Rf", number: 104 },
+      { id: "dubnium", label: "Dubnium", symbol: "Db", number: 105 },
+      { id: "seaborgium", label: "Seaborgium", symbol: "Sg", number: 106 },
+      { id: "bohrium", label: "Bohrium", symbol: "Bh", number: 107 },
+      { id: "hassium", label: "Hassium", symbol: "Hs", number: 108 },
+      { id: "meitnerium", label: "Meitnerium", symbol: "Mt", number: 109 },
+      { id: "darmstadtium", label: "Darmstadtium", symbol: "Ds", number: 110 },
+      { id: "roentgenium", label: "Roentgenium", symbol: "Rg", number: 111 },
+      { id: "copernicium", label: "Copernicium", symbol: "Cn", number: 112 },
+      { id: "nihonium", label: "Nihonium", symbol: "Nh", number: 113 },
+      { id: "flerovium", label: "Flerovium", symbol: "Fl", number: 114 },
+      { id: "moscovium", label: "Moscovium", symbol: "Mc", number: 115 },
+      { id: "livermorium", label: "Livermorium", symbol: "Lv", number: 116 },
+      { id: "tennessine", label: "Tennessine", symbol: "Ts", number: 117 },
+      { id: "oganesson", label: "Oganesson", symbol: "Og", number: 118 },
+    ];
+
+    function escapeHtml(text) {
+      return String(text ?? "")
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#039;");
+    }
+
+    function formatDate(value) {
+      if (!value) return "No updates yet";
+      return new Date(value).toLocaleString([], { month: "short", day: "numeric", hour: "numeric", minute: "2-digit" });
+    }
+
+    function getOrCreateVisitorId() {
+      try {
+        const saved = window.localStorage.getItem(SURVEY_VISITOR_ID_STORAGE_KEY);
+        if (saved) return saved;
+        const next = `survey-${Date.now()}-${Math.random().toString(36).slice(2, 10)}`;
+        window.localStorage.setItem(SURVEY_VISITOR_ID_STORAGE_KEY, next);
+        return next;
+      } catch {
+        return `survey-${Date.now()}-${Math.random().toString(36).slice(2, 10)}`;
+      }
+    }
+
+    function setStatus(message, tone = "") {
+      const status = document.getElementById("voteStatus");
+      status.textContent = message;
+      status.style.color = tone === "good" ? "var(--good)" : tone === "error" ? "#ff9a9a" : "var(--muted)";
+    }
+
+    function renderStats(totals) {
+      const cards = [
+        { label: "Active Votes", value: totals.totalVotes || 0, note: "Current counted votes on the board." },
+        { label: "Unique Voters", value: totals.uniqueVoters || 0, note: "Approximate student devices that voted." },
+        { label: "Custom Ideas", value: totals.customSuggestions || 0, note: "Original element suggestions from students." },
+        { label: "Last Update", value: totals.updatedAt ? formatDate(totals.updatedAt) : "Waiting", note: "Refresh to see the newest ranking." },
+      ];
+      document.getElementById("statsGrid").innerHTML = cards.map((card) => `
+        <article class="stat-card">
+          <div class="stat-kicker">${escapeHtml(card.label)}</div>
+          <div class="stat-value">${escapeHtml(card.value)}</div>
+          <div class="stat-kicker" style="margin-top:8px; line-height:1.5; text-transform:none; letter-spacing:normal;">${escapeHtml(card.note)}</div>
+        </article>
+      `).join("");
+    }
+
+    function renderLeaderboard(items) {
+      const target = document.getElementById("leaderboard");
+      if (!Array.isArray(items) || !items.length) {
+        target.innerHTML = '<div class="empty">No votes yet. The first student vote will start the leaderboard.</div>';
+        return;
+      }
+      target.innerHTML = items.map((item, index) => `
+        <article class="leader-row ${index < 3 ? `top-${index + 1}` : ""}">
+          <div class="rank">#${index + 1}</div>
+          <div>
+            <div class="leader-title">${escapeHtml(item.label)}</div>
+            <div class="leader-note">${escapeHtml(item.idea || "Element idea")}${item.isCustom ? " • Custom student suggestion" : ""}</div>
+          </div>
+          <div class="leader-metric">
+            <div class="leader-votes">${escapeHtml(item.votes)}</div>
+            <div class="leader-percent">${escapeHtml(item.percent)}%</div>
+          </div>
+        </article>
+      `).join("");
+    }
+
+    function renderCandidates(currentVote) {
+      const search = String(document.getElementById("candidateSearchInput")?.value || "").trim().toLowerCase();
+      const visibleCandidates = CANDIDATES.filter((candidate) => {
+        if (!search) return true;
+        return (
+          candidate.label.toLowerCase().includes(search) ||
+          candidate.symbol.toLowerCase().includes(search) ||
+          String(candidate.number).includes(search)
+        );
+      });
+
+      const target = document.getElementById("candidateGrid");
+      document.getElementById("candidateCountText").textContent = `${visibleCandidates.length} elements`;
+
+      if (!visibleCandidates.length) {
+        target.innerHTML = '<div class="empty">No element matches that search yet.</div>';
+        return;
+      }
+
+      target.innerHTML = visibleCandidates.map((candidate) => `
+        <article class="candidate-card">
+          <div class="candidate-symbol">${escapeHtml(candidate.symbol)}</div>
+          <h3>${escapeHtml(candidate.label)}</h3>
+          <p>Atomic number ${escapeHtml(candidate.number)}. Vote to add ${escapeHtml(candidate.label)} to Element Heroes.</p>
+          <div class="candidate-meta">${currentVote?.choiceId === candidate.id ? "Your current vote" : "Ready to vote"}</div>
+          <button class="btn primary vote-btn" type="button" data-vote-id="${escapeHtml(candidate.id)}" data-vote-label="${escapeHtml(candidate.label)}">Vote for ${escapeHtml(candidate.label)}</button>
+        </article>
+      `).join("");
+
+      target.querySelectorAll("[data-vote-id]").forEach((button) => {
+        button.addEventListener("click", async () => {
+          await submitVote({ choiceId: button.dataset.voteId, label: button.dataset.voteLabel });
+        });
+      });
+    }
+
+    function renderSuggestions(items) {
+      const target = document.getElementById("recentSuggestions");
+      if (!Array.isArray(items) || !items.length) {
+        target.innerHTML = '<div class="empty">No custom suggestions yet. Students can create the first one below.</div>';
+        return;
+      }
+      target.innerHTML = items.map((item) => `
+        <article class="suggestion-row">
+          <strong>${escapeHtml(item.label)}</strong>
+          <span>${escapeHtml(item.idea || "Student-created element idea")}</span>
+        </article>
+      `).join("");
+    }
+
+    async function loadSummary() {
+      try {
+        const response = await fetch(`${WORKER_URL}/survey-summary?visitorId=${encodeURIComponent(getOrCreateVisitorId())}`, { cache: "no-store" });
+        const data = await response.json();
+        if (!response.ok) throw new Error(data?.message || "Could not load vote board.");
+        latestSummary = data;
+        renderStats(data.totals || {});
+        renderLeaderboard(data.leaderboard || []);
+        renderCandidates(data.currentVote || null);
+        renderSuggestions(data.recentSuggestions || []);
+        document.getElementById("updatedText").textContent = `Last updated ${formatDate(data?.totals?.updatedAt)}`;
+        if (data?.currentVote?.label) {
+          setStatus(`Your current vote: ${data.currentVote.label}`, "good");
+        } else {
+          setStatus("Pick a candidate or submit a custom element idea.");
+        }
+      } catch (error) {
+        renderStats({});
+        renderLeaderboard([]);
+        renderSuggestions([]);
+        latestSummary = null;
+        setStatus(error.message || "Could not load live results.", "error");
+        document.getElementById("updatedText").textContent = "Live results unavailable";
+      }
+    }
+
+    async function submitVote(payload) {
+      setStatus("Submitting your vote...");
+      try {
+        const response = await fetch(`${WORKER_URL}/survey-vote`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ visitorId: getOrCreateVisitorId(), ...payload }),
+        });
+        const data = await response.json();
+        if (!response.ok) throw new Error(data?.message || "Could not save your vote.");
+        document.getElementById("customNameInput").value = "";
+        document.getElementById("customIdeaInput").value = "";
+        setStatus(`Vote saved for ${data?.ballot?.label || "your element"}!`, "good");
+        await loadSummary();
+      } catch (error) {
+        setStatus(error.message || "Could not save your vote.", "error");
+      }
+    }
+
+    document.getElementById("refreshBtn").addEventListener("click", loadSummary);
+    document.getElementById("candidateSearchInput").addEventListener("input", () => {
+      renderCandidates(latestSummary?.currentVote || null);
+    });
+    document.getElementById("customVoteBtn").addEventListener("click", async () => {
+      await submitVote({
+        customName: document.getElementById("customNameInput").value.trim(),
+        idea: document.getElementById("customIdeaInput").value.trim(),
+      });
+    });
+
+    loadSummary();
+  </script>
+</body>
+</html>

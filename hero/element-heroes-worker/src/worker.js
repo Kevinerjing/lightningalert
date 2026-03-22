@@ -62,6 +62,14 @@ export class GameRoom {
       return this.handleRegistryAnalyticsSummary();
     }
 
+    if (url.pathname === "/registry/survey-vote" && request.method === "POST") {
+      return this.handleRegistrySurveyVote(request);
+    }
+
+    if (url.pathname === "/registry/survey-summary") {
+      return this.handleRegistrySurveySummary(url);
+    }
+
     // ---------------------------
     // Room mode
     // ---------------------------
@@ -373,6 +381,119 @@ export class GameRoom {
         .slice()
         .sort((a, b) => (b?.startedAt || 0) - (a?.startedAt || 0))
         .slice(0, 30),
+    });
+  }
+
+  async handleRegistrySurveyVote(request) {
+    const body = await safeJson(request);
+    const visitorId = normalizeSurveyVisitorId(body?.visitorId);
+
+    if (!visitorId) {
+      return jsonInternal({ type: "error", message: "Missing visitor id." }, 400);
+    }
+
+    const presetChoice = PRESET_ELEMENT_VOTES[normalizeVoteId(body?.choiceId)];
+    const customName = normalizeSurveyLabel(body?.customName, 42);
+    const customIdea = normalizeSurveyIdea(body?.idea);
+
+    if (!presetChoice && !customName) {
+      return jsonInternal({ type: "error", message: "Choose an element or enter a custom idea." }, 400);
+    }
+
+    const ballotKey = `survey:ballot:${visitorId}`;
+    const previousBallot = await this.state.storage.get(ballotKey);
+    const overview = (await this.state.storage.get("survey:overview")) || createEmptySurveyOverview();
+    const recentSuggestions = (await this.state.storage.get("survey:recent-suggestions")) || [];
+
+    let nextChoiceId = "";
+    let nextLabel = "";
+    let nextIdea = "";
+    let isCustom = false;
+
+    if (presetChoice) {
+      nextChoiceId = presetChoice.id;
+      nextLabel = presetChoice.label;
+      nextIdea = presetChoice.idea;
+    } else {
+      const customSlug = normalizeVoteId(customName);
+      nextChoiceId = `custom-${customSlug || crypto.randomUUID().slice(0, 8)}`;
+      nextLabel = customName;
+      nextIdea = customIdea || "Student-created element idea";
+      isCustom = true;
+    }
+
+    if (previousBallot?.choiceId && overview.voteCounts?.[previousBallot.choiceId]) {
+      overview.voteCounts[previousBallot.choiceId] = Math.max(
+        0,
+        Number(overview.voteCounts[previousBallot.choiceId] || 0) - 1,
+      );
+    }
+
+    if (!previousBallot) {
+      overview.uniqueVoters = Number(overview.uniqueVoters || 0) + 1;
+    }
+
+    overview.voteCounts[nextChoiceId] = Number(overview.voteCounts[nextChoiceId] || 0) + 1;
+    overview.labels[nextChoiceId] = nextLabel;
+    overview.ideas[nextChoiceId] = nextIdea;
+    overview.updatedAt = Date.now();
+    overview.totalVotes = Object.values(overview.voteCounts).reduce(
+      (sum, count) => sum + Math.max(0, Number(count) || 0),
+      0,
+    );
+
+    if (isCustom) {
+      const customSet = new Set(Array.isArray(overview.customChoiceIds) ? overview.customChoiceIds : []);
+      customSet.add(nextChoiceId);
+      overview.customChoiceIds = [...customSet];
+
+      const filteredSuggestions = recentSuggestions.filter((item) => item?.choiceId !== nextChoiceId);
+      filteredSuggestions.unshift({
+        choiceId: nextChoiceId,
+        label: nextLabel,
+        idea: nextIdea,
+        submittedAt: Date.now(),
+      });
+      await this.state.storage.put("survey:recent-suggestions", filteredSuggestions.slice(0, 20));
+    }
+
+    const ballot = {
+      visitorId,
+      choiceId: nextChoiceId,
+      label: nextLabel,
+      idea: nextIdea,
+      isCustom,
+      updatedAt: Date.now(),
+    };
+
+    await Promise.all([
+      this.state.storage.put(ballotKey, ballot),
+      this.state.storage.put("survey:overview", overview),
+    ]);
+
+    return jsonInternal({
+      ok: true,
+      ballot,
+      totals: buildSurveyTotals(overview),
+      leaderboard: buildSurveyLeaderboard(overview).slice(0, 10),
+    });
+  }
+
+  async handleRegistrySurveySummary(url) {
+    const visitorId = normalizeSurveyVisitorId(url.searchParams.get("visitorId"));
+    const overview = (await this.state.storage.get("survey:overview")) || createEmptySurveyOverview();
+    const recentSuggestions = (await this.state.storage.get("survey:recent-suggestions")) || [];
+    const currentVote = visitorId
+      ? (await this.state.storage.get(`survey:ballot:${visitorId}`)) || null
+      : null;
+
+    return jsonInternal({
+      ok: true,
+      totals: buildSurveyTotals(overview),
+      leaderboard: buildSurveyLeaderboard(overview).slice(0, 10),
+      allChoices: buildSurveyLeaderboard(overview).slice(0, 24),
+      recentSuggestions: recentSuggestions.slice(0, 8),
+      currentVote,
     });
   }
 
@@ -766,6 +887,8 @@ export default {
       "/teacher-summary",
       "/analytics-track",
       "/analytics-summary",
+      "/survey-vote",
+      "/survey-summary",
     ].includes(url.pathname);
 
     if (request.method === "OPTIONS") {
@@ -979,6 +1102,38 @@ export default {
         );
       }
 
+      if (request.method === "POST" && url.pathname === "/survey-vote") {
+        const body = await safeJson(request);
+        const registryStub = getRegistryStub(env);
+        const voteResponse = await registryStub.fetch("https://room.internal/registry/survey-vote", {
+          method: "POST",
+          body: JSON.stringify(body),
+        });
+        const voteData = await safeResponseJson(voteResponse);
+        return json(
+          voteResponse.ok
+            ? voteData || { ok: true }
+            : { type: "error", message: voteData?.message || "Could not save vote." },
+          voteResponse.status,
+          origin,
+        );
+      }
+
+      if (request.method === "GET" && url.pathname === "/survey-summary") {
+        const registryStub = getRegistryStub(env);
+        const visitorId = normalizeSurveyVisitorId(url.searchParams.get("visitorId"));
+        const query = visitorId ? `?visitorId=${encodeURIComponent(visitorId)}` : "";
+        const summaryResponse = await registryStub.fetch(`https://room.internal/registry/survey-summary${query}`);
+        const summaryData = await safeResponseJson(summaryResponse);
+        return json(
+          summaryResponse.ok
+            ? summaryData || { ok: true, totals: {}, leaderboard: [] }
+            : { type: "error", message: summaryData?.message || "Could not load survey results." },
+          summaryResponse.status,
+          origin,
+        );
+      }
+
       if (request.method === "GET" && url.pathname === "/teacher-summaries") {
         const classCode = normalizeClassCode(url.searchParams.get("classCode"));
         if (!classCode) {
@@ -1117,6 +1272,201 @@ function normalizeLocationPart(value, fallback = "") {
 function formatCityLabel(city, region, country) {
   const parts = [city, region, country].filter(Boolean);
   return parts.length ? parts.join(", ") : "";
+}
+
+const PERIODIC_TABLE_CHOICES = [
+  { id: "hydrogen", label: "Hydrogen", symbol: "H", number: 1 },
+  { id: "helium", label: "Helium", symbol: "He", number: 2 },
+  { id: "lithium", label: "Lithium", symbol: "Li", number: 3 },
+  { id: "beryllium", label: "Beryllium", symbol: "Be", number: 4 },
+  { id: "boron", label: "Boron", symbol: "B", number: 5 },
+  { id: "carbon", label: "Carbon", symbol: "C", number: 6 },
+  { id: "nitrogen", label: "Nitrogen", symbol: "N", number: 7 },
+  { id: "oxygen", label: "Oxygen", symbol: "O", number: 8 },
+  { id: "fluorine", label: "Fluorine", symbol: "F", number: 9 },
+  { id: "neon", label: "Neon", symbol: "Ne", number: 10 },
+  { id: "sodium", label: "Sodium", symbol: "Na", number: 11 },
+  { id: "magnesium", label: "Magnesium", symbol: "Mg", number: 12 },
+  { id: "aluminium", label: "Aluminium", symbol: "Al", number: 13 },
+  { id: "silicon", label: "Silicon", symbol: "Si", number: 14 },
+  { id: "phosphorus", label: "Phosphorus", symbol: "P", number: 15 },
+  { id: "sulfur", label: "Sulfur", symbol: "S", number: 16 },
+  { id: "chlorine", label: "Chlorine", symbol: "Cl", number: 17 },
+  { id: "argon", label: "Argon", symbol: "Ar", number: 18 },
+  { id: "potassium", label: "Potassium", symbol: "K", number: 19 },
+  { id: "calcium", label: "Calcium", symbol: "Ca", number: 20 },
+  { id: "scandium", label: "Scandium", symbol: "Sc", number: 21 },
+  { id: "titanium", label: "Titanium", symbol: "Ti", number: 22 },
+  { id: "vanadium", label: "Vanadium", symbol: "V", number: 23 },
+  { id: "chromium", label: "Chromium", symbol: "Cr", number: 24 },
+  { id: "manganese", label: "Manganese", symbol: "Mn", number: 25 },
+  { id: "iron", label: "Iron", symbol: "Fe", number: 26 },
+  { id: "cobalt", label: "Cobalt", symbol: "Co", number: 27 },
+  { id: "nickel", label: "Nickel", symbol: "Ni", number: 28 },
+  { id: "copper", label: "Copper", symbol: "Cu", number: 29 },
+  { id: "zinc", label: "Zinc", symbol: "Zn", number: 30 },
+  { id: "gallium", label: "Gallium", symbol: "Ga", number: 31 },
+  { id: "germanium", label: "Germanium", symbol: "Ge", number: 32 },
+  { id: "arsenic", label: "Arsenic", symbol: "As", number: 33 },
+  { id: "selenium", label: "Selenium", symbol: "Se", number: 34 },
+  { id: "bromine", label: "Bromine", symbol: "Br", number: 35 },
+  { id: "krypton", label: "Krypton", symbol: "Kr", number: 36 },
+  { id: "rubidium", label: "Rubidium", symbol: "Rb", number: 37 },
+  { id: "strontium", label: "Strontium", symbol: "Sr", number: 38 },
+  { id: "yttrium", label: "Yttrium", symbol: "Y", number: 39 },
+  { id: "zirconium", label: "Zirconium", symbol: "Zr", number: 40 },
+  { id: "niobium", label: "Niobium", symbol: "Nb", number: 41 },
+  { id: "molybdenum", label: "Molybdenum", symbol: "Mo", number: 42 },
+  { id: "technetium", label: "Technetium", symbol: "Tc", number: 43 },
+  { id: "ruthenium", label: "Ruthenium", symbol: "Ru", number: 44 },
+  { id: "rhodium", label: "Rhodium", symbol: "Rh", number: 45 },
+  { id: "palladium", label: "Palladium", symbol: "Pd", number: 46 },
+  { id: "silver", label: "Silver", symbol: "Ag", number: 47 },
+  { id: "cadmium", label: "Cadmium", symbol: "Cd", number: 48 },
+  { id: "indium", label: "Indium", symbol: "In", number: 49 },
+  { id: "tin", label: "Tin", symbol: "Sn", number: 50 },
+  { id: "antimony", label: "Antimony", symbol: "Sb", number: 51 },
+  { id: "tellurium", label: "Tellurium", symbol: "Te", number: 52 },
+  { id: "iodine", label: "Iodine", symbol: "I", number: 53 },
+  { id: "xenon", label: "Xenon", symbol: "Xe", number: 54 },
+  { id: "caesium", label: "Caesium", symbol: "Cs", number: 55 },
+  { id: "barium", label: "Barium", symbol: "Ba", number: 56 },
+  { id: "lanthanum", label: "Lanthanum", symbol: "La", number: 57 },
+  { id: "cerium", label: "Cerium", symbol: "Ce", number: 58 },
+  { id: "praseodymium", label: "Praseodymium", symbol: "Pr", number: 59 },
+  { id: "neodymium", label: "Neodymium", symbol: "Nd", number: 60 },
+  { id: "promethium", label: "Promethium", symbol: "Pm", number: 61 },
+  { id: "samarium", label: "Samarium", symbol: "Sm", number: 62 },
+  { id: "europium", label: "Europium", symbol: "Eu", number: 63 },
+  { id: "gadolinium", label: "Gadolinium", symbol: "Gd", number: 64 },
+  { id: "terbium", label: "Terbium", symbol: "Tb", number: 65 },
+  { id: "dysprosium", label: "Dysprosium", symbol: "Dy", number: 66 },
+  { id: "holmium", label: "Holmium", symbol: "Ho", number: 67 },
+  { id: "erbium", label: "Erbium", symbol: "Er", number: 68 },
+  { id: "thulium", label: "Thulium", symbol: "Tm", number: 69 },
+  { id: "ytterbium", label: "Ytterbium", symbol: "Yb", number: 70 },
+  { id: "lutetium", label: "Lutetium", symbol: "Lu", number: 71 },
+  { id: "hafnium", label: "Hafnium", symbol: "Hf", number: 72 },
+  { id: "tantalum", label: "Tantalum", symbol: "Ta", number: 73 },
+  { id: "tungsten", label: "Tungsten", symbol: "W", number: 74 },
+  { id: "rhenium", label: "Rhenium", symbol: "Re", number: 75 },
+  { id: "osmium", label: "Osmium", symbol: "Os", number: 76 },
+  { id: "iridium", label: "Iridium", symbol: "Ir", number: 77 },
+  { id: "platinum", label: "Platinum", symbol: "Pt", number: 78 },
+  { id: "gold", label: "Gold", symbol: "Au", number: 79 },
+  { id: "mercury", label: "Mercury", symbol: "Hg", number: 80 },
+  { id: "thallium", label: "Thallium", symbol: "Tl", number: 81 },
+  { id: "lead", label: "Lead", symbol: "Pb", number: 82 },
+  { id: "bismuth", label: "Bismuth", symbol: "Bi", number: 83 },
+  { id: "polonium", label: "Polonium", symbol: "Po", number: 84 },
+  { id: "astatine", label: "Astatine", symbol: "At", number: 85 },
+  { id: "radon", label: "Radon", symbol: "Rn", number: 86 },
+  { id: "francium", label: "Francium", symbol: "Fr", number: 87 },
+  { id: "radium", label: "Radium", symbol: "Ra", number: 88 },
+  { id: "actinium", label: "Actinium", symbol: "Ac", number: 89 },
+  { id: "thorium", label: "Thorium", symbol: "Th", number: 90 },
+  { id: "protactinium", label: "Protactinium", symbol: "Pa", number: 91 },
+  { id: "uranium", label: "Uranium", symbol: "U", number: 92 },
+  { id: "neptunium", label: "Neptunium", symbol: "Np", number: 93 },
+  { id: "plutonium", label: "Plutonium", symbol: "Pu", number: 94 },
+  { id: "americium", label: "Americium", symbol: "Am", number: 95 },
+  { id: "curium", label: "Curium", symbol: "Cm", number: 96 },
+  { id: "berkelium", label: "Berkelium", symbol: "Bk", number: 97 },
+  { id: "californium", label: "Californium", symbol: "Cf", number: 98 },
+  { id: "einsteinium", label: "Einsteinium", symbol: "Es", number: 99 },
+  { id: "fermium", label: "Fermium", symbol: "Fm", number: 100 },
+  { id: "mendelevium", label: "Mendelevium", symbol: "Md", number: 101 },
+  { id: "nobelium", label: "Nobelium", symbol: "No", number: 102 },
+  { id: "lawrencium", label: "Lawrencium", symbol: "Lr", number: 103 },
+  { id: "rutherfordium", label: "Rutherfordium", symbol: "Rf", number: 104 },
+  { id: "dubnium", label: "Dubnium", symbol: "Db", number: 105 },
+  { id: "seaborgium", label: "Seaborgium", symbol: "Sg", number: 106 },
+  { id: "bohrium", label: "Bohrium", symbol: "Bh", number: 107 },
+  { id: "hassium", label: "Hassium", symbol: "Hs", number: 108 },
+  { id: "meitnerium", label: "Meitnerium", symbol: "Mt", number: 109 },
+  { id: "darmstadtium", label: "Darmstadtium", symbol: "Ds", number: 110 },
+  { id: "roentgenium", label: "Roentgenium", symbol: "Rg", number: 111 },
+  { id: "copernicium", label: "Copernicium", symbol: "Cn", number: 112 },
+  { id: "nihonium", label: "Nihonium", symbol: "Nh", number: 113 },
+  { id: "flerovium", label: "Flerovium", symbol: "Fl", number: 114 },
+  { id: "moscovium", label: "Moscovium", symbol: "Mc", number: 115 },
+  { id: "livermorium", label: "Livermorium", symbol: "Lv", number: 116 },
+  { id: "tennessine", label: "Tennessine", symbol: "Ts", number: 117 },
+  { id: "oganesson", label: "Oganesson", symbol: "Og", number: 118 },
+];
+
+const PRESET_ELEMENT_VOTES = Object.fromEntries(
+  PERIODIC_TABLE_CHOICES.map((item) => [
+    item.id,
+    {
+      id: item.id,
+      label: item.label,
+      idea: `Vote to add ${item.label} (${item.symbol}) as a future Element Heroes card or hero concept.`,
+    },
+  ]),
+);
+
+function createEmptySurveyOverview() {
+  const labels = {};
+  const ideas = {};
+  Object.values(PRESET_ELEMENT_VOTES).forEach((item) => {
+    labels[item.id] = item.label;
+    ideas[item.id] = item.idea;
+  });
+
+  return {
+    totalVotes: 0,
+    uniqueVoters: 0,
+    updatedAt: 0,
+    voteCounts: {},
+    labels,
+    ideas,
+    customChoiceIds: [],
+  };
+}
+
+function normalizeVoteId(value) {
+  return String(value || "")
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "")
+    .slice(0, 36);
+}
+
+function normalizeSurveyVisitorId(value) {
+  return String(value || "").trim().slice(0, 80);
+}
+
+function normalizeSurveyLabel(value, maxLength = 48) {
+  return String(value || "").replace(/\s+/g, " ").trim().slice(0, maxLength);
+}
+
+function normalizeSurveyIdea(value) {
+  return String(value || "").replace(/\s+/g, " ").trim().slice(0, 160);
+}
+
+function buildSurveyTotals(overview) {
+  return {
+    totalVotes: Number(overview.totalVotes) || 0,
+    uniqueVoters: Number(overview.uniqueVoters) || 0,
+    customSuggestions: Array.isArray(overview.customChoiceIds) ? overview.customChoiceIds.length : 0,
+    updatedAt: Number(overview.updatedAt) || 0,
+  };
+}
+
+function buildSurveyLeaderboard(overview) {
+  const totalVotes = Math.max(1, Number(overview.totalVotes) || 0);
+  return Object.entries(overview.voteCounts || {})
+    .map(([choiceId, votes]) => ({
+      choiceId,
+      label: overview.labels?.[choiceId] || choiceId,
+      idea: overview.ideas?.[choiceId] || "Element idea",
+      votes: Number(votes) || 0,
+      percent: Math.round(((Number(votes) || 0) / totalVotes) * 1000) / 10,
+      isCustom: Array.isArray(overview.customChoiceIds) && overview.customChoiceIds.includes(choiceId),
+    }))
+    .filter((item) => item.votes > 0)
+    .sort((a, b) => b.votes - a.votes || a.label.localeCompare(b.label));
 }
 
 function sortCountEntries(counts) {
