@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Coding Guide for Students</title>
+  <style>
+    :root {
+      --bg: #f5f8fc;
+      --panel: #ffffff;
+      --ink: #142033;
+      --muted: #5b6778;
+      --line: #d9e3ef;
+      --accent: #0f766e;
+      --accent-2: #1d4ed8;
+      --accent-3: #ea580c;
+      --accent-4: #7c3aed;
+      --shadow: 0 18px 44px rgba(20, 32, 51, 0.08);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: "Trebuchet MS", Arial, sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at top left, rgba(29, 78, 216, 0.08), transparent 26%),
+        radial-gradient(circle at top right, rgba(15, 118, 110, 0.08), transparent 26%),
+        linear-gradient(180deg, #fbfdff 0%, var(--bg) 100%);
+    }
+
+    .page {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 26px 18px 44px;
+    }
+
+    .hero,
+    .section,
+    .tool-card,
+    .step-card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      box-shadow: var(--shadow);
+    }
+
+    .hero,
+    .section {
+      padding: 26px;
+    }
+
+    .eyebrow {
+      margin: 0;
+      color: var(--accent);
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    h1, h2, h3 {
+      margin: 0;
+      line-height: 1.1;
+    }
+
+    h1 {
+      margin-top: 10px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(2.4rem, 4vw, 4.1rem);
+    }
+
+    .lead {
+      max-width: 780px;
+      margin: 16px 0 0;
+      color: var(--muted);
+      line-height: 1.8;
+      font-size: 1.05rem;
+    }
+
+    .hero-links,
+    .chip-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 22px;
+    }
+
+    .chip,
+    .hero-link {
+      display: inline-flex;
+      align-items: center;
+      padding: 10px 13px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: #f6f9fc;
+      color: var(--muted);
+      font-size: 0.94rem;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .section {
+      margin-top: 22px;
+    }
+
+    .section-head {
+      margin-bottom: 18px;
+    }
+
+    .section-head p {
+      margin: 10px 0 0;
+      color: var(--muted);
+      line-height: 1.75;
+    }
+
+    .tool-grid,
+    .step-grid {
+      display: grid;
+      gap: 16px;
+    }
+
+    .tool-grid {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .step-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .tool-card,
+    .step-card {
+      padding: 18px;
+    }
+
+    .tool-tag,
+    .step-tag {
+      display: inline-block;
+      padding: 6px 10px;
+      border-radius: 999px;
+      color: #fff;
+      font-size: 0.76rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .tag-codex { background: var(--accent); }
+    .tag-vscode { background: var(--accent-2); }
+    .tag-github { background: var(--ink); }
+    .tag-cloudflare { background: var(--accent-3); }
+    .tag-step { background: var(--accent-4); }
+
+    .tool-card h3,
+    .step-card h3 {
+      margin-top: 12px;
+      font-size: 1.25rem;
+    }
+
+    .tool-card p,
+    .step-card p,
+    .checklist li {
+      color: var(--muted);
+      line-height: 1.75;
+    }
+
+    .checklist {
+      margin: 14px 0 0;
+      padding-left: 18px;
+    }
+
+    .checklist li + li {
+      margin-top: 8px;
+    }
+
+    .tool-link,
+    .resource-link {
+      display: inline-flex;
+      align-items: center;
+      margin-top: 14px;
+      padding: 9px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: #f6f9fc;
+      color: var(--accent);
+      font-size: 0.92rem;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .workflow-image {
+      display: block;
+      width: 100%;
+      border-radius: 18px;
+      border: 1px solid var(--line);
+      background: #fff;
+    }
+
+    .callout {
+      margin-top: 18px;
+      padding: 16px 18px;
+      border-radius: 18px;
+      background: #f8fbff;
+      border: 1px solid #e3ecf6;
+      color: var(--muted);
+      line-height: 1.75;
+    }
+
+    code {
+      font-family: Consolas, "Courier New", monospace;
+      font-size: 0.95em;
+      background: #eff4fb;
+      border-radius: 6px;
+      padding: 2px 6px;
+      color: var(--ink);
+    }
+
+    .resource-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .resource-card {
+      background: #fdfefe;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 18px;
+    }
+
+    .resource-card h3 {
+      font-size: 1.16rem;
+    }
+
+    .resource-card p {
+      color: var(--muted);
+      line-height: 1.75;
+    }
+
+    @media (max-width: 960px) {
+      .tool-grid,
+      .step-grid,
+      .resource-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <section class="hero">
+      <p class="eyebrow">AI Coding Guide</p>
+      <h1>How Students Can Build and Deploy with AI</h1>
+      <p class="lead">
+        This page shows a simple student workflow for turning an idea into a real website using Codex,
+        VS Code, GitHub, and Cloudflare. The goal is not to make AI do everything for you. The goal is
+        to use AI as a coding partner while you guide the idea, test the work, and publish the result.
+      </p>
+      <div class="hero-links">
+        <a class="hero-link" href="./index.html">Back to WCC Board</a>
+      </div>
+      <div class="chip-row">
+        <span class="chip">1. Start with an idea</span>
+        <span class="chip">2. Ask Codex to build</span>
+        <span class="chip">3. Test in VS Code</span>
+        <span class="chip">4. Push to GitHub</span>
+        <span class="chip">5. Deploy with Cloudflare</span>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <h2>Workflow Map</h2>
+        <p>This visual shows the full path from student idea to live website.</p>
+      </div>
+      <img class="workflow-image" src="./ai-coding-workflow.svg" alt="Workflow showing idea, Codex, VS Code, GitHub, Cloudflare, and live website" />
+      <div class="callout">
+        A good rule for students: AI helps you move faster, but you still need to think, check, test,
+        and decide what the final product should be.
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <h2>The Main Tools</h2>
+        <p>Each tool has a clear job in the coding and deployment process.</p>
+      </div>
+      <div class="tool-grid">
+        <article class="tool-card">
+          <span class="tool-tag tag-codex">Codex</span>
+          <h3>AI Coding Partner</h3>
+          <p>Use Codex to create files, improve designs, explain code, fix bugs, and speed up your work.</p>
+          <ul class="checklist">
+            <li>Give a clear idea or goal.</li>
+            <li>Ask for one task at a time.</li>
+            <li>Check the result instead of trusting blindly.</li>
+          </ul>
+        </article>
+
+        <article class="tool-card">
+          <span class="tool-tag tag-vscode">VS Code</span>
+          <h3>Your Coding Workspace</h3>
+          <p>Use VS Code to view files, organize folders, read changes, and run or preview your project.</p>
+          <ul class="checklist">
+            <li>Edit HTML, CSS, and JavaScript.</li>
+            <li>Preview the page locally.</li>
+            <li>Keep the project neat and readable.</li>
+          </ul>
+          <a class="tool-link" href="https://code.visualstudio.com/Download" target="_blank" rel="noreferrer">Download VS Code</a>
+        </article>
+
+        <article class="tool-card">
+          <span class="tool-tag tag-github">GitHub</span>
+          <h3>Save and Share</h3>
+          <p>Use GitHub to save versions of your project, track progress, and push updates online.</p>
+          <ul class="checklist">
+            <li>Commit changes with short messages.</li>
+            <li>Push the project to your repo.</li>
+            <li>Use history to see what changed.</li>
+          </ul>
+          <a class="tool-link" href="https://github.com/join" target="_blank" rel="noreferrer">Create GitHub Account</a>
+        </article>
+
+        <article class="tool-card">
+          <span class="tool-tag tag-cloudflare">Cloudflare</span>
+          <h3>Deploy the Website</h3>
+          <p>Use Cloudflare to publish the site so other students can open it in a browser.</p>
+          <ul class="checklist">
+            <li>Connect your GitHub repo.</li>
+            <li>Deploy when code is pushed.</li>
+            <li>Share the live link with others.</li>
+          </ul>
+          <a class="tool-link" href="https://dash.cloudflare.com/sign-up" target="_blank" rel="noreferrer">Sign Up for Cloudflare</a>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <h2>Get Ready to Install or Register</h2>
+        <p>Students can use these official links to start setting up their own coding workflow.</p>
+      </div>
+      <div class="resource-grid">
+        <article class="resource-card">
+          <h3>VS Code</h3>
+          <p>VS Code is the editor where students can open files, read code, test ideas, and preview websites while working with Codex.</p>
+          <a class="resource-link" href="https://code.visualstudio.com/Download" target="_blank" rel="noreferrer">Official VS Code Download</a>
+        </article>
+
+        <article class="resource-card">
+          <h3>GitHub</h3>
+          <p>GitHub stores your project online, keeps version history, and makes it easy to push code and share your work with others.</p>
+          <a class="resource-link" href="https://github.com/join" target="_blank" rel="noreferrer">GitHub Sign Up</a>
+          <a class="resource-link" href="https://desktop.github.com/download/" target="_blank" rel="noreferrer">Download GitHub Desktop</a>
+        </article>
+
+        <article class="resource-card">
+          <h3>Cloudflare</h3>
+          <p>Cloudflare can deploy a GitHub project to a live website, which makes it a simple way for students to publish web projects.</p>
+          <a class="resource-link" href="https://dash.cloudflare.com/sign-up" target="_blank" rel="noreferrer">Cloudflare Sign Up</a>
+        </article>
+      </div>
+      <div class="callout">
+        Recommended student setup: install VS Code first, create a GitHub account second, and create a Cloudflare account when you are ready to deploy a website.
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <h2>Simple Student Workflow</h2>
+        <p>These are the basic steps students can follow when building a project with AI.</p>
+      </div>
+      <div class="step-grid">
+        <article class="step-card">
+          <span class="step-tag tag-step">Step 1</span>
+          <h3>Start with a Clear Idea</h3>
+          <p>Write one short sentence about what you want to build. Example: “I want a website that explains weather and climate news for students.”</p>
+        </article>
+
+        <article class="step-card">
+          <span class="step-tag tag-step">Step 2</span>
+          <h3>Ask Codex for the First Version</h3>
+          <p>Ask Codex to create a page, add sections, design the layout, or explain what files are needed.</p>
+        </article>
+
+        <article class="step-card">
+          <span class="step-tag tag-step">Step 3</span>
+          <h3>Open and Review in VS Code</h3>
+          <p>Read the files, make edits, test the design, and check whether the page actually matches your idea.</p>
+        </article>
+
+        <article class="step-card">
+          <span class="step-tag tag-step">Step 4</span>
+          <h3>Improve with More Prompts</h3>
+          <p>Tell Codex exactly what to improve, such as wording, colors, examples, or mobile layout.</p>
+        </article>
+
+        <article class="step-card">
+          <span class="step-tag tag-step">Step 5</span>
+          <h3>Save with GitHub</h3>
+          <p>Commit your work using a short message like <code>Add student AI coding guide</code>, then push it to GitHub.</p>
+        </article>
+
+        <article class="step-card">
+          <span class="step-tag tag-step">Step 6</span>
+          <h3>Deploy with Cloudflare</h3>
+          <p>Cloudflare can publish the site from your GitHub repo so your project becomes a real live website.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <h2>How to Code and Deploy</h2>
+        <p>A short version students can remember when building a web project.</p>
+      </div>
+      <div class="step-grid">
+        <article class="step-card">
+          <span class="step-tag tag-step">Code</span>
+          <h3>Build the Files</h3>
+          <p>Create or update files such as <code>index.html</code>, <code>style.css</code>, and <code>script.js</code>. Ask Codex for help, but always read what changed.</p>
+        </article>
+
+        <article class="step-card">
+          <span class="step-tag tag-step">Test</span>
+          <h3>Check Before Publishing</h3>
+          <p>Open the page, click the links, test on mobile size, and make sure the words and design feel right for students.</p>
+        </article>
+
+        <article class="step-card">
+          <span class="step-tag tag-step">Push</span>
+          <h3>Upload to GitHub</h3>
+          <p>Use Git to commit and push your latest version. This gives you a clean project history and a backup online.</p>
+        </article>
+
+        <article class="step-card">
+          <span class="step-tag tag-step">Deploy</span>
+          <h3>Publish with Cloudflare</h3>
+          <p>Connect Cloudflare to the repo, choose the project folder if needed, and let Cloudflare deploy the newest code automatically.</p>
+        </article>
+      </div>
+      <div class="callout">
+        Student tip: the best projects come from a mix of your own idea, AI help, testing, and revision.
+        AI is strongest when you give it direction instead of waiting for it to guess everything.
+      </div>
+    </section>
+  </main>
+</body>
+</html>
