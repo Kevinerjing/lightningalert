@@ -96,7 +96,7 @@
     }
     .stats-grid, .candidate-grid { display: grid; gap: 12px; }
     .stats-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
-    .candidate-grid { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+    .candidate-grid { grid-template-columns: repeat(auto-fit, minmax(138px, 1fr)); }
     .stat-card, .candidate-card, .suggest-card { padding: 16px; background: rgba(255,255,255,0.04); }
     .stat-kicker, .pill {
       color: var(--muted);
@@ -193,7 +193,13 @@
       color: var(--card-ink, var(--text));
       border: 1px solid rgba(255,255,255,0.12);
     }
-    .candidate-card h3 { margin-top: 12px; font-size: 19px; }
+    .candidate-card h3 {
+      margin-top: 12px;
+      font-size: 15px;
+      line-height: 1.25;
+      word-break: break-word;
+      overflow-wrap: anywhere;
+    }
     .candidate-card p { margin-top: 8px; color: var(--muted); line-height: 1.55; min-height: 0; font-size: 14px; }
 
     .suggest-card input, .suggest-card textarea {
