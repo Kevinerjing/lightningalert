@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WCC Daily Board</title>
+  <style>
+    :root {
+      --bg: #eef4fb;
+      --panel: #ffffff;
+      --ink: #132033;
+      --muted: #596577;
+      --line: #d8e2ef;
+      --accent: #135d66;
+      --news: #1d4ed8;
+      --climate: #0f766e;
+      --tech: #7c3aed;
+      --weather: #d97706;
+      --shadow: 0 18px 42px rgba(19, 32, 51, 0.08);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: "Trebuchet MS", Arial, sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at top left, rgba(29, 78, 216, 0.08), transparent 26%),
+        radial-gradient(circle at top right, rgba(15, 118, 110, 0.08), transparent 28%),
+        linear-gradient(180deg, #f8fbff 0%, var(--bg) 100%);
+    }
+
+    .page {
+      max-width: 1220px;
+      margin: 0 auto;
+      padding: 24px 18px 42px;
+    }
+
+    .hero,
+    .section,
+    .story-card,
+    .weather-card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      box-shadow: var(--shadow);
+    }
+
+    .hero {
+      padding: 28px;
+    }
+
+    .eyebrow {
+      margin: 0;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    h1, h2, h3 {
+      margin: 0;
+      line-height: 1.1;
+    }
+
+    h1 {
+      margin-top: 10px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(2.4rem, 4vw, 4rem);
+    }
+
+    .lead {
+      max-width: 760px;
+      margin: 16px 0 0;
+      color: var(--muted);
+      line-height: 1.8;
+      font-size: 1.05rem;
+    }
+
+    .meta-strip {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 22px;
+    }
+
+    .pill {
+      padding: 9px 12px;
+      border-radius: 999px;
+      background: #f4f8fc;
+      border: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 0.92rem;
+      font-weight: 700;
+    }
+
+    .section {
+      margin-top: 22px;
+      padding: 22px;
+    }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 16px;
+    }
+
+    .section-head p {
+      margin: 8px 0 0;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .weather-grid,
+    .story-grid {
+      display: grid;
+      gap: 16px;
+    }
+
+    .weather-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .story-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .weather-card,
+    .story-card {
+      padding: 18px;
+    }
+
+    .card-tag {
+      display: inline-block;
+      padding: 6px 10px;
+      border-radius: 999px;
+      color: #fff;
+      font-size: 0.76rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .tag-weather { background: var(--weather); }
+    .tag-world { background: var(--news); }
+    .tag-climate { background: var(--climate); }
+    .tag-tech { background: var(--tech); }
+
+    .weather-card h3,
+    .story-card h3 {
+      margin-top: 12px;
+      font-size: 1.25rem;
+    }
+
+    .weather-big {
+      margin-top: 12px;
+      font-size: 2rem;
+      font-weight: 700;
+    }
+
+    .weather-note,
+    .story-card p,
+    .story-meta {
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .story-block {
+      margin-top: 12px;
+      padding: 12px 14px;
+      border-radius: 16px;
+      background: #f8fbff;
+      border: 1px solid #e6eef7;
+    }
+
+    .story-block strong {
+      display: block;
+      color: var(--ink);
+      margin-bottom: 6px;
+    }
+
+    .story-meta {
+      margin-top: 14px;
+      font-size: 0.92rem;
+    }
+
+    a.source-link {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    .empty {
+      padding: 20px;
+      border: 1px dashed var(--line);
+      border-radius: 16px;
+      color: var(--muted);
+      background: #f8fbff;
+    }
+
+    @media (max-width: 960px) {
+      .weather-grid,
+      .story-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <section class="hero">
+      <p class="eyebrow">WCC Daily Board</p>
+      <h1>World, Climate, and Tech in Student-Friendly English</h1>
+      <p class="lead">
+        This board updates once a day using trusted free sources. It is designed to help teen students
+        understand what happened, why it matters, and one key idea to remember without needing lots of
+        professional background knowledge.
+      </p>
+      <div class="meta-strip" id="metaStrip">
+        <span class="pill">Loading daily board...</span>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <div>
+          <h2>Weather Snapshot</h2>
+          <p>Quick city snapshots from a free weather source.</p>
+        </div>
+      </div>
+      <div class="weather-grid" id="weatherGrid"></div>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <div>
+          <h2>World News</h2>
+          <p>Big events rewritten in simpler student-friendly language.</p>
+        </div>
+      </div>
+      <div class="story-grid" id="worldGrid"></div>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <div>
+          <h2>Climate</h2>
+          <p>Stories about weather patterns, energy, nature, and the environment.</p>
+        </div>
+      </div>
+      <div class="story-grid" id="climateGrid"></div>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <div>
+          <h2>Technology</h2>
+          <p>New ideas, inventions, and updates from the tech world.</p>
+        </div>
+      </div>
+      <div class="story-grid" id="techGrid"></div>
+    </section>
+  </main>
+
+  <script>
+    function escapeHtml(text) {
+      return String(text ?? "")
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#039;");
+    }
+
+    function formatDate(value) {
+      if (!value) return "Unknown date";
+      return new Date(value).toLocaleString([], {
+        year: "numeric",
+        month: "short",
+        day: "numeric",
+      });
+    }
+
+    function renderMeta(data) {
+      const metaStrip = document.getElementById("metaStrip");
+      metaStrip.innerHTML = `
+        <span class="pill">Board date: ${escapeHtml(data.boardDate || "Unknown")}</span>
+        <span class="pill">Updated: ${escapeHtml(formatDate(data.generatedAt))}</span>
+        <span class="pill">Sources: ${escapeHtml(data.sourceCount || 0)} feeds</span>
+      `;
+    }
+
+    function renderWeather(items) {
+      const target = document.getElementById("weatherGrid");
+      if (!Array.isArray(items) || !items.length) {
+        target.innerHTML = '<div class="empty">No weather data available today.</div>';
+        return;
+      }
+
+      target.innerHTML = items.map((item) => `
+        <article class="weather-card">
+          <span class="card-tag tag-weather">Weather</span>
+          <h3>${escapeHtml(item.city)}</h3>
+          <div class="weather-big">${escapeHtml(item.temperatureC)}°C</div>
+          <p class="weather-note">${escapeHtml(item.summary)}</p>
+          <div class="story-meta">
+            High ${escapeHtml(item.maxC)}°C · Low ${escapeHtml(item.minC)}°C
+          </div>
+        </article>
+      `).join("");
+    }
+
+    function renderStories(targetId, items, tagClass, tagLabel) {
+      const target = document.getElementById(targetId);
+      if (!Array.isArray(items) || !items.length) {
+        target.innerHTML = '<div class="empty">No stories available in this section today.</div>';
+        return;
+      }
+
+      target.innerHTML = items.map((item) => `
+        <article class="story-card">
+          <span class="card-tag ${escapeHtml(tagClass)}">${escapeHtml(tagLabel)}</span>
+          <h3>${escapeHtml(item.title)}</h3>
+          <div class="story-block">
+            <strong>What happened</strong>
+            <div>${escapeHtml(item.whatHappened)}</div>
+          </div>
+          <div class="story-block">
+            <strong>Why it matters</strong>
+            <div>${escapeHtml(item.whyItMatters)}</div>
+          </div>
+          <div class="story-block">
+            <strong>Key word</strong>
+            <div>${escapeHtml(item.keyWord)}</div>
+          </div>
+          <div class="story-meta">
+            ${escapeHtml(item.source)} · ${escapeHtml(formatDate(item.publishedAt))}
+            <br />
+            <a class="source-link" href="${escapeHtml(item.url)}" target="_blank" rel="noreferrer">Open source</a>
+          </div>
+        </article>
+      `).join("");
+    }
+
+    async function loadBoard() {
+      try {
+        const response = await fetch("./data/today.json", { cache: "no-store" });
+        const data = await response.json();
+        renderMeta(data);
+        renderWeather(data.weather);
+        renderStories("worldGrid", data.world, "tag-world", "World");
+        renderStories("climateGrid", data.climate, "tag-climate", "Climate");
+        renderStories("techGrid", data.tech, "tag-tech", "Tech");
+      } catch (error) {
+        const msg = '<div class="empty">Could not load the daily board yet. Try again later.</div>';
+        document.getElementById("weatherGrid").innerHTML = msg;
+        document.getElementById("worldGrid").innerHTML = msg;
+        document.getElementById("climateGrid").innerHTML = msg;
+        document.getElementById("techGrid").innerHTML = msg;
+      }
+    }
+
+    loadBoard();
+  </script>
+</body>
+</html>
