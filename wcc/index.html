@@ -153,6 +153,7 @@
     .tag-world { background: var(--news); }
     .tag-climate { background: var(--climate); }
     .tag-tech { background: var(--tech); }
+    .tag-university { background: #0b7285; }
 
     .weather-card h3,
     .story-card h3 {
@@ -285,6 +286,16 @@
       </div>
       <div class="story-grid" id="weatherTechGrid"></div>
     </section>
+
+    <section class="section">
+      <div class="section-head">
+        <div>
+          <h2>University Environment and Weather News</h2>
+          <p>Recent stories from official Canadian and U.S. university news sources connected to climate, weather, earth science, and sustainability faculties.</p>
+        </div>
+      </div>
+      <div class="story-grid" id="universityNewsGrid"></div>
+    </section>
   </main>
 
   <script>
@@ -376,12 +387,14 @@
         renderStories("extremeWeatherGrid", data.extremeWeather, "tag-world", "Extreme Weather");
         renderStories("climateGrid", data.climate, "tag-climate", "Climate");
         renderStories("weatherTechGrid", data.weatherTech, "tag-tech", "Weather Tech");
+        renderStories("universityNewsGrid", data.universityNews, "tag-university", "University News");
       } catch (error) {
         const msg = '<div class="empty">Could not load the daily board yet. Try again later.</div>';
         document.getElementById("weatherGrid").innerHTML = msg;
         document.getElementById("extremeWeatherGrid").innerHTML = msg;
         document.getElementById("climateGrid").innerHTML = msg;
         document.getElementById("weatherTechGrid").innerHTML = msg;
+        document.getElementById("universityNewsGrid").innerHTML = msg;
       }
     }
 

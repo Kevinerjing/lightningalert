@@ -81,6 +81,11 @@ const CATEGORY_KEYWORDS = {
     "forecast", "satellite", "radar", "sensor", "climate tech", "weather tech", "battery",
     "solar", "wind", "prediction", "monitoring", "storm tracking", "clean energy",
     "renewable", "power grid", "weather model", "climate model"
+  ],
+  universityNews: [
+    "climate", "weather", "atmospheric", "environment", "environmental", "earth",
+    "sustainability", "renewable", "emissions", "wildfire", "forest", "ecology",
+    "ocean", "water", "storm", "flood", "heat", "carbon", "energy"
   ]
 };
 
@@ -152,6 +157,10 @@ function inferWhyItMatters(category, title, description) {
     return "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.";
   }
 
+  if (category === "universityNews") {
+    return "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.";
+  }
+
   return "This story matters because it helps students understand changes happening in the world.";
 }
 
@@ -177,6 +186,13 @@ function inferKeyWord(category, title, description) {
     if (text.includes("battery")) return "battery: a device that stores energy for later use";
     if (text.includes("solar")) return "solar: related to energy from sunlight";
     return "weather technology: tools that help people measure, study, or predict weather and climate";
+  }
+
+  if (category === "universityNews") {
+    if (text.includes("atmospheric")) return "atmospheric: related to the air and layers around Earth";
+    if (text.includes("sustainability")) return "sustainability: using resources in a way that can last over time";
+    if (text.includes("research")) return "research: careful study used to discover new knowledge";
+    return "faculty: a university group focused on a subject area such as environment, climate, or earth science";
   }
 
   return "topic: an important idea in the story";
@@ -284,12 +300,18 @@ async function fetchWeatherTechStories() {
   return stripInternalFields(weatherTech.slice(0, 6));
 }
 
+async function fetchUniversityNewsStories() {
+  const universityNews = await fetchCategory("universityNews");
+  return stripInternalFields(universityNews.slice(0, 6));
+}
+
 async function generateBoard() {
-  const [weather, extremeWeather, climate, weatherTech] = await Promise.all([
+  const [weather, extremeWeather, climate, weatherTech, universityNews] = await Promise.all([
     Promise.all(WEATHER_CITIES.map(fetchWeather)),
     fetchExtremeWeatherStories(),
     fetchClimateStories(),
-    fetchWeatherTechStories()
+    fetchWeatherTechStories(),
+    fetchUniversityNewsStories()
   ]);
 
   const board = {
@@ -298,11 +320,13 @@ async function generateBoard() {
     sourceCount:
       RSS_SOURCES.extremeWeather.length +
       RSS_SOURCES.climate.length +
-      RSS_SOURCES.weatherTech.length,
+      RSS_SOURCES.weatherTech.length +
+      RSS_SOURCES.universityNews.length,
     weather,
     extremeWeather,
     climate,
-    weatherTech
+    weatherTech,
+    universityNews
   };
 
   await fs.mkdir(OUTPUT_DIR, { recursive: true });

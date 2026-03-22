@@ -1,7 +1,7 @@
 {
   "boardDate": "2026-03-22",
-  "generatedAt": "2026-03-22T20:11:02.948Z",
-  "sourceCount": 11,
+  "generatedAt": "2026-03-22T21:12:34.972Z",
+  "sourceCount": 15,
   "weather": [
     {
       "city": "Ottawa",
@@ -114,6 +114,62 @@
       "source": "UN Climate",
       "url": "https://news.un.org/feed/view/en/story/2026/03/1167135",
       "publishedAt": "2026-03-16T12:00:00.000Z"
+    }
+  ],
+  "universityNews": [
+    {
+      "title": "Turning extreme heat into large-scale energy storage",
+      "whatHappened": "Fourth Power, founded by Professor Asegun Henry, is developing thermal batteries for efficiently storing excess electricity from utility grids and power producers.",
+      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
+      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
+      "source": "MIT Climate & Sustainability",
+      "url": "https://news.mit.edu/2026/turning-extreme-heat-large-scale-energy-storage-0318",
+      "publishedAt": "2026-03-18T04:00:00.000Z"
+    },
+    {
+      "title": "UBC study links artificial turf fields to lethal chemical threat for salmon",
+      "whatHappened": "UBC researchers found Metro Vancouver’s artificial turf fields leach 6PPD‑quinone—a tire chemical deadly to coho salmon—into stormwater for years after installation, pointing to urgent needs for...",
+      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
+      "keyWord": "research: careful study used to discover new knowledge",
+      "source": "UBC News",
+      "url": "https://news.ubc.ca/2026/03/ubc-study-links-artificial-turf-fields-to-lethal-chemical-threat-for-salmon/",
+      "publishedAt": "2026-03-17T19:25:18.000Z"
+    },
+    {
+      "title": "Ocean bacteria team up to break down biodegradable plastic",
+      "whatHappened": "MIT researchers uncovered the roles of bacterial species from the environment as they consume biodegradable plastic.",
+      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
+      "keyWord": "research: careful study used to discover new knowledge",
+      "source": "MIT Climate & Sustainability",
+      "url": "https://news.mit.edu/2026/ocean-bacteria-break-down-biodegradable-plastic-0316",
+      "publishedAt": "2026-03-16T14:00:00.000Z"
+    },
+    {
+      "title": "Extreme heat has extreme effects–but some like it hot",
+      "whatHappened": "A sweeping new study of the 2021 heat wave reveals major ecological losses—but also surprising species that thrived, offering crucial insight into how climate extremes reshape...",
+      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
+      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
+      "source": "UBC News",
+      "url": "https://news.ubc.ca/2026/03/extreme-heat-has-extreme-effects-but-some-like-it-hot/",
+      "publishedAt": "2026-03-11T14:30:00.000Z"
+    },
+    {
+      "title": "Understanding how “marine snow” acts as a carbon sink",
+      "whatHappened": "A new study finds hitchhiking bacteria dissolve essential ballast in ubiquitous “snow” particles, which could counteract the ocean’s ability to sequester carbon.",
+      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
+      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
+      "source": "MIT Earth & Atmospheric Sciences",
+      "url": "https://news.mit.edu/2026/understanding-how-marine-snow-acts-as-carbon-sink-0309",
+      "publishedAt": "2026-03-09T19:00:00.000Z"
+    },
+    {
+      "title": "Invasive grasses may be turning B.C.’s burn scars into the next wildfire",
+      "whatHappened": "A UBC study with St'át'imc Nation communities finds invasive grasses are the sleeper threat on B.C.'s post-fire landscape—and the window to stop them is narrow",
+      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
+      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
+      "source": "UBC News",
+      "url": "https://news.ubc.ca/2026/03/invasive-grasses-post-wildfire/",
+      "publishedAt": "2026-03-19T15:55:00.000Z"
     }
   ]
 }
