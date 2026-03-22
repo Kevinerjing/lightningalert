@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
+  <title id="title">WCC Daily Board Workflow</title>
+  <desc id="desc">Diagram showing the WCC weather board workflow from scheduled automation to the live student page.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f8fbff"/>
+      <stop offset="100%" stop-color="#eef4fb"/>
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="140%">
+      <feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#132033" flood-opacity="0.12"/>
+    </filter>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M0,0 L12,6 L0,12 Z" fill="#4c5b70"/>
+    </marker>
+  </defs>
+
+  <rect width="1200" height="760" fill="url(#bg)"/>
+
+  <text x="70" y="72" font-family="Trebuchet MS, Arial, sans-serif" font-size="18" font-weight="700" letter-spacing="3" fill="#135d66">WCC DAILY BOARD</text>
+  <text x="70" y="122" font-family="Georgia, 'Times New Roman', serif" font-size="42" font-weight="700" fill="#132033">How The Weather Board Updates Itself</text>
+  <text x="70" y="158" font-family="Trebuchet MS, Arial, sans-serif" font-size="22" fill="#596577">A free workflow using GitHub Actions, RSS feeds, Open-Meteo, a generator script, JSON, and one static webpage.</text>
+
+  <rect x="70" y="210" rx="26" ry="26" width="250" height="150" fill="#ffffff" stroke="#d8e2ef" filter="url(#shadow)"/>
+  <text x="100" y="252" font-family="Trebuchet MS, Arial, sans-serif" font-size="18" font-weight="700" fill="#135d66">1. Daily Trigger</text>
+  <text x="100" y="288" font-family="Trebuchet MS, Arial, sans-serif" font-size="28" font-weight="700" fill="#132033">GitHub Action</text>
+  <text x="100" y="322" font-family="Trebuchet MS, Arial, sans-serif" font-size="18" fill="#596577">Runs every day at</text>
+  <text x="100" y="348" font-family="Trebuchet MS, Arial, sans-serif" font-size="18" fill="#596577">11:30 UTC</text>
+
+  <rect x="470" y="210" rx="26" ry="26" width="660" height="150" fill="#ffffff" stroke="#d8e2ef" filter="url(#shadow)"/>
+  <text x="500" y="252" font-family="Trebuchet MS, Arial, sans-serif" font-size="18" font-weight="700" fill="#135d66">2. Fetch Real Data</text>
+  <rect x="500" y="274" rx="18" ry="18" width="180" height="58" fill="#fff5e8" stroke="#f0d3a7"/>
+  <text x="590" y="309" text-anchor="middle" font-family="Trebuchet MS, Arial, sans-serif" font-size="19" font-weight="700" fill="#d97706">Open-Meteo</text>
+  <rect x="708" y="274" rx="18" ry="18" width="180" height="58" fill="#edf4ff" stroke="#bfd4ff"/>
+  <text x="798" y="309" text-anchor="middle" font-family="Trebuchet MS, Arial, sans-serif" font-size="19" font-weight="700" fill="#1d4ed8">Extreme Weather RSS</text>
+  <rect x="916" y="274" rx="18" ry="18" width="180" height="58" fill="#ecfdf5" stroke="#b7e4d3"/>
+  <text x="1006" y="309" text-anchor="middle" font-family="Trebuchet MS, Arial, sans-serif" font-size="19" font-weight="700" fill="#0f766e">Climate + Weather Tech RSS</text>
+
+  <rect x="70" y="438" rx="26" ry="26" width="300" height="170" fill="#ffffff" stroke="#d8e2ef" filter="url(#shadow)"/>
+  <text x="100" y="480" font-family="Trebuchet MS, Arial, sans-serif" font-size="18" font-weight="700" fill="#135d66">3. Generator Script</text>
+  <text x="100" y="516" font-family="Trebuchet MS, Arial, sans-serif" font-size="22" font-weight="700" fill="#132033">generate-wcc-board.mjs</text>
+  <text x="100" y="548" font-family="Trebuchet MS, Arial, sans-serif" font-size="18" fill="#596577">The script:</text>
+  <text x="100" y="576" font-family="Trebuchet MS, Arial, sans-serif" font-size="18" fill="#596577">- picks recent stories</text>
+  <text x="100" y="602" font-family="Trebuchet MS, Arial, sans-serif" font-size="18" fill="#596577">- removes duplicates</text>
+
+  <rect x="438" y="438" rx="26" ry="26" width="324" height="170" fill="#ffffff" stroke="#d8e2ef" filter="url(#shadow)"/>
+  <text x="468" y="480" font-family="Trebuchet MS, Arial, sans-serif" font-size="18" font-weight="700" fill="#135d66">4. Teen-Friendly Rewrite</text>
+  <text x="468" y="516" font-family="Trebuchet MS, Arial, sans-serif" font-size="18" fill="#596577">Rule-based simplification:</text>
+  <text x="468" y="546" font-family="Trebuchet MS, Arial, sans-serif" font-size="18" fill="#596577">- What happened</text>
+  <text x="468" y="572" font-family="Trebuchet MS, Arial, sans-serif" font-size="18" fill="#596577">- Why it matters</text>
+  <text x="468" y="598" font-family="Trebuchet MS, Arial, sans-serif" font-size="18" fill="#596577">- Key word</text>
+
+  <rect x="830" y="438" rx="26" ry="26" width="300" height="170" fill="#ffffff" stroke="#d8e2ef" filter="url(#shadow)"/>
+  <text x="860" y="480" font-family="Trebuchet MS, Arial, sans-serif" font-size="18" font-weight="700" fill="#135d66">5. Save Output</text>
+  <text x="860" y="516" font-family="Trebuchet MS, Arial, sans-serif" font-size="28" font-weight="700" fill="#132033">today.json</text>
+  <text x="860" y="548" font-family="Trebuchet MS, Arial, sans-serif" font-size="18" fill="#596577">Ottawa weather + extreme weather</text>
+  <text x="860" y="576" font-family="Trebuchet MS, Arial, sans-serif" font-size="18" fill="#596577">climate + weather tech in one file.</text>
+
+  <rect x="350" y="650" rx="28" ry="28" width="500" height="74" fill="#132033" filter="url(#shadow)"/>
+  <text x="600" y="693" text-anchor="middle" font-family="Trebuchet MS, Arial, sans-serif" font-size="27" font-weight="700" fill="#ffffff">6. Student Page Loads wcc/index.html</text>
+
+  <line x1="320" y1="285" x2="470" y2="285" stroke="#4c5b70" stroke-width="4" marker-end="url(#arrow)"/>
+  <line x1="220" y1="360" x2="220" y2="438" stroke="#4c5b70" stroke-width="4" marker-end="url(#arrow)"/>
+  <line x1="800" y1="360" x2="600" y2="438" stroke="#4c5b70" stroke-width="4" marker-end="url(#arrow)"/>
+  <line x1="370" y1="523" x2="438" y2="523" stroke="#4c5b70" stroke-width="4" marker-end="url(#arrow)"/>
+  <line x1="762" y1="523" x2="830" y2="523" stroke="#4c5b70" stroke-width="4" marker-end="url(#arrow)"/>
+  <line x1="980" y1="608" x2="850" y2="650" stroke="#4c5b70" stroke-width="4" marker-end="url(#arrow)"/>
+
+  <text x="100" y="632" font-family="Trebuchet MS, Arial, sans-serif" font-size="16" fill="#596577">If one feed fails, the script still builds the board with the other sources.</text>
+</svg>

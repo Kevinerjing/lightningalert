@@ -66,6 +66,24 @@ function shorten(text, maxWords = 28) {
   return `${words.slice(0, maxWords).join(" ")}...`;
 }
 
+const CATEGORY_KEYWORDS = {
+  extremeWeather: [
+    "storm", "storms", "flood", "flooding", "wildfire", "fires", "hurricane", "typhoon",
+    "cyclone", "heatwave", "heat wave", "blizzard", "tornado", "drought", "rainfall",
+    "landslide", "evacuation", "extreme weather", "weather warning"
+  ],
+  climate: [
+    "climate", "emissions", "carbon", "renewable", "solar", "wind", "environment",
+    "warming", "biodiversity", "conservation", "pollution", "habitat", "species",
+    "energy", "greenhouse", "sustainability", "nature"
+  ],
+  weatherTech: [
+    "forecast", "satellite", "radar", "sensor", "climate tech", "weather tech", "battery",
+    "solar", "wind", "prediction", "monitoring", "storm tracking", "clean energy",
+    "renewable", "power grid", "weather model", "climate model"
+  ]
+};
+
 function parseRssItems(xml) {
   const items = [];
   const blocks = xml.match(/<item[\s\S]*?<\/item>/gi) || xml.match(/<entry[\s\S]*?<\/entry>/gi) || [];
@@ -116,14 +134,8 @@ function dedupeStories(stories) {
 function inferWhyItMatters(category, title, description) {
   const text = `${title} ${description}`.toLowerCase();
 
-  if (category === "world") {
-    if (text.includes("election") || text.includes("leader") || text.includes("government")) {
-      return "Government decisions can affect laws, safety, education, and daily life for many people.";
-    }
-    if (text.includes("war") || text.includes("conflict") || text.includes("attack")) {
-      return "World conflicts can affect safety, migration, prices, and international relationships.";
-    }
-    return "World news helps students understand big events that can affect people across countries.";
+  if (category === "extremeWeather") {
+    return "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.";
   }
 
   if (category === "climate") {
@@ -133,11 +145,11 @@ function inferWhyItMatters(category, title, description) {
     return "Climate news shows how science connects to weather, energy, nature, and communities.";
   }
 
-  if (category === "tech") {
-    if (text.includes("ai") || text.includes("robot")) {
-      return "Technology changes how students learn, communicate, and prepare for future jobs.";
+  if (category === "weatherTech") {
+    if (text.includes("forecast") || text.includes("satellite") || text.includes("model")) {
+      return "Weather technology shows how science tools can predict conditions faster and help people prepare earlier.";
     }
-    return "Technology news matters because new tools can change school, work, and everyday life.";
+    return "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.";
   }
 
   return "This story matters because it helps students understand changes happening in the world.";
@@ -146,10 +158,11 @@ function inferWhyItMatters(category, title, description) {
 function inferKeyWord(category, title, description) {
   const text = `${title} ${description}`.toLowerCase();
 
-  if (category === "world") {
-    if (text.includes("summit")) return "summit: a meeting where leaders discuss important issues";
-    if (text.includes("ceasefire")) return "ceasefire: an agreement to stop fighting for a period of time";
-    return "global: connected to many countries around the world";
+  if (category === "extremeWeather") {
+    if (text.includes("heatwave") || text.includes("heat wave")) return "heat wave: a long period of unusually hot weather";
+    if (text.includes("drought")) return "drought: a long time with very little rain";
+    if (text.includes("flood")) return "flood: water covering land that is usually dry";
+    return "extreme weather: unusual and dangerous weather like floods, storms, or heat waves";
   }
 
   if (category === "climate") {
@@ -158,10 +171,12 @@ function inferKeyWord(category, title, description) {
     return "climate: the usual pattern of weather over a long period of time";
   }
 
-  if (category === "tech") {
-    if (text.includes("chip")) return "chip: a small electronic part that helps devices process information";
-    if (text.includes("algorithm")) return "algorithm: a set of steps a computer follows to solve a problem";
-    return "innovation: a new idea, method, or tool";
+  if (category === "weatherTech") {
+    if (text.includes("satellite")) return "satellite: an object in space that collects information and sends it back to Earth";
+    if (text.includes("forecast")) return "forecast: a prediction about future weather conditions";
+    if (text.includes("battery")) return "battery: a device that stores energy for later use";
+    if (text.includes("solar")) return "solar: related to energy from sunlight";
+    return "weather technology: tools that help people measure, study, or predict weather and climate";
   }
 
   return "topic: an important idea in the story";
@@ -178,7 +193,8 @@ function rewriteForTeens(category, sourceName, item) {
     keyWord: inferKeyWord(category, item.title, baseText),
     source: sourceName,
     url: item.url,
-    publishedAt: item.publishedAt
+    publishedAt: item.publishedAt,
+    _searchText: `${item.title} ${baseText}`.toLowerCase()
   };
 }
 
@@ -232,29 +248,61 @@ async function fetchCategory(category) {
   }
 
   return dedupeStories(collected)
-    .sort((a, b) => new Date(b.publishedAt) - new Date(a.publishedAt))
+    .filter((story) => isRelevantToCategory(category, story))
+    .sort((a, b) => scoreStory(category, b) - scoreStory(category, a) || new Date(b.publishedAt) - new Date(a.publishedAt))
     .slice(0, 6);
 }
 
+function scoreStory(category, story) {
+  const keywords = CATEGORY_KEYWORDS[category] || [];
+  const text = String(story._searchText || `${story.title} ${story.whatHappened}`).toLowerCase();
+  return keywords.reduce((score, keyword) => score + (text.includes(keyword) ? 1 : 0), 0);
+}
+
+function isRelevantToCategory(category, story) {
+  const keywords = CATEGORY_KEYWORDS[category] || [];
+  if (!keywords.length) return true;
+  return scoreStory(category, story) > 0;
+}
+
+function stripInternalFields(stories) {
+  return stories.map(({ _searchText, ...story }) => story);
+}
+
+async function fetchClimateStories() {
+  const climate = await fetchCategory("climate");
+  return stripInternalFields(climate.slice(0, 6));
+}
+
+async function fetchExtremeWeatherStories() {
+  const extremeStories = await fetchCategory("extremeWeather");
+  return stripInternalFields(extremeStories.slice(0, 6));
+}
+
+async function fetchWeatherTechStories() {
+  const weatherTech = await fetchCategory("weatherTech");
+  return stripInternalFields(weatherTech.slice(0, 6));
+}
+
 async function generateBoard() {
-  const [weather, world, climate, tech] = await Promise.all([
+  const [weather, extremeWeather, climate, weatherTech] = await Promise.all([
     Promise.all(WEATHER_CITIES.map(fetchWeather)),
-    fetchCategory("world"),
-    fetchCategory("climate"),
-    fetchCategory("tech")
+    fetchExtremeWeatherStories(),
+    fetchClimateStories(),
+    fetchWeatherTechStories()
   ]);
 
   const board = {
     boardDate: new Date().toISOString().slice(0, 10),
     generatedAt: new Date().toISOString(),
     sourceCount:
-      RSS_SOURCES.world.length +
+      RSS_SOURCES.extremeWeather.length +
       RSS_SOURCES.climate.length +
-      RSS_SOURCES.tech.length,
+      RSS_SOURCES.weatherTech.length,
     weather,
-    world,
+    extremeWeather,
     climate,
-    tech
+    weatherTech
   };
 
   await fs.mkdir(OUTPUT_DIR, { recursive: true });

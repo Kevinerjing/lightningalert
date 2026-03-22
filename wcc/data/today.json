@@ -1,95 +1,72 @@
 {
   "boardDate": "2026-03-22",
-  "generatedAt": "2026-03-22T19:46:38.670Z",
-  "sourceCount": 7,
+  "generatedAt": "2026-03-22T20:11:02.948Z",
+  "sourceCount": 11,
   "weather": [
     {
-      "city": "Toronto",
-      "temperatureC": 6,
-      "maxC": 6,
-      "minC": 1,
-      "summary": "Cloudy"
-    },
-    {
-      "city": "London",
-      "temperatureC": 12,
-      "maxC": 13,
-      "minC": 4,
-      "summary": "Cloudy"
-    },
-    {
-      "city": "Tokyo",
-      "temperatureC": 7,
-      "maxC": 15,
-      "minC": 7,
+      "city": "Ottawa",
+      "temperatureC": 0,
+      "maxC": 0,
+      "minC": -4,
       "summary": "Cloudy"
     }
   ],
-  "world": [
+  "extremeWeather": [
     {
-      "title": "Kenyans fighting illegally for Russia in Ukraine to be granted amnesty",
-      "whatHappened": "It is illegal for Kenyans to serve in foreign armies and can carry a sentence of up to 10 years in jail.",
-      "whyItMatters": "World news helps students understand big events that can affect people across countries.",
-      "keyWord": "global: connected to many countries around the world",
-      "source": "BBC World",
-      "url": "https://www.bbc.com/news/articles/cj94jmj2p28o?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-03-22T19:05:30.000Z"
+      "title": "Forests are more than a resource: How Belarus protects its vital ecosystem",
+      "whatHappened": "Forests cover more than 40 per cent of Belarus.",
+      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
+      "keyWord": "extreme weather: unusual and dangerous weather like floods, storms, or heat waves",
+      "source": "UN Climate",
+      "url": "https://news.un.org/feed/view/en/story/2026/03/1167173",
+      "publishedAt": "2026-03-20T12:00:00.000Z"
     },
     {
-      "title": "Israeli settlers target Palestinian villages in occupied West Bank, attacking people and properties",
-      "whatHappened": "The violence began after 18-year-old settler Yehuda Sherman was killed after reportedly being hit by a vehicle driven by a Palestinian while on his quad bike.",
-      "whyItMatters": "World conflicts can affect safety, migration, prices, and international relationships.",
-      "keyWord": "global: connected to many countries around the world",
-      "source": "BBC World",
-      "url": "https://www.bbc.com/news/articles/cew719w80g7o?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-03-22T18:37:07.000Z"
-    },
-    {
-      "title": "Trump says ICE agents will assist airport security as DHS shutdown continues",
-      "whatHappened": "Travellers have faced hours-long waits at airports around the country as a partial government shutdown has left TSA agents without pay.",
-      "whyItMatters": "Government decisions can affect laws, safety, education, and daily life for many people.",
-      "keyWord": "global: connected to many countries around the world",
-      "source": "BBC World",
-      "url": "https://www.bbc.com/news/articles/cede0qyvqz3o?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-03-22T18:15:59.000Z"
-    },
-    {
-      "title": "Iranian missiles injure 180 in towns near Israeli nuclear site",
-      "whatHappened": "Israel is investigating how ballistic missiles got through the country's sophisticated air defences.",
-      "whyItMatters": "World news helps students understand big events that can affect people across countries.",
-      "keyWord": "global: connected to many countries around the world",
-      "source": "BBC World",
-      "url": "https://www.bbc.com/news/articles/c9qdvnv13qdo?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-03-22T17:35:19.000Z"
-    },
-    {
-      "title": "National blackout hits Cuba for second time in a week",
-      "whatHappened": "Another total failure of its power grid underlines Cuba's hardship under a US-imposed fuel blockade.",
-      "whyItMatters": "World news helps students understand big events that can affect people across countries.",
-      "keyWord": "global: connected to many countries around the world",
-      "source": "BBC World",
-      "url": "https://www.bbc.com/news/articles/cvg0l44yxrvo?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-03-22T16:59:26.000Z"
-    },
-    {
-      "title": "'We cannot be in peace', say Guthrie family as they renew appeal over missing mother",
-      "whatHappened": "A seven-week nationwide search for 84-year-old Nancy Guthrie, the mother of TV anchor Savannah Guthrie has not identified any suspects.",
-      "whyItMatters": "World news helps students understand big events that can affect people across countries.",
-      "keyWord": "global: connected to many countries around the world",
-      "source": "BBC World",
-      "url": "https://www.bbc.com/news/articles/c0q9zx4g1w9o?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-03-22T14:45:34.000Z"
+      "title": "From shelter to strength: How disaster refuges protect lives in Palau",
+      "whatHappened": "The small Pacific Ocean island of Palau is helping communities build resilience against the dangers of climate change-driven extreme weather with the establishment of a network...",
+      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
+      "keyWord": "extreme weather: unusual and dangerous weather like floods, storms, or heat waves",
+      "source": "UN Climate",
+      "url": "https://news.un.org/feed/view/en/story/2026/02/1166915",
+      "publishedAt": "2026-02-06T12:00:00.000Z"
     }
   ],
   "climate": [
     {
-      "title": "‘She gave her life to protect the richness of Congo’: inside the deadly assault on Upemba wildlife park",
-      "whatHappened": "Survivors describe how rangers and staff were targeted by an armed group during a raid on DRC’s national park earlier this month Nearby Congolese soldiers had...",
+      "title": "5m tonnes of CO2 emitted in just 14 days of US war on Iran, analysis finds",
+      "whatHappened": "Exclusive: War in the Middle East is draining the global carbon budget faster than 84 countries combined The US-Israel war on Iran is a disaster for...",
+      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
+      "keyWord": "emissions: gases released into the air",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/world/2026/mar/21/middle-east-iran-conflict-environment-climate",
+      "publishedAt": "2026-03-21T12:00:51.000Z"
+    },
+    {
+      "title": "Welcome to the ‘agrihood’ – the neighbourhood of the future?",
+      "whatHappened": "Towns and cities are home to more than half of the world’s population and responsible for around 70 per cent of the greenhouse gas emissions driving...",
+      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
+      "keyWord": "emissions: gases released into the air",
+      "source": "UN Climate",
+      "url": "https://news.un.org/feed/view/en/story/2026/02/1166880",
+      "publishedAt": "2026-02-04T12:00:00.000Z"
+    },
+    {
+      "title": "Mexico’s monarch butterfly population jumps 64%, offering hope for at-risk species",
+      "whatHappened": "The insects covered its largest area since 2018, despite threats from habitat loss, climate crisis and pesticides The population of monarch butterflies in Mexico increased 64%...",
       "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
       "keyWord": "climate: the usual pattern of weather over a long period of time",
       "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/environment/2026/mar/22/upemba-national-park-drc-militia-assault-rangers-killed-aoe",
-      "publishedAt": "2026-03-22T12:00:21.000Z"
+      "url": "https://www.theguardian.com/world/2026/mar/20/mexico-monarch-butterfly-population-increases",
+      "publishedAt": "2026-03-20T17:41:47.000Z"
+    },
+    {
+      "title": "War-driven energy price spikes highlight value of renewables: UN climate chief",
+      "whatHappened": "The disruption of global energy supplies is being felt worldwide, the UN’s top climate change official warned on Monday, as conflict in the Middle East drives...",
+      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
+      "keyWord": "renewable energy: energy from sources that can be used again, like sun or wind",
+      "source": "UN Climate",
+      "url": "https://news.un.org/feed/view/en/story/2026/03/1167135",
+      "publishedAt": "2026-03-16T12:00:00.000Z"
     },
     {
       "title": "‘It was our little idyll – until the solar farm landed’: the battle raging in the heart of the British countryside",
@@ -101,96 +78,42 @@
       "publishedAt": "2026-03-21T12:00:51.000Z"
     },
     {
-      "title": "5m tonnes of CO2 emitted in just 14 days of US war on Iran, analysis finds",
-      "whatHappened": "Exclusive: War in the Middle East is draining the global carbon budget faster than 84 countries combined The US-Israel war on Iran is a disaster for...",
+      "title": "‘Hybrid organ’: how a union of trees and fungi could revolutionise forest management",
+      "whatHappened": "A US startup supplies spray for fast-growing loblolly pines with the hope of increasing biodiversity – and reducing the need for artificial fertiliser At a commercial...",
       "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
-      "keyWord": "emissions: gases released into the air",
+      "keyWord": "climate: the usual pattern of weather over a long period of time",
       "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/world/2026/mar/21/middle-east-iran-conflict-environment-climate",
+      "url": "https://www.theguardian.com/environment/2026/mar/20/hybrid-organ-trees-fungi-union-loblolly-pines-startup-forest-management",
+      "publishedAt": "2026-03-20T10:00:15.000Z"
+    }
+  ],
+  "weatherTech": [
+    {
+      "title": "‘It was our little idyll – until the solar farm landed’: the battle raging in the heart of the British countryside",
+      "whatHappened": "In one corner, clean energy champion Ed Miliband.",
+      "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
+      "keyWord": "solar: related to energy from sunlight",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/environment/2026/mar/21/lincolnshire-solar-farm-controversy-british-countryside",
       "publishedAt": "2026-03-21T12:00:51.000Z"
     },
     {
-      "title": "‘A toad is a perfect tenner’: experts recommend wild candidates for new banknotes",
-      "whatHappened": "Animals will feature on £5, £10, £20 and £50 notes, the Bank of England says, but which creatures should make the cut?",
-      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
-      "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/environment/2026/mar/21/a-toad-is-a-perfect-tenner-experts-recommend-wild-candidates-for-new-banknotes",
-      "publishedAt": "2026-03-21T06:00:44.000Z"
+      "title": "World News in Brief: Guterres calls for fair swtich to clean energy, Ramadan in Gaza, escalating violence and displacement in South Sudan",
+      "whatHappened": "The world has “entered the age of clean energy” and renewables are now the cheapest, fastest and safest source of new electricity almost everywhere, UN Secretary-General...",
+      "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
+      "keyWord": "weather technology: tools that help people measure, study, or predict weather and climate",
+      "source": "UN Climate",
+      "url": "https://news.un.org/feed/view/en/story/2026/02/1166995",
+      "publishedAt": "2026-02-18T12:00:00.000Z"
     },
     {
-      "title": "Country diary: The weeds in my garden aren’t disposable – they’re edible | Michael White",
-      "whatHappened": "Cranbrook, Kent: Fat hen, chickweed and stinging nettles often end up in the compost heap, but they deserve a try in the kitchen By March, traditional...",
-      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
-      "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/environment/2026/mar/21/country-diary-the-weeds-in-my-garden-arent-disposable-theyre-edible",
-      "publishedAt": "2026-03-21T05:30:43.000Z"
-    },
-    {
-      "title": "Mexico’s monarch butterfly population jumps 64%, offering hope for at-risk species",
-      "whatHappened": "The insects covered its largest area since 2018, despite threats from habitat loss, climate crisis and pesticides The population of monarch butterflies in Mexico increased 64%...",
-      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
-      "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/world/2026/mar/20/mexico-monarch-butterfly-population-increases",
-      "publishedAt": "2026-03-20T17:41:47.000Z"
-    }
-  ],
-  "tech": [
-    {
-      "title": "Do you want to build a robot snowman?",
-      "whatHappened": "On the latest episode of the Equity podcast, we recapped CEO Jensen Huang’s GTC keynote and debated what it means for Nvidia’s future.",
-      "whyItMatters": "Technology changes how students learn, communicate, and prepare for future jobs.",
-      "keyWord": "innovation: a new idea, method, or tool",
-      "source": "TechCrunch",
-      "url": "https://techcrunch.com/2026/03/22/do-you-want-to-build-a-robot-snowman/",
-      "publishedAt": "2026-03-22T19:45:07.000Z"
-    },
-    {
-      "title": "Cursor admits its new coding model was built on top of Moonshot AI’s Kimi",
-      "whatHappened": "Building on top of a Chinese model feels particularly fraught right now.",
-      "whyItMatters": "Technology changes how students learn, communicate, and prepare for future jobs.",
-      "keyWord": "innovation: a new idea, method, or tool",
-      "source": "TechCrunch",
-      "url": "https://techcrunch.com/2026/03/22/cursor-admits-its-new-coding-model-was-built-on-top-of-moonshot-ais-kimi/",
-      "publishedAt": "2026-03-22T18:41:09.000Z"
-    },
-    {
-      "title": "Crimson Desert dev apologizes for use of AI art",
-      "whatHappened": "Reviews of Crimson Desert have been mixed, but the bigger issue for the game has been the discovery of what appeared to be AI-generated assets in...",
-      "whyItMatters": "Technology changes how students learn, communicate, and prepare for future jobs.",
-      "keyWord": "innovation: a new idea, method, or tool",
-      "source": "The Verge",
-      "url": "https://www.theverge.com/games/898771/crimson-desert-dev-apologizes-ai-art",
-      "publishedAt": "2026-03-22T17:34:34.000Z"
-    },
-    {
-      "title": "The best early deals you can already grab from Amazon’s Big Spring Sale",
-      "whatHappened": "Amazon’s Prime Day sale may arrive earlier than usual this year, but there’s a deal event happening much sooner: Amazon’s annual Big Spring Sale, which is...",
-      "whyItMatters": "Technology news matters because new tools can change school, work, and everyday life.",
-      "keyWord": "innovation: a new idea, method, or tool",
-      "source": "The Verge",
-      "url": "https://www.theverge.com/gadgets/895635/best-amazon-big-spring-sale-early-deals-2026",
-      "publishedAt": "2026-03-22T16:43:25.000Z"
-    },
-    {
-      "title": "Elon Musk unveils chip manufacturing plans for SpaceX and Tesla",
-      "whatHappened": "Elon Musk recently outlined ambitious plans for a chip-building collaboration Tesla and SpaceX — but he has a history of overpromising.",
-      "whyItMatters": "Technology news matters because new tools can change school, work, and everyday life.",
-      "keyWord": "chip: a small electronic part that helps devices process information",
-      "source": "TechCrunch",
-      "url": "https://techcrunch.com/2026/03/22/elon-musk-unveils-chip-manufacturing-plans-for-spacex-and-tesla/",
-      "publishedAt": "2026-03-22T16:20:00.000Z"
-    },
-    {
-      "title": "TechCrunch Mobility: Uber everywhere, all at once",
-      "whatHappened": "Welcome back to TechCrunch Mobility, your central hub for news and insights on the future of transportation.",
-      "whyItMatters": "Technology news matters because new tools can change school, work, and everyday life.",
-      "keyWord": "innovation: a new idea, method, or tool",
-      "source": "TechCrunch",
-      "url": "https://techcrunch.com/2026/03/22/techcrunch-mobility-uber-everywhere-all-at-once/",
-      "publishedAt": "2026-03-22T16:05:00.000Z"
+      "title": "War-driven energy price spikes highlight value of renewables: UN climate chief",
+      "whatHappened": "The disruption of global energy supplies is being felt worldwide, the UN’s top climate change official warned on Monday, as conflict in the Middle East drives...",
+      "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
+      "keyWord": "weather technology: tools that help people measure, study, or predict weather and climate",
+      "source": "UN Climate",
+      "url": "https://news.un.org/feed/view/en/story/2026/03/1167135",
+      "publishedAt": "2026-03-16T12:00:00.000Z"
     }
   ]
 }
