@@ -523,9 +523,9 @@
         <article class="candidate-card">
           <div class="candidate-symbol">${escapeHtml(candidate.symbol)}</div>
           <h3>${escapeHtml(candidate.label)}</h3>
-          <p>Atomic number ${escapeHtml(candidate.number)}. Vote to add ${escapeHtml(candidate.label)} to Element Heroes.</p>
+          <p>Atomic number ${escapeHtml(candidate.number)}</p>
           <div class="candidate-meta">${currentVote?.choiceId === candidate.id ? "Your current vote" : "Ready to vote"}</div>
-          <button class="btn primary vote-btn" type="button" data-vote-id="${escapeHtml(candidate.id)}" data-vote-label="${escapeHtml(candidate.label)}">Vote for ${escapeHtml(candidate.label)}</button>
+          <button class="btn primary vote-btn" type="button" data-vote-id="${escapeHtml(candidate.id)}" data-vote-label="${escapeHtml(candidate.label)}">Vote</button>
         </article>
       `).join("");
 
