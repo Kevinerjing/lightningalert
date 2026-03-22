@@ -40,6 +40,7 @@ const floatingTurnDragState = {
 };
 
 const PLAYER_META_STORAGE_KEY = "heroPlayerMeta";
+const ANALYTICS_VISITOR_ID_STORAGE_KEY = "heroAnalyticsVisitorId";
 
 function getSoundToggleButtons() {
   return [...document.querySelectorAll("[data-sound-toggle]")];
@@ -102,12 +103,50 @@ function createMatchSummaryId() {
   return `summary-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`;
 }
 
+function getOrCreateAnalyticsVisitorId() {
+  try {
+    const saved = window.localStorage.getItem(ANALYTICS_VISITOR_ID_STORAGE_KEY);
+    if (saved) return saved;
+    const next = `visitor-${Date.now()}-${Math.random().toString(36).slice(2, 10)}`;
+    window.localStorage.setItem(ANALYTICS_VISITOR_ID_STORAGE_KEY, next);
+    return next;
+  } catch {
+    return `visitor-${Date.now()}-${Math.random().toString(36).slice(2, 10)}`;
+  }
+}
+
 function beginTrackedMatch() {
   activeMatchSummaryId = createMatchSummaryId();
 }
 
 function clearTrackedMatch() {
   activeMatchSummaryId = "";
+}
+
+async function trackGameStart(modeOverride = "") {
+  const eventId = activeMatchSummaryId || createMatchSummaryId();
+  if (!activeMatchSummaryId) activeMatchSummaryId = eventId;
+
+  try {
+    await fetch(`${WORKER_URL}/analytics-track`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        eventId,
+        visitorId: getOrCreateAnalyticsVisitorId(),
+        mode: modeOverride === "multiplayer" ? "multiplayer" : "practice",
+        roomCode: roomCode || "",
+        playerId: Number(playerId) || 1,
+        classCode,
+        studentName: studentName || "Anonymous Player",
+        startedAt: Date.now(),
+      }),
+    });
+  } catch (error) {
+    console.warn("Analytics tracking failed:", error);
+  }
 }
 
 function clampFloatingTurnPosition(left, top, elementRect = null) {
@@ -1719,6 +1758,7 @@ function startPracticeMode() {
   updateHeaderState();
   updateHostRoomCard();
   showGame();
+  trackGameStart("practice");
   render();
   addConnectionLog(
     `Practice mode started${classCode ? ` for ${classCode}` : ""}: 10 HP match versus the computer.`
@@ -2856,6 +2896,7 @@ async function createRoom() {
     updateHostRoomCard();
     loadRoomList();
     showGame();
+    trackGameStart("multiplayer");
     addConnectionLog(
       `Room created: ${roomCode}${classCode ? ` · Class ${classCode}` : ""}`
     );
@@ -2907,6 +2948,7 @@ async function joinRoom() {
     updateHostRoomCard();
     loadRoomList();
     showGame();
+    trackGameStart("multiplayer");
     addConnectionLog(
       `Joined room: ${roomCode}${classCode ? ` · Class ${classCode}` : ""}`
     );

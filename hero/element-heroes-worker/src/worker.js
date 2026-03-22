@@ -54,6 +54,14 @@ export class GameRoom {
       return this.handleRegistryClassroomList(url);
     }
 
+    if (url.pathname === "/registry/analytics-track" && request.method === "POST") {
+      return this.handleRegistryAnalyticsTrack(request);
+    }
+
+    if (url.pathname === "/registry/analytics-summary") {
+      return this.handleRegistryAnalyticsSummary();
+    }
+
     // ---------------------------
     // Room mode
     // ---------------------------
@@ -260,6 +268,111 @@ export class GameRoom {
       sessions: sessions
         .slice()
         .sort((a, b) => (b?.uploadedAt || 0) - (a?.uploadedAt || 0)),
+    });
+  }
+
+  async handleRegistryAnalyticsTrack(request) {
+    const body = await safeJson(request);
+    const eventId = String(body?.eventId || "").trim();
+    if (!eventId) {
+      return jsonInternal({ type: "error", message: "Missing analytics event id." }, 400);
+    }
+
+    const eventKey = `analytics:event:${eventId}`;
+    const alreadyTracked = await this.state.storage.get(eventKey);
+    if (alreadyTracked) {
+      return jsonInternal({ ok: true, duplicate: true, eventId });
+    }
+
+    const mode = body?.mode === "multiplayer" ? "multiplayer" : "practice";
+    const startedAt = Number(body?.startedAt) || Date.now();
+    const visitorId = String(body?.visitorId || "").trim().slice(0, 80);
+    const country = normalizeLocationPart(body?.country, "Unknown");
+    const region = normalizeLocationPart(body?.region);
+    const city = normalizeLocationPart(body?.city);
+    const cityLabel = formatCityLabel(city, region, country);
+
+    const overview = (await this.state.storage.get("analytics:overview")) || {
+      totalStarts: 0,
+      uniqueVisitors: 0,
+      modeCounts: { practice: 0, multiplayer: 0 },
+      countryCounts: {},
+      cityCounts: {},
+      updatedAt: 0,
+    };
+
+    overview.totalStarts += 1;
+    overview.modeCounts[mode] = (overview.modeCounts[mode] || 0) + 1;
+    overview.countryCounts[country] = (overview.countryCounts[country] || 0) + 1;
+    if (cityLabel) {
+      overview.cityCounts[cityLabel] = (overview.cityCounts[cityLabel] || 0) + 1;
+    }
+
+    if (visitorId) {
+      const visitorKey = `analytics:visitor:${visitorId}`;
+      const knownVisitor = await this.state.storage.get(visitorKey);
+      if (!knownVisitor) {
+        overview.uniqueVisitors += 1;
+        await this.state.storage.put(visitorKey, {
+          firstSeenAt: startedAt,
+          country,
+          city: cityLabel,
+        });
+      }
+    }
+
+    overview.updatedAt = startedAt;
+
+    const recent = (await this.state.storage.get("analytics:recent")) || [];
+    recent.unshift({
+      eventId,
+      mode,
+      startedAt,
+      roomCode: String(body?.roomCode || ""),
+      playerId: Number(body?.playerId) === 2 ? 2 : 1,
+      classCode: normalizeClassCode(body?.classCode),
+      studentName: normalizeDisplayName(body?.studentName, "Anonymous Player"),
+      country,
+      region,
+      city,
+      cityLabel,
+    });
+
+    await Promise.all([
+      this.state.storage.put(eventKey, { trackedAt: startedAt, mode }),
+      this.state.storage.put("analytics:overview", overview),
+      this.state.storage.put("analytics:recent", recent.slice(0, 120)),
+    ]);
+
+    return jsonInternal({ ok: true, eventId });
+  }
+
+  async handleRegistryAnalyticsSummary() {
+    const overview = (await this.state.storage.get("analytics:overview")) || {
+      totalStarts: 0,
+      uniqueVisitors: 0,
+      modeCounts: { practice: 0, multiplayer: 0 },
+      countryCounts: {},
+      cityCounts: {},
+      updatedAt: 0,
+    };
+    const recent = (await this.state.storage.get("analytics:recent")) || [];
+
+    return jsonInternal({
+      ok: true,
+      totals: {
+        totalStarts: Number(overview.totalStarts) || 0,
+        uniqueVisitors: Number(overview.uniqueVisitors) || 0,
+        practiceStarts: Number(overview.modeCounts?.practice) || 0,
+        multiplayerStarts: Number(overview.modeCounts?.multiplayer) || 0,
+        updatedAt: Number(overview.updatedAt) || 0,
+      },
+      topCountries: sortCountEntries(overview.countryCounts),
+      topCities: sortCountEntries(overview.cityCounts),
+      recent: recent
+        .slice()
+        .sort((a, b) => (b?.startedAt || 0) - (a?.startedAt || 0))
+        .slice(0, 30),
     });
   }
 
@@ -651,6 +764,8 @@ export default {
       "/ws",
       "/teacher-summaries",
       "/teacher-summary",
+      "/analytics-track",
+      "/analytics-summary",
     ].includes(url.pathname);
 
     if (request.method === "OPTIONS") {
@@ -823,6 +938,47 @@ export default {
         );
       }
 
+      if (request.method === "POST" && url.pathname === "/analytics-track") {
+        const body = await safeJson(request);
+        const registryStub = getRegistryStub(env);
+        const trackResponse = await registryStub.fetch("https://room.internal/registry/analytics-track", {
+          method: "POST",
+          body: JSON.stringify({
+            ...body,
+            country: normalizeLocationPart(request.cf?.country, "Unknown"),
+            region: normalizeLocationPart(request.cf?.region || request.cf?.regionCode),
+            city: normalizeLocationPart(request.cf?.city),
+          }),
+        });
+        const trackData = await safeResponseJson(trackResponse);
+        return json(
+          trackResponse.ok
+            ? { ok: true, eventId: trackData?.eventId || null, duplicate: !!trackData?.duplicate }
+            : { type: "error", message: trackData?.message || "Could not track analytics event." },
+          trackResponse.status,
+          origin,
+        );
+      }
+
+      if (request.method === "GET" && url.pathname === "/analytics-summary") {
+        const registryStub = getRegistryStub(env);
+        const summaryResponse = await registryStub.fetch("https://room.internal/registry/analytics-summary");
+        const summaryData = await safeResponseJson(summaryResponse);
+        return json(
+          summaryResponse.ok
+            ? {
+                ok: true,
+                totals: summaryData?.totals || {},
+                topCountries: Array.isArray(summaryData?.topCountries) ? summaryData.topCountries : [],
+                topCities: Array.isArray(summaryData?.topCities) ? summaryData.topCities : [],
+                recent: Array.isArray(summaryData?.recent) ? summaryData.recent : [],
+              }
+            : { type: "error", message: summaryData?.message || "Could not load analytics summary." },
+          summaryResponse.status,
+          origin,
+        );
+      }
+
       if (request.method === "GET" && url.pathname === "/teacher-summaries") {
         const classCode = normalizeClassCode(url.searchParams.get("classCode"));
         if (!classCode) {
@@ -950,6 +1106,23 @@ function normalizeClassCode(value) {
   return String(value || "")
     .toUpperCase()
     .replace(/[^A-Z0-9-]/g, "")
+    .slice(0, 12);
+}
+
+function normalizeLocationPart(value, fallback = "") {
+  const clean = String(value || "").trim().slice(0, 60);
+  return clean || fallback;
+}
+
+function formatCityLabel(city, region, country) {
+  const parts = [city, region, country].filter(Boolean);
+  return parts.length ? parts.join(", ") : "";
+}
+
+function sortCountEntries(counts) {
+  return Object.entries(counts || {})
+    .map(([label, count]) => ({ label, count: Number(count) || 0 }))
+    .sort((a, b) => b.count - a.count || a.label.localeCompare(b.label))
     .slice(0, 12);
 }
 
