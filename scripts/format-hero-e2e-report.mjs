@@ -118,7 +118,8 @@ function main() {
 
   lines.push("## Artifacts");
   lines.push("");
-  lines.push("- HTML report: `output/playwright/hero-regression-html/index.html`");
+  lines.push("- Deployable HTML report: `hero/test-report/index.html`");
+  lines.push("- Local generated HTML report: `output/playwright/hero-regression-html/index.html`");
   lines.push("- JSON results: `output/playwright/hero-regression-results.json`");
   lines.push("- Playwright artifacts: `output/playwright/artifacts/`");
   lines.push("");
