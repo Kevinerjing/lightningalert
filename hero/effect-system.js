@@ -1513,6 +1513,10 @@ function getDefaultElement(side) {
     return Number(pid) === 1 ? qs("#player-area") : qs("#enemy-area");
   }
 
+  function getCombatFocusArea(el, pid) {
+    return el || getPlayerArea(pid);
+  }
+
   function createAreaGlow(el, className) {
     if (!el) return null;
     const rect = el.getBoundingClientRect();
@@ -1594,9 +1598,10 @@ function getDefaultElement(side) {
   async function showLocalEffectAsync(cardId, ctx) {
     const layer = getCombatCinematicLayer();
     const theme = getCardTheme(cardId);
-    const sourceCenter = rectCenter(ctx.sourceEl || getPlayerArea(ctx.actorPid));
+    const sourceArea = getCombatFocusArea(ctx.sourceEl, ctx.actorPid);
+    const sourceCenter = rectCenter(sourceArea);
 
-    createAreaGlow(getPlayerArea(ctx.actorPid), "ehx-attacker-glow");
+    createAreaGlow(sourceArea, "ehx-attacker-glow");
     const local = createNode("ehx-cinematic-local", {
       left: `${sourceCenter.x}px`,
       top: `${sourceCenter.y}px`,
@@ -1611,10 +1616,10 @@ function getDefaultElement(side) {
   async function showGlobalImpactAsync(cardId, ctx) {
     const layer = getCombatCinematicLayer();
     const theme = getCardTheme(cardId);
-    const targetArea = getPlayerArea(ctx.targetPid) || ctx.targetEl;
+    const targetArea = getCombatFocusArea(ctx.targetEl, ctx.targetPid);
     const targetCenter = rectCenter(targetArea);
 
-    createAreaGlow(getPlayerArea(ctx.targetPid), "ehx-defender-glow");
+    createAreaGlow(targetArea, "ehx-defender-glow");
     const impact = createNode("ehx-cinematic-impact", {
       left: `${targetCenter.x}px`,
       top: `${targetCenter.y}px`,
@@ -1633,8 +1638,8 @@ function getDefaultElement(side) {
 
   async function applyDamageStepAsync(cardId, ctx) {
     const theme = getCardTheme(cardId);
-    const targetEl = ctx.targetEl || getPlayerArea(ctx.targetPid);
-    const sourceEl = ctx.sourceEl || getPlayerArea(ctx.actorPid);
+    const targetEl = getCombatFocusArea(ctx.targetEl, ctx.targetPid);
+    const sourceEl = getCombatFocusArea(ctx.sourceEl, ctx.actorPid);
 
     if ((ctx.damage ?? 0) > 0) {
       showDamage(targetEl, ctx.damage, theme.damageColor);
