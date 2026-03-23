@@ -2087,10 +2087,6 @@ function applyStartTurnEffects(game, player) {
     removeStatus(player, "Wet");
     logMessage(game, "Player " + player.id + " is no longer Wet.");
   }
-  if (player.statuses.includes("Fireproof")) {
-    removeStatus(player, "Fireproof");
-    logMessage(game, "Player " + player.id + " is no longer Fireproof.");
-  }
 }
 
 function createEffectBase(card, player, opponent, overrides = {}) {

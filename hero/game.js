@@ -1476,10 +1476,6 @@ function applyPracticeStartTurnEffects(localGame, player) {
     removePlayerStatus(player, "Wet");
     logGameMessage(localGame, `Player ${player.id} is no longer Wet.`);
   }
-  if (player.statuses.includes("Fireproof")) {
-    removePlayerStatus(player, "Fireproof");
-    logGameMessage(localGame, `Player ${player.id} is no longer Fireproof.`);
-  }
 }
 
 function createLocalEffectBase(card, player, opponent, overrides = {}) {
@@ -3826,9 +3822,6 @@ function getStatusHintText() {
   }
   if (/is no longer Wet/i.test(latestLog)) {
     return "Start of turn: Wet has worn off.";
-  }
-  if (/is no longer Fireproof/i.test(latestLog)) {
-    return "Start of turn: Fireproof has worn off.";
   }
   if (/used Fireproof to extinguish/i.test(latestLog)) {
     return "Fireproof blocked a fire-based hit.";

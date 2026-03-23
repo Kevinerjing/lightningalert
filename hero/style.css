@@ -2038,16 +2038,16 @@ button.guide-focus::after,
   #p2Hand > .card,
   #p1Hand > .slot,
   #p2Hand > .slot {
-    width: 124px !important;
-    min-width: 124px !important;
-    max-width: 124px !important;
+    width: 132px !important;
+    min-width: 132px !important;
+    max-width: 132px !important;
     flex: 0 0 auto !important;
   }
 
   .hand-row > .card,
   #p1Hand > .card,
   #p2Hand > .card {
-    height: 254px !important;
+    height: 282px !important;
     overflow: hidden !important;
   }
 
@@ -2366,15 +2366,15 @@ button.guide-focus::after,
   #p2Hand > .card,
   #p1Hand > .slot,
   #p2Hand > .slot {
-    width: 124px !important;
-    min-width: 124px !important;
-    max-width: 124px !important;
+    width: 132px !important;
+    min-width: 132px !important;
+    max-width: 132px !important;
   }
 
   .hand-row > .card,
   #p1Hand > .card,
   #p2Hand > .card {
-    height: 254px !important;
+    height: 282px !important;
   }
 
   .card-art,
