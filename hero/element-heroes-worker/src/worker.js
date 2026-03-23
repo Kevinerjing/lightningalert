@@ -545,12 +545,31 @@ export class GameRoom {
     if (!storedMeta) return null;
     if (roomCode && storedMeta.roomCode !== roomCode) return null;
 
-    const connectedPlayers = Array.isArray(storedMeta.connectedPlayers)
-      ? storedMeta.connectedPlayers
+    const liveConnectedPlayers = [...new Set(
+      [...this.sessions.values()]
+        .map((session) => Number(session?.playerId) || 0)
+        .filter((playerId) => playerId === 1 || playerId === 2),
+    )];
+    const connectedPlayers = liveConnectedPlayers.length
+      ? liveConnectedPlayers
       : [];
     const reservedPlayers = Array.isArray(storedMeta.reservedPlayers)
       ? storedMeta.reservedPlayers
       : [1];
+
+    if (
+      JSON.stringify(connectedPlayers) !== JSON.stringify(Array.isArray(storedMeta.connectedPlayers) ? storedMeta.connectedPlayers : [])
+    ) {
+      storedMeta.connectedPlayers = connectedPlayers;
+      if (!connectedPlayers.length) {
+        storedMeta.closed = true;
+      }
+      this.meta = storedMeta;
+      await this.persistMeta();
+      if (!connectedPlayers.length) {
+        await this.removeRoomFromRegistry();
+      }
+    }
 
     const started = connectedPlayers.includes(1) && connectedPlayers.includes(2) && !storedMeta.closed;
 
