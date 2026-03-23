@@ -1,6 +1,6 @@
 # Hero E2E Regression Report
 
-Generated: 2026-03-23T15:26:50.308Z
+Generated: 2026-03-23T15:36:31.175Z
 Overall status: PASS
 Specs: 4
 Passed: 4
@@ -15,7 +15,8 @@ Total duration: 7.6s
 - PASSED - hero-regression.spec.mjs > playing an attack or reaction card triggers the forward push and recoil motion (2.7s)
 ## Artifacts
 
-- HTML report: `output/playwright/hero-regression-html/index.html`
+- Deployable HTML report: `hero/test-report/index.html`
+- Local generated HTML report: `output/playwright/hero-regression-html/index.html`
 - JSON results: `output/playwright/hero-regression-results.json`
 - Playwright artifacts: `output/playwright/artifacts/`
 
