@@ -19,6 +19,39 @@
   --rxn-accent: #ffb347;
   --atk-accent: #ff6b6b;
   --utility-accent: #a892ff;
+
+  --bg-radial: rgba(65, 124, 194, 0.22);
+  --bg-start: #08121f;
+  --bg-end: #050b12;
+  --lobby-overlay-top: rgba(8, 18, 31, 0.16);
+  --lobby-overlay-bottom: rgba(8, 18, 31, 0.5);
+  --table-opacity: 0.13;
+  --table-saturate: 0.72;
+}
+
+body[data-theme="science-bright"] {
+  --panel: rgba(30, 56, 82, 0.9);
+  --panel-2: rgba(38, 68, 98, 0.94);
+  --line: #5f96bf;
+  --text: #f4fbff;
+  --muted: #d2e6f4;
+  --p1: #6fe7ff;
+  --p2: #ffc766;
+  --danger: #ff8e7a;
+  --good: #83f5aa;
+  --accent: #b8ff6a;
+  --shadow: 0 18px 40px rgba(0, 0, 0, 0.4);
+  --element-accent: #6fe7ff;
+  --rxn-accent: #ffc766;
+  --atk-accent: #ff8e7a;
+  --utility-accent: #9ec8ff;
+  --bg-radial: rgba(132, 219, 255, 0.4);
+  --bg-start: #17324b;
+  --bg-end: #0f2235;
+  --lobby-overlay-top: rgba(20, 44, 67, 0.06);
+  --lobby-overlay-bottom: rgba(16, 36, 55, 0.18);
+  --table-opacity: 0.24;
+  --table-saturate: 1.06;
 }
 
 *,
@@ -39,8 +72,8 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   color: var(--text);
   background:
-    radial-gradient(circle at top, rgba(65, 124, 194, 0.22), transparent 35%),
-    linear-gradient(180deg, #08121f 0%, #050b12 100%);
+    radial-gradient(circle at top, var(--bg-radial), transparent 35%),
+    linear-gradient(180deg, var(--bg-start) 0%, var(--bg-end) 100%);
   min-height: 100vh;
 }
 
@@ -82,12 +115,58 @@ body {
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(180deg, rgba(8, 18, 31, 0.16), rgba(8, 18, 31, 0.5)),
+    linear-gradient(180deg, var(--lobby-overlay-top), var(--lobby-overlay-bottom)),
     url("images/Periodic_table_large.png") center center / cover no-repeat;
-  opacity: 0.13;
+  opacity: var(--table-opacity);
   pointer-events: none;
   z-index: 0;
-  filter: saturate(0.72);
+  filter: saturate(var(--table-saturate));
+}
+
+body[data-theme="science-bright"] .topbar,
+body[data-theme="science-bright"] .panel-box,
+body[data-theme="science-bright"] .battlebox,
+body[data-theme="science-bright"] .actionbox,
+body[data-theme="science-bright"] .player-area,
+body[data-theme="science-bright"] .side-panel,
+body[data-theme="science-bright"] .center-panel,
+body[data-theme="science-bright"] .host-room-card,
+body[data-theme="science-bright"] .room-empty-card {
+  background: rgba(210, 237, 255, 0.1);
+}
+
+body[data-theme="science-bright"] .player-area {
+  background: linear-gradient(180deg, rgba(226, 244, 255, 0.12), rgba(198, 229, 252, 0.08));
+}
+
+body[data-theme="science-bright"] .pill,
+body[data-theme="science-bright"] .stat-chip,
+body[data-theme="science-bright"] .status-chip,
+body[data-theme="science-bright"] .turn-pill,
+body[data-theme="science-bright"] .tutorial-btn.secondary-link,
+body[data-theme="science-bright"] .ghost.small-btn {
+  background: rgba(233, 247, 255, 0.14);
+  border-color: rgba(132, 194, 236, 0.5);
+}
+
+body[data-theme="science-bright"] .bar {
+  background: rgba(230, 243, 255, 0.16);
+  border-color: rgba(176, 215, 244, 0.22);
+}
+
+body[data-theme="science-bright"] .field-row > .slot,
+body[data-theme="science-bright"] .preview-field > .slot,
+body[data-theme="science-bright"] .hand-row > .slot,
+body[data-theme="science-bright"] .hidden-card,
+body[data-theme="science-bright"] .card.is-hidden {
+  background: rgba(225, 242, 255, 0.08);
+  border-color: rgba(116, 185, 233, 0.5);
+}
+
+body[data-theme="science-bright"] .lobby-message,
+body[data-theme="science-bright"] .section-title,
+body[data-theme="science-bright"] .player-name {
+  color: #f7fcff;
 }
 
 .lobby-panel > * {

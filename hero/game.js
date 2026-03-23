@@ -42,9 +42,53 @@ const floatingTurnDragState = {
 
 const PLAYER_META_STORAGE_KEY = "heroPlayerMeta";
 const ANALYTICS_VISITOR_ID_STORAGE_KEY = "heroAnalyticsVisitorId";
+const HERO_THEME_STORAGE_KEY = "heroThemeMode";
 
 function getSoundToggleButtons() {
   return [...document.querySelectorAll("[data-sound-toggle]")];
+}
+
+function getThemeToggleButtons() {
+  return [
+    document.getElementById("themeToggleBtn"),
+    document.getElementById("gameThemeToggleBtn"),
+  ].filter(Boolean);
+}
+
+function getSavedThemeMode() {
+  try {
+    const raw = window.localStorage.getItem(HERO_THEME_STORAGE_KEY);
+    return raw === "science-bright" ? "science-bright" : "classic";
+  } catch {
+    return "classic";
+  }
+}
+
+function saveThemeMode(themeMode) {
+  try {
+    window.localStorage.setItem(HERO_THEME_STORAGE_KEY, themeMode);
+  } catch {}
+}
+
+function updateThemeToggleButtons(themeMode) {
+  const label = themeMode === "science-bright" ? "Theme: Science" : "Theme: Classic";
+  getThemeToggleButtons().forEach((button) => {
+    button.textContent = label;
+    button.setAttribute("aria-pressed", themeMode === "science-bright" ? "true" : "false");
+  });
+}
+
+function applyThemeMode(themeMode) {
+  const normalized = themeMode === "science-bright" ? "science-bright" : "classic";
+  document.documentElement.dataset.theme = normalized;
+  document.body.dataset.theme = normalized;
+  updateThemeToggleButtons(normalized);
+  saveThemeMode(normalized);
+}
+
+function toggleThemeMode() {
+  const current = document.body.dataset.theme === "science-bright" ? "science-bright" : "classic";
+  applyThemeMode(current === "science-bright" ? "classic" : "science-bright");
 }
 
 function normalizeStudentName(value) {
@@ -4170,12 +4214,18 @@ function wireSoundInteractions() {
       return;
     }
 
+    if (button.id === "themeToggleBtn" || button.id === "gameThemeToggleBtn") {
+      toggleThemeMode();
+      return;
+    }
+
     if (!button.disabled) {
       playUiSound("button");
     }
   });
 
   updateSoundToggleUI();
+  applyThemeMode(getSavedThemeMode());
 }
 
 function wireFloatingTurnUiDrag() {

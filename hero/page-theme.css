@@ -1,0 +1,87 @@
+html[data-theme="science-bright"] body,
+body[data-theme="science-bright"] {
+  background:
+    radial-gradient(circle at top, rgba(132, 219, 255, 0.4), transparent 35%),
+    linear-gradient(180deg, #17324b 0%, #0f2235 100%) !important;
+}
+
+html[data-theme="science-bright"],
+body[data-theme="science-bright"] {
+  --panel: rgba(30, 56, 82, 0.9);
+  --panel-2: rgba(38, 68, 98, 0.94);
+  --line: #5f96bf;
+  --text: #f4fbff;
+  --muted: #d2e6f4;
+  --good: #83f5aa;
+  --accent: #b8ff6a;
+  --accent-2: #ffc766;
+  --shadow: 0 18px 40px rgba(0, 0, 0, 0.4);
+  --bg: #0f2235;
+  --ink: #f4fbff;
+  --panel-soft: rgba(56, 86, 116, 0.84);
+}
+
+html[data-theme="science-bright"] body .topbar,
+html[data-theme="science-bright"] body .panel,
+html[data-theme="science-bright"] body .summary-card,
+html[data-theme="science-bright"] body .list-card,
+html[data-theme="science-bright"] body .session-card,
+html[data-theme="science-bright"] body .section,
+html[data-theme="science-bright"] body .hero,
+html[data-theme="science-bright"] body .timeline-card,
+html[data-theme="science-bright"] body .prompt-card,
+html[data-theme="science-bright"] body .release-page,
+html[data-theme="science-bright"] body .release-card,
+html[data-theme="science-bright"] body .hero-box,
+html[data-theme="science-bright"] body .section-box,
+html[data-theme="science-bright"] body .card-box,
+html[data-theme="science-bright"] body .summary-card,
+html[data-theme="science-bright"] body .scenario-card,
+html[data-theme="science-bright"] body .topbar,
+html[data-theme="science-bright"] body .stat-card,
+html[data-theme="science-bright"] body .leader-row,
+html[data-theme="science-bright"] body .candidate-card,
+html[data-theme="science-bright"] body .suggest-card,
+body[data-theme="science-bright"] .topbar,
+body[data-theme="science-bright"] .panel,
+body[data-theme="science-bright"] .summary-card,
+body[data-theme="science-bright"] .list-card,
+body[data-theme="science-bright"] .session-card,
+body[data-theme="science-bright"] .section,
+body[data-theme="science-bright"] .hero,
+body[data-theme="science-bright"] .timeline-card,
+body[data-theme="science-bright"] .prompt-card,
+body[data-theme="science-bright"] .release-page,
+body[data-theme="science-bright"] .release-card,
+body[data-theme="science-bright"] .hero-box,
+body[data-theme="science-bright"] .section-box,
+body[data-theme="science-bright"] .card-box,
+body[data-theme="science-bright"] .summary-card,
+body[data-theme="science-bright"] .scenario-card,
+body[data-theme="science-bright"] .stat-card,
+body[data-theme="science-bright"] .leader-row,
+body[data-theme="science-bright"] .candidate-card,
+body[data-theme="science-bright"] .suggest-card {
+  background: rgba(210, 237, 255, 0.1);
+}
+
+html[data-theme="science-bright"] body .btn,
+html[data-theme="science-bright"] body .pill,
+body[data-theme="science-bright"] .btn,
+body[data-theme="science-bright"] .pill {
+  background: rgba(233, 247, 255, 0.14);
+  border-color: rgba(132, 194, 236, 0.5);
+}
+
+html[data-theme="science-bright"] body .btn.primary,
+body[data-theme="science-bright"] .btn.primary {
+  background: linear-gradient(180deg, #9bf2ff, #6fe7ff);
+  color: #0b2237;
+  border: none;
+}
+
+html[data-theme="science-bright"] body .teacher-note,
+body[data-theme="science-bright"] .teacher-note {
+  background: rgba(210, 244, 255, 0.14);
+  border-color: rgba(132, 194, 236, 0.34);
+}
