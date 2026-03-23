@@ -27,6 +27,8 @@
 
 (function () {
   const DEFAULT_STYLE_ID = "element-hero-effect-styles";
+  let combatCinematicQueue = Promise.resolve();
+  let combatLockDepth = 0;
 
   const CARD_EFFECT_MAP = {
     // Elements
@@ -76,6 +78,10 @@
     return document.getElementById("fx-layer") || document.body;
   }
 
+  function getCombatCinematicLayer() {
+    return document.getElementById("combat-cinematic-root") || getFxLayer();
+  }
+
   function ensureEffectStyles() {
     if (document.getElementById(DEFAULT_STYLE_ID)) return;
 
@@ -96,6 +102,143 @@
         pointer-events: none;
         overflow: hidden;
         z-index: 10040;
+      }
+
+      #combat-cinematic-root {
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        overflow: hidden;
+        z-index: 10120;
+      }
+
+      .ehx-cinematic-lock {
+        position: fixed;
+        inset: 0;
+        pointer-events: auto;
+        background: rgba(4, 10, 18, 0.001);
+        z-index: 10118;
+      }
+
+      .ehx-cinematic-card-highlight {
+        position: fixed;
+        border-radius: 20px;
+        border: 2px solid rgba(139, 247, 255, 0.95);
+        background: radial-gradient(circle at center, rgba(139, 247, 255, 0.28), rgba(139, 247, 255, 0.04) 62%, rgba(0, 0, 0, 0) 100%);
+        box-shadow:
+          0 0 0 2px rgba(139, 247, 255, 0.12),
+          0 0 24px rgba(85, 214, 255, 0.35),
+          inset 0 0 30px rgba(139, 247, 255, 0.16);
+        animation: ehxCinematicHighlight 0.28s ease-out forwards;
+      }
+
+      .ehx-cinematic-local {
+        position: fixed;
+        width: 132px;
+        height: 132px;
+        margin-left: -66px;
+        margin-top: -66px;
+        border-radius: 50%;
+        pointer-events: none;
+        background: radial-gradient(circle, var(--ehx-local-core, rgba(255,255,255,0.96)) 0%, var(--ehx-local-mid, rgba(139,247,255,0.45)) 26%, var(--ehx-local-glow, rgba(85,214,255,0.12)) 58%, rgba(0,0,0,0) 100%);
+        box-shadow:
+          0 0 24px var(--ehx-local-mid, rgba(139,247,255,0.35)),
+          0 0 64px var(--ehx-local-glow, rgba(85,214,255,0.2));
+        animation: ehxCinematicLocal 0.42s ease-out forwards;
+      }
+
+      .ehx-cinematic-local::after {
+        content: "";
+        position: absolute;
+        inset: -10px;
+        border-radius: 50%;
+        border: 2px solid rgba(255,255,255,0.35);
+        animation: ehxCinematicRing 0.42s ease-out forwards;
+      }
+
+      .ehx-cinematic-impact {
+        position: fixed;
+        width: 320px;
+        height: 320px;
+        margin-left: -160px;
+        margin-top: -160px;
+        border-radius: 50%;
+        pointer-events: none;
+        background: radial-gradient(circle, var(--ehx-impact-core, rgba(255,255,255,0.98)) 0%, var(--ehx-impact-mid, rgba(139,247,255,0.54)) 18%, var(--ehx-impact-glow, rgba(85,214,255,0.14)) 42%, rgba(0,0,0,0) 74%);
+        box-shadow:
+          0 0 36px var(--ehx-impact-mid, rgba(139,247,255,0.3)),
+          0 0 120px var(--ehx-impact-glow, rgba(85,214,255,0.18));
+        animation: ehxCinematicImpact 0.46s ease-out forwards;
+      }
+
+      .ehx-cinematic-impact::after {
+        content: "";
+        position: absolute;
+        inset: 18%;
+        border-radius: 50%;
+        border: 6px solid rgba(255,255,255,0.32);
+        animation: ehxCinematicShock 0.46s ease-out forwards;
+      }
+
+      .ehx-attacker-glow,
+      .ehx-defender-glow {
+        position: fixed;
+        border-radius: 28px;
+        pointer-events: none;
+      }
+
+      .ehx-attacker-glow {
+        border: 2px solid rgba(139, 247, 255, 0.65);
+        box-shadow: 0 0 28px rgba(85, 214, 255, 0.28);
+        background: radial-gradient(circle at center, rgba(139, 247, 255, 0.18), rgba(139, 247, 255, 0.02) 70%, rgba(0,0,0,0) 100%);
+        animation: ehxAttackerGlow 0.46s ease-out forwards;
+      }
+
+      .ehx-defender-glow {
+        border: 2px solid rgba(255, 214, 120, 0.56);
+        box-shadow: 0 0 32px rgba(255, 153, 72, 0.3);
+        background: radial-gradient(circle at center, rgba(255, 214, 120, 0.16), rgba(255, 120, 72, 0.04) 70%, rgba(0,0,0,0) 100%);
+        animation: ehxDefenderGlow 0.56s ease-out forwards;
+      }
+
+      @keyframes ehxCinematicHighlight {
+        0% { opacity: 0; transform: scale(0.92); }
+        30% { opacity: 1; transform: scale(1.02); }
+        100% { opacity: 0; transform: scale(1.08); }
+      }
+
+      @keyframes ehxCinematicLocal {
+        0% { opacity: 0; transform: scale(0.42); }
+        18% { opacity: 1; transform: scale(0.94); }
+        100% { opacity: 0; transform: scale(1.22); }
+      }
+
+      @keyframes ehxCinematicRing {
+        0% { opacity: 0.7; transform: scale(0.62); }
+        100% { opacity: 0; transform: scale(1.26); }
+      }
+
+      @keyframes ehxCinematicImpact {
+        0% { opacity: 0; transform: scale(0.38); }
+        22% { opacity: 1; transform: scale(0.96); }
+        100% { opacity: 0; transform: scale(1.28); }
+      }
+
+      @keyframes ehxCinematicShock {
+        0% { opacity: 0.68; transform: scale(0.44); }
+        100% { opacity: 0; transform: scale(1.42); }
+      }
+
+      @keyframes ehxAttackerGlow {
+        0% { opacity: 0; transform: scale(0.96); }
+        25% { opacity: 1; transform: scale(1.01); }
+        100% { opacity: 0; transform: scale(1.05); }
+      }
+
+      @keyframes ehxDefenderGlow {
+        0% { opacity: 0; transform: scale(0.94); }
+        20% { opacity: 1; transform: scale(1.01); }
+        100% { opacity: 0; transform: scale(1.04); }
       }
 
       .card-cast-flash {
@@ -1256,6 +1399,10 @@ function getDefaultElement(side) {
     setTimeout(() => el && el.remove(), ms);
   }
 
+  function wait(ms) {
+    return new Promise((resolve) => setTimeout(resolve, ms));
+  }
+
   function random(min, max) {
     return Math.random() * (max - min) + min;
   }
@@ -1266,6 +1413,94 @@ function getDefaultElement(side) {
     Object.assign(el.style, styleObj);
     parent.appendChild(el);
     return el;
+  }
+
+  function lockCombatInteraction() {
+    ensureEffectStyles();
+    combatLockDepth += 1;
+    if (combatLockDepth > 1) return;
+
+    const root = getCombatCinematicLayer();
+    const blocker = createNode("ehx-cinematic-lock", {}, root);
+    blocker.dataset.lockId = "combat-lock";
+    document.body.dataset.combatLocked = "true";
+  }
+
+  function unlockCombatInteraction() {
+    combatLockDepth = Math.max(0, combatLockDepth - 1);
+    if (combatLockDepth > 0) return;
+
+    const root = getCombatCinematicLayer();
+    root.querySelectorAll('[data-lock-id="combat-lock"]').forEach((node) => node.remove());
+    delete document.body.dataset.combatLocked;
+  }
+
+  function getCardTheme(cardId) {
+    const lower = String(cardId || "").toLowerCase();
+
+    if (["combustion", "fireball", "explosion", "carbonBurn", "hydrogenBurn"].includes(lower)) {
+      return {
+        localCore: "rgba(255,255,220,0.98)",
+        localMid: "rgba(255,193,92,0.54)",
+        localGlow: "rgba(255,120,40,0.18)",
+        impactCore: "rgba(255,244,212,0.98)",
+        impactMid: "rgba(255,190,94,0.54)",
+        impactGlow: "rgba(255,104,52,0.18)",
+        damageColor: "#ffd77a",
+      };
+    }
+
+    if (["lightning", "plasmaShock"].includes(lower)) {
+      return {
+        localCore: "rgba(255,255,255,0.98)",
+        localMid: "rgba(193,238,255,0.6)",
+        localGlow: "rgba(102,186,255,0.2)",
+        impactCore: "rgba(255,255,255,0.98)",
+        impactMid: "rgba(173,232,255,0.58)",
+        impactGlow: "rgba(102,168,255,0.2)",
+        damageColor: "#c9f3ff",
+      };
+    }
+
+    if (["poisonCloud", "acidRain", "rust", "corrode"].includes(lower)) {
+      return {
+        localCore: "rgba(244,255,188,0.98)",
+        localMid: "rgba(160,255,110,0.52)",
+        localGlow: "rgba(72,190,84,0.18)",
+        impactCore: "rgba(236,255,190,0.98)",
+        impactMid: "rgba(151,255,109,0.48)",
+        impactGlow: "rgba(72,190,84,0.18)",
+        damageColor: "#baff7f",
+      };
+    }
+
+    return {
+      localCore: "rgba(255,255,255,0.98)",
+      localMid: "rgba(139,247,255,0.5)",
+      localGlow: "rgba(85,214,255,0.18)",
+      impactCore: "rgba(255,255,255,0.98)",
+      impactMid: "rgba(139,247,255,0.48)",
+      impactGlow: "rgba(85,214,255,0.16)",
+      damageColor: "#ffd166",
+    };
+  }
+
+  function getPlayerArea(pid) {
+    return Number(pid) === 1 ? qs("#player-area") : qs("#enemy-area");
+  }
+
+  function createAreaGlow(el, className) {
+    if (!el) return null;
+    const rect = el.getBoundingClientRect();
+    const layer = getCombatCinematicLayer();
+    const node = createNode(className, {
+      left: `${rect.left - 6}px`,
+      top: `${rect.top - 6}px`,
+      width: `${rect.width + 12}px`,
+      height: `${rect.height + 12}px`,
+    }, layer);
+    removeLater(node, className === "ehx-attacker-glow" ? 520 : 620);
+    return node;
   }
 
   function findActorHandCard(cardId, actorPid) {
@@ -1309,6 +1544,122 @@ function getDefaultElement(side) {
       removeLater(trail, 900);
     }
     removeLater(flash, 520);
+  }
+
+  async function highlightCardAsync(cardId, ctx) {
+    const layer = getCombatCinematicLayer();
+    const cardEl = findActorHandCard(cardId, ctx.actorPid);
+
+    if (cardEl) {
+      const rect = cardEl.getBoundingClientRect();
+      const node = createNode("ehx-cinematic-card-highlight", {
+        left: `${rect.left - 6}px`,
+        top: `${rect.top - 6}px`,
+        width: `${rect.width + 12}px`,
+        height: `${rect.height + 12}px`,
+      }, layer);
+      removeLater(node, 360);
+    } else {
+      createAreaGlow(getPlayerArea(ctx.actorPid), "ehx-attacker-glow");
+    }
+
+    showCardCastFlash(cardId, ctx.actorPid);
+    await wait(240);
+  }
+
+  async function showLocalEffectAsync(cardId, ctx) {
+    const layer = getCombatCinematicLayer();
+    const theme = getCardTheme(cardId);
+    const sourceCenter = rectCenter(ctx.sourceEl || getPlayerArea(ctx.actorPid));
+
+    createAreaGlow(getPlayerArea(ctx.actorPid), "ehx-attacker-glow");
+    const local = createNode("ehx-cinematic-local", {
+      left: `${sourceCenter.x}px`,
+      top: `${sourceCenter.y}px`,
+      "--ehx-local-core": theme.localCore,
+      "--ehx-local-mid": theme.localMid,
+      "--ehx-local-glow": theme.localGlow,
+    }, layer);
+    removeLater(local, 520);
+    await wait(360);
+  }
+
+  async function showGlobalImpactAsync(cardId, ctx) {
+    const layer = getCombatCinematicLayer();
+    const theme = getCardTheme(cardId);
+    const targetArea = getPlayerArea(ctx.targetPid) || ctx.targetEl;
+    const targetCenter = rectCenter(targetArea);
+
+    createAreaGlow(getPlayerArea(ctx.targetPid), "ehx-defender-glow");
+    const impact = createNode("ehx-cinematic-impact", {
+      left: `${targetCenter.x}px`,
+      top: `${targetCenter.y}px`,
+      "--ehx-impact-core": theme.impactCore,
+      "--ehx-impact-mid": theme.impactMid,
+      "--ehx-impact-glow": theme.impactGlow,
+    }, layer);
+    removeLater(impact, 540);
+
+    if (shouldShowScreenHit(cardId, ctx)) {
+      showScreenHit(cardId, ctx.targetPid, ctx);
+    }
+
+    await wait(420);
+  }
+
+  async function applyDamageStepAsync(cardId, ctx) {
+    const theme = getCardTheme(cardId);
+    const targetEl = ctx.targetEl || getPlayerArea(ctx.targetPid);
+    const sourceEl = ctx.sourceEl || getPlayerArea(ctx.actorPid);
+
+    if ((ctx.damage ?? 0) > 0) {
+      showDamage(targetEl, ctx.damage, theme.damageColor);
+    }
+    if ((ctx.heal ?? 0) > 0) {
+      showHeal(sourceEl, ctx.heal);
+    }
+    if ((ctx.energy ?? 0) > 0) {
+      showEnergy(sourceEl, ctx.energy);
+    }
+    if ((ctx.draw ?? 0) > 0) {
+      showDraw(sourceEl, ctx.draw);
+    }
+
+    shake(targetEl);
+    await wait(360);
+  }
+
+  async function playCardEffectCinematic(cardId, context = {}) {
+    const ctx = resolveEffectContext(context);
+    const effect = CARD_EFFECT_MAP[cardId];
+    if (!effect) return false;
+
+    if (!shouldRunViewerAnimation(cardId, ctx)) {
+      return true;
+    }
+
+    lockCombatInteraction();
+    try {
+      await highlightCardAsync(cardId, ctx);
+      await showLocalEffectAsync(cardId, ctx);
+      await showGlobalImpactAsync(cardId, ctx);
+      await applyDamageStepAsync(cardId, ctx);
+    } finally {
+      unlockCombatInteraction();
+    }
+
+    if (typeof ctx.onComplete === "function") {
+      ctx.onComplete();
+    }
+
+    return true;
+  }
+
+  function queueCardEffectCinematic(cardId, context = {}) {
+    combatCinematicQueue = combatCinematicQueue
+      .catch(() => {})
+      .then(() => playCardEffectCinematic(cardId, context));
+    return combatCinematicQueue;
   }
 
   function showScreenHit(cardId, targetPid, context = {}) {
@@ -2543,6 +2894,8 @@ function pressureWaveAt(targetEl, damage = 2) {
   // Expose globals
   window.CARD_EFFECT_MAP = CARD_EFFECT_MAP;
   window.playCardEffect = playCardEffect;
+  window.playCardEffectCinematic = playCardEffectCinematic;
+  window.queueCardEffectCinematic = queueCardEffectCinematic;
   window.playStatusEffect = playStatusEffect;
   window.ensureEffectStyles = ensureEffectStyles;
 })();

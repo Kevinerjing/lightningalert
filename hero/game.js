@@ -2700,7 +2700,11 @@ function triggerEffectForCard(cardId, actorPid) {
   playCardSound(cardId, ctx);
 
   try {
-    window.playCardEffect(cardId, ctx);
+    if (typeof window.queueCardEffectCinematic === "function") {
+      window.queueCardEffectCinematic(cardId, ctx);
+    } else {
+      window.playCardEffect(cardId, ctx);
+    }
   } catch (error) {
     console.warn("Effect play failed:", cardId, error);
   }
@@ -2854,7 +2858,11 @@ function handleIncomingEffect(effect) {
 
   if (hasEffectSystem()) {
     try {
-      window.playCardEffect(cardId, ctx);
+      if (typeof window.queueCardEffectCinematic === "function") {
+        window.queueCardEffectCinematic(cardId, ctx);
+      } else {
+        window.playCardEffect(cardId, ctx);
+      }
     } catch (error) {
       console.warn("Effect play failed:", cardId, error);
     }
