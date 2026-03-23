@@ -2873,7 +2873,7 @@ function pressureWaveAt(targetEl, damage = 2, feedbackEl = targetEl) {
         break;
 
       case "noblePressure":
-        noblePressureAt(ctx.targetEl, ctx.damage ?? 2);
+        noblePressureAt(ctx.targetEl, ctx.damage ?? 2, ctx.targetFeedbackEl || ctx.targetEl);
         if ((ctx.draw ?? 0) > 0) {
           setTimeout(() => {
             const self = ctx.sourceEl || getDefaultElement("player");
