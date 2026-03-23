@@ -779,6 +779,356 @@
         100% { opacity: 0; transform: scale(1) translate(var(--tx), var(--ty)); }
       }
 
+      .ehx-ionic-stage {
+        position: fixed;
+        width: 520px;
+        height: 260px;
+        margin-left: -260px;
+        margin-top: -130px;
+        border-radius: 26px;
+        pointer-events: none;
+        overflow: hidden;
+        border: 1px solid rgba(168, 216, 255, 0.22);
+        background:
+          radial-gradient(circle at 50% 24%, rgba(255,255,255,0.12), rgba(255,255,255,0) 34%),
+          linear-gradient(180deg, rgba(7, 18, 32, 0.92), rgba(3, 10, 20, 0.76));
+        box-shadow:
+          0 28px 90px rgba(0, 0, 0, 0.45),
+          inset 0 0 42px rgba(124, 190, 255, 0.12);
+        animation: ehxIonicStageIn 0.24s ease-out forwards;
+        z-index: 10018;
+      }
+
+      @keyframes ehxIonicStageIn {
+        0% { opacity: 0; transform: translateY(12px) scale(0.96); }
+        100% { opacity: 1; transform: translateY(0) scale(1); }
+      }
+
+      .ehx-ionic-title {
+        position: absolute;
+        left: 50%;
+        top: 18px;
+        transform: translateX(-50%);
+        font-size: 14px;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        font-weight: 800;
+        color: rgba(222, 240, 255, 0.92);
+        text-shadow: 0 0 16px rgba(120, 200, 255, 0.18);
+      }
+
+      .ehx-ionic-subtitle {
+        position: absolute;
+        left: 50%;
+        top: 40px;
+        transform: translateX(-50%);
+        font-size: 11px;
+        letter-spacing: 0.06em;
+        color: rgba(182, 205, 228, 0.84);
+        white-space: nowrap;
+      }
+
+      .ehx-ionic-atom {
+        position: absolute;
+        width: 150px;
+        height: 150px;
+        top: 82px;
+        border-radius: 50%;
+        pointer-events: none;
+        transition: transform 360ms cubic-bezier(0.2, 0.9, 0.25, 1), filter 280ms ease, opacity 260ms ease;
+      }
+
+      .ehx-ionic-atom.na {
+        left: 60px;
+        --ehx-atom-core: rgba(255, 183, 94, 0.98);
+        --ehx-atom-mid: rgba(255, 129, 58, 0.72);
+        --ehx-atom-glow: rgba(255, 180, 90, 0.28);
+        --ehx-shell: rgba(255, 209, 142, 0.44);
+      }
+
+      .ehx-ionic-atom.cl {
+        left: 308px;
+        --ehx-atom-core: rgba(144, 255, 162, 0.98);
+        --ehx-atom-mid: rgba(70, 217, 117, 0.72);
+        --ehx-atom-glow: rgba(90, 235, 132, 0.3);
+        --ehx-shell: rgba(167, 255, 188, 0.4);
+      }
+
+      .ehx-ionic-atom::before {
+        content: "";
+        position: absolute;
+        inset: 18px;
+        border-radius: 50%;
+        border: 2px solid rgba(255,255,255,0.1);
+        box-shadow:
+          0 0 26px var(--ehx-atom-glow),
+          inset 0 0 20px rgba(255,255,255,0.08);
+      }
+
+      .ehx-ionic-atom.ionized-na {
+        filter: saturate(0.55) brightness(0.84);
+      }
+
+      .ehx-ionic-atom.ionized-cl {
+        filter: saturate(1.22) brightness(1.18);
+      }
+
+      .ehx-ionic-atom.attract-left {
+        transform: translateX(52px) scale(0.98);
+      }
+
+      .ehx-ionic-atom.attract-right {
+        transform: translateX(-52px) scale(1.02);
+      }
+
+      .ehx-ionic-core {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: 78px;
+        height: 78px;
+        margin-left: -39px;
+        margin-top: -39px;
+        border-radius: 50%;
+        background:
+          radial-gradient(circle at 35% 30%, rgba(255,255,255,0.96), var(--ehx-atom-core) 24%, var(--ehx-atom-mid) 58%, rgba(0,0,0,0) 100%);
+        box-shadow:
+          0 0 28px var(--ehx-atom-glow),
+          0 0 72px var(--ehx-atom-glow);
+      }
+
+      .ehx-ionic-shell {
+        position: absolute;
+        inset: 14px;
+        border-radius: 50%;
+        border: 2px solid var(--ehx-shell);
+        box-shadow: inset 0 0 24px rgba(255,255,255,0.06);
+      }
+
+      .ehx-ionic-shell.inner {
+        inset: 32px;
+        border-color: rgba(255,255,255,0.16);
+        opacity: 0.6;
+      }
+
+      .ehx-ionic-label {
+        position: absolute;
+        left: 50%;
+        bottom: -6px;
+        transform: translateX(-50%);
+        font-size: 28px;
+        font-weight: 900;
+        color: rgba(244, 250, 255, 0.96);
+        letter-spacing: 0.04em;
+        text-shadow: 0 0 20px rgba(255,255,255,0.12);
+      }
+
+      .ehx-ionic-charge {
+        position: absolute;
+        right: 18px;
+        top: 16px;
+        font-size: 28px;
+        font-weight: 900;
+        opacity: 0;
+        transform: scale(0.6);
+        transition: opacity 180ms ease, transform 220ms cubic-bezier(0.2, 0.9, 0.25, 1);
+      }
+
+      .ehx-ionic-atom.ionized-na .ehx-ionic-charge,
+      .ehx-ionic-atom.ionized-cl .ehx-ionic-charge {
+        opacity: 1;
+        transform: scale(1);
+      }
+
+      .ehx-ionic-atom.na .ehx-ionic-charge {
+        color: rgba(255, 220, 166, 0.96);
+      }
+
+      .ehx-ionic-atom.cl .ehx-ionic-charge {
+        color: rgba(198, 255, 207, 0.98);
+      }
+
+      .ehx-ionic-electron {
+        position: absolute;
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        margin-left: -6px;
+        margin-top: -6px;
+        background: radial-gradient(circle, rgba(255,255,255,0.98), rgba(170,225,255,0.95) 46%, rgba(72,164,255,0.4) 100%);
+        box-shadow:
+          0 0 12px rgba(194, 234, 255, 0.95),
+          0 0 26px rgba(80, 171, 255, 0.42);
+      }
+
+      .ehx-ionic-electron.glow {
+        width: 14px;
+        height: 14px;
+        margin-left: -7px;
+        margin-top: -7px;
+        box-shadow:
+          0 0 16px rgba(255, 248, 199, 0.98),
+          0 0 34px rgba(255, 181, 82, 0.56);
+      }
+
+      .ehx-ionic-electron.dimmed {
+        opacity: 0.7;
+      }
+
+      .ehx-ionic-transfer {
+        position: absolute;
+        width: 16px;
+        height: 16px;
+        margin-left: -8px;
+        margin-top: -8px;
+        border-radius: 50%;
+        opacity: 0;
+        background: radial-gradient(circle, rgba(255,255,255,1), rgba(186, 236, 255, 0.96) 36%, rgba(123, 198, 255, 0.6) 70%, rgba(123,198,255,0) 100%);
+        box-shadow:
+          0 0 18px rgba(255,255,255,0.98),
+          0 0 36px rgba(111,194,255,0.56);
+        z-index: 2;
+      }
+
+      .ehx-ionic-transfer.active {
+        opacity: 1;
+        animation: ehxIonicTransfer 0.52s cubic-bezier(0.28, 0.84, 0.3, 1) forwards;
+      }
+
+      @keyframes ehxIonicTransfer {
+        0% {
+          opacity: 0;
+          transform: translate(var(--ehx-from-x), var(--ehx-from-y)) scale(0.72);
+        }
+        8% {
+          opacity: 1;
+        }
+        100% {
+          opacity: 1;
+          transform: translate(var(--ehx-to-x), var(--ehx-to-y)) scale(1);
+        }
+      }
+
+      .ehx-ionic-trail {
+        position: absolute;
+        left: calc(50% - 2px);
+        top: calc(50% - 2px);
+        width: var(--ehx-trail-width, 140px);
+        height: 4px;
+        opacity: 0;
+        transform-origin: left center;
+        background: linear-gradient(90deg, rgba(255, 205, 121, 0), rgba(255, 223, 165, 0.96), rgba(184, 236, 255, 0.98), rgba(121, 198, 255, 0));
+        filter: drop-shadow(0 0 10px rgba(214, 238, 255, 0.65));
+      }
+
+      .ehx-ionic-trail.active {
+        animation: ehxIonicTrail 0.46s ease-out forwards;
+      }
+
+      @keyframes ehxIonicTrail {
+        0% { opacity: 0; transform: rotate(var(--ehx-trail-angle)) scaleX(0.18); }
+        18% { opacity: 1; transform: rotate(var(--ehx-trail-angle)) scaleX(1); }
+        100% { opacity: 0; transform: rotate(var(--ehx-trail-angle)) scaleX(1.08); }
+      }
+
+      .ehx-ionic-flash {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: 140px;
+        height: 140px;
+        margin-left: -70px;
+        margin-top: -70px;
+        border-radius: 50%;
+        opacity: 0;
+        background: radial-gradient(circle, rgba(255,255,255,0.98) 0%, rgba(205, 237, 255, 0.84) 28%, rgba(120, 196, 255, 0.18) 54%, rgba(0,0,0,0) 76%);
+        box-shadow:
+          0 0 22px rgba(255,255,255,0.9),
+          0 0 70px rgba(120,196,255,0.38);
+      }
+
+      .ehx-ionic-flash.active {
+        animation: ehxIonicFlash 0.34s ease-out forwards;
+      }
+
+      @keyframes ehxIonicFlash {
+        0% { opacity: 0; transform: scale(0.24); }
+        18% { opacity: 1; transform: scale(1); }
+        100% { opacity: 0; transform: scale(1.32); }
+      }
+
+      .ehx-ionic-crystal {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: 88px;
+        height: 88px;
+        margin-left: -44px;
+        margin-top: -44px;
+        opacity: 0;
+        transform: scale(0.36) rotate(-14deg);
+        transition: opacity 180ms ease, transform 320ms cubic-bezier(0.2, 0.9, 0.25, 1);
+      }
+
+      .ehx-ionic-crystal.visible {
+        opacity: 1;
+        transform: scale(1) rotate(-14deg);
+      }
+
+      .ehx-ionic-cube-face {
+        position: absolute;
+        inset: 0;
+        clip-path: polygon(50% 0%, 100% 25%, 50% 50%, 0% 25%);
+      }
+
+      .ehx-ionic-cube-face.top {
+        background: linear-gradient(180deg, rgba(240, 249, 255, 0.98), rgba(196, 228, 255, 0.9));
+        transform: translateY(-10px);
+      }
+
+      .ehx-ionic-cube-face.left {
+        background: linear-gradient(180deg, rgba(181, 212, 245, 0.96), rgba(118, 165, 217, 0.96));
+        clip-path: polygon(0% 25%, 50% 50%, 50% 100%, 0% 75%);
+      }
+
+      .ehx-ionic-cube-face.right {
+        background: linear-gradient(180deg, rgba(221, 240, 255, 0.98), rgba(145, 190, 236, 0.94));
+        clip-path: polygon(100% 25%, 50% 50%, 50% 100%, 100% 75%);
+      }
+
+      .ehx-ionic-crystal::after {
+        content: "NaCl";
+        position: absolute;
+        left: 50%;
+        top: 58%;
+        transform: translate(-50%, -50%) rotate(14deg);
+        font-size: 18px;
+        font-weight: 900;
+        letter-spacing: 0.08em;
+        color: rgba(232, 247, 255, 0.96);
+        text-shadow: 0 0 12px rgba(255,255,255,0.45);
+      }
+
+      .ehx-ionic-spark {
+        position: absolute;
+        width: 3px;
+        height: 24px;
+        border-radius: 999px;
+        opacity: 0;
+        transform-origin: center;
+        background: linear-gradient(180deg, rgba(255,255,255,0), rgba(255,255,255,0.96), rgba(163,224,255,0));
+      }
+
+      .ehx-ionic-spark.active {
+        animation: ehxIonicSpark 0.4s ease-out forwards;
+      }
+
+      @keyframes ehxIonicSpark {
+        0% { opacity: 0; transform: rotate(var(--ehx-rot)) translateY(0) scaleY(0.4); }
+        18% { opacity: 1; }
+        100% { opacity: 0; transform: rotate(var(--ehx-rot)) translateY(-20px) scaleY(1.14); }
+      }
+
       .ehx-bolt {
         position: fixed;
         width: 14px;
@@ -2135,6 +2485,148 @@ function getDefaultElement(side) {
     );
   }
 
+  function placeElectron(atomEl, shellRadius, angleDeg, className = "") {
+    const electron = createNode(`ehx-ionic-electron ${className}`.trim(), {}, atomEl);
+    const angle = angleDeg * (Math.PI / 180);
+    const x = 75 + Math.cos(angle) * shellRadius;
+    const y = 75 + Math.sin(angle) * shellRadius;
+    electron.style.left = `${x}px`;
+    electron.style.top = `${y}px`;
+    return electron;
+  }
+
+  function buildIonicAtom(parent, symbol, side, electronAngles, options = {}) {
+    const atom = createNode(`ehx-ionic-atom ${side}`, {}, parent);
+    const core = createNode("ehx-ionic-core", {}, atom);
+    const outerShell = createNode("ehx-ionic-shell outer", {}, atom);
+    const innerShell = createNode("ehx-ionic-shell inner", {}, atom);
+    const label = createNode("ehx-ionic-label", {}, atom);
+    label.textContent = symbol;
+    const charge = createNode("ehx-ionic-charge", {}, atom);
+    charge.textContent = options.charge || "";
+
+    const electrons = electronAngles.map((angle, index) => placeElectron(
+      atom,
+      options.shellRadius || 52,
+      angle,
+      index === 0 && options.firstElectronGlow ? "glow" : "dimmed",
+    ));
+
+    return {
+      atom,
+      core,
+      outerShell,
+      innerShell,
+      label,
+      charge,
+      electrons,
+    };
+  }
+
+  function saltFormationAt(sourceEl, targetEl, damage = 5) {
+    const stageLayer = getCombatCinematicLayer();
+    const source = rectCenter(sourceEl);
+    const target = rectCenter(targetEl);
+    const centerX = (source.x + target.x) * 0.5;
+    const centerY = Math.max(180, Math.min(window.innerHeight - 180, (source.y + target.y) * 0.5));
+
+    const stage = createNode("ehx-ionic-stage", {
+      left: `${centerX}px`,
+      top: `${centerY}px`,
+    }, stageLayer);
+
+    const title = createNode("ehx-ionic-title", {}, stage);
+    title.textContent = "Ionic Bonding";
+    const subtitle = createNode("ehx-ionic-subtitle", {}, stage);
+    subtitle.textContent = "Na transfers one outer electron to Cl, then the ions attract";
+
+    const sodium = buildIonicAtom(stage, "Na", "na", [0], {
+      charge: "+",
+      firstElectronGlow: true,
+    });
+    const chlorine = buildIonicAtom(stage, "Cl", "cl", [-110, -55, 0, 55, 110, 180, 235], {
+      charge: "-",
+    });
+
+    const transferElectron = createNode("ehx-ionic-transfer", {}, stage);
+    const trail = createNode("ehx-ionic-trail", {}, stage);
+    const flash = createNode("ehx-ionic-flash", {}, stage);
+    const crystal = createNode("ehx-ionic-crystal", {}, stage);
+    createNode("ehx-ionic-cube-face top", {}, crystal);
+    createNode("ehx-ionic-cube-face left", {}, crystal);
+    createNode("ehx-ionic-cube-face right", {}, crystal);
+
+    const sodiumElectron = sodium.electrons[0];
+    const chlorineGapX = 308 + 75 + Math.cos(290 * (Math.PI / 180)) * 52;
+    const chlorineGapY = 82 + 75 + Math.sin(290 * (Math.PI / 180)) * 52;
+    const sodiumElectronX = 60 + 75 + 52;
+    const sodiumElectronY = 82 + 75;
+    const dx = chlorineGapX - sodiumElectronX;
+    const dy = chlorineGapY - sodiumElectronY;
+    const distance = Math.sqrt((dx * dx) + (dy * dy));
+    const angle = Math.atan2(dy, dx);
+
+    transferElectron.style.setProperty("--ehx-from-x", `${sodiumElectronX}px`);
+    transferElectron.style.setProperty("--ehx-from-y", `${sodiumElectronY}px`);
+    transferElectron.style.setProperty("--ehx-to-x", `${chlorineGapX}px`);
+    transferElectron.style.setProperty("--ehx-to-y", `${chlorineGapY}px`);
+    trail.style.left = `${sodiumElectronX}px`;
+    trail.style.top = `${sodiumElectronY}px`;
+    trail.style.setProperty("--ehx-trail-width", `${distance}px`);
+    trail.style.setProperty("--ehx-trail-angle", `${angle}rad`);
+
+    removeLater(stage, 2300);
+
+    setTimeout(() => {
+      sodiumElectron.style.opacity = "0";
+      transferElectron.classList.add("active");
+      trail.classList.add("active");
+      screenFlash("radial-gradient(circle, rgba(160,214,255,0.16), rgba(50,80,140,0.04), rgba(0,0,0,0))");
+    }, 360);
+
+    setTimeout(() => {
+      placeElectron(chlorine.atom, 52, 290, "glow");
+      sodium.atom.classList.add("ionized-na");
+      chlorine.atom.classList.add("ionized-cl");
+      floatText(centerX, centerY - 84, "Electron Transfer", {
+        color: "#dff4ff",
+        fontSize: "24px",
+      });
+    }, 900);
+
+    setTimeout(() => {
+      sodium.atom.classList.add("attract-left");
+      chlorine.atom.classList.add("attract-right");
+    }, 1180);
+
+    setTimeout(() => {
+      flash.classList.add("active");
+      crystal.classList.add("visible");
+      for (let i = 0; i < 8; i += 1) {
+        const spark = createNode("ehx-ionic-spark", {
+          left: "50%",
+          top: "50%",
+          marginLeft: "-1.5px",
+          marginTop: "-12px",
+          "--ehx-rot": `${i * 45}deg`,
+        }, stage);
+        spark.classList.add("active");
+        removeLater(spark, 450);
+      }
+      crystalBurstAt(targetEl, 8);
+      showDamage(targetEl, damage, "#eef8ff");
+    }, 1540);
+
+    if (sourceEl) {
+      setTimeout(() => {
+        floatText(rectCenter(sourceEl).x, rectCenter(sourceEl).y - 36, "Cleanse Wet", {
+          color: "#eef7ff",
+          fontSize: "24px",
+        });
+      }, 1760);
+    }
+  }
+
   function lightningAt(targetEl, damage = 4, color = "#c9f3ff") {
     const { rect, x, y } = rectCenter(targetEl);
 
@@ -2699,21 +3191,6 @@ function pressureWaveAt(targetEl, damage = 2, feedbackEl = targetEl) {
       removeLater(ring, 760);
     }, 90);
     gasFloatAt(targetEl, 5, "rgba(245,250,255,0.94)", "rgba(180,220,255,0)");
-  }
-
-  function saltFormationAt(sourceEl, targetEl, damage = 5) {
-    crystalBurstAt(targetEl, 26);
-    gasFloatAt(targetEl, 6, "rgba(255,255,255,0.96)", "rgba(220,240,255,0)");
-    setTimeout(() => showDamage(targetEl, damage, "#ffffff"), 100);
-    if (sourceEl) {
-      setTimeout(() => {
-        crystalBurstAt(sourceEl, 10);
-        floatText(rectCenter(sourceEl).x, rectCenter(sourceEl).y - 35, "Cleanse Wet", {
-          color: "#eef7ff",
-          fontSize: "24px",
-        });
-      }, 180);
-    }
   }
 
   function limeFormationAt(sourceEl, targetEl, damage = 5, energy = 1) {

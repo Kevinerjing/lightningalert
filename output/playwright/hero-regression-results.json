@@ -93,12 +93,12 @@
                   "workerIndex": 0,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 1123,
+                  "duration": 1059,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-03-23T16:26:27.636Z",
+                  "startTime": "2026-03-23T17:05:00.143Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -108,7 +108,7 @@
           ],
           "id": "afb89487ec4d6fc4c863-25208fac89876b171100",
           "file": "hero-regression.spec.mjs",
-          "line": 188,
+          "line": 196,
           "column": 1
         },
         {
@@ -127,12 +127,12 @@
                   "workerIndex": 0,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 1272,
+                  "duration": 1235,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-03-23T16:26:28.931Z",
+                  "startTime": "2026-03-23T17:05:01.359Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -142,7 +142,7 @@
           ],
           "id": "afb89487ec4d6fc4c863-0184d53b2732e8706259",
           "file": "hero-regression.spec.mjs",
-          "line": 201,
+          "line": 209,
           "column": 1
         },
         {
@@ -161,12 +161,12 @@
                   "workerIndex": 0,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 2960,
+                  "duration": 2738,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-03-23T16:26:30.219Z",
+                  "startTime": "2026-03-23T17:05:02.607Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -176,7 +176,7 @@
           ],
           "id": "afb89487ec4d6fc4c863-6eb95fd467d0775ea9e5",
           "file": "hero-regression.spec.mjs",
-          "line": 212,
+          "line": 220,
           "column": 1
         },
         {
@@ -195,12 +195,12 @@
                   "workerIndex": 0,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 3344,
+                  "duration": 2469,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-03-23T16:26:33.191Z",
+                  "startTime": "2026-03-23T17:05:05.356Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -210,7 +210,7 @@
           ],
           "id": "afb89487ec4d6fc4c863-f1ccda5378b1161896f3",
           "file": "hero-regression.spec.mjs",
-          "line": 235,
+          "line": 243,
           "column": 1
         }
       ]
@@ -218,8 +218,8 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-03-23T16:26:26.139Z",
-    "duration": 10712.668,
+    "startTime": "2026-03-23T17:04:58.681Z",
+    "duration": 9426.521,
     "expected": 4,
     "skipped": 0,
     "unexpected": 0,

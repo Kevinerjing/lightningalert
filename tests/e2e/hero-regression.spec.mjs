@@ -141,44 +141,52 @@ async function endTurn(page) {
   await endTurnButton.click({ force: true });
 }
 
-async function dismissActionRejectedDialog(page) {
-  const okButton = page.getByRole("button", { name: "OK" });
-  if (await okButton.isVisible().catch(() => false)) {
-    await okButton.click({ force: true });
-  }
-}
+async function seedPlayableReaction(page) {
+  await page.evaluate(() => {
+    const makeCard = (cardId) => cloneCard(cardId);
 
-async function preparePlayableAttackOrReaction(page, maxRounds = 3) {
-  for (let round = 0; round < maxRounds; round += 1) {
-    await dismissActionRejectedDialog(page);
+    playerId = 1;
+    isPracticeMode = true;
+    roomCode = "PRACTICE";
+    selectedCardIndex = null;
+    selectedFieldIndex = null;
+    pendingLocalEffect = null;
 
-    const directCandidate = await findPlayableHandCard(page, ["ATTACK", "REACTION"]);
-    if (directCandidate) {
-      return directCandidate;
-    }
+    gameState = {
+      turn: 1,
+      currentPlayer: 1,
+      players: {
+        1: {
+          id: 1,
+          hp: 10,
+          maxHp: 10,
+          energy: 3,
+          maxEnergy: 3,
+          deck: [],
+          hand: [makeCard("saltFormation")],
+          field: [makeCard("sodium"), makeCard("chlorine")],
+          discard: [],
+          statuses: [],
+        },
+        2: {
+          id: 2,
+          hp: 10,
+          maxHp: 10,
+          energy: 3,
+          maxEnergy: 3,
+          deck: [],
+          hand: [],
+          field: [],
+          discard: [],
+          statuses: [],
+        },
+      },
+      log: ["Playable reaction test setup."],
+      winner: null,
+    };
 
-    for (let setupCount = 0; setupCount < 2; setupCount += 1) {
-      const setupCard = await findPlayableHandCard(page, ["ELEMENT", "COMPOUND"]);
-      if (!setupCard) {
-        break;
-      }
-
-      await playSelectedCard(page);
-      await dismissActionRejectedDialog(page);
-
-      const unlockedCandidate = await findPlayableHandCard(page, ["ATTACK", "REACTION"]);
-      if (unlockedCandidate) {
-        return unlockedCandidate;
-      }
-    }
-
-    if (round < maxRounds - 1) {
-      await endTurn(page);
-      await waitForPlayerTurn(page);
-    }
-  }
-
-  return null;
+    render();
+  });
 }
 
 test.beforeEach(async ({ page }) => {
@@ -236,10 +244,12 @@ test("playing an attack or reaction card triggers the forward push and recoil mo
   await gotoHero(page);
   await startPractice(page);
   await patchHeroVfxCounter(page, "animateAttack");
+  await seedPlayableReaction(page);
 
-  const candidate = await preparePlayableAttackOrReaction(page);
-
-  expect(candidate).not.toBeNull();
+  const candidate = page.locator('#p1Hand .card[data-index="0"]');
+  await expect(candidate).toContainText("Salt Formation");
+  await candidate.click({ force: true });
+  await expect(page.locator("#playCardBtn")).toBeEnabled();
 
   await playSelectedCard(page);
 
