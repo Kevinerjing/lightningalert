@@ -549,7 +549,7 @@ const CARD_LIBRARY = {
     type: "Reaction",
     cost: 2,
     symbol: "RXN",
-    text: "Sulfur + Oxygen = 7 damage.",
+    text: "Sulfur + Oxygen = 7 damage. Forms SO2.",
     tags: ["reaction", "fire"],
     image: "images/cards/combustion.png",
   },
@@ -857,10 +857,10 @@ const SCIENCE_NOTES = {
   },
   combustion: {
     title: "Combustion Reaction",
-    equation: "Sulfur + Oxygen -> energy release",
-    body: "This reaction models the idea that a fuel and oxygen combine to release energy.",
-    reason: "Combustion worked because Sulfur and Oxygen were both already on the field.",
-    preview: "Combustion needs Sulfur and Oxygen on your field before you can use it.",
+    equation: "S + O2 -> SO2",
+    body: "When sulfur is heated in oxygen, it burns with a blue flame and produces sulfur dioxide (SO2), a pungent gas.",
+    reason: "Combustion worked because Sulfur and Oxygen were both already on the field, modeling sulfur burning in oxygen.",
+    preview: "Combustion models sulfur burning in oxygen: S + O2 -> SO2.",
   },
   steamBurst: {
     title: "Steam Reaction",
