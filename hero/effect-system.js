@@ -1513,7 +1513,35 @@ function getDefaultElement(side) {
     return Number(pid) === 1 ? qs("#player-area") : qs("#enemy-area");
   }
 
+  function getCombatZoneRect(pid) {
+    const fieldEl = Number(pid) === 1 ? qs("#p1Field") : qs("#p2Field");
+    const handEl = Number(pid) === 1 ? qs("#p1Hand") : qs("#p2Hand");
+    const rects = [fieldEl, handEl]
+      .filter(Boolean)
+      .map((el) => el.getBoundingClientRect())
+      .filter((rect) => rect.width > 0 && rect.height > 0);
+
+    if (!rects.length) return null;
+
+    return {
+      left: Math.min(...rects.map((rect) => rect.left)),
+      top: Math.min(...rects.map((rect) => rect.top)),
+      right: Math.max(...rects.map((rect) => rect.right)),
+      bottom: Math.max(...rects.map((rect) => rect.bottom)),
+      width: Math.max(...rects.map((rect) => rect.right)) - Math.min(...rects.map((rect) => rect.left)),
+      height: Math.max(...rects.map((rect) => rect.bottom)) - Math.min(...rects.map((rect) => rect.top)),
+    };
+  }
+
   function getCombatFocusArea(el, pid) {
+    const zoneRect = getCombatZoneRect(pid);
+    if (zoneRect) {
+      return {
+        getBoundingClientRect() {
+          return zoneRect;
+        },
+      };
+    }
     return el || getPlayerArea(pid);
   }
 
