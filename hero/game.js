@@ -1417,6 +1417,12 @@ function getOpponentId(playerPid) {
   return Number(playerPid) === 1 ? 2 : 1;
 }
 
+function gainEnergyAfterPayingCost(player, spentCost, bonusEnergy) {
+  const safeCost = Number(spentCost) || 0;
+  const safeBonus = Number(bonusEnergy) || 0;
+  player.energy = Math.min(player.maxEnergy, player.energy + safeCost + safeBonus);
+}
+
 function logGameMessage(localGame, text) {
   localGame.log.unshift(text);
   localGame.log = localGame.log.slice(0, 16);
@@ -1678,7 +1684,7 @@ function resolveLocalReaction(localGame, card, player, opponent) {
   }
   if (card.id === "limeFormation" && playerHasFieldCard(player, "calcium") && playerHasFieldCard(player, "water")) {
     opponent.hp = Math.max(0, opponent.hp - 5);
-    player.energy = Math.min(player.maxEnergy, player.energy + 1);
+    gainEnergyAfterPayingCost(player, card.cost, 1);
     logGameMessage(localGame, `Player ${player.id} used Lime Formation for 5 damage and gained 1 energy.`);
     return true;
   }
@@ -1732,7 +1738,7 @@ function playLocalCard(localGame, currentPid, handIndex) {
     player.field.push(card);
     logGameMessage(localGame, `Player ${player.id} placed ${card.name} on the field.`);
   } else if (card.id === "catalyst") {
-    player.energy = Math.min(player.maxEnergy, player.energy + 1);
+    gainEnergyAfterPayingCost(player, card.cost, 1);
     player.discard.push(card);
     logGameMessage(localGame, `Player ${player.id} used Catalyst and gained 1 energy.`);
   } else if (card.id === "shield") {

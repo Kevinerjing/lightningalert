@@ -189,6 +189,54 @@ async function seedPlayableReaction(page) {
   });
 }
 
+async function seedCatalystEnergyGain(page) {
+  await page.evaluate(() => {
+    const makeCard = (cardId) => cloneCard(cardId);
+
+    playerId = 1;
+    isPracticeMode = true;
+    roomCode = "PRACTICE";
+    selectedCardIndex = null;
+    selectedFieldIndex = null;
+    pendingLocalEffect = null;
+
+    gameState = {
+      turn: 1,
+      currentPlayer: 1,
+      players: {
+        1: {
+          id: 1,
+          hp: 10,
+          maxHp: 10,
+          energy: 1,
+          maxEnergy: 3,
+          deck: [],
+          hand: [makeCard("catalyst")],
+          field: [],
+          discard: [],
+          statuses: [],
+        },
+        2: {
+          id: 2,
+          hp: 10,
+          maxHp: 10,
+          energy: 3,
+          maxEnergy: 3,
+          deck: [],
+          hand: [],
+          field: [],
+          discard: [],
+          statuses: [],
+        },
+      },
+      log: ["Catalyst energy test setup."],
+      winner: null,
+    };
+
+    render();
+  });
+}
+
 test.beforeEach(async ({ page }) => {
   await stubWorkerApi(page);
 });
@@ -254,4 +302,20 @@ test("playing an attack or reaction card triggers the forward push and recoil mo
   await playSelectedCard(page);
 
   await expect.poll(async () => getHeroVfxCounter(page, "animateAttack")).toBeGreaterThan(0);
+});
+
+test("energy gain cards increase available energy after play", async ({ page }) => {
+  await gotoHero(page);
+  await startPractice(page);
+  await seedCatalystEnergyGain(page);
+
+  const catalystCard = page.locator('#p1Hand .card[data-index="0"]');
+  await expect(catalystCard).toContainText("Catalyst");
+  await catalystCard.click({ force: true });
+  await expect(page.locator("#playCardBtn")).toBeEnabled();
+
+  await playSelectedCard(page);
+
+  await expect(page.locator("#p1EnergyText")).toContainText("2 / 3");
+  await expect(page.locator("#combatLog")).toContainText("gained 1 energy");
 });

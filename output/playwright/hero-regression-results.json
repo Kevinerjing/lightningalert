@@ -93,12 +93,12 @@
                   "workerIndex": 0,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 1059,
+                  "duration": 992,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-03-23T17:05:00.143Z",
+                  "startTime": "2026-03-23T17:11:30.399Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -108,7 +108,7 @@
           ],
           "id": "afb89487ec4d6fc4c863-25208fac89876b171100",
           "file": "hero-regression.spec.mjs",
-          "line": 196,
+          "line": 244,
           "column": 1
         },
         {
@@ -127,12 +127,12 @@
                   "workerIndex": 0,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 1235,
+                  "duration": 1109,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-03-23T17:05:01.359Z",
+                  "startTime": "2026-03-23T17:11:31.556Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -142,7 +142,7 @@
           ],
           "id": "afb89487ec4d6fc4c863-0184d53b2732e8706259",
           "file": "hero-regression.spec.mjs",
-          "line": 209,
+          "line": 257,
           "column": 1
         },
         {
@@ -161,12 +161,12 @@
                   "workerIndex": 0,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 2738,
+                  "duration": 2686,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-03-23T17:05:02.607Z",
+                  "startTime": "2026-03-23T17:11:32.676Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -176,7 +176,7 @@
           ],
           "id": "afb89487ec4d6fc4c863-6eb95fd467d0775ea9e5",
           "file": "hero-regression.spec.mjs",
-          "line": 220,
+          "line": 268,
           "column": 1
         },
         {
@@ -195,12 +195,12 @@
                   "workerIndex": 0,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 2469,
+                  "duration": 2577,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-03-23T17:05:05.356Z",
+                  "startTime": "2026-03-23T17:11:35.374Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -210,7 +210,41 @@
           ],
           "id": "afb89487ec4d6fc4c863-f1ccda5378b1161896f3",
           "file": "hero-regression.spec.mjs",
-          "line": 243,
+          "line": 291,
+          "column": 1
+        },
+        {
+          "title": "energy gain cards increase available energy after play",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2305,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-03-23T17:11:37.963Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "afb89487ec4d6fc4c863-32513ee34e55bbcdf726",
+          "file": "hero-regression.spec.mjs",
+          "line": 307,
           "column": 1
         }
       ]
@@ -218,9 +252,9 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-03-23T17:04:58.681Z",
-    "duration": 9426.521,
-    "expected": 4,
+    "startTime": "2026-03-23T17:11:28.935Z",
+    "duration": 11625.475,
+    "expected": 5,
     "skipped": 0,
     "unexpected": 0,
     "flaky": 0
