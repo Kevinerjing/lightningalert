@@ -1,0 +1,5 @@
+#!/bin/sh
+set -eu
+
+echo "Running hero sanity checks before push..."
+node scripts/hero-sanity-check.mjs
