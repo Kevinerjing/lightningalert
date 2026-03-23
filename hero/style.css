@@ -2115,7 +2115,7 @@ button.guide-focus::after,
   #p2Hand .card-name {
     font-size: 11px !important;
     line-height: 1.1 !important;
-    max-width: 70px !important;
+    max-width: 86px !important;
   }
 
   .card-cost,
@@ -2170,7 +2170,7 @@ button.guide-focus::after,
   #p2Hand .card-text {
     font-size: 10px !important;
     line-height: 1.2 !important;
-    max-height: 34px !important;
+    max-height: 50px !important;
     overflow: hidden !important;
     margin-bottom: 6px !important;
   }
@@ -2390,13 +2390,13 @@ button.guide-focus::after,
   #p1Hand .card-name,
   #p2Hand .card-name {
     font-size: 10px !important;
-    max-width: 66px !important;
+    max-width: 82px !important;
   }
 
   .card-text,
   #p1Hand .card-text,
   #p2Hand .card-text {
-    max-height: 30px !important;
+    max-height: 44px !important;
   }
 
   .card-action-btn {
