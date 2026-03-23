@@ -116,6 +116,16 @@
       margin-bottom: 14px;
     }
     .panel-head p { color: var(--muted); line-height: 1.65; margin-top: 6px; }
+    .teacher-note {
+      margin-top: 14px;
+      padding: 14px 16px;
+      border-radius: 16px;
+      border: 1px solid rgba(139, 247, 255, 0.2);
+      background: rgba(139, 247, 255, 0.07);
+      color: #dff7ff;
+      line-height: 1.7;
+      font-size: 14px;
+    }
     .leaderboard { display: grid; gap: 10px; }
     .leader-row {
       padding: 14px 16px;
@@ -250,9 +260,15 @@
           Vote for the next element you want added to Element Heroes. The live Top 10 updates right away,
           and students can also suggest original element ideas for future updates.
         </p>
+        <div class="teacher-note">
+          Teacher use: ask students to choose an element or compound, describe its chemical reaction as a magical
+          ability, and explain why the idea matches real chemistry. This supports creativity, chemical properties,
+          reactions, and scientific reasoning.
+        </div>
       </div>
       <div class="actions">
         <button class="btn primary" id="refreshBtn" type="button">Refresh Results</button>
+        <a class="btn" href="teacher-guide.html">Teacher Guide</a>
         <a class="btn" href="index.html">Back to Game</a>
       </div>
     </div>

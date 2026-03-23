@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Element Heroes Teacher Guide</title>
+  <style>
+    :root {
+      --panel: rgba(12, 24, 39, 0.92);
+      --panel-2: rgba(18, 34, 53, 0.95);
+      --line: #24425d;
+      --text: #eaf7ff;
+      --muted: #9ab2c6;
+      --accent: #b1f56e;
+      --accent-2: #8bf7ff;
+      --shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
+      --radius: 18px;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top, rgba(65, 124, 194, 0.22), transparent 35%),
+        linear-gradient(180deg, #08121f 0%, #050b12 100%);
+      min-height: 100vh;
+    }
+
+    .app-shell {
+      width: min(1180px, 94vw);
+      margin: 18px auto 28px;
+    }
+
+    .page {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      padding: 16px 20px;
+      background: rgba(255,255,255,0.03);
+      border-bottom: 1px solid var(--line);
+      flex-wrap: wrap;
+    }
+
+    .title {
+      font-size: 30px;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+    }
+
+    .subtitle {
+      color: var(--muted);
+      font-size: 14px;
+      margin-top: 4px;
+    }
+
+    .pill {
+      padding: 9px 14px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid var(--line);
+      font-weight: 700;
+      font-size: 13px;
+      color: var(--accent);
+    }
+
+    .content {
+      padding: 18px;
+      display: grid;
+      gap: 16px;
+    }
+
+    .hero-box,
+    .section-box,
+    .summary-card,
+    .scenario-card {
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: rgba(255,255,255,0.03);
+      padding: 16px;
+    }
+
+    .hero-box {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 16px;
+      align-items: center;
+    }
+
+    .hero-heading {
+      font-size: 24px;
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+
+    .hero-text {
+      color: #d8e9f5;
+      line-height: 1.7;
+      font-size: 15px;
+    }
+
+    .hero-side {
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: linear-gradient(180deg, rgba(139,247,255,0.08), rgba(177,245,110,0.06));
+      padding: 14px;
+    }
+
+    .mini-stat {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px 12px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      margin-bottom: 10px;
+      background: rgba(255,255,255,0.04);
+      font-size: 14px;
+    }
+
+    .section-title {
+      font-size: 20px;
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+
+    .section-subtitle {
+      color: var(--muted);
+      font-size: 13px;
+      margin-bottom: 14px;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+
+    .summary-card h3,
+    .scenario-card h3 {
+      margin: 0 0 8px;
+      font-size: 17px;
+    }
+
+    .summary-card p,
+    .scenario-card p {
+      margin: 0;
+      color: #d8e9f5;
+      line-height: 1.65;
+      font-size: 14px;
+    }
+
+    .scenario-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .scenario-kicker {
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+
+    .scenario-line {
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+    .note-box {
+      border: 1px solid rgba(139,247,255,0.24);
+      background: rgba(139,247,255,0.07);
+      color: #dff7ff;
+      border-radius: 16px;
+      padding: 16px;
+      line-height: 1.7;
+      font-size: 14px;
+    }
+
+    .link-row {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 10px;
+    }
+
+    a.btn {
+      border: none;
+      border-radius: 12px;
+      padding: 12px 16px;
+      font-size: 14px;
+      font-weight: 700;
+      text-decoration: none;
+      display: inline-block;
+      color: #04111a;
+      background: linear-gradient(180deg, #8bf7ff, #55d6ff);
+    }
+
+    a.btn.secondary {
+      background: rgba(255,255,255,0.08);
+      color: var(--text);
+      border: 1px solid var(--line);
+    }
+
+    .footer {
+      padding: 14px 20px 18px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 12px;
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 980px) {
+      .hero-box,
+      .grid-2,
+      .grid-3,
+      .scenario-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="app-shell">
+    <div class="page">
+      <div class="topbar">
+        <div>
+          <div class="title">Element Heroes Teacher Guide</div>
+          <div class="subtitle">What the game teaches, how students play, and how each scenario connects to chemistry.</div>
+        </div>
+        <div class="pill" id="teacherGuideVersionPill">Version --</div>
+      </div>
+
+      <div class="content">
+        <section class="hero-box">
+          <div>
+            <div class="hero-heading">What A Teacher Usually Wants To Know</div>
+            <div class="hero-text">
+              Element Heroes is a classroom-friendly chemistry card game. Students place substances, prepare reaction
+              conditions, trigger attacks or reactions, and connect what happens in the game to real science ideas such
+              as combustion, oxidation, ionic bonding, corrosion, conductivity, and reactivity.
+            </div>
+            <div class="link-row">
+              <a class="btn" href="index.html">Back to Game</a>
+              <a class="btn secondary" href="tutorial.html">Open Student Tutorial</a>
+            </div>
+          </div>
+
+          <div class="hero-side">
+            <div class="mini-stat"><span>Main purpose</span><strong>Science review through play</strong></div>
+            <div class="mini-stat"><span>Best use</span><strong>Consolidation and discussion</strong></div>
+            <div class="mini-stat"><span>Teacher role</span><strong>Prompt, clarify, connect</strong></div>
+            <div class="mini-stat"><span>Content style</span><strong>Real chemistry plus gameplay models</strong></div>
+          </div>
+        </section>
+
+        <section class="section-box">
+          <div class="section-title">Teacher Checklist</div>
+          <div class="section-subtitle">The key questions this page answers for classroom use.</div>
+
+          <div class="grid-3">
+            <div class="summary-card">
+              <h3>What are students learning?</h3>
+              <p>Reactants, products, chemical equations, signs of chemical change, ionic bonding, oxidation, corrosion, and reactivity.</p>
+            </div>
+            <div class="summary-card">
+              <h3>How accurate is it?</h3>
+              <p>Many cards model real chemistry directly. Some cards are simplified gameplay abstractions and should be described honestly.</p>
+            </div>
+            <div class="summary-card">
+              <h3>How can I use it?</h3>
+              <p>As a review game, discussion prompt, partner task, or consolidation activity after instruction.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="section-box">
+          <div class="section-title">How Students Play</div>
+          <div class="section-subtitle">The main gameplay loop and the science thinking behind it.</div>
+
+          <div class="scenario-grid">
+            <div class="scenario-card">
+              <div class="scenario-kicker">Scenario 1</div>
+              <h3>Place a substance on the field</h3>
+              <p>Students play a substance card such as oxygen, sulfur, water, iron, sodium, or chlorine.</p>
+              <div class="scenario-line"><strong>Teacher link:</strong> elements, compounds, properties of matter, reactants prepared before a reaction.</div>
+            </div>
+
+            <div class="scenario-card">
+              <div class="scenario-kicker">Scenario 2</div>
+              <h3>Check whether a reaction is possible</h3>
+              <p>Students learn that a reaction card only works if the correct required cards are already present.</p>
+              <div class="scenario-line"><strong>Teacher link:</strong> reactants and products, conditions for reaction, predicting outcomes from available substances.</div>
+            </div>
+
+            <div class="scenario-card">
+              <div class="scenario-kicker">Scenario 3</div>
+              <h3>Use an attack when a reaction is not ready</h3>
+              <p>Students still make strategic choices based on setup and status effects even without a full reaction.</p>
+              <div class="scenario-line"><strong>Teacher link:</strong> properties and conditions still matter even when no new product is formed.</div>
+            </div>
+
+            <div class="scenario-card">
+              <div class="scenario-kicker">Scenario 4</div>
+              <h3>Build a combo across multiple turns</h3>
+              <p>Students place reactants now so a stronger move becomes possible later.</p>
+              <div class="scenario-line"><strong>Teacher link:</strong> planning, limiting reagents, and understanding that chemical change often depends on setup.</div>
+            </div>
+
+            <div class="scenario-card">
+              <div class="scenario-kicker">Scenario 5</div>
+              <h3>Vote for the next Element Hero</h3>
+              <p>Students propose and vote on a new Element Hero and its chemical reaction ability using an element or compound of their choice.</p>
+              <div class="scenario-line"><strong>Teacher link:</strong> creativity, chemical properties, reactions, and scientific reasoning.</div>
+            </div>
+          </div>
+
+          <div class="link-row">
+            <a class="btn secondary" href="element-vote.html">Open Element Vote</a>
+          </div>
+        </section>
+
+        <section class="section-box">
+          <div class="section-title">Reaction Scenarios And Curriculum Links</div>
+          <div class="section-subtitle">Each major play scenario with the chemistry idea it supports.</div>
+
+          <div class="scenario-grid">
+            <div class="scenario-card">
+              <div class="scenario-kicker">Combustion</div>
+              <h3>Sulfur + Oxygen</h3>
+              <p>Students trigger a combustion-style reaction after placing sulfur and oxygen.</p>
+              <div class="scenario-line"><strong>Teacher link:</strong> combustion, exothermic change, evidence of reaction, sulfur dioxide formation, blue flame observation.</div>
+            </div>
+
+            <div class="scenario-card">
+              <div class="scenario-kicker">Rust</div>
+              <h3>Iron + Oxygen</h3>
+              <p>Students connect iron and oxygen to corrosion and ongoing weakening.</p>
+              <div class="scenario-line"><strong>Teacher link:</strong> oxidation, rusting, corrosion, role of water in speeding up rust formation.</div>
+            </div>
+
+            <div class="scenario-card">
+              <div class="scenario-kicker">Explosion</div>
+              <h3>Hydrogen + Oxygen</h3>
+              <p>A high-damage reaction models a rapid, energy-releasing combination.</p>
+              <div class="scenario-line"><strong>Teacher link:</strong> 2H2 + O2 -> 2H2O, exothermic reactions, energy release, hydrogen combustion.</div>
+            </div>
+
+            <div class="scenario-card">
+              <div class="scenario-kicker">Salt Formation</div>
+              <h3>Sodium + Chlorine</h3>
+              <p>Students see a reaction that models electron transfer and the formation of a stable ionic compound.</p>
+              <div class="scenario-line"><strong>Teacher link:</strong> 2Na + Cl2 -> 2NaCl, ionic bonding, electron transfer, Na+ and Cl-, attraction of opposite charges.</div>
+            </div>
+
+            <div class="scenario-card">
+              <div class="scenario-kicker">Alkali Reaction</div>
+              <h3>Potassium + Water</h3>
+              <p>This reaction shows a very reactive metal producing a strong effect.</p>
+              <div class="scenario-line"><strong>Teacher link:</strong> 2K + 2H2O -> 2KOH + H2, metal-water reactivity, hydrogen release, heat production.</div>
+            </div>
+
+            <div class="scenario-card">
+              <div class="scenario-kicker">Lime Formation</div>
+              <h3>Calcium + Water</h3>
+              <p>Students see a material-forming reaction that also changes resources in the model.</p>
+              <div class="scenario-line"><strong>Teacher link:</strong> calcium reactivity, product formation, energy and resource modeling in scientific simulations.</div>
+            </div>
+
+            <div class="scenario-card">
+              <div class="scenario-kicker">Steam Burst</div>
+              <h3>Water + Oxygen</h3>
+              <p>This is a simplified game combo rather than a single textbook equation.</p>
+              <div class="scenario-line"><strong>Teacher link:</strong> discuss models versus exact chemistry, water vapor, and why games sometimes simplify science.</div>
+            </div>
+
+            <div class="scenario-card">
+              <div class="scenario-kicker">Status Effects</div>
+              <h3>Wet and Corroded</h3>
+              <p>Statuses carry scientific ideas forward into later turns instead of ending at one move.</p>
+              <div class="scenario-line"><strong>Teacher link:</strong> corrosion over time, conductivity, and how conditions change later outcomes.</div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section-box">
+          <div class="section-title">Utility And Strategy Scenarios</div>
+          <div class="section-subtitle">Important non-reaction moments that still support science thinking.</div>
+
+          <div class="scenario-grid">
+            <div class="scenario-card">
+              <div class="scenario-kicker">Utility</div>
+              <h3>Catalyst and support cards</h3>
+              <p>Students use support cards to gain resources, heal, or protect themselves.</p>
+              <div class="scenario-line"><strong>Teacher link:</strong> catalysts as a classroom model for helping processes happen more effectively; energy here is a gameplay system.</div>
+            </div>
+
+            <div class="scenario-card">
+              <div class="scenario-kicker">Field Choice</div>
+              <h3>Managing only 3 field slots</h3>
+              <p>Students cannot place everything, so they must choose which substances matter most.</p>
+              <div class="scenario-line"><strong>Teacher link:</strong> selecting reagents, planning reactions, and comparing efficient versus inefficient setups.</div>
+            </div>
+
+            <div class="scenario-card">
+              <div class="scenario-kicker">Conductivity</div>
+              <h3>Lightning on a Wet target</h3>
+              <p>Students are rewarded for using one scientific condition to strengthen another move.</p>
+              <div class="scenario-line"><strong>Teacher link:</strong> conductivity, conditions affecting outcomes, and why water changes electrical behavior.</div>
+            </div>
+
+            <div class="scenario-card">
+              <div class="scenario-kicker">Visual Models</div>
+              <h3>Animations and effect scenes</h3>
+              <p>The game uses effects to make invisible processes easier to discuss.</p>
+              <div class="scenario-line"><strong>Teacher link:</strong> particle models, ions, energy transfer, and visual models of unseen chemical processes.</div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section-box">
+          <div class="section-title">What To Tell Students</div>
+          <div class="section-subtitle">A simple framing statement teachers can use before play begins.</div>
+
+          <div class="note-box">
+            This game teaches chemistry through strategic play. Some cards are direct models of real reactions, and
+            some are simplified gameplay versions designed to help students talk about reactants, products, energy,
+            bonding, corrosion, and reactivity. Encourage students to explain <strong>why</strong> a move worked, not
+            just what damage it caused.
+          </div>
+        </section>
+
+        <section class="section-box">
+          <div class="section-title">Suggested Classroom Uses</div>
+          <div class="section-subtitle">Ways a teacher can connect the game to instruction.</div>
+
+          <div class="grid-2">
+            <div class="summary-card">
+              <h3>Before a lesson</h3>
+              <p>Use the game as a hook. Ask students to predict which cards should react, then compare their ideas with what happens in play.</p>
+            </div>
+            <div class="summary-card">
+              <h3>After a lesson</h3>
+              <p>Use it as consolidation. Have students explain each move using chemistry vocabulary instead of only game vocabulary.</p>
+            </div>
+            <div class="summary-card">
+              <h3>Partner discussion</h3>
+              <p>Let students play in pairs and pause after each reaction to identify reactants, products, and evidence of chemical change.</p>
+            </div>
+            <div class="summary-card">
+              <h3>Assessment prompt</h3>
+              <p>Ask students which reactions are accurate, which are simplified, and what real-world chemistry concept each one models.</p>
+            </div>
+          </div>
+        </section>
+
+      </div>
+
+      <div class="footer">
+        <div>This guide supports classroom review, discussion, and curriculum connection.</div>
+        <div id="teacherGuideFooterVersion">Element Heroes Teacher Guide - Version --</div>
+      </div>
+    </div>
+  </div>
+
+  <script src="release-data.js"></script>
+  <script>
+    const latestRelease = window.HERO_CURRENT_RELEASE;
+    const teacherGuideVersionPill = document.getElementById("teacherGuideVersionPill");
+    const teacherGuideFooterVersion = document.getElementById("teacherGuideFooterVersion");
+
+    if (latestRelease && teacherGuideVersionPill) {
+      teacherGuideVersionPill.textContent = `Version ${latestRelease.version}`;
+    }
+
+    if (latestRelease && teacherGuideFooterVersion) {
+      teacherGuideFooterVersion.textContent = `Element Heroes Teacher Guide - Version ${latestRelease.version}`;
+    }
+  </script>
+</body>
+</html>
