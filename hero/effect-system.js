@@ -1657,6 +1657,7 @@ function getDefaultElement(side) {
     const ctx = resolveEffectContext(context);
     const effect = CARD_EFFECT_MAP[cardId];
     if (!effect) return false;
+    const usesSpecialCinematic = SPECIAL_CINEMATIC_CARD_IDS.has(cardId);
 
     if (!shouldRunViewerAnimation(cardId, ctx)) {
       return true;
@@ -1665,13 +1666,12 @@ function getDefaultElement(side) {
     lockCombatInteraction();
     try {
       await highlightCardAsync(cardId, ctx);
-      await showLocalEffectAsync(cardId, ctx);
-      await showGlobalImpactAsync(cardId, ctx);
-
-      if (SPECIAL_CINEMATIC_CARD_IDS.has(cardId)) {
+      if (usesSpecialCinematic) {
         playCardEffect(cardId, { ...ctx, cinematicMode: true });
         await wait(Math.max(700, Number(ctx.duration) || 900));
       } else {
+        await showLocalEffectAsync(cardId, ctx);
+        await showGlobalImpactAsync(cardId, ctx);
         await applyDamageStepAsync(cardId, ctx);
       }
     } finally {
