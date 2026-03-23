@@ -141,6 +141,46 @@ async function endTurn(page) {
   await endTurnButton.click({ force: true });
 }
 
+async function dismissActionRejectedDialog(page) {
+  const okButton = page.getByRole("button", { name: "OK" });
+  if (await okButton.isVisible().catch(() => false)) {
+    await okButton.click({ force: true });
+  }
+}
+
+async function preparePlayableAttackOrReaction(page, maxRounds = 3) {
+  for (let round = 0; round < maxRounds; round += 1) {
+    await dismissActionRejectedDialog(page);
+
+    const directCandidate = await findPlayableHandCard(page, ["ATTACK", "REACTION"]);
+    if (directCandidate) {
+      return directCandidate;
+    }
+
+    for (let setupCount = 0; setupCount < 2; setupCount += 1) {
+      const setupCard = await findPlayableHandCard(page, ["ELEMENT", "COMPOUND"]);
+      if (!setupCard) {
+        break;
+      }
+
+      await playSelectedCard(page);
+      await dismissActionRejectedDialog(page);
+
+      const unlockedCandidate = await findPlayableHandCard(page, ["ATTACK", "REACTION"]);
+      if (unlockedCandidate) {
+        return unlockedCandidate;
+      }
+    }
+
+    if (round < maxRounds - 1) {
+      await endTurn(page);
+      await waitForPlayerTurn(page);
+    }
+  }
+
+  return null;
+}
+
 test.beforeEach(async ({ page }) => {
   await stubWorkerApi(page);
 });
@@ -197,22 +237,7 @@ test("playing an attack or reaction card triggers the forward push and recoil mo
   await startPractice(page);
   await patchHeroVfxCounter(page, "animateAttack");
 
-  let candidate = await findPlayableHandCard(page, ["ATTACK", "REACTION"]);
-
-  if (!candidate) {
-    for (let setupCount = 0; setupCount < 2 && !candidate; setupCount += 1) {
-      const setupElement = await findPlayableHandCard(page, ["ELEMENT", "COMPOUND"]);
-      if (!setupElement) break;
-      await playSelectedCard(page);
-      candidate = await findPlayableHandCard(page, ["ATTACK", "REACTION"]);
-    }
-  }
-
-  if (!candidate) {
-    await endTurn(page);
-    await waitForPlayerTurn(page);
-    candidate = await findPlayableHandCard(page, ["ATTACK", "REACTION"]);
-  }
+  const candidate = await preparePlayableAttackOrReaction(page);
 
   expect(candidate).not.toBeNull();
 
