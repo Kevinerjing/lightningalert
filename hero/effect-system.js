@@ -1776,13 +1776,14 @@ function getDefaultElement(side) {
   function shouldRunViewerAnimation(cardId, ctx) {
     const actorPid = Number(ctx.actorPid || 0);
     const targetPid = Number(ctx.targetPid || 0);
+    const effectGroup = String(ctx.effectGroup || "").toLowerCase();
 
     if (actorPid && targetPid && actorPid !== targetPid) {
       return true;
     }
 
     if (actorPid && targetPid && actorPid === targetPid) {
-      return false;
+      return effectGroup === "utility";
     }
 
     return true;

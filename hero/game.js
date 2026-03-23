@@ -2864,7 +2864,7 @@ function triggerEffectForCard(cardId, actorPid) {
   if (!hasEffectSystem()) return;
   const card = CARD_LIBRARY[cardId];
   if (!card) return;
-  if (card.type !== "Attack" && card.type !== "Reaction") return;
+  if (card.type !== "Attack" && card.type !== "Reaction" && card.type !== "Utility") return;
 
   const ctx = getCardEffectContext(cardId, actorPid);
   if (!ctx) return;
@@ -2993,7 +2993,7 @@ function handleIncomingEffect(effect) {
   const cardId = effect.effectType || effect.cardId;
   const card = CARD_LIBRARY[cardId];
   if (!cardId || !card) return;
-  if (card.type !== "Attack" && card.type !== "Reaction") return;
+  if (card.type !== "Attack" && card.type !== "Reaction" && card.type !== "Utility") return;
 
   const actorPid = Number(effect.actorPid || effect.sourcePid || effect.source || playerId || 1);
   const fallbackCtx = getCardEffectContext(cardId, actorPid) || {};
