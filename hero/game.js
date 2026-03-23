@@ -338,7 +338,7 @@ function playCardSound(cardId, effect = {}) {
     "fireball", "hammerStrike", "corrode", "lightning", "poisonCloud", "plasmaShock",
     "alkaliBlast", "metalCrush", "noblePressure",
   ]);
-  const utilityIds = new Set(["catalyst", "shield"]);
+  const utilityIds = new Set(["catalyst", "shield", "extinguish"]);
 
   if (cardId === "lightning") {
     playTone({ frequency: 980, frequencyEnd: 480, duration: 0.08, type: "sawtooth", gain: 0.03 });
@@ -392,17 +392,17 @@ function toggleSound() {
 const PRACTICE_ROOM_CODE = "PRACTICE";
 const PRACTICE_DECKS = {
   1: [
-    "sulfur", "oxygen", "water", "hydrogen", "carbon", "sodium", "potassium", "helium", "iron",
+    "sulfur", "oxygen", "water", "hydrogen", "carbon", "carbonDioxide", "sodium", "potassium", "helium", "iron",
     "chlorine", "calcium", "combustion", "steamBurst", "acidRain", "explosion", "carbonBurn",
     "potassiumWater", "alkaliExplosion", "alkaliBlast", "fireball", "lightning", "poisonCloud",
-    "plasmaShock", "noblePressure", "catalyst", "shield", "corrode", "rust", "saltFormation",
+    "plasmaShock", "noblePressure", "catalyst", "shield", "extinguish", "corrode", "rust", "saltFormation",
     "limeFormation", "calciumSteam", "hammerStrike", "metalCrush",
   ],
   2: [
-    "sulfur", "oxygen", "water", "hydrogen", "carbon", "sodium", "potassium", "helium", "iron",
+    "sulfur", "oxygen", "water", "hydrogen", "carbon", "carbonDioxide", "sodium", "potassium", "helium", "iron",
     "chlorine", "calcium", "combustion", "steamBurst", "acidRain", "explosion", "carbonBurn",
     "potassiumWater", "alkaliExplosion", "alkaliBlast", "fireball", "lightning", "poisonCloud",
-    "plasmaShock", "noblePressure", "catalyst", "shield", "corrode", "rust", "saltFormation",
+    "plasmaShock", "noblePressure", "catalyst", "shield", "extinguish", "corrode", "rust", "saltFormation",
     "limeFormation", "calciumSteam", "hammerStrike", "metalCrush",
   ],
 };
@@ -473,6 +473,16 @@ const CARD_LIBRARY = {
     className: "element-carbon",
     tags: ["element", "solid"],
     image: "images/cards/carbon.png",
+  },
+  carbonDioxide: {
+    id: "carbonDioxide",
+    name: "Carbon Dioxide",
+    type: "Element",
+    cost: 1,
+    symbol: "CO2",
+    text: "Gas that can help smother flames and support extinguisher tools.",
+    className: "element-carbon-dioxide",
+    tags: ["element", "gas", "compound"],
   },
   chlorine: {
     id: "chlorine",
@@ -752,6 +762,15 @@ const CARD_LIBRARY = {
     tags: ["utility", "defense"],
     image: "images/cards/shield.png",
   },
+  extinguish: {
+    id: "extinguish",
+    name: "Extinguish",
+    type: "Utility",
+    cost: 1,
+    symbol: "UTL",
+    text: "If Carbon Dioxide is on your field, gain Fireproof and cancel the next fire hit.",
+    tags: ["utility", "gas", "defense"],
+  },
 };
 
 const CARD_NAME_TO_ID = Object.values(CARD_LIBRARY).reduce((map, card) => {
@@ -881,6 +900,12 @@ const SCIENCE_NOTES = {
     reason: "Carbon Burn succeeded because Carbon and Oxygen were already prepared on the field.",
     preview: "Use Carbon Burn to show a simple fuel-plus-oxygen pattern.",
   },
+  carbonDioxide: {
+    title: "Carbon Dioxide as a Fire Suppressant",
+    equation: "CO2 -> helps smother flames",
+    body: "Carbon dioxide is a gas that can reduce the oxygen around a flame, which is why it is used in some fire extinguishers.",
+    preview: "Carbon Dioxide is a support gas card that unlocks Extinguish.",
+  },
   potassiumWater: {
     title: "Alkali Metal Reaction",
     equation: "Potassium + Water -> violent reaction + Wet",
@@ -933,6 +958,13 @@ const SCIENCE_NOTES = {
     reason: "Corrode only works after the Corroded status is present, so students must plan the sequence first.",
     preview: "Corrode is strongest when you think one step ahead and create Corroded first.",
   },
+  extinguish: {
+    title: "Fire Extinguishing with CO2",
+    equation: "CO2 + extinguisher -> stop a fire hit",
+    body: "Extinguish teaches that carbon dioxide can help put out some fires by reducing the oxygen around the flame.",
+    reason: "Extinguish grants Fireproof, so the next fire-based hit is cancelled instead of dealing damage.",
+    preview: "Play Carbon Dioxide first, then use Extinguish before a fire attack lands.",
+  },
 };
 
 const ELEMENT_INFO = {
@@ -965,6 +997,11 @@ const ELEMENT_INFO = {
     category: "Solid nonmetal",
     property: "Acts like a fuel source in combustion-style play.",
     reactions: ["Carbon Burn"],
+  },
+  carbonDioxide: {
+    category: "Gas compound",
+    property: "Can help smother flames and support defensive fire-safety play.",
+    reactions: ["Extinguish"],
   },
   chlorine: {
     category: "Gas",
@@ -1395,6 +1432,25 @@ function removePlayerStatus(player, status) {
   player.statuses = player.statuses.filter((item) => item !== status);
 }
 
+function isFireCard(card) {
+  if (!card) return false;
+  if (Array.isArray(card.tags) && card.tags.includes("fire")) return true;
+  return ["explosion", "alkaliExplosion"].includes(card.id);
+}
+
+function consumeFireproof(localGame, protectedPlayer, attackingCard, attackerId) {
+  if (!protectedPlayer?.statuses?.includes("Fireproof") || !isFireCard(attackingCard)) {
+    return false;
+  }
+
+  removePlayerStatus(protectedPlayer, "Fireproof");
+  logGameMessage(
+    localGame,
+    `Player ${protectedPlayer.id} used Fireproof to extinguish ${attackingCard.name} from Player ${attackerId}.`,
+  );
+  return true;
+}
+
 function checkGameWinner(localGame) {
   if (localGame.players[1].hp <= 0 && localGame.players[2].hp <= 0) {
     localGame.winner = "Draw";
@@ -1415,6 +1471,10 @@ function applyPracticeStartTurnEffects(localGame, player) {
   if (player.statuses.includes("Wet")) {
     removePlayerStatus(player, "Wet");
     logGameMessage(localGame, `Player ${player.id} is no longer Wet.`);
+  }
+  if (player.statuses.includes("Fireproof")) {
+    removePlayerStatus(player, "Fireproof");
+    logGameMessage(localGame, `Player ${player.id} is no longer Fireproof.`);
   }
 }
 
@@ -1470,6 +1530,13 @@ function resolveLocalAttackPreview(card, player, opponent) {
   return { ok: true };
 }
 
+function resolveLocalUtilityPreview(card, player) {
+  if (card.id === "extinguish" && !playerHasFieldCard(player, "carbonDioxide")) {
+    return { ok: false, message: "Carbon Dioxide must be on your field first." };
+  }
+  return { ok: true };
+}
+
 function resolveLocalReactionPreview(card, player) {
   const checks = {
     combustion: ["sulfur", "oxygen"],
@@ -1494,6 +1561,9 @@ function resolveLocalReactionPreview(card, player) {
 }
 
 function resolveLocalAttack(localGame, card, player, opponent) {
+  if (consumeFireproof(localGame, opponent, card, player.id)) {
+    return true;
+  }
   if (card.id === "fireball") {
     opponent.hp = Math.max(0, opponent.hp - 3);
     logGameMessage(localGame, `Player ${player.id} cast Fireball for 3 damage.`);
@@ -1558,6 +1628,9 @@ function resolveLocalAttack(localGame, card, player, opponent) {
 }
 
 function resolveLocalReaction(localGame, card, player, opponent) {
+  if (consumeFireproof(localGame, opponent, card, player.id)) {
+    return true;
+  }
   if (card.id === "combustion" && playerHasFieldCard(player, "sulfur") && playerHasFieldCard(player, "oxygen")) {
     opponent.hp = Math.max(0, opponent.hp - 7);
     logGameMessage(localGame, `Player ${player.id} triggered Combustion for 7 damage.`);
@@ -1645,6 +1718,11 @@ function playLocalCard(localGame, currentPid, handIndex) {
     if (!canUse.ok) return canUse;
   }
 
+  if (card.type === "Utility") {
+    const canUse = resolveLocalUtilityPreview(card, player);
+    if (!canUse.ok) return canUse;
+  }
+
   const effect = buildLocalEffectPayload(card, player, opponent);
 
   player.energy -= card.cost;
@@ -1661,6 +1739,10 @@ function playLocalCard(localGame, currentPid, handIndex) {
     player.hp = Math.min(player.maxHp, player.hp + 2);
     player.discard.push(card);
     logGameMessage(localGame, `Player ${player.id} used Lab Shield and healed 2 HP.`);
+  } else if (card.id === "extinguish") {
+    addPlayerStatus(player, "Fireproof");
+    player.discard.push(card);
+    logGameMessage(localGame, `Player ${player.id} used Extinguish and became Fireproof.`);
   } else if (card.type === "Attack") {
     resolveLocalAttack(localGame, card, player, opponent);
     player.discard.push(card);
@@ -1725,6 +1807,11 @@ function getPracticeCardScore(card, player, opponent) {
     return player.hp <= 5 ? 58 : 12;
   }
 
+  if (card.id === "extinguish") {
+    if (!playerHasFieldCard(player, "carbonDioxide")) return -Infinity;
+    return player.hp <= 6 ? 52 : 22;
+  }
+
   if (card.id === "catalyst") {
     return player.energy <= 1 ? 24 : 14;
   }
@@ -1735,6 +1822,7 @@ function getPracticeCardScore(card, player, opponent) {
     const handIds = player.hand.map((handCard) => handCard.id);
     if (card.id === "oxygen" && handIds.some((id) => ["combustion", "steamBurst", "rust", "explosion", "carbonBurn", "alkaliExplosion", "plasmaShock"].includes(id))) score += 9;
     if (card.id === "water" && handIds.some((id) => ["steamBurst", "acidRain", "potassiumWater", "limeFormation", "calciumSteam"].includes(id))) score += 8;
+    if (card.id === "carbonDioxide" && handIds.includes("extinguish")) score += 7;
     if (card.id === "potassium" && handIds.some((id) => ["potassiumWater", "alkaliExplosion", "alkaliBlast"].includes(id))) score += 8;
     if (card.id === "iron" && handIds.some((id) => ["rust", "hammerStrike", "metalCrush"].includes(id))) score += 6;
     if (card.id === "calcium" && handIds.some((id) => ["limeFormation", "calciumSteam", "metalCrush"].includes(id))) score += 6;
@@ -2190,6 +2278,10 @@ function applyLearningUpdate(cardId, effect = {}) {
   if (cardId === "lightning" && effect.enemyWet) {
     learningGoalState.lightning_combo = true;
     addScienceSummaryHighlight("Lightning became stronger after Wet, demonstrating conductivity in a simple game rule.");
+  }
+
+  if (cardId === "extinguish") {
+    addScienceSummaryHighlight("Carbon dioxide can help smother some fires, so Extinguish teaches a real fire-safety connection.");
   }
 
   renderLearningGoals();
@@ -2750,6 +2842,11 @@ function getCardEffectContext(cardId, actorPid) {
       ctx.targetSelector = actorDesk;
       ctx.heal = 2;
       break;
+    case "extinguish":
+      ctx.sourceSelector = actorDesk;
+      ctx.targetSelector = actorDesk;
+      ctx.duration = 800;
+      break;
     default:
       if (card.type === "Utility" || card.type === "Element") {
         ctx.sourceSelector = actorDesk;
@@ -3225,6 +3322,10 @@ function isCardPlayableNow(card, pid) {
 
   if (card.id === "corrode") {
     return opponent?.statuses?.includes("Corroded") && (opponent?.field?.length || 0) > 0;
+  }
+
+  if (card.id === "extinguish") {
+    return player?.field?.some((fieldCard) => fieldCard?.id === "carbonDioxide");
   }
 
   return true;
@@ -3716,6 +3817,12 @@ function getStatusHintText() {
   }
   if (/is no longer Wet/i.test(latestLog)) {
     return "Start of turn: Wet has worn off.";
+  }
+  if (/is no longer Fireproof/i.test(latestLog)) {
+    return "Start of turn: Fireproof has worn off.";
+  }
+  if (/used Fireproof to extinguish/i.test(latestLog)) {
+    return "Fireproof blocked a fire-based hit.";
   }
 
   if (!isMyTurn()) {

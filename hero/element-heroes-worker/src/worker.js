@@ -1587,6 +1587,16 @@ const CARD_LIBRARY = {
     className: "element-carbon",
     tags: ["element", "solid"],
   },
+  carbonDioxide: {
+    id: "carbonDioxide",
+    name: "Carbon Dioxide",
+    type: "Element",
+    cost: 1,
+    symbol: "CO2",
+    text: "Gas that can help smother flames and support extinguisher tools.",
+    className: "element-carbon-dioxide",
+    tags: ["element", "gas", "compound"],
+  },
   chlorine: {
     id: "chlorine",
     name: "Chlorine",
@@ -1838,6 +1848,15 @@ const CARD_LIBRARY = {
     text: "Heal 2 HP.",
     tags: ["utility", "defense"],
   },
+  extinguish: {
+    id: "extinguish",
+    name: "Extinguish",
+    type: "Utility",
+    cost: 1,
+    symbol: "UTL",
+    text: "If Carbon Dioxide is on your field, gain Fireproof and cancel the next fire hit.",
+    tags: ["utility", "gas", "defense"],
+  },
 };
 
 const DECKS = {
@@ -1847,6 +1866,7 @@ const DECKS = {
   "water",
   "hydrogen",
   "carbon",
+  "carbonDioxide",
   "sodium",
   "potassium",
   "helium",
@@ -1868,6 +1888,7 @@ const DECKS = {
   "noblePressure",
   "catalyst",
   "shield",
+  "extinguish",
   "corrode",
   "rust",
   "saltFormation",
@@ -1882,6 +1903,7 @@ const DECKS = {
   "water",
   "hydrogen",
   "carbon",
+  "carbonDioxide",
   "sodium",
   "potassium",
   "helium",
@@ -1903,6 +1925,7 @@ const DECKS = {
   "noblePressure",
   "catalyst",
   "shield",
+  "extinguish",
   "corrode",
   "rust",
   "saltFormation",
@@ -2020,6 +2043,25 @@ function removeStatus(player, status) {
   player.statuses = player.statuses.filter((item) => item !== status);
 }
 
+function isFireCard(card) {
+  if (!card) return false;
+  if (Array.isArray(card.tags) && card.tags.includes("fire")) return true;
+  return ["explosion", "alkaliExplosion"].includes(card.id);
+}
+
+function consumeFireproof(game, protectedPlayer, attackingCard, attackerId) {
+  if (!protectedPlayer?.statuses?.includes("Fireproof") || !isFireCard(attackingCard)) {
+    return false;
+  }
+
+  removeStatus(protectedPlayer, "Fireproof");
+  logMessage(
+    game,
+    "Player " + protectedPlayer.id + " used Fireproof to extinguish " + attackingCard.name + " from Player " + attackerId + ".",
+  );
+  return true;
+}
+
 function checkWinner(game) {
   if (game.players[1].hp <= 0 && game.players[2].hp <= 0) {
     game.winner = "Draw";
@@ -2040,6 +2082,10 @@ function applyStartTurnEffects(game, player) {
   if (player.statuses.includes("Wet")) {
     removeStatus(player, "Wet");
     logMessage(game, "Player " + player.id + " is no longer Wet.");
+  }
+  if (player.statuses.includes("Fireproof")) {
+    removeStatus(player, "Fireproof");
+    logMessage(game, "Player " + player.id + " is no longer Fireproof.");
   }
 }
 
@@ -2269,12 +2315,22 @@ function buildEffectPayload(card, player, opponent) {
     });
   }
 
+  if (card.id === "extinguish") {
+    return createEffectBase(card, player, opponent, {
+      effectGroup: "utility",
+      duration: 800,
+    });
+  }
+
   return createEffectBase(card, player, opponent, {
     effectGroup: "generic",
   });
 }
 
 function resolveAttack(game, card, player, opponent) {
+  if (consumeFireproof(game, opponent, card, player.id)) {
+    return true;
+  }
   if (card.id === "fireball") {
     opponent.hp = Math.max(0, opponent.hp - 3);
     logMessage(game, "Player " + player.id + " cast Fireball for 3 damage.");
@@ -2359,6 +2415,9 @@ function resolveAttack(game, card, player, opponent) {
 }
 
 function resolveReaction(game, card, player, opponent) {
+  if (consumeFireproof(game, opponent, card, player.id)) {
+    return true;
+  }
   if (card.id === "combustion" && hasFieldCard(player, "sulfur") && hasFieldCard(player, "oxygen")) {
     opponent.hp = Math.max(0, opponent.hp - 7);
     logMessage(game, "Player " + player.id + " triggered Combustion for 7 damage.");
@@ -2459,6 +2518,11 @@ function playCard(game, playerId, handIndex) {
     if (!canUse.ok) return canUse;
   }
 
+  if (card.type === "Utility") {
+    const canUse = resolveUtilityPreview(game, card, player);
+    if (!canUse.ok) return canUse;
+  }
+
   const effect = buildEffectPayload(card, player, opponent);
 
   player.energy -= card.cost;
@@ -2475,6 +2539,10 @@ function playCard(game, playerId, handIndex) {
     player.hp = Math.min(player.maxHp, player.hp + 2);
     player.discard.push(card);
     logMessage(game, "Player " + player.id + " used Lab Shield and healed 2 HP.");
+  } else if (card.id === "extinguish") {
+    addStatus(player, "Fireproof");
+    player.discard.push(card);
+    logMessage(game, "Player " + player.id + " used Extinguish and became Fireproof.");
   } else if (card.type === "Attack") {
     resolveAttack(game, card, player, opponent);
     player.discard.push(card);
@@ -2495,6 +2563,14 @@ function resolveAttackPreview(game, card, player, opponent) {
     if (!(opponent.statuses.includes("Corroded") && opponent.field.length > 0)) {
       return { ok: false, message: "That attack cannot be used right now." };
     }
+  }
+  return { ok: true };
+}
+
+function resolveUtilityPreview(game, card, player) {
+  void game;
+  if (card.id === "extinguish" && !hasFieldCard(player, "carbonDioxide")) {
+    return { ok: false, message: "Carbon Dioxide must be on your field first." };
   }
   return { ok: true };
 }
