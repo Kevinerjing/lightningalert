@@ -76,6 +76,9 @@
   };
 
   const SPECIAL_CINEMATIC_CARD_IDS = new Set([
+    "catalyst",
+    "shield",
+    "extinguish",
     "fireball",
     "hammerStrike",
     "corrode",
