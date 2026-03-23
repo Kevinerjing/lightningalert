@@ -1545,6 +1545,20 @@ function getDefaultElement(side) {
     return el || getPlayerArea(pid);
   }
 
+  function isDomElement(el) {
+    return !!(el && typeof el === "object" && el.nodeType === 1);
+  }
+
+  function getCombatFeedbackElement(el, pid) {
+    if (isDomElement(el)) return el;
+    return (
+      (Number(pid) === 1 ? qs("#p1Field") : qs("#p2Field"))
+      || (Number(pid) === 1 ? qs("#p1Hand") : qs("#p2Hand"))
+      || getPlayerArea(pid)
+      || null
+    );
+  }
+
   function createAreaGlow(el, className) {
     if (!el) return null;
     const rect = el.getBoundingClientRect();
@@ -1668,6 +1682,7 @@ function getDefaultElement(side) {
     const theme = getCardTheme(cardId);
     const targetEl = getCombatFocusArea(ctx.targetEl, ctx.targetPid);
     const sourceEl = getCombatFocusArea(ctx.sourceEl, ctx.actorPid);
+    const targetFeedbackEl = getCombatFeedbackElement(ctx.targetEl, ctx.targetPid);
 
     if ((ctx.damage ?? 0) > 0) {
       showDamage(targetEl, ctx.damage, theme.damageColor);
@@ -1682,7 +1697,7 @@ function getDefaultElement(side) {
       showDraw(sourceEl, ctx.draw);
     }
 
-    shake(targetEl);
+    shake(targetFeedbackEl);
     await wait(360);
   }
 
@@ -1707,6 +1722,8 @@ function getDefaultElement(side) {
           cinematicMode: true,
           sourceEl: cinematicSourceArea,
           targetEl: cinematicTargetArea,
+          sourceFeedbackEl: getCombatFeedbackElement(ctx.sourceEl, ctx.actorPid),
+          targetFeedbackEl: getCombatFeedbackElement(ctx.targetEl, ctx.targetPid),
         });
         await wait(Math.max(700, Number(ctx.duration) || 900));
       } else {
@@ -1779,13 +1796,13 @@ function getDefaultElement(side) {
   }
 
   function shake(el) {
-    if (!el) return;
+    if (!isDomElement(el) || !el.classList) return;
     el.classList.add("ehx-shake");
     setTimeout(() => el.classList.remove("ehx-shake"), 380);
   }
 
   function decayingShake(el) {
-    if (!el) return;
+    if (!isDomElement(el) || !el.style) return;
     const keyframes = [
       "translate(-8px, 2px)",
       "translate(6px, -2px)",
@@ -2139,12 +2156,12 @@ function getDefaultElement(side) {
     setTimeout(() => showDamage(targetEl, damage, color), 140);
   }
 
-function pressureWaveAt(targetEl, damage = 2) {
+function pressureWaveAt(targetEl, damage = 2, feedbackEl = targetEl) {
   const { x, y } = rectCenter(targetEl);
 
-  if (targetEl) {
-    targetEl.style.transition = "transform 120ms ease-out";
-    targetEl.style.transform = "scale(0.95)";
+  if (isDomElement(feedbackEl) && feedbackEl.style) {
+    feedbackEl.style.transition = "transform 120ms ease-out";
+    feedbackEl.style.transform = "scale(0.95)";
   }
 
   const ring = createNode("ehx-air-ring", {
@@ -2158,8 +2175,8 @@ function pressureWaveAt(targetEl, damage = 2) {
   );
 
   setTimeout(() => {
-    if (targetEl) {
-      targetEl.style.transform = "";
+    if (isDomElement(feedbackEl) && feedbackEl.style) {
+      feedbackEl.style.transform = "";
     }
   }, 120);
 
@@ -2533,7 +2550,7 @@ function pressureWaveAt(targetEl, damage = 2) {
     );
   }
 
-  function hammerStrikeAt(targetEl, damage = 2) {
+  function hammerStrikeAt(targetEl, damage = 2, feedbackEl = targetEl) {
     const { x, y } = rectCenter(targetEl);
     const anticipation = createNode("ehx-hammer-anticipation", {
       left: `${x}px`,
@@ -2541,9 +2558,9 @@ function pressureWaveAt(targetEl, damage = 2) {
     });
     removeLater(anticipation, 150);
 
-    if (targetEl) {
-      targetEl.style.transition = "transform 80ms ease-out";
-      targetEl.style.transform = "scale(1.02)";
+    if (isDomElement(feedbackEl) && feedbackEl.style) {
+      feedbackEl.style.transition = "transform 80ms ease-out";
+      feedbackEl.style.transform = "scale(1.02)";
     }
 
     setTimeout(() => {
@@ -2580,26 +2597,26 @@ function pressureWaveAt(targetEl, damage = 2) {
       hammerCrackAt(x, y);
       hammerGravelAt(x, y + 14, 14);
 
-      if (targetEl) {
-        targetEl.style.transition = "transform 45ms ease-out";
-        targetEl.style.transform = "scale(0.93)";
+      if (isDomElement(feedbackEl) && feedbackEl.style) {
+        feedbackEl.style.transition = "transform 45ms ease-out";
+        feedbackEl.style.transform = "scale(0.93)";
       }
       screenFlash(
         "radial-gradient(circle, rgba(255,255,255,0.18), rgba(220,228,235,0.06), rgba(0,0,0,0))"
       );
-      decayingShake(targetEl);
+      decayingShake(feedbackEl);
     }, 170);
 
     setTimeout(() => {
-      if (targetEl) {
-        targetEl.style.transition = "transform 110ms cubic-bezier(.2,.9,.2,1)";
-        targetEl.style.transform = "scale(1.015)";
+      if (isDomElement(feedbackEl) && feedbackEl.style) {
+        feedbackEl.style.transition = "transform 110ms cubic-bezier(.2,.9,.2,1)";
+        feedbackEl.style.transform = "scale(1.015)";
       }
     }, 228);
 
     setTimeout(() => {
-      if (targetEl) {
-        targetEl.style.transform = "";
+      if (isDomElement(feedbackEl) && feedbackEl.style) {
+        feedbackEl.style.transform = "";
       }
     }, 330);
 
@@ -2613,9 +2630,9 @@ function pressureWaveAt(targetEl, damage = 2) {
     }, 255);
   }
 
-  function noblePressureAt(targetEl, damage = 2) {
+  function noblePressureAt(targetEl, damage = 2, feedbackEl = targetEl) {
     const { x, y } = rectCenter(targetEl);
-    pressureWaveAt(targetEl, damage);
+    pressureWaveAt(targetEl, damage, feedbackEl);
     setTimeout(() => {
       const ring = createNode("ehx-air-ring", {
         left: `${x}px`,
@@ -2781,7 +2798,7 @@ function pressureWaveAt(targetEl, damage = 2) {
         break;
 
       case "hammerStrike":
-        hammerStrikeAt(ctx.targetEl, ctx.damage ?? 2);
+        hammerStrikeAt(ctx.targetEl, ctx.damage ?? 2, ctx.targetFeedbackEl || ctx.targetEl);
         break;
 
       case "metalCrush":
@@ -2845,7 +2862,7 @@ function pressureWaveAt(targetEl, damage = 2) {
         break;
 
         case "pressureWave":
-        pressureWaveAt(ctx.targetEl, ctx.damage ?? 2);
+        pressureWaveAt(ctx.targetEl, ctx.damage ?? 2, ctx.targetFeedbackEl || ctx.targetEl);
 
         if ((ctx.draw ?? 0) > 0) {
             setTimeout(() => {
