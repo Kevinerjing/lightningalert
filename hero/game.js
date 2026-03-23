@@ -1255,6 +1255,39 @@ function renderPracticeInlineGuide() {
   `;
 }
 
+function isElementInViewport(el, visibleRatio = 0.2) {
+  if (!el) return false;
+  const rect = el.getBoundingClientRect();
+  const viewportHeight = window.innerHeight || document.documentElement.clientHeight || 0;
+  if (viewportHeight <= 0 || rect.height <= 0) return false;
+  const visibleTop = Math.max(rect.top, 0);
+  const visibleBottom = Math.min(rect.bottom, viewportHeight);
+  const visibleHeight = Math.max(0, visibleBottom - visibleTop);
+  return visibleHeight >= rect.height * visibleRatio;
+}
+
+function updatePracticeScrollGuide() {
+  const guide = document.getElementById("practiceScrollGuide");
+  const gamePanel = document.getElementById("gamePanel");
+  const playerArea = document.getElementById("player-area");
+  if (!guide) return;
+
+  if (!isPracticeMode || !gamePanel || gamePanel.classList.contains("hidden") || !playerArea) {
+    guide.classList.add("hidden");
+    return;
+  }
+
+  const playerRect = playerArea.getBoundingClientRect();
+  const shouldHide = isElementInViewport(playerArea, 0.18) || playerRect.top <= window.innerHeight * 0.78;
+  guide.classList.toggle("hidden", shouldHide);
+}
+
+function scrollToPracticePlayerArea() {
+  const playerArea = document.getElementById("player-area");
+  if (!playerArea) return;
+  playerArea.scrollIntoView({ behavior: "smooth", block: "start" });
+}
+
 function cloneCard(cardId) {
   return JSON.parse(JSON.stringify(CARD_LIBRARY[cardId]));
 }
@@ -3801,6 +3834,7 @@ function render() {
   renderPracticeGuide();
   renderPracticeInlineGuide();
   applyPracticeGuideHighlights();
+  updatePracticeScrollGuide();
 
   const turnPill = document.getElementById("turnPill");
   const turnBanner = document.getElementById("turnBanner");
@@ -4077,11 +4111,15 @@ window.addEventListener("resize", () => {
   if (roomCode) {
     requestAnimationFrame(positionFloatingTurnUiDefault);
   }
+  updatePracticeScrollGuide();
 });
+
+window.addEventListener("scroll", updatePracticeScrollGuide, { passive: true });
 
 const hostBtn = document.getElementById("hostBtn");
 const practiceBtn = document.getElementById("practiceBtn");
 const practiceGuideToggleBtn = document.getElementById("practiceGuideToggleBtn");
+const practiceScrollGuideBtn = document.getElementById("practiceScrollGuide");
 const joinBtn = document.getElementById("joinBtn");
 const playCardBtn = document.getElementById("playCardBtn");
 const removeFieldCardBtn = document.getElementById("removeFieldCardBtn");
@@ -4099,6 +4137,7 @@ const closeTutorialBtn = document.getElementById("closeTutorialBtn");
 if (hostBtn) hostBtn.addEventListener("click", createRoom);
 if (practiceBtn) practiceBtn.addEventListener("click", startPracticeMode);
 if (practiceGuideToggleBtn) practiceGuideToggleBtn.addEventListener("click", togglePracticeGuideDetails);
+if (practiceScrollGuideBtn) practiceScrollGuideBtn.addEventListener("click", scrollToPracticePlayerArea);
 if (joinBtn) joinBtn.addEventListener("click", joinRoom);
 if (playCardBtn) playCardBtn.addEventListener("click", playSelectedCard);
 if (removeFieldCardBtn) removeFieldCardBtn.addEventListener("click", removeSelectedFieldCard);

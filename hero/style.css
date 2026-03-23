@@ -1295,6 +1295,59 @@ button.guide-focus::after,
   color: #8bf5bf;
 }
 
+.practice-scroll-guide {
+  position: fixed;
+  left: 50%;
+  bottom: 16px;
+  transform: translateX(-50%);
+  z-index: 1200;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 16px;
+  border-radius: 999px;
+  border: 1px solid rgba(85, 214, 255, 0.38);
+  background:
+    radial-gradient(circle at top, rgba(85, 214, 255, 0.18), transparent 58%),
+    rgba(7, 17, 29, 0.92);
+  color: #eafaff;
+  box-shadow: 0 16px 28px rgba(0, 0, 0, 0.35);
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  cursor: pointer;
+  animation: practiceScrollGuideFloat 1.25s ease-in-out infinite;
+  max-width: min(92vw, 360px);
+}
+
+.practice-scroll-guide:hover {
+  border-color: rgba(133, 233, 255, 0.58);
+  background:
+    radial-gradient(circle at top, rgba(85, 214, 255, 0.24), transparent 58%),
+    rgba(8, 21, 35, 0.96);
+}
+
+.practice-scroll-guide-label {
+  text-align: center;
+}
+
+.practice-scroll-guide-arrow {
+  width: 14px;
+  height: 14px;
+  border-right: 3px solid #8feeff;
+  border-bottom: 3px solid #8feeff;
+  transform: rotate(45deg) translateY(-1px);
+  filter: drop-shadow(0 0 10px rgba(85, 214, 255, 0.45));
+}
+
+@keyframes practiceScrollGuideFloat {
+  0%, 100% {
+    transform: translateX(-50%) translateY(0);
+  }
+  50% {
+    transform: translateX(-50%) translateY(5px);
+  }
+}
+
 .learning-goals {
   display: grid;
   gap: 8px;
