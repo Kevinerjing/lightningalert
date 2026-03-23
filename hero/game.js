@@ -439,7 +439,7 @@ const CARD_LIBRARY = {
     symbol: "H2O",
     text: "Liquid element enabling steam reactions.",
     className: "element-water",
-    tags: ["element", "liquid"],
+    tags: ["compound", "liquid"],
     image: "images/cards/water.png",
   },
   iron: {
@@ -484,7 +484,7 @@ const CARD_LIBRARY = {
     symbol: "CO2",
     text: "Gas that can help smother flames and support extinguisher tools.",
     className: "element-carbon-dioxide",
-    tags: ["element", "gas", "compound"],
+    tags: ["gas", "compound"],
     image: "images/cards/carbondioxide.png",
   },
   chlorine: {
@@ -3447,9 +3447,19 @@ function createCardElement(card, options = {}) {
     onClick = null,
     actions = [],
   } = options;
+  const libCard = card?.id ? CARD_LIBRARY[card.id] : null;
+  const displayType = card?.displayType || libCard?.displayType || card?.type || libCard?.type;
 
   const el = document.createElement("div");
-  const tags = Array.isArray(card.tags) ? card.tags : [];
+  const cardTypeLabel = normalizeCardTypeLabel(displayType);
+  const isTrueElementCard = cardTypeLabel.toLowerCase() === "element";
+  const rawTags = Array.isArray(card?.tags) ? card.tags : (Array.isArray(libCard?.tags) ? libCard.tags : []);
+  const tags = rawTags.filter((tagText) => {
+    const normalizedTag = String(tagText || "").trim().toLowerCase();
+    if (!normalizedTag) return false;
+    if (normalizedTag === "element") return isTrueElementCard;
+    return true;
+  });
   const cssType = getCardCssType(card);
   const extraClass = card.className ? ` ${card.className}` : "";
 

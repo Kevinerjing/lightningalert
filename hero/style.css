@@ -2047,7 +2047,7 @@ button.guide-focus::after,
   .hand-row > .card,
   #p1Hand > .card,
   #p2Hand > .card {
-    height: 282px !important;
+    height: 314px !important;
     overflow: hidden !important;
   }
 
@@ -2170,7 +2170,7 @@ button.guide-focus::after,
   #p2Hand .card-text {
     font-size: 10px !important;
     line-height: 1.2 !important;
-    max-height: 50px !important;
+    max-height: 72px !important;
     overflow: hidden !important;
     margin-bottom: 6px !important;
   }
@@ -2374,7 +2374,7 @@ button.guide-focus::after,
   .hand-row > .card,
   #p1Hand > .card,
   #p2Hand > .card {
-    height: 282px !important;
+    height: 314px !important;
   }
 
   .card-art,
@@ -2396,7 +2396,7 @@ button.guide-focus::after,
   .card-text,
   #p1Hand .card-text,
   #p2Hand .card-text {
-    max-height: 44px !important;
+    max-height: 72px !important;
   }
 
   .card-action-btn {

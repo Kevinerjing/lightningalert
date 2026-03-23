@@ -1556,7 +1556,7 @@ const CARD_LIBRARY = {
     symbol: "H2O",
     text: "Liquid element enabling steam reactions.",
     className: "element-water",
-    tags: ["element", "liquid"],
+    tags: ["compound", "liquid"],
   },
   iron: {
     id: "iron",
@@ -1597,7 +1597,7 @@ const CARD_LIBRARY = {
     symbol: "CO2",
     text: "Gas that can help smother flames and support extinguisher tools.",
     className: "element-carbon-dioxide",
-    tags: ["element", "gas", "compound"],
+    tags: ["gas", "compound"],
     image: "images/cards/carbondioxide.png",
   },
   chlorine: {
