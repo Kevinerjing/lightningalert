@@ -2860,6 +2860,61 @@ function getCardEffectContext(cardId, actorPid) {
   return ctx;
 }
 
+function getPlayAnimationTarget() {
+  return (
+    document.querySelector(".center-panel .battlebox") ||
+    document.querySelector(".center-panel") ||
+    document.getElementById("combat-cinematic-root") ||
+    document.body
+  );
+}
+
+function getHandCardElement(pid, handIndex) {
+  return document.querySelector(`#p${pid}Hand .card[data-index="${handIndex}"]`);
+}
+
+function cueAttackMotion(cardId, ctx) {
+  if (!window.HeroVfx?.animateAttack) return;
+  const card = CARD_LIBRARY[cardId];
+  const cardType = String(card?.type || "").toLowerCase();
+  if (cardType !== "attack" && cardType !== "reaction") return;
+
+  let sourceEl = document.querySelector(ctx.sourceSelector || "");
+  let targetEl = document.querySelector(ctx.targetSelector || "");
+  const sourceRect = sourceEl?.getBoundingClientRect?.();
+  const targetRect = targetEl?.getBoundingClientRect?.();
+
+  if (!sourceRect || sourceRect.width < 12 || sourceRect.height < 12) {
+    sourceEl = document.querySelector(
+      Number(ctx.actorPid) === 1 ? "#player-area" : "#enemy-area",
+    );
+  }
+  if (!targetRect || targetRect.width < 12 || targetRect.height < 12) {
+    targetEl = document.querySelector(
+      Number(ctx.targetPid) === 1 ? "#player-area" : "#enemy-area",
+    );
+  }
+
+  if (!sourceEl || !targetEl) return;
+
+  window.HeroVfx.animateAttack({
+    sourceEl,
+    targetEl,
+    heavy: (ctx.damage || 0) >= 6 || cardType === "reaction",
+  });
+}
+
+async function runPlayCardAnimation(card, pid, handIndex) {
+  if (!window.HeroVfx?.animatePlayCard) return;
+  const cardEl = getHandCardElement(pid, handIndex);
+  if (!cardEl) return;
+
+  await window.HeroVfx.animatePlayCard(cardEl, {
+    targetEl: getPlayAnimationTarget(),
+    duration: 520,
+  });
+}
+
 function triggerEffectForCard(cardId, actorPid) {
   if (!hasEffectSystem()) return;
   const card = CARD_LIBRARY[cardId];
@@ -2869,6 +2924,7 @@ function triggerEffectForCard(cardId, actorPid) {
   const ctx = getCardEffectContext(cardId, actorPid);
   if (!ctx) return;
 
+  cueAttackMotion(cardId, ctx);
   playCardSound(cardId, ctx);
 
   try {
@@ -3039,6 +3095,7 @@ function handleIncomingEffect(effect) {
     targetPid: resolvedTargetPid,
   });
 
+  cueAttackMotion(cardId, ctx);
   playCardSound(cardId, ctx);
 
   if (hasEffectSystem()) {
@@ -3531,7 +3588,6 @@ function createCardElement(card, options = {}) {
   body.appendChild(type);
   body.appendChild(text);
   body.appendChild(tagWrap);
-
   el.appendChild(top);
   el.appendChild(art);
   el.appendChild(badge);
@@ -3986,7 +4042,7 @@ function render() {
   updateHostRoomCard();
 }
 
-function playSelectedCard() {
+async function playSelectedCard() {
   if (!isMyTurn() || selectedCardIndex === null) return;
 
   const player = gameState.players[playerId];
@@ -4008,6 +4064,12 @@ function playSelectedCard() {
     showPlayedCardPreview(card);
   } else {
     console.warn("No image found for selected card:", rawCard);
+  }
+
+  try {
+    await runPlayCardAnimation(card, playerId, selectedCardIndex);
+  } catch (error) {
+    console.warn("Play animation failed:", error);
   }
 
   sendAction("play_card", { handIndex: selectedCardIndex });
