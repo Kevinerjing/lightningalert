@@ -437,7 +437,7 @@ const CARD_LIBRARY = {
     displayType: "Compound",
     cost: 1,
     symbol: "H2O",
-    text: "Liquid element enabling steam reactions.",
+    text: "Liquid compound that helps enable steam-style reactions.",
     className: "element-water",
     tags: ["compound", "liquid"],
     image: "images/cards/water.png",
@@ -482,7 +482,7 @@ const CARD_LIBRARY = {
     displayType: "Compound",
     cost: 1,
     symbol: "CO2",
-    text: "Gas that can help smother flames and support extinguisher tools.",
+    text: "Gas compound that can help smother flames and support extinguisher tools.",
     className: "element-carbon-dioxide",
     tags: ["gas", "compound"],
     image: "images/cards/carbondioxide.png",
@@ -846,8 +846,8 @@ const SCIENCE_NOTES = {
   water: {
     title: "Water Creates Conditions",
     equation: "Water -> Wet status and steam combos",
-    body: "Water helps create Wet-based setups that make later effects, especially Lightning, more meaningful.",
-    preview: "Water is often a setup card. Use it to enable Wet and steam combinations.",
+    body: "Water is a compound that helps create Wet-based setups and supports steam-style combinations.",
+    preview: "Water is often a setup compound card. Use it to enable Wet and steam combinations.",
   },
   iron: {
     title: "Iron Shows Oxidation",
@@ -907,8 +907,8 @@ const SCIENCE_NOTES = {
   carbonDioxide: {
     title: "Carbon Dioxide as a Fire Suppressant",
     equation: "CO2 -> helps smother flames",
-    body: "Carbon dioxide is a gas that can reduce the oxygen around a flame, which is why it is used in some fire extinguishers.",
-    preview: "Carbon Dioxide is a support gas card that unlocks Extinguish.",
+    body: "Carbon dioxide is a gas compound that can reduce the oxygen around a flame, which is why it is used in some fire extinguishers.",
+    preview: "Carbon Dioxide is a support compound card that unlocks Extinguish.",
   },
   potassiumWater: {
     title: "Alkali Metal Reaction",
@@ -1079,7 +1079,7 @@ function getPracticeGuideStatus() {
       title = `Play ${selectedCard.name} onto your field.`;
       body = "Elements stay on the field and unlock future reactions, so they are usually your first setup move.";
     } else if (selectableElement) {
-      title = `Choose ${selectableElement.name} or another element next.`;
+      title = `Choose ${selectableElement.name} or another science card next.`;
       body = "Elements are the easiest way to start because reactions need the right materials on the field first.";
     } else {
       title = "No element ready yet. End your turn to draw more cards.";
@@ -2025,7 +2025,7 @@ function getScienceNote(cardId, context = {}) {
       equation: card.text || "",
       body: "Reaction cards teach that the right reactants must already be present before a scientific change can happen.",
       reason: "This move worked because its field requirements were met first.",
-      preview: "Check which elements must already be on the field before you play this reaction.",
+      preview: "Check which required cards must already be on the field before you play this reaction.",
     };
   }
 
@@ -2035,17 +2035,17 @@ function getScienceNote(cardId, context = {}) {
       equation: card.text || "",
       body: "Attack cards help students compare direct effects with more conditional combo-based effects.",
       reason: "This attack shows how battle outcomes can depend on field setup and status effects.",
-      preview: "Think about whether another element or status could make this attack even better.",
+      preview: "Think about whether another card or status could make this attack even better.",
     };
   }
 
   if (card.type === "Element") {
     return {
-      title: `${card.name} Element`,
+      title: `${card.name} Substance`,
       equation: card.text || "",
-      body: "Element cards act as reactants and building blocks for later science-based combinations.",
-      reason: "Placing elements first teaches that reactions need preparation before results appear.",
-      preview: "Ask which reactions this element can unlock on your field.",
+      body: "Substance cards act as reactants and building blocks for later science-based combinations.",
+      reason: "Placing substance cards first teaches that reactions need preparation before results appear.",
+      preview: "Ask which reactions this card can unlock on your field.",
     };
   }
 
@@ -2323,8 +2323,8 @@ function renderElementInfoCard(card = null) {
 
   if (!card || !info) {
     container.innerHTML = `
-      <div class="element-info-name">Select an element</div>
-      <div class="element-info-line">Choose Sulfur, Oxygen, Water, Iron, or another element card.</div>
+      <div class="element-info-name">Select a substance</div>
+      <div class="element-info-line">Choose Sulfur, Oxygen, Water, Iron, or another substance card.</div>
       <div class="element-info-line">Its science summary will appear here.</div>
     `;
     return;
@@ -2333,11 +2333,11 @@ function renderElementInfoCard(card = null) {
   const reactions = Array.isArray(info.reactions) ? info.reactions.join(", ") : "No linked reactions";
 
   container.innerHTML = `
-    <div class="element-info-kicker">Element Profile</div>
+    <div class="element-info-kicker">Substance Profile</div>
     <div class="element-info-name">${escapeHtml(card.name)}</div>
     <div class="element-info-chip-row">
       <span class="element-info-chip">${escapeHtml(info.category)}</span>
-      <span class="element-info-chip">${escapeHtml(card.symbol || "Element")}</span>
+      <span class="element-info-chip">${escapeHtml(card.symbol || "Substance")}</span>
     </div>
     <div class="element-info-line"><strong>Key Property:</strong> ${escapeHtml(info.property)}</div>
     <div class="element-info-line"><strong>Used In:</strong> ${escapeHtml(reactions)}</div>
