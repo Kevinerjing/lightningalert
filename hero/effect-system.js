@@ -72,6 +72,7 @@
     // Utility
     catalyst: "energyBoost",
     shield: "shieldGlow",
+    extinguish: "extinguishBurst",
   };
 
   const SPECIAL_CINEMATIC_CARD_IDS = new Set([
@@ -2320,6 +2321,53 @@ function pressureWaveAt(targetEl, damage = 2, feedbackEl = targetEl) {
     removeLater(shield, 920);
   }
 
+  function extinguishAt(targetEl) {
+    const { x, y } = rectCenter(targetEl);
+    const cloud = createNode("ehx-acid-sky", {
+      left: `${x}px`,
+      top: `${y}px`,
+      width: "240px",
+      height: "240px",
+      marginLeft: "-120px",
+      marginTop: "-120px",
+      background:
+        "radial-gradient(circle, rgba(242,248,252,0.9) 0%, rgba(186,214,226,0.42) 42%, rgba(0,0,0,0) 82%)",
+      opacity: "0.82",
+      borderRadius: "50%",
+      filter: "blur(6px)",
+    });
+    removeLater(cloud, 820);
+
+    for (let i = 0; i < 10; i += 1) {
+      const puff = createNode("ehx-gas-dot", {
+        left: `${x + random(-58, 58)}px`,
+        top: `${y + random(-20, 34)}px`,
+        width: `${random(12, 22)}px`,
+        height: `${random(12, 22)}px`,
+        background: "radial-gradient(circle, rgba(248,252,255,0.96), rgba(190,220,232,0))",
+        animationDuration: `${0.75 + Math.random() * 0.35}s`,
+      });
+      removeLater(puff, 900);
+    }
+
+    const ring = createNode("ehx-air-ring", {
+      left: `${x}px`,
+      top: `${y}px`,
+      width: "132px",
+      height: "132px",
+      marginLeft: "-66px",
+      marginTop: "-66px",
+      borderColor: "rgba(231,245,255,0.9)",
+      borderWidth: "5px",
+    });
+    removeLater(ring, 700);
+
+    floatText(x, y - 36, "Fireproof", {
+      color: "#eefcff",
+      fontSize: "28px",
+    });
+  }
+
   function gasFloatAt(targetEl, count = 8, colorA = "rgba(220,245,255,0.95)", colorB = "rgba(110,180,255,0)") {
     const { x, y } = rectCenter(targetEl);
     for (let i = 0; i < count; i++) {
@@ -2895,6 +2943,13 @@ function pressureWaveAt(targetEl, damage = 2, feedbackEl = targetEl) {
           const self = ctx.sourceEl || getDefaultElement("player");
           shieldAt(self);
           showHeal(self, ctx.heal ?? 2);
+        }
+        break;
+
+      case "extinguishBurst":
+        {
+          const self = ctx.sourceEl || getDefaultElement("player");
+          extinguishAt(self);
         }
         break;
 

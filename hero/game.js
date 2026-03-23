@@ -773,6 +773,7 @@ const CARD_LIBRARY = {
     symbol: "UTL",
     text: "If Carbon Dioxide is on your field, gain Fireproof and cancel the next fire hit.",
     tags: ["utility", "gas", "defense"],
+    image: "images/cards/extinguish.png",
   },
 };
 
