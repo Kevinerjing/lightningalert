@@ -2200,13 +2200,13 @@ function pressureWaveAt(targetEl, damage = 2) {
       top: `${y + 30}px`,
     });
 
-      removeLater(darkwash, 5200);
-      removeLater(flash, 700);
-      removeLater(splat, 2600);
-      removeLater(liquid, 5400);
-      removeLater(stain, 5600);
+    removeLater(darkwash, 1400);
+    removeLater(flash, 520);
+    removeLater(splat, 1500);
+    removeLater(liquid, 1700);
+    removeLater(stain, 1800);
 
-    for (let i = 0; i < 12; i += 1) {
+    for (let i = 0; i < 6; i += 1) {
       const size = random(12, 18);
       const bubble = createNode("corrode-bubble", {
         width: `${size}px`,
@@ -2221,15 +2221,15 @@ function pressureWaveAt(targetEl, damage = 2) {
         { transform: `translate(${drift * 0.35}px, -${rise * 0.35}px) scale(.9)`, opacity: 0.95, offset: 0.35 },
         { transform: `translate(${drift}px, -${rise}px) scale(1.1)`, opacity: 0, offset: 1 },
       ], {
-        duration: 2200 + Math.random() * 1500,
-        delay: Math.random() * 1400,
+        duration: 700 + Math.random() * 350,
+        delay: Math.random() * 280,
         easing: "ease-out",
         fill: "forwards",
       });
-      removeLater(bubble, 5200);
+      removeLater(bubble, 1300);
     }
 
-    for (let i = 0; i < 3; i += 1) {
+    for (let i = 0; i < 2; i += 1) {
       const size = random(110, 150);
       const vapor = createNode("corrode-smoke", {
         width: `${size}px`,
@@ -2244,12 +2244,12 @@ function pressureWaveAt(targetEl, damage = 2) {
         { transform: `translate(${dx * 0.4}px, ${dy * 0.4}px) scale(1)`, opacity: 0.8, offset: 0.25 },
         { transform: `translate(${dx}px, ${dy}px) scale(1.35)`, opacity: 0, offset: 1 },
       ], {
-        duration: 2400 + Math.random() * 1200,
-        delay: 300 + Math.random() * 1000,
+        duration: 900 + Math.random() * 280,
+        delay: 120 + Math.random() * 260,
         easing: "ease-out",
         fill: "forwards",
       });
-      removeLater(vapor, 4700);
+      removeLater(vapor, 1600);
     }
 
     corrodeDripsAt(x, y + 36);
