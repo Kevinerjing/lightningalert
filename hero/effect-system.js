@@ -74,6 +74,30 @@
     shield: "shieldGlow",
   };
 
+  const SPECIAL_CINEMATIC_CARD_IDS = new Set([
+    "fireball",
+    "hammerStrike",
+    "corrode",
+    "lightning",
+    "poisonCloud",
+    "plasmaShock",
+    "alkaliBlast",
+    "metalCrush",
+    "noblePressure",
+    "combustion",
+    "steamBurst",
+    "acidRain",
+    "rust",
+    "explosion",
+    "saltFormation",
+    "carbonBurn",
+    "potassiumWater",
+    "limeFormation",
+    "calciumSteam",
+    "alkaliExplosion",
+    "hydrogenBurn",
+  ]);
+
   function getFxLayer() {
     return document.getElementById("fx-layer") || document.body;
   }
@@ -1643,7 +1667,13 @@ function getDefaultElement(side) {
       await highlightCardAsync(cardId, ctx);
       await showLocalEffectAsync(cardId, ctx);
       await showGlobalImpactAsync(cardId, ctx);
-      await applyDamageStepAsync(cardId, ctx);
+
+      if (SPECIAL_CINEMATIC_CARD_IDS.has(cardId)) {
+        playCardEffect(cardId, { ...ctx, cinematicMode: true });
+        await wait(Math.max(700, Number(ctx.duration) || 900));
+      } else {
+        await applyDamageStepAsync(cardId, ctx);
+      }
     } finally {
       unlockCombatInteraction();
     }
@@ -1694,6 +1724,10 @@ function getDefaultElement(side) {
 
     if (actorPid && targetPid && actorPid !== targetPid) {
       return currentPlayerId !== actorPid;
+    }
+
+    if (actorPid && targetPid && actorPid === targetPid) {
+      return currentPlayerId === actorPid;
     }
 
     return true;
@@ -2606,11 +2640,14 @@ function pressureWaveAt(targetEl, damage = 2) {
     const effect = CARD_EFFECT_MAP[cardId];
     if (!effect) return false;
 
-    showCardCastFlash(cardId, ctx.actorPid);
     if (!shouldRunViewerAnimation(cardId, ctx)) {
       return true;
     }
-    if (shouldShowScreenHit(cardId, ctx)) {
+
+    if (!ctx.cinematicMode) {
+      showCardCastFlash(cardId, ctx.actorPid);
+    }
+    if (!ctx.cinematicMode && shouldShowScreenHit(cardId, ctx)) {
       showScreenHit(cardId, ctx.targetPid, ctx);
     }
 
