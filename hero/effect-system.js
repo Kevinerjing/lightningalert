@@ -1691,6 +1691,8 @@ function getDefaultElement(side) {
     const effect = CARD_EFFECT_MAP[cardId];
     if (!effect) return false;
     const usesSpecialCinematic = SPECIAL_CINEMATIC_CARD_IDS.has(cardId);
+    const cinematicSourceArea = getCombatFocusArea(null, ctx.actorPid);
+    const cinematicTargetArea = getCombatFocusArea(null, ctx.targetPid);
 
     if (!shouldRunViewerAnimation(cardId, ctx)) {
       return true;
@@ -1700,7 +1702,12 @@ function getDefaultElement(side) {
     try {
       await highlightCardAsync(cardId, ctx);
       if (usesSpecialCinematic) {
-        playCardEffect(cardId, { ...ctx, cinematicMode: true });
+        playCardEffect(cardId, {
+          ...ctx,
+          cinematicMode: true,
+          sourceEl: cinematicSourceArea,
+          targetEl: cinematicTargetArea,
+        });
         await wait(Math.max(700, Number(ctx.duration) || 900));
       } else {
         await showLocalEffectAsync(cardId, ctx);
