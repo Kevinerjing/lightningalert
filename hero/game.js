@@ -14,6 +14,7 @@ let previousGameState = null;
 let selectedCardIndex = null;
 let selectedFieldIndex = null;
 let pendingLocalEffect = null;
+const recentEffectReplayKeys = new Map();
 
 let roomListRefreshTimer = null;
 let currentRoomList = [];
@@ -161,6 +162,45 @@ function clampFloatingTurnPosition(left, top, elementRect = null) {
     left: Math.min(maxLeft, Math.max(minLeft, left)),
     top: Math.min(maxTop, Math.max(minTop, top)),
   };
+}
+
+function cleanupRecentEffectReplayKeys() {
+  const now = Date.now();
+  for (const [key, expiresAt] of recentEffectReplayKeys.entries()) {
+    if (expiresAt <= now) {
+      recentEffectReplayKeys.delete(key);
+    }
+  }
+}
+
+function buildEffectReplayKeys(effect = {}) {
+  const cardId = String(effect.effectType || effect.cardId || "").toLowerCase();
+  const actorPid = Number(effect.actorPid || effect.sourcePid || effect.source || 0);
+  const targetPid = Number(effect.targetPid || effect.target || 0);
+  const keys = [];
+
+  if (effect.effectId) {
+    keys.push(`effect:${effect.effectId}`);
+  }
+  if (cardId && actorPid) {
+    keys.push(`combat:${cardId}:${actorPid}:${targetPid || 0}`);
+    keys.push(`combat-actor:${cardId}:${actorPid}`);
+  }
+
+  return keys;
+}
+
+function rememberEffectReplay(effect = {}, ttlMs = 2500) {
+  cleanupRecentEffectReplayKeys();
+  const expiresAt = Date.now() + ttlMs;
+  for (const key of buildEffectReplayKeys(effect)) {
+    recentEffectReplayKeys.set(key, expiresAt);
+  }
+}
+
+function hasRecentEffectReplay(effect = {}) {
+  cleanupRecentEffectReplayKeys();
+  return buildEffectReplayKeys(effect).some((key) => recentEffectReplayKeys.has(key));
 }
 
 function saveFloatingTurnUiPosition(left, top) {
@@ -2790,6 +2830,10 @@ function handleEffectsFromLogTransition(prevState, nextState) {
     const actorPid = detectActorPidFromLogText(line);
 
     if (!cardId || !actorPid) return;
+    if (hasRecentEffectReplay({ cardId, actorPid })) {
+      localEffectAlreadyPlayed = true;
+      return;
+    }
 
     if (
       pendingLocalEffect &&
@@ -2812,6 +2856,7 @@ function handleEffectsFromLogTransition(prevState, nextState) {
 
 function handleIncomingEffect(effect) {
   if (!effect) return;
+  if (hasRecentEffectReplay(effect)) return;
 
   const cardId = effect.effectType || effect.cardId;
   if (!cardId || !CARD_LIBRARY[cardId]) return;
@@ -2853,6 +2898,13 @@ function handleIncomingEffect(effect) {
   if (card?.type === "Utility" || card?.type === "Element") {
     ctx.targetSelector = effect.targetSelector || fallbackCtx.targetSelector || getSelfDeskSelector();
   }
+
+  rememberEffectReplay({
+    effectId: effect.effectId,
+    cardId,
+    actorPid,
+    targetPid: resolvedTargetPid,
+  });
 
   playCardSound(cardId, ctx);
 
