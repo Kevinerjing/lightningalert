@@ -256,6 +256,29 @@
       margin-top: 6px;
     }
 
+    .tutorial-video-card {
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: rgba(255,255,255,0.04);
+      padding: 14px;
+    }
+
+    .tutorial-video-card video {
+      width: 100%;
+      display: block;
+      border-radius: 14px;
+      border: 1px solid var(--line);
+      background: #000;
+      box-shadow: var(--shadow);
+    }
+
+    .tutorial-video-caption {
+      margin-top: 12px;
+      color: #d8e9f5;
+      line-height: 1.7;
+      font-size: 14px;
+    }
+
     .tip-box {
       border: 1px solid rgba(177,245,110,0.25);
       background: rgba(177,245,110,0.08);
@@ -566,6 +589,23 @@
               <strong>Alkali Reaction</strong>
               <div>Potassium + Water = 9 damage and Wet</div>
               <div class="reaction-note">Real chemistry: 2K + 2H2O -> 2KOH + H2. Potassium reacts very violently with water, releasing hydrogen gas and heat.</div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section-box">
+          <div class="section-title">Ionic Bonding Demo</div>
+          <div class="section-subtitle">Watch sodium transfer an electron to chlorine and form sodium chloride.</div>
+
+          <div class="tutorial-video-card">
+            <video controls playsinline preload="metadata">
+              <source src="video/NaCl.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+
+            <div class="tutorial-video-caption">
+              Real chemistry: 2Na + Cl2 -> 2NaCl. Sodium loses one outer electron, chlorine gains it, and the
+              oppositely charged ions attract to form an ionic compound.
             </div>
           </div>
         </section>
