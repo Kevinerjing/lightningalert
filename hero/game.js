@@ -434,6 +434,7 @@ const CARD_LIBRARY = {
     id: "water",
     name: "Water",
     type: "Element",
+    displayType: "Compound",
     cost: 1,
     symbol: "H2O",
     text: "Liquid element enabling steam reactions.",
@@ -478,11 +479,13 @@ const CARD_LIBRARY = {
     id: "carbonDioxide",
     name: "Carbon Dioxide",
     type: "Element",
+    displayType: "Compound",
     cost: 1,
     symbol: "CO2",
     text: "Gas that can help smother flames and support extinguisher tools.",
     className: "element-carbon-dioxide",
     tags: ["element", "gas", "compound"],
+    image: "images/cards/carbondioxide.png",
   },
   chlorine: {
     id: "chlorine",
@@ -3402,11 +3405,16 @@ function normalizeCardTypeLabel(type) {
   const t = String(type || "").toLowerCase();
 
   if (t === "element") return "ELEMENT";
+  if (t === "compound") return "COMPOUND";
   if (t === "reaction" || t === "rxn") return "REACTION";
   if (t === "attack" || t === "atk") return "ATTACK";
   if (t === "utility") return "UTILITY";
 
   return String(type || "CARD").toUpperCase();
+}
+
+function getCardTypeLabel(card) {
+  return normalizeCardTypeLabel(card?.displayType || card?.type);
 }
 
 function getCardBadge(card) {
@@ -3497,7 +3505,7 @@ function createCardElement(card, options = {}) {
 
   const type = document.createElement("div");
   type.className = "card-type";
-  type.textContent = normalizeCardTypeLabel(card.type);
+  type.textContent = getCardTypeLabel(card);
 
   const text = document.createElement("div");
   text.className = "card-text";
@@ -3567,7 +3575,7 @@ function createMiniCard(card) {
   el.innerHTML = `
     <strong>${escapeHtml(card.name || "")}</strong>
     <span>${escapeHtml(card.symbol || "")}</span>
-    <span>${escapeHtml(normalizeCardTypeLabel(card.type))}</span>
+    <span>${escapeHtml(getCardTypeLabel(card))}</span>
   `;
   return el;
 }
@@ -3784,7 +3792,7 @@ function renderSelectedCardBox() {
   if (selectedCardIndex !== null && player.hand[selectedCardIndex]) {
     const card = player.hand[selectedCardIndex];
     box.innerHTML = `<strong style="font-size:18px;">${escapeHtml(card.name || "")}</strong><br>
-      <span style="color: var(--muted); text-transform: uppercase; letter-spacing: .08em; font-size: 12px;">${escapeHtml(normalizeCardTypeLabel(card.type))}</span>
+      <span style="color: var(--muted); text-transform: uppercase; letter-spacing: .08em; font-size: 12px;">${escapeHtml(getCardTypeLabel(card))}</span>
       <p style="line-height:1.55;">${escapeHtml(card.text || "")}</p>
       <div style="color: var(--muted);">Cost: ${escapeHtml(String(card.cost || 0))} energy</div>
       ${getSelectedCardScienceHtml(card)}`;
