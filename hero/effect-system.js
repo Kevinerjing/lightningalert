@@ -1716,18 +1716,15 @@ function getDefaultElement(side) {
   }
 
   function shouldRunViewerAnimation(cardId, ctx) {
-    const currentPlayerId = Number(window.playerId || ctx?.playerId || 0);
-    if (!ctx || !currentPlayerId) return true;
-
     const actorPid = Number(ctx.actorPid || 0);
     const targetPid = Number(ctx.targetPid || 0);
 
     if (actorPid && targetPid && actorPid !== targetPid) {
-      return currentPlayerId !== actorPid;
+      return true;
     }
 
     if (actorPid && targetPid && actorPid === targetPid) {
-      return currentPlayerId === actorPid;
+      return false;
     }
 
     return true;
