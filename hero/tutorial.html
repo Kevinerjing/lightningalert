@@ -257,6 +257,53 @@
       margin-top: 6px;
     }
 
+    .property-table-wrap {
+      overflow-x: auto;
+    }
+
+    .property-table {
+      width: 100%;
+      border-collapse: collapse;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      overflow: hidden;
+      background: rgba(255,255,255,0.04);
+    }
+
+    .property-table th,
+    .property-table td {
+      padding: 12px 14px;
+      text-align: left;
+      border-bottom: 1px solid var(--line);
+      vertical-align: top;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .property-table th {
+      color: var(--accent);
+      background: rgba(255,255,255,0.03);
+      font-size: 13px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .property-table td:first-child {
+      font-weight: 800;
+      min-width: 140px;
+    }
+
+    .property-table tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .property-note {
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.6;
+    }
+
     .tutorial-video-card {
       border: 1px solid var(--line);
       border-radius: 16px;
@@ -553,6 +600,46 @@
         </section>
 
         <section class="section-box">
+          <div class="section-title">Metal or Non-metal?</div>
+          <div class="section-subtitle">Use these common classroom clues when you compare substances in the game.</div>
+
+          <div class="property-table-wrap">
+            <table class="property-table">
+              <thead>
+                <tr>
+                  <th>Property</th>
+                  <th>Metals</th>
+                  <th>Non-metals</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Lustre</td>
+                  <td>Usually shiny or lustrous.</td>
+                  <td>Often dull, although some can appear shiny.</td>
+                </tr>
+                <tr>
+                  <td>Malleability</td>
+                  <td>Usually malleable, so they can be bent or hammered into shape.</td>
+                  <td>Not malleable. Solid non-metals are often brittle.</td>
+                </tr>
+                <tr>
+                  <td>Electrical conductivity</td>
+                  <td>Usually conduct electricity well.</td>
+                  <td>Usually do not conduct electricity well.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="property-note">
+            Teacher note: lustre, malleability, and electrical conductivity are useful clues for identifying metals.
+            In general, metals are shiny, can be shaped, and conduct electricity well. These are strong classroom
+            patterns, but they are not perfect rules. For example, graphite is a non-metal that can conduct electricity.
+          </div>
+        </section>
+
+        <section class="section-box">
           <div class="section-title">Reaction Examples</div>
           <div class="section-subtitle">Learn these and you will play better</div>
 
@@ -760,4 +847,3 @@
   </script>
 </body>
 </html>
-
