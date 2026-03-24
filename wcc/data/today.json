@@ -1,14 +1,14 @@
 {
-  "boardDate": "2026-03-23",
-  "generatedAt": "2026-03-23T12:04:35.211Z",
+  "boardDate": "2026-03-24",
+  "generatedAt": "2026-03-24T12:05:41.599Z",
   "sourceCount": 26,
   "weather": [
     {
       "city": "Ottawa",
-      "temperatureC": -6,
+      "temperatureC": -7,
       "maxC": 1,
-      "minC": -6,
-      "summary": "Mostly clear"
+      "minC": -8,
+      "summary": "Clear skies"
     }
   ],
   "extremeWeather": [
@@ -20,6 +20,15 @@
       "source": "The Guardian Environment",
       "url": "https://www.theguardian.com/us-news/2026/mar/20/hawaii-oahu-flash-floods",
       "publishedAt": "2026-03-21T05:44:34.000Z"
+    },
+    {
+      "title": "Hawaii assesses damage left by worst flooding in more than 20 years",
+      "whatHappened": "People evacuated on Oahu and Maui as rains lifted houses and cars, swept through stores and left streets mud-clogged Sign up for the Breaking News US...",
+      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
+      "keyWord": "flood: water covering land that is usually dry",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/us-news/2026/mar/23/hawaii-flooding-oahu-maui",
+      "publishedAt": "2026-03-23T22:04:03.000Z"
     },
     {
       "title": "Weather extremes gripping US bear climate crisis ‘fingerprint’, experts say",
@@ -40,15 +49,6 @@
       "publishedAt": "2026-03-20T18:22:31.000Z"
     },
     {
-      "title": "Forests are more than a resource: How Belarus protects its vital ecosystem",
-      "whatHappened": "Forests cover more than 40 per cent of Belarus.",
-      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
-      "keyWord": "extreme weather: unusual and dangerous weather like floods, storms, or heat waves",
-      "source": "UN Climate",
-      "url": "https://news.un.org/feed/view/en/story/2026/03/1167173",
-      "publishedAt": "2026-03-20T12:00:00.000Z"
-    },
-    {
       "title": "Heatwave scorching US west ‘virtually impossible’ without climate crisis, say scientists",
       "whatHappened": "Unseasonably warm and even dangerous temperatures this week were up to 30F above average for the time of year The record-breaking heatwave scorching the US west...",
       "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
@@ -56,53 +56,44 @@
       "source": "The Guardian Environment",
       "url": "https://www.theguardian.com/us-news/2026/mar/20/heatwave-us-west-climate-crisis",
       "publishedAt": "2026-03-20T07:01:11.000Z"
-    },
-    {
-      "title": "Historic March heatwave in US west shatters high-temperature records",
-      "whatHappened": "Some highs in California, Nevada and Arizona recorded at 25-35F above normal, with widespread alerts and closures States across the US south-west recorded blistering temperatures at...",
-      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
-      "keyWord": "heat wave: a long period of unusually hot weather",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/us-news/2026/mar/19/march-heatwave-weather-us",
-      "publishedAt": "2026-03-19T23:56:51.000Z"
     }
   ],
   "climate": [
     {
-      "title": "UN weather agency warns of record ‘climate imbalance’ as planetary warming accelerates",
-      "whatHappened": "All-time high greenhouse gas concentrations in Earth’s atmosphere continue to drive heat records on land and sea, with long-lasting consequences for humanity, the World Meteorological Organization...",
-      "whyItMatters": "Climate and environment stories connect science to real issues like safety, health, and extreme weather.",
-      "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "UN Climate",
-      "url": "https://news.un.org/feed/view/en/story/2026/03/1167178",
-      "publishedAt": "2026-03-23T12:00:00.000Z"
-    },
-    {
-      "title": "Far more countries face critical food insecurity if world heats up by 2C, analysis shows",
-      "whatHappened": "Exclusive: Food systems of low-income nations projected to deteriorate seven times as fast as those of wealthy ones The number of countries falling into critical food...",
-      "whyItMatters": "Climate and environment stories connect science to real issues like safety, health, and extreme weather.",
-      "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/environment/2026/mar/23/countries-critical-food-insecurity-global-heating",
-      "publishedAt": "2026-03-23T11:00:48.000Z"
-    },
-    {
-      "title": "US states sue Trump EPA over decision to repeal bedrock climate finding",
-      "whatHappened": "Lawsuit says rescission of endangerment finding – which ruled greenhouse gases threaten public health – was illegal Sign up for the Breaking News US email to...",
+      "title": "US to pay almost $1bn to French energy company to kill wind project plan",
+      "whatHappened": "Trump administration announces deal with TotalEnergies to redirect investment in wind to oil and gas instead As a fuel crisis triggered by the war in Iran...",
       "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
       "keyWord": "climate: the usual pattern of weather over a long period of time",
       "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/environment/2026/mar/19/us-states-trump-climate-crisis-endangerment-finding",
-      "publishedAt": "2026-03-19T19:54:04.000Z"
+      "url": "https://www.theguardian.com/us-news/2026/mar/23/trump-administration-wind-project-plan",
+      "publishedAt": "2026-03-23T19:26:15.000Z"
     },
     {
-      "title": "War-driven energy price spikes highlight value of renewables: UN climate chief",
-      "whatHappened": "The disruption of global energy supplies is being felt worldwide, the UN’s top climate change official warned on Monday, as conflict in the Middle East drives...",
+      "title": "Heat pumps for all new homes and plug-in solar in green tech drive",
+      "whatHappened": "Solar panels that can be plugged in at home could be available to buy in supermarkets in the coming months.",
+      "whyItMatters": "Climate and environment stories connect science to real issues like safety, health, and extreme weather.",
+      "keyWord": "climate: the usual pattern of weather over a long period of time",
+      "source": "BBC Science & Environment",
+      "url": "https://www.bbc.com/news/articles/czjw7klkjm2o?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-03-24T11:06:08.000Z"
+    },
+    {
+      "title": "Revolut warns it risks backlash over support for energy-intensive AI and crypto",
+      "whatHappened": "Fintech company’s profits leap to £1.7bn as it gears up for US push after getting UK banking licence this month Business live – latest updates The...",
       "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
-      "keyWord": "renewable energy: energy from sources that can be used again, like sun or wind",
-      "source": "UN Climate",
-      "url": "https://news.un.org/feed/view/en/story/2026/03/1167135",
-      "publishedAt": "2026-03-16T12:00:00.000Z"
+      "keyWord": "climate: the usual pattern of weather over a long period of time",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/business/2026/mar/24/revolut-ai-crypto-profits-us-banking-licence-uk",
+      "publishedAt": "2026-03-24T10:40:32.000Z"
+    },
+    {
+      "title": "Surprise sighting of pine marten in Cornwall",
+      "whatHappened": "Kernow Conservation recorded the creature during routine monitoring, staff say.",
+      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
+      "keyWord": "climate: the usual pattern of weather over a long period of time",
+      "source": "BBC Science & Environment",
+      "url": "https://www.bbc.com/news/articles/c4gxm13z3wzo?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-03-24T10:01:19.000Z"
     },
     {
       "title": "UN issues new climate warning as El Niño looms",
@@ -125,13 +116,49 @@
   ],
   "weatherTech": [
     {
-      "title": "World News in Brief: Guterres calls for fair swtich to clean energy, Ramadan in Gaza, escalating violence and displacement in South Sudan",
-      "whatHappened": "The world has “entered the age of clean energy” and renewables are now the cheapest, fastest and safest source of new electricity almost everywhere, UN Secretary-General...",
+      "title": "Heat pumps for all new homes and plug-in solar in green tech drive",
+      "whatHappened": "Solar panels that can be plugged in at home could be available to buy in supermarkets in the coming months.",
+      "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
+      "keyWord": "solar: related to energy from sunlight",
+      "source": "BBC Science & Environment",
+      "url": "https://www.bbc.com/news/articles/czjw7klkjm2o?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-03-24T11:06:08.000Z"
+    },
+    {
+      "title": "Surprise sighting of pine marten in Cornwall",
+      "whatHappened": "Kernow Conservation recorded the creature during routine monitoring, staff say.",
       "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
       "keyWord": "weather technology: tools that help people measure, study, or predict weather and climate",
-      "source": "UN Climate",
-      "url": "https://news.un.org/feed/view/en/story/2026/02/1166995",
-      "publishedAt": "2026-02-18T12:00:00.000Z"
+      "source": "BBC Science & Environment",
+      "url": "https://www.bbc.com/news/articles/c4gxm13z3wzo?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-03-24T10:01:19.000Z"
+    },
+    {
+      "title": "Despite bitter rivalry, Kalshi, Polymarket CEOs back $35M predictions markets VC fund",
+      "whatHappened": "As prediction markets explode, the new firm called 5(c) Capital, will back startups supporting the burgeoning category.",
+      "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
+      "keyWord": "weather technology: tools that help people measure, study, or predict weather and climate",
+      "source": "TechCrunch",
+      "url": "https://techcrunch.com/2026/03/23/despite-bitter-rivalry-kalshi-polymarket-ceos-back-35m-predictions-markets-vc-fund/",
+      "publishedAt": "2026-03-23T22:57:53.000Z"
+    },
+    {
+      "title": "Kalshi says it will block politicians and athletes from trading in markets they’re tied to",
+      "whatHappened": "The prediction market platform Kalshi says it's rolling out new guardrails to \"preemptively block\" political candidates and athletes from trading in their own markets, as reported...",
+      "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
+      "keyWord": "weather technology: tools that help people measure, study, or predict weather and climate",
+      "source": "The Verge",
+      "url": "https://www.theverge.com/tech/899097/kalshi-politicians-athletes-insider-trading-blocked",
+      "publishedAt": "2026-03-23T20:24:43.000Z"
+    },
+    {
+      "title": "US to pay almost $1bn to French energy company to kill wind project plan",
+      "whatHappened": "Trump administration announces deal with TotalEnergies to redirect investment in wind to oil and gas instead As a fuel crisis triggered by the war in Iran...",
+      "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
+      "keyWord": "weather technology: tools that help people measure, study, or predict weather and climate",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/us-news/2026/mar/23/trump-administration-wind-project-plan",
+      "publishedAt": "2026-03-23T19:26:15.000Z"
     }
   ],
   "universityNews": [
@@ -223,25 +250,25 @@
       "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
       "source": "uOttawa News",
       "url": "https://www.uottawa.ca/en/news-all/academic-expertise-march-22-world-water-day",
-      "publishedAt": "2026-03-23T12:04:33.507Z"
+      "publishedAt": "2026-03-24T12:05:29.044Z"
     },
     {
-      "title": "Climate Finance Has Failed Africa Twice Over. Here’s How To Fix It.",
-      "whatHappened": "Credit-rating methodologies must stop treating poverty as a self-fulfilling proxy for default risk.",
+      "title": "Ancient Antarctic ice cycles impacted ocean productivity thousands of miles away",
+      "whatHappened": "UW–Madison study links Antarctic ice sheet growth and decay to a 40,000-year rhythm in subtropical marine productivity.",
+      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
+      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
+      "source": "University of Wisconsin News",
+      "url": "https://news.wisc.edu/ancient-antarctic-ice-cycles-impacted-ocean-productivity-thousands-of-miles-away/",
+      "publishedAt": "2026-03-23T18:05:15.000Z"
+    },
+    {
+      "title": "Centering Community in Climate Resilience and Disaster Preparedness",
+      "whatHappened": "M.S.",
       "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
       "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
       "source": "Columbia Climate School",
-      "url": "https://news.climate.columbia.edu/2026/03/18/climate-finance-has-failed-africa-twice-over-heres-how-to-fix-it/",
-      "publishedAt": "2026-03-18T22:12:29.000Z"
-    },
-    {
-      "title": "Extreme heat has extreme effects–but some like it hot",
-      "whatHappened": "A sweeping new study of the 2021 heat wave reveals major ecological losses—but also surprising species that thrived, offering crucial insight into how climate extremes reshape...",
-      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
-      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
-      "source": "UBC News",
-      "url": "https://news.ubc.ca/2026/03/extreme-heat-has-extreme-effects-but-some-like-it-hot/",
-      "publishedAt": "2026-03-11T14:30:00.000Z"
+      "url": "https://news.climate.columbia.edu/2026/03/23/centering-community-in-climate-resilience-and-disaster-preparedness/",
+      "publishedAt": "2026-03-23T17:33:45.000Z"
     }
   ]
 }
