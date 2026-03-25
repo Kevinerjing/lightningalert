@@ -29,14 +29,16 @@
       </div>
 
       <div class="lobby-grid">
-        <div class="panel-box">
-          <div class="section-title">Create or Join</div>
-          <div class="section-subtitle">
-            Host creates a room. Another player joins from a second computer.
+        <div class="panel-box lobby-start-card">
+          <div class="lobby-kicker">Start Match</div>
+          <div class="section-title lobby-hero-title">Choose how you want to play</div>
+          <div class="section-subtitle lobby-hero-subtitle">
+            Practice is the easiest way to learn. Multiplayer takes two computers and a room code.
           </div>
 
-          <div class="lobby-stack">
-            <div class="join-row">
+          <div class="lobby-meta-card">
+            <div class="lobby-meta-title">Player Setup</div>
+            <div class="join-row lobby-meta-row">
               <input
                 id="studentNameInput"
                 maxlength="24"
@@ -50,46 +52,107 @@
                 autocomplete="off"
               />
             </div>
-            <button id="hostBtn" type="button">Create Room</button>
-            <button class="secondary" id="practiceBtn" type="button">Practice Mode vs Computer</button>
-
-            <div class="join-row">
-              <input
-                id="joinCodeInput"
-                maxlength="6"
-                placeholder="Enter room code"
-                autocomplete="off"
-              />
-              <button class="secondary" id="joinBtn" type="button">Join Room</button>
-            </div>
-
-            <div id="hostRoomCard" class="host-room-card hidden">
-              <div class="host-room-label">Your Room Code</div>
-              <div class="host-room-code" id="hostRoomCodeText">------</div>
-              <div class="host-room-status" id="hostRoomStatusText">Waiting for opponent...</div>
-            </div>
           </div>
+
+          <div class="lobby-mode-switch" role="tablist" aria-label="Choose match mode">
+            <button class="lobby-mode-btn is-active" data-lobby-mode="practice" type="button" role="tab" aria-selected="true">Practice Solo</button>
+            <button class="lobby-mode-btn" data-lobby-mode="create" type="button" role="tab" aria-selected="false">Create Room</button>
+            <button class="lobby-mode-btn" data-lobby-mode="join" type="button" role="tab" aria-selected="false">Join With Code</button>
+          </div>
+
+          <div class="lobby-mode-hint" id="lobbyModeHint">
+            Recommended for new players: Practice Solo
+          </div>
+
+          <div class="lobby-mode-panels">
+            <section class="lobby-mode-panel is-active" data-lobby-panel="practice">
+              <div class="lobby-mode-copy">
+                <div class="lobby-mode-title">Learn the game first</div>
+                <div class="lobby-mode-body">
+                  Play against the computer and learn cards, combos, and turn flow without waiting
+                  for another player.
+                </div>
+              </div>
+              <button class="lobby-primary-action secondary" id="practiceBtn" type="button">Start Practice Mode</button>
+            </section>
+
+            <section class="lobby-mode-panel" data-lobby-panel="create">
+              <div class="lobby-mode-copy">
+                <div class="lobby-mode-title">Host a multiplayer room</div>
+                <div class="lobby-mode-body">
+                  Create a room, share the code with another player, and wait for them to join.
+                </div>
+              </div>
+              <button id="hostBtn" type="button">Create Room</button>
+
+              <div id="hostRoomCard" class="host-room-card hidden">
+                <div class="host-room-label">Your Room Code</div>
+                <div class="host-room-code" id="hostRoomCodeText">------</div>
+                <div class="host-room-status" id="hostRoomStatusText">Waiting for opponent...</div>
+              </div>
+            </section>
+
+            <section class="lobby-mode-panel" data-lobby-panel="join">
+              <div class="lobby-mode-copy">
+                <div class="lobby-mode-title">Join a friend's room</div>
+                <div class="lobby-mode-body">
+                  Ask the host for the 6-letter room code, enter it below, and jump into the match.
+                </div>
+              </div>
+              <div class="join-row lobby-join-row">
+                <input
+                  id="joinCodeInput"
+                  maxlength="6"
+                  placeholder="Enter room code"
+                  autocomplete="off"
+                />
+                <button class="secondary" id="joinBtn" type="button">Join Room</button>
+              </div>
+            </section>
+          </div>
+
+          <div id="lobbyMessage" class="lobby-message">Ready.</div>
         </div>
 
-        <div class="panel-box">
-          <div class="section-title">How to play</div>
-          <div class="rules-text">
-            <div>1. Host clicks <strong>Create Room</strong>.</div>
-            <div>2. Share the room code.</div>
-            <div>3. Second player enters the code and joins.</div>
-            <div>4. Build science-based combos and trigger reactions.</div>
-            <div>5. Reduce the opponent’s HP to 0.</div>
+        <div class="panel-box lobby-help-card">
+          <div class="section-title">How It Works</div>
+          <div class="section-subtitle">
+            Follow these steps in order and the setup feels much simpler.
           </div>
-          <div id="lobbyMessage" class="lobby-message">Ready.</div>
+
+          <div class="lobby-steps">
+            <div class="lobby-step">
+              <div class="lobby-step-number">1</div>
+              <div>
+                <div class="lobby-step-title">Choose a mode</div>
+                <div class="lobby-step-body">Practice alone, create a room, or join with a code.</div>
+              </div>
+            </div>
+            <div class="lobby-step">
+              <div class="lobby-step-number">2</div>
+              <div>
+                <div class="lobby-step-title">Enter your player info</div>
+                <div class="lobby-step-body">Add your name and class code so the match is labeled correctly.</div>
+              </div>
+            </div>
+            <div class="lobby-step">
+              <div class="lobby-step-number">3</div>
+              <div>
+                <div class="lobby-step-title">Start battling</div>
+                <div class="lobby-step-body">Build science combos, trigger reactions, and reduce the enemy HP to 0.</div>
+              </div>
+            </div>
+          </div>
+          <a href="tutorial.html" class="tutorial-btn lobby-help-link">Open Full Tutorial</a>
         </div>
       </div>
 
       <div class="panel-box room-list-box">
         <div class="room-list-header">
           <div>
-            <div class="section-title">Room List</div>
+            <div class="section-title">Open Rooms</div>
             <div class="section-subtitle">
-              See open rooms and waiting status before joining.
+              Or join a room that is already waiting for another player.
             </div>
           </div>
 
@@ -128,7 +191,8 @@
         </div>
 
         <div class="footer-right">
-          <a href="tutorial.html" class="tutorial-btn">📘 Tutorial</a>
+          <div class="footer-links-label">Resources</div>
+          <a href="tutorial.html" class="tutorial-btn">Tutorial</a>
           <a href="teacher-guide.html" class="tutorial-btn secondary-link">Teacher Guide</a>
           <a href="how-i-built-with-codex.html" class="tutorial-btn secondary-link">My Codex Story</a>
           <a href="teacher-dashboard.html" class="tutorial-btn secondary-link">Teacher Dashboard</a>
@@ -523,6 +587,51 @@
       if (latest && versionEl) {
         versionEl.textContent = `Version ${latest.version}`;
       }
+    }());
+  </script>
+  <script>
+    (function initLobbyModeSwitcher() {
+      const lobbyPanel = document.getElementById("lobbyPanel");
+      const modeButtons = [...document.querySelectorAll("[data-lobby-mode]")];
+      const modePanels = [...document.querySelectorAll("[data-lobby-panel]")];
+      const modeHint = document.getElementById("lobbyModeHint");
+      if (!lobbyPanel || !modeButtons.length || !modePanels.length) return;
+
+      const modeCopy = {
+        practice: "Recommended for new players: Practice Solo",
+        create: "Best when you want to host and share a room code",
+        join: "Fastest option if someone already gave you a room code",
+      };
+
+      function setMode(nextMode) {
+        lobbyPanel.dataset.lobbyMode = nextMode;
+        if (modeHint) {
+          modeHint.textContent = modeCopy[nextMode] || modeCopy.practice;
+        }
+        modeButtons.forEach((button) => {
+          const active = button.dataset.lobbyMode === nextMode;
+          button.classList.toggle("is-active", active);
+          button.setAttribute("aria-selected", active ? "true" : "false");
+        });
+        modePanels.forEach((panel) => {
+          panel.classList.toggle("is-active", panel.dataset.lobbyPanel === nextMode);
+        });
+      }
+
+      modeButtons.forEach((button) => {
+        button.addEventListener("click", () => setMode(button.dataset.lobbyMode));
+      });
+
+      document.getElementById("practiceBtn")?.addEventListener("focus", () => setMode("practice"));
+      document.getElementById("hostBtn")?.addEventListener("focus", () => setMode("create"));
+      document.getElementById("joinCodeInput")?.addEventListener("focus", () => setMode("join"));
+      document.getElementById("roomList")?.addEventListener("click", (event) => {
+        if (event.target instanceof HTMLElement && event.target.tagName === "BUTTON") {
+          setMode("join");
+        }
+      });
+
+      setMode("practice");
     }());
   </script>
   <script src="effect-system.js"></script>
