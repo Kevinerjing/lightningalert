@@ -62,7 +62,7 @@ async function gotoHero(page) {
 }
 
 async function startPractice(page) {
-  await page.getByRole("button", { name: "Practice Mode vs Computer" }).click();
+  await page.getByRole("button", { name: "Start Practice Mode" }).click();
   await expect(page.locator("#gamePanel")).toBeVisible();
   await expect(page.locator("#playerRoleText")).toContainText("Computer");
   await expect(page.locator("#roomStateText")).toContainText("Your turn.");
@@ -246,8 +246,11 @@ test("lobby boots cleanly with core controls", async ({ page }) => {
   await gotoHero(page);
 
   await expect(page.getByText("Element Heroes Online")).toBeVisible();
-  await expect(page.getByRole("button", { name: "Create Room" })).toBeVisible();
-  await expect(page.getByRole("button", { name: "Practice Mode vs Computer" })).toBeVisible();
+  await expect(page.getByText("Choose how you want to play")).toBeVisible();
+  await expect(page.getByText("Recommended for new players: Practice Solo")).toBeVisible();
+  await expect(page.getByRole("tab", { name: "Practice Solo" })).toBeVisible();
+  await expect(page.getByRole("tab", { name: "Create Room" })).toBeVisible();
+  await expect(page.getByRole("button", { name: "Start Practice Mode" })).toBeVisible();
   await expect(page.locator("#roomList")).toContainText("No open rooms");
 
   await page.waitForTimeout(300);
