@@ -11,7 +11,8 @@ const filesToSyntaxCheck = [
   path.join(heroDir, "release-data.js"),
 ];
 
-const htmlPath = path.join(heroDir, "index.html");
+const introHtmlPath = path.join(heroDir, "index.html");
+const appHtmlPath = path.join(heroDir, "main.html");
 const gameJsPath = path.join(heroDir, "game.js");
 const vfxPath = path.join(heroDir, "visual-effects.js");
 
@@ -71,7 +72,7 @@ function collectGameJsIds(js) {
 }
 
 function checkRequiredFiles() {
-  for (const filePath of [htmlPath, gameJsPath, vfxPath]) {
+  for (const filePath of [introHtmlPath, appHtmlPath, gameJsPath, vfxPath]) {
     if (!fileExists(filePath)) {
       fail(`Missing required file: ${path.relative(repoRoot, filePath)}`);
       continue;
@@ -90,19 +91,37 @@ function checkSyntax() {
   }
 }
 
+function checkIntroPage() {
+  const html = readText(introHtmlPath);
+  const requiredIntroSnippets = [
+    'id="intro"',
+    'id="replayBtn"',
+    'id="skipBtn"',
+    'window.location.href = \'main.html\'',
+  ];
+
+  for (const snippet of requiredIntroSnippets) {
+    if (!html.includes(snippet)) {
+      fail(`hero/index.html is missing required intro snippet: ${snippet}`);
+    }
+  }
+
+  ok("Intro page routes players to hero/main.html");
+}
+
 function checkHtmlAndDomWiring() {
-  const html = readText(htmlPath);
+  const html = readText(appHtmlPath);
   const js = readText(gameJsPath);
   const htmlIds = collectHtmlIds(html);
   const jsIds = collectGameJsIds(js);
 
   for (const id of jsIds) {
     if (!htmlIds.has(id)) {
-      fail(`game.js expects #${id}, but it is missing from hero/index.html`);
+      fail(`game.js expects #${id}, but it is missing from hero/main.html`);
     }
   }
 
-  ok(`DOM id coverage OK: ${jsIds.size} ids referenced by game.js are present in hero/index.html`);
+  ok(`DOM id coverage OK: ${jsIds.size} ids referenced by game.js are present in hero/main.html`);
 
   const requiredHtmlSnippets = [
     '<div id="fx-layer"></div>',
@@ -114,7 +133,7 @@ function checkHtmlAndDomWiring() {
 
   for (const snippet of requiredHtmlSnippets) {
     if (!html.includes(snippet)) {
-      fail(`hero/index.html is missing required snippet: ${snippet}`);
+      fail(`hero/main.html is missing required snippet: ${snippet}`);
     }
   }
 
@@ -170,23 +189,26 @@ function checkAnimationWiring() {
 }
 
 function checkReferencedLocalScripts() {
-  const html = readText(htmlPath);
-  const regex = /<script\s+src="([^"]+)"/g;
-  let match = regex.exec(html);
+  for (const htmlPath of [introHtmlPath, appHtmlPath]) {
+    const html = readText(htmlPath);
+    const relativeHtmlPath = path.relative(repoRoot, htmlPath);
+    const regex = /<script\s+src="([^"]+)"/g;
+    let match = regex.exec(html);
 
-  while (match) {
-    const relativePath = match[1];
-    if (/^https?:/i.test(relativePath)) {
+    while (match) {
+      const relativePath = match[1];
+      if (/^https?:/i.test(relativePath)) {
+        match = regex.exec(html);
+        continue;
+      }
+
+      const normalizedPath = relativePath.split("?")[0].split("#")[0];
+      const target = path.join(heroDir, normalizedPath);
+      if (!fileExists(target)) {
+        fail(`${relativeHtmlPath} references missing script: hero/${relativePath}`);
+      }
       match = regex.exec(html);
-      continue;
     }
-
-    const normalizedPath = relativePath.split("?")[0].split("#")[0];
-    const target = path.join(heroDir, normalizedPath);
-    if (!fileExists(target)) {
-      fail(`hero/index.html references missing script: hero/${relativePath}`);
-    }
-    match = regex.exec(html);
   }
 
   ok("All locally referenced script files exist");
@@ -195,6 +217,7 @@ function checkReferencedLocalScripts() {
 function main() {
   checkRequiredFiles();
   checkSyntax();
+  checkIntroPage();
   checkHtmlAndDomWiring();
   checkAnimationWiring();
   checkReferencedLocalScripts();
