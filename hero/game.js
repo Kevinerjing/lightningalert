@@ -377,10 +377,11 @@ function playCardSound(cardId, effect = {}) {
   const reactionIds = new Set([
     "combustion", "steamBurst", "acidRain", "rust", "explosion", "saltFormation",
     "carbonBurn", "potassiumWater", "limeFormation", "calciumSteam", "alkaliExplosion",
+    "hydrationCrystal",
   ]);
   const attackIds = new Set([
     "fireball", "hammerStrike", "corrode", "lightning", "poisonCloud", "plasmaShock",
-    "alkaliBlast", "metalCrush", "noblePressure",
+    "alkaliBlast", "metalCrush", "noblePressure", "electrolyteSurge",
   ]);
   const utilityIds = new Set(["catalyst", "shield", "extinguish"]);
 
@@ -436,17 +437,19 @@ function toggleSound() {
 const PRACTICE_ROOM_CODE = "PRACTICE";
 const PRACTICE_DECKS = {
   1: [
-    "sulfur", "oxygen", "water", "hydrogen", "carbon", "carbonDioxide", "sodium", "potassium", "helium", "iron",
+    "sulfur", "oxygen", "water", "copperSulfate", "hydrogen", "carbon", "carbonDioxide", "sodium", "potassium", "helium", "iron",
     "chlorine", "calcium", "combustion", "steamBurst", "acidRain", "explosion", "carbonBurn",
     "potassiumWater", "alkaliExplosion", "alkaliBlast", "fireball", "lightning", "poisonCloud",
-    "plasmaShock", "noblePressure", "catalyst", "shield", "extinguish", "corrode", "rust", "saltFormation",
+    "plasmaShock", "noblePressure", "electrolyteSurge", "catalyst", "shield", "extinguish", "corrode", "rust", "saltFormation",
+    "hydrationCrystal",
     "limeFormation", "calciumSteam", "hammerStrike", "metalCrush",
   ],
   2: [
-    "sulfur", "oxygen", "water", "hydrogen", "carbon", "carbonDioxide", "sodium", "potassium", "helium", "iron",
+    "sulfur", "oxygen", "water", "copperSulfate", "hydrogen", "carbon", "carbonDioxide", "sodium", "potassium", "helium", "iron",
     "chlorine", "calcium", "combustion", "steamBurst", "acidRain", "explosion", "carbonBurn",
     "potassiumWater", "alkaliExplosion", "alkaliBlast", "fireball", "lightning", "poisonCloud",
-    "plasmaShock", "noblePressure", "catalyst", "shield", "extinguish", "corrode", "rust", "saltFormation",
+    "plasmaShock", "noblePressure", "electrolyteSurge", "catalyst", "shield", "extinguish", "corrode", "rust", "saltFormation",
+    "hydrationCrystal",
     "limeFormation", "calciumSteam", "hammerStrike", "metalCrush",
   ],
 };
@@ -485,6 +488,18 @@ const CARD_LIBRARY = {
     className: "element-water",
     tags: ["compound", "liquid"],
     image: "images/cards/water.png",
+  },
+  copperSulfate: {
+    id: "copperSulfate",
+    name: "Copper Sulfate",
+    type: "Element",
+    displayType: "Compound",
+    cost: 2,
+    symbol: "CuSO4",
+    text: "Conductive blue crystal. Powers up Electrolyte Surge.",
+    className: "element-water",
+    tags: ["compound", "crystal", "conductor"],
+    image: "images/cards/copper_sulfate.png",
   },
   iron: {
     id: "iron",
@@ -697,6 +712,16 @@ const CARD_LIBRARY = {
     tags: ["reaction", "burst"],
     image: "images/cards/alkali_explosion.png",
   },
+  hydrationCrystal: {
+    id: "hydrationCrystal",
+    name: "Hydration Crystal",
+    type: "Reaction",
+    cost: 2,
+    symbol: "RXN",
+    text: "Copper Sulfate + Water = heal 3 HP and draw 1 card.",
+    tags: ["reaction", "crystal", "defense"],
+    image: "images/cards/hydration_crystal.png",
+  },
 
   fireball: {
     id: "fireball",
@@ -787,6 +812,16 @@ const CARD_LIBRARY = {
     text: "Deal 2 damage. Draw 1 card if Helium on field.",
     tags: ["attack", "gas"],
     image: "images/cards/noble_pressure.png",
+  },
+  electrolyteSurge: {
+    id: "electrolyteSurge",
+    name: "Electrolyte Surge",
+    type: "Attack",
+    cost: 2,
+    symbol: "ATK",
+    text: "Deal 4 damage. Deal 6 instead if Copper Sulfate is on your field.",
+    tags: ["attack", "shock", "conductor"],
+    image: "images/cards/electrolyte_surge.png",
   },
 
   catalyst: {
@@ -893,6 +928,12 @@ const SCIENCE_NOTES = {
     body: "Water is a compound that helps create Wet-based setups and supports steam-style combinations.",
     preview: "Water is often a setup compound card. Use it to enable Wet and steam combinations.",
   },
+  copperSulfate: {
+    title: "Copper Sulfate Stores Conductive Potential",
+    equation: "CuSO4 + Water -> hydration support",
+    body: "Copper sulfate is a bright blue ionic compound often used to demonstrate crystal growth, hydration, and conductivity.",
+    preview: "Play Copper Sulfate first if you want to unlock Hydration Crystal or power up Electrolyte Surge.",
+  },
   iron: {
     title: "Iron Shows Oxidation",
     equation: "Iron + Oxygen -> Rust",
@@ -975,6 +1016,13 @@ const SCIENCE_NOTES = {
     reason: "Calcium Steam applied Wet, which sets up a later Lightning bonus.",
     preview: "Calcium Steam bridges reaction learning and attack combo planning.",
   },
+  hydrationCrystal: {
+    title: "Hydration Builds Crystals",
+    equation: "Copper Sulfate + Water -> hydrated crystal growth",
+    body: "Hydration Crystal teaches that adding water can change a compound's structure and appearance while stabilizing the system.",
+    reason: "Hydration Crystal rewarded the prepared reactants with recovery and a fresh draw, showing a defensive chemistry payoff.",
+    preview: "This is a defensive reaction: set up Copper Sulfate and Water, then recover and refill.",
+  },
   lightning: {
     title: "Conductivity Matters",
     equation: "Wet target + Lightning -> extra damage",
@@ -998,6 +1046,16 @@ const SCIENCE_NOTES = {
     body: "Poison Cloud teaches that attacks can create conditions that make later turns more dangerous.",
     reason: "Poison Cloud applied Corroded, which can set up Corrode or ongoing damage.",
     preview: "Use Poison Cloud to set up the Corroded status before a control play.",
+  },
+  electrolyteSurge: {
+    title: "Electrolytes Carry Charge",
+    equation: "Copper Sulfate + surge -> stronger electric hit",
+    body: "Electrolyte Surge highlights that ionic compounds in solution help electric current travel more effectively.",
+    reason: (context) =>
+      context.hasCopperSulfate
+        ? "Electrolyte Surge dealt bonus damage because Copper Sulfate was already on the field, modeling a conductive electrolyte."
+        : "Electrolyte Surge dealt base damage because there was no Copper Sulfate on the field yet.",
+    preview: "Use Copper Sulfate as your setup card, then cast Electrolyte Surge for the boosted hit.",
   },
   corrode: {
     title: "Condition-Based Control",
@@ -1030,6 +1088,11 @@ const ELEMENT_INFO = {
     category: "Liquid",
     property: "Creates Wet setups and enables steam or metal-water reactions.",
     reactions: ["Steam Burst", "Acid Rain", "Alkali Reaction", "Lime Formation", "Calcium Steam"],
+  },
+  copperSulfate: {
+    category: "Ionic compound",
+    property: "Blue crystal compound used for conductivity and hydration-themed combos.",
+    reactions: ["Hydration Crystal", "Electrolyte Surge"],
   },
   iron: {
     category: "Metal",
@@ -1600,6 +1663,7 @@ function resolveLocalReactionPreview(card, player) {
     limeFormation: ["calcium", "water"],
     calciumSteam: ["calcium", "water"],
     alkaliExplosion: ["potassium", "oxygen"],
+    hydrationCrystal: ["copperSulfate", "water"],
   };
 
   const required = checks[card.id];
@@ -1674,6 +1738,12 @@ function resolveLocalAttack(localGame, card, player, opponent) {
     }
     return true;
   }
+  if (card.id === "electrolyteSurge") {
+    const damage = playerHasFieldCard(player, "copperSulfate") ? 6 : 4;
+    opponent.hp = Math.max(0, opponent.hp - damage);
+    logGameMessage(localGame, `Player ${player.id} used Electrolyte Surge for ${damage} damage.`);
+    return true;
+  }
   return false;
 }
 
@@ -1741,6 +1811,12 @@ function resolveLocalReaction(localGame, card, player, opponent) {
   if (card.id === "alkaliExplosion" && playerHasFieldCard(player, "potassium") && playerHasFieldCard(player, "oxygen")) {
     opponent.hp = Math.max(0, opponent.hp - 8);
     logGameMessage(localGame, `Player ${player.id} triggered Alkali Explosion for 8 damage.`);
+    return true;
+  }
+  if (card.id === "hydrationCrystal" && playerHasFieldCard(player, "copperSulfate") && playerHasFieldCard(player, "water")) {
+    player.hp = Math.min(player.maxHp, player.hp + 3);
+    const drawn = drawCardForMode(player, 1);
+    logGameMessage(localGame, `Player ${player.id} used Hydration Crystal, healed 3 HP, and drew ${drawn} card.`);
     return true;
   }
   return false;
@@ -1872,6 +1948,8 @@ function getPracticeCardScore(card, player, opponent) {
     const handIds = player.hand.map((handCard) => handCard.id);
     if (card.id === "oxygen" && handIds.some((id) => ["combustion", "steamBurst", "rust", "explosion", "carbonBurn", "alkaliExplosion", "plasmaShock"].includes(id))) score += 9;
     if (card.id === "water" && handIds.some((id) => ["steamBurst", "acidRain", "potassiumWater", "limeFormation", "calciumSteam"].includes(id))) score += 8;
+    if (card.id === "water" && handIds.includes("hydrationCrystal")) score += 6;
+    if (card.id === "copperSulfate" && handIds.some((id) => ["hydrationCrystal", "electrolyteSurge"].includes(id))) score += 8;
     if (card.id === "carbonDioxide" && handIds.includes("extinguish")) score += 7;
     if (card.id === "potassium" && handIds.some((id) => ["potassiumWater", "alkaliExplosion", "alkaliBlast"].includes(id))) score += 8;
     if (card.id === "iron" && handIds.some((id) => ["rust", "hammerStrike", "metalCrush"].includes(id))) score += 6;
@@ -2843,6 +2921,10 @@ function getCardEffectContext(cardId, actorPid) {
       ctx.draw = actorField.some((c) => c?.id === "helium") ? 1 : 0;
       ctx.hasHelium = actorField.some((c) => c?.id === "helium");
       break;
+    case "electrolyteSurge":
+      ctx.damage = actorField.some((c) => c?.id === "copperSulfate") ? 6 : 4;
+      ctx.hasCopperSulfate = actorField.some((c) => c?.id === "copperSulfate");
+      break;
     case "combustion":
       ctx.damage = 7;
       break;
@@ -2881,6 +2963,12 @@ function getCardEffectContext(cardId, actorPid) {
       break;
     case "alkaliExplosion":
       ctx.damage = 8;
+      break;
+    case "hydrationCrystal":
+      ctx.sourceSelector = actorDesk;
+      ctx.targetSelector = actorDesk;
+      ctx.heal = 3;
+      ctx.draw = 1;
       break;
     case "catalyst":
       ctx.sourceSelector = actorDesk;
@@ -3406,6 +3494,7 @@ function meetsReactionRequirements(card, player) {
     limeFormation: ["calcium", "water"],
     calciumSteam: ["calcium", "water"],
     alkaliExplosion: ["potassium", "oxygen"],
+    hydrationCrystal: ["copperSulfate", "water"],
   };
 
   const required = checks[card?.id];

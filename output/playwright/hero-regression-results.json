@@ -93,12 +93,12 @@
                   "workerIndex": 0,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 7304,
+                  "duration": 7121,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-03-25T23:33:09.046Z",
+                  "startTime": "2026-03-25T23:59:43.845Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -108,7 +108,7 @@
           ],
           "id": "afb89487ec4d6fc4c863-25208fac89876b171100",
           "file": "hero-regression.spec.mjs",
-          "line": 244,
+          "line": 340,
           "column": 1
         },
         {
@@ -127,12 +127,12 @@
                   "workerIndex": 0,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 7064,
+                  "duration": 6916,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-03-25T23:33:18.849Z",
+                  "startTime": "2026-03-25T23:59:51.094Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -142,7 +142,7 @@
           ],
           "id": "afb89487ec4d6fc4c863-0184d53b2732e8706259",
           "file": "hero-regression.spec.mjs",
-          "line": 260,
+          "line": 356,
           "column": 1
         },
         {
@@ -161,12 +161,12 @@
                   "workerIndex": 0,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 9063,
+                  "duration": 9209,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-03-25T23:33:25.926Z",
+                  "startTime": "2026-03-25T23:59:58.022Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -176,7 +176,7 @@
           ],
           "id": "afb89487ec4d6fc4c863-6eb95fd467d0775ea9e5",
           "file": "hero-regression.spec.mjs",
-          "line": 271,
+          "line": 367,
           "column": 1
         },
         {
@@ -195,12 +195,12 @@
                   "workerIndex": 0,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 8628,
+                  "duration": 8540,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-03-25T23:33:35.000Z",
+                  "startTime": "2026-03-26T00:00:07.244Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -210,7 +210,7 @@
           ],
           "id": "afb89487ec4d6fc4c863-f1ccda5378b1161896f3",
           "file": "hero-regression.spec.mjs",
-          "line": 294,
+          "line": 390,
           "column": 1
         },
         {
@@ -229,12 +229,12 @@
                   "workerIndex": 0,
                   "parallelIndex": 0,
                   "status": "passed",
-                  "duration": 8335,
+                  "duration": 8359,
                   "errors": [],
                   "stdout": [],
                   "stderr": [],
                   "retry": 0,
-                  "startTime": "2026-03-25T23:33:43.642Z",
+                  "startTime": "2026-03-26T00:00:15.798Z",
                   "annotations": [],
                   "attachments": []
                 }
@@ -244,7 +244,75 @@
           ],
           "id": "afb89487ec4d6fc4c863-32513ee34e55bbcdf726",
           "file": "hero-regression.spec.mjs",
-          "line": 310,
+          "line": 406,
+          "column": 1
+        },
+        {
+          "title": "Hydration Crystal heals and draws after Copper Sulfate plus Water are prepared",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 8740,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-03-26T00:00:24.168Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "afb89487ec4d6fc4c863-4ae1d959e883102660f2",
+          "file": "hero-regression.spec.mjs",
+          "line": 422,
+          "column": 1
+        },
+        {
+          "title": "Electrolyte Surge gains its damage bonus when Copper Sulfate is on the field",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 45000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 9415,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-03-26T00:00:32.919Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "afb89487ec4d6fc4c863-261fa75813195574a9c8",
+          "file": "hero-regression.spec.mjs",
+          "line": 440,
           "column": 1
         }
       ]
@@ -252,9 +320,9 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-03-25T23:33:07.617Z",
-    "duration": 44677.26700000001,
-    "expected": 5,
+    "startTime": "2026-03-25T23:59:42.241Z",
+    "duration": 60454.153000000006,
+    "expected": 7,
     "skipped": 0,
     "unexpected": 0,
     "flaky": 0

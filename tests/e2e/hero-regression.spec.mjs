@@ -237,6 +237,102 @@ async function seedCatalystEnergyGain(page) {
   });
 }
 
+async function seedHydrationCrystalCombo(page) {
+  await page.evaluate(() => {
+    const makeCard = (cardId) => cloneCard(cardId);
+
+    playerId = 1;
+    isPracticeMode = true;
+    roomCode = "PRACTICE";
+    selectedCardIndex = null;
+    selectedFieldIndex = null;
+    pendingLocalEffect = null;
+
+    gameState = {
+      turn: 1,
+      currentPlayer: 1,
+      players: {
+        1: {
+          id: 1,
+          hp: 5,
+          maxHp: 10,
+          energy: 3,
+          maxEnergy: 3,
+          deck: [makeCard("fireball")],
+          hand: [makeCard("hydrationCrystal")],
+          field: [makeCard("copperSulfate"), makeCard("water")],
+          discard: [],
+          statuses: [],
+        },
+        2: {
+          id: 2,
+          hp: 10,
+          maxHp: 10,
+          energy: 3,
+          maxEnergy: 3,
+          deck: [],
+          hand: [],
+          field: [],
+          discard: [],
+          statuses: [],
+        },
+      },
+      log: ["Hydration Crystal test setup."],
+      winner: null,
+    };
+
+    render();
+  });
+}
+
+async function seedElectrolyteSurge(page, withCopperSulfate) {
+  await page.evaluate((hasCopperSulfate) => {
+    const makeCard = (cardId) => cloneCard(cardId);
+
+    playerId = 1;
+    isPracticeMode = true;
+    roomCode = "PRACTICE";
+    selectedCardIndex = null;
+    selectedFieldIndex = null;
+    pendingLocalEffect = null;
+
+    gameState = {
+      turn: 1,
+      currentPlayer: 1,
+      players: {
+        1: {
+          id: 1,
+          hp: 10,
+          maxHp: 10,
+          energy: 3,
+          maxEnergy: 3,
+          deck: [],
+          hand: [makeCard("electrolyteSurge")],
+          field: hasCopperSulfate ? [makeCard("copperSulfate")] : [],
+          discard: [],
+          statuses: [],
+        },
+        2: {
+          id: 2,
+          hp: 10,
+          maxHp: 10,
+          energy: 3,
+          maxEnergy: 3,
+          deck: [],
+          hand: [],
+          field: [],
+          discard: [],
+          statuses: [],
+        },
+      },
+      log: ["Electrolyte Surge test setup."],
+      winner: null,
+    };
+
+    render();
+  }, withCopperSulfate);
+}
+
 test.beforeEach(async ({ page }) => {
   await stubWorkerApi(page);
 });
@@ -321,4 +417,44 @@ test("energy gain cards increase available energy after play", async ({ page }) 
 
   await expect(page.locator("#p1EnergyText")).toContainText("2 / 3");
   await expect(page.locator("#combatLog")).toContainText("gained 1 energy");
+});
+
+test("Hydration Crystal heals and draws after Copper Sulfate plus Water are prepared", async ({ page }) => {
+  await gotoHero(page);
+  await startPractice(page);
+  await seedHydrationCrystalCombo(page);
+
+  const reactionCard = page.locator('#p1Hand .card[data-index="0"]');
+  await expect(reactionCard).toContainText("Hydration Crystal");
+  await reactionCard.click({ force: true });
+  await expect(page.locator("#playCardBtn")).toBeEnabled();
+
+  await playSelectedCard(page);
+
+  await expect(page.locator("#p1HpText")).toContainText("8 / 10");
+  await expect(page.locator("#p1Hand .card")).toHaveCount(1);
+  await expect(page.locator("#combatLog")).toContainText("Hydration Crystal");
+  await expect(page.locator("#combatLog")).toContainText("healed 3 HP");
+});
+
+test("Electrolyte Surge gains its damage bonus when Copper Sulfate is on the field", async ({ page }) => {
+  await gotoHero(page);
+  await startPractice(page);
+
+  await seedElectrolyteSurge(page, false);
+  const surgeWithoutBoost = page.locator('#p1Hand .card[data-index="0"]');
+  await expect(surgeWithoutBoost).toContainText("Electrolyte Surge");
+  await surgeWithoutBoost.click({ force: true });
+  await expect(page.locator("#playCardBtn")).toBeEnabled();
+  await playSelectedCard(page);
+  await expect(page.locator("#p2HpText")).toContainText("6 / 10");
+
+  await seedElectrolyteSurge(page, true);
+  const surgeWithBoost = page.locator('#p1Hand .card[data-index="0"]');
+  await expect(surgeWithBoost).toContainText("Electrolyte Surge");
+  await surgeWithBoost.click({ force: true });
+  await expect(page.locator("#playCardBtn")).toBeEnabled();
+  await playSelectedCard(page);
+  await expect(page.locator("#p2HpText")).toContainText("4 / 10");
+  await expect(page.locator("#combatLog")).toContainText("Electrolyte Surge for 6 damage");
 });
