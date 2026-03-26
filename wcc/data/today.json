@@ -1,14 +1,14 @@
 {
-  "boardDate": "2026-03-25",
-  "generatedAt": "2026-03-25T12:04:30.998Z",
+  "boardDate": "2026-03-26",
+  "generatedAt": "2026-03-26T12:08:36.865Z",
   "sourceCount": 26,
   "weather": [
     {
       "city": "Ottawa",
-      "temperatureC": -7,
-      "maxC": 3,
-      "minC": -7,
-      "summary": "Partly cloudy"
+      "temperatureC": -3,
+      "maxC": 4,
+      "minC": -3,
+      "summary": "Cloudy"
     }
   ],
   "extremeWeather": [
@@ -40,15 +40,6 @@
       "publishedAt": "2026-03-22T12:00:21.000Z"
     },
     {
-      "title": "‘Seriously wrong’: flood-hit Lincolnshire residents at odds with Reform MP over climate",
-      "whatHappened": "Constituents’ frustration with Richard Tice reflects growing problem for party and its leaders’ climate-sceptic stance “The worst part of it was the smell,” says Audrey Crook,...",
-      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
-      "keyWord": "flood: water covering land that is usually dry",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/environment/2026/mar/25/boston-lincolnshire-flooding-reform-uk-richard-tice-climate",
-      "publishedAt": "2026-03-25T07:00:02.000Z"
-    },
-    {
       "title": "Arizona desert town breaks record for hottest March temperature in US history",
       "whatHappened": "Martinez Lake, about 145 miles west of Phoenix, reached 110F (43.3C) on Thursday amid scorching south-west heat Sign up for the Breaking News US email to...",
       "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
@@ -65,9 +56,27 @@
       "source": "UN Climate",
       "url": "https://news.un.org/feed/view/en/story/2026/03/1167173",
       "publishedAt": "2026-03-20T12:00:00.000Z"
+    },
+    {
+      "title": "From shelter to strength: How disaster refuges protect lives in Palau",
+      "whatHappened": "The small Pacific Ocean island of Palau is helping communities build resilience against the dangers of climate change-driven extreme weather with the establishment of a network...",
+      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
+      "keyWord": "extreme weather: unusual and dangerous weather like floods, storms, or heat waves",
+      "source": "UN Climate",
+      "url": "https://news.un.org/feed/view/en/story/2026/02/1166915",
+      "publishedAt": "2026-02-06T12:00:00.000Z"
     }
   ],
   "climate": [
+    {
+      "title": "US has caused $10tn worth of climate damage since 1990, research finds",
+      "whatHappened": "US, top carbon emitter in history, has ‘a lot of responsibility’ for causing ‘substantial’ harm globally, scientist says The US has caused an eye-watering $10tn in...",
+      "whyItMatters": "Climate and environment stories connect science to real issues like safety, health, and extreme weather.",
+      "keyWord": "emissions: gases released into the air",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/environment/2026/mar/25/us-climate-damage-research",
+      "publishedAt": "2026-03-25T16:00:11.000Z"
+    },
     {
       "title": "UN weather agency warns of record ‘climate imbalance’ as planetary warming accelerates",
       "whatHappened": "All-time high greenhouse gas concentrations in Earth’s atmosphere continue to drive heat records on land and sea, with long-lasting consequences for humanity, the World Meteorological Organization...",
@@ -76,6 +85,15 @@
       "source": "UN Climate",
       "url": "https://news.un.org/feed/view/en/story/2026/03/1167178",
       "publishedAt": "2026-03-23T12:00:00.000Z"
+    },
+    {
+      "title": "Octopus reports sharp rise in solar panel sales since start of Iran war",
+      "whatHappened": "Firm’s sales up 54% this month and Good Energy reports doubling of interest in solar after latest oil price shock Solar panel sales have risen sharply...",
+      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
+      "keyWord": "climate: the usual pattern of weather over a long period of time",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/environment/2026/mar/26/octopus-sharp-rise-solar-panel-sales-iran-war",
+      "publishedAt": "2026-03-26T11:51:17.000Z"
     },
     {
       "title": "US to pay almost $1bn to French energy company to kill wind project plan",
@@ -96,15 +114,6 @@
       "publishedAt": "2026-03-16T12:00:00.000Z"
     },
     {
-      "title": "‘Seriously wrong’: flood-hit Lincolnshire residents at odds with Reform MP over climate",
-      "whatHappened": "Constituents’ frustration with Richard Tice reflects growing problem for party and its leaders’ climate-sceptic stance “The worst part of it was the smell,” says Audrey Crook,...",
-      "whyItMatters": "Climate and environment stories connect science to real issues like safety, health, and extreme weather.",
-      "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/environment/2026/mar/25/boston-lincolnshire-flooding-reform-uk-richard-tice-climate",
-      "publishedAt": "2026-03-25T07:00:02.000Z"
-    },
-    {
       "title": "US public health groups urge firing of EPA boss Zeldin, saying he ‘brazenly betrayed’ agency",
       "whatHappened": "Advocates say Lee Zeldin’s EPA has rolled back protections and cut staff and funding, putting health at risk Sign up for the Breaking News US email...",
       "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
@@ -112,26 +121,26 @@
       "source": "The Guardian Environment",
       "url": "https://www.theguardian.com/environment/2026/mar/24/fire-epa-zeldin-public-health",
       "publishedAt": "2026-03-24T16:18:21.000Z"
-    },
-    {
-      "title": "Heat pumps for all new homes and plug-in solar in green tech drive",
-      "whatHappened": "Solar panels that can be plugged in at home could be available to buy in supermarkets in the coming months.",
-      "whyItMatters": "Climate and environment stories connect science to real issues like safety, health, and extreme weather.",
-      "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "BBC Science & Environment",
-      "url": "https://www.bbc.com/news/articles/czjw7klkjm2o?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-03-24T15:37:53.000Z"
     }
   ],
   "weatherTech": [
     {
-      "title": "The BB-777 is the ultimate in boombox nostalgia",
-      "whatHappened": "Bumpboxx is fully embracing nostalgia with its latest boombox, the BB-777, which is modeled very closely on the legendary Sharp GF-777.",
-      "whyItMatters": "Weather technology shows how science tools can predict conditions faster and help people prepare earlier.",
+      "title": "Octopus reports sharp rise in solar panel sales since start of Iran war",
+      "whatHappened": "Firm’s sales up 54% this month and Good Energy reports doubling of interest in solar after latest oil price shock Solar panel sales have risen sharply...",
+      "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
+      "keyWord": "solar: related to energy from sunlight",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/environment/2026/mar/26/octopus-sharp-rise-solar-panel-sales-iran-war",
+      "publishedAt": "2026-03-26T11:51:17.000Z"
+    },
+    {
+      "title": "Intel and LG Display may have beaten Apple and Qualcomm with the best laptop battery life ever",
+      "whatHappened": "One of the coolest laptops we saw at CES in January was the new Dell XPS 16, with a unique 1-120Hz variable refresh rate display that...",
+      "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
       "keyWord": "battery: a device that stores energy for later use",
       "source": "The Verge",
-      "url": "https://www.theverge.com/tech/897876/the-bb-777-is-the-ultimate-in-boombox-nostalgia",
-      "publishedAt": "2026-03-25T09:31:01.000Z"
+      "url": "https://www.theverge.com/tech/901155/dell-xps-16-best-battery-lg-display-1hz-panther-lake-intel",
+      "publishedAt": "2026-03-26T09:56:40.000Z"
     },
     {
       "title": "Heat pumps for all new homes and plug-in solar in green tech drive",
@@ -235,13 +244,13 @@
       "publishedAt": "2026-03-13T12:00:00.000Z"
     },
     {
-      "title": "Understanding how “marine snow” acts as a carbon sink",
-      "whatHappened": "A new study finds hitchhiking bacteria dissolve essential ballast in ubiquitous “snow” particles, which could counteract the ocean’s ability to sequester carbon.",
+      "title": "Augmenting citizen science with computer vision for fish monitoring",
+      "whatHappened": "MIT Sea Grant works with the Woodwell Climate Research Center and other collaborators to demonstrate a deep learning-based system for fish monitoring.",
       "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
-      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
+      "keyWord": "research: careful study used to discover new knowledge",
       "source": "MIT Earth & Atmospheric Sciences",
-      "url": "https://news.mit.edu/2026/understanding-how-marine-snow-acts-as-carbon-sink-0309",
-      "publishedAt": "2026-03-09T19:00:00.000Z"
+      "url": "https://news.mit.edu/2026/augmenting-citizen-science-computer-vision-fish-monitoring-0325",
+      "publishedAt": "2026-03-25T21:00:00.000Z"
     },
     {
       "title": "Ancient Antarctic ice cycles impacted ocean productivity thousands of miles away",
@@ -253,13 +262,13 @@
       "publishedAt": "2026-03-23T18:05:15.000Z"
     },
     {
-      "title": "Invasive grasses may be turning B.C.’s burn scars into the next wildfire",
-      "whatHappened": "A UBC study with St'át'imc Nation communities finds invasive grasses are the sleeper threat on B.C.'s post-fire landscape—and the window to stop them is narrow",
+      "title": "From Idaho to MIT, on a quest to cut methane emissions",
+      "whatHappened": "PhD student Audrey Parker studies methane mitigation strategies in dairy farms and coal mines, to reduce emissions of the potent greenhouse gas.",
       "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
       "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
-      "source": "UBC News",
-      "url": "https://news.ubc.ca/2026/03/invasive-grasses-post-wildfire/",
-      "publishedAt": "2026-03-19T15:55:00.000Z"
+      "source": "MIT Earth & Atmospheric Sciences",
+      "url": "https://news.mit.edu/2026/cutting-methane-emissions-audrey-parker-0315",
+      "publishedAt": "2026-03-15T04:00:00.000Z"
     }
   ]
 }
