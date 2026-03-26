@@ -376,7 +376,7 @@ function playCardSound(cardId, effect = {}) {
 
   const reactionIds = new Set([
     "combustion", "steamBurst", "acidRain", "rust", "explosion", "saltFormation",
-    "carbonBurn", "potassiumWater", "limeFormation", "calciumSteam", "alkaliExplosion",
+    "carbonBurn", "hypochlorousAcid", "potassiumWater", "limeFormation", "calciumSteam", "alkaliExplosion",
     "hydrationCrystal",
   ]);
   const attackIds = new Set([
@@ -438,7 +438,7 @@ const PRACTICE_ROOM_CODE = "PRACTICE";
 const PRACTICE_DECKS = {
   1: [
     "sulfur", "oxygen", "water", "copperSulfate", "hydrogen", "carbon", "carbonDioxide", "sodium", "potassium", "helium", "iron",
-    "chlorine", "calcium", "combustion", "steamBurst", "acidRain", "explosion", "carbonBurn",
+    "chlorine", "calcium", "combustion", "steamBurst", "acidRain", "explosion", "carbonBurn", "hypochlorousAcid",
     "potassiumWater", "alkaliExplosion", "alkaliBlast", "fireball", "lightning", "poisonCloud",
     "plasmaShock", "noblePressure", "electrolyteSurge", "catalyst", "shield", "extinguish", "corrode", "rust", "saltFormation",
     "hydrationCrystal",
@@ -446,7 +446,7 @@ const PRACTICE_DECKS = {
   ],
   2: [
     "sulfur", "oxygen", "water", "copperSulfate", "hydrogen", "carbon", "carbonDioxide", "sodium", "potassium", "helium", "iron",
-    "chlorine", "calcium", "combustion", "steamBurst", "acidRain", "explosion", "carbonBurn",
+    "chlorine", "calcium", "combustion", "steamBurst", "acidRain", "explosion", "carbonBurn", "hypochlorousAcid",
     "potassiumWater", "alkaliExplosion", "alkaliBlast", "fireball", "lightning", "poisonCloud",
     "plasmaShock", "noblePressure", "electrolyteSurge", "catalyst", "shield", "extinguish", "corrode", "rust", "saltFormation",
     "hydrationCrystal",
@@ -671,6 +671,16 @@ const CARD_LIBRARY = {
     text: "Carbon + Oxygen = 5 damage.",
     tags: ["reaction", "fire"],
     image: "images/cards/carbon_burn.png",
+  },
+  hypochlorousAcid: {
+    id: "hypochlorousAcid",
+    name: "Hypochlorous Acid",
+    type: "Reaction",
+    cost: 2,
+    symbol: "RXN",
+    text: "Chlorine + Water = 4 damage and cleanse your Corroded.",
+    tags: ["reaction", "disinfect"],
+    image: "images/cards/hypochlorous_acid.png",
   },
   potassiumWater: {
     id: "potassiumWater",
@@ -981,6 +991,13 @@ const SCIENCE_NOTES = {
     body: "Salt Formation helps students see that two reactive elements can combine into a more stable result.",
     reason: "This reaction also cleanses Wet, showing that a reaction can remove as well as create conditions.",
     preview: "Salt Formation is a good example of a reaction that changes your own status too.",
+  },
+  hypochlorousAcid: {
+    title: "Disinfecting Reaction",
+    equation: "Chlorine + Water -> HOCl disinfectant",
+    body: "This card models chlorine reacting with water to form hypochlorous acid, a strong disinfectant used to reduce microorganisms.",
+    reason: "Hypochlorous Acid removed Corroded from your side, showing a chemistry result that cleans and stabilizes instead of only damaging.",
+    preview: "Prepare Chlorine and Water first, then use Hypochlorous Acid to cleanse Corroded while still dealing damage.",
   },
   carbonBurn: {
     title: "Carbon Burning",
@@ -1658,6 +1675,7 @@ function resolveLocalReactionPreview(card, player) {
     rust: ["iron", "oxygen"],
     explosion: ["hydrogen", "oxygen"],
     saltFormation: ["sodium", "chlorine"],
+    hypochlorousAcid: ["chlorine", "water"],
     carbonBurn: ["carbon", "oxygen"],
     potassiumWater: ["potassium", "water"],
     limeFormation: ["calcium", "water"],
@@ -1783,6 +1801,12 @@ function resolveLocalReaction(localGame, card, player, opponent) {
     opponent.hp = Math.max(0, opponent.hp - 5);
     removePlayerStatus(player, "Wet");
     logGameMessage(localGame, `Player ${player.id} formed Salt for 5 damage and removed Wet from self.`);
+    return true;
+  }
+  if (card.id === "hypochlorousAcid" && playerHasFieldCard(player, "chlorine") && playerHasFieldCard(player, "water")) {
+    opponent.hp = Math.max(0, opponent.hp - 4);
+    removePlayerStatus(player, "Corroded");
+    logGameMessage(localGame, `Player ${player.id} formed Hypochlorous Acid for 4 damage and removed Corroded from self.`);
     return true;
   }
   if (card.id === "carbonBurn" && playerHasFieldCard(player, "carbon") && playerHasFieldCard(player, "oxygen")) {
@@ -1947,7 +1971,8 @@ function getPracticeCardScore(card, player, opponent) {
     let score = 18;
     const handIds = player.hand.map((handCard) => handCard.id);
     if (card.id === "oxygen" && handIds.some((id) => ["combustion", "steamBurst", "rust", "explosion", "carbonBurn", "alkaliExplosion", "plasmaShock"].includes(id))) score += 9;
-    if (card.id === "water" && handIds.some((id) => ["steamBurst", "acidRain", "potassiumWater", "limeFormation", "calciumSteam"].includes(id))) score += 8;
+    if (card.id === "water" && handIds.some((id) => ["steamBurst", "acidRain", "hypochlorousAcid", "potassiumWater", "limeFormation", "calciumSteam"].includes(id))) score += 8;
+    if (card.id === "chlorine" && handIds.some((id) => ["saltFormation", "hypochlorousAcid"].includes(id))) score += 7;
     if (card.id === "water" && handIds.includes("hydrationCrystal")) score += 6;
     if (card.id === "copperSulfate" && handIds.some((id) => ["hydrationCrystal", "electrolyteSurge"].includes(id))) score += 8;
     if (card.id === "carbonDioxide" && handIds.includes("extinguish")) score += 7;
@@ -2945,6 +2970,9 @@ function getCardEffectContext(cardId, actorPid) {
     case "saltFormation":
       ctx.damage = 5;
       break;
+    case "hypochlorousAcid":
+      ctx.damage = 4;
+      break;
     case "carbonBurn":
       ctx.damage = 5;
       break;
@@ -3489,6 +3517,7 @@ function meetsReactionRequirements(card, player) {
     rust: ["iron", "oxygen"],
     explosion: ["hydrogen", "oxygen"],
     saltFormation: ["sodium", "chlorine"],
+    hypochlorousAcid: ["chlorine", "water"],
     carbonBurn: ["carbon", "oxygen"],
     potassiumWater: ["potassium", "water"],
     limeFormation: ["calcium", "water"],

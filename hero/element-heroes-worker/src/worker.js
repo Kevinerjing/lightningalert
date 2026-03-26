@@ -1705,6 +1705,15 @@ const CARD_LIBRARY = {
     text: "Sodium + Chlorine = 5 damage and cleanse your Wet.",
     tags: ["reaction", "salt"],
   },
+  hypochlorousAcid: {
+    id: "hypochlorousAcid",
+    name: "Hypochlorous Acid",
+    type: "Reaction",
+    cost: 2,
+    symbol: "RXN",
+    text: "Chlorine + Water = 4 damage and cleanse your Corroded.",
+    tags: ["reaction", "disinfect"],
+  },
   carbonBurn: {
     id: "carbonBurn",
     name: "Carbon Burn",
@@ -1881,6 +1890,7 @@ const DECKS = {
   "steamBurst",
   "acidRain",
   "explosion",
+  "hypochlorousAcid",
   "carbonBurn",
   "potassiumWater",
   "alkaliExplosion",
@@ -1918,6 +1928,7 @@ const DECKS = {
   "steamBurst",
   "acidRain",
   "explosion",
+  "hypochlorousAcid",
   "carbonBurn",
   "potassiumWater",
   "alkaliExplosion",
@@ -2256,6 +2267,15 @@ function buildEffectPayload(card, player, opponent) {
     });
   }
 
+  if (card.id === "hypochlorousAcid") {
+    return createEffectBase(card, player, opponent, {
+      effectGroup: "reaction",
+      damage: 4,
+      cleanseSelfStatus: "Corroded",
+      duration: 1050,
+    });
+  }
+
   if (card.id === "carbonBurn") {
     return createEffectBase(card, player, opponent, {
       effectGroup: "reaction",
@@ -2458,6 +2478,13 @@ function resolveReaction(game, card, player, opponent) {
     return true;
   }
 
+  if (card.id === "hypochlorousAcid" && hasFieldCard(player, "chlorine") && hasFieldCard(player, "water")) {
+    opponent.hp = Math.max(0, opponent.hp - 4);
+    removeStatus(player, "Corroded");
+    logMessage(game, "Player " + player.id + " formed Hypochlorous Acid for 4 damage and removed Corroded from self.");
+    return true;
+  }
+
   if (card.id === "carbonBurn" && hasFieldCard(player, "carbon") && hasFieldCard(player, "oxygen")) {
     opponent.hp = Math.max(0, opponent.hp - 5);
     logMessage(game, "Player " + player.id + " used Carbon Burn for 5 damage.");
@@ -2600,6 +2627,10 @@ function resolveReactionPreview(game, card, player, opponent) {
   }
 
   if (card.id === "saltFormation" && !(hasFieldCard(player, "sodium") && hasFieldCard(player, "chlorine"))) {
+    return { ok: false, message: "Reaction requirements were not met." };
+  }
+
+  if (card.id === "hypochlorousAcid" && !(hasFieldCard(player, "chlorine") && hasFieldCard(player, "water"))) {
     return { ok: false, message: "Reaction requirements were not met." };
   }
 

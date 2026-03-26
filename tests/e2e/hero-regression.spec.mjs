@@ -285,6 +285,54 @@ async function seedHydrationCrystalCombo(page) {
   });
 }
 
+async function seedHypochlorousAcidCombo(page) {
+  await page.evaluate(() => {
+    const makeCard = (cardId) => cloneCard(cardId);
+
+    playerId = 1;
+    isPracticeMode = true;
+    roomCode = "PRACTICE";
+    selectedCardIndex = null;
+    selectedFieldIndex = null;
+    pendingLocalEffect = null;
+
+    gameState = {
+      turn: 1,
+      currentPlayer: 1,
+      players: {
+        1: {
+          id: 1,
+          hp: 10,
+          maxHp: 10,
+          energy: 3,
+          maxEnergy: 3,
+          deck: [],
+          hand: [makeCard("hypochlorousAcid")],
+          field: [makeCard("chlorine"), makeCard("water")],
+          discard: [],
+          statuses: ["Corroded"],
+        },
+        2: {
+          id: 2,
+          hp: 10,
+          maxHp: 10,
+          energy: 3,
+          maxEnergy: 3,
+          deck: [],
+          hand: [],
+          field: [],
+          discard: [],
+          statuses: [],
+        },
+      },
+      log: ["Hypochlorous Acid test setup."],
+      winner: null,
+    };
+
+    render();
+  });
+}
+
 async function seedElectrolyteSurge(page, withCopperSulfate) {
   await page.evaluate((hasCopperSulfate) => {
     const makeCard = (cardId) => cloneCard(cardId);
@@ -435,6 +483,24 @@ test("Hydration Crystal heals and draws after Copper Sulfate plus Water are prep
   await expect(page.locator("#p1Hand .card")).toHaveCount(1);
   await expect(page.locator("#combatLog")).toContainText("Hydration Crystal");
   await expect(page.locator("#combatLog")).toContainText("healed 3 HP");
+});
+
+test("Hypochlorous Acid damages and removes Corroded after Chlorine plus Water are prepared", async ({ page }) => {
+  await gotoHero(page);
+  await startPractice(page);
+  await seedHypochlorousAcidCombo(page);
+
+  const reactionCard = page.locator('#p1Hand .card[data-index="0"]');
+  await expect(reactionCard).toContainText("Hypochlorous Acid");
+  await reactionCard.click({ force: true });
+  await expect(page.locator("#playCardBtn")).toBeEnabled();
+
+  await playSelectedCard(page);
+
+  await expect(page.locator("#p2HpText")).toContainText("6 / 10");
+  await expect(page.locator("#p1Statuses")).toContainText("No active statuses");
+  await expect(page.locator("#combatLog")).toContainText("Hypochlorous Acid");
+  await expect(page.locator("#combatLog")).toContainText("removed Corroded from self");
 });
 
 test("Electrolyte Surge gains its damage bonus when Copper Sulfate is on the field", async ({ page }) => {
