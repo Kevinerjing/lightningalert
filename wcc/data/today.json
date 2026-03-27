@@ -1,26 +1,17 @@
 {
-  "boardDate": "2026-03-26",
-  "generatedAt": "2026-03-26T12:08:36.865Z",
+  "boardDate": "2026-03-27",
+  "generatedAt": "2026-03-27T12:05:05.114Z",
   "sourceCount": 26,
   "weather": [
     {
       "city": "Ottawa",
-      "temperatureC": -3,
-      "maxC": 4,
-      "minC": -3,
-      "summary": "Cloudy"
+      "temperatureC": -12,
+      "maxC": -1,
+      "minC": -12,
+      "summary": "Clear skies"
     }
   ],
   "extremeWeather": [
-    {
-      "title": "More than 230 people rescued as flash flooding hits Hawaii and fears dam could fail",
-      "whatHappened": "Heavy rains have pummeled the Hawaiian island of Oahu and triggered the worst flooding the island has in 20 years Sign up for the Breaking News...",
-      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
-      "keyWord": "flood: water covering land that is usually dry",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/us-news/2026/mar/20/hawaii-oahu-flash-floods",
-      "publishedAt": "2026-03-21T05:44:34.000Z"
-    },
     {
       "title": "Hawaii assesses damage left by worst flooding in more than 20 years",
       "whatHappened": "People evacuated on Oahu and Maui as rains lifted houses and cars, swept through stores and left streets mud-clogged Sign up for the Breaking News US...",
@@ -29,24 +20,6 @@
       "source": "The Guardian Environment",
       "url": "https://www.theguardian.com/us-news/2026/mar/23/hawaii-flooding-oahu-maui",
       "publishedAt": "2026-03-23T22:04:03.000Z"
-    },
-    {
-      "title": "Weather extremes gripping US bear climate crisis ‘fingerprint’, experts say",
-      "whatHappened": "There are flooding rains in Hawaii, rare snow in Alabama and a severe heatwave in the west coast Sign up for the Breaking News US email...",
-      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
-      "keyWord": "heat wave: a long period of unusually hot weather",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/us-news/2026/mar/22/climate-crisis-march-extreme-weather",
-      "publishedAt": "2026-03-22T12:00:21.000Z"
-    },
-    {
-      "title": "Arizona desert town breaks record for hottest March temperature in US history",
-      "whatHappened": "Martinez Lake, about 145 miles west of Phoenix, reached 110F (43.3C) on Thursday amid scorching south-west heat Sign up for the Breaking News US email to...",
-      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
-      "keyWord": "heat wave: a long period of unusually hot weather",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/us-news/2026/mar/20/arizona-march-temperature-record",
-      "publishedAt": "2026-03-20T18:22:31.000Z"
     },
     {
       "title": "Forests are more than a resource: How Belarus protects its vital ecosystem",
@@ -87,15 +60,6 @@
       "publishedAt": "2026-03-23T12:00:00.000Z"
     },
     {
-      "title": "Octopus reports sharp rise in solar panel sales since start of Iran war",
-      "whatHappened": "Firm’s sales up 54% this month and Good Energy reports doubling of interest in solar after latest oil price shock Solar panel sales have risen sharply...",
-      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
-      "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/environment/2026/mar/26/octopus-sharp-rise-solar-panel-sales-iran-war",
-      "publishedAt": "2026-03-26T11:51:17.000Z"
-    },
-    {
       "title": "US to pay almost $1bn to French energy company to kill wind project plan",
       "whatHappened": "Trump administration announces deal with TotalEnergies to redirect investment in wind to oil and gas instead As a fuel crisis triggered by the war in Iran...",
       "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
@@ -114,34 +78,25 @@
       "publishedAt": "2026-03-16T12:00:00.000Z"
     },
     {
-      "title": "US public health groups urge firing of EPA boss Zeldin, saying he ‘brazenly betrayed’ agency",
-      "whatHappened": "Advocates say Lee Zeldin’s EPA has rolled back protections and cut staff and funding, putting health at risk Sign up for the Breaking News US email...",
+      "title": "Released beavers settle after year of ups and downs",
+      "whatHappened": "The BBC speaks to conservationists a year after beavers were released at a nature reserve in Dorset.",
+      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
+      "keyWord": "climate: the usual pattern of weather over a long period of time",
+      "source": "BBC Science & Environment",
+      "url": "https://www.bbc.com/news/articles/cx2v6xn35gwo?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-03-27T06:20:54.000Z"
+    },
+    {
+      "title": "Beavers ‘breathe new life’ into Dorset as dams built and biodiversity returns",
+      "whatHappened": "National Trust says one year after reintroduction they are enriching habitats and may be having kits this summer They were released this time last year with...",
       "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
       "keyWord": "climate: the usual pattern of weather over a long period of time",
       "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/environment/2026/mar/24/fire-epa-zeldin-public-health",
-      "publishedAt": "2026-03-24T16:18:21.000Z"
+      "url": "https://www.theguardian.com/environment/2026/mar/27/beavers-dorset-dams-biodiversity-national-trust",
+      "publishedAt": "2026-03-27T06:00:06.000Z"
     }
   ],
   "weatherTech": [
-    {
-      "title": "Octopus reports sharp rise in solar panel sales since start of Iran war",
-      "whatHappened": "Firm’s sales up 54% this month and Good Energy reports doubling of interest in solar after latest oil price shock Solar panel sales have risen sharply...",
-      "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
-      "keyWord": "solar: related to energy from sunlight",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/environment/2026/mar/26/octopus-sharp-rise-solar-panel-sales-iran-war",
-      "publishedAt": "2026-03-26T11:51:17.000Z"
-    },
-    {
-      "title": "Intel and LG Display may have beaten Apple and Qualcomm with the best laptop battery life ever",
-      "whatHappened": "One of the coolest laptops we saw at CES in January was the new Dell XPS 16, with a unique 1-120Hz variable refresh rate display that...",
-      "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
-      "keyWord": "battery: a device that stores energy for later use",
-      "source": "The Verge",
-      "url": "https://www.theverge.com/tech/901155/dell-xps-16-best-battery-lg-display-1hz-panther-lake-intel",
-      "publishedAt": "2026-03-26T09:56:40.000Z"
-    },
     {
       "title": "Heat pumps for all new homes and plug-in solar in green tech drive",
       "whatHappened": "Solar panels that can be plugged in at home could be available to buy in supermarkets in the coming months.",
@@ -244,6 +199,24 @@
       "publishedAt": "2026-03-13T12:00:00.000Z"
     },
     {
+      "title": "One-of-a-kind experiment tracked plant evolution in response to climate change at 30 sites worldwide",
+      "whatHappened": "Simultaneous experiments pinpointed genetic variants associated with successful adaptation to climate change — and the tipping point beyond which plants can’t adapt.",
+      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
+      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
+      "source": "Berkeley News",
+      "url": "https://news.berkeley.edu/2026/03/26/one-of-a-kind-experiment-tracked-plant-evolution-in-response-to-climate-change-at-30-sites-worldwide/",
+      "publishedAt": "2026-03-26T18:03:30.000Z"
+    },
+    {
+      "title": "Tia Nelson, champion of environmental stewardship, to receive honorary degree from UW–Madison",
+      "whatHappened": "Nelson, who has been instrumental in advancing local, national and global conservation efforts, will be honored on May 8 at the spring commencement ceremony.",
+      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
+      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
+      "source": "University of Wisconsin News",
+      "url": "https://news.wisc.edu/tia-nelson-champion-of-environmental-stewardship-to-receive-honorary-degree-from-uw-madison/",
+      "publishedAt": "2026-03-26T13:18:00.000Z"
+    },
+    {
       "title": "Augmenting citizen science with computer vision for fish monitoring",
       "whatHappened": "MIT Sea Grant works with the Woodwell Climate Research Center and other collaborators to demonstrate a deep learning-based system for fish monitoring.",
       "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
@@ -251,15 +224,6 @@
       "source": "MIT Earth & Atmospheric Sciences",
       "url": "https://news.mit.edu/2026/augmenting-citizen-science-computer-vision-fish-monitoring-0325",
       "publishedAt": "2026-03-25T21:00:00.000Z"
-    },
-    {
-      "title": "Ancient Antarctic ice cycles impacted ocean productivity thousands of miles away",
-      "whatHappened": "UW–Madison study links Antarctic ice sheet growth and decay to a 40,000-year rhythm in subtropical marine productivity.",
-      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
-      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
-      "source": "University of Wisconsin News",
-      "url": "https://news.wisc.edu/ancient-antarctic-ice-cycles-impacted-ocean-productivity-thousands-of-miles-away/",
-      "publishedAt": "2026-03-23T18:05:15.000Z"
     },
     {
       "title": "From Idaho to MIT, on a quest to cut methane emissions",
