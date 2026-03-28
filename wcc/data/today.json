@@ -1,14 +1,14 @@
 {
-  "boardDate": "2026-03-27",
-  "generatedAt": "2026-03-27T12:05:05.114Z",
+  "boardDate": "2026-03-28",
+  "generatedAt": "2026-03-28T11:52:46.889Z",
   "sourceCount": 26,
   "weather": [
     {
       "city": "Ottawa",
-      "temperatureC": -12,
-      "maxC": -1,
-      "minC": -12,
-      "summary": "Clear skies"
+      "temperatureC": -9,
+      "maxC": -2,
+      "minC": -10,
+      "summary": "Cloudy"
     }
   ],
   "extremeWeather": [
@@ -60,15 +60,6 @@
       "publishedAt": "2026-03-23T12:00:00.000Z"
     },
     {
-      "title": "US to pay almost $1bn to French energy company to kill wind project plan",
-      "whatHappened": "Trump administration announces deal with TotalEnergies to redirect investment in wind to oil and gas instead As a fuel crisis triggered by the war in Iran...",
-      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
-      "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/us-news/2026/mar/23/trump-administration-wind-project-plan",
-      "publishedAt": "2026-03-23T19:26:15.000Z"
-    },
-    {
       "title": "War-driven energy price spikes highlight value of renewables: UN climate chief",
       "whatHappened": "The disruption of global energy supplies is being felt worldwide, the UN’s top climate change official warned on Monday, as conflict in the Middle East drives...",
       "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
@@ -78,6 +69,24 @@
       "publishedAt": "2026-03-16T12:00:00.000Z"
     },
     {
+      "title": "Exclusion zone set up to protect endangered birds",
+      "whatHappened": "An area for nesting birds on the Isle of Man has been cordoned off to protect endangered species.",
+      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
+      "keyWord": "climate: the usual pattern of weather over a long period of time",
+      "source": "BBC Science & Environment",
+      "url": "https://www.bbc.com/news/articles/cwykd8dlv9yo?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-03-28T07:13:53.000Z"
+    },
+    {
+      "title": "Wily coyote? Urban canines take more risks compared with rural ones, study finds",
+      "whatHappened": "Researchers believe behavioral gap, which may hold true across species, is probably product of less fear of harassment in cities Anyone who has lived long enough...",
+      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
+      "keyWord": "climate: the usual pattern of weather over a long period of time",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/us-news/2026/mar/27/urban-rural-coyote-study",
+      "publishedAt": "2026-03-27T14:00:03.000Z"
+    },
+    {
       "title": "Released beavers settle after year of ups and downs",
       "whatHappened": "The BBC speaks to conservationists a year after beavers were released at a nature reserve in Dorset.",
       "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
@@ -85,18 +94,27 @@
       "source": "BBC Science & Environment",
       "url": "https://www.bbc.com/news/articles/cx2v6xn35gwo?at_medium=RSS&at_campaign=rss",
       "publishedAt": "2026-03-27T06:20:54.000Z"
-    },
-    {
-      "title": "Beavers ‘breathe new life’ into Dorset as dams built and biodiversity returns",
-      "whatHappened": "National Trust says one year after reintroduction they are enriching habitats and may be having kits this summer They were released this time last year with...",
-      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
-      "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/environment/2026/mar/27/beavers-dorset-dams-biodiversity-national-trust",
-      "publishedAt": "2026-03-27T06:00:06.000Z"
     }
   ],
   "weatherTech": [
+    {
+      "title": "Oppo made the best foldable phone, again",
+      "whatHappened": "There are always a few reasons people give for not buying a foldable phone.",
+      "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
+      "keyWord": "battery: a device that stores energy for later use",
+      "source": "The Verge",
+      "url": "https://www.theverge.com/tech/901846/oppo-find-n6-review-crease-screen-specs-price",
+      "publishedAt": "2026-03-27T21:12:16.000Z"
+    },
+    {
+      "title": "Bluetti’s Sora 500 solar panel is incredibly powerful for its size",
+      "whatHappened": "We don't review many solar panels at The Verge, but the tech inside Bluetti's incredibly portable Sora 500 panel makes it worth a deeper look.",
+      "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
+      "keyWord": "solar: related to energy from sunlight",
+      "source": "The Verge",
+      "url": "https://www.theverge.com/reviews/899289/bluetti-sora-500-review-portable-solar-panel",
+      "publishedAt": "2026-03-26T08:43:13.000Z"
+    },
     {
       "title": "Heat pumps for all new homes and plug-in solar in green tech drive",
       "whatHappened": "Solar panels that can be plugged in at home could be available to buy in supermarkets in the coming months.",
@@ -105,15 +123,6 @@
       "source": "BBC Science & Environment",
       "url": "https://www.bbc.com/news/articles/czjw7klkjm2o?at_medium=RSS&at_campaign=rss",
       "publishedAt": "2026-03-24T15:37:53.000Z"
-    },
-    {
-      "title": "US to pay almost $1bn to French energy company to kill wind project plan",
-      "whatHappened": "Trump administration announces deal with TotalEnergies to redirect investment in wind to oil and gas instead As a fuel crisis triggered by the war in Iran...",
-      "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
-      "keyWord": "weather technology: tools that help people measure, study, or predict weather and climate",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/us-news/2026/mar/23/trump-administration-wind-project-plan",
-      "publishedAt": "2026-03-23T19:26:15.000Z"
     },
     {
       "title": "World News in Brief: Guterres calls for fair swtich to clean energy, Ramadan in Gaza, escalating violence and displacement in South Sudan",
@@ -199,6 +208,15 @@
       "publishedAt": "2026-03-13T12:00:00.000Z"
     },
     {
+      "title": "‘Best college tradition anywhere’",
+      "whatHappened": "Smurf-blue hair, chain-mail suits, vuvuzelas, and bagpipes abound as students flood Yard for annual raucous rite of Housing Day",
+      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
+      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
+      "source": "Harvard Gazette",
+      "url": "https://news.harvard.edu/gazette/story/2026/03/best-college-tradition-anywhere/",
+      "publishedAt": "2026-03-27T20:32:01.000Z"
+    },
+    {
       "title": "One-of-a-kind experiment tracked plant evolution in response to climate change at 30 sites worldwide",
       "whatHappened": "Simultaneous experiments pinpointed genetic variants associated with successful adaptation to climate change — and the tipping point beyond which plants can’t adapt.",
       "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
@@ -224,15 +242,6 @@
       "source": "MIT Earth & Atmospheric Sciences",
       "url": "https://news.mit.edu/2026/augmenting-citizen-science-computer-vision-fish-monitoring-0325",
       "publishedAt": "2026-03-25T21:00:00.000Z"
-    },
-    {
-      "title": "From Idaho to MIT, on a quest to cut methane emissions",
-      "whatHappened": "PhD student Audrey Parker studies methane mitigation strategies in dairy farms and coal mines, to reduce emissions of the potent greenhouse gas.",
-      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
-      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
-      "source": "MIT Earth & Atmospheric Sciences",
-      "url": "https://news.mit.edu/2026/cutting-methane-emissions-audrey-parker-0315",
-      "publishedAt": "2026-03-15T04:00:00.000Z"
     }
   ]
 }
