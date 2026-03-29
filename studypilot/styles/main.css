@@ -572,6 +572,10 @@ h3 {
   border: 1px solid var(--line);
 }
 
+.topic-section-full {
+  grid-column: 1 / -1;
+}
+
 .topic-section-header {
   display: flex;
   justify-content: space-between;

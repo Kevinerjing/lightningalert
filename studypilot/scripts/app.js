@@ -94,23 +94,14 @@
       const expanded = isTopicCardExpanded(cardKey);
       const sections = config.sections.map((section) => {
         const items = toList(topic[section.key]);
-        const sectionCardKey = buildTopicSectionKey(cardKey, section.key);
-        const sectionExpanded = isTopicCardExpanded(sectionCardKey);
         const content = items.length
           ? `<ul>${items.map((item) => renderTopicItem(item)).join("")}</ul>`
           : `<p class="muted">No details added yet.</p>`;
 
         return `
-          <section class="topic-section${sectionExpanded ? "" : " topic-section-collapsed"}" data-topic-section-key="${escapeHtml(sectionCardKey)}">
-            <div class="topic-section-header">
-              <h3>${escapeHtml(section.title)}</h3>
-              <button type="button" class="ghost-button topic-section-toggle" aria-expanded="${sectionExpanded ? "true" : "false"}">
-                ${sectionExpanded ? "Hide" : "Show"}
-              </button>
-            </div>
-            <div class="topic-section-body">
-              ${content}
-            </div>
+          <section class="topic-section">
+            <h3>${escapeHtml(section.title)}</h3>
+            ${content}
           </section>
         `;
       }).join("");
@@ -148,7 +139,6 @@
     }).join("");
 
     attachTopicCardHandlers(container);
-    attachTopicSectionHandlers(container);
     attachTopicArchiveHandlers(container, config.subjectName);
   }
 
@@ -539,28 +529,6 @@
       ok: true,
       ...payload
     };
-  }
-
-  function buildTopicSectionKey(cardKey, sectionKey) {
-    return `${cardKey}::${String(sectionKey || "").toLowerCase()}`;
-  }
-
-  function attachTopicSectionHandlers(container) {
-    container.querySelectorAll("[data-topic-section-key]").forEach((section) => {
-      const button = section.querySelector(".topic-section-toggle");
-      const sectionKey = section.getAttribute("data-topic-section-key");
-      if (!button || !sectionKey) {
-        return;
-      }
-
-      button.addEventListener("click", () => {
-        const nextExpanded = section.classList.contains("topic-section-collapsed");
-        section.classList.toggle("topic-section-collapsed", !nextExpanded);
-        button.setAttribute("aria-expanded", String(nextExpanded));
-        button.textContent = nextExpanded ? "Hide" : "Show";
-        localStorage.setItem(sectionKey, nextExpanded ? "open" : "closed");
-      });
-    });
   }
 
   function buildTaskKey(task) {

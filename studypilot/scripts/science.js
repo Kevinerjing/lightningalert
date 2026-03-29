@@ -62,34 +62,49 @@ function renderScienceSchedule(schedule) {
     `
     : createEmptyState("No upcoming key dates right now.");
 
+  const expanded = isScienceScheduleExpanded();
+
   container.innerHTML = `
-    <article class="group-card">
-      <p class="section-label">Schedule summary</p>
-      <h3>${escapeHtml(schedule.title || "SNC1W schedule")}</h3>
+    <article class="group-card upcoming-support-card${expanded ? "" : " upcoming-support-collapsed"}" data-science-schedule-card="true">
+      <div class="section-heading">
+        <div>
+          <p class="section-label">Schedule summary</p>
+          <h3>${escapeHtml(schedule.title || "SNC1W schedule")}</h3>
+        </div>
+        <button type="button" class="ghost-button science-schedule-toggle" aria-expanded="${expanded ? "true" : "false"}">
+          ${expanded ? "Hide details" : "Show details"}
+        </button>
+      </div>
       <p class="muted">${escapeHtml(schedule.overview || "")}</p>
-    </article>
-    <article class="group-card">
-      <p class="section-label">Units</p>
-      <div class="task-list">
-        ${units.map((unit) => `
-          <div class="task-item">
-            <div class="task-topline">
-              <div>
-                <h3>${escapeHtml(unit.name)}</h3>
-                <p class="muted">${escapeHtml(unit.window)}</p>
-              </div>
-              <span class="chip">${escapeHtml(unit.focus)}</span>
+      <div class="support-details">
+        <div class="topic-section-grid">
+          <section class="topic-section topic-section-full">
+            <h3>Units</h3>
+            <div class="task-list">
+              ${units.map((unit) => `
+                <div class="task-item">
+                  <div class="task-topline">
+                    <div>
+                      <h3>${escapeHtml(unit.name)}</h3>
+                      <p class="muted">${escapeHtml(unit.window)}</p>
+                    </div>
+                    <span class="chip">${escapeHtml(unit.focus)}</span>
+                  </div>
+                  <p class="mistake-detail">${escapeHtml(unit.notes)}</p>
+                </div>
+              `).join("")}
             </div>
-            <p class="mistake-detail">${escapeHtml(unit.notes)}</p>
-          </div>
-        `).join("")}
+          </section>
+          <section class="topic-section topic-section-full">
+            <h3>Key dates</h3>
+            ${keyDatesContent}
+          </section>
+        </div>
       </div>
     </article>
-    <article class="group-card">
-      <p class="section-label">Key dates</p>
-      ${keyDatesContent}
-    </article>
   `;
+
+  attachScienceScheduleHandler(container);
 }
 
 function isUpcomingDate(dateText, today) {
@@ -330,5 +345,25 @@ function attachUpcomingSupportHandlers(container) {
       button.textContent = nextExpanded ? "Hide details" : "Show details";
       localStorage.setItem(cardKey, nextExpanded ? "open" : "closed");
     });
+  });
+}
+
+function isScienceScheduleExpanded() {
+  return localStorage.getItem("studypilot.scienceSchedule") === "open";
+}
+
+function attachScienceScheduleHandler(container) {
+  const card = container.querySelector("[data-science-schedule-card]");
+  const button = container.querySelector(".science-schedule-toggle");
+  if (!card || !button) {
+    return;
+  }
+
+  button.addEventListener("click", () => {
+    const nextExpanded = card.classList.contains("upcoming-support-collapsed");
+    card.classList.toggle("upcoming-support-collapsed", !nextExpanded);
+    button.setAttribute("aria-expanded", String(nextExpanded));
+    button.textContent = nextExpanded ? "Hide details" : "Show details";
+    localStorage.setItem("studypilot.scienceSchedule", nextExpanded ? "open" : "closed");
   });
 }
