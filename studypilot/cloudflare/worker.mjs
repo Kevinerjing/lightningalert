@@ -60,6 +60,7 @@ async function handleStudyPilotChat(request, env, ctx) {
   const history = parseJsonArray(formData.get("history"));
   const page = String(formData.get("page") || "/");
   const message = String(formData.get("message") || "").trim();
+  const chatMode = String(formData.get("chatMode") || "").trim();
   const files = formData.getAll("files").filter(isFileLike);
   const uploadedFileIds = [];
 
@@ -68,7 +69,7 @@ async function handleStudyPilotChat(request, env, ctx) {
   }
 
   try {
-    const requestHints = inferRequestHints(message, page, files);
+    const requestHints = inferRequestHints(message, page, files, chatMode);
     const input = buildConversationInput(history, message, page, files, requestHints);
     const uploadedFileRecords = await uploadFilesToOpenAI(files, env, uploadedFileIds);
     const fileInputItems = uploadedFileRecords
@@ -252,6 +253,7 @@ function buildInstructions(page, requestHints) {
     "If the user is asking a specific worksheet question, fill-in-the-blank, or 'what do I write here' question, begin the reply with 'Direct answer: ' followed by one short sentence that answers immediately.",
     "After the direct answer, you may add a very short explanation if useful.",
     "If the user both asks a specific question and asks to update support or the page, keep this order: Direct answer first, then Short explanation, then any website update summary.",
+    "If chatOnlyMode is true, answer in chat only. In chatOnlyMode, do not create subjectUpdate, mistakeUpdate, or tasks unless the user explicitly asks to update the website or page.",
     "Only create tasks when they are genuinely helpful, and keep them short and realistic.",
     `Detected request hints: ${JSON.stringify(requestHints)}.`,
     `The user is currently on the StudyPilot page: ${page}.`
@@ -374,7 +376,7 @@ function enforceDirectAnswer(result, requestHints) {
     normalized.reply = `Direct answer: ${finalDirectAnswer}${explanation}`;
   }
 
-  return normalized;
+  return enforceChatOnlyMode(normalized, requestHints);
 }
 
 function extractDirectAnswer(text) {
@@ -395,9 +397,10 @@ function firstUsefulSentence(text) {
   return (firstSentence ? firstSentence[0] : firstLine).trim();
 }
 
-function inferRequestHints(message, page, files) {
+function inferRequestHints(message, page, files, chatMode = "") {
   const normalizedMessage = String(message || "").toLowerCase();
   const normalizedPage = String(page || "").toLowerCase();
+  const normalizedChatMode = String(chatMode || "").toLowerCase();
   const fileNames = files.map((file) => String(file.name || "").toLowerCase()).join(" ");
   const combined = `${normalizedMessage} ${normalizedPage} ${fileNames}`;
 
@@ -423,7 +426,22 @@ function inferRequestHints(message, page, files) {
     subjectHint,
     intentHint,
     simpleEnglishRequested: /(simple english|easy english|easy words|simple words|grade 9|student friendly)/.test(combined),
-    directQuestionRequested: /(\bwhat is\b|\bwhat do i write\b|\bwhat goes in\b|\bfill in\b|\bblank\b|\bwhich answer\b|\bwhat should i put\b|\?)/.test(normalizedMessage)
+    directQuestionRequested: /(\bwhat is\b|\bwhat do i write\b|\bwhat goes in\b|\bfill in\b|\bblank\b|\bwhich answer\b|\bwhat should i put\b|\?)/.test(normalizedMessage),
+    chatOnlyMode: normalizedChatMode === "chat-only",
+    explicitUpdateRequested: /(update the website|update the page|update the support|add this to the page|save this to the page)/.test(normalizedMessage)
+  };
+}
+
+function enforceChatOnlyMode(result, requestHints) {
+  if (!requestHints?.chatOnlyMode || requestHints?.explicitUpdateRequested) {
+    return result;
+  }
+
+  return {
+    ...result,
+    subjectUpdate: null,
+    mistakeUpdate: null,
+    tasks: []
   };
 }
 

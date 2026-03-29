@@ -793,8 +793,8 @@ h3 {
 }
 
 .floating-chat-panel {
-  width: min(460px, calc(100vw - 1.5rem));
-  max-height: min(82vh, 820px);
+  width: min(620px, calc(100vw - 1.5rem));
+  max-height: min(88vh, 960px);
   overflow: hidden;
   border: 1px solid rgba(24, 63, 77, 0.12);
   border-radius: 22px;
@@ -805,7 +805,7 @@ h3 {
 
 .floating-chat.is-open .floating-chat-panel {
   display: grid;
-  grid-template-rows: auto auto auto minmax(120px, 1fr) auto;
+  grid-template-rows: auto auto auto minmax(260px, 1fr) auto;
 }
 
 .floating-chat-header {
@@ -859,7 +859,7 @@ h3 {
 }
 
 .chat-thread {
-  min-height: 120px;
+  min-height: 260px;
   overflow-y: auto;
   scroll-behavior: smooth;
   padding: 0 1rem 1rem 1rem;
@@ -947,8 +947,8 @@ h3 {
 
 .chat-form textarea {
   width: 100%;
-  min-height: 112px;
-  max-height: 180px;
+  min-height: 148px;
+  max-height: 260px;
   resize: vertical;
   padding: 0.7rem 0.8rem;
   border-radius: 14px;

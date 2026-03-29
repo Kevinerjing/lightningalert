@@ -150,6 +150,7 @@ app.post("/api/studypilot-chat", upload.array("files", 5), async (request, respo
   const history = parseJsonArray(request.body.history);
   const page = String(request.body.page || "/");
   const userMessage = String(request.body.message || "").trim();
+  const chatMode = String(request.body.chatMode || "").trim();
   const uploadedFiles = Array.isArray(request.files) ? request.files : [];
   const fileIdsToDelete = [];
 
@@ -159,7 +160,7 @@ app.post("/api/studypilot-chat", upload.array("files", 5), async (request, respo
   }
 
   try {
-    const requestHints = inferRequestHints(userMessage, page, uploadedFiles);
+    const requestHints = inferRequestHints(userMessage, page, uploadedFiles, chatMode);
     const input = buildConversationInput(history, userMessage, page, uploadedFiles, requestHints);
     const uploadedInputItems = await uploadFilesToOpenAI(client, uploadedFiles, fileIdsToDelete);
 
@@ -248,6 +249,7 @@ function buildInstructions(page, requestHints) {
     "If the user is asking a specific worksheet question, fill-in-the-blank, or 'what do I write here' question, begin the reply with 'Direct answer: ' followed by one short sentence that answers immediately.",
     "After the direct answer, you may add a very short explanation if useful.",
     "If the user both asks a specific question and asks to update support or the page, keep this order: Direct answer first, then Short explanation, then any website update summary.",
+    "If chatOnlyMode is true, answer in chat only. In chatOnlyMode, do not create subjectUpdate, mistakeUpdate, or tasks unless the user explicitly asks to update the website or page.",
     "A Science page update should feel like a study card: key ideas, simple support notes, easy-medium-hard practice, and short mastery checks.",
     "A Math page update should feel like a study card: formulas or rules, solving steps, common mistakes, and practice items.",
     "An English page update should feel like a study card: reading focus, writing tips, vocabulary, and short practice prompts.",
@@ -467,7 +469,7 @@ function enforceDirectAnswer(result, requestHints) {
     normalized.reply = `Direct answer: ${finalDirectAnswer}${explanation}`;
   }
 
-  return normalized;
+  return enforceChatOnlyMode(normalized, requestHints);
 }
 
 function extractDirectAnswer(text) {
@@ -604,9 +606,10 @@ function normalizeSubject(subject) {
   return "General";
 }
 
-function inferRequestHints(message, page, uploadedFiles) {
+function inferRequestHints(message, page, uploadedFiles, chatMode = "") {
   const normalizedMessage = String(message || "").toLowerCase();
   const normalizedPage = String(page || "").toLowerCase();
+  const normalizedChatMode = String(chatMode || "").toLowerCase();
   const fileNames = uploadedFiles.map((file) => String(file.originalname || "").toLowerCase()).join(" ");
   const combined = `${normalizedMessage} ${normalizedPage} ${fileNames}`;
 
@@ -630,12 +633,28 @@ function inferRequestHints(message, page, uploadedFiles) {
 
   const simpleEnglishRequested = /(simple english|easy english|easy words|simple words|grade 9|student friendly)/.test(combined);
   const directQuestionRequested = /(\bwhat is\b|\bwhat do i write\b|\bwhat goes in\b|\bfill in\b|\bblank\b|\bwhich answer\b|\bwhat should i put\b|\?)/.test(normalizedMessage);
+  const explicitUpdateRequested = /(update the website|update the page|update the support|add this to the page|save this to the page)/.test(normalizedMessage);
 
   return {
     subjectHint,
     intentHint,
     simpleEnglishRequested,
-    directQuestionRequested
+    directQuestionRequested,
+    chatOnlyMode: normalizedChatMode === "chat-only",
+    explicitUpdateRequested
+  };
+}
+
+function enforceChatOnlyMode(result, requestHints) {
+  if (!requestHints?.chatOnlyMode || requestHints?.explicitUpdateRequested) {
+    return result;
+  }
+
+  return {
+    ...result,
+    subjectUpdate: null,
+    mistakeUpdate: null,
+    tasks: []
   };
 }
 

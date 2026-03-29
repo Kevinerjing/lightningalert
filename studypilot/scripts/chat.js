@@ -42,6 +42,7 @@
     ui.exampleButtons.forEach((button) => {
       button.addEventListener("click", () => {
         ui.input.value = button.dataset.promptTemplate || "";
+        ui.input.dataset.chatMode = button.dataset.chatMode || "";
         if (!state.isOpen) {
           state.isOpen = true;
           saveUiState(state.isOpen);
@@ -110,6 +111,7 @@
       const userMessage = {
         role: "user",
         text,
+        chatMode: ui.input.dataset.chatMode || "",
         timestamp: new Date().toISOString(),
         attachments: pendingAttachments
       };
@@ -118,6 +120,7 @@
       state.pendingFiles = [];
       renderPendingFiles(ui.attachmentsNode, state.pendingFiles);
       ui.input.value = "";
+      ui.input.dataset.chatMode = "";
       setSendingState(ui.sendButton, true, config);
       scrollThreadToLatest(ui.thread);
 
@@ -166,6 +169,7 @@
             <button
               type="button"
               class="chat-example-button"
+              data-chat-mode="support"
               data-prompt-template="This is my teacher's new science slide. Please process it, turn it into simple English, and update the science support on the website."
             >
               Update science support
@@ -173,6 +177,7 @@
             <button
               type="button"
               class="chat-example-button"
+              data-chat-mode="chat-only"
               data-prompt-template="This is a question from my science PDF. Please give the direct answer first in one short sentence. Then give a short explanation. Only update the website if I ask you to."
             >
               Answer this question
@@ -180,6 +185,7 @@
             <button
               type="button"
               class="chat-example-button"
+              data-chat-mode="support"
               data-prompt-template="This is my new mistake. Please explain what I did wrong in simple English, show the correct idea, tell me how to avoid this mistake next time, and update the Mistakes page."
             >
               New mistake
@@ -187,6 +193,7 @@
             <button
               type="button"
               class="chat-example-button"
+              data-chat-mode="support"
               data-prompt-template="This is my teacher's new lesson PDF. Please explain the key ideas in simple English, tell me what I should prepare for class, and update the website."
             >
               Prepare me for class
@@ -396,6 +403,7 @@
   async function sendToEndpoint(endpoint, userMessage, history) {
     const payload = new FormData();
     payload.append("message", userMessage.text || "");
+    payload.append("chatMode", userMessage.chatMode || "");
     payload.append("history", JSON.stringify(history.slice(-10)));
     payload.append("page", window.location.pathname);
 
