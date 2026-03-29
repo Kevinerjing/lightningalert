@@ -1,7 +1,7 @@
 (function () {
   const STORAGE_KEY = "studypilot-codex-chat";
   const UI_STATE_KEY = "studypilot-codex-chat-ui";
-  const MAX_FILE_SIZE = 10 * 1024 * 1024;
+  const MAX_FILE_SIZE = 30 * 1024 * 1024;
   const DEFAULT_CONFIG = {
     mode: "endpoint",
     endpoint: "/api/studypilot-chat",
@@ -62,7 +62,7 @@
       if (rejectedCount > 0) {
         appendMessage(state, ui.thread, config, {
           role: "assistant",
-          text: `${rejectedCount} file(s) were skipped because they are larger than 10 MB in this floating chat view.`,
+          text: `${rejectedCount} file(s) were skipped because they are larger than 30 MB in this floating chat view.`,
           timestamp: new Date().toISOString(),
           attachments: []
         });

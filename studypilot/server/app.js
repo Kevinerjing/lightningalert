@@ -18,7 +18,7 @@ require("dotenv").config();
 
 const PORT = Number(process.env.STUDYPILOT_PORT || 3000);
 const OPENAI_MODEL = process.env.OPENAI_MODEL || "gpt-5";
-const MAX_UPLOAD_MB = Number(process.env.STUDYPILOT_MAX_UPLOAD_MB || 10);
+const MAX_UPLOAD_MB = Number(process.env.STUDYPILOT_MAX_UPLOAD_MB || 30);
 const SHOULD_SYNC_LOCAL_D1 = process.env.STUDYPILOT_SYNC_LOCAL_D1 !== "0";
 const upload = multer({
   storage: multer.memoryStorage(),
