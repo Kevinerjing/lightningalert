@@ -1,0 +1,19 @@
+name = "studypilot-app"
+main = "cloudflare/worker.mjs"
+compatibility_date = "2026-03-29"
+
+[assets]
+directory = "."
+binding = "ASSETS"
+
+[[d1_databases]]
+binding = "studypilot"
+database_name = "studypilot"
+database_id = "311cffda-0837-41a3-aa1c-96e52900585f"
+
+[vars]
+OPENAI_MODEL = "gpt-5"
+
+[[routes]]
+pattern = "studypilot.kevin-apps.com"
+custom_domain = true

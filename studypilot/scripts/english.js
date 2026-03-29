@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", async () => {
   const { fetchJson, toList } = window.StudyUtils;
   const { renderTopicSections } = window.StudyApp;
-  const data = await fetchJson("../data/english.json", { topics: [] });
+  const data = await loadEnglishData(fetchJson);
 
   renderTopicSections("english-topics", toList(data.topics), {
     subjectName: "English",
@@ -15,3 +15,16 @@ document.addEventListener("DOMContentLoaded", async () => {
     ]
   });
 });
+
+async function loadEnglishData(fetchJson) {
+  const apiPayload = await fetchJson("../api/studypilot-english", null);
+  if (apiPayload && apiPayload.topics) {
+    return apiPayload;
+  }
+
+  const data = await fetchJson("../data/english.json", { topics: [] });
+  return {
+    source: "json-fallback",
+    topics: Array.isArray(data.topics) ? data.topics : []
+  };
+}

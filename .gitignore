@@ -2,8 +2,11 @@
 node_modules/
 __pycache__/
 *.pyc
+.env
 studypilot/local-secrets.json
+studypilot/uploads/
 studypilot/.playwright/
+studypilot/.wrangler/
 studypilot/.playwright-cli/
 studypilot/.playwright-test-profile/
 studypilot/.playwright-test-profile-login/

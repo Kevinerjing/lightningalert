@@ -1,0 +1,43 @@
+{
+  "name": "lightningalert",
+  "version": "1.0.0",
+  "description": ".",
+  "main": "studypilot/server/app.js",
+  "directories": {
+    "test": "tests"
+  },
+  "dependencies": {
+    "dotenv": "^17.3.1",
+    "express": "^5.2.1",
+    "minimist": "^1.2.8",
+    "multer": "^2.1.1",
+    "openai": "^6.33.0",
+    "playwright": "^1.59.0-alpha-1771104257000",
+    "playwright-core": "^1.59.0-alpha-1771104257000"
+  },
+  "scripts": {
+    "studypilot:d1:export": "node studypilot/scripts/export_studypilot_json_to_d1.mjs",
+    "studypilot:d1:init-local": "powershell -ExecutionPolicy Bypass -File studypilot/scripts/init_local_d1.ps1",
+    "studypilot:d1:sync-local": "node studypilot/scripts/sync_local_d1_from_json.mjs",
+    "studypilot:cf:check": "powershell -ExecutionPolicy Bypass -File studypilot/scripts/check_cloudflare_studypilot.ps1",
+    "studypilot:cf:dev": "wrangler dev --config studypilot/wrangler.toml",
+    "studypilot:cf:deploy": "wrangler deploy --config studypilot/wrangler.toml",
+    "studypilot:start": "node studypilot/server/app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kevinerjing/lightningalert.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Kevinerjing/lightningalert/issues"
+  },
+  "homepage": "https://github.com/Kevinerjing/lightningalert#readme",
+  "devDependencies": {
+    "wrangler": "^4.78.0"
+  }
+}

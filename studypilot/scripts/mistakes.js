@@ -1,11 +1,8 @@
 document.addEventListener("DOMContentLoaded", async () => {
   const { createEmptyState, escapeHtml, fetchJson, statusClass, toList } = window.StudyUtils;
-  const [data, draftsData] = await Promise.all([
-    fetchJson("./data/mistakes.json", { mistakes: [] }),
-    fetchJson("./data/mistake-drafts.json", { drafts: [] })
-  ]);
+  const data = await loadMistakesData(fetchJson);
   const mistakes = toList(data.mistakes);
-  const drafts = toList(draftsData.drafts);
+  const drafts = toList(data.drafts);
 
   const subjectFilter = document.getElementById("subject-filter");
   const topicFilter = document.getElementById("topic-filter");
@@ -125,4 +122,22 @@ function intakeLatestMistakeImagePlaceholder() {
     - Consider storing confidence scores for each extracted field later.
   */
   console.info("Mistake image intake placeholder: future logic will be added here.");
+}
+
+async function loadMistakesData(fetchJson) {
+  const apiPayload = await fetchJson("./api/studypilot-mistakes", null);
+  if (apiPayload && Array.isArray(apiPayload.mistakes) && Array.isArray(apiPayload.drafts)) {
+    return apiPayload;
+  }
+
+  const [data, draftsData] = await Promise.all([
+    fetchJson("./data/mistakes.json", { mistakes: [] }),
+    fetchJson("./data/mistake-drafts.json", { drafts: [] })
+  ]);
+
+  return {
+    source: "json-fallback",
+    mistakes: Array.isArray(data.mistakes) ? data.mistakes : [],
+    drafts: Array.isArray(draftsData.drafts) ? draftsData.drafts : []
+  };
 }

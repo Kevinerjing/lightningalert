@@ -1,11 +1,10 @@
 document.addEventListener("DOMContentLoaded", async () => {
   const { createEmptyState, escapeHtml, fetchJson, groupBy, sortSubjects, statusClass, toList } = window.StudyUtils;
-  const data = await fetchJson("./data/mistakes.json", { mistakes: [] });
-  const mistakes = toList(data.mistakes);
-  const reviewItems = mistakes.filter(shouldReviewToday);
+  const data = await loadReviewData(fetchJson);
+  const reviewItems = toList(data.reviewItems);
 
-  document.getElementById("review-total").textContent = `${reviewItems.length} items need review today`;
-  document.getElementById("review-suggestion").textContent = getReviewSuggestion(reviewItems.length);
+  document.getElementById("review-total").textContent = `${Number(data.total ?? reviewItems.length)} items need review today`;
+  document.getElementById("review-suggestion").textContent = data.suggestion || getReviewSuggestion(reviewItems.length);
 
   const container = document.getElementById("review-groups");
   if (!reviewItems.length) {
@@ -39,6 +38,24 @@ document.addEventListener("DOMContentLoaded", async () => {
     </article>
   `).join("");
 });
+
+async function loadReviewData(fetchJson) {
+  const apiPayload = await fetchJson("./api/studypilot-review", null);
+  if (apiPayload && Array.isArray(apiPayload.reviewItems)) {
+    return apiPayload;
+  }
+
+  const data = await fetchJson("./data/mistakes.json", { mistakes: [] });
+  const mistakes = Array.isArray(data.mistakes) ? data.mistakes : [];
+  const reviewItems = mistakes.filter(shouldReviewToday);
+
+  return {
+    source: "json-fallback",
+    reviewItems,
+    total: reviewItems.length,
+    suggestion: getReviewSuggestion(reviewItems.length)
+  };
+}
 
 function shouldReviewToday(mistake) {
   const status = String(mistake.retryStatus || "").toLowerCase();

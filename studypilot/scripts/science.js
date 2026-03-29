@@ -1,10 +1,7 @@
 document.addEventListener("DOMContentLoaded", async () => {
   const { createEmptyState, escapeHtml, fetchJson, toList } = window.StudyUtils;
   const { renderTopicSections } = window.StudyApp;
-  const [data, classroomData] = await Promise.all([
-    fetchJson("../data/science.json", { topics: [] }),
-    fetchJson("../data/classroom-updates.json", { classrooms: [] })
-  ]);
+  const data = await loadScienceData(fetchJson);
   const topics = toList(data.topics);
   renderScienceSchedule(data.schedule);
   renderUpcomingScienceSupport(data.upcomingSupport);
@@ -30,7 +27,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
   }
 
-  renderScienceClassroomItems(classroomData);
+  renderScienceClassroomItems(data.classroomItems);
 });
 
 function renderScienceSchedule(schedule) {
@@ -155,17 +152,15 @@ function isSoonAssessment(item, today) {
   return isAssessment && diffDays >= 0 && diffDays <= 14;
 }
 
-function renderScienceClassroomItems(classroomData) {
+function renderScienceClassroomItems(items) {
   const { createEmptyState, escapeHtml, toList } = window.StudyUtils;
   const container = document.getElementById("science-classroom-items");
   if (!container) {
     return;
   }
 
-  const scienceClassroom = toList(classroomData.classrooms).find((item) => item.key === "science");
-  const chemistry = toList(scienceClassroom?.topicSections).find((section) => section.topic === "Chemistry");
-
-  if (!chemistry || !toList(chemistry.items).length) {
+  const classroomItems = toList(items);
+  if (!classroomItems.length) {
     container.innerHTML = createEmptyState("No recent Science classroom items were found.");
     return;
   }
@@ -174,7 +169,7 @@ function renderScienceClassroomItems(classroomData) {
     <article class="group-card">
       <p class="section-label">Chemistry</p>
       <div class="task-list">
-        ${toList(chemistry.items).slice(0, 5).map((item) => `
+        ${classroomItems.slice(0, 5).map((item) => `
           <div class="task-item">
             <div class="task-topline">
               <div>
@@ -279,4 +274,28 @@ function renderSupportResources(items) {
       }).join("")}
     </ul>
   `;
+}
+
+async function loadScienceData(fetchJson) {
+  const { toList } = window.StudyUtils;
+  const apiPayload = await fetchJson("../api/studypilot-science", null);
+  if (apiPayload && apiPayload.topics && apiPayload.upcomingSupport) {
+    return apiPayload;
+  }
+
+  const [scienceData, classroomData] = await Promise.all([
+    fetchJson("../data/science.json", { topics: [], upcomingSupport: [], schedule: null }),
+    fetchJson("../data/classroom-updates.json", { classrooms: [] })
+  ]);
+
+  const scienceClassroom = toList(classroomData.classrooms).find((item) => item.key === "science");
+  const chemistry = toList(scienceClassroom?.topicSections).find((section) => section.topic === "Chemistry");
+
+  return {
+    source: "json-fallback",
+    schedule: scienceData.schedule || null,
+    upcomingSupport: toList(scienceData.upcomingSupport),
+    topics: toList(scienceData.topics),
+    classroomItems: toList(chemistry?.items)
+  };
 }

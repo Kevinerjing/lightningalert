@@ -1,10 +1,7 @@
 document.addEventListener("DOMContentLoaded", async () => {
   const { createEmptyState, escapeHtml, fetchJson, toList } = window.StudyUtils;
   const { renderTopicSections } = window.StudyApp;
-  const [data, classroomData] = await Promise.all([
-    fetchJson("../data/math.json", { topics: [] }),
-    fetchJson("../data/classroom-updates.json", { classrooms: [] })
-  ]);
+  const data = await loadMathData(fetchJson);
 
   renderTopicSections("math-topics", toList(data.topics), {
     subjectName: "Math",
@@ -19,20 +16,18 @@ document.addEventListener("DOMContentLoaded", async () => {
     ]
   });
 
-  renderMathClassroomItems(classroomData);
+  renderMathClassroomItems(data.classroomItems);
 });
 
-function renderMathClassroomItems(classroomData) {
+function renderMathClassroomItems(items) {
   const { createEmptyState, escapeHtml, toList } = window.StudyUtils;
   const container = document.getElementById("math-classroom-items");
   if (!container) {
     return;
   }
 
-  const mathClassroom = toList(classroomData.classrooms).find((item) => item.key === "math");
-  const cycle3 = toList(mathClassroom?.topicSections).find((section) => section.topic === "Cycle 3");
-
-  if (!cycle3 || !toList(cycle3.items).length) {
+  const classroomItems = toList(items);
+  if (!classroomItems.length) {
     container.innerHTML = createEmptyState("No recent Math classroom items were found.");
     return;
   }
@@ -41,7 +36,7 @@ function renderMathClassroomItems(classroomData) {
     <article class="group-card">
       <p class="section-label">Cycle 3</p>
       <div class="task-list">
-        ${toList(cycle3.items).slice(0, 5).map((item) => `
+        ${classroomItems.slice(0, 5).map((item) => `
           <div class="task-item">
             <div class="task-topline">
               <div>
@@ -55,4 +50,26 @@ function renderMathClassroomItems(classroomData) {
       </div>
     </article>
   `;
+}
+
+async function loadMathData(fetchJson) {
+  const { toList } = window.StudyUtils;
+  const apiPayload = await fetchJson("../api/studypilot-math", null);
+  if (apiPayload && apiPayload.topics) {
+    return apiPayload;
+  }
+
+  const [mathData, classroomData] = await Promise.all([
+    fetchJson("../data/math.json", { topics: [] }),
+    fetchJson("../data/classroom-updates.json", { classrooms: [] })
+  ]);
+
+  const mathClassroom = toList(classroomData.classrooms).find((item) => item.key === "math");
+  const cycle3 = toList(mathClassroom?.topicSections).find((section) => section.topic === "Cycle 3");
+
+  return {
+    source: "json-fallback",
+    topics: toList(mathData.topics),
+    classroomItems: toList(cycle3?.items)
+  };
 }
