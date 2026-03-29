@@ -470,6 +470,24 @@ h3 {
   background: linear-gradient(180deg, #ffffff 0%, #fbfcff 100%);
 }
 
+.review-priority-card {
+  background: linear-gradient(180deg, #f7fbff 0%, #ffffff 100%);
+}
+
+.review-actions {
+  margin-top: 0.7rem;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.review-item-complete {
+  opacity: 0.68;
+}
+
+.review-item-complete .mistake-detail {
+  display: none;
+}
+
 .mistake-detail {
   margin: 0.42rem 0;
   line-height: 1.42;
