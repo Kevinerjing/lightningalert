@@ -25,21 +25,43 @@
     const orderedSubjects = sortSubjects(Object.keys(groups));
 
     container.innerHTML = orderedSubjects.map((subject) => {
-      const items = groups[subject].map((task) => `
-        <li class="task-item">
+      const items = groups[subject]
+        .map((task) => ({
+          task,
+          taskKey: buildTaskKey(task),
+          completed: isTaskCompleted(task)
+        }))
+        .sort((left, right) => {
+          if (left.completed !== right.completed) {
+            return left.completed ? 1 : -1;
+          }
+          return String(left.task.dueDate || "").localeCompare(String(right.task.dueDate || ""))
+            || String(left.task.topic || "").localeCompare(String(right.task.topic || ""));
+        })
+        .map(({ task, taskKey, completed }) => `
+        <li class="task-item${completed ? " task-item-complete" : ""}" data-task-key="${escapeHtml(taskKey)}">
           <div class="task-topline">
-            <div>
+            <div class="task-main">
+              <label class="task-check">
+                <input class="task-complete-toggle" type="checkbox" ${completed ? "checked" : ""} aria-label="Mark ${escapeHtml(task.topic)} as done">
+                <span class="task-check-mark" aria-hidden="true"></span>
+              </label>
+              <div class="task-copy">
               <h3>${escapeHtml(task.topic)}</h3>
-              <p class="muted">${escapeHtml(task.note)}</p>
-              ${task.resourceLink ? `<p><a class="task-link" href="${escapeHtml(task.resourceLink)}">${escapeHtml(task.resourceLabel || "Open study link")}</a></p>` : ""}
+                <div class="task-details">
+                  <p class="muted">${escapeHtml(task.note)}</p>
+                  ${task.resourceLink ? `<p><a class="task-link" href="${escapeHtml(task.resourceLink)}">${escapeHtml(task.resourceLabel || "Open study link")}</a></p>` : ""}
+                </div>
+              </div>
             </div>
-            <div class="task-meta">
+            <div class="task-meta task-details">
               ${task.source === "classroom-sync" ? `<span class="chip chip-sync">Classroom sync</span>` : ""}
+              ${task.source === "recurring-club" ? `<span class="chip chip-sync">Weekly routine</span>` : ""}
               <span class="chip">${escapeHtml(task.type)}</span>
               <span class="chip ${priorityClass(task.priority)}">${escapeHtml(task.priority)} priority</span>
             </div>
           </div>
-          <p class="muted">Due: ${escapeHtml(task.dueDate || "No due date set")}</p>
+          <p class="muted task-details">Due: ${escapeHtml(task.dueDate || "No due date set")}</p>
         </li>
       `).join("");
 
@@ -50,6 +72,8 @@
         </article>
       `;
     }).join("");
+
+    attachTaskToggleHandlers(container);
   }
 
   function renderTopicSections(containerId, topics, config) {
@@ -377,5 +401,63 @@
   function stripTaskBucket(task) {
     const { bucket, ...rest } = task;
     return rest;
+  }
+
+  function buildTaskKey(task) {
+    return [
+      task.subject || "",
+      task.topic || "",
+      task.type || "",
+      task.dueDate || "",
+      task.note || ""
+    ].join("::").toLowerCase();
+  }
+
+  function isTaskCompleted(task) {
+    return localStorage.getItem(`studypilot.taskDone.${buildTaskKey(task)}`) === "true";
+  }
+
+  function attachTaskToggleHandlers(container) {
+    container.querySelectorAll(".task-item").forEach((item) => {
+      const toggle = item.querySelector(".task-complete-toggle");
+      const taskKey = item.getAttribute("data-task-key");
+      if (!toggle || !taskKey) {
+        return;
+      }
+
+      toggle.addEventListener("change", () => {
+        localStorage.setItem(`studypilot.taskDone.${taskKey}`, String(toggle.checked));
+        const groupCard = item.closest(".group-card");
+        if (!groupCard) {
+          return;
+        }
+        reorderTaskItems(groupCard);
+      });
+    });
+  }
+
+  function reorderTaskItems(groupCard) {
+    const taskList = groupCard.querySelector(".task-list");
+    if (!taskList) {
+      return;
+    }
+
+    const items = Array.from(taskList.querySelectorAll(".task-item"));
+    items.sort((left, right) => {
+      const leftDone = left.querySelector(".task-complete-toggle")?.checked ? 1 : 0;
+      const rightDone = right.querySelector(".task-complete-toggle")?.checked ? 1 : 0;
+      if (leftDone !== rightDone) {
+        return leftDone - rightDone;
+      }
+      const leftTitle = left.querySelector("h3")?.textContent || "";
+      const rightTitle = right.querySelector("h3")?.textContent || "";
+      return leftTitle.localeCompare(rightTitle);
+    });
+
+    items.forEach((item) => {
+      const checked = item.querySelector(".task-complete-toggle")?.checked;
+      item.classList.toggle("task-item-complete", Boolean(checked));
+      taskList.appendChild(item);
+    });
   }
 })();
