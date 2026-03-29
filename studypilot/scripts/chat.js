@@ -166,9 +166,16 @@
             <button
               type="button"
               class="chat-example-button"
-              data-prompt-template="This is my teacher's new science slide. Please process it, turn it into simple English, and update the website."
+              data-prompt-template="This is my teacher's new science slide. Please process it, turn it into simple English, and update the science support on the website."
             >
-              New science slide
+              Update science support
+            </button>
+            <button
+              type="button"
+              class="chat-example-button"
+              data-prompt-template="This is a question from my science PDF. Please give the direct answer first in one short sentence. Then give a short explanation. Only update the website if I ask you to."
+            >
+              Answer this question
             </button>
             <button
               type="button"
@@ -201,7 +208,7 @@
               id="chat-input"
               name="message"
               rows="4"
-              placeholder="Example: This is my teacher's new science slide. Please process it, turn it into simple English, and update the website."
+              placeholder="Example: This is a question from my science PDF. Please give the direct answer first in one short sentence."
               required
             ></textarea>
             <button id="chat-send-button" class="send-button" type="submit">Send to ${escape(config.assistantName)}</button>
@@ -242,7 +249,7 @@
     state.messages = [
       {
         role: "assistant",
-        text: "Upload a teacher slide, handout, or mistake, then tell me what to do. On the Mistakes page, a good example is: This is my new mistake. Please explain what I did wrong in simple English, show the correct idea, tell me how to avoid this mistake next time, and update the Mistakes page.",
+        text: "Upload a teacher slide, handout, or mistake, then choose the right prompt. If you want a direct answer, use: This is a question from my science PDF. Please give the direct answer first in one short sentence. On the Mistakes page, a good example is: This is my new mistake. Please explain what I did wrong in simple English, show the correct idea, tell me how to avoid this mistake next time, and update the Mistakes page.",
         timestamp: new Date().toISOString(),
         attachments: []
       }
