@@ -1,5 +1,7 @@
 .playwright-cli/
 node_modules/
+__pycache__/
+*.pyc
 studypilot/local-secrets.json
 studypilot/.playwright/
 studypilot/.playwright-cli/
