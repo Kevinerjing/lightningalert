@@ -555,6 +555,21 @@ h3 {
   border: 1px solid var(--line);
 }
 
+.topic-section-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.6rem;
+  align-items: flex-start;
+}
+
+.topic-section-body {
+  display: block;
+}
+
+.topic-section-collapsed .topic-section-body {
+  display: none;
+}
+
 .topic-section ul {
   margin: 0;
   padding-left: 1.1rem;

@@ -161,7 +161,7 @@ app.post("/api/studypilot-chat", upload.array("files", 5), async (request, respo
       }
     });
 
-    const parsedResult = parseModelResult(aiResponse.output_text);
+    const parsedResult = enforceDirectAnswer(parseModelResult(aiResponse.output_text), requestHints);
     const { appliedUpdates, d1Sync } = await applyStudyPilotUpdates(parsedResult, uploadedFiles);
 
     response.json({
@@ -416,6 +416,55 @@ function parseModelResult(outputText) {
   }
 }
 
+function enforceDirectAnswer(result, requestHints) {
+  const normalized = result && typeof result === "object" ? { ...result } : {};
+  const directQuestionRequested = Boolean(requestHints?.directQuestionRequested);
+  const hasSubjectUpdate = normalized.subjectUpdate && typeof normalized.subjectUpdate === "object";
+
+  if (!directQuestionRequested) {
+    return normalized;
+  }
+
+  const replyText = String(normalized.reply || "").trim();
+  const extracted = extractDirectAnswer(replyText);
+
+  if (hasSubjectUpdate) {
+    normalized.subjectUpdate = { ...normalized.subjectUpdate };
+    if (!String(normalized.subjectUpdate.directAnswer || "").trim()) {
+      normalized.subjectUpdate.directAnswer = extracted || firstUsefulSentence(replyText);
+    }
+  }
+
+  const finalDirectAnswer = hasSubjectUpdate
+    ? String(normalized.subjectUpdate.directAnswer || "").trim()
+    : (extracted || firstUsefulSentence(replyText));
+
+  if (finalDirectAnswer && !/^direct answer:/i.test(replyText)) {
+    const explanation = replyText ? `\n\nShort explanation: ${replyText}` : "";
+    normalized.reply = `Direct answer: ${finalDirectAnswer}${explanation}`;
+  }
+
+  return normalized;
+}
+
+function extractDirectAnswer(text) {
+  const match = String(text || "").match(/direct answer:\s*(.+)$/im);
+  return match ? match[1].trim() : "";
+}
+
+function firstUsefulSentence(text) {
+  const cleaned = String(text || "")
+    .replace(/^short answer:\s*/i, "")
+    .replace(/^direct answer:\s*/i, "")
+    .trim();
+  if (!cleaned) {
+    return "";
+  }
+  const firstLine = cleaned.split(/\n+/)[0].trim();
+  const firstSentence = firstLine.match(/.+?[.!?](?:\s|$)/);
+  return (firstSentence ? firstSentence[0] : firstLine).trim();
+}
+
 async function applyStudyPilotUpdates(result, uploadedFiles) {
   const updates = [];
   const intent = String(result.intent || "other");
@@ -573,14 +622,20 @@ async function applySubjectUpdate(subject, subjectUpdate, savedFiles, localD1, d
   const data = await readJson(filePath, { topics: [] });
   const resourceObjects = buildResourceObjects(subjectUpdate.resourceNotes, savedFiles);
   const mappedTopic = mapSubjectTopic(subject, subjectUpdate, resourceObjects);
+  const sourceRef = buildSourceRef(savedFiles, mappedTopic.topic);
 
   data.topics = Array.isArray(data.topics) ? data.topics : [];
-  data.topics.unshift(mappedTopic);
+  const existingIndex = findExistingTopicIndex(data.topics, mappedTopic, sourceRef, savedFiles);
+  if (existingIndex >= 0) {
+    data.topics[existingIndex] = mergeTopicCards(data.topics[existingIndex], mappedTopic, sourceRef);
+  } else {
+    data.topics.unshift({ ...mappedTopic, sourceRef });
+  }
   await writeJson(filePath, data);
 
   if (localD1) {
     try {
-      mirrorSubjectTopicToLocalD1(localD1, subject, mappedTopic, savedFiles);
+      mirrorSubjectTopicToLocalD1(localD1, subject, mappedTopic, savedFiles, sourceRef);
       d1Sync.attempted = true;
       if (d1Sync.status !== "failed") {
         d1Sync.status = "direct";
@@ -596,7 +651,9 @@ async function applySubjectUpdate(subject, subjectUpdate, savedFiles, localD1, d
   return {
     type: "subject-page",
     target: `${subject} page`,
-    detail: `Added a new ${subject} support card: ${mappedTopic.topic}`
+    detail: existingIndex >= 0
+      ? `Updated an existing ${subject} support card: ${mappedTopic.topic}`
+      : `Added a new ${subject} support card: ${mappedTopic.topic}`
   };
 }
 
@@ -657,6 +714,73 @@ function mapSubjectTopic(subject, subjectUpdate, resourceObjects) {
       ...toArray(subjectUpdate.practiceMedium),
       ...toArray(subjectUpdate.practiceHard)
     ].slice(0, 8)
+  };
+}
+
+function buildSourceRef(savedFiles, fallbackTopic) {
+  const sourceName = savedFiles[0]?.name || fallbackTopic || "topic";
+  return String(sourceName).trim().toLowerCase();
+}
+
+function normalizeTopicValue(value) {
+  return String(value || "").trim().toLowerCase();
+}
+
+function findExistingTopicIndex(topics, mappedTopic, sourceRef, savedFiles) {
+  const normalizedTopic = normalizeTopicValue(mappedTopic.topic);
+  const sourceNames = savedFiles.map((file) => normalizeTopicValue(file.name));
+
+  return topics.findIndex((topic) => {
+    if (normalizeTopicValue(topic?.sourceRef) === sourceRef) {
+      return true;
+    }
+
+    if (normalizeTopicValue(topic?.topic) === normalizedTopic) {
+      return true;
+    }
+
+    const resourceLabels = toArray(topic?.resources).map((item) => normalizeTopicValue(item?.label || item));
+    return sourceNames.some((name) => resourceLabels.includes(name));
+  });
+}
+
+function mergeTopicCards(existingTopic, nextTopic, sourceRef) {
+  const mergeList = (left, right) => {
+    const merged = [...toArray(left), ...toArray(right)];
+    const seen = new Set();
+    return merged.filter((item) => {
+      const key = item && typeof item === "object" ? JSON.stringify(item) : String(item);
+      if (seen.has(key)) {
+        return false;
+      }
+      seen.add(key);
+      return true;
+    });
+  };
+
+  return {
+    ...existingTopic,
+    ...nextTopic,
+    sourceRef,
+    summary: nextTopic.summary || existingTopic.summary || "",
+    directAnswer: nextTopic.directAnswer || existingTopic.directAnswer || "",
+    resources: mergeList(existingTopic.resources, nextTopic.resources),
+    keyConcepts: mergeList(existingTopic.keyConcepts, nextTopic.keyConcepts),
+    teacherNotes: mergeList(existingTopic.teacherNotes, nextTopic.teacherNotes),
+    quizEasy: mergeList(existingTopic.quizEasy, nextTopic.quizEasy),
+    quizMedium: mergeList(existingTopic.quizMedium, nextTopic.quizMedium),
+    quizHard: mergeList(existingTopic.quizHard, nextTopic.quizHard),
+    feynmanChecklist: mergeList(existingTopic.feynmanChecklist, nextTopic.feynmanChecklist),
+    applications: mergeList(existingTopic.applications, nextTopic.applications),
+    formulas: mergeList(existingTopic.formulas, nextTopic.formulas),
+    solvingSteps: mergeList(existingTopic.solvingSteps, nextTopic.solvingSteps),
+    examples: mergeList(existingTopic.examples, nextTopic.examples),
+    commonMistakes: mergeList(existingTopic.commonMistakes, nextTopic.commonMistakes),
+    readingFocus: mergeList(existingTopic.readingFocus, nextTopic.readingFocus),
+    writingTips: mergeList(existingTopic.writingTips, nextTopic.writingTips),
+    structureTemplates: mergeList(existingTopic.structureTemplates, nextTopic.structureTemplates),
+    vocabulary: mergeList(existingTopic.vocabulary, nextTopic.vocabulary),
+    practicePrompts: mergeList(existingTopic.practicePrompts, nextTopic.practicePrompts)
   };
 }
 
@@ -839,16 +963,32 @@ function mirrorUploadsToLocalD1(db, savedFiles) {
   }
 }
 
-function mirrorSubjectTopicToLocalD1(db, subject, mappedTopic, savedFiles) {
+function mirrorSubjectTopicToLocalD1(db, subject, mappedTopic, savedFiles, sourceRef) {
   const subjectSlug = subject.toLowerCase();
-  const cardId = stableId("subject-card", `${subjectSlug}:${mappedTopic.topic}:${Date.now()}`);
   const sourceUploadId = savedFiles[0]?.id || null;
+  const existingCard = db.prepare(`
+    SELECT id
+    FROM subject_topic_cards
+    WHERE subject_slug = ? AND (source_ref = ? OR lower(title) = lower(?))
+    ORDER BY updated_at DESC
+    LIMIT 1
+  `).get(subjectSlug, sourceRef, mappedTopic.topic);
+  const cardId = existingCard?.id || stableId("subject-card", `${subjectSlug}:${mappedTopic.topic}:${Date.now()}`);
 
-  db.prepare(`
-    INSERT INTO subject_topic_cards (
-      id, subject_slug, title, summary, source_kind, source_upload_id, source_ref, created_at, updated_at
-    ) VALUES (?, ?, ?, ?, 'chat_upload', ?, NULL, ?, ?)
-  `).run(cardId, subjectSlug, mappedTopic.topic, mappedTopic.summary || "", sourceUploadId, new Date().toISOString(), new Date().toISOString());
+  if (existingCard?.id) {
+    db.prepare(`
+      UPDATE subject_topic_cards
+      SET title = ?, summary = ?, source_upload_id = ?, source_ref = ?, updated_at = ?
+      WHERE id = ?
+    `).run(mappedTopic.topic, mappedTopic.summary || "", sourceUploadId, sourceRef, new Date().toISOString(), cardId);
+    db.prepare(`DELETE FROM subject_topic_sections WHERE card_id = ?`).run(cardId);
+  } else {
+    db.prepare(`
+      INSERT INTO subject_topic_cards (
+        id, subject_slug, title, summary, source_kind, source_upload_id, source_ref, created_at, updated_at
+      ) VALUES (?, ?, ?, ?, 'chat_upload', ?, ?, ?, ?)
+    `).run(cardId, subjectSlug, mappedTopic.topic, mappedTopic.summary || "", sourceUploadId, sourceRef, new Date().toISOString(), new Date().toISOString());
+  }
 
   const sectionKeys = getSubjectSectionKeys(subject);
   for (const sectionKey of sectionKeys) {

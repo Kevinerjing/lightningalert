@@ -114,7 +114,7 @@ async function handleStudyPilotChat(request, env, ctx) {
       ctx.waitUntil(deleteUploadedFiles(uploadedFileIds, env.OPENAI_API_KEY));
     }
 
-    const parsedResult = parseModelResultFromPayload(payload);
+    const parsedResult = enforceDirectAnswer(parseModelResultFromPayload(payload), requestHints);
     const appliedUpdates = await applyStudyPilotD1Updates(env, parsedResult, uploadedFileRecords);
 
     return jsonResponse({
@@ -342,6 +342,55 @@ function parseModelResultFromPayload(payload) {
   }
 }
 
+function enforceDirectAnswer(result, requestHints) {
+  const normalized = result && typeof result === "object" ? { ...result } : {};
+  const directQuestionRequested = Boolean(requestHints?.directQuestionRequested);
+  const hasSubjectUpdate = normalized.subjectUpdate && typeof normalized.subjectUpdate === "object";
+
+  if (!directQuestionRequested) {
+    return normalized;
+  }
+
+  const replyText = String(normalized.reply || "").trim();
+  const extracted = extractDirectAnswer(replyText);
+
+  if (hasSubjectUpdate) {
+    normalized.subjectUpdate = { ...normalized.subjectUpdate };
+    if (!String(normalized.subjectUpdate.directAnswer || "").trim()) {
+      normalized.subjectUpdate.directAnswer = extracted || firstUsefulSentence(replyText);
+    }
+  }
+
+  const finalDirectAnswer = hasSubjectUpdate
+    ? String(normalized.subjectUpdate.directAnswer || "").trim()
+    : (extracted || firstUsefulSentence(replyText));
+
+  if (finalDirectAnswer && !/^direct answer:/i.test(replyText)) {
+    const explanation = replyText ? `\n\nShort explanation: ${replyText}` : "";
+    normalized.reply = `Direct answer: ${finalDirectAnswer}${explanation}`;
+  }
+
+  return normalized;
+}
+
+function extractDirectAnswer(text) {
+  const match = String(text || "").match(/direct answer:\s*(.+)$/im);
+  return match ? match[1].trim() : "";
+}
+
+function firstUsefulSentence(text) {
+  const cleaned = String(text || "")
+    .replace(/^short answer:\s*/i, "")
+    .replace(/^direct answer:\s*/i, "")
+    .trim();
+  if (!cleaned) {
+    return "";
+  }
+  const firstLine = cleaned.split(/\n+/)[0].trim();
+  const firstSentence = firstLine.match(/.+?[.!?](?:\s|$)/);
+  return (firstSentence ? firstSentence[0] : firstLine).trim();
+}
+
 function inferRequestHints(message, page, files) {
   const normalizedMessage = String(message || "").toLowerCase();
   const normalizedPage = String(page || "").toLowerCase();
@@ -541,19 +590,36 @@ async function upsertUploadRecords(env, uploadedFiles) {
 
 async function insertSubjectUpdate(env, subject, subjectUpdate, uploadedFiles) {
   const subjectSlug = subject.toLowerCase();
-  const cardId = stableId("subject-card", `${subjectSlug}:${subjectUpdate.topic}:${Date.now()}`);
   const now = new Date().toISOString();
   const sourceUploadId = uploadedFiles[0]?.id || null;
+  const sourceRef = buildSourceRef(uploadedFiles, subjectUpdate.topic);
+  const existingCard = await env.studypilot.prepare(`
+    SELECT id
+    FROM subject_topic_cards
+    WHERE subject_slug = ? AND (source_ref = ? OR lower(title) = lower(?))
+    ORDER BY updated_at DESC, rowid DESC
+    LIMIT 1
+  `).bind(subjectSlug, sourceRef, subjectUpdate.topic || "New topic").first();
+  const cardId = existingCard?.id || stableId("subject-card", `${subjectSlug}:${subjectUpdate.topic}:${Date.now()}`);
 
-  await env.studypilot.prepare(`
-    INSERT INTO subject_topic_cards (
-      id, subject_slug, title, summary, source_kind, source_upload_id, source_ref, created_at, updated_at
-    ) VALUES (?, ?, ?, ?, 'chat_upload', ?, NULL, ?, ?)
-  `).bind(cardId, subjectSlug, subjectUpdate.topic || "New topic", subjectUpdate.summary || "", sourceUploadId, now, now).run();
+  if (existingCard?.id) {
+    await env.studypilot.prepare(`
+      UPDATE subject_topic_cards
+      SET title = ?, summary = ?, source_upload_id = ?, source_ref = ?, updated_at = ?
+      WHERE id = ?
+    `).bind(subjectUpdate.topic || "New topic", subjectUpdate.summary || "", sourceUploadId, sourceRef, now, cardId).run();
+    await env.studypilot.prepare(`DELETE FROM subject_topic_sections WHERE card_id = ?`).bind(cardId).run();
+  } else {
+    await env.studypilot.prepare(`
+      INSERT INTO subject_topic_cards (
+        id, subject_slug, title, summary, source_kind, source_upload_id, source_ref, created_at, updated_at
+      ) VALUES (?, ?, ?, ?, 'chat_upload', ?, ?, ?, ?)
+    `).bind(cardId, subjectSlug, subjectUpdate.topic || "New topic", subjectUpdate.summary || "", sourceUploadId, sourceRef, now, now).run();
+  }
 
   const mappedTopic = mapSubjectTopicForD1(subject, subjectUpdate, uploadedFiles);
   await insertSectionItems(env, "subject_topic_sections", "card_id", cardId, getSubjectSectionKeys(subject), mappedTopic);
-  return `Added a new ${subject} support card: ${subjectUpdate.topic}`;
+  return `${existingCard?.id ? "Updated" : "Added"} a ${subject} support card: ${subjectUpdate.topic}`;
 }
 
 async function insertMistakeUpdate(env, subject, mistakeUpdate, uploadedFiles) {
@@ -730,6 +796,11 @@ function getSubjectSectionKeys(subject) {
     return ["directAnswer", "formulas", "solvingSteps", "examples", "commonMistakes", "practiceEasy", "practiceMedium", "practiceHard"];
   }
   return ["directAnswer", "readingFocus", "writingTips", "structureTemplates", "vocabulary", "resources", "practicePrompts"];
+}
+
+function buildSourceRef(uploadedFiles, fallbackTopic) {
+  const sourceName = uploadedFiles[0]?.name || fallbackTopic || "topic";
+  return String(sourceName).trim().toLowerCase();
 }
 
 function getSectionTitle(sectionKey) {
