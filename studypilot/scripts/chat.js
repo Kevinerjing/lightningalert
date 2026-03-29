@@ -87,7 +87,7 @@
       state.messages = [
         {
           role: "assistant",
-          text: "Chat cleared. Upload a teacher slide, handout, or mistake, then tell me what you want in simple English.",
+          text: "Chat cleared. Upload a teacher slide, handout, or mistake, then tell me what you want in simple English. On the Mistakes page, you can upload a mistake photo and ask me to explain what went wrong and update the page.",
           timestamp: new Date().toISOString(),
           attachments: []
         }
@@ -173,7 +173,7 @@
             <button
               type="button"
               class="chat-example-button"
-              data-prompt-template="This is my new science mistake. Please explain it in simple English and update the website with study help."
+              data-prompt-template="This is my new mistake. Please explain what I did wrong in simple English, show the correct idea, tell me how to avoid this mistake next time, and update the Mistakes page."
             >
               New mistake
             </button>
@@ -242,7 +242,7 @@
     state.messages = [
       {
         role: "assistant",
-        text: "Upload a teacher slide, handout, or mistake, then tell me what to do. Example: This is my teacher's new science slide. Please process it, turn it into simple English, and update the website.",
+        text: "Upload a teacher slide, handout, or mistake, then tell me what to do. On the Mistakes page, a good example is: This is my new mistake. Please explain what I did wrong in simple English, show the correct idea, tell me how to avoid this mistake next time, and update the Mistakes page.",
         timestamp: new Date().toISOString(),
         attachments: []
       }

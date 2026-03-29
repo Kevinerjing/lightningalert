@@ -67,10 +67,9 @@ async function handleStudyPilotChat(request, env, ctx) {
     const requestHints = inferRequestHints(message, page, files);
     const input = buildConversationInput(history, message, page, files, requestHints);
     const uploadedFileRecords = await uploadFilesToOpenAI(files, env, uploadedFileIds);
-    const fileInputItems = uploadedFileRecords.map((item) => ({
-      type: "input_file",
-      file_id: item.openAiFileId
-    }));
+    const fileInputItems = uploadedFileRecords
+      .map((item) => item.inputItem)
+      .filter(Boolean);
 
     if (fileInputItems.length) {
       input.push({
@@ -147,6 +146,25 @@ async function uploadFilesToOpenAI(files, env, uploadedFileIds) {
   const items = [];
 
   for (const file of files) {
+    if (isInlineImageMime(file.type, file.name)) {
+      const arrayBuffer = await file.arrayBuffer();
+      const base64 = arrayBufferToBase64(arrayBuffer);
+      items.push({
+        id: stableId("upload", `${file.name || "upload.bin"}:${Date.now()}:${Math.random()}`),
+        openAiFileId: null,
+        inputItem: {
+          type: "input_image",
+          image_url: `data:${file.type || "image/jpeg"};base64,${base64}`
+        },
+        name: file.name || "upload.bin",
+        mimeType: file.type || "application/octet-stream",
+        sizeBytes: file.size || null,
+        uploadedAt: new Date().toISOString(),
+        category: inferUploadCategory(file.name || "")
+      });
+      continue;
+    }
+
     const openAiFormData = new FormData();
     openAiFormData.append("purpose", "user_data");
     openAiFormData.append("file", file, file.name || "upload.bin");
@@ -168,6 +186,10 @@ async function uploadFilesToOpenAI(files, env, uploadedFileIds) {
     items.push({
       id: stableId("upload", `${file.name || "upload.bin"}:${Date.now()}:${Math.random()}`),
       openAiFileId: payload.id,
+      inputItem: {
+        type: "input_file",
+        file_id: payload.id
+      },
       name: file.name || "upload.bin",
       mimeType: file.type || "application/octet-stream",
       sizeBytes: file.size || null,
@@ -177,6 +199,24 @@ async function uploadFilesToOpenAI(files, env, uploadedFileIds) {
   }
 
   return items;
+}
+
+function isInlineImageMime(mimeType, fileName) {
+  const normalizedMime = String(mimeType || "").toLowerCase();
+  const normalizedName = String(fileName || "").toLowerCase();
+  return normalizedMime.startsWith("image/")
+    || [".jpg", ".jpeg", ".png", ".webp", ".gif"].some((suffix) => normalizedName.endsWith(suffix));
+}
+
+function arrayBufferToBase64(buffer) {
+  let binary = "";
+  const bytes = new Uint8Array(buffer);
+  const chunkSize = 0x8000;
+  for (let index = 0; index < bytes.length; index += chunkSize) {
+    const chunk = bytes.subarray(index, index + chunkSize);
+    binary += String.fromCharCode(...chunk);
+  }
+  return btoa(binary);
 }
 
 async function deleteUploadedFiles(fileIds, apiKey) {

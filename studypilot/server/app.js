@@ -272,6 +272,14 @@ async function uploadFilesToOpenAI(client, files, fileIdsToDelete) {
   const uploadedItems = [];
 
   for (const file of files) {
+    if (isInlineImageMime(file.mimetype, file.originalname)) {
+      uploadedItems.push({
+        type: "input_image",
+        image_url: `data:${file.mimetype || "image/jpeg"};base64,${file.buffer.toString("base64")}`
+      });
+      continue;
+    }
+
     const uploadedFile = await client.files.create({
       file: await toFile(file.buffer, file.originalname, {
         type: file.mimetype || "application/octet-stream"
@@ -287,6 +295,13 @@ async function uploadFilesToOpenAI(client, files, fileIdsToDelete) {
   }
 
   return uploadedItems;
+}
+
+function isInlineImageMime(mimeType, fileName) {
+  const normalizedMime = String(mimeType || "").toLowerCase();
+  const normalizedName = String(fileName || "").toLowerCase();
+  return normalizedMime.startsWith("image/")
+    || [".jpg", ".jpeg", ".png", ".webp", ".gif"].some((suffix) => normalizedName.endsWith(suffix));
 }
 
 function getStudyPilotResponseSchema() {
