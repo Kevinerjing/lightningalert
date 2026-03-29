@@ -224,6 +224,7 @@ function buildInstructions(page, requestHints) {
     "If the content belongs to Science, Math, or English, choose that exact subject instead of General.",
     "If the user is asking a specific worksheet question, fill-in-the-blank, or 'what do I write here' question, begin the reply with 'Direct answer: ' followed by one short sentence that answers immediately.",
     "After the direct answer, you may add a very short explanation if useful.",
+    "If the user both asks a specific question and asks to update support or the page, keep this order: Direct answer first, then Short explanation, then any website update summary.",
     "A Science page update should feel like a study card: key ideas, simple support notes, easy-medium-hard practice, and short mastery checks.",
     "A Math page update should feel like a study card: formulas or rules, solving steps, common mistakes, and practice items.",
     "An English page update should feel like a study card: reading focus, writing tips, vocabulary, and short practice prompts.",
