@@ -177,10 +177,26 @@
             <button
               type="button"
               class="chat-example-button"
+              data-chat-mode="support"
+              data-prompt-template="This is my teacher's new math lesson PDF. Please update the math support card in simple English."
+            >
+              Update math support
+            </button>
+            <button
+              type="button"
+              class="chat-example-button"
               data-chat-mode="chat-only"
               data-prompt-template="This is a question from my science PDF. Please give the direct answer first in one short sentence. Then give a short explanation. Only update the website if I ask you to."
             >
               Answer this question
+            </button>
+            <button
+              type="button"
+              class="chat-example-button"
+              data-chat-mode="task-only"
+              data-prompt-template="This is my math practice sheet. Please pull out today's practice tasks, tell me what I should do first, and update the task list only. Do not create a new support card unless I ask."
+            >
+              Prepare practice tasks
             </button>
             <button
               type="button"

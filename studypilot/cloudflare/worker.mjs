@@ -254,6 +254,8 @@ function buildInstructions(page, requestHints) {
     "After the direct answer, you may add a very short explanation if useful.",
     "If the user both asks a specific question and asks to update support or the page, keep this order: Direct answer first, then Short explanation, then any website update summary.",
     "If chatOnlyMode is true, answer in chat only. In chatOnlyMode, do not create subjectUpdate, mistakeUpdate, or tasks unless the user explicitly asks to update the website or page.",
+    "If taskOnlyMode is true, prefer tasks only. In taskOnlyMode, do not create subjectUpdate or mistakeUpdate unless the user explicitly asks for a support card, study card, or page update.",
+    "If mathPracticeLikely is true, prefer tasks and short chat help over a new Math support card. Reuse or update a Math support card only when the user clearly asks to update Math support.",
     "Only create tasks when they are genuinely helpful, and keep them short and realistic.",
     `Detected request hints: ${JSON.stringify(requestHints)}.`,
     `The user is currently on the StudyPilot page: ${page}.`
@@ -376,7 +378,7 @@ function enforceDirectAnswer(result, requestHints) {
     normalized.reply = `Direct answer: ${finalDirectAnswer}${explanation}`;
   }
 
-  return enforceChatOnlyMode(normalized, requestHints);
+  return enforceCardSuppression(enforceChatOnlyMode(normalized, requestHints), requestHints);
 }
 
 function extractDirectAnswer(text) {
@@ -428,7 +430,12 @@ function inferRequestHints(message, page, files, chatMode = "") {
     simpleEnglishRequested: /(simple english|easy english|easy words|simple words|grade 9|student friendly)/.test(combined),
     directQuestionRequested: /(\bwhat is\b|\bwhat do i write\b|\bwhat goes in\b|\bfill in\b|\bblank\b|\bwhich answer\b|\bwhat should i put\b|\?)/.test(normalizedMessage),
     chatOnlyMode: normalizedChatMode === "chat-only",
-    explicitUpdateRequested: /(update the website|update the page|update the support|add this to the page|save this to the page)/.test(normalizedMessage)
+    taskOnlyMode: normalizedChatMode === "task-only",
+    explicitUpdateRequested: /(update the website|update the page|update the support|add this to the page|save this to the page)/.test(normalizedMessage),
+    explicitSupportRequested: /(support card|study card|update math support|update the math support|update science support|turn this into study support)/.test(normalizedMessage),
+    mathPracticeLikely:
+      subjectHint === "Math" &&
+      /(worksheet|word problem|word problems|practice|homework|master|sheet|multiple representations|review questions|exercise)/.test(combined)
   };
 }
 
@@ -442,6 +449,25 @@ function enforceChatOnlyMode(result, requestHints) {
     subjectUpdate: null,
     mistakeUpdate: null,
     tasks: []
+  };
+}
+
+function enforceCardSuppression(result, requestHints) {
+  if (!requestHints) {
+    return result;
+  }
+
+  const shouldSuppressSubjectUpdate =
+    (requestHints.taskOnlyMode || requestHints.mathPracticeLikely) &&
+    !requestHints.explicitSupportRequested;
+
+  if (!shouldSuppressSubjectUpdate) {
+    return result;
+  }
+
+  return {
+    ...result,
+    subjectUpdate: null
   };
 }
 
