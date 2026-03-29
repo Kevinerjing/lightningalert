@@ -309,6 +309,7 @@
     container.innerHTML = messages.map((message) => {
       const roleLabel = message.role === "assistant" ? escapeHtml(config.assistantName) : "You";
       const attachments = renderMessageAttachments(message.attachments || [], escapeHtml);
+      const messageBody = renderMessageBody(message.text || "(No text message)", escapeHtml);
 
       return `
         <article class="chat-message chat-message-${escapeHtml(message.role)}">
@@ -316,7 +317,7 @@
             <span class="message-role">${roleLabel}</span>
             <span>${formatTime(message.timestamp)}</span>
           </div>
-          <p class="message-text">${escapeHtml(message.text || "(No text message)")}</p>
+          ${messageBody}
           ${attachments}
         </article>
       `;
@@ -336,6 +337,26 @@
     }).join("");
 
     return `<div class="message-files">${chips}</div>`;
+  }
+
+  function renderMessageBody(text, escapeHtml) {
+    const rawText = String(text || "");
+    const match = rawText.match(/^(Direct answer:|Short answer:)\s*(.+)$/im);
+    if (!match) {
+      return `<p class="message-text">${escapeHtml(rawText || "(No text message)")}</p>`;
+    }
+
+    const answerLabel = match[1];
+    const answerText = match[2];
+    const remainingText = rawText.replace(match[0], "").trim();
+
+    return `
+      <div class="message-answer-box">
+        <p class="message-answer-label">${escapeHtml(answerLabel)}</p>
+        <p class="message-answer-text">${escapeHtml(answerText)}</p>
+      </div>
+      ${remainingText ? `<p class="message-text">${escapeHtml(remainingText)}</p>` : ""}
+    `;
   }
 
   function renderPendingFiles(container, files) {

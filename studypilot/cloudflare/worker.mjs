@@ -245,6 +245,8 @@ function buildInstructions(page, requestHints) {
     "If the intent is slide_material, subjectUpdate should usually be filled and mistakeUpdate should usually be null.",
     "If the intent is mistake, mistakeUpdate should usually be filled and subjectUpdate should be used only if extra study support is clearly helpful.",
     "If the content belongs to Science, Math, or English, choose that exact subject instead of General.",
+    "If the user is asking a specific worksheet question, fill-in-the-blank, or 'what do I write here' question, begin the reply with 'Direct answer: ' followed by one short sentence that answers immediately.",
+    "After the direct answer, you may add a very short explanation if useful.",
     "Only create tasks when they are genuinely helpful, and keep them short and realistic.",
     `Detected request hints: ${JSON.stringify(requestHints)}.`,
     `The user is currently on the StudyPilot page: ${page}.`
@@ -366,7 +368,8 @@ function inferRequestHints(message, page, files) {
   return {
     subjectHint,
     intentHint,
-    simpleEnglishRequested: /(simple english|easy english|easy words|simple words|grade 9|student friendly)/.test(combined)
+    simpleEnglishRequested: /(simple english|easy english|easy words|simple words|grade 9|student friendly)/.test(combined),
+    directQuestionRequested: /(\bwhat is\b|\bwhat do i write\b|\bwhat goes in\b|\bfill in\b|\bblank\b|\bwhich answer\b|\bwhat should i put\b|\?)/.test(normalizedMessage)
   };
 }
 

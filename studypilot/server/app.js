@@ -222,6 +222,8 @@ function buildInstructions(page, requestHints) {
     "If the intent is slide_material, subjectUpdate should usually be filled and mistakeUpdate should usually be null.",
     "If the intent is mistake, mistakeUpdate should usually be filled and subjectUpdate should be used only if extra study support is clearly helpful.",
     "If the content belongs to Science, Math, or English, choose that exact subject instead of General.",
+    "If the user is asking a specific worksheet question, fill-in-the-blank, or 'what do I write here' question, begin the reply with 'Direct answer: ' followed by one short sentence that answers immediately.",
+    "After the direct answer, you may add a very short explanation if useful.",
     "A Science page update should feel like a study card: key ideas, simple support notes, easy-medium-hard practice, and short mastery checks.",
     "A Math page update should feel like a study card: formulas or rules, solving steps, common mistakes, and practice items.",
     "An English page update should feel like a study card: reading focus, writing tips, vocabulary, and short practice prompts.",
@@ -553,11 +555,13 @@ function inferRequestHints(message, page, uploadedFiles) {
   }
 
   const simpleEnglishRequested = /(simple english|easy english|easy words|simple words|grade 9|student friendly)/.test(combined);
+  const directQuestionRequested = /(\bwhat is\b|\bwhat do i write\b|\bwhat goes in\b|\bfill in\b|\bblank\b|\bwhich answer\b|\bwhat should i put\b|\?)/.test(normalizedMessage);
 
   return {
     subjectHint,
     intentHint,
-    simpleEnglishRequested
+    simpleEnglishRequested,
+    directQuestionRequested
   };
 }
 

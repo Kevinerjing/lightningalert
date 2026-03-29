@@ -90,6 +90,8 @@
     }
 
     container.innerHTML = safeTopics.map((topic) => {
+      const cardKey = buildTopicCardKey(config.subjectName, topic.topic);
+      const expanded = isTopicCardExpanded(cardKey);
       const sections = config.sections.map((section) => {
         const items = toList(topic[section.key]);
         const content = items.length
@@ -105,16 +107,25 @@
       }).join("");
 
       return `
-        <article class="topic-card">
-          <div>
-            <p class="section-label">${escapeHtml(config.subjectName)}</p>
-            <h2>${escapeHtml(topic.topic)}</h2>
-            <p class="muted">${escapeHtml(topic.summary)}</p>
+        <article class="topic-card${expanded ? "" : " topic-card-collapsed"}" data-topic-card-key="${escapeHtml(cardKey)}">
+          <div class="topic-card-header">
+            <div>
+              <p class="section-label">${escapeHtml(config.subjectName)}</p>
+              <h2>${escapeHtml(topic.topic)}</h2>
+              <p class="muted">${escapeHtml(topic.summary)}</p>
+            </div>
+            <button type="button" class="ghost-button topic-toggle-button" aria-expanded="${expanded ? "true" : "false"}">
+              ${expanded ? "Hide details" : "Show details"}
+            </button>
           </div>
-          <div class="topic-section-grid">${sections}</div>
+          <div class="topic-details">
+            <div class="topic-section-grid">${sections}</div>
+          </div>
         </article>
       `;
     }).join("");
+
+    attachTopicCardHandlers(container);
   }
 
   window.StudyApp = {
@@ -401,6 +412,32 @@
   function stripTaskBucket(task) {
     const { bucket, ...rest } = task;
     return rest;
+  }
+
+  function buildTopicCardKey(subjectName, topicTitle) {
+    return `studypilot.topicCard.${String(subjectName || "").toLowerCase()}::${String(topicTitle || "").toLowerCase()}`;
+  }
+
+  function isTopicCardExpanded(cardKey) {
+    return localStorage.getItem(cardKey) === "open";
+  }
+
+  function attachTopicCardHandlers(container) {
+    container.querySelectorAll("[data-topic-card-key]").forEach((card) => {
+      const button = card.querySelector(".topic-toggle-button");
+      const cardKey = card.getAttribute("data-topic-card-key");
+      if (!button || !cardKey) {
+        return;
+      }
+
+      button.addEventListener("click", () => {
+        const nextExpanded = card.classList.contains("topic-card-collapsed");
+        card.classList.toggle("topic-card-collapsed", !nextExpanded);
+        button.setAttribute("aria-expanded", String(nextExpanded));
+        button.textContent = nextExpanded ? "Hide details" : "Show details";
+        localStorage.setItem(cardKey, nextExpanded ? "open" : "closed");
+      });
+    });
   }
 
   function buildTaskKey(task) {
