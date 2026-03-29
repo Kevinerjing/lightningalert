@@ -159,6 +159,7 @@
   }
 
   async function loadTimelineData() {
+    const { buildRecurringClubTasks } = window.StudyUtils;
     const [dashboardApi, scienceApi, classroomData] = await Promise.all([
       fetchJson("/api/studypilot-dashboard", null),
       fetchJson("/api/studypilot-science", null),
@@ -172,11 +173,12 @@
         fetchJson("/data/week.json", { tasks: [] }),
         fetchJson("/data/next-week.json", { tasks: [] })
       ]);
+      const recurringTasks = buildRecurringClubTasks();
       dashboardData = {
         tasks: {
-          today: todayData.tasks || [],
-          week: weekData.tasks || [],
-          nextWeek: nextWeekData.tasks || []
+          today: [...(todayData.tasks || []), ...recurringTasks.filter((task) => task.bucket === "today").map(stripTaskBucket)],
+          week: [...(weekData.tasks || []), ...recurringTasks.filter((task) => task.bucket === "week").map(stripTaskBucket)],
+          nextWeek: [...(nextWeekData.tasks || []), ...recurringTasks.filter((task) => task.bucket === "nextWeek").map(stripTaskBucket)]
         }
       };
     }
@@ -370,5 +372,10 @@
       seen.add(key);
       return true;
     });
+  }
+
+  function stripTaskBucket(task) {
+    const { bucket, ...rest } = task;
+    return rest;
   }
 })();

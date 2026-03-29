@@ -1009,9 +1009,10 @@ async function buildDashboardPayloadFromJson() {
     readJson(path.join(dataRoot, "mistakes.json"), { mistakes: [] })
   ]);
 
-  const todayTasks = toArray(todayData.tasks);
-  const weekTasks = toArray(weekData.tasks);
-  const nextWeekTasks = toArray(nextWeekData.tasks);
+  const recurringTasks = buildRecurringClubTasks();
+  const todayTasks = [...toArray(todayData.tasks), ...recurringTasks.filter((task) => task.bucket === "today").map(stripTaskBucket)];
+  const weekTasks = [...toArray(weekData.tasks), ...recurringTasks.filter((task) => task.bucket === "week").map(stripTaskBucket)];
+  const nextWeekTasks = [...toArray(nextWeekData.tasks), ...recurringTasks.filter((task) => task.bucket === "nextWeek").map(stripTaskBucket)];
   const mistakes = toArray(mistakesData.mistakes);
 
   return {
@@ -1028,6 +1029,69 @@ async function buildDashboardPayloadFromJson() {
       mistakesForReview: countMistakesForReview(mistakes)
     }
   };
+}
+
+function buildRecurringClubTasks(referenceDate = new Date()) {
+  const today = new Date(referenceDate);
+  today.setHours(0, 0, 0, 0);
+
+  const sundayReminderDate = getNextWeekday(today, 0, true);
+  const wednesdayEventDate = getNextWeekday(today, 3, true);
+
+  return [
+    {
+      bucket: getRecurringBucketForDate(sundayReminderDate, today),
+      subject: "Club",
+      topic: "Weather & Climate Club notice",
+      type: "leadership",
+      note: "Sunday routine: schedule and send the club notice so everyone knows there is a Weather & Climate Club activity on Wednesday at lunch.",
+      dueDate: toIsoDate(sundayReminderDate),
+      priority: "High",
+      source: "recurring-club"
+    },
+    {
+      bucket: getRecurringBucketForDate(wednesdayEventDate, today),
+      subject: "Club",
+      topic: "Weather & Climate Club activity",
+      type: "event",
+      note: "Wednesday lunch: run the Weather & Climate Club activity and make sure the group has already received the notice.",
+      dueDate: toIsoDate(wednesdayEventDate),
+      priority: "Medium",
+      source: "recurring-club"
+    }
+  ];
+}
+
+function getNextWeekday(fromDate, targetWeekday, includeToday = false) {
+  const start = new Date(fromDate);
+  start.setHours(0, 0, 0, 0);
+  const current = start.getDay();
+  let diff = (targetWeekday - current + 7) % 7;
+  if (diff === 0 && !includeToday) {
+    diff = 7;
+  }
+  start.setDate(start.getDate() + diff);
+  return start;
+}
+
+function getRecurringBucketForDate(targetDate, today) {
+  const diffDays = Math.round((targetDate.getTime() - today.getTime()) / (1000 * 60 * 60 * 24));
+  if (diffDays <= 0) {
+    return "today";
+  }
+  if (diffDays <= 7) {
+    return "week";
+  }
+  return "nextWeek";
+}
+
+function toIsoDate(date) {
+  return date.toISOString().slice(0, 10);
+}
+
+function stripTaskBucket(task) {
+  const { bucket, ...rest } = task;
+  return rest;
 }
 
 function countMistakesForReview(mistakes) {

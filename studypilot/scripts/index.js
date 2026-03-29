@@ -40,6 +40,7 @@ function setupTaskSwitcher() {
 }
 
 async function loadDashboardData(fetchJson) {
+  const { buildRecurringClubTasks } = window.StudyUtils;
   const apiPayload = await fetchJson("./api/studypilot-dashboard", null);
   if (apiPayload && apiPayload.tasks && apiPayload.totals) {
     return apiPayload;
@@ -55,6 +56,7 @@ async function loadDashboardData(fetchJson) {
   const todayTasks = Array.isArray(todayData.tasks) ? todayData.tasks : [];
   const weekTasks = Array.isArray(weekData.tasks) ? weekData.tasks : [];
   const nextWeekTasks = Array.isArray(nextWeekData.tasks) ? nextWeekData.tasks : [];
+  const recurringTasks = buildRecurringClubTasks();
   const mistakes = Array.isArray(mistakesData.mistakes) ? mistakesData.mistakes : [];
   const reviewCount = mistakes.filter((mistake) => {
     const status = String(mistake.retryStatus || "").toLowerCase();
@@ -64,15 +66,20 @@ async function loadDashboardData(fetchJson) {
   return {
     source: "json-fallback",
     tasks: {
-      today: todayTasks,
-      week: weekTasks,
-      nextWeek: nextWeekTasks
+      today: [...todayTasks, ...recurringTasks.filter((task) => task.bucket === "today").map(stripTaskBucket)],
+      week: [...weekTasks, ...recurringTasks.filter((task) => task.bucket === "week").map(stripTaskBucket)],
+      nextWeek: [...nextWeekTasks, ...recurringTasks.filter((task) => task.bucket === "nextWeek").map(stripTaskBucket)]
     },
     totals: {
-      today: todayTasks.length,
-      week: weekTasks.length,
-      nextWeek: nextWeekTasks.length,
+      today: todayTasks.length + recurringTasks.filter((task) => task.bucket === "today").length,
+      week: weekTasks.length + recurringTasks.filter((task) => task.bucket === "week").length,
+      nextWeek: nextWeekTasks.length + recurringTasks.filter((task) => task.bucket === "nextWeek").length,
       mistakesForReview: reviewCount
     }
   };
+}
+
+function stripTaskBucket(task) {
+  const { bucket, ...rest } = task;
+  return rest;
 }
