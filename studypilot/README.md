@@ -80,5 +80,6 @@ This is recommended because the app reads local JSON files with `fetch()`, which
 
 - The placeholder intake function lives in `scripts/mistakes.js`.
 - The first version of photographed mistake intake now creates draft cards from files in `uploads/mistakes/`.
+- For Google Drive materials, the recommended workflow is to download the file into `uploads/docs/` or share a public link instead of relying on automated Drive login.
 - The current structure keeps content and layout separate so Codex can extend it gradually.
 - V1 is intentionally beginner-friendly so students and parents can edit the files without a framework or backend.

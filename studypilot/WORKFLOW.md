@@ -76,6 +76,17 @@ The default rule is:
   - Math: `https://classroom.google.com/w/ODI1MDk4ODUxNTc1/t/all`
   - Science: `https://classroom.google.com/w/ODI0MzQ2MzAwMjMw/t/all`
 
+## Google Drive rule
+
+- Codex cannot directly own Kevin's Google Drive login.
+- Google Drive may block automated login flows more strictly than Google Classroom.
+- The recommended Google Drive workflow is:
+  - Kevin opens Google Drive in a normal browser
+  - Kevin downloads the needed file into `studypilot/uploads/docs/`
+  - or Kevin shares a public view link
+  - then Codex analyzes the local file or public link
+- If Kevin wants Codex to inspect Drive content, the safest short instruction is still to download the file first.
+
 ## Upload analysis rule
 
 - The scheduled task name is `StudyPilot Upload Analysis`.
