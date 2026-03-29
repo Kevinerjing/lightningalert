@@ -199,16 +199,21 @@ function renderUpcomingScienceSupport(items) {
   }
 
   container.innerHTML = supportItems.map((item) => `
-    <article class="group-card">
+    <article class="group-card upcoming-support-card${isUpcomingSupportExpanded(item) ? "" : " upcoming-support-collapsed"}" data-upcoming-support-key="${escapeHtml(buildUpcomingSupportKey(item))}">
       <div class="section-heading">
         <div>
           <p class="section-label">${escapeHtml(item.when || "Upcoming lesson")}</p>
           <h3>${escapeHtml(item.topic || "Lesson support")}</h3>
         </div>
-        ${item.type ? `<span class="chip chip-sync">${escapeHtml(item.type)}</span>` : ""}
+        <div class="chip-row">
+          ${item.type ? `<span class="chip chip-sync">${escapeHtml(item.type)}</span>` : ""}
+          <button type="button" class="ghost-button upcoming-support-toggle" aria-expanded="${isUpcomingSupportExpanded(item) ? "true" : "false"}">
+            ${isUpcomingSupportExpanded(item) ? "Hide details" : "Show details"}
+          </button>
+        </div>
       </div>
       <p class="mistake-detail">${escapeHtml(item.summary || "")}</p>
-      <div class="topic-section-grid">
+      <div class="topic-section-grid support-details">
         <section class="topic-section">
           <h3>Before class</h3>
           ${renderSupportList(item.beforeClass)}
@@ -244,6 +249,8 @@ function renderUpcomingScienceSupport(items) {
       </div>
     </article>
   `).join("");
+
+  attachUpcomingSupportHandlers(container);
 }
 
 function renderSupportList(items) {
@@ -298,4 +305,30 @@ async function loadScienceData(fetchJson) {
     topics: toList(scienceData.topics),
     classroomItems: toList(chemistry?.items)
   };
+}
+
+function buildUpcomingSupportKey(item) {
+  return `studypilot.upcomingSupport.${String(item?.topic || "").toLowerCase()}::${String(item?.when || "").toLowerCase()}`;
+}
+
+function isUpcomingSupportExpanded(item) {
+  return localStorage.getItem(buildUpcomingSupportKey(item)) === "open";
+}
+
+function attachUpcomingSupportHandlers(container) {
+  container.querySelectorAll("[data-upcoming-support-key]").forEach((card) => {
+    const button = card.querySelector(".upcoming-support-toggle");
+    const cardKey = card.getAttribute("data-upcoming-support-key");
+    if (!button || !cardKey) {
+      return;
+    }
+
+    button.addEventListener("click", () => {
+      const nextExpanded = card.classList.contains("upcoming-support-collapsed");
+      card.classList.toggle("upcoming-support-collapsed", !nextExpanded);
+      button.setAttribute("aria-expanded", String(nextExpanded));
+      button.textContent = nextExpanded ? "Hide details" : "Show details";
+      localStorage.setItem(cardKey, nextExpanded ? "open" : "closed");
+    });
+  });
 }

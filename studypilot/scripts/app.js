@@ -118,16 +118,21 @@
       const directAnswer = getTopicDirectAnswer(topic);
 
       return `
-        <article class="topic-card${expanded ? "" : " topic-card-collapsed"}" data-topic-card-key="${escapeHtml(cardKey)}">
+        <article class="topic-card${expanded ? "" : " topic-card-collapsed"}" data-topic-card-key="${escapeHtml(cardKey)}" data-topic-subject="${escapeHtml(config.subjectName)}" data-topic-title="${escapeHtml(topic.topic)}">
           <div class="topic-card-header">
             <div>
               <p class="section-label">${escapeHtml(config.subjectName)}</p>
               <h2>${escapeHtml(topic.topic)}</h2>
               <p class="muted">${escapeHtml(topic.summary)}</p>
             </div>
-            <button type="button" class="ghost-button topic-toggle-button" aria-expanded="${expanded ? "true" : "false"}">
-              ${expanded ? "Hide details" : "Show details"}
-            </button>
+            <div class="topic-card-actions">
+              <button type="button" class="ghost-button topic-toggle-button" aria-expanded="${expanded ? "true" : "false"}">
+                ${expanded ? "Hide details" : "Show details"}
+              </button>
+              <button type="button" class="ghost-button archive-button topic-archive-button">
+                Archive
+              </button>
+            </div>
           </div>
           ${directAnswer ? `
             <div class="topic-answer-box">
@@ -144,6 +149,7 @@
 
     attachTopicCardHandlers(container);
     attachTopicSectionHandlers(container);
+    attachTopicArchiveHandlers(container, config.subjectName);
   }
 
   window.StudyApp = {
@@ -463,6 +469,76 @@
         localStorage.setItem(cardKey, nextExpanded ? "open" : "closed");
       });
     });
+  }
+
+  function attachTopicArchiveHandlers(container, subjectName) {
+    container.querySelectorAll("[data-topic-card-key]").forEach((card) => {
+      const button = card.querySelector(".topic-archive-button");
+      const topicTitle = card.getAttribute("data-topic-title");
+      const topicSubject = card.getAttribute("data-topic-subject") || subjectName;
+      if (!button || !topicTitle || !topicSubject) {
+        return;
+      }
+
+      button.addEventListener("click", async () => {
+        const confirmed = window.confirm(`Archive "${topicTitle}" from the ${topicSubject} support page?`);
+        if (!confirmed) {
+          return;
+        }
+
+        const originalText = button.textContent;
+        button.disabled = true;
+        button.textContent = "Archiving...";
+
+        try {
+          const result = await archiveTopicCard(topicSubject, topicTitle);
+          if (!result.ok) {
+            throw new Error(result.error || "Could not archive this card.");
+          }
+
+          card.remove();
+          if (!container.querySelector("[data-topic-card-key]")) {
+            container.innerHTML = window.StudyUtils.createEmptyState("No topics have been added yet.");
+          }
+        } catch (error) {
+          window.alert(error instanceof Error ? error.message : "Could not archive this card.");
+          button.disabled = false;
+          button.textContent = originalText;
+        }
+      });
+    });
+  }
+
+  async function archiveTopicCard(subject, title) {
+    const response = await fetch("/api/studypilot-topic-card/archive", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        subject,
+        title
+      })
+    });
+
+    let payload = {};
+    try {
+      payload = await response.json();
+    } catch {
+      payload = {};
+    }
+
+    if (!response.ok) {
+      return {
+        ok: false,
+        error: payload.error || "Could not archive this card."
+      };
+    }
+
+    return {
+      ok: true,
+      ...payload
+    };
   }
 
   function buildTopicSectionKey(cardKey, sectionKey) {

@@ -34,6 +34,10 @@ export default {
       return handleReviewRequest(env);
     }
 
+    if (url.pathname === "/api/studypilot-topic-card/archive" && request.method === "POST") {
+      return handleArchiveTopicCard(request, env);
+    }
+
     if (url.pathname === "/api/studypilot-chat" && request.method === "POST") {
       return handleStudyPilotChat(request, env, ctx);
     }
@@ -1153,6 +1157,39 @@ async function handleScienceRequest(env) {
     return jsonResponse(
       {
         error: error instanceof Error ? error.message : "Could not query StudyPilot science data."
+      },
+      500
+    );
+  }
+}
+
+async function handleArchiveTopicCard(request, env) {
+  if (!env.studypilot) {
+    return jsonResponse({ error: "Missing D1 binding for StudyPilot archive action." }, 500);
+  }
+
+  try {
+    const payload = await request.json();
+    const subject = normalizeSubject(payload?.subject);
+    const title = String(payload?.title || "").trim();
+
+    if (!title || subject === "General") {
+      return jsonResponse({ error: "Subject and title are required." }, 400);
+    }
+
+    const result = await env.studypilot.prepare(`
+      DELETE FROM subject_topic_cards
+      WHERE subject_slug = ? AND lower(title) = lower(?)
+    `).bind(subject.toLowerCase(), title).run();
+
+    return jsonResponse({
+      ok: true,
+      deleted: Number(result.meta?.changes || 0) > 0
+    });
+  } catch (error) {
+    return jsonResponse(
+      {
+        error: error instanceof Error ? error.message : "Could not archive this topic card."
       },
       500
     );

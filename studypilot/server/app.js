@@ -112,6 +112,29 @@ app.get("/api/studypilot-review", async (_request, response) => {
   }
 });
 
+app.post("/api/studypilot-topic-card/archive", async (request, response) => {
+  try {
+    const subject = normalizeSubject(request.body?.subject);
+    const title = String(request.body?.title || "").trim();
+
+    if (!title || subject === "General") {
+      response.status(400).json({ error: "Subject and title are required." });
+      return;
+    }
+
+    const deleted = await archiveTopicCardLocally(subject, title);
+    response.json({
+      ok: true,
+      deleted
+    });
+  } catch (error) {
+    console.error("StudyPilot archive request failed:", error);
+    response.status(500).json({
+      error: error?.message || "Could not archive this topic card."
+    });
+  }
+});
+
 app.post("/api/studypilot-chat", upload.array("files", 5), async (request, response) => {
   if (!process.env.OPENAI_API_KEY) {
     response.status(500).json({
@@ -1280,6 +1303,50 @@ async function buildSciencePayloadFromJson() {
     topics: toArray(scienceData.topics),
     classroomItems: toArray(chemistrySection?.items)
   };
+}
+
+async function archiveTopicCardLocally(subject, title) {
+  const filePath = getSubjectJsonPath(subject);
+  if (!filePath) {
+    return false;
+  }
+
+  const data = await readJson(filePath, { topics: [] });
+  const topics = toArray(data.topics);
+  const nextTopics = topics.filter((topic) => String(topic.topic || "").trim().toLowerCase() !== title.trim().toLowerCase());
+  const deleted = nextTopics.length !== topics.length;
+  data.topics = nextTopics;
+
+  if (deleted) {
+    await writeJson(filePath, data);
+  }
+
+  const localD1 = await openLocalD1Writer();
+  try {
+    if (localD1) {
+      localD1.prepare(`
+        DELETE FROM subject_topic_cards
+        WHERE subject_slug = ? AND lower(title) = lower(?)
+      `).run(subject.toLowerCase(), title);
+    }
+  } finally {
+    localD1?.close?.();
+  }
+
+  return deleted;
+}
+
+function getSubjectJsonPath(subject) {
+  if (subject === "Science") {
+    return path.join(dataRoot, "science.json");
+  }
+  if (subject === "Math") {
+    return path.join(dataRoot, "math.json");
+  }
+  if (subject === "English") {
+    return path.join(dataRoot, "english.json");
+  }
+  return null;
 }
 
 async function buildMathPayloadFromJson() {

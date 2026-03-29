@@ -508,6 +508,23 @@ h3 {
   align-items: flex-start;
 }
 
+.topic-card-actions {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.archive-button {
+  color: #8f3b28;
+  border-color: #f0c5ba;
+  background: #fff7f4;
+}
+
+.archive-button:hover:not(:disabled) {
+  background: #ffe9e2;
+}
+
 .topic-details {
   display: block;
 }
@@ -575,6 +592,14 @@ h3 {
   padding-left: 1.1rem;
   display: grid;
   gap: 0.35rem;
+}
+
+.upcoming-support-card .support-details {
+  display: grid;
+}
+
+.upcoming-support-collapsed .support-details {
+  display: none;
 }
 
 .empty-state {
