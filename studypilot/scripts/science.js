@@ -1,0 +1,282 @@
+document.addEventListener("DOMContentLoaded", async () => {
+  const { createEmptyState, escapeHtml, fetchJson, toList } = window.StudyUtils;
+  const { renderTopicSections } = window.StudyApp;
+  const [data, classroomData] = await Promise.all([
+    fetchJson("../data/science.json", { topics: [] }),
+    fetchJson("../data/classroom-updates.json", { classrooms: [] })
+  ]);
+  const topics = toList(data.topics);
+  renderScienceSchedule(data.schedule);
+  renderUpcomingScienceSupport(data.upcomingSupport);
+
+  renderTopicSections("science-topics", topics, {
+    subjectName: "Science",
+    sections: [
+      { title: "Key concepts", key: "keyConcepts" },
+      { title: "Teacher notes summary", key: "teacherNotes" },
+      { title: "Useful learning resources", key: "resources" },
+      { title: "Easy quiz questions", key: "quizEasy" },
+      { title: "Medium quiz questions", key: "quizMedium" },
+      { title: "Hard quiz questions", key: "quizHard" },
+      { title: "Feynman mastery checklist", key: "feynmanChecklist" },
+      { title: "Real-world applications", key: "applications" }
+    ]
+  });
+
+  if (!topics.length) {
+    const topicsSection = document.getElementById("science-topics-section");
+    if (topicsSection) {
+      topicsSection.style.display = "none";
+    }
+  }
+
+  renderScienceClassroomItems(classroomData);
+});
+
+function renderScienceSchedule(schedule) {
+  const { createEmptyState, escapeHtml, toList } = window.StudyUtils;
+  const container = document.getElementById("science-schedule");
+  if (!container) {
+    return;
+  }
+
+  if (!schedule) {
+    container.innerHTML = createEmptyState("No SNC1W schedule details have been added yet.");
+    return;
+  }
+
+  const units = toList(schedule.units);
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+  const keyDates = toList(schedule.keyDates).filter((item) => isUpcomingDate(item.date, today));
+  const keyDatesContent = keyDates.length
+    ? `
+      <div class="task-list">
+        ${keyDates.map((item) => `
+          <div class="task-item ${getKeyDateHighlightClass(item, today)}">
+            <div class="task-topline">
+              <h3>${escapeHtml(item.label)}</h3>
+              <span class="chip ${getKeyDateChipClass(item, today)}">${escapeHtml(item.date)}</span>
+            </div>
+            <p class="muted">${escapeHtml(item.note)}</p>
+          </div>
+        `).join("")}
+      </div>
+    `
+    : createEmptyState("No upcoming key dates right now.");
+
+  container.innerHTML = `
+    <article class="group-card">
+      <p class="section-label">Schedule summary</p>
+      <h3>${escapeHtml(schedule.title || "SNC1W schedule")}</h3>
+      <p class="muted">${escapeHtml(schedule.overview || "")}</p>
+    </article>
+    <article class="group-card">
+      <p class="section-label">Units</p>
+      <div class="task-list">
+        ${units.map((unit) => `
+          <div class="task-item">
+            <div class="task-topline">
+              <div>
+                <h3>${escapeHtml(unit.name)}</h3>
+                <p class="muted">${escapeHtml(unit.window)}</p>
+              </div>
+              <span class="chip">${escapeHtml(unit.focus)}</span>
+            </div>
+            <p class="mistake-detail">${escapeHtml(unit.notes)}</p>
+          </div>
+        `).join("")}
+      </div>
+    </article>
+    <article class="group-card">
+      <p class="section-label">Key dates</p>
+      ${keyDatesContent}
+    </article>
+  `;
+}
+
+function isUpcomingDate(dateText, today) {
+  if (!dateText) {
+    return false;
+  }
+
+  const parsed = parseScheduleDate(dateText);
+  if (!parsed) {
+    return true;
+  }
+
+  parsed.setHours(0, 0, 0, 0);
+  return parsed >= today;
+}
+
+function parseScheduleDate(dateText) {
+  const directDate = new Date(dateText);
+  if (!Number.isNaN(directDate.getTime())) {
+    return directDate;
+  }
+
+  // Handle ranges like "June 18 to June 24, 2026" by using the first date.
+  const rangeMatch = String(dateText).match(/^([A-Za-z]+)\s+(\d{1,2})\s+to\s+[A-Za-z]+\s+\d{1,2},\s+(\d{4})$/);
+  if (rangeMatch) {
+    const [, month, day, year] = rangeMatch;
+    const firstDate = new Date(`${month} ${day}, ${year}`);
+    if (!Number.isNaN(firstDate.getTime())) {
+      return firstDate;
+    }
+  }
+
+  return null;
+}
+
+function getKeyDateHighlightClass(item, today) {
+  return isSoonAssessment(item, today) ? "keydate-highlight" : "";
+}
+
+function getKeyDateChipClass(item, today) {
+  return isSoonAssessment(item, today) ? "keydate-chip-highlight" : "";
+}
+
+function isSoonAssessment(item, today) {
+  if (!item || !item.date || !item.label) {
+    return false;
+  }
+
+  const parsed = parseScheduleDate(item.date);
+  if (!parsed) {
+    return false;
+  }
+
+  parsed.setHours(0, 0, 0, 0);
+  const diffMs = parsed.getTime() - today.getTime();
+  const diffDays = diffMs / (1000 * 60 * 60 * 24);
+  const label = String(item.label).toLowerCase();
+  const isAssessment = ["quiz", "test", "exam"].some((word) => label.includes(word));
+
+  return isAssessment && diffDays >= 0 && diffDays <= 14;
+}
+
+function renderScienceClassroomItems(classroomData) {
+  const { createEmptyState, escapeHtml, toList } = window.StudyUtils;
+  const container = document.getElementById("science-classroom-items");
+  if (!container) {
+    return;
+  }
+
+  const scienceClassroom = toList(classroomData.classrooms).find((item) => item.key === "science");
+  const chemistry = toList(scienceClassroom?.topicSections).find((section) => section.topic === "Chemistry");
+
+  if (!chemistry || !toList(chemistry.items).length) {
+    container.innerHTML = createEmptyState("No recent Science classroom items were found.");
+    return;
+  }
+
+  container.innerHTML = `
+    <article class="group-card">
+      <p class="section-label">Chemistry</p>
+      <div class="task-list">
+        ${toList(chemistry.items).slice(0, 5).map((item) => `
+          <div class="task-item">
+            <div class="task-topline">
+              <div>
+                <h3>${escapeHtml(item.title)}</h3>
+                <p class="muted">${escapeHtml(item.meta)}</p>
+              </div>
+              <span class="chip chip-sync">Classroom sync</span>
+            </div>
+          </div>
+        `).join("")}
+      </div>
+    </article>
+  `;
+}
+
+function renderUpcomingScienceSupport(items) {
+  const { createEmptyState, escapeHtml, toList } = window.StudyUtils;
+  const container = document.getElementById("science-upcoming-support");
+  if (!container) {
+    return;
+  }
+
+  const supportItems = toList(items);
+  if (!supportItems.length) {
+    container.innerHTML = createEmptyState("No upcoming science lesson support has been added yet.");
+    return;
+  }
+
+  container.innerHTML = supportItems.map((item) => `
+    <article class="group-card">
+      <div class="section-heading">
+        <div>
+          <p class="section-label">${escapeHtml(item.when || "Upcoming lesson")}</p>
+          <h3>${escapeHtml(item.topic || "Lesson support")}</h3>
+        </div>
+        ${item.type ? `<span class="chip chip-sync">${escapeHtml(item.type)}</span>` : ""}
+      </div>
+      <p class="mistake-detail">${escapeHtml(item.summary || "")}</p>
+      <div class="topic-section-grid">
+        <section class="topic-section">
+          <h3>Before class</h3>
+          ${renderSupportList(item.beforeClass)}
+        </section>
+        <section class="topic-section">
+          <h3>Keywords</h3>
+          ${renderSupportList(item.keywords)}
+        </section>
+        <section class="topic-section">
+          <h3>Quick questions</h3>
+          ${renderSupportList(item.quickQuestions)}
+        </section>
+        <section class="topic-section">
+          <h3>Helpful resources</h3>
+          ${renderSupportResources(item.resources)}
+        </section>
+        <section class="topic-section">
+          <h3>Lab steps</h3>
+          ${renderSupportList(item.labSteps)}
+        </section>
+        <section class="topic-section">
+          <h3>Property to use ideas</h3>
+          ${renderSupportList(item.propertyUseLinks)}
+        </section>
+        <section class="topic-section">
+          <h3>Teacher questions</h3>
+          ${renderSupportList(item.teacherQuestions)}
+        </section>
+        <section class="topic-section">
+          <h3>Flexible thinking</h3>
+          ${renderSupportList(item.flexibleThinkingExamples)}
+        </section>
+      </div>
+    </article>
+  `).join("");
+}
+
+function renderSupportList(items) {
+  const { createEmptyState, escapeHtml, toList } = window.StudyUtils;
+  const safeItems = toList(items);
+  if (!safeItems.length) {
+    return createEmptyState("No details added yet.");
+  }
+
+  return `<ul>${safeItems.map((item) => `<li>${escapeHtml(item)}</li>`).join("")}</ul>`;
+}
+
+function renderSupportResources(items) {
+  const { createEmptyState, escapeHtml, toList } = window.StudyUtils;
+  const safeItems = toList(items);
+  if (!safeItems.length) {
+    return createEmptyState("No resource links added yet.");
+  }
+
+  return `
+    <ul>
+      ${safeItems.map((item) => {
+        if (item && typeof item === "object" && item.url) {
+          return `<li><a class="task-link" href="${escapeHtml(item.url)}" target="_blank" rel="noreferrer">${escapeHtml(item.label || item.url)}</a></li>`;
+        }
+
+        return `<li>${escapeHtml(item)}</li>`;
+      }).join("")}
+    </ul>
+  `;
+}

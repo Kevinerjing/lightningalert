@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Math | Study Mission Assistant</title>
+  <link rel="stylesheet" href="../styles/main.css">
+  <script defer src="../scripts/utils.js"></script>
+  <script defer src="../scripts/app.js"></script>
+  <script defer src="../scripts/math.js"></script>
+</head>
+<body>
+  <header class="site-header compact-header">
+    <div class="container header-inner">
+      <div>
+        <p class="eyebrow">Grade 9 support</p>
+        <h1>Math Study Support</h1>
+      </div>
+      <p id="today-date" class="date-chip">Loading date...</p>
+    </div>
+  </header>
+
+  <nav class="main-nav">
+    <div class="container nav-links">
+      <a href="../index.html">Dashboard</a>
+      <a href="../mistakes.html">Mistakes Notebook</a>
+      <a href="../review.html">Review</a>
+      <a href="science.html">Science</a>
+      <a class="active" href="math.html">Math</a>
+      <a href="english.html">English</a>
+      <a href="../updates.html">Updates</a>
+      <a href="../upload-guide.html">Upload Guide</a>
+    </div>
+  </nav>
+
+  <main class="container page-shell">
+    <section class="panel">
+      <div class="section-heading">
+        <div>
+          <p class="section-label">Subject overview</p>
+          <h2>Current math topics</h2>
+        </div>
+      </div>
+      <div id="math-topics" class="topic-stack"></div>
+    </section>
+
+    <section class="panel">
+      <div class="section-heading">
+        <div>
+          <p class="section-label">Auto update</p>
+          <h2>Latest math classroom items</h2>
+        </div>
+      </div>
+      <div id="math-classroom-items" class="group-list"></div>
+    </section>
+  </main>
+</body>
+</html>

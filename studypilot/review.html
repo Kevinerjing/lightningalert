@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Review | Study Mission Assistant</title>
+  <link rel="stylesheet" href="styles/main.css">
+  <script defer src="scripts/utils.js"></script>
+  <script defer src="scripts/app.js"></script>
+  <script defer src="scripts/review.js"></script>
+</head>
+<body>
+  <header class="site-header compact-header">
+    <div class="container header-inner">
+      <div>
+        <p class="eyebrow">Spaced review</p>
+        <h1>Review Page</h1>
+      </div>
+      <p id="today-date" class="date-chip">Loading date...</p>
+    </div>
+  </header>
+
+  <nav class="main-nav">
+    <div class="container nav-links">
+      <a href="index.html">Dashboard</a>
+      <a href="mistakes.html">Mistakes Notebook</a>
+      <a class="active" href="review.html">Review</a>
+      <a href="pages/science.html">Science</a>
+      <a href="pages/math.html">Math</a>
+      <a href="pages/english.html">English</a>
+      <a href="updates.html">Updates</a>
+      <a href="upload-guide.html">Upload Guide</a>
+    </div>
+  </nav>
+
+  <main class="container page-shell">
+    <section class="hero-grid review-hero">
+      <article class="panel">
+        <p class="section-label">Today's focus</p>
+        <h2 id="review-total">0 items need review today</h2>
+        <p class="muted">
+          This page uses simple placeholder logic based on retry status and mastery level so it can
+          grow into a fuller spaced-review system later.
+        </p>
+      </article>
+      <article class="panel">
+        <p class="section-label">Suggested routine</p>
+        <p id="review-suggestion" class="large-note">Loading review suggestion...</p>
+      </article>
+    </section>
+
+    <section class="panel">
+      <div class="section-heading">
+        <div>
+          <p class="section-label">Grouped by subject</p>
+          <h2>Review Queue</h2>
+        </div>
+      </div>
+      <div id="review-groups" class="group-list"></div>
+    </section>
+  </main>
+</body>
+</html>

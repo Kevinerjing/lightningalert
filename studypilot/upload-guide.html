@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Upload Guide | Study Mission Assistant</title>
+  <link rel="stylesheet" href="styles/main.css">
+  <script defer src="scripts/utils.js"></script>
+  <script defer src="scripts/app.js"></script>
+</head>
+<body>
+  <header class="site-header compact-header">
+    <div class="container header-inner">
+      <div>
+        <p class="eyebrow">Help and setup</p>
+        <h1>Upload Guide</h1>
+      </div>
+      <p id="today-date" class="date-chip">Loading date...</p>
+    </div>
+  </header>
+
+  <nav class="main-nav">
+    <div class="container nav-links">
+      <a href="index.html">Dashboard</a>
+      <a href="mistakes.html">Mistakes Notebook</a>
+      <a href="review.html">Review</a>
+      <a href="pages/science.html">Science</a>
+      <a href="pages/math.html">Math</a>
+      <a href="pages/english.html">English</a>
+      <a href="updates.html">Updates</a>
+      <a class="active" href="upload-guide.html">Upload Guide</a>
+    </div>
+  </nav>
+
+  <main class="container page-shell">
+    <section class="panel">
+      <p class="section-label">What to send</p>
+      <h2>Best document types for analysis</h2>
+      <div class="topic-section-grid">
+        <section class="topic-section">
+          <h3>PDF</h3>
+          <p class="muted">Best for course calendars, worksheets, schedules, rubrics, and teacher notes.</p>
+        </section>
+        <section class="topic-section">
+          <h3>PNG or JPG</h3>
+          <p class="muted">Best for photographed homework, handwritten notes, and mistake notebook pages.</p>
+        </section>
+        <section class="topic-section">
+          <h3>DOCX</h3>
+          <p class="muted">Good for typed study guides or editable school documents.</p>
+        </section>
+        <section class="topic-section">
+          <h3>TXT or pasted text</h3>
+          <p class="muted">Fastest option for short notes, assignment instructions, or copied summaries.</p>
+        </section>
+      </div>
+    </section>
+
+    <section class="panel">
+      <p class="section-label">How to share</p>
+      <h2>Two easy ways to give a document to Codex</h2>
+      <div class="group-list">
+        <article class="group-card">
+          <h3>1. Upload it in chat</h3>
+          <p class="muted">Drag the file into the chat or use the attach button, then say what you want done.</p>
+          <div class="note-box">
+            <p><strong>Example:</strong> Analyze this PDF and add the important test dates to the science page.</p>
+          </div>
+        </article>
+        <article class="group-card">
+          <h3>2. Send the full file path</h3>
+          <p class="muted">Tell Codex exactly where the file is stored on your computer.</p>
+          <div class="note-box">
+            <p><strong>Example path:</strong> <code>c:\Users\guanh\Downloads\science_schedule.pdf</code></p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="panel">
+      <p class="section-label">What to ask</p>
+      <h2>Prompts that work well</h2>
+      <div class="group-list">
+        <article class="group-card">
+          <h3>Task extraction</h3>
+          <p class="muted">Analyze this PDF and turn the important dates into weekly tasks.</p>
+        </article>
+        <article class="group-card">
+          <h3>Page updates</h3>
+          <p class="muted">Read this science handout and update <code>data/science.json</code>.</p>
+        </article>
+        <article class="group-card">
+          <h3>Mistake support</h3>
+          <p class="muted">Read this photographed mistake page and help turn it into a mistakes notebook entry.</p>
+        </article>
+        <article class="group-card">
+          <h3>Student summary</h3>
+          <p class="muted">Summarize this document in a simple Grade 9 friendly way.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="panel">
+      <p class="section-label">Recommended folders</p>
+      <h2>Where to keep files inside Study Mission Assistant</h2>
+      <div class="task-list">
+        <div class="task-item">
+          <h3><code>uploads/timetable/</code></h3>
+          <p class="muted">Put timetable images, class schedules, and calendar snapshots here.</p>
+        </div>
+        <div class="task-item">
+          <h3><code>uploads/docs/</code></h3>
+          <p class="muted">Put PDFs, handouts, worksheets, unit outlines, and teacher files here.</p>
+        </div>
+        <div class="task-item">
+          <h3><code>uploads/mistakes/</code></h3>
+          <p class="muted">Put photographed mistakes, marked quizzes, and handwritten correction pages here.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel">
+      <p class="section-label">Best workflow</p>
+      <h2>Simple steps</h2>
+      <div class="note-box">
+        <p>1. Save the file into the right folder.</p>
+        <p>2. Upload it in chat or send the full path.</p>
+        <p>3. Tell Codex what you want: summarize, extract tasks, update subject pages, or analyze mistakes.</p>
+        <p>4. Codex can then update the app files directly.</p>
+      </div>
+    </section>
+
+    <section class="panel">
+      <p class="section-label">Mistake photos</p>
+      <h2>First version of mistake image intake</h2>
+      <div class="note-box">
+        <p>1. Put a mistake photo into <code>uploads/mistakes/</code>.</p>
+        <p>2. Run the update task.</p>
+        <p>3. Open the Mistakes Notebook page.</p>
+        <p>4. Look for the new draft card under <strong>Photographed mistake drafts</strong>.</p>
+        <p>5. Use the image path and suggested subject/topic to manually add the full mistake entry.</p>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

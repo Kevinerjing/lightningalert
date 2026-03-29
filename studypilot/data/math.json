@@ -1,0 +1,42 @@
+{
+  "topics": [
+    {
+      "topic": "Cycle 3: 3.01 to Current",
+      "summary": "Current Grade 9 Math work is focused on Cycle 3. Based on recent Google Classroom posts and your note, the next test range covers lessons 3.01 through the current lesson.",
+      "formulas": [
+        "Use multiple representations: words, tables, graphs, and equations.",
+        "Compare linear and non-linear patterns by how they change across representations."
+      ],
+      "solvingSteps": [
+        "Review 3.01 to the current lesson in order.",
+        "Identify the main idea of each lesson before practising questions.",
+        "Switch between graph, table, equation, and word-problem forms.",
+        "Check which topics still feel weak before the next test."
+      ],
+      "examples": [
+        "Single variable data and boxplots",
+        "Coordinate plane",
+        "Patterns and multiple representations",
+        "Word problems",
+        "Solving equations"
+      ],
+      "commonMistakes": [
+        "Treating different representations as separate skills instead of connected ideas.",
+        "Mixing up linear and non-linear patterns.",
+        "Rushing through word problems without identifying the relationship first."
+      ],
+      "practiceEasy": [
+        "Review boxplots and explain what the median and spread show.",
+        "Plot and read points on the coordinate plane."
+      ],
+      "practiceMedium": [
+        "Compare a table and graph to decide whether the pattern is linear or non-linear.",
+        "Translate a short word problem into a table or equation."
+      ],
+      "practiceHard": [
+        "Complete one mixed review set using topics from 3.01 through the current lesson.",
+        "Solve an equation and explain how it connects to a pattern or representation."
+      ]
+    }
+  ]
+}

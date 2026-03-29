@@ -1,0 +1,66 @@
+{
+  "tasks": [
+    {
+      "subject": "Math",
+      "topic": "Cycle 3 review: full test-range check",
+      "type": "review",
+      "note": "Do one full review pass across Cycle 3 lessons 3.01 through the current lesson. Check boxplots, coordinate plane, patterns, multiple representations, word problems, and solving equations, then note weak spots before the next expected test.",
+      "dueDate": "2026-04-02",
+      "priority": "High",
+      "resourceLabel": "Open box plots review",
+      "resourceLink": "resources/math/box-plots-review.html"
+    },
+    {
+      "subject": "English",
+      "topic": "Nick's writing homework routine",
+      "type": "homework",
+      "note": "Saturday routine: complete Nick's writing homework and polish sentence flow.",
+      "dueDate": "2026-04-04",
+      "priority": "Medium"
+    },
+    {
+      "subject": "Math",
+      "topic": "Grade 10 math practice routine",
+      "type": "review",
+      "note": "Saturday routine: do a short Grade 10 math practice set and check your steps.",
+      "dueDate": "2026-04-04",
+      "priority": "Medium",
+      "resourceLabel": "Open Grade 10 geometry skill map",
+      "resourceLink": "resources/math/grade-10-geometry-skill-map.html"
+    },
+    {
+      "subject": "English",
+      "topic": "Nick's writing homework routine",
+      "type": "homework",
+      "note": "Sunday routine: finish Nick's writing homework and review corrections.",
+      "dueDate": "2026-04-05",
+      "priority": "Medium"
+    },
+    {
+      "subject": "Math",
+      "topic": "Grade 10 math practice routine",
+      "type": "review",
+      "note": "Sunday routine: finish another Grade 10 math practice set and correct any errors.",
+      "dueDate": "2026-04-05",
+      "priority": "Medium",
+      "resourceLabel": "Open Grade 10 geometry skill map",
+      "resourceLink": "resources/math/grade-10-geometry-skill-map.html"
+    },
+    {
+      "subject": "English",
+      "topic": "Nick's writing class routine",
+      "type": "learn",
+      "note": "Wednesday routine from 6:00 PM to 7:00 PM: attend Nick's writing class and note one writing goal for the week.",
+      "dueDate": "2026-04-08",
+      "priority": "High"
+    },
+    {
+      "subject": "English",
+      "topic": "Friday study group routine",
+      "type": "review",
+      "note": "Friday routine: meet with the study group and compare study strategies for the week.",
+      "dueDate": "2026-04-10",
+      "priority": "Medium"
+    }
+  ]
+}

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Updates | Study Mission Assistant</title>
+  <link rel="stylesheet" href="styles/main.css">
+  <script defer src="scripts/utils.js"></script>
+  <script defer src="scripts/app.js"></script>
+  <script defer src="scripts/updates.js"></script>
+</head>
+<body>
+  <header class="site-header compact-header">
+    <div class="container header-inner">
+      <div>
+        <p class="eyebrow">Auto updates</p>
+        <h1>Updates</h1>
+      </div>
+      <p id="today-date" class="date-chip">Loading date...</p>
+    </div>
+  </header>
+
+  <nav class="main-nav">
+    <div class="container nav-links">
+      <a href="index.html">Dashboard</a>
+      <a href="mistakes.html">Mistakes Notebook</a>
+      <a href="review.html">Review</a>
+      <a href="pages/science.html">Science</a>
+      <a href="pages/math.html">Math</a>
+      <a href="pages/english.html">English</a>
+      <a class="active" href="updates.html">Updates</a>
+      <a href="upload-guide.html">Upload Guide</a>
+    </div>
+  </nav>
+
+  <main class="container page-shell">
+    <section class="panel">
+      <div class="section-heading">
+        <div>
+          <p class="section-label">Quick help</p>
+          <h2>How to use this page</h2>
+        </div>
+      </div>
+      <div class="task-list">
+        <div class="task-item">
+          <div class="task-topline">
+            <div>
+              <h3>1. Run the update task</h3>
+              <p class="muted">Ask Codex to run the scheduled task, or wait for the hourly update.</p>
+            </div>
+            <span class="chip">Step 1</span>
+          </div>
+        </div>
+        <div class="task-item">
+          <div class="task-topline">
+            <div>
+              <h3>2. Check the latest results here</h3>
+              <p class="muted">Review Classroom updates, synced tasks, and uploaded file summaries on this page.</p>
+            </div>
+            <span class="chip">Step 2</span>
+          </div>
+        </div>
+        <div class="task-item">
+          <div class="task-topline">
+            <div>
+              <h3>3. Go back to the dashboard</h3>
+              <p class="muted">Open the Dashboard to see which tasks were added into today, this week, or next week.</p>
+            </div>
+            <span class="chip">Step 3</span>
+          </div>
+        </div>
+      </div>
+      <p class="muted note-box">
+        Short version: run update, check this page, then go back to the Dashboard.
+      </p>
+    </section>
+
+    <section class="hero-grid review-hero">
+      <article class="panel">
+        <p class="section-label">Latest refresh</p>
+        <h2 id="updates-generated-at">Loading update time...</h2>
+        <p id="updates-summary" class="muted">Checking local analysis files.</p>
+      </article>
+      <article class="panel">
+        <p class="section-label">Quick view</p>
+        <div class="summary-grid updates-summary-grid">
+          <article class="stat-card updates-stat-card">
+            <p class="stat-label">Uploads found</p>
+            <p class="stat-value" id="uploads-total">0</p>
+          </article>
+          <article class="stat-card updates-stat-card">
+            <p class="stat-label">Classroom items</p>
+            <p class="stat-value" id="classroom-items-total">0</p>
+          </article>
+          <article class="stat-card updates-stat-card">
+            <p class="stat-label">Synced tasks</p>
+            <p class="stat-value" id="synced-tasks-total">0</p>
+          </article>
+        </div>
+      </article>
+    </section>
+
+    <section class="panel">
+      <div class="section-heading">
+        <div>
+          <p class="section-label">Classroom sync</p>
+          <h2>Recent Google Classroom items</h2>
+        </div>
+      </div>
+      <div id="classroom-updates" class="group-list"></div>
+    </section>
+
+    <section class="panel">
+      <div class="section-heading">
+        <div>
+          <p class="section-label">Task sync</p>
+          <h2>Auto-synced dashboard tasks</h2>
+        </div>
+      </div>
+      <div id="synced-task-groups" class="group-list"></div>
+    </section>
+
+    <section class="panel">
+      <div class="section-heading">
+        <div>
+          <p class="section-label">Uploads</p>
+          <h2>Latest uploaded files</h2>
+        </div>
+      </div>
+      <div id="upload-items" class="card-grid"></div>
+    </section>
+  </main>
+</body>
+</html>

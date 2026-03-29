@@ -1,0 +1,339 @@
+{
+  "generatedAt": "2026-03-29T00:38:29.233Z",
+  "account": "kjing2@ocdsb.ca",
+  "loginStatus": "ready",
+  "profileDir": "C:\\Users\\guanh\\workspace\\lightningalert\\studypilot\\.playwright\\google-classroom-profile",
+  "classrooms": [
+    {
+      "key": "math",
+      "name": "Grade 9 Math",
+      "url": "https://classroom.google.com/w/ODI1MDk4ODUxNTc1/t/all",
+      "pageTitle": "Classwork for Gr. 9 Math- Spark MTH1W1-01",
+      "authenticated": true,
+      "topics": [
+        "Cycle 3",
+        "Cycle 2",
+        "Cycle 1"
+      ],
+      "topicSections": [
+        {
+          "topic": "Cycle 3",
+          "items": [
+            {
+              "title": "Pixel Art- Solving Equations",
+              "meta": "Assignment | Due Mar 30"
+            },
+            {
+              "title": "3.08 Multiple representations- word problems",
+              "meta": "Assignment | Due Yesterday"
+            },
+            {
+              "title": "3.06- (March 24) Linear vs Non-linear patterns",
+              "meta": "Assignment | No due date"
+            },
+            {
+              "title": "3.05- Patterns and Multiple representations",
+              "meta": "Assignment | No due date"
+            },
+            {
+              "title": "3.04- Coordinate Plane",
+              "meta": "Assignment | Due Mar 16"
+            },
+            {
+              "title": "3.03B- March 12 Desmos Boxplot Activity",
+              "meta": "Completed Assignment | Due Mar 13, 11:59 PM"
+            },
+            {
+              "title": "3.03- Boxplots continued",
+              "meta": "Assignment | No due date"
+            },
+            {
+              "title": "3.02- Boxplots continued",
+              "meta": "Assignment | Due Mar 11"
+            },
+            {
+              "title": "3.01- Mar 9: Single Variable Data and Boxplots",
+              "meta": "Assignment | No due date"
+            }
+          ]
+        },
+        {
+          "topic": "Cycle 2",
+          "items": [
+            {
+              "title": "Evaluation #2- Friday, March 6th",
+              "meta": "Assignment | No due date"
+            },
+            {
+              "title": "2.07- Solving Word Problems (Mar 4)",
+              "meta": "Assignment | No due date"
+            },
+            {
+              "title": "2.06(Mar 3) Rearranging Equations practice",
+              "meta": "Assignment | No due date"
+            },
+            {
+              "title": "2.05 Intro to Rearranging Equations",
+              "meta": "Assignment | No due date"
+            },
+            {
+              "title": "Feb. 27- Fun Friday",
+              "meta": "Assignment | Due Feb 27"
+            },
+            {
+              "title": "2.04 Evaluating Equations",
+              "meta": "Assignment | Due Feb 27"
+            },
+            {
+              "title": "2.03 (Feb. 25)- Solving Equations with tiles",
+              "meta": "Assignment | Due Feb 27"
+            },
+            {
+              "title": "2.02- Collecting Like Terms (continued)",
+              "meta": "Assignment | No due date"
+            },
+            {
+              "title": "2.01- Intro to Collecting Like Terms",
+              "meta": "Assignment | No due date"
+            }
+          ]
+        },
+        {
+          "topic": "Cycle 1",
+          "items": [
+            {
+              "title": "Evaluation #1- Friday, February 20th, 2025",
+              "meta": "Assignment | Due Feb 20"
+            },
+            {
+              "title": "Additional review- if you need more practice",
+              "meta": "Material | Posted Feb 19"
+            },
+            {
+              "title": "1.11 REVIEW- Evaluation #1",
+              "meta": "Assignment | Due Feb 20"
+            },
+            {
+              "title": "1.09 (Feb 18)- Number sets and word problems",
+              "meta": "Assignment | Due Feb 19"
+            },
+            {
+              "title": "1.08 (Feb. 17)- BEDMAS continued and Number Sets",
+              "meta": "Assignment | Due Feb 18"
+            },
+            {
+              "title": "1.07- (Feb. 12) Exponents and BEDMAS",
+              "meta": "Assignment | No due date"
+            },
+            {
+              "title": "1.06 (Feb. 11)- Operations with Fractions",
+              "meta": "Assignment | Due Feb 12"
+            },
+            {
+              "title": "1.05.5- Review of Fractions, Percents, and Decimals",
+              "meta": "Assignment | No due date"
+            },
+            {
+              "title": "1.05- Simplifying and Converting Fractions",
+              "meta": "Assignment | Due Feb 9"
+            },
+            {
+              "title": "1.04- Integers",
+              "meta": "Assignment | No due date"
+            }
+          ]
+        }
+      ],
+      "recentItems": [
+        "Cycle 3: Pixel Art- Solving Equations | Assignment | Due Mar 30",
+        "Cycle 3: 3.08 Multiple representations- word problems | Assignment | Due Yesterday",
+        "Cycle 3: 3.06- (March 24) Linear vs Non-linear patterns | Assignment | No due date",
+        "Cycle 3: 3.05- Patterns and Multiple representations | Assignment | No due date",
+        "Cycle 3: 3.04- Coordinate Plane | Assignment | Due Mar 16",
+        "Cycle 3: 3.03B- March 12 Desmos Boxplot Activity | Completed Assignment | Due Mar 13, 11:59 PM",
+        "Cycle 3: 3.03- Boxplots continued | Assignment | No due date",
+        "Cycle 3: 3.02- Boxplots continued | Assignment | Due Mar 11",
+        "Cycle 3: 3.01- Mar 9: Single Variable Data and Boxplots | Assignment | No due date",
+        "Cycle 2: Evaluation #2- Friday, March 6th | Assignment | No due date",
+        "Cycle 2: 2.07- Solving Word Problems (Mar 4) | Assignment | No due date",
+        "Cycle 2: 2.06(Mar 3) Rearranging Equations practice | Assignment | No due date"
+      ],
+      "extractionNotes": []
+    },
+    {
+      "key": "science",
+      "name": "Science SNC1W",
+      "url": "https://classroom.google.com/w/ODI0MzQ2MzAwMjMw/t/all",
+      "pageTitle": "Classwork for C - SNC1W-10",
+      "authenticated": true,
+      "topics": [
+        "Calendar",
+        "Chemistry",
+        "Inquiry",
+        "Resources"
+      ],
+      "topicSections": [
+        {
+          "topic": "Calendar",
+          "items": [
+            {
+              "title": "Class Calendar",
+              "meta": "Material | Posted Jan 30"
+            }
+          ]
+        },
+        {
+          "topic": "Chemistry",
+          "items": [
+            {
+              "title": "Mar 27 - Atomic Theory",
+              "meta": "Material | Posted Yesterday"
+            },
+            {
+              "title": "Mar 25 - Coding for Science",
+              "meta": "Material | Posted Mar 25"
+            },
+            {
+              "title": "The Periodic Table",
+              "meta": "Material | Posted Mar 24"
+            },
+            {
+              "title": "Mar 24 - The Periodic Table",
+              "meta": "Material | Posted Mar 24"
+            },
+            {
+              "title": "Mar 23 - Periodic Table Patterns",
+              "meta": "Material | Posted Mar 23"
+            },
+            {
+              "title": "Mar 10 - Physical and Chemical Change",
+              "meta": "Material | Posted Mar 10"
+            },
+            {
+              "title": "Mar 6 - Particle Theory of Matter",
+              "meta": "Material | Edited Mar 6"
+            },
+            {
+              "title": "March 5 - Classification of Matter",
+              "meta": "Material | Posted Mar 5"
+            },
+            {
+              "title": "Feb 27 - Activity: Properties of Matter",
+              "meta": "Material | Posted Feb 27"
+            },
+            {
+              "title": "Feb 26 - What is Chemistry?",
+              "meta": "Material | Posted Feb 26"
+            }
+          ]
+        },
+        {
+          "topic": "Inquiry",
+          "items": [
+            {
+              "title": "March 3 - Citing your Sources",
+              "meta": "Material | Posted Mar 5"
+            },
+            {
+              "title": "Assignment: Day 2, Science in Popular and Social Media",
+              "meta": "Material | Posted Mar 4"
+            },
+            {
+              "title": "Assignment: Day 1, Science in Popular and Social Media",
+              "meta": "Material | Edited Mar 2"
+            },
+            {
+              "title": "Rotocopter Lab Rubric",
+              "meta": "Material | Posted Feb 19"
+            },
+            {
+              "title": "Inquiry Unit Review Topics",
+              "meta": "Material | Posted Feb 17"
+            },
+            {
+              "title": "Feb 17 - Accuracy & Precision",
+              "meta": "Material | Posted Feb 17"
+            },
+            {
+              "title": "Feb 11 - Graphing Checklist",
+              "meta": "Material | Edited Mar 8"
+            },
+            {
+              "title": "Feb 11 - Results & Conclusions",
+              "meta": "Material | Posted Feb 11"
+            },
+            {
+              "title": "Feb 9 - The Metric System",
+              "meta": "Material | Posted Feb 9"
+            },
+            {
+              "title": "Feb 6 - Performing and Recording Observations",
+              "meta": "Material | Posted Feb 6"
+            }
+          ]
+        },
+        {
+          "topic": "Resources",
+          "items": [
+            {
+              "title": "Reading an Evidence Record",
+              "meta": "Material | Posted Mar 9"
+            },
+            {
+              "title": "Strategies for Success",
+              "meta": "Material | Posted Mar 9"
+            },
+            {
+              "title": "Grade 9 Science Course Selection",
+              "meta": "Material | Posted Feb 9"
+            },
+            {
+              "title": "Feb 2 - Nice to Meet you",
+              "meta": "Completed Assignment | Due Feb 4"
+            },
+            {
+              "title": "Feb 2 - Welcome to Science!",
+              "meta": "Material | Posted Feb 2"
+            },
+            {
+              "title": "Earl of March Daily Announcements",
+              "meta": "Material | Posted Feb 2"
+            },
+            {
+              "title": "OSTA Website",
+              "meta": "Material | Posted Feb 2"
+            },
+            {
+              "title": "Connecting to the WiFi in the OCDSB",
+              "meta": "Material | Posted Feb 2"
+            },
+            {
+              "title": "Google Classroom for Parents and Students",
+              "meta": "Material | Posted Feb 2"
+            }
+          ]
+        }
+      ],
+      "recentItems": [
+        "Calendar: Class Calendar | Material | Posted Jan 30",
+        "Chemistry: Mar 27 - Atomic Theory | Material | Posted Yesterday",
+        "Chemistry: Mar 25 - Coding for Science | Material | Posted Mar 25",
+        "Chemistry: The Periodic Table | Material | Posted Mar 24",
+        "Chemistry: Mar 24 - The Periodic Table | Material | Posted Mar 24",
+        "Chemistry: Mar 23 - Periodic Table Patterns | Material | Posted Mar 23",
+        "Chemistry: Mar 10 - Physical and Chemical Change | Material | Posted Mar 10",
+        "Chemistry: Mar 6 - Particle Theory of Matter | Material | Edited Mar 6",
+        "Chemistry: March 5 - Classification of Matter | Material | Posted Mar 5",
+        "Chemistry: Feb 27 - Activity: Properties of Matter | Material | Posted Feb 27",
+        "Chemistry: Feb 26 - What is Chemistry? | Material | Posted Feb 26",
+        "Inquiry: March 3 - Citing your Sources | Material | Posted Mar 5"
+      ],
+      "extractionNotes": []
+    }
+  ],
+  "notes": [
+    "This file is generated locally by Playwright.",
+    "The scheduled task now prefers a saved persistent Google Classroom session.",
+    "If Google shows a challenge or sign-in page, refresh the local Classroom session once."
+  ]
+}

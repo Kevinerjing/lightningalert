@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Science | Study Mission Assistant</title>
+  <link rel="stylesheet" href="../styles/main.css">
+  <script defer src="../scripts/utils.js"></script>
+  <script defer src="../scripts/app.js"></script>
+  <script defer src="../scripts/science.js"></script>
+</head>
+<body>
+  <header class="site-header compact-header">
+    <div class="container header-inner">
+      <div>
+        <p class="eyebrow">Grade 9 support</p>
+        <h1>Science Study Support</h1>
+      </div>
+      <p id="today-date" class="date-chip">Loading date...</p>
+    </div>
+  </header>
+
+  <nav class="main-nav">
+    <div class="container nav-links">
+      <a href="../index.html">Dashboard</a>
+      <a href="../mistakes.html">Mistakes Notebook</a>
+      <a href="../review.html">Review</a>
+      <a class="active" href="science.html">Science</a>
+      <a href="math.html">Math</a>
+      <a href="english.html">English</a>
+      <a href="../updates.html">Updates</a>
+      <a href="../upload-guide.html">Upload Guide</a>
+    </div>
+  </nav>
+
+  <main class="container page-shell">
+    <section class="panel">
+      <div class="section-heading">
+        <div>
+          <p class="section-label">Class prep</p>
+          <h2>Upcoming lesson support</h2>
+        </div>
+      </div>
+      <div id="science-upcoming-support" class="group-list"></div>
+    </section>
+
+    <section id="science-topics-section" class="panel">
+      <div class="section-heading">
+        <div>
+          <p class="section-label">Subject overview</p>
+          <h2>Current science topics</h2>
+        </div>
+      </div>
+      <div id="science-topics" class="topic-stack"></div>
+    </section>
+
+    <section class="panel">
+      <div class="section-heading">
+        <div>
+          <p class="section-label">Course roadmap</p>
+          <h2>SNC1W Semester 2 schedule</h2>
+        </div>
+      </div>
+      <div id="science-schedule" class="group-list"></div>
+    </section>
+
+    <section class="panel">
+      <div class="section-heading">
+        <div>
+          <p class="section-label">Auto update</p>
+          <h2>Latest science classroom items</h2>
+        </div>
+      </div>
+      <div id="science-classroom-items" class="group-list"></div>
+    </section>
+  </main>
+</body>
+</html>

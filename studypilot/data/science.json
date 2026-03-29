@@ -1,0 +1,197 @@
+{
+  "schedule": {
+    "title": "SNC1W Semester 2 (2025-2026)",
+    "overview": "Based on the course calendar, Semester 2 runs from February 2, 2026 to the June 2026 exam period and moves through Inquiry, Chemistry, Space, Electricity, and Biology/Ecology.",
+    "currentExamRange": {
+      "subject": "Chemistry",
+      "rangeStart": "2026-03-23",
+      "note": "Content posted on or after March 23, 2026 is part of the next Chemistry test range."
+    },
+    "units": [
+      {
+        "name": "Inquiry",
+        "window": "February 2 to February 24, 2026",
+        "focus": "Skills",
+        "notes": "Scientific questioning, controlled experiments, metric system, graphing, lab reports, and measurement investigations."
+      },
+      {
+        "name": "Chemistry",
+        "window": "February 25 to April 13, 2026",
+        "focus": "Matter",
+        "notes": "Classification of matter, particle theory, physical and chemical change, periodic table, metals and non-metals, gas tests, atomic structure, bonding, and chemical formulas."
+      },
+      {
+        "name": "Space",
+        "window": "April 14 to May 4, 2026",
+        "focus": "Astronomy",
+        "notes": "Earth-Moon-Sun interactions, eclipses, northern lights, spectroscopy, star life cycles, big bang theory, and space exploration."
+      },
+      {
+        "name": "Electricity",
+        "window": "May 4 to May 28, 2026",
+        "focus": "Circuits",
+        "notes": "Static electricity, charging, circuit diagrams, series and parallel circuits, current, voltage, resistance, and Ohm's law."
+      },
+      {
+        "name": "Biology / Ecology",
+        "window": "May 29 to June 12, 2026",
+        "focus": "Ecosystems",
+        "notes": "Energy flow, cycling of matter, biodiversity, climate and food security, and human effects on ecosystems."
+      }
+    ],
+    "keyDates": [
+      {
+        "date": "February 24, 2026",
+        "label": "Inquiry unit test and rotocopter lab report due",
+        "note": "Inquiry assessment checkpoint before Chemistry begins."
+      },
+      {
+        "date": "March 13, 2026",
+        "label": "Chemistry quiz",
+        "note": "Includes learning up to and including physical and chemical change."
+      },
+      {
+        "date": "March 26, 2026",
+        "label": "Metals and non-metals lab analysis due in class",
+        "note": "Comes right before gas test prep and atomic theory work."
+      },
+      {
+        "date": "April 13, 2026",
+        "label": "Chemistry unit test",
+        "note": "Scheduled just before the Space unit starts on April 14, 2026."
+      },
+      {
+        "date": "May 4, 2026",
+        "label": "Space unit test",
+        "note": "Wraps the Space unit and begins the Electricity unit the same day."
+      },
+      {
+        "date": "May 14, 2026",
+        "label": "Electricity quiz: static electricity",
+        "note": "Mid-unit checkpoint during current electricity and circuits."
+      },
+      {
+        "date": "May 28, 2026",
+        "label": "Electricity unit test",
+        "note": "Final electricity assessment before Biology / Ecology starts."
+      },
+      {
+        "date": "June 12, 2026",
+        "label": "Ecology unit test",
+        "note": "Final unit test before review days and exam week."
+      },
+      {
+        "date": "June 18 to June 24, 2026",
+        "label": "Exam period",
+        "note": "Block exam days begin June 18, 2026 and continue through June 24, 2026."
+      }
+    ]
+  },
+  "upcomingSupport": [
+    {
+      "when": "Monday, March 30, 2026",
+      "topic": "Gas Test Lab",
+      "type": "Preview",
+      "summary": "Before class, learn how simple lab tests help identify common gases such as oxygen, hydrogen, and carbon dioxide.",
+      "beforeClass": [
+        "Know that different gases can be identified with different test results.",
+        "Be ready to connect each gas to a specific observation in the lab.",
+        "Preview the safety idea that tests are done carefully with small samples.",
+        "Be ready to record detailed observations such as ignition, glowing splint result, colour, and visible changes."
+      ],
+      "keywords": [
+        "oxygen",
+        "hydrogen",
+        "carbon dioxide",
+        "glowing splint",
+        "burning splint",
+        "limewater",
+        "magnesium ribbon",
+        "hydrogen peroxide",
+        "potassium iodide",
+        "vinegar",
+        "baking soda"
+      ],
+      "quickQuestions": [
+        "Which gas relights a glowing splint?",
+        "Which gas makes a small squeaky pop with a burning splint?",
+        "Which gas turns limewater cloudy?",
+        "Which gas in this lab is linked to fire extinguishers?",
+        "Which gas helps support breathing in hospitals?",
+        "How can you connect a gas property to a real-life use?"
+      ],
+      "resources": [
+        {
+          "label": "Local Gas Test Lab PDF",
+          "url": "../uploads/docs/SNC1W-Gas-Test-Lab-2024-25.pdf"
+        },
+        {
+          "label": "YouTube: Physics Teacher - Do you know your Gas Tests from Grade 9 science?",
+          "url": "https://www.youtube.com/results?search_query=Physics+Teacher+Do+you+know+your+Gas+Tests+from+Grade+9+science"
+        },
+        {
+          "label": "YouTube search: gas tests chemistry",
+          "url": "https://www.youtube.com/results?search_query=gas+tests+chemistry"
+        },
+        {
+          "label": "Khan Academy search: gases chemistry",
+          "url": "https://www.khanacademy.org/search?page_search_query=gases%20chemistry"
+        }
+      ],
+      "labSteps": [
+        "Hydrogen: hydrochloric acid + magnesium ribbon, then test with a burning splint.",
+        "Oxygen: hydrogen peroxide + potassium iodide, then test with a glowing splint.",
+        "Carbon dioxide: vinegar + baking soda, then test with a burning splint and, if needed, a glowing splint."
+      ],
+      "propertyUseLinks": [
+        "Hydrogen is flammable, so it can be used as a fuel source such as rocket fuel or other energy applications.",
+        "Oxygen supports combustion, so it is useful for medical breathing support and processes that need burning.",
+        "Carbon dioxide does not support combustion, so it is used in fire extinguishers."
+      ],
+      "teacherQuestions": [
+        "How are the physical properties of the gases similar?",
+        "How are the physical properties different?",
+        "How are the chemical properties different?",
+        "Which gas is used in fire extinguishers and why?",
+        "Which gas was used in balloons and why is it no longer commonly used?",
+        "Which gas is used to help hospital patients breathe?",
+        "Pick one property and explain why it makes that substance useful in real life.",
+        "Explain why a material's physical property can make it a good choice for a job, like carbon in pencil lead."
+      ],
+      "flexibleThinkingExamples": [
+        "Non-metal carbon in pencil lead is soft enough to rub onto paper, so that physical property makes it useful for writing.",
+        "A teacher may ask for a property-to-use explanation, not just the name of the gas or substance.",
+        "Practice answering in this format: property -> what it means -> why that helps in the real-world use."
+      ]
+    }
+  ],
+  "topics": [
+    {
+      "topic": "Current Chemistry Test Range",
+      "summary": "The current Chemistry test range starts with the March 23, 2026 content and continues through the most recent posted class materials.",
+      "keyConcepts": [
+        "Periodic table patterns",
+        "The periodic table",
+        "Atomic theory",
+        "Coding for Science connections where assigned"
+      ],
+      "teacherNotes": [
+        "March 23, 2026 and later Chemistry posts are part of the next test range.",
+        "Use recent Google Classroom materials as the main review source."
+      ],
+      "resources": [
+        "Mar 23 - Periodic Table Patterns",
+        "Mar 24 - The Periodic Table",
+        "Mar 27 - Atomic Theory"
+      ],
+      "quizEasy": [],
+      "quizMedium": [],
+      "quizHard": [],
+      "feynmanChecklist": [
+        "I can explain the main periodic table patterns.",
+        "I can describe the key idea of atomic theory in simple words."
+      ],
+      "applications": []
+    }
+  ]
+}

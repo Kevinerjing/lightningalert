@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Study Mission Assistant</title>
+  <link rel="stylesheet" href="styles/main.css">
+  <script defer src="scripts/utils.js"></script>
+  <script defer src="scripts/app.js"></script>
+  <script defer src="scripts/index.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div>
+        <p class="eyebrow">Local Study Dashboard</p>
+        <h1>Study Mission Assistant</h1>
+      </div>
+      <p id="today-date" class="date-chip">Loading date...</p>
+    </div>
+  </header>
+
+  <nav class="main-nav">
+    <div class="container nav-links">
+      <a class="active" href="index.html">Dashboard</a>
+      <a href="mistakes.html">Mistakes Notebook</a>
+      <a href="review.html">Review</a>
+      <a href="pages/science.html">Science</a>
+      <a href="pages/math.html">Math</a>
+      <a href="pages/english.html">English</a>
+      <a href="updates.html">Updates</a>
+      <a href="upload-guide.html">Upload Guide</a>
+    </div>
+  </nav>
+
+  <main class="container page-shell">
+    <section class="hero-grid">
+      <article class="panel welcome-panel">
+        <p class="section-label">Mission overview</p>
+        <h2>Start with today's work, then open only what you need.</h2>
+        <p class="muted">
+          Keep the dashboard short and calm. Use the buttons below to switch between today, this week,
+          and next week instead of scrolling through everything at once.
+        </p>
+      </article>
+
+      <section class="summary-grid">
+        <article class="panel stat-card">
+          <p class="stat-label">Total tasks today</p>
+          <p class="stat-value" id="today-total">0</p>
+        </article>
+        <article class="panel stat-card">
+          <p class="stat-label">Total tasks this week</p>
+          <p class="stat-value" id="week-total">0</p>
+        </article>
+        <article class="panel stat-card">
+          <p class="stat-label">Total tasks next week</p>
+          <p class="stat-value" id="next-week-total">0</p>
+        </article>
+      </section>
+    </section>
+
+    <section class="panel">
+      <div class="section-heading">
+        <div>
+          <p class="section-label">Study plan</p>
+          <h2>Tasks</h2>
+        </div>
+      </div>
+      <div class="task-switcher" role="tablist" aria-label="Task sections">
+        <button class="task-switch active" type="button" data-target="today-panel">Today</button>
+        <button class="task-switch" type="button" data-target="week-panel">This Week</button>
+        <button class="task-switch" type="button" data-target="next-week-panel">Next Week</button>
+      </div>
+      <div id="today-panel" class="task-panel active">
+        <div class="panel-header-line">
+          <p class="section-label">Today</p>
+        </div>
+        <div id="today-tasks" class="group-list"></div>
+      </div>
+      <div id="week-panel" class="task-panel">
+        <div class="panel-header-line">
+          <p class="section-label">This week</p>
+        </div>
+        <div id="week-tasks" class="group-list"></div>
+      </div>
+      <div id="next-week-panel" class="task-panel">
+        <div class="panel-header-line">
+          <p class="section-label">Next week</p>
+        </div>
+        <div id="next-week-tasks" class="group-list"></div>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="section-heading">
+        <div>
+          <p class="section-label">Subjects</p>
+          <h2>Learning Support Pages</h2>
+        </div>
+      </div>
+      <div class="subject-grid">
+        <a class="subject-card subject-science" href="pages/science.html">
+          <span class="subject-tag">Science</span>
+          <h3>Science</h3>
+          <p>Schedule, labs, and review</p>
+        </a>
+        <a class="subject-card subject-math" href="pages/math.html">
+          <span class="subject-tag">Math</span>
+          <h3>Math</h3>
+          <p>Practice and support</p>
+        </a>
+        <a class="subject-card subject-english" href="pages/english.html">
+          <span class="subject-tag">English</span>
+          <h3>English</h3>
+          <p>Reading and writing help</p>
+        </a>
+      </div>
+    </section>
+
+    <section class="panel quick-links-panel">
+      <div class="section-heading">
+        <div>
+          <p class="section-label">Focus tools</p>
+          <h2>Next Actions</h2>
+        </div>
+        <p class="stat-label">Mistakes needing review: <span id="mistakes-total">0</span></p>
+      </div>
+      <div class="quick-links">
+        <a class="quick-link" href="mistakes.html">Open Mistakes Notebook</a>
+        <a class="quick-link" href="review.html">Open Review Page</a>
+        <a class="quick-link" href="updates.html">Open Updates Page</a>
+        <a class="quick-link" href="upload-guide.html">Open Upload Guide</a>
+      </div>
+      <p class="muted note-box">
+        Future-ready placeholder: the uploads folders are already prepared for timetable images,
+        study documents, and photographed mistakes that can be processed later.
+      </p>
+    </section>
+  </main>
+</body>
+</html>

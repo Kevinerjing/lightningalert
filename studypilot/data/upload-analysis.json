@@ -1,0 +1,88 @@
+{
+  "generatedAt": "2026-03-28T20:37:46.136824-04:00",
+  "root": "C:\\Users\\guanh\\workspace\\lightningalert\\studypilot\\uploads",
+  "totalFiles": 7,
+  "categories": {
+    "docs": 6,
+    "mistakes": 0,
+    "timetable": 1
+  },
+  "items": [
+    {
+      "relativePath": "uploads/docs/10.0 Atomic Theory.pdf",
+      "category": "docs",
+      "fileName": "10.0 Atomic Theory.pdf",
+      "extension": ".pdf",
+      "mimeType": "application/pdf",
+      "sizeBytes": 630130,
+      "modifiedAt": "2026-03-28T17:52:55.806857-04:00",
+      "summary": "PDF with 16 page(s). Preview: Atomic Theory MODELS OF THE ATOM"
+    },
+    {
+      "relativePath": "uploads/docs/10.2 Atomic Model Summary.pdf",
+      "category": "docs",
+      "fileName": "10.2 Atomic Model Summary.pdf",
+      "extension": ".pdf",
+      "mimeType": "application/pdf",
+      "sizeBytes": 46952,
+      "modifiedAt": "2026-03-28T17:53:39.307203-04:00",
+      "summary": "PDF with 2 page(s). Preview: Name: ______________________________ Date: ______________________ Page # ______ A TOMIC M ODEL S UMMARY M ODEL K EY P OINTS L IMITATIONS E VIDENCE F OR C HANGE Billiard Ball Plum Pudding Revised Nuclear Model Planetary M"
+    },
+    {
+      "relativePath": "uploads/docs/7.0 The Periodic Table (with youtube link).pdf",
+      "category": "docs",
+      "fileName": "7.0 The Periodic Table (with youtube link).pdf",
+      "extension": ".pdf",
+      "mimeType": "application/pdf",
+      "sizeBytes": 2001660,
+      "modifiedAt": "2026-03-28T17:53:58.892621-04:00",
+      "summary": "PDF with 17 page(s). Preview: The Periodic Table"
+    },
+    {
+      "relativePath": "uploads/docs/Lesson 5.docx",
+      "category": "docs",
+      "fileName": "Lesson 5.docx",
+      "extension": ".docx",
+      "mimeType": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+      "sizeBytes": 7843679,
+      "modifiedAt": "2026-03-28T18:02:33.061370-04:00",
+      "summary": "DOCX document. Preview: Introduction to Literary Devices: Cause and Effect So far we have looked at how to write summaries , theme paragraphs , and we have analyzed characters . Each of these skills sets is a part of literary analysis (the stud"
+    },
+    {
+      "relativePath": "uploads/docs/Ray Bradbury - There Will Come Soft Rains.pdf",
+      "category": "docs",
+      "fileName": "Ray Bradbury - There Will Come Soft Rains.pdf",
+      "extension": ".pdf",
+      "mimeType": "application/pdf",
+      "sizeBytes": 1214681,
+      "modifiedAt": "2026-03-28T18:02:09.115920-04:00",
+      "summary": "PDF with 12 page(s). Preview: 1 AS2.1 WRITTEN TEXT STUDY SAMPLE AS2.1 EXTERNAL EXAM ESSAY QUESTIONS 1. Analyse how the setting of a text (or texts) you have studied influenced your understanding of the ideas in the text (or texts). (Note: Setting may"
+    },
+    {
+      "relativePath": "uploads/docs/SNC1W-Gas-Test-Lab-2024-25.pdf",
+      "category": "docs",
+      "fileName": "SNC1W-Gas-Test-Lab-2024-25.pdf",
+      "extension": ".pdf",
+      "mimeType": "application/pdf",
+      "sizeBytes": 45919,
+      "modifiedAt": "2026-03-20T23:07:40.256026-04:00",
+      "summary": "PDF with 2 page(s). Preview: SNC1W Name: Gas Tests Lab Criteria R Insufficient Inadequate Level 1 Limited simplistic Level 2 Some approaching basic obvious Level 3 Considerable appropriate reasonable solid Level 4 Thorough insightful high degree sop"
+    },
+    {
+      "relativePath": "uploads/timetable/SNC1W Sem 2 Calendar 2025-2026 - SEM 2 SPRING 2025.pdf",
+      "category": "timetable",
+      "fileName": "SNC1W Sem 2 Calendar 2025-2026 - SEM 2 SPRING 2025.pdf",
+      "extension": ".pdf",
+      "mimeType": "application/pdf",
+      "sizeBytes": 57571,
+      "modifiedAt": "2026-03-28T17:33:08.034001-04:00",
+      "summary": "PDF with 12 page(s). Preview: SNC1W Course Calendar : Semester 2 (2025-26) Mon Tues Wed Thurs Fri FEBRUARY 2 INQUIRY 3 4 5 6 Welcome to SNC1W ! Is it Science? Controlled Experiments: Questioning and HypothesisMaterials and ProcedureFinish Materials a"
+    }
+  ],
+  "notes": [
+    "This report is generated locally from the uploads folder.",
+    "It is meant to help future Codex prompts quickly see what files were added.",
+    "PDF previews use pypdf when text can be extracted from the file.",
+    "DOCX previews are extracted directly from the Word document XML."
+  ]
+}

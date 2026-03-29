@@ -1,0 +1,134 @@
+{
+  "tasks": [
+    {
+      "subject": "English",
+      "topic": "Nick's writing homework routine",
+      "type": "homework",
+      "note": "Sunday routine: finish Nick's writing homework and revise one paragraph for clarity.",
+      "dueDate": "2026-03-29",
+      "priority": "Medium"
+    },
+    {
+      "subject": "Math",
+      "topic": "Grade 10 math practice routine",
+      "type": "review",
+      "note": "Sunday routine: complete Grade 10 math practice and check any mistakes carefully.",
+      "dueDate": "2026-03-29",
+      "priority": "Medium",
+      "resourceLabel": "Open Grade 10 geometry skill map",
+      "resourceLink": "resources/math/grade-10-geometry-skill-map.html"
+    },
+    {
+      "subject": "Math",
+      "topic": "Cycle 3 review: 3.01 to current overview",
+      "type": "review",
+      "note": "Start a full Cycle 3 review covering 3.01 up to the most recent classwork. Include single variable data and boxplots, coordinate plane, patterns, multiple representations, and word problems. This is based on current classwork and your expectation that these lessons are part of the next test range.",
+      "dueDate": "2026-03-29",
+      "priority": "High",
+      "resourceLabel": "Open box plots review",
+      "resourceLink": "resources/math/box-plots-review.html"
+    },
+    {
+      "subject": "Math",
+      "topic": "Cycle 3 review: equations and representations",
+      "type": "review",
+      "note": "Focus on the later Cycle 3 pieces including linear vs non-linear patterns, multiple representations, word problems, and the recent Pixel Art - Solving Equations assignment. Treat this as next-test preparation, not a confirmed posted evaluation.",
+      "dueDate": "2026-03-30",
+      "priority": "High",
+      "resourceLabel": "Open box plots review",
+      "resourceLink": "resources/math/box-plots-review.html"
+    },
+    {
+      "subject": "Science",
+      "topic": "Preview: Gas Test Lab",
+      "type": "preview",
+      "note": "Before Monday's class, review how oxygen, hydrogen, and carbon dioxide are identified in a gas test lab. Use the Science page lesson support links first.",
+      "dueDate": "2026-03-30",
+      "priority": "High"
+    },
+    {
+      "subject": "Math",
+      "topic": "Math classroom: Pixel Art- Solving Equations",
+      "type": "homework",
+      "note": "Auto-synced from Google Classroom Cycle 3. Assignment | Due Mar 30. Keep this as a real posted class item.",
+      "dueDate": "2026-03-30",
+      "priority": "High",
+      "resourceLabel": "Open box plots review",
+      "resourceLink": "resources/math/box-plots-review.html",
+      "classroomTopic": "Cycle 3",
+      "classroomType": "assignment",
+      "source": "classroom-sync",
+      "sourceKey": "math-latest-due"
+    },
+    {
+      "subject": "Science",
+      "topic": "Chemistry review: Mar 23 to current",
+      "type": "review",
+      "note": "Review the Chemistry test range starting from March 23, 2026. Focus on periodic table patterns, the periodic table, and atomic theory from recent Google Classroom posts.",
+      "dueDate": "2026-03-31",
+      "priority": "High"
+    },
+    {
+      "subject": "Math",
+      "topic": "Math classroom: latest Cycle 3 practice",
+      "type": "review",
+      "note": "Auto-synced from Google Classroom. Focus on: Pixel Art- Solving Equations; 3.08 Multiple representations- word problems; 3.06- (March 24) Linear vs Non-linear patterns.",
+      "dueDate": "2026-03-31",
+      "priority": "Medium",
+      "resourceLabel": "Open box plots review",
+      "resourceLink": "resources/math/box-plots-review.html",
+      "classroomTopic": "Cycle 3",
+      "classroomType": "review",
+      "source": "classroom-sync",
+      "sourceKey": "math-cycle3-review"
+    },
+    {
+      "subject": "Science",
+      "topic": "Science classroom: Chemistry review from latest posts",
+      "type": "review",
+      "note": "Auto-synced from Google Classroom Chemistry posts. Review: Mar 27 - Atomic Theory; Mar 25 - Coding for Science; The Periodic Table. This is review support, not a confirmed test notice.",
+      "dueDate": "2026-03-31",
+      "priority": "High",
+      "classroomTopic": "Chemistry",
+      "classroomType": "review",
+      "source": "classroom-sync",
+      "sourceKey": "science-latest-review"
+    },
+    {
+      "subject": "English",
+      "topic": "Nick's writing class routine",
+      "type": "learn",
+      "note": "Wednesday routine from 6:00 PM to 7:00 PM: attend Nick's writing class and note one writing skill to practice after class.",
+      "dueDate": "2026-04-01",
+      "priority": "High"
+    },
+    {
+      "subject": "English",
+      "topic": "Nick English review: Lesson 5 imagery",
+      "type": "review",
+      "note": "Review Lesson 5 on literary devices and imagery. Use 'There Will Come Soft Rains' to practice identifying imagery, the sense it appeals to, and the effect it creates.",
+      "dueDate": "2026-04-01",
+      "priority": "High"
+    },
+    {
+      "subject": "Science",
+      "topic": "Science classroom: Mar 27 - Atomic Theory",
+      "type": "learn",
+      "note": "Auto-synced from Google Classroom Chemistry materials. Use this as current study focus support.",
+      "dueDate": "2026-04-01",
+      "priority": "Medium",
+      "classroomTopic": "Chemistry",
+      "classroomType": "material",
+      "source": "classroom-sync",
+      "sourceKey": "science-current-focus"
+    },
+    {
+      "subject": "English",
+      "topic": "Friday study group routine",
+      "type": "review",
+      "note": "Friday routine: join the study group and bring one question from each main subject.",
+      "dueDate": "2026-04-03",
+      "priority": "Medium"
+    }
+  ]
+}

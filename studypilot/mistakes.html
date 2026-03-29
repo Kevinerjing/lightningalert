@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mistakes Notebook | Study Mission Assistant</title>
+  <link rel="stylesheet" href="styles/main.css">
+  <script defer src="scripts/utils.js"></script>
+  <script defer src="scripts/app.js"></script>
+  <script defer src="scripts/mistakes.js"></script>
+</head>
+<body>
+  <header class="site-header compact-header">
+    <div class="container header-inner">
+      <div>
+        <p class="eyebrow">Error tracking</p>
+        <h1>Mistakes Notebook</h1>
+      </div>
+      <p id="today-date" class="date-chip">Loading date...</p>
+    </div>
+  </header>
+
+  <nav class="main-nav">
+    <div class="container nav-links">
+      <a href="index.html">Dashboard</a>
+      <a class="active" href="mistakes.html">Mistakes Notebook</a>
+      <a href="review.html">Review</a>
+      <a href="pages/science.html">Science</a>
+      <a href="pages/math.html">Math</a>
+      <a href="pages/english.html">English</a>
+      <a href="updates.html">Updates</a>
+      <a href="upload-guide.html">Upload Guide</a>
+    </div>
+  </nav>
+
+  <main class="container page-shell">
+    <section class="panel">
+      <div class="section-heading">
+        <div>
+          <p class="section-label">Filter notebook</p>
+          <h2>Find errors to revisit</h2>
+        </div>
+      </div>
+
+      <div class="filters">
+        <label>
+          Subject
+          <select id="subject-filter">
+            <option value="all">All subjects</option>
+          </select>
+        </label>
+        <label>
+          Topic
+          <select id="topic-filter">
+            <option value="all">All topics</option>
+          </select>
+        </label>
+        <label>
+          Retry status
+          <select id="status-filter">
+            <option value="all">All statuses</option>
+          </select>
+        </label>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="section-heading">
+        <div>
+          <p class="section-label">Image drafts</p>
+          <h2>Photographed mistake drafts</h2>
+        </div>
+        <p id="draft-count" class="muted">Loading drafts...</p>
+      </div>
+      <div class="note-box">
+        First version: images from <code>uploads/mistakes/</code> become draft cards here. No OCR yet.
+        Review the image, then manually add the full entry into the notebook.
+      </div>
+      <div id="mistake-drafts" class="card-grid"></div>
+    </section>
+
+    <section class="panel">
+      <div class="section-heading">
+        <div>
+          <p class="section-label">Notebook entries</p>
+          <h2>Captured mistakes</h2>
+        </div>
+        <p id="mistake-count" class="muted">Loading entries...</p>
+      </div>
+      <div id="mistakes-list" class="card-grid"></div>
+    </section>
+
+    <section class="panel">
+      <div class="section-heading">
+        <div>
+          <p class="section-label">Future intake</p>
+          <h2>Photographed Mistake Import Placeholder</h2>
+        </div>
+      </div>
+      <div class="note-box">
+        <p>
+          The app includes a clearly marked placeholder in <code>scripts/mistakes.js</code> for future
+          logic that can read the latest image from <code>uploads/mistakes/</code>, extract fields,
+          and append a new JSON entry.
+        </p>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

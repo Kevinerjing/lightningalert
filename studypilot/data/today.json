@@ -1,0 +1,22 @@
+{
+  "tasks": [
+    {
+      "subject": "English",
+      "topic": "Nick's writing homework routine",
+      "type": "homework",
+      "note": "Saturday routine: complete Nick's writing homework and check that the main idea is clear.",
+      "dueDate": "2026-03-28",
+      "priority": "Medium"
+    },
+    {
+      "subject": "Math",
+      "topic": "Grade 10 math practice routine",
+      "type": "review",
+      "note": "Saturday routine: do a short Grade 10 math practice set and show full working.",
+      "dueDate": "2026-03-28",
+      "priority": "Medium",
+      "resourceLabel": "Open Grade 10 geometry skill map",
+      "resourceLink": "resources/math/grade-10-geometry-skill-map.html"
+    }
+  ]
+}
