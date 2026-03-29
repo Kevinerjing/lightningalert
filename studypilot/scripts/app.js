@@ -106,6 +106,8 @@
         `;
       }).join("");
 
+      const directAnswer = getTopicDirectAnswer(topic);
+
       return `
         <article class="topic-card${expanded ? "" : " topic-card-collapsed"}" data-topic-card-key="${escapeHtml(cardKey)}">
           <div class="topic-card-header">
@@ -118,6 +120,12 @@
               ${expanded ? "Hide details" : "Show details"}
             </button>
           </div>
+          ${directAnswer ? `
+            <div class="topic-answer-box">
+              <p class="topic-answer-label">Direct answer</p>
+              <p class="topic-answer-text">${escapeHtml(directAnswer)}</p>
+            </div>
+          ` : ""}
           <div class="topic-details">
             <div class="topic-section-grid">${sections}</div>
           </div>
@@ -416,6 +424,13 @@
 
   function buildTopicCardKey(subjectName, topicTitle) {
     return `studypilot.topicCard.${String(subjectName || "").toLowerCase()}::${String(topicTitle || "").toLowerCase()}`;
+  }
+
+  function getTopicDirectAnswer(topic) {
+    if (Array.isArray(topic?.directAnswer)) {
+      return topic.directAnswer.find((item) => String(item || "").trim()) || "";
+    }
+    return String(topic?.directAnswer || "").trim();
   }
 
   function isTopicCardExpanded(cardKey) {

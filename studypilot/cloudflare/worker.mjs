@@ -395,10 +395,11 @@ function getStudyPilotResponseSchema() {
           {
             type: "object",
             additionalProperties: false,
-            required: ["topic", "summary", "coreItems", "supportItems", "exampleItems", "practiceEasy", "practiceMedium", "practiceHard", "resourceNotes", "vocabulary", "mistakePatterns", "feynmanChecklist", "applications"],
+            required: ["topic", "summary", "directAnswer", "coreItems", "supportItems", "exampleItems", "practiceEasy", "practiceMedium", "practiceHard", "resourceNotes", "vocabulary", "mistakePatterns", "feynmanChecklist", "applications"],
             properties: {
               topic: { type: "string" },
               summary: { type: "string" },
+              directAnswer: { type: "string" },
               coreItems: stringArraySchema(),
               supportItems: stringArraySchema(),
               exampleItems: stringArraySchema(),
@@ -628,6 +629,7 @@ function mapSubjectTopicForD1(subject, subjectUpdate, uploadedFiles) {
 
   if (subject === "Science") {
     return {
+      directAnswer: subjectUpdate.directAnswer ? [subjectUpdate.directAnswer] : [],
       keyConcepts: subjectUpdate.coreItems || [],
       teacherNotes: subjectUpdate.supportItems || [],
       resources: resourceItems.length ? resourceItems : subjectUpdate.exampleItems || [],
@@ -641,6 +643,7 @@ function mapSubjectTopicForD1(subject, subjectUpdate, uploadedFiles) {
 
   if (subject === "Math") {
     return {
+      directAnswer: subjectUpdate.directAnswer ? [subjectUpdate.directAnswer] : [],
       formulas: subjectUpdate.coreItems || [],
       solvingSteps: subjectUpdate.supportItems || [],
       examples: subjectUpdate.exampleItems || [],
@@ -652,6 +655,7 @@ function mapSubjectTopicForD1(subject, subjectUpdate, uploadedFiles) {
   }
 
   return {
+    directAnswer: subjectUpdate.directAnswer ? [subjectUpdate.directAnswer] : [],
     readingFocus: subjectUpdate.coreItems || [],
     writingTips: subjectUpdate.supportItems || [],
     structureTemplates: subjectUpdate.exampleItems || [],
@@ -720,16 +724,17 @@ function inferUploadCategory(fileName) {
 
 function getSubjectSectionKeys(subject) {
   if (subject === "Science") {
-    return ["keyConcepts", "teacherNotes", "resources", "quizEasy", "quizMedium", "quizHard", "feynmanChecklist", "applications"];
+    return ["directAnswer", "keyConcepts", "teacherNotes", "resources", "quizEasy", "quizMedium", "quizHard", "feynmanChecklist", "applications"];
   }
   if (subject === "Math") {
-    return ["formulas", "solvingSteps", "examples", "commonMistakes", "practiceEasy", "practiceMedium", "practiceHard"];
+    return ["directAnswer", "formulas", "solvingSteps", "examples", "commonMistakes", "practiceEasy", "practiceMedium", "practiceHard"];
   }
-  return ["readingFocus", "writingTips", "structureTemplates", "vocabulary", "resources", "practicePrompts"];
+  return ["directAnswer", "readingFocus", "writingTips", "structureTemplates", "vocabulary", "resources", "practicePrompts"];
 }
 
 function getSectionTitle(sectionKey) {
   return {
+    directAnswer: "Direct answer",
     keyConcepts: "Key concepts",
     teacherNotes: "Teacher notes summary",
     resources: "Useful learning resources",

@@ -328,10 +328,11 @@ function getStudyPilotResponseSchema() {
           {
             type: "object",
             additionalProperties: false,
-            required: ["topic", "summary", "coreItems", "supportItems", "exampleItems", "practiceEasy", "practiceMedium", "practiceHard", "resourceNotes", "vocabulary", "mistakePatterns", "feynmanChecklist", "applications"],
+            required: ["topic", "summary", "directAnswer", "coreItems", "supportItems", "exampleItems", "practiceEasy", "practiceMedium", "practiceHard", "resourceNotes", "vocabulary", "mistakePatterns", "feynmanChecklist", "applications"],
             properties: {
               topic: { type: "string" },
               summary: { type: "string" },
+              directAnswer: { type: "string" },
               coreItems: stringArraySchema(),
               supportItems: stringArraySchema(),
               exampleItems: stringArraySchema(),
@@ -613,7 +614,8 @@ function buildResourceObjects(resourceNotes, savedFiles) {
 function mapSubjectTopic(subject, subjectUpdate, resourceObjects) {
   const base = {
     topic: subjectUpdate.topic,
-    summary: subjectUpdate.summary
+    summary: subjectUpdate.summary,
+    directAnswer: subjectUpdate.directAnswer || ""
   };
 
   if (subject === "Science") {
@@ -946,16 +948,17 @@ function insertSectionItemsToLocalD1(db, tableName, parentColumn, parentId, sect
 
 function getSubjectSectionKeys(subject) {
   if (subject === "Science") {
-    return ["keyConcepts", "teacherNotes", "resources", "quizEasy", "quizMedium", "quizHard", "feynmanChecklist", "applications"];
+    return ["directAnswer", "keyConcepts", "teacherNotes", "resources", "quizEasy", "quizMedium", "quizHard", "feynmanChecklist", "applications"];
   }
   if (subject === "Math") {
-    return ["formulas", "solvingSteps", "examples", "commonMistakes", "practiceEasy", "practiceMedium", "practiceHard"];
+    return ["directAnswer", "formulas", "solvingSteps", "examples", "commonMistakes", "practiceEasy", "practiceMedium", "practiceHard"];
   }
-  return ["readingFocus", "writingTips", "structureTemplates", "vocabulary", "resources", "practicePrompts"];
+  return ["directAnswer", "readingFocus", "writingTips", "structureTemplates", "vocabulary", "resources", "practicePrompts"];
 }
 
 function getSectionTitle(sectionKey) {
   return {
+    directAnswer: "Direct answer",
     keyConcepts: "Key concepts",
     teacherNotes: "Teacher notes summary",
     resources: "Useful learning resources",
