@@ -1280,6 +1280,12 @@ function buildRecurringClubTasks(referenceDate = new Date()) {
 
   const sundayReminderDate = getNextWeekday(today, 0, true);
   const wednesdayEventDate = getNextWeekday(today, 3, true);
+  const teenEconomicDays = [
+    { weekday: 1, label: "Monday" },
+    { weekday: 2, label: "Tuesday" },
+    { weekday: 3, label: "Wednesday" },
+    { weekday: 4, label: "Thursday" }
+  ];
 
   return [
     {
@@ -1301,7 +1307,20 @@ function buildRecurringClubTasks(referenceDate = new Date()) {
       dueDate: toIsoDate(wednesdayEventDate),
       priority: "Medium",
       source: "recurring-club"
-    }
+    },
+    ...teenEconomicDays.map(({ weekday, label }) => {
+      const targetDate = getNextWeekday(today, weekday, true);
+      return {
+        bucket: getRecurringBucketForDate(targetDate, today),
+        subject: "General",
+        topic: "Teen Economic routine",
+        type: "routine",
+        note: `${label} routine: complete Teen Economic work and check the next step before finishing.`,
+        dueDate: toIsoDate(targetDate),
+        priority: "Medium",
+        source: "recurring-teen-economic"
+      };
+    })
   ];
 }
 

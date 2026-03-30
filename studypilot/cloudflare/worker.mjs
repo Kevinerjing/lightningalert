@@ -4,6 +4,10 @@ export default {
   async fetch(request, env, ctx) {
     const url = new URL(request.url);
 
+    if (url.pathname.startsWith("/uploads/")) {
+      return handleUploadAssetRequest(request, env);
+    }
+
     if (url.pathname === "/api/studypilot-chat/health") {
       return jsonResponse({
         ok: true,
@@ -151,13 +155,19 @@ async function handleStudyPilotChat(request, env, ctx) {
 
 async function uploadFilesToOpenAI(files, env, uploadedFileIds) {
   const items = [];
+  const uploadedAt = new Date().toISOString();
 
   for (const file of files) {
+    const uploadId = stableId("upload", `${file.name || "upload.bin"}:${Date.now()}:${Math.random()}`);
+    const category = inferUploadCategory(file.name || "");
+    const objectKey = buildUploadObjectKey(category, file.name || "upload.bin", uploadId);
+    const storedUpload = await storeUploadInR2(env, file, objectKey);
+
     if (isInlineImageMime(file.type, file.name)) {
       const arrayBuffer = await file.arrayBuffer();
       const base64 = arrayBufferToBase64(arrayBuffer);
       items.push({
-        id: stableId("upload", `${file.name || "upload.bin"}:${Date.now()}:${Math.random()}`),
+        id: uploadId,
         openAiFileId: null,
         inputItem: {
           type: "input_image",
@@ -166,8 +176,10 @@ async function uploadFilesToOpenAI(files, env, uploadedFileIds) {
         name: file.name || "upload.bin",
         mimeType: file.type || "application/octet-stream",
         sizeBytes: file.size || null,
-        uploadedAt: new Date().toISOString(),
-        category: inferUploadCategory(file.name || "")
+        uploadedAt,
+        category,
+        objectKey,
+        publicUrl: storedUpload.publicUrl
       });
       continue;
     }
@@ -191,7 +203,7 @@ async function uploadFilesToOpenAI(files, env, uploadedFileIds) {
 
     uploadedFileIds.push(payload.id);
     items.push({
-      id: stableId("upload", `${file.name || "upload.bin"}:${Date.now()}:${Math.random()}`),
+      id: uploadId,
       openAiFileId: payload.id,
       inputItem: {
         type: "input_file",
@@ -200,12 +212,85 @@ async function uploadFilesToOpenAI(files, env, uploadedFileIds) {
       name: file.name || "upload.bin",
       mimeType: file.type || "application/octet-stream",
       sizeBytes: file.size || null,
-      uploadedAt: new Date().toISOString(),
-      category: inferUploadCategory(file.name || "")
+      uploadedAt,
+      category,
+      objectKey,
+      publicUrl: storedUpload.publicUrl
     });
   }
 
   return items;
+}
+
+async function storeUploadInR2(env, file, objectKey) {
+  if (!env.UPLOADS) {
+    return {
+      objectKey: null,
+      publicUrl: null
+    };
+  }
+
+  const arrayBuffer = await file.arrayBuffer();
+  await env.UPLOADS.put(objectKey, arrayBuffer, {
+    httpMetadata: {
+      contentType: file.type || inferMimeFromName(file.name || "")
+    }
+  });
+
+  return {
+    objectKey,
+    publicUrl: `/uploads/${encodeURIComponent(objectKey)}`
+  };
+}
+
+async function handleUploadAssetRequest(request, env) {
+  if (!env.UPLOADS) {
+    return new Response("Upload storage is not configured.", { status: 404 });
+  }
+
+  const url = new URL(request.url);
+  const objectKey = decodeURIComponent(url.pathname.replace(/^\/uploads\//, ""));
+  if (!objectKey) {
+    return new Response("Missing upload key.", { status: 404 });
+  }
+
+  const object = await env.UPLOADS.get(objectKey);
+  if (!object) {
+    return new Response("File not found.", { status: 404 });
+  }
+
+  const headers = new Headers();
+  object.writeHttpMetadata(headers);
+  headers.set("cache-control", "public, max-age=3600");
+  headers.set("etag", object.httpEtag);
+  headers.set("content-disposition", `inline; filename="${extractObjectFileName(objectKey)}"`);
+
+  return new Response(object.body, { headers });
+}
+
+function extractObjectFileName(objectKey) {
+  return objectKey.split("/").pop() || "upload.bin";
+}
+
+function buildUploadObjectKey(category, fileName, uploadId) {
+  return `${category}/${uploadId}/${sanitizeFileName(fileName)}`;
+}
+
+function sanitizeFileName(fileName) {
+  return String(fileName || "upload.bin")
+    .replace(/[^a-zA-Z0-9._-]+/g, "-")
+    .replace(/-+/g, "-")
+    .replace(/^-|-$/g, "");
+}
+
+function inferMimeFromName(fileName) {
+  const lower = String(fileName || "").toLowerCase();
+  if (lower.endsWith(".pdf")) return "application/pdf";
+  if (lower.endsWith(".png")) return "image/png";
+  if (lower.endsWith(".jpg") || lower.endsWith(".jpeg")) return "image/jpeg";
+  if (lower.endsWith(".webp")) return "image/webp";
+  if (lower.endsWith(".gif")) return "image/gif";
+  return "application/octet-stream";
 }
 
 function isInlineImageMime(mimeType, fileName) {
@@ -614,10 +699,11 @@ async function upsertUploadRecords(env, uploadedFiles) {
     env.studypilot.prepare(`
       INSERT INTO uploads (
         id, source_mode, category, original_name, storage_path, mime_type, size_bytes, uploaded_at, notes
-      ) VALUES (?, 'cloudflare', ?, ?, NULL, ?, ?, ?, ?)
+      ) VALUES (?, 'cloudflare', ?, ?, ?, ?, ?, ?, ?)
       ON CONFLICT(id) DO UPDATE SET
         category = excluded.category,
         original_name = excluded.original_name,
+        storage_path = excluded.storage_path,
         mime_type = excluded.mime_type,
         size_bytes = excluded.size_bytes,
         uploaded_at = excluded.uploaded_at,
@@ -626,6 +712,7 @@ async function upsertUploadRecords(env, uploadedFiles) {
       file.id,
       file.category || "other",
       file.name || "upload.bin",
+      file.publicUrl || file.objectKey || null,
       file.mimeType || "application/octet-stream",
       file.sizeBytes ?? null,
       file.uploadedAt || new Date().toISOString(),
@@ -725,7 +812,7 @@ async function insertTaskUpdate(env, task, uploadedFiles) {
     task.dueDate || null,
     task.priority || "Medium",
     uploadedFiles[0] ? `Open ${uploadedFiles[0].name}` : null,
-    null,
+    uploadedFiles[0]?.publicUrl || null,
     uploadedFiles[0]?.id || null,
     now,
     now
@@ -745,7 +832,7 @@ async function ensureSubjectExistsInD1(env, subject) {
 
 function mapSubjectTopicForD1(subject, subjectUpdate, uploadedFiles) {
   const resourceItems = [
-    ...uploadedFiles.map((file) => ({ label: file.name })),
+    ...uploadedFiles.map((file) => ({ label: file.name, url: file.publicUrl || undefined })),
     ...(Array.isArray(subjectUpdate.resourceNotes) ? subjectUpdate.resourceNotes.map((note) => ({ label: note })) : [])
   ];
 
@@ -976,6 +1063,12 @@ function buildRecurringClubTasks(referenceDate = new Date()) {
 
   const sundayReminderDate = getNextWeekday(today, 0, true);
   const wednesdayEventDate = getNextWeekday(today, 3, true);
+  const teenEconomicDays = [
+    { weekday: 1, label: "Monday" },
+    { weekday: 2, label: "Tuesday" },
+    { weekday: 3, label: "Wednesday" },
+    { weekday: 4, label: "Thursday" }
+  ];
 
   return [
     {
@@ -997,7 +1090,20 @@ function buildRecurringClubTasks(referenceDate = new Date()) {
       dueDate: toIsoDate(wednesdayEventDate),
       priority: "Medium",
       source: "recurring-club"
-    }
+    },
+    ...teenEconomicDays.map(({ weekday, label }) => {
+      const targetDate = getNextWeekday(today, weekday, true);
+      return {
+        bucket: getRecurringBucketForDate(targetDate, today),
+        subject: "General",
+        topic: "Teen Economic routine",
+        type: "routine",
+        note: `${label} routine: complete Teen Economic work and check the next step before finishing.`,
+        dueDate: toIsoDate(targetDate),
+        priority: "Medium",
+        source: "recurring-teen-economic"
+      };
+    })
   ];
 }
 
