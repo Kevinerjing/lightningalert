@@ -1,5 +1,6 @@
 (function () {
   const SUBJECT_ORDER = ["Science", "Math", "English"];
+  const STUDY_TIME_ZONE = "America/Toronto";
 
   async function fetchJson(path, fallback) {
     try {
@@ -78,8 +79,7 @@
   }
 
   function buildRecurringClubTasks(referenceDate = new Date()) {
-    const today = new Date(referenceDate);
-    today.setHours(0, 0, 0, 0);
+    const today = buildStudyDate(referenceDate);
 
     const sundayReminderDate = getNextWeekday(today, 0, true);
     const wednesdayEventDate = getNextWeekday(today, 3, true);
@@ -110,13 +110,12 @@
 
   function getNextWeekday(fromDate, targetWeekday, includeToday = false) {
     const start = new Date(fromDate);
-    start.setHours(0, 0, 0, 0);
-    const current = start.getDay();
+    const current = start.getUTCDay();
     let diff = (targetWeekday - current + 7) % 7;
     if (diff === 0 && !includeToday) {
       diff = 7;
     }
-    start.setDate(start.getDate() + diff);
+    start.setUTCDate(start.getUTCDate() + diff);
     return start;
   }
 
@@ -132,7 +131,25 @@
   }
 
   function toIsoDate(date) {
-    return date.toISOString().slice(0, 10);
+    const year = date.getUTCFullYear();
+    const month = String(date.getUTCMonth() + 1).padStart(2, "0");
+    const day = String(date.getUTCDate()).padStart(2, "0");
+    return `${year}-${month}-${day}`;
+  }
+
+  function buildStudyDate(referenceDate = new Date()) {
+    const parts = new Intl.DateTimeFormat("en-CA", {
+      timeZone: STUDY_TIME_ZONE,
+      year: "numeric",
+      month: "2-digit",
+      day: "2-digit"
+    }).formatToParts(referenceDate);
+
+    const year = Number(parts.find((part) => part.type === "year")?.value || 0);
+    const month = Number(parts.find((part) => part.type === "month")?.value || 1);
+    const day = Number(parts.find((part) => part.type === "day")?.value || 1);
+
+    return new Date(Date.UTC(year, month - 1, day));
   }
 
   window.StudyUtils = {
