@@ -58,6 +58,12 @@
             "One reason is that...",
             "From the lesson, we learned that..."
           ]
+        },
+        "feynmanPractice": {
+          "simpleExplainPrompt": "Explain trade surplus and trade deficit in 2 to 4 very simple English sentences.",
+          "ownExamplePrompt": "Give one example from shopping, school, or family life where one side pays and the other side receives money.",
+          "confusionPrompt": "What part is still confusing to you: surplus, deficit, or why both sides can still benefit?",
+          "retryPrompt": "Now explain the lesson again in easier English, as if you are teaching a younger student."
         }
       },
       {
@@ -109,6 +115,12 @@
             "This is because...",
             "The lesson shows that..."
           ]
+        },
+        "feynmanPractice": {
+          "simpleExplainPrompt": "Explain in simple English why trade retaliation can make things worse.",
+          "ownExamplePrompt": "Give one everyday example where getting back at someone creates a bigger problem.",
+          "confusionPrompt": "Which part is still unclear: trade equality, trade retaliation, or why retaliation increases loss?",
+          "retryPrompt": "Teach the idea again using the sentence: Two wrongs do not make a right."
         }
       },
       {
@@ -160,6 +172,12 @@
             "It is fair because...",
             "It also improves efficiency because..."
           ]
+        },
+        "feynmanPractice": {
+          "simpleExplainPrompt": "Explain in simple English why people should not take things that come from someone else's labor.",
+          "ownExamplePrompt": "Give one example from school or home where respecting property helps everyone.",
+          "confusionPrompt": "What part is still confusing to you: labor, ownership, fairness, or efficiency?",
+          "retryPrompt": "Now explain why fairness and efficiency can support each other in this lesson."
         }
       }
     ],

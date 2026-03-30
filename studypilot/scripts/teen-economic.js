@@ -1,5 +1,7 @@
 (function () {
   const { fetchJson, escapeHtml, createEmptyState } = window.StudyUtils;
+  const starterStateByArticle = {};
+  const feynmanStateByArticle = {};
 
   function renderPackMeta(pack) {
     const meta = document.getElementById("teen-pack-meta");
@@ -123,15 +125,24 @@
       return;
     }
 
+    const articleId = starter?.articleId || "default";
+    const isExpanded = Boolean(starterStateByArticle[articleId]);
     const starters = Array.isArray(starter?.sentenceStarters) ? starter.sentenceStarters : [];
     container.innerHTML = `
-      <p class="teen-answer-paragraph">${escapeHtml(starter?.paragraph || "")}</p>
-      ${starters.length ? `
-        <p><strong>Useful sentence starters:</strong></p>
-        <ul>
-          ${starters.map((item) => `<li>${escapeHtml(item)}</li>`).join("")}
-        </ul>
-      ` : ""}
+      <div class="teen-answer-header">
+        <button class="task-switch teen-answer-toggle" type="button" data-teen-answer-toggle="${escapeHtml(articleId)}">
+          ${isExpanded ? "Hide answer help" : "Show answer help"}
+        </button>
+      </div>
+      <div class="teen-answer-body ${isExpanded ? "expanded" : "collapsed"}">
+        <p class="teen-answer-paragraph">${escapeHtml(starter?.paragraph || "")}</p>
+        ${starters.length ? `
+          <p><strong>Useful sentence starters:</strong></p>
+          <ul>
+            ${starters.map((item) => `<li>${escapeHtml(item)}</li>`).join("")}
+          </ul>
+        ` : ""}
+      </div>
     `;
   }
 
@@ -153,6 +164,46 @@
     `;
   }
 
+  function renderFeynmanPractice(practice, articleId) {
+    const container = document.getElementById("teen-feynman-practice");
+    if (!container) {
+      return;
+    }
+
+    if (!practice) {
+      container.innerHTML = createEmptyState("No Feynman practice yet.");
+      return;
+    }
+
+    const isExpanded = Boolean(feynmanStateByArticle[articleId || "default"]);
+    const prompts = [
+      { label: "Explain it simply", value: practice.simpleExplainPrompt },
+      { label: "Use your own example", value: practice.ownExamplePrompt },
+      { label: "Spot the confusing part", value: practice.confusionPrompt },
+      { label: "Say it again more clearly", value: practice.retryPrompt }
+    ].filter((item) => item.value);
+
+    container.innerHTML = `
+      <div class="teen-feynman-card">
+        <div class="teen-answer-header">
+          <button class="task-switch teen-answer-toggle" type="button" data-teen-feynman-toggle="${escapeHtml(articleId || "default")}">
+            ${isExpanded ? "Hide Feynman practice" : "Show Feynman practice"}
+          </button>
+        </div>
+        <div class="teen-feynman-body ${isExpanded ? "expanded" : "collapsed"}">
+          <div class="group-list">
+            ${prompts.map((item) => `
+              <article class="group-card teen-feynman-item">
+                <h3>${escapeHtml(item.label)}</h3>
+                <p class="muted">${escapeHtml(item.value)}</p>
+              </article>
+            `).join("")}
+          </div>
+        </div>
+      </div>
+    `;
+  }
+
   function renderActiveArticle(article) {
     const articleTitle = document.getElementById("teen-active-article-title");
     const articleSummary = document.getElementById("teen-active-article-summary");
@@ -168,7 +219,11 @@
     renderSourceFile(article?.sourceFile || null);
     renderKeyEnglish(article?.keyEnglish || []);
     renderQuestionBrief(article?.questionBrief || {});
-    renderAnswerStarter(article?.answerStarter || {});
+    renderAnswerStarter({
+      ...(article?.answerStarter || {}),
+      articleId: article?.id || "default"
+    });
+    renderFeynmanPractice(article?.feynmanPractice || null, article?.id || "default");
   }
 
   async function initTeenEconomicPage() {
@@ -207,6 +262,25 @@
 
       activeId = button.getAttribute("data-teen-article") || activeId;
       renderArticleTabs(articles, activeId);
+      renderActiveArticle(articles.find((article) => article.id === activeId) || articles[0] || null);
+    });
+
+    document.addEventListener("click", (event) => {
+      const toggle = event.target.closest("[data-teen-answer-toggle]");
+      if (toggle) {
+        const articleId = toggle.getAttribute("data-teen-answer-toggle") || "default";
+        starterStateByArticle[articleId] = !starterStateByArticle[articleId];
+        renderActiveArticle(articles.find((article) => article.id === activeId) || articles[0] || null);
+        return;
+      }
+
+      const feynmanToggle = event.target.closest("[data-teen-feynman-toggle]");
+      if (!feynmanToggle) {
+        return;
+      }
+
+      const articleId = feynmanToggle.getAttribute("data-teen-feynman-toggle") || "default";
+      feynmanStateByArticle[articleId] = !feynmanStateByArticle[articleId];
       renderActiveArticle(articles.find((article) => article.id === activeId) || articles[0] || null);
     });
   }
