@@ -707,11 +707,8 @@ async function insertMistakeUpdate(env, subject, mistakeUpdate, uploadedFiles) {
 
 async function insertTaskUpdate(env, task, uploadedFiles) {
   const subject = normalizeSubject(task.subject);
-  if (subject === "General") {
-    return null;
-  }
-
   const now = new Date().toISOString();
+  await ensureSubjectExistsInD1(env, subject);
   await env.studypilot.prepare(`
     INSERT INTO study_tasks (
       id, bucket, subject_slug, topic, task_type, note, due_date, priority,
@@ -735,6 +732,15 @@ async function insertTaskUpdate(env, task, uploadedFiles) {
   ).run();
 
   return `Added a new ${task.bucket} task: ${task.topic}`;
+}
+
+async function ensureSubjectExistsInD1(env, subject) {
+  const normalized = normalizeSubject(subject);
+  await env.studypilot.prepare(`
+    INSERT INTO subjects (slug, name)
+    VALUES (?, ?)
+    ON CONFLICT(slug) DO NOTHING
+  `).bind(normalized.toLowerCase(), normalized).run();
 }
 
 function mapSubjectTopicForD1(subject, subjectUpdate, uploadedFiles) {

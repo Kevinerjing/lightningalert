@@ -909,7 +909,7 @@ async function applyTaskUpdate(task, savedFiles, localD1, d1Sync) {
     nextWeek: "next-week.json"
   };
   const bucket = bucketMap[task.bucket];
-  if (!bucket || normalizeSubject(task.subject) === "General") {
+  if (!bucket) {
     return null;
   }
 
@@ -937,6 +937,7 @@ async function applyTaskUpdate(task, savedFiles, localD1, d1Sync) {
 
   if (localD1) {
     try {
+      ensureSubjectExistsInLocalD1(localD1, taskEntry.subject);
       mirrorTaskToLocalD1(localD1, task.bucket, taskEntry, savedFiles);
       d1Sync.attempted = true;
       if (d1Sync.status !== "failed") {
@@ -1116,6 +1117,15 @@ function mirrorTaskToLocalD1(db, bucket, taskEntry, savedFiles) {
     new Date().toISOString(),
     new Date().toISOString()
   );
+}
+
+function ensureSubjectExistsInLocalD1(db, subject) {
+  const normalized = normalizeSubject(subject);
+  db.prepare(`
+    INSERT INTO subjects (slug, name)
+    VALUES (?, ?)
+    ON CONFLICT(slug) DO NOTHING
+  `).run(normalized.toLowerCase(), normalized);
 }
 
 function insertSectionItemsToLocalD1(db, tableName, parentColumn, parentId, sectionKey, items) {
