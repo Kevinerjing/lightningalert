@@ -11,6 +11,10 @@ binding = "studypilot"
 database_name = "studypilot"
 database_id = "311cffda-0837-41a3-aa1c-96e52900585f"
 
+[[r2_buckets]]
+binding = "UPLOADS"
+bucket_name = "studypilot-uploads"
+
 [vars]
 OPENAI_MODEL = "gpt-5"
 
