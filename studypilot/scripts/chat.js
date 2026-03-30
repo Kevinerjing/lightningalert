@@ -24,6 +24,7 @@
 
     ensureSeedMessage(state);
     const ui = mountFloatingChat(config, state);
+    registerChatBridge(state, ui, config);
 
     renderMessages(ui.thread, state.messages, config);
     renderPendingFiles(ui.attachmentsNode, state.pendingFiles);
@@ -369,6 +370,36 @@
     }).join("");
 
     return `<div class="message-files">${chips}</div>`;
+  }
+
+  function registerChatBridge(state, ui, config) {
+    window.StudyChatBridge = {
+      openWithDraft({ prompt = "", chatMode = "", files = [] } = {}) {
+        if (prompt) {
+          ui.input.value = prompt;
+        }
+
+        ui.input.dataset.chatMode = chatMode || "";
+
+        if (Array.isArray(files) && files.length) {
+          state.pendingFiles = [
+            ...state.pendingFiles,
+            ...files.filter(Boolean).map(simplifyFile)
+          ];
+          renderPendingFiles(ui.attachmentsNode, state.pendingFiles);
+        }
+
+        if (!state.isOpen) {
+          state.isOpen = true;
+          saveUiState(state.isOpen);
+        }
+
+        syncOpenState(ui.root, ui.toggleButton, true, config);
+        ui.input.focus();
+        ui.input.setSelectionRange(ui.input.value.length, ui.input.value.length);
+        scrollThreadToLatest(ui.thread);
+      }
+    };
   }
 
   function renderMessageBody(text, escapeHtml) {

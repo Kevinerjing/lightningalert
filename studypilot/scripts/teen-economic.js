@@ -52,6 +52,70 @@
     `).join("");
   }
 
+  function renderSlotOptions(articles) {
+    const select = document.getElementById("teen-economic-slot-select");
+    if (!select) {
+      return;
+    }
+
+    if (!Array.isArray(articles) || !articles.length) {
+      select.innerHTML = '<option value="">No article slots</option>';
+      return;
+    }
+
+    select.innerHTML = articles.map((article, index) => `
+      <option value="${escapeHtml(article.id)}">Replace ${escapeHtml(article.tabLabel || `Article ${index + 1}`)}: ${escapeHtml(article.title || "")}</option>
+    `).join("");
+  }
+
+  function buildTeenEconomicPrompt(articleId, articles) {
+    const article = (articles || []).find((item) => item.id === articleId) || articles[0] || null;
+    const slotLabel = article?.tabLabel || "this article slot";
+    return `This is a Teen Economic lesson PDF. Please extract the English title, a short summary, key English, the main question brief, answer starter, and Feynman practice. I want this to replace ${slotLabel} on the Teen Economic page. Do not update Science, Math, English, or Mistakes pages.`;
+  }
+
+  function initializeUploadWorkflow(articles) {
+    const fileInput = document.getElementById("teen-economic-file-input");
+    const fileName = document.getElementById("teen-economic-file-name");
+    const slotSelect = document.getElementById("teen-economic-slot-select");
+    const sendButton = document.getElementById("teen-economic-upload-button");
+
+    if (!fileInput || !fileName || !slotSelect || !sendButton) {
+      return;
+    }
+
+    renderSlotOptions(articles);
+
+    fileInput.addEventListener("change", () => {
+      const selected = fileInput.files && fileInput.files[0];
+      fileName.textContent = selected
+        ? `Selected: ${selected.name}`
+        : "No Teen Economic PDF selected yet.";
+    });
+
+    sendButton.addEventListener("click", () => {
+      const selected = fileInput.files && fileInput.files[0];
+      if (!selected) {
+        fileName.textContent = "Please choose a Teen Economic PDF first.";
+        return;
+      }
+
+      if (!window.StudyChatBridge || typeof window.StudyChatBridge.openWithDraft !== "function") {
+        fileName.textContent = "Chat is not ready yet. Please open the page again.";
+        return;
+      }
+
+      const articleId = slotSelect.value;
+      window.StudyChatBridge.openWithDraft({
+        prompt: buildTeenEconomicPrompt(articleId, articles),
+        chatMode: "support",
+        files: [selected]
+      });
+
+      fileName.textContent = `Ready in chat: ${selected.name}`;
+    });
+  }
+
   function renderSourceFile(file) {
     const container = document.getElementById("teen-source-file");
     if (!container) {
@@ -248,6 +312,7 @@
     renderArticleTabs(articles, activeId);
     renderWeeklyTasks(pack.weeklyTasks);
     renderActiveArticle(articles.find((article) => article.id === activeId) || articles[0] || null);
+    initializeUploadWorkflow(articles);
 
     const tabContainer = document.getElementById("teen-article-tabs");
     if (!tabContainer) {

@@ -64,6 +64,25 @@
     <section class="panel">
       <div class="section-heading">
         <div>
+          <p class="section-label">Upload workflow</p>
+          <h2>Add the next Teen Economic PDF</h2>
+        </div>
+      </div>
+      <div class="teen-upload-panel">
+        <p class="muted">Choose the PDF, choose which article slot to replace, then send it to Codex with the ready-made Teen Economic prompt.</p>
+        <div class="teen-upload-controls">
+          <label class="upload-button" for="teen-economic-file-input">Choose PDF</label>
+          <input id="teen-economic-file-input" class="visually-hidden" type="file" accept=".pdf">
+          <select id="teen-economic-slot-select" class="teen-upload-select"></select>
+          <button id="teen-economic-upload-button" class="send-button teen-upload-send" type="button">Send To Chat</button>
+        </div>
+        <div id="teen-economic-file-name" class="muted teen-upload-file-name">No Teen Economic PDF selected yet.</div>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="section-heading">
+        <div>
           <p class="section-label">Active article</p>
           <h2 id="teen-active-article-title">Teen Economic article</h2>
         </div>
