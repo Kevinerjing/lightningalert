@@ -1,0 +1,70 @@
+{
+  "currentPack": {
+    "weekLabel": "Week of March 29, 2026",
+    "title": "Trade Surplus and Trade Deficit",
+    "summary": "Use this weekly pack to read the English from the lesson, understand what the question is really asking, and build one clear response before class.",
+    "questionFocus": {
+      "title": "How should we view foreign companies building factories in China and hiring Chinese workers?",
+      "meaning": "You need to explain whether this policy can be helpful, harmful, or mixed by using the lesson ideas about trade surplus, trade deficit, cooperation, and mutual benefit."
+    },
+    "sourceFiles": [
+      {
+        "label": "20 贸易顺差、逆差无所谓？.pdf",
+        "englishTitle": "Trade Surplus and Trade Deficit Don't Really Matter?",
+        "note": "This is the main lesson PDF for this week. It tells a story about a school and companies to explain trade surplus and trade deficit."
+      }
+    ],
+    "keyEnglish": [
+      {
+        "term": "trade surplus",
+        "meaning": "receiving money",
+        "support": "In this lesson, the side that receives money has a trade surplus."
+      },
+      {
+        "term": "trade deficit",
+        "meaning": "paying money",
+        "support": "In this lesson, the side that pays money has a trade deficit."
+      },
+      {
+        "term": "transaction",
+        "meaning": "a trade or business exchange",
+        "support": "The lesson says the side that pays and the side that provides goods should be equal in a transaction."
+      },
+      {
+        "term": "mutual benefit",
+        "meaning": "both sides can gain something",
+        "support": "The school and the companies all pay in some relationships and receive money in others."
+      },
+      {
+        "term": "long run",
+        "meaning": "over a longer period of time",
+        "support": "The lesson says income and spending tend to balance out in the long run."
+      }
+    ],
+    "questionBrief": {
+      "question": "Using what you learned, analyze how you view the policy of welcoming foreign companies to build factories in China and hire Chinese labor.",
+      "whatItMeans": "You are not only saying yes or no. You need to explain your view and connect it to the lesson idea that trade does not mean one side must always lose.",
+      "whatToDo": [
+        "State your opinion clearly.",
+        "Explain how both sides may benefit.",
+        "Use the ideas of trade surplus, trade deficit, and long-run balance.",
+        "Finish with one sentence that shows your final judgment."
+      ]
+    },
+    "answerStarter": {
+      "paragraph": "I think this policy can be beneficial because trade does not mean one side always loses. If foreign companies build factories in China, they bring investment and jobs, while Chinese workers provide labor and receive income. This is a normal form of cooperation, and both sides can benefit in different ways.",
+      "sentenceStarters": [
+        "I think this policy is...",
+        "One reason is that...",
+        "From the lesson, we learned that...",
+        "This shows that..."
+      ]
+    },
+    "weeklyTasks": [
+      "Read the English title and summary once.",
+      "Learn the five key terms before writing.",
+      "Answer the main question in 4 to 6 sentences.",
+      "Check that your answer explains both sides, not only one side."
+    ]
+  }
+}

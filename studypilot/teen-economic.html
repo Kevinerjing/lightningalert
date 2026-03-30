@@ -8,6 +8,7 @@
   <script defer src="scripts/utils.js"></script>
   <script defer src="scripts/app.js"></script>
   <script defer src="scripts/chat.js"></script>
+  <script defer src="scripts/teen-economic.js"></script>
 </head>
 <body>
   <header class="site-header compact-header">
@@ -35,70 +36,56 @@
   </nav>
 
   <main class="container page-shell">
-    <section class="panel">
-      <div class="section-heading">
-        <div>
-          <p class="section-label">Routine overview</p>
-          <h2>Monday to Thursday focus</h2>
-        </div>
-      </div>
-      <div class="group-card">
-        <p class="muted">Use this page as the steady home for the Teen Economic routine. The dashboard will automatically surface the daily task from Monday to Thursday.</p>
-        <ul>
-          <li>Check the assigned Teen Economic work for the day.</li>
-          <li>Finish the main task before moving to extra study.</li>
-          <li>Review one mistake or one weak step before you stop.</li>
-          <li>Leave a clear next step for tomorrow.</li>
-        </ul>
-      </div>
+    <section class="hero-grid teen-economic-hero">
+      <article class="panel welcome-panel">
+        <p class="section-label">This week's pack</p>
+        <h2 id="teen-pack-title">Loading weekly pack...</h2>
+        <p id="teen-pack-summary" class="large-note muted">Preparing the Teen Economic weekly pack.</p>
+        <div id="teen-pack-meta" class="teen-pack-meta"></div>
+      </article>
+      <article class="panel">
+        <p class="section-label">Question focus</p>
+        <h2 id="teen-question-title">Main question</h2>
+        <p id="teen-question-meaning" class="large-note muted">Loading question brief...</p>
+      </article>
     </section>
 
     <section class="panel">
       <div class="section-heading">
         <div>
-          <p class="section-label">Daily structure</p>
-          <h2>Simple weekday plan</h2>
+          <p class="section-label">Source files</p>
+          <h2>This week's PDFs</h2>
         </div>
       </div>
-      <div class="group-list">
-        <article class="group-card">
-          <p class="section-label">Monday</p>
-          <h3>Start the week clearly</h3>
-          <p class="muted">Read the task, begin the first part, and write down anything confusing right away.</p>
-        </article>
-        <article class="group-card">
-          <p class="section-label">Tuesday</p>
-          <h3>Keep the routine moving</h3>
-          <p class="muted">Finish the next part and check one answer carefully instead of rushing.</p>
-        </article>
-        <article class="group-card">
-          <p class="section-label">Wednesday</p>
-          <h3>Midweek check</h3>
-          <p class="muted">Review progress, fix one weak spot, and make sure the work still makes sense.</p>
-        </article>
-        <article class="group-card">
-          <p class="section-label">Thursday</p>
-          <h3>Wrap up strongly</h3>
-          <p class="muted">Finish the week’s task, tidy notes, and leave a clean starting point for next week.</p>
-        </article>
-      </div>
+      <div id="teen-source-files" class="group-list"></div>
     </section>
 
     <section class="panel">
       <div class="section-heading">
         <div>
-          <p class="section-label">Quick reminders</p>
-          <h2>What good looks like</h2>
+          <p class="section-label">English support</p>
+          <h2>Key English from this week</h2>
         </div>
       </div>
-      <div class="group-card">
-        <ul>
-          <li>Do the required work first, then any extra practice.</li>
-          <li>Show enough working that tomorrow’s version of you can still follow it.</li>
-          <li>If something is confusing, ask in the chat window and get the direct answer first.</li>
-          <li>Use the dashboard checkbox when the day’s Teen Economic task is actually done.</li>
-        </ul>
-      </div>
+      <div id="teen-key-english" class="group-list"></div>
+    </section>
+
+    <section class="summary-grid teen-economic-grid">
+      <article class="panel">
+        <p class="section-label">Question brief</p>
+        <h2>What the question is asking</h2>
+        <div id="teen-question-brief"></div>
+      </article>
+      <article class="panel">
+        <p class="section-label">Writing help</p>
+        <h2>Answer starter</h2>
+        <div id="teen-answer-starter"></div>
+      </article>
+      <article class="panel">
+        <p class="section-label">This week</p>
+        <h2>Checklist</h2>
+        <div id="teen-weekly-tasks"></div>
+      </article>
     </section>
   </main>
 </body>

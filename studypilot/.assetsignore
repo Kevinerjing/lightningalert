@@ -29,5 +29,6 @@ scripts/*
 !scripts/mistakes.js
 !scripts/review.js
 !scripts/science.js
+!scripts/teen-economic.js
 !scripts/updates.js
 !scripts/utils.js
