@@ -16,6 +16,7 @@
     }
 
     const safeTasks = toList(tasks);
+    const completionScope = buildTaskCompletionScope(containerId);
     if (!safeTasks.length) {
       container.innerHTML = createEmptyState("No tasks added yet.");
       return;
@@ -28,8 +29,8 @@
       const items = groups[subject]
         .map((task) => ({
           task,
-          taskKey: buildTaskKey(task),
-          completed: isTaskCompleted(task)
+          taskKey: buildTaskKey(task, completionScope),
+          completed: isTaskCompleted(task, completionScope)
         }))
         .sort((left, right) => {
           if (left.completed !== right.completed) {
@@ -531,8 +532,9 @@
     };
   }
 
-  function buildTaskKey(task) {
+  function buildTaskKeyWithScope(task, scope) {
     return [
+      scope || "global",
       task.subject || "",
       task.topic || "",
       task.type || "",
@@ -541,8 +543,12 @@
     ].join("::").toLowerCase();
   }
 
-  function isTaskCompleted(task) {
-    return localStorage.getItem(`studypilot.taskDone.${buildTaskKey(task)}`) === "true";
+  function buildTaskKey(task, scope) {
+    return buildTaskKeyWithScope(task, scope);
+  }
+
+  function isTaskCompleted(task, scope) {
+    return localStorage.getItem(`studypilot.taskDone.${buildTaskKey(task, scope)}`) === "true";
   }
 
   function attachTaskToggleHandlers(container) {
@@ -588,5 +594,47 @@
       item.classList.toggle("task-item-complete", Boolean(checked));
       taskList.appendChild(item);
     });
+  }
+
+  function buildTaskCompletionScope(containerId) {
+    const today = getStudyDateParts();
+    if (containerId === "today-tasks") {
+      return `today:${today}`;
+    }
+
+    if (containerId === "week-tasks") {
+      return `week:${getWeekStart(today, 0)}`;
+    }
+
+    if (containerId === "next-week-tasks") {
+      return `nextWeek:${getWeekStart(today, 7)}`;
+    }
+
+    return `global:${today}`;
+  }
+
+  function getStudyDateParts(referenceDate = new Date()) {
+    const parts = new Intl.DateTimeFormat("en-CA", {
+      timeZone: "America/Toronto",
+      year: "numeric",
+      month: "2-digit",
+      day: "2-digit"
+    }).formatToParts(referenceDate);
+
+    const year = Number(parts.find((part) => part.type === "year")?.value || 0);
+    const month = Number(parts.find((part) => part.type === "month")?.value || 1);
+    const day = Number(parts.find((part) => part.type === "day")?.value || 1);
+
+    return `${year}-${String(month).padStart(2, "0")}-${String(day).padStart(2, "0")}`;
+  }
+
+  function getWeekStart(isoDate, dayOffset) {
+    const [year, month, day] = String(isoDate).split("-").map(Number);
+    const date = new Date(Date.UTC(year, (month || 1) - 1, day || 1));
+    date.setUTCDate(date.getUTCDate() + dayOffset);
+    const weekday = date.getUTCDay();
+    const mondayOffset = weekday === 0 ? -6 : 1 - weekday;
+    date.setUTCDate(date.getUTCDate() + mondayOffset);
+    return `${date.getUTCFullYear()}-${String(date.getUTCMonth() + 1).padStart(2, "0")}-${String(date.getUTCDate()).padStart(2, "0")}`;
   }
 })();
