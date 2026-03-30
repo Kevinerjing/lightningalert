@@ -412,6 +412,10 @@ h3 {
   background: linear-gradient(180deg, var(--english) 0%, #ffffff 80%);
 }
 
+.subject-teen-economic {
+  background: linear-gradient(180deg, #f4efe1 0%, #ffffff 80%);
+}
+
 .quick-links {
   grid-template-columns: repeat(4, minmax(0, 1fr));
 }
