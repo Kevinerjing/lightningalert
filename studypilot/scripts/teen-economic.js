@@ -7,32 +7,69 @@
       return;
     }
 
+    const count = Array.isArray(pack.articles) ? pack.articles.length : 0;
     meta.innerHTML = `
       <span class="badge">${escapeHtml(pack.weekLabel || "Current week")}</span>
-      <span class="badge">1 weekly pack</span>
+      <span class="badge">${count || 0} articles</span>
     `;
   }
 
-  function renderSourceFiles(files) {
-    const container = document.getElementById("teen-source-files");
+  function renderOverview(items) {
+    const container = document.getElementById("teen-pack-overview");
     if (!container) {
       return;
     }
 
-    if (!Array.isArray(files) || !files.length) {
-      container.innerHTML = createEmptyState("No Teen Economic PDFs yet.");
+    if (!Array.isArray(items) || !items.length) {
+      container.innerHTML = "";
       return;
     }
 
-    container.innerHTML = files.map((file) => `
+    container.innerHTML = `
+      <ul>
+        ${items.map((item) => `<li>${escapeHtml(item)}</li>`).join("")}
+      </ul>
+    `;
+  }
+
+  function renderArticleTabs(articles, activeId) {
+    const container = document.getElementById("teen-article-tabs");
+    if (!container) {
+      return;
+    }
+
+    if (!Array.isArray(articles) || !articles.length) {
+      container.innerHTML = createEmptyState("No Teen Economic articles yet.");
+      return;
+    }
+
+    container.innerHTML = articles.map((article) => `
+      <button class="task-switch teen-article-tab ${article.id === activeId ? "active" : ""}" data-teen-article="${escapeHtml(article.id)}">
+        ${escapeHtml(article.tabLabel || article.title || "Article")}
+      </button>
+    `).join("");
+  }
+
+  function renderSourceFile(file) {
+    const container = document.getElementById("teen-source-file");
+    if (!container) {
+      return;
+    }
+
+    if (!file) {
+      container.innerHTML = createEmptyState("No source PDF yet.");
+      return;
+    }
+
+    container.innerHTML = `
       <article class="group-card teen-file-card">
         <p class="section-label">Source PDF</p>
-        <h3>${escapeHtml(file.englishTitle || file.label)}</h3>
+        <h3>${escapeHtml(file.englishTitle || file.label || "Source PDF")}</h3>
         <p class="muted"><strong>File:</strong> ${escapeHtml(file.label || "Unknown file")}</p>
         <p class="muted">${escapeHtml(file.note || "")}</p>
         ${file.url ? `<p><a class="inline-link" href="${escapeHtml(file.url)}" target="_blank" rel="noopener noreferrer">Open PDF</a></p>` : ""}
       </article>
-    `).join("");
+    `;
   }
 
   function renderKeyEnglish(items) {
@@ -116,9 +153,29 @@
     `;
   }
 
+  function renderActiveArticle(article) {
+    const articleTitle = document.getElementById("teen-active-article-title");
+    const articleSummary = document.getElementById("teen-active-article-summary");
+
+    if (articleTitle) {
+      articleTitle.textContent = article?.title || "Teen Economic article";
+    }
+
+    if (articleSummary) {
+      articleSummary.textContent = article?.summary || "";
+    }
+
+    renderSourceFile(article?.sourceFile || null);
+    renderKeyEnglish(article?.keyEnglish || []);
+    renderQuestionBrief(article?.questionBrief || {});
+    renderAnswerStarter(article?.answerStarter || {});
+  }
+
   async function initTeenEconomicPage() {
     const data = await fetchJson("data/teen-economic.json", {});
     const pack = data.currentPack || {};
+    const articles = Array.isArray(pack.articles) ? pack.articles : [];
+    let activeId = articles[0]?.id || "";
 
     const title = document.getElementById("teen-pack-title");
     const summary = document.getElementById("teen-pack-summary");
@@ -132,11 +189,26 @@
     }
 
     renderPackMeta(pack);
-    renderSourceFiles(pack.sourceFiles);
-    renderKeyEnglish(pack.keyEnglish);
-    renderQuestionBrief(pack.questionBrief || pack.questionFocus || {});
-    renderAnswerStarter(pack.answerStarter || {});
+    renderOverview(pack.overview || []);
+    renderArticleTabs(articles, activeId);
     renderWeeklyTasks(pack.weeklyTasks);
+    renderActiveArticle(articles.find((article) => article.id === activeId) || articles[0] || null);
+
+    const tabContainer = document.getElementById("teen-article-tabs");
+    if (!tabContainer) {
+      return;
+    }
+
+    tabContainer.addEventListener("click", (event) => {
+      const button = event.target.closest("[data-teen-article]");
+      if (!button) {
+        return;
+      }
+
+      activeId = button.getAttribute("data-teen-article") || activeId;
+      renderArticleTabs(articles, activeId);
+      renderActiveArticle(articles.find((article) => article.id === activeId) || articles[0] || null);
+    });
   }
 
   document.addEventListener("DOMContentLoaded", initTeenEconomicPage);

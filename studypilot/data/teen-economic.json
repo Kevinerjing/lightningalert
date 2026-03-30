@@ -1,71 +1,173 @@
 {
   "currentPack": {
     "weekLabel": "Week of March 29, 2026",
-    "title": "Trade Surplus and Trade Deficit",
-    "summary": "Use this weekly pack to read the English from the lesson, understand what the question is really asking, and build one clear response before class.",
-    "questionFocus": {
-      "title": "How should we view foreign companies building factories in China and hiring Chinese workers?",
-      "meaning": "You need to explain whether this policy can be helpful, harmful, or mixed by using the lesson ideas about trade surplus, trade deficit, cooperation, and mutual benefit."
-    },
-    "sourceFiles": [
+    "title": "Teen Economic Weekly Pack",
+    "summary": "Use the three article tabs below to read the English, understand each question, and build one short answer before Thursday.",
+    "overview": [
+      "Read one article at a time instead of scrolling through all three.",
+      "Use Key English first, then check the question brief.",
+      "Open the PDF if you want the full bilingual source."
+    ],
+    "articles": [
       {
-        "label": "20 贸易顺差、逆差无所谓？.pdf",
-        "englishTitle": "Trade Surplus and Trade Deficit Don't Really Matter?",
-        "note": "This is the main lesson PDF for this week. It tells a story about a school and companies to explain trade surplus and trade deficit.",
-        "url": "/uploads/teen-economic%2Ftrade-surplus-and-deficit.pdf"
+        "id": "trade-surplus",
+        "tabLabel": "Article 20",
+        "title": "Trade Surplus and Trade Deficit",
+        "summary": "This lesson explains why a trade surplus or trade deficit with one partner is normal and does not automatically mean one side is losing.",
+        "sourceFile": {
+          "label": "20 贸易顺差、逆差无所谓？.pdf",
+          "englishTitle": "Trade Surplus and Trade Deficit Don't Really Matter?",
+          "note": "A school-and-company story that explains surplus, deficit, and long-run balance.",
+          "url": "/uploads/teen-economic%2Ftrade-surplus-and-deficit.pdf"
+        },
+        "keyEnglish": [
+          {
+            "term": "trade surplus",
+            "meaning": "receiving money",
+            "support": "The side that receives money has a trade surplus."
+          },
+          {
+            "term": "trade deficit",
+            "meaning": "paying money",
+            "support": "The side that pays money has a trade deficit."
+          },
+          {
+            "term": "transaction",
+            "meaning": "a trade or business exchange",
+            "support": "In a transaction, both sides are part of the same exchange."
+          },
+          {
+            "term": "mutual benefit",
+            "meaning": "both sides can gain something",
+            "support": "One side may pay in one relationship and receive money in another."
+          }
+        ],
+        "questionBrief": {
+          "question": "Using what you learned, analyze how you view the policy of welcoming foreign companies to build factories in China and hire Chinese labor.",
+          "whatItMeans": "Explain whether this policy can be helpful, harmful, or mixed by using the ideas of trade surplus, trade deficit, cooperation, and mutual benefit.",
+          "whatToDo": [
+            "State your opinion clearly.",
+            "Explain how both sides may benefit.",
+            "Use the lesson idea that paying and receiving are both normal parts of trade."
+          ]
+        },
+        "answerStarter": {
+          "paragraph": "I think this policy can be beneficial because trade does not mean one side always loses. If foreign companies build factories in China, they bring investment and jobs, while Chinese workers provide labor and receive income. This is a normal form of cooperation, and both sides can benefit in different ways.",
+          "sentenceStarters": [
+            "I think this policy is...",
+            "One reason is that...",
+            "From the lesson, we learned that..."
+          ]
+        }
+      },
+      {
+        "id": "trade-retaliation",
+        "tabLabel": "Article 21",
+        "title": "Is Trade Retaliation Worth It?",
+        "summary": "This lesson explains that trade retaliation usually increases loss instead of fixing the first problem.",
+        "sourceFile": {
+          "label": "21 贸易报复值得吗？.pdf",
+          "englishTitle": "Is Trade Retaliation Worth It?",
+          "note": "A story about a school, two companies, and why retaliation can hurt students even more.",
+          "url": "/uploads/teen-economic%2Ftrade-retaliation-worth-it.pdf"
+        },
+        "keyEnglish": [
+          {
+            "term": "trade retaliation",
+            "meaning": "responding to trade restrictions with more restrictions",
+            "support": "If one side stops buying, the other side also stops buying."
+          },
+          {
+            "term": "trade equality",
+            "meaning": "the idea that trade must be equal on both sides",
+            "support": "The lesson says some people think trade is fair only when both sides do the same thing."
+          },
+          {
+            "term": "comparative advantage",
+            "meaning": "people or countries should focus on what they do best",
+            "support": "Trade should happen when it brings benefits, not only when conditions look equal."
+          },
+          {
+            "term": "two wrongs do not make a right",
+            "meaning": "a second bad action does not fix the first one",
+            "support": "Retaliation can increase the total loss."
+          }
+        ],
+        "questionBrief": {
+          "question": "If you were Xiaoqiang, what advice would you give the school after Company B stopped providing space and the school told parents not to attend the exhibitions?",
+          "whatItMeans": "You need to judge whether the school's reaction is a good response. Use the lesson to explain why retaliation may hurt students and reduce benefits.",
+          "whatToDo": [
+            "Say whether the school should retaliate or not.",
+            "Explain who gets hurt by retaliation.",
+            "Use the idea that trade should continue when it still brings benefits."
+          ]
+        },
+        "answerStarter": {
+          "paragraph": "I would advise the school not to retaliate by stopping parents from attending the exhibitions. Company B already caused a loss by ending the rental agreement, and further retaliation would create more loss for students and families. A better choice is to protect the school's interests while still allowing beneficial activities to continue.",
+          "sentenceStarters": [
+            "I would advise the school to...",
+            "This is because...",
+            "The lesson shows that..."
+          ]
+        }
+      },
+      {
+        "id": "property-rights",
+        "tabLabel": "Article 22",
+        "title": "Why Can't We Take Other People's Things Freely?",
+        "summary": "This lesson uses the horse manure dispute and a classroom paper story to explain why respecting labor and property rights supports fairness and efficiency.",
+        "sourceFile": {
+          "label": "22 为什么不能随便拿别人的东西？.pdf",
+          "englishTitle": "Why Can't We Take Other People's Things Freely?",
+          "note": "A lesson about labor, ownership, fairness, and efficiency through a classic property-rights case.",
+          "url": "/uploads/teen-economic%2Fproperty-rights-and-others-things.pdf"
+        },
+        "keyEnglish": [
+          {
+            "term": "property rights",
+            "meaning": "rules about who owns something",
+            "support": "People should respect the results of others' labor."
+          },
+          {
+            "term": "labor",
+            "meaning": "human work and effort",
+            "support": "The lesson says valuable things often contain someone's labor."
+          },
+          {
+            "term": "fairness",
+            "meaning": "what people think is just or right",
+            "support": "The lesson says fairness rules often have deeper reasons."
+          },
+          {
+            "term": "efficiency",
+            "meaning": "using resources well and helping society create more value",
+            "support": "Respecting property reduces protection costs and encourages wealth creation."
+          }
+        ],
+        "questionBrief": {
+          "question": "Can you give an example where a fairness rule is supported by efficiency?",
+          "whatItMeans": "You need to show that a rule may look fair on the surface, but it also helps society work better and create more value over time.",
+          "whatToDo": [
+            "Choose one fairness rule.",
+            "Explain how it protects labor, property, or trust.",
+            "Show how this also improves long-term efficiency."
+          ]
+        },
+        "answerStarter": {
+          "paragraph": "One example is that we should not take other people's work without permission. This rule is fair because it respects the labor of the person who created it. It also improves efficiency because people are more willing to create and save valuable things when they know their work will be protected.",
+          "sentenceStarters": [
+            "One fairness rule is...",
+            "It is fair because...",
+            "It also improves efficiency because..."
+          ]
+        }
       }
     ],
-    "keyEnglish": [
-      {
-        "term": "trade surplus",
-        "meaning": "receiving money",
-        "support": "In this lesson, the side that receives money has a trade surplus."
-      },
-      {
-        "term": "trade deficit",
-        "meaning": "paying money",
-        "support": "In this lesson, the side that pays money has a trade deficit."
-      },
-      {
-        "term": "transaction",
-        "meaning": "a trade or business exchange",
-        "support": "The lesson says the side that pays and the side that provides goods should be equal in a transaction."
-      },
-      {
-        "term": "mutual benefit",
-        "meaning": "both sides can gain something",
-        "support": "The school and the companies all pay in some relationships and receive money in others."
-      },
-      {
-        "term": "long run",
-        "meaning": "over a longer period of time",
-        "support": "The lesson says income and spending tend to balance out in the long run."
-      }
-    ],
-    "questionBrief": {
-      "question": "Using what you learned, analyze how you view the policy of welcoming foreign companies to build factories in China and hire Chinese labor.",
-      "whatItMeans": "You are not only saying yes or no. You need to explain your view and connect it to the lesson idea that trade does not mean one side must always lose.",
-      "whatToDo": [
-        "State your opinion clearly.",
-        "Explain how both sides may benefit.",
-        "Use the ideas of trade surplus, trade deficit, and long-run balance.",
-        "Finish with one sentence that shows your final judgment."
-      ]
-    },
-    "answerStarter": {
-      "paragraph": "I think this policy can be beneficial because trade does not mean one side always loses. If foreign companies build factories in China, they bring investment and jobs, while Chinese workers provide labor and receive income. This is a normal form of cooperation, and both sides can benefit in different ways.",
-      "sentenceStarters": [
-        "I think this policy is...",
-        "One reason is that...",
-        "From the lesson, we learned that...",
-        "This shows that..."
-      ]
-    },
     "weeklyTasks": [
-      "Read the English title and summary once.",
-      "Learn the five key terms before writing.",
-      "Answer the main question in 4 to 6 sentences.",
-      "Check that your answer explains both sides, not only one side."
+      "Read the summary of all three articles.",
+      "Open each PDF if you need the full bilingual source.",
+      "Choose the question your teacher wants first.",
+      "Write one short answer before Thursday."
     ]
   }
 }

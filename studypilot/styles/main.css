@@ -231,6 +231,19 @@ h3 {
   margin-top: 0.8rem;
 }
 
+.teen-pack-overview {
+  margin-top: 0.8rem;
+}
+
+.teen-pack-overview ul {
+  margin: 0;
+  padding-left: 1.15rem;
+}
+
+.teen-article-tabs {
+  margin-bottom: 0;
+}
+
 .teen-file-card,
 .teen-english-card {
   background: linear-gradient(135deg, #f7fbfd 0%, #ffffff 100%);

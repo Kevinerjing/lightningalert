@@ -42,50 +42,62 @@
         <h2 id="teen-pack-title">Loading weekly pack...</h2>
         <p id="teen-pack-summary" class="large-note muted">Preparing the Teen Economic weekly pack.</p>
         <div id="teen-pack-meta" class="teen-pack-meta"></div>
+        <div id="teen-pack-overview" class="teen-pack-overview"></div>
       </article>
       <article class="panel">
-        <p class="section-label">Question focus</p>
-        <h2 id="teen-question-title">Main question</h2>
-        <p id="teen-question-meaning" class="large-note muted">Loading question brief...</p>
+        <p class="section-label">Weekly checklist</p>
+        <h2>What to finish this week</h2>
+        <div id="teen-weekly-tasks"></div>
       </article>
     </section>
 
     <section class="panel">
       <div class="section-heading">
         <div>
-          <p class="section-label">Source files</p>
-          <h2>This week's PDFs</h2>
+          <p class="section-label">Article switcher</p>
+          <h2>This week's 3 articles</h2>
         </div>
       </div>
-      <div id="teen-source-files" class="group-list"></div>
+      <div id="teen-article-tabs" class="task-switcher teen-article-tabs"></div>
+    </section>
+
+    <section class="panel">
+      <div class="section-heading">
+        <div>
+          <p class="section-label">Active article</p>
+          <h2 id="teen-active-article-title">Teen Economic article</h2>
+        </div>
+      </div>
+      <p id="teen-active-article-summary" class="large-note muted"></p>
+
+      <div class="summary-grid teen-economic-grid">
+        <article class="panel">
+          <p class="section-label">Source file</p>
+          <h2>This article's PDF</h2>
+          <div id="teen-source-file"></div>
+        </article>
+        <article class="panel">
+          <p class="section-label">Question focus</p>
+          <h2 id="teen-question-title">Main question</h2>
+          <p id="teen-question-meaning" class="large-note muted">Loading question brief...</p>
+          <div id="teen-question-brief"></div>
+        </article>
+        <article class="panel">
+          <p class="section-label">Writing help</p>
+          <h2>Answer starter</h2>
+          <div id="teen-answer-starter"></div>
+        </article>
+      </div>
     </section>
 
     <section class="panel">
       <div class="section-heading">
         <div>
           <p class="section-label">English support</p>
-          <h2>Key English from this week</h2>
+          <h2>Key English for this article</h2>
         </div>
       </div>
       <div id="teen-key-english" class="group-list"></div>
-    </section>
-
-    <section class="summary-grid teen-economic-grid">
-      <article class="panel">
-        <p class="section-label">Question brief</p>
-        <h2>What the question is asking</h2>
-        <div id="teen-question-brief"></div>
-      </article>
-      <article class="panel">
-        <p class="section-label">Writing help</p>
-        <h2>Answer starter</h2>
-        <div id="teen-answer-starter"></div>
-      </article>
-      <article class="panel">
-        <p class="section-label">This week</p>
-        <h2>Checklist</h2>
-        <div id="teen-weekly-tasks"></div>
-      </article>
     </section>
   </main>
 </body>
