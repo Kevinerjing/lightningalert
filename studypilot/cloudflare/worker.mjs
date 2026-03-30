@@ -1253,20 +1253,28 @@ async function handleDashboardRequest(env) {
     `);
 
     const [taskResult, reviewResult] = await env.studypilot.batch([taskStatement, reviewCountStatement]);
-    const allTasks = dedupeDashboardTasks([...(taskResult.results || []).map(mapD1TaskRow), ...buildRecurringClubTasks().map(stripTaskBucket)]);
+    const allTasks = [...(taskResult.results || []).map(mapD1TaskRow), ...buildRecurringClubTasks().map(stripTaskBucket)];
+    const normalizedBuckets = normalizeDashboardBuckets({
+      today: allTasks.filter((task) => task.bucket === "today"),
+      week: allTasks.filter((task) => task.bucket === "week"),
+      nextWeek: allTasks.filter((task) => task.bucket === "nextWeek")
+    });
+    const todayTasks = dedupeDashboardTasks(normalizedBuckets.today);
+    const weekTasks = dedupeDashboardTasks(normalizedBuckets.week);
+    const nextWeekTasks = dedupeDashboardTasks(normalizedBuckets.nextWeek);
     const reviewCount = Number(reviewResult.results?.[0]?.count || 0);
 
     return jsonResponse({
       source: "d1",
       tasks: {
-        today: allTasks.filter((task) => task.bucket === "today"),
-        week: allTasks.filter((task) => task.bucket === "week"),
-        nextWeek: allTasks.filter((task) => task.bucket === "nextWeek")
+        today: todayTasks,
+        week: weekTasks,
+        nextWeek: nextWeekTasks
       },
       totals: {
-        today: allTasks.filter((task) => task.bucket === "today").length,
-        week: allTasks.filter((task) => task.bucket === "week").length,
-        nextWeek: allTasks.filter((task) => task.bucket === "nextWeek").length,
+        today: todayTasks.length,
+        week: weekTasks.length,
+        nextWeek: nextWeekTasks.length,
         mistakesForReview: reviewCount
       }
     });
@@ -1458,6 +1466,65 @@ function scoreTask(task) {
   const resourceScore = task?.resourceLink || task?.resourceLabel ? 1 : 0;
 
   return priorityScore * 10 + dueDateScore * 2 + resourceScore;
+}
+
+function normalizeDashboardBuckets(taskBuckets, referenceDate = new Date()) {
+  const today = buildStudyDate(referenceDate);
+  return {
+    today: toList(taskBuckets.today).filter((task) => taskMatchesBucket(task, "today", today)),
+    week: toList(taskBuckets.week).filter((task) => taskMatchesBucket(task, "week", today)),
+    nextWeek: toList(taskBuckets.nextWeek).filter((task) => taskMatchesBucket(task, "nextWeek", today))
+  };
+}
+
+function taskMatchesBucket(task, bucket, today) {
+  const parsed = parseDashboardDueDate(task?.dueDate, today);
+  if (!parsed) {
+    return true;
+  }
+
+  const diffDays = Math.round((parsed.getTime() - today.getTime()) / (1000 * 60 * 60 * 24));
+  if (bucket === "today") {
+    return diffDays === 0;
+  }
+  if (bucket === "week") {
+    return diffDays >= 1 && diffDays <= 7;
+  }
+  if (bucket === "nextWeek") {
+    return diffDays >= 8;
+  }
+  return true;
+}
+
+function parseDashboardDueDate(value, today = buildStudyDate()) {
+  const text = String(value || "").trim();
+  if (!text) {
+    return null;
+  }
+
+  if (/^today$/i.test(text)) {
+    return today;
+  }
+
+  if (/^tomorrow$/i.test(text)) {
+    const tomorrow = new Date(today);
+    tomorrow.setUTCDate(tomorrow.getUTCDate() + 1);
+    return tomorrow;
+  }
+
+  const relativeMatch = text.match(/^in\s+(\d+)\s+days?$/i);
+  if (relativeMatch) {
+    const future = new Date(today);
+    future.setUTCDate(future.getUTCDate() + Number(relativeMatch[1] || 0));
+    return future;
+  }
+
+  if (/^\d{4}-\d{2}-\d{2}$/.test(text)) {
+    const [year, month, day] = text.split("-").map(Number);
+    return new Date(Date.UTC(year, month - 1, day));
+  }
+
+  return null;
 }
 
 async function handleScienceRequest(env) {

@@ -74,9 +74,14 @@ async function loadDashboardData(fetchJson) {
   const nextWeekTasks = Array.isArray(nextWeekData.tasks) ? nextWeekData.tasks : [];
   const recurringTasks = buildRecurringClubTasks();
   const mistakes = Array.isArray(mistakesData.mistakes) ? mistakesData.mistakes : [];
-  const dedupedTodayTasks = dedupeDashboardTasks([...todayTasks, ...recurringTasks.filter((task) => task.bucket === "today").map(stripTaskBucket)]);
-  const dedupedWeekTasks = dedupeDashboardTasks([...weekTasks, ...recurringTasks.filter((task) => task.bucket === "week").map(stripTaskBucket)]);
-  const dedupedNextWeekTasks = dedupeDashboardTasks([...nextWeekTasks, ...recurringTasks.filter((task) => task.bucket === "nextWeek").map(stripTaskBucket)]);
+  const normalizedBuckets = normalizeDashboardBuckets({
+    today: [...todayTasks, ...recurringTasks.filter((task) => task.bucket === "today").map(stripTaskBucket)],
+    week: [...weekTasks, ...recurringTasks.filter((task) => task.bucket === "week").map(stripTaskBucket)],
+    nextWeek: [...nextWeekTasks, ...recurringTasks.filter((task) => task.bucket === "nextWeek").map(stripTaskBucket)]
+  });
+  const dedupedTodayTasks = dedupeDashboardTasks(normalizedBuckets.today);
+  const dedupedWeekTasks = dedupeDashboardTasks(normalizedBuckets.week);
+  const dedupedNextWeekTasks = dedupeDashboardTasks(normalizedBuckets.nextWeek);
   const reviewCount = mistakes.filter((mistake) => {
     const status = String(mistake.retryStatus || "").toLowerCase();
     return status.includes("review") || status.includes("retry");
@@ -184,4 +189,78 @@ function scoreTask(task) {
   const resourceScore = task?.resourceLink || task?.resourceLabel ? 1 : 0;
 
   return priorityScore * 10 + dueDateScore * 2 + resourceScore;
+}
+
+function normalizeDashboardBuckets(taskBuckets, referenceDate = new Date()) {
+  const today = buildStudyDate(referenceDate);
+  return {
+    today: (Array.isArray(taskBuckets.today) ? taskBuckets.today : []).filter((task) => taskMatchesBucket(task, "today", today)),
+    week: (Array.isArray(taskBuckets.week) ? taskBuckets.week : []).filter((task) => taskMatchesBucket(task, "week", today)),
+    nextWeek: (Array.isArray(taskBuckets.nextWeek) ? taskBuckets.nextWeek : []).filter((task) => taskMatchesBucket(task, "nextWeek", today))
+  };
+}
+
+function taskMatchesBucket(task, bucket, today) {
+  const parsed = parseDashboardDueDate(task?.dueDate, today);
+  if (!parsed) {
+    return true;
+  }
+
+  const diffDays = Math.round((parsed.getTime() - today.getTime()) / (1000 * 60 * 60 * 24));
+  if (bucket === "today") {
+    return diffDays === 0;
+  }
+  if (bucket === "week") {
+    return diffDays >= 1 && diffDays <= 7;
+  }
+  if (bucket === "nextWeek") {
+    return diffDays >= 8;
+  }
+  return true;
+}
+
+function parseDashboardDueDate(value, today = buildStudyDate()) {
+  const text = String(value || "").trim();
+  if (!text) {
+    return null;
+  }
+
+  if (/^today$/i.test(text)) {
+    return today;
+  }
+
+  if (/^tomorrow$/i.test(text)) {
+    const tomorrow = new Date(today);
+    tomorrow.setUTCDate(tomorrow.getUTCDate() + 1);
+    return tomorrow;
+  }
+
+  const relativeMatch = text.match(/^in\s+(\d+)\s+days?$/i);
+  if (relativeMatch) {
+    const future = new Date(today);
+    future.setUTCDate(future.getUTCDate() + Number(relativeMatch[1] || 0));
+    return future;
+  }
+
+  if (/^\d{4}-\d{2}-\d{2}$/.test(text)) {
+    const [year, month, day] = text.split("-").map(Number);
+    return new Date(Date.UTC(year, month - 1, day));
+  }
+
+  return null;
+}
+
+function buildStudyDate(referenceDate = new Date()) {
+  const parts = new Intl.DateTimeFormat("en-CA", {
+    timeZone: "America/Toronto",
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit"
+  }).formatToParts(referenceDate);
+
+  const year = Number(parts.find((part) => part.type === "year")?.value || 0);
+  const month = Number(parts.find((part) => part.type === "month")?.value || 1);
+  const day = Number(parts.find((part) => part.type === "day")?.value || 1);
+
+  return new Date(Date.UTC(year, month - 1, day));
 }

@@ -1365,9 +1365,14 @@ async function buildDashboardPayloadFromJson() {
   ]);
 
   const recurringTasks = buildRecurringClubTasks();
-  const todayTasks = dedupeDashboardTasks([...toArray(todayData.tasks), ...recurringTasks.filter((task) => task.bucket === "today").map(stripTaskBucket)]);
-  const weekTasks = dedupeDashboardTasks([...toArray(weekData.tasks), ...recurringTasks.filter((task) => task.bucket === "week").map(stripTaskBucket)]);
-  const nextWeekTasks = dedupeDashboardTasks([...toArray(nextWeekData.tasks), ...recurringTasks.filter((task) => task.bucket === "nextWeek").map(stripTaskBucket)]);
+  const normalizedBuckets = normalizeDashboardBuckets({
+    today: [...toArray(todayData.tasks), ...recurringTasks.filter((task) => task.bucket === "today").map(stripTaskBucket)],
+    week: [...toArray(weekData.tasks), ...recurringTasks.filter((task) => task.bucket === "week").map(stripTaskBucket)],
+    nextWeek: [...toArray(nextWeekData.tasks), ...recurringTasks.filter((task) => task.bucket === "nextWeek").map(stripTaskBucket)]
+  });
+  const todayTasks = dedupeDashboardTasks(normalizedBuckets.today);
+  const weekTasks = dedupeDashboardTasks(normalizedBuckets.week);
+  const nextWeekTasks = dedupeDashboardTasks(normalizedBuckets.nextWeek);
   const mistakes = toArray(mistakesData.mistakes);
 
   return {
@@ -1565,6 +1570,65 @@ function scoreTask(task) {
   const resourceScore = task?.resourceLink || task?.resourceLabel ? 1 : 0;
 
   return priorityScore * 10 + dueDateScore * 2 + resourceScore;
+}
+
+function normalizeDashboardBuckets(taskBuckets, referenceDate = new Date()) {
+  const today = buildStudyDate(referenceDate);
+  return {
+    today: toArray(taskBuckets.today).filter((task) => taskMatchesBucket(task, "today", today)),
+    week: toArray(taskBuckets.week).filter((task) => taskMatchesBucket(task, "week", today)),
+    nextWeek: toArray(taskBuckets.nextWeek).filter((task) => taskMatchesBucket(task, "nextWeek", today))
+  };
+}
+
+function taskMatchesBucket(task, bucket, today) {
+  const parsed = parseDashboardDueDate(task?.dueDate, today);
+  if (!parsed) {
+    return true;
+  }
+
+  const diffDays = Math.round((parsed.getTime() - today.getTime()) / (1000 * 60 * 60 * 24));
+  if (bucket === "today") {
+    return diffDays === 0;
+  }
+  if (bucket === "week") {
+    return diffDays >= 1 && diffDays <= 7;
+  }
+  if (bucket === "nextWeek") {
+    return diffDays >= 8;
+  }
+  return true;
+}
+
+function parseDashboardDueDate(value, today = buildStudyDate()) {
+  const text = String(value || "").trim();
+  if (!text) {
+    return null;
+  }
+
+  if (/^today$/i.test(text)) {
+    return today;
+  }
+
+  if (/^tomorrow$/i.test(text)) {
+    const tomorrow = new Date(today);
+    tomorrow.setUTCDate(tomorrow.getUTCDate() + 1);
+    return tomorrow;
+  }
+
+  const relativeMatch = text.match(/^in\s+(\d+)\s+days?$/i);
+  if (relativeMatch) {
+    const future = new Date(today);
+    future.setUTCDate(future.getUTCDate() + Number(relativeMatch[1] || 0));
+    return future;
+  }
+
+  if (/^\d{4}-\d{2}-\d{2}$/.test(text)) {
+    const [year, month, day] = text.split("-").map(Number);
+    return new Date(Date.UTC(year, month - 1, day));
+  }
+
+  return null;
 }
 
 function countMistakesForReview(mistakes) {
