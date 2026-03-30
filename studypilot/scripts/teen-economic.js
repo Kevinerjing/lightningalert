@@ -69,7 +69,7 @@
         <h3>${escapeHtml(file.englishTitle || file.label || "Source PDF")}</h3>
         <p class="muted"><strong>File:</strong> ${escapeHtml(file.label || "Unknown file")}</p>
         <p class="muted">${escapeHtml(file.note || "")}</p>
-        ${file.url ? `<p><a class="inline-link" href="${escapeHtml(file.url)}" target="_blank" rel="noopener noreferrer">Open PDF</a></p>` : ""}
+        ${file.url ? `<p><a class="teen-pdf-link" href="${escapeHtml(file.url)}" target="_blank" rel="noopener noreferrer">Open PDF</a></p>` : ""}
       </article>
     `;
   }
