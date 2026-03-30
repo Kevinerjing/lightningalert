@@ -942,7 +942,7 @@ h3 {
 .chat-form {
   display: grid;
   gap: 0.6rem;
-  align-items: end;
+  align-items: stretch;
 }
 
 .chat-form textarea {
@@ -959,8 +959,9 @@ h3 {
 }
 
 .chat-form .send-button {
-  position: sticky;
-  bottom: 0;
+  position: static;
+  width: 100%;
+  margin-top: 0.1rem;
 }
 
 .chat-message {
