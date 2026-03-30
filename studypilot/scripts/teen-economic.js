@@ -71,7 +71,7 @@
   function buildTeenEconomicPrompt(articleId, articles) {
     const article = (articles || []).find((item) => item.id === articleId) || articles[0] || null;
     const slotLabel = article?.tabLabel || "this article slot";
-    return `This is a Teen Economic lesson PDF. Please extract the English title, a short summary, key English, the main question brief, answer starter, and Feynman practice. I want this to replace ${slotLabel} on the Teen Economic page. Do not update Science, Math, English, or Mistakes pages.`;
+    return `This is a Teen Economic lesson PDF. Target Teen Economic slot: ${articleId}. Please extract the English title, a short summary, key English, the main question brief, answer starter, and Feynman practice. I want this to replace ${slotLabel} on the Teen Economic page. Do not update Science, Math, English, or Mistakes pages.`;
   }
 
   function initializeUploadWorkflow(articles) {
@@ -108,7 +108,7 @@
       const articleId = slotSelect.value;
       window.StudyChatBridge.openWithDraft({
         prompt: buildTeenEconomicPrompt(articleId, articles),
-        chatMode: "support",
+        chatMode: "teen-economic-update",
         files: [selected]
       });
 
@@ -291,7 +291,8 @@
   }
 
   async function initTeenEconomicPage() {
-    const data = await fetchJson("data/teen-economic.json", {});
+    const fallbackData = await fetchJson("data/teen-economic.json", {});
+    const data = await fetchJson("/api/studypilot-teen-economic", fallbackData);
     const pack = data.currentPack || {};
     const articles = Array.isArray(pack.articles) ? pack.articles : [];
     let activeId = articles[0]?.id || "";

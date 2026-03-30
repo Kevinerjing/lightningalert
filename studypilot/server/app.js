@@ -113,6 +113,17 @@ app.get("/api/studypilot-review", async (_request, response) => {
   }
 });
 
+app.get("/api/studypilot-teen-economic", async (_request, response) => {
+  try {
+    response.json(await buildTeenEconomicPayloadFromJson());
+  } catch (error) {
+    console.error("StudyPilot Teen Economic request failed:", error);
+    response.status(500).json({
+      error: error?.message || "Could not build Teen Economic payload."
+    });
+  }
+});
+
 app.post("/api/studypilot-topic-card/archive", async (request, response) => {
   try {
     const subject = normalizeSubject(request.body?.subject);
@@ -174,20 +185,26 @@ app.post("/api/studypilot-chat", upload.array("files", 5), async (request, respo
 
     const aiResponse = await client.responses.create({
       model: OPENAI_MODEL,
-      instructions: buildInstructions(page, requestHints),
+      instructions: requestHints.teenEconomicMode
+        ? buildTeenEconomicInstructions(page, requestHints)
+        : buildInstructions(page, requestHints),
       input,
       text: {
         format: {
           type: "json_schema",
-          name: "studypilot_chat_result",
+          name: requestHints.teenEconomicMode ? "studypilot_teen_economic_result" : "studypilot_chat_result",
           strict: true,
-          schema: getStudyPilotResponseSchema()
+          schema: requestHints.teenEconomicMode
+            ? getTeenEconomicResponseSchema()
+            : getStudyPilotResponseSchema()
         }
       }
     });
 
     const parsedResult = enforceDirectAnswer(parseModelResult(aiResponse.output_text), requestHints);
-    const { appliedUpdates, d1Sync } = await applyStudyPilotUpdates(parsedResult, uploadedFiles);
+    const { appliedUpdates, d1Sync } = requestHints.teenEconomicMode
+      ? await applyTeenEconomicUpdate(parsedResult, uploadedFiles, requestHints)
+      : await applyStudyPilotUpdates(parsedResult, uploadedFiles);
 
     response.json({
       reply: parsedResult.reply || "No text reply returned from OpenAI.",
@@ -259,6 +276,21 @@ function buildInstructions(page, requestHints) {
     "For mistake entries, keep the explanation and correction clear enough for a student to review later on the webpage.",
     "Only create tasks when they are genuinely helpful, and keep them short and realistic.",
     "Use subjects Science, Math, English, or General.",
+    `Detected request hints: ${JSON.stringify(requestHints)}.`,
+    `The user is currently on the StudyPilot page: ${page}.`
+  ].join(" ");
+}
+
+function buildTeenEconomicInstructions(page, requestHints) {
+  return [
+    "You are Codex inside the StudyPilot app, helping build the Teen Economic weekly pack page.",
+    "Keep answers concise, student-friendly, and focused on one Teen Economic article slot only.",
+    "Return structured JSON only using the required schema.",
+    "Do not create Science, Math, English, Mistakes, or general StudyPilot support updates.",
+    "Extract an English title, a short summary, key English, the main question brief, an answer starter, and Feynman practice.",
+    "Keep the English simple enough for a student to read independently.",
+    "The answer starter should help the student begin, but should not be a full essay.",
+    "If a target Teen Economic slot is provided, replace that slot only.",
     `Detected request hints: ${JSON.stringify(requestHints)}.`,
     `The user is currently on the StudyPilot page: ${page}.`
   ].join(" ");
@@ -444,6 +476,80 @@ function parseModelResult(outputText) {
   }
 }
 
+function getTeenEconomicResponseSchema() {
+  return {
+    type: "object",
+    additionalProperties: false,
+    required: ["reply", "articleUpdate"],
+    properties: {
+      reply: { type: "string" },
+      articleUpdate: {
+        type: "object",
+        additionalProperties: false,
+        required: [
+          "title",
+          "summary",
+          "sourceFileEnglishTitle",
+          "sourceNote",
+          "keyEnglish",
+          "questionBrief",
+          "answerStarter",
+          "feynmanPractice"
+        ],
+        properties: {
+          title: { type: "string" },
+          summary: { type: "string" },
+          sourceFileEnglishTitle: { type: "string" },
+          sourceNote: { type: "string" },
+          keyEnglish: {
+            type: "array",
+            items: {
+              type: "object",
+              additionalProperties: false,
+              required: ["term", "meaning", "support"],
+              properties: {
+                term: { type: "string" },
+                meaning: { type: "string" },
+                support: { type: "string" }
+              }
+            }
+          },
+          questionBrief: {
+            type: "object",
+            additionalProperties: false,
+            required: ["question", "whatItMeans", "whatToDo"],
+            properties: {
+              question: { type: "string" },
+              whatItMeans: { type: "string" },
+              whatToDo: stringArraySchema()
+            }
+          },
+          answerStarter: {
+            type: "object",
+            additionalProperties: false,
+            required: ["paragraph", "sentenceStarters"],
+            properties: {
+              paragraph: { type: "string" },
+              sentenceStarters: stringArraySchema()
+            }
+          },
+          feynmanPractice: {
+            type: "object",
+            additionalProperties: false,
+            required: ["simpleExplainPrompt", "ownExamplePrompt", "confusionPrompt", "retryPrompt"],
+            properties: {
+              simpleExplainPrompt: { type: "string" },
+              ownExamplePrompt: { type: "string" },
+              confusionPrompt: { type: "string" },
+              retryPrompt: { type: "string" }
+            }
+          }
+        }
+      }
+    }
+  };
+}
+
 function enforceDirectAnswer(result, requestHints) {
   const normalized = result && typeof result === "object" ? { ...result } : {};
   const directQuestionRequested = Boolean(requestHints?.directQuestionRequested);
@@ -615,6 +721,7 @@ function inferRequestHints(message, page, uploadedFiles, chatMode = "") {
   const normalizedChatMode = String(chatMode || "").toLowerCase();
   const fileNames = uploadedFiles.map((file) => String(file.originalname || "").toLowerCase()).join(" ");
   const combined = `${normalizedMessage} ${normalizedPage} ${fileNames}`;
+  const teenEconomicSlotMatch = String(message || "").match(/target teen economic slot:\s*([a-z0-9-]+)/i);
 
   let subjectHint = "General";
   if (combined.includes("science") || normalizedPage.includes("science")) {
@@ -649,6 +756,10 @@ function inferRequestHints(message, page, uploadedFiles, chatMode = "") {
     directQuestionRequested,
     chatOnlyMode: normalizedChatMode === "chat-only",
     taskOnlyMode: normalizedChatMode === "task-only",
+    teenEconomicMode: normalizedPage.includes("teen-economic")
+      || normalizedChatMode === "teen-economic-update"
+      || combined.includes("teen economic"),
+    teenEconomicSlot: teenEconomicSlotMatch?.[1] || "",
     explicitUpdateRequested,
     explicitSupportRequested,
     mathPracticeLikely
@@ -1606,4 +1717,62 @@ function getReviewSuggestion(total) {
     return "Complete the one review item carefully and write one sentence about what changed in your thinking.";
   }
   return "No urgent review items today. Use the time for preview or extra practice.";
+}
+
+async function buildTeenEconomicPayloadFromJson() {
+  return readJson(path.join(dataRoot, "teen-economic.json"), { currentPack: { articles: [], overview: [], weeklyTasks: [] } });
+}
+
+async function applyTeenEconomicUpdate(result, uploadedFiles, requestHints) {
+  const savedFiles = await saveUploadedFiles("slide_material", uploadedFiles);
+  const filePath = path.join(dataRoot, "teen-economic.json");
+  const data = await readJson(filePath, { currentPack: { articles: [], overview: [], weeklyTasks: [] } });
+  const articles = Array.isArray(data.currentPack?.articles) ? data.currentPack.articles : [];
+  const targetId = requestHints.teenEconomicSlot || articles[0]?.id || "";
+  const targetIndex = Math.max(0, articles.findIndex((article) => article.id === targetId));
+  const existingArticle = articles[targetIndex] || {};
+  const nextArticle = mapTeenEconomicArticle(existingArticle, result.articleUpdate, savedFiles);
+
+  if (!data.currentPack || typeof data.currentPack !== "object") {
+    data.currentPack = { articles: [] };
+  }
+
+  const nextArticles = [...articles];
+  nextArticles[targetIndex] = nextArticle;
+  data.currentPack.articles = nextArticles;
+  await writeJson(filePath, data);
+
+  return {
+    appliedUpdates: [
+      {
+        type: "teen-economic",
+        target: "Teen Economic page",
+        detail: `Replaced ${nextArticle.tabLabel || "Teen Economic article"}: ${nextArticle.title}`
+      }
+    ],
+    d1Sync: {
+      attempted: false,
+      status: "skipped"
+    }
+  };
+}
+
+function mapTeenEconomicArticle(existingArticle, articleUpdate, savedFiles) {
+  const firstFile = savedFiles[0] || null;
+  return {
+    ...existingArticle,
+    title: articleUpdate.title || existingArticle.title || "Teen Economic article",
+    summary: articleUpdate.summary || existingArticle.summary || "",
+    sourceFile: {
+      ...(existingArticle.sourceFile || {}),
+      label: firstFile?.name || existingArticle.sourceFile?.label || "Teen Economic PDF",
+      englishTitle: articleUpdate.sourceFileEnglishTitle || existingArticle.sourceFile?.englishTitle || articleUpdate.title || "",
+      note: articleUpdate.sourceNote || existingArticle.sourceFile?.note || "",
+      url: firstFile ? `/${firstFile.relativePath}` : existingArticle.sourceFile?.url || ""
+    },
+    keyEnglish: Array.isArray(articleUpdate.keyEnglish) ? articleUpdate.keyEnglish : [],
+    questionBrief: articleUpdate.questionBrief || existingArticle.questionBrief || {},
+    answerStarter: articleUpdate.answerStarter || existingArticle.answerStarter || {},
+    feynmanPractice: articleUpdate.feynmanPractice || existingArticle.feynmanPractice || {}
+  };
 }

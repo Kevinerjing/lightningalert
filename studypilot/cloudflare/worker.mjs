@@ -40,6 +40,10 @@ export default {
       return handleReviewRequest(env);
     }
 
+    if (url.pathname === "/api/studypilot-teen-economic") {
+      return handleTeenEconomicRequest(env);
+    }
+
     if (url.pathname === "/api/studypilot-topic-card/archive" && request.method === "POST") {
       return handleArchiveTopicCard(request, env);
     }
@@ -97,14 +101,18 @@ async function handleStudyPilotChat(request, env, ctx) {
       },
       body: JSON.stringify({
         model: env.OPENAI_MODEL || "gpt-5",
-        instructions: buildInstructions(page, requestHints),
+        instructions: requestHints.teenEconomicMode
+          ? buildTeenEconomicInstructions(page, requestHints)
+          : buildInstructions(page, requestHints),
         input,
         text: {
           format: {
             type: "json_schema",
-            name: "studypilot_chat_result",
+            name: requestHints.teenEconomicMode ? "studypilot_teen_economic_result" : "studypilot_chat_result",
             strict: true,
-            schema: getStudyPilotResponseSchema()
+            schema: requestHints.teenEconomicMode
+              ? getTeenEconomicResponseSchema()
+              : getStudyPilotResponseSchema()
           }
         }
       })
@@ -126,7 +134,9 @@ async function handleStudyPilotChat(request, env, ctx) {
     }
 
     const parsedResult = enforceDirectAnswer(parseModelResultFromPayload(payload), requestHints);
-    const appliedUpdates = await applyStudyPilotD1Updates(env, parsedResult, uploadedFileRecords);
+    const appliedUpdates = requestHints.teenEconomicMode
+      ? await applyTeenEconomicD1Update(env, parsedResult, uploadedFileRecords, requestHints)
+      : await applyStudyPilotD1Updates(env, parsedResult, uploadedFileRecords);
 
     return jsonResponse({
       reply: parsedResult.reply || "No text reply returned from OpenAI.",
@@ -349,6 +359,21 @@ function buildInstructions(page, requestHints) {
   ].join(" ");
 }
 
+function buildTeenEconomicInstructions(page, requestHints) {
+  return [
+    "You are Codex inside the StudyPilot app, helping build the Teen Economic weekly pack page.",
+    "Keep answers concise, student-friendly, and focused on one Teen Economic article slot only.",
+    "Return structured JSON only using the required schema.",
+    "Do not create Science, Math, English, Mistakes, or general StudyPilot support updates.",
+    "Extract an English title, a short summary, key English, the main question brief, an answer starter, and Feynman practice.",
+    "Keep the English simple enough for a student to read independently.",
+    "The answer starter should help the student begin, but should not be a full essay.",
+    "If a target Teen Economic slot is provided, replace that slot only.",
+    `Detected request hints: ${JSON.stringify(requestHints)}.`,
+    `The user is currently on the StudyPilot page: ${page}.`
+  ].join(" ");
+}
+
 function buildConversationInput(history, message, page, files, requestHints) {
   const sanitizedHistory = history
     .filter((item) => item && (item.role === "user" || item.role === "assistant"))
@@ -492,6 +517,7 @@ function inferRequestHints(message, page, files, chatMode = "") {
   const normalizedChatMode = String(chatMode || "").toLowerCase();
   const fileNames = files.map((file) => String(file.name || "").toLowerCase()).join(" ");
   const combined = `${normalizedMessage} ${normalizedPage} ${fileNames}`;
+  const teenEconomicSlotMatch = String(message || "").match(/target teen economic slot:\s*([a-z0-9-]+)/i);
 
   let subjectHint = "General";
   if (combined.includes("science") || normalizedPage.includes("science")) {
@@ -518,6 +544,10 @@ function inferRequestHints(message, page, files, chatMode = "") {
     directQuestionRequested: /(\bwhat is\b|\bwhat do i write\b|\bwhat goes in\b|\bfill in\b|\bblank\b|\bwhich answer\b|\bwhat should i put\b|\?)/.test(normalizedMessage),
     chatOnlyMode: normalizedChatMode === "chat-only",
     taskOnlyMode: normalizedChatMode === "task-only",
+    teenEconomicMode: normalizedPage.includes("teen-economic")
+      || normalizedChatMode === "teen-economic-update"
+      || combined.includes("teen economic"),
+    teenEconomicSlot: teenEconomicSlotMatch?.[1] || "",
     explicitUpdateRequested: /(update the website|update the page|update the support|add this to the page|save this to the page)/.test(normalizedMessage),
     explicitSupportRequested: /(support card|study card|update math support|update the math support|update science support|turn this into study support)/.test(normalizedMessage),
     mathPracticeLikely:
@@ -643,6 +673,80 @@ function getStudyPilotResponseSchema() {
   };
 }
 
+function getTeenEconomicResponseSchema() {
+  return {
+    type: "object",
+    additionalProperties: false,
+    required: ["reply", "articleUpdate"],
+    properties: {
+      reply: { type: "string" },
+      articleUpdate: {
+        type: "object",
+        additionalProperties: false,
+        required: [
+          "title",
+          "summary",
+          "sourceFileEnglishTitle",
+          "sourceNote",
+          "keyEnglish",
+          "questionBrief",
+          "answerStarter",
+          "feynmanPractice"
+        ],
+        properties: {
+          title: { type: "string" },
+          summary: { type: "string" },
+          sourceFileEnglishTitle: { type: "string" },
+          sourceNote: { type: "string" },
+          keyEnglish: {
+            type: "array",
+            items: {
+              type: "object",
+              additionalProperties: false,
+              required: ["term", "meaning", "support"],
+              properties: {
+                term: { type: "string" },
+                meaning: { type: "string" },
+                support: { type: "string" }
+              }
+            }
+          },
+          questionBrief: {
+            type: "object",
+            additionalProperties: false,
+            required: ["question", "whatItMeans", "whatToDo"],
+            properties: {
+              question: { type: "string" },
+              whatItMeans: { type: "string" },
+              whatToDo: stringArraySchema()
+            }
+          },
+          answerStarter: {
+            type: "object",
+            additionalProperties: false,
+            required: ["paragraph", "sentenceStarters"],
+            properties: {
+              paragraph: { type: "string" },
+              sentenceStarters: stringArraySchema()
+            }
+          },
+          feynmanPractice: {
+            type: "object",
+            additionalProperties: false,
+            required: ["simpleExplainPrompt", "ownExamplePrompt", "confusionPrompt", "retryPrompt"],
+            properties: {
+              simpleExplainPrompt: { type: "string" },
+              ownExamplePrompt: { type: "string" },
+              confusionPrompt: { type: "string" },
+              retryPrompt: { type: "string" }
+            }
+          }
+        }
+      }
+    }
+  };
+}
+
 function stringArraySchema() {
   return {
     type: "array",
@@ -692,6 +796,124 @@ async function applyStudyPilotD1Updates(env, result, uploadedFiles) {
   }
 
   return updates;
+}
+
+async function handleTeenEconomicRequest(env) {
+  try {
+    return jsonResponse(await fetchTeenEconomicDocument(env));
+  } catch (error) {
+    return jsonResponse(
+      {
+        error: error instanceof Error ? error.message : "Could not load Teen Economic page."
+      },
+      500
+    );
+  }
+}
+
+async function applyTeenEconomicD1Update(env, result, uploadedFiles, requestHints) {
+  if (!env.studypilot) {
+    return [];
+  }
+
+  if (uploadedFiles.length) {
+    await upsertUploadRecords(env, uploadedFiles);
+  }
+
+  const payload = await fetchTeenEconomicDocument(env);
+  const articles = Array.isArray(payload.currentPack?.articles) ? payload.currentPack.articles : [];
+  const targetId = requestHints.teenEconomicSlot || articles[0]?.id || "";
+  const targetIndex = Math.max(0, articles.findIndex((article) => article.id === targetId));
+  const existingArticle = articles[targetIndex] || {};
+  const nextArticle = mapTeenEconomicArticle(existingArticle, result.articleUpdate, uploadedFiles);
+  const nextArticles = [...articles];
+  nextArticles[targetIndex] = nextArticle;
+
+  payload.currentPack = {
+    ...(payload.currentPack || {}),
+    articles: nextArticles
+  };
+
+  await upsertTeenEconomicDocument(env, payload);
+
+  return [
+    {
+      type: "teen-economic",
+      target: "Teen Economic page",
+      detail: `Replaced ${nextArticle.tabLabel || "Teen Economic article"}: ${nextArticle.title}`
+    }
+  ];
+}
+
+async function ensureAppDocumentsTable(env) {
+  await env.studypilot.prepare(`
+    CREATE TABLE IF NOT EXISTS app_documents (
+      doc_key TEXT PRIMARY KEY,
+      payload_json TEXT NOT NULL,
+      updated_at TEXT NOT NULL
+    )
+  `).run();
+}
+
+async function fetchTeenEconomicDocument(env) {
+  if (!env.studypilot) {
+    return fetchTeenEconomicStaticAsset(env);
+  }
+
+  await ensureAppDocumentsTable(env);
+  const row = await env.studypilot.prepare(`
+    SELECT payload_json
+    FROM app_documents
+    WHERE doc_key = 'teen-economic'
+    LIMIT 1
+  `).first();
+
+  if (row?.payload_json) {
+    return JSON.parse(String(row.payload_json));
+  }
+
+  return fetchTeenEconomicStaticAsset(env);
+}
+
+async function upsertTeenEconomicDocument(env, payload) {
+  await ensureAppDocumentsTable(env);
+  const now = new Date().toISOString();
+  await env.studypilot.prepare(`
+    INSERT INTO app_documents (doc_key, payload_json, updated_at)
+    VALUES ('teen-economic', ?, ?)
+    ON CONFLICT(doc_key) DO UPDATE SET
+      payload_json = excluded.payload_json,
+      updated_at = excluded.updated_at
+  `).bind(JSON.stringify(payload), now).run();
+}
+
+async function fetchTeenEconomicStaticAsset(env) {
+  const request = new Request("https://studypilot.local/data/teen-economic.json");
+  const response = await env.ASSETS.fetch(request);
+  if (!response.ok) {
+    throw new Error("Could not load Teen Economic fallback data.");
+  }
+  return response.json();
+}
+
+function mapTeenEconomicArticle(existingArticle, articleUpdate, uploadedFiles) {
+  const firstFile = uploadedFiles[0] || null;
+  return {
+    ...existingArticle,
+    title: articleUpdate.title || existingArticle.title || "Teen Economic article",
+    summary: articleUpdate.summary || existingArticle.summary || "",
+    sourceFile: {
+      ...(existingArticle.sourceFile || {}),
+      label: firstFile?.name || existingArticle.sourceFile?.label || "Teen Economic PDF",
+      englishTitle: articleUpdate.sourceFileEnglishTitle || existingArticle.sourceFile?.englishTitle || articleUpdate.title || "",
+      note: articleUpdate.sourceNote || existingArticle.sourceFile?.note || "",
+      url: firstFile?.publicUrl || existingArticle.sourceFile?.url || ""
+    },
+    keyEnglish: Array.isArray(articleUpdate.keyEnglish) ? articleUpdate.keyEnglish : [],
+    questionBrief: articleUpdate.questionBrief || existingArticle.questionBrief || {},
+    answerStarter: articleUpdate.answerStarter || existingArticle.answerStarter || {},
+    feynmanPractice: articleUpdate.feynmanPractice || existingArticle.feynmanPractice || {}
+  };
 }
 
 async function upsertUploadRecords(env, uploadedFiles) {
