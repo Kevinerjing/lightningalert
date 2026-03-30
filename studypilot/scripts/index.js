@@ -11,12 +11,11 @@ document.addEventListener("DOMContentLoaded", async () => {
   renderTaskGroups("week-tasks", weekTasks);
   renderTaskGroups("next-week-tasks", nextWeekTasks);
 
-  document.getElementById("today-total").textContent = String(Number(dashboardData?.totals?.today ?? todayTasks.length));
-  document.getElementById("week-total").textContent = String(Number(dashboardData?.totals?.week ?? weekTasks.length));
-  document.getElementById("next-week-total").textContent = String(Number(dashboardData?.totals?.nextWeek ?? nextWeekTasks.length));
+  refreshTaskTotals();
   document.getElementById("mistakes-total").textContent = String(reviewCount);
 
   setupTaskSwitcher();
+  document.addEventListener("studypilot:tasks-changed", refreshTaskTotals);
 });
 
 function setupTaskSwitcher() {
@@ -37,6 +36,23 @@ function setupTaskSwitcher() {
       }
     });
   });
+}
+
+function refreshTaskTotals() {
+  setTaskTotal("today-total", "today-tasks");
+  setTaskTotal("week-total", "week-tasks");
+  setTaskTotal("next-week-total", "next-week-tasks");
+}
+
+function setTaskTotal(totalId, panelId) {
+  const totalNode = document.getElementById(totalId);
+  const panel = document.getElementById(panelId);
+  if (!totalNode || !panel) {
+    return;
+  }
+
+  const remaining = panel.querySelectorAll(".task-item .task-complete-toggle:not(:checked)").length;
+  totalNode.textContent = String(remaining);
 }
 
 async function loadDashboardData(fetchJson) {

@@ -560,6 +560,7 @@
           return;
         }
         reorderTaskItems(groupCard);
+        document.dispatchEvent(new CustomEvent("studypilot:tasks-changed"));
       });
     });
   }
