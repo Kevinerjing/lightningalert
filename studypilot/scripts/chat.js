@@ -227,14 +227,16 @@
           <div id="chat-attachments" class="chat-attachments"></div>
           <form id="chat-form" class="chat-form">
             <label class="visually-hidden" for="chat-input">Message for ${escape(config.assistantName)}</label>
-            <textarea
-              id="chat-input"
-              name="message"
-              rows="4"
-              placeholder="Example: This is a question from my science PDF. Please give the direct answer first in one short sentence."
-              required
-            ></textarea>
-            <button id="chat-send-button" class="send-button" type="submit">Send to ${escape(config.assistantName)}</button>
+            <div class="chat-input-shell">
+              <textarea
+                id="chat-input"
+                name="message"
+                rows="4"
+                placeholder="Example: This is a question from my science PDF. Please give the direct answer first in one short sentence."
+                required
+              ></textarea>
+              <button id="chat-send-button" class="send-button chat-send-inline" type="submit">Send</button>
+            </div>
           </form>
         </div>
       </section>
