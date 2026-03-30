@@ -384,7 +384,7 @@
         if (Array.isArray(files) && files.length) {
           state.pendingFiles = [
             ...state.pendingFiles,
-            ...files.filter(Boolean).map(simplifyFile)
+            ...files.filter(Boolean)
           ];
           renderPendingFiles(ui.attachmentsNode, state.pendingFiles);
         }
@@ -517,12 +517,13 @@
   }
 
   function simplifyFile(file) {
+    const rawFile = file && file.rawFile instanceof Blob ? file.rawFile : file;
     return {
-      name: file.name,
-      type: file.type || "application/octet-stream",
-      size: file.size,
-      sizeLabel: formatSize(file.size),
-      rawFile: file
+      name: rawFile?.name || file?.name || "Attached file",
+      type: rawFile?.type || file?.type || "application/octet-stream",
+      size: rawFile?.size || file?.size || 0,
+      sizeLabel: formatSize(rawFile?.size || file?.size || 0),
+      rawFile
     };
   }
 
