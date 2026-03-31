@@ -1253,7 +1253,11 @@ async function handleDashboardRequest(env) {
     `);
 
     const [taskResult, reviewResult] = await env.studypilot.batch([taskStatement, reviewCountStatement]);
-    const allTasks = [...(taskResult.results || []).map(mapD1TaskRow), ...buildRecurringClubTasks().map(stripTaskBucket)];
+    const allTasks = [
+      ...(taskResult.results || []).map(mapD1TaskRow),
+      ...buildRecurringClubTasks().map(stripTaskBucket),
+      ...buildRecurringGrade10MathTasks().map(stripTaskBucket)
+    ];
     const normalizedBuckets = normalizeDashboardBuckets({
       today: allTasks.filter((task) => task.bucket === "today"),
       week: allTasks.filter((task) => task.bucket === "week"),
@@ -1335,6 +1339,33 @@ function buildRecurringClubTasks(referenceDate = new Date()) {
       };
     })
   ];
+}
+
+function buildRecurringGrade10MathTasks(referenceDate = new Date()) {
+  const today = buildStudyDate(referenceDate);
+  const grade10MathDays = [
+    { weekday: 1, label: "Monday" },
+    { weekday: 2, label: "Tuesday" },
+    { weekday: 3, label: "Wednesday" },
+    { weekday: 4, label: "Thursday" },
+    { weekday: 5, label: "Friday" }
+  ];
+
+  return grade10MathDays.map(({ weekday, label }) => {
+    const targetDate = getNextWeekday(today, weekday, true);
+    return {
+      bucket: getRecurringBucketForDate(targetDate, today),
+      subject: "Math",
+      topic: "Grade 10 math daily practice",
+      type: "routine",
+      note: `${label} routine: do a short Grade 10 math practice set, show your steps, and check one mistake before finishing.`,
+      dueDate: toIsoDate(targetDate),
+      priority: "Medium",
+      resourceLabel: "Open Grade 10 geometry skill map",
+      resourceLink: "resources/math/grade-10-geometry-skill-map.html",
+      source: "recurring-grade10-math"
+    };
+  });
 }
 
 function getNextWeekday(fromDate, targetWeekday, includeToday = false) {
@@ -1471,9 +1502,9 @@ function scoreTask(task) {
 function normalizeDashboardBuckets(taskBuckets, referenceDate = new Date()) {
   const today = buildStudyDate(referenceDate);
   return {
-    today: toList(taskBuckets.today).filter((task) => taskMatchesBucket(task, "today", today)),
-    week: toList(taskBuckets.week).filter((task) => taskMatchesBucket(task, "week", today)),
-    nextWeek: toList(taskBuckets.nextWeek).filter((task) => taskMatchesBucket(task, "nextWeek", today))
+    today: (Array.isArray(taskBuckets.today) ? taskBuckets.today : []).filter((task) => taskMatchesBucket(task, "today", today)),
+    week: (Array.isArray(taskBuckets.week) ? taskBuckets.week : []).filter((task) => taskMatchesBucket(task, "week", today)),
+    nextWeek: (Array.isArray(taskBuckets.nextWeek) ? taskBuckets.nextWeek : []).filter((task) => taskMatchesBucket(task, "nextWeek", today))
   };
 }
 

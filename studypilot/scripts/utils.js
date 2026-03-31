@@ -127,6 +127,33 @@
     ];
   }
 
+  function buildRecurringGrade10MathTasks(referenceDate = new Date()) {
+    const today = buildStudyDate(referenceDate);
+    const grade10MathDays = [
+      { weekday: 1, label: "Monday" },
+      { weekday: 2, label: "Tuesday" },
+      { weekday: 3, label: "Wednesday" },
+      { weekday: 4, label: "Thursday" },
+      { weekday: 5, label: "Friday" }
+    ];
+
+    return grade10MathDays.map(({ weekday, label }) => {
+      const targetDate = getNextWeekday(today, weekday, true);
+      return {
+        bucket: getRecurringBucketForDate(targetDate, today),
+        subject: "Math",
+        topic: "Grade 10 math daily practice",
+        type: "routine",
+        note: `${label} routine: do a short Grade 10 math practice set, show your steps, and check one mistake before finishing.`,
+        dueDate: toIsoDate(targetDate),
+        priority: "Medium",
+        resourceLabel: "Open Grade 10 geometry skill map",
+        resourceLink: "resources/math/grade-10-geometry-skill-map.html",
+        source: "recurring-grade10-math"
+      };
+    });
+  }
+
   function getNextWeekday(fromDate, targetWeekday, includeToday = false) {
     const start = new Date(fromDate);
     const current = start.getUTCDay();
@@ -173,6 +200,7 @@
 
   window.StudyUtils = {
     buildRecurringClubTasks,
+    buildRecurringGrade10MathTasks,
     createEmptyState,
     escapeHtml,
     fetchJson,
