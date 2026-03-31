@@ -1,14 +1,14 @@
 {
-  "boardDate": "2026-03-30",
-  "generatedAt": "2026-03-30T12:09:55.310Z",
+  "boardDate": "2026-03-31",
+  "generatedAt": "2026-03-31T12:08:34.754Z",
   "sourceCount": 26,
   "weather": [
     {
       "city": "Ottawa",
-      "temperatureC": 1,
-      "maxC": 14,
-      "minC": 0,
-      "summary": "Partly cloudy"
+      "temperatureC": 2,
+      "maxC": 7,
+      "minC": 2,
+      "summary": "Light drizzle"
     }
   ],
   "extremeWeather": [
@@ -42,6 +42,15 @@
   ],
   "climate": [
     {
+      "title": "More drilling in North Sea ‘not the answer’ for UK energy security, say former military leaders",
+      "whatHappened": "Government told to focus on transition to mix of wind, solar, tidal and nuclear energy More drilling in the North Sea would do nothing to improve...",
+      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
+      "keyWord": "climate: the usual pattern of weather over a long period of time",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/environment/2026/mar/31/drilling-north-sea-not-the-answer-uk-energy-security",
+      "publishedAt": "2026-03-31T05:00:32.000Z"
+    },
+    {
       "title": "UN weather agency warns of record ‘climate imbalance’ as planetary warming accelerates",
       "whatHappened": "All-time high greenhouse gas concentrations in Earth’s atmosphere continue to drive heat records on land and sea, with long-lasting consequences for humanity, the World Meteorological Organization...",
       "whyItMatters": "Climate and environment stories connect science to real issues like safety, health, and extreme weather.",
@@ -60,22 +69,22 @@
       "publishedAt": "2026-03-16T12:00:00.000Z"
     },
     {
+      "title": "Demand for hydropower surges as Trump clamps down on clean energy",
+      "whatHappened": "Home to one of the world’s largest deposits of freshwater, the Great Lakes region will soon host next-generation generators – just as prices are being hiked...",
+      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
+      "keyWord": "climate: the usual pattern of weather over a long period of time",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/us-news/2026/mar/30/hydropower-great-lakes-clean-energy",
+      "publishedAt": "2026-03-30T13:00:11.000Z"
+    },
+    {
       "title": "Trump to revoke protections for endangered species in Gulf of Mexico",
-      "whatHappened": "President is convening so-called ‘God squad’ to override provisions of Endangered Species Act for ‘national security’ Donald Trump is dispatching a so-called “God squad” of top...",
+      "whatHappened": "President is convening so-called ‘God squad’ to override provisions of Endangered Species Act for ‘national security’ Sign up for the Breaking News US email to get...",
       "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
       "keyWord": "climate: the usual pattern of weather over a long period of time",
       "source": "The Guardian Environment",
       "url": "https://www.theguardian.com/us-news/2026/mar/30/trump-protections-endangered-species-gulf-of-mexico",
       "publishedAt": "2026-03-30T11:00:08.000Z"
-    },
-    {
-      "title": "Monday briefing: ​Has the single-use vape ban made any difference to our health or our environment?",
-      "whatHappened": "In today’s newsletter: Nearly a year after ​disposable vapes​ were outlawed, new figures suggest the policy has delivered only modest gains while creating new challenges Good...",
-      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
-      "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/world/2026/mar/30/monday-briefing-has-the-single-use-vape-ban-made-any-difference-to-our-health-or-our-environment",
-      "publishedAt": "2026-03-30T05:44:42.000Z"
     },
     {
       "title": "Wily coyote? Urban canines take more risks compared with rural ones, study finds",
@@ -85,18 +94,45 @@
       "source": "The Guardian Environment",
       "url": "https://www.theguardian.com/us-news/2026/mar/27/urban-rural-coyote-study",
       "publishedAt": "2026-03-27T14:00:03.000Z"
-    },
-    {
-      "title": "Heat pumps for all new homes and plug-in solar in green tech drive",
-      "whatHappened": "Solar panels that can be plugged in at home could be available to buy in supermarkets in the coming months.",
-      "whyItMatters": "Climate and environment stories connect science to real issues like safety, health, and extreme weather.",
-      "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "BBC Science & Environment",
-      "url": "https://www.bbc.com/news/articles/czjw7klkjm2o?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-03-24T15:37:53.000Z"
     }
   ],
   "weatherTech": [
+    {
+      "title": "More drilling in North Sea ‘not the answer’ for UK energy security, say former military leaders",
+      "whatHappened": "Government told to focus on transition to mix of wind, solar, tidal and nuclear energy More drilling in the North Sea would do nothing to improve...",
+      "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
+      "keyWord": "solar: related to energy from sunlight",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/environment/2026/mar/31/drilling-north-sea-not-the-answer-uk-energy-security",
+      "publishedAt": "2026-03-31T05:00:32.000Z"
+    },
+    {
+      "title": "Another Starlink satellite has inexplicably exploded",
+      "whatHappened": "SpaceX says it lost contact with a Starlink satellite after suffering an \"anomaly.\" SpaceX isn't saying exactly what happened, but space-tracking company LeoLabs says it \"immediately...",
+      "whyItMatters": "Weather technology shows how science tools can predict conditions faster and help people prepare earlier.",
+      "keyWord": "satellite: an object in space that collects information and sends it back to Earth",
+      "source": "The Verge",
+      "url": "https://www.theverge.com/science/903906/another-starlink-satellite-has-inexplicably-exploded",
+      "publishedAt": "2026-03-31T11:02:04.000Z"
+    },
+    {
+      "title": "Belkin’s battery-equipped Switch 2 case is more than 35 percent off right now",
+      "whatHappened": "Belkin makes some of the best zip-up cases for the Nintendo Switch 2.",
+      "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
+      "keyWord": "battery: a device that stores energy for later use",
+      "source": "The Verge",
+      "url": "https://www.theverge.com/gadgets/902603/belkin-charging-case-nintendo-switch-2-amazon-big-spring-sale-2026-deal",
+      "publishedAt": "2026-03-31T04:42:13.000Z"
+    },
+    {
+      "title": "Demand for hydropower surges as Trump clamps down on clean energy",
+      "whatHappened": "Home to one of the world’s largest deposits of freshwater, the Great Lakes region will soon host next-generation generators – just as prices are being hiked...",
+      "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
+      "keyWord": "weather technology: tools that help people measure, study, or predict weather and climate",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/us-news/2026/mar/30/hydropower-great-lakes-clean-energy",
+      "publishedAt": "2026-03-30T13:00:11.000Z"
+    },
     {
       "title": "Heat pumps for all new homes and plug-in solar in green tech drive",
       "whatHappened": "Solar panels that can be plugged in at home could be available to buy in supermarkets in the coming months.",
@@ -134,6 +170,15 @@
       "source": "Carleton Sustainability",
       "url": "https://carleton.ca/sustainability/2025/tiny-forest-coming-to-carleton/",
       "publishedAt": "2025-07-29T18:38:05.000Z"
+    },
+    {
+      "title": "Climate change may produce “fast-food” phytoplankton",
+      "whatHappened": "With warmer ocean temperatures, the composition of marine plankton could shift from protein-rich to carb-heavy, a new study suggests.",
+      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
+      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
+      "source": "MIT Climate & Sustainability",
+      "url": "https://news.mit.edu/2026/climate-change-may-produce-fast-food-phytoplankton",
+      "publishedAt": "2026-03-31T09:00:00.000Z"
     },
     {
       "title": "As Climate Change Exacerbates Extreme Weather, Olive Oil Feels the Squeeze",
@@ -176,7 +221,7 @@
       "whatHappened": "MIT researchers uncovered the roles of bacterial species from the environment as they consume biodegradable plastic.",
       "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
       "keyWord": "research: careful study used to discover new knowledge",
-      "source": "MIT Climate & Sustainability",
+      "source": "MIT Earth & Atmospheric Sciences",
       "url": "https://news.mit.edu/2026/ocean-bacteria-break-down-biodegradable-plastic-0316",
       "publishedAt": "2026-03-16T14:00:00.000Z"
     },
@@ -199,6 +244,15 @@
       "publishedAt": "2026-03-27T20:32:01.000Z"
     },
     {
+      "title": "Wege Lecturer: Companies that focus on sustainability long-term will thrive",
+      "whatHappened": "Companies that focus on sustainability as a long-term goal will perform better financially than those that don't, businessman and author Paul Polman said during the Wege...",
+      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
+      "keyWord": "sustainability: using resources in a way that can last over time",
+      "source": "University of Michigan Record",
+      "url": "https://record.umich.edu/articles/wege-lecturer-companies-that-focus-on-sustainability-long-term-will-thrive/",
+      "publishedAt": "2026-03-27T17:46:54.000Z"
+    },
+    {
       "title": "One-of-a-kind experiment tracked plant evolution in response to climate change at 30 sites worldwide",
       "whatHappened": "Simultaneous experiments pinpointed genetic variants associated with successful adaptation to climate change — and the tipping point beyond which plants can’t adapt.",
       "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
@@ -206,24 +260,6 @@
       "source": "Berkeley News",
       "url": "https://news.berkeley.edu/2026/03/26/one-of-a-kind-experiment-tracked-plant-evolution-in-response-to-climate-change-at-30-sites-worldwide/",
       "publishedAt": "2026-03-26T18:03:30.000Z"
-    },
-    {
-      "title": "Tia Nelson, champion of environmental stewardship, to receive honorary degree from UW–Madison",
-      "whatHappened": "Nelson, who has been instrumental in advancing local, national and global conservation efforts, will be honored on May 8 at the spring commencement ceremony.",
-      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
-      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
-      "source": "University of Wisconsin News",
-      "url": "https://news.wisc.edu/tia-nelson-champion-of-environmental-stewardship-to-receive-honorary-degree-from-uw-madison/",
-      "publishedAt": "2026-03-26T13:18:00.000Z"
-    },
-    {
-      "title": "Augmenting citizen science with computer vision for fish monitoring",
-      "whatHappened": "MIT Sea Grant works with the Woodwell Climate Research Center and other collaborators to demonstrate a deep learning-based system for fish monitoring.",
-      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
-      "keyWord": "research: careful study used to discover new knowledge",
-      "source": "MIT Earth & Atmospheric Sciences",
-      "url": "https://news.mit.edu/2026/augmenting-citizen-science-computer-vision-fish-monitoring-0325",
-      "publishedAt": "2026-03-25T21:00:00.000Z"
     }
   ]
 }
