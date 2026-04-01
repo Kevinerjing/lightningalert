@@ -59,8 +59,8 @@ function renderQuizCards(quizzes, activeSubject) {
   container.innerHTML = filtered.map((quiz) => {
     const quizKey = buildQuizKey(quiz);
     const answersOpen = localStorage.getItem(`${quizKey}::answers`) === "open";
-    const sourceButton = quiz.sourceUrl && /^https?:/i.test(quiz.sourceUrl)
-      ? `<a class="ghost-button quiz-source-button" href="${escapeHtml(quiz.sourceUrl)}" target="_blank" rel="noreferrer">Open slide</a>`
+    const sourceButton = quiz.sourceUrl
+      ? `<a class="teen-pdf-link quiz-source-button" href="${escapeHtml(quiz.sourceUrl)}" target="_blank" rel="noreferrer">Open slide</a>`
       : "";
 
     return `

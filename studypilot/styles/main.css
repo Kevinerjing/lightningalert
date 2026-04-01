@@ -362,6 +362,7 @@ h3 {
 
 .quiz-source-button {
   text-decoration: none;
+  min-width: 132px;
 }
 
 .quiz-question-list,
