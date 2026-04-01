@@ -747,9 +747,9 @@
     function getBohrLayout(shellCount) {
       const compact = shellCount >= 4;
       const cx = 180;
-      const cy = compact ? 178 : 170;
+      const cy = compact ? 174 : 168;
       const firstRadius = compact ? 42 : 48;
-      const maxRadius = compact ? 142 : 132;
+      const maxRadius = compact ? 136 : 128;
       const shellSpacing = shellCount > 1 ? (maxRadius - firstRadius) / (shellCount - 1) : 0;
       return {
         cx,
@@ -762,13 +762,13 @@
         titleY: compact ? 24 : 28,
         titleFontSize: compact ? 17 : 20,
         shellLabelOffset: compact ? 6 : 8,
-        footerY: compact ? 298 : 305,
+        footerY: compact ? 324 : 328,
         footerFontSize: compact ? 12 : 13
       };
     }
 
     function bohrSvg(atom) {
-      const parts = createSvgParts();
+      const parts = createSvgParts(360, 340);
       const shells = atom.shells;
       const layout = getBohrLayout(shells.length);
       const cx = layout.cx;
