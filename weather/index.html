@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ottawa Temperature Watch</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Spectral:wght@600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <main class="app-shell">
+    <section class="hero-card">
+      <p class="eyebrow">Live weather snapshot</p>
+      <h1>Ottawa Temperature Watch</h1>
+      <p class="intro">
+        Track current temperature, how it feels, and the next seven days in Ottawa, Ontario.
+      </p>
+
+      <div class="hero-grid">
+        <article class="temperature-panel">
+          <p class="panel-label">Current temperature</p>
+          <div class="temperature-reading">
+            <span id="current-temp">--</span>
+            <span class="unit">deg C</span>
+          </div>
+          <p id="current-summary" class="condition-copy">Loading Ottawa conditions...</p>
+        </article>
+
+        <article class="details-panel">
+          <div class="detail-row">
+            <span>Feels like</span>
+            <strong id="feels-like">-- deg C</strong>
+          </div>
+          <div class="detail-row">
+            <span>Wind</span>
+            <strong id="wind-speed">-- km/h</strong>
+          </div>
+          <div class="detail-row">
+            <span>Today's range</span>
+            <strong id="today-range">--</strong>
+          </div>
+          <div class="detail-row">
+            <span>Updated</span>
+            <strong id="updated-at">--</strong>
+          </div>
+        </article>
+      </div>
+
+      <div class="actions">
+        <button id="refresh-button" type="button">Refresh data</button>
+        <p class="source-note">Source: Open-Meteo forecast API</p>
+      </div>
+    </section>
+
+    <section class="forecast-card">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Seven-day outlook</p>
+          <h2>Ottawa forecast</h2>
+        </div>
+        <p id="status-message" class="status-message" aria-live="polite"></p>
+      </div>
+
+      <div id="daily-forecast" class="daily-forecast" aria-live="polite"></div>
+    </section>
+  </main>
+
+  <script src="./app.js"></script>
+</body>
+</html>
