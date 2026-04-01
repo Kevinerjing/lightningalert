@@ -1,7 +1,7 @@
 const OTTAWA = {
-  name: "Ottawa, Ontario",
-  latitude: 45.4215,
-  longitude: -75.6972,
+  name: "Kanata, Ontario",
+  latitude: 45.3099,
+  longitude: -75.8987,
   timezone: "America/Toronto",
 };
 
