@@ -52,7 +52,7 @@ function weatherLabel(code) {
 
 function formatNumber(value) {
   return new Intl.NumberFormat("en-CA", {
-    maximumFractionDigits: 1,
+    maximumFractionDigits: 0,
     minimumFractionDigits: 0,
   }).format(value);
 }
