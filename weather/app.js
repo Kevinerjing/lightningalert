@@ -100,7 +100,7 @@ function renderCurrentWeather(data) {
   currentSummaryEl.textContent = `${weatherLabel(current.weather_code)} in ${OTTAWA.name}`;
   feelsLikeEl.textContent = `${formatNumber(current.apparent_temperature)} deg C`;
   windSpeedEl.textContent = `${formatNumber(current.wind_speed_10m)} km/h`;
-  todayRangeEl.textContent = `${formatNumber(low)} to ${formatNumber(high)} deg C`;
+  todayRangeEl.textContent = `${formatNumber(low)} to ${formatNumber(high)}`;
   updatedAtEl.textContent = formatUpdated(current.time);
 }
 
@@ -138,7 +138,7 @@ function renderDailyForecast(data) {
           <div class="bar-track" aria-hidden="true">
             <div class="bar-fill" style="margin-left: ${lowWidth}%; width: ${barWidth}%"></div>
           </div>
-          <p class="day-range">${formatNumber(entry.min)} to ${formatNumber(entry.max)} deg C</p>
+          <p class="day-range">${formatNumber(entry.min)} to ${formatNumber(entry.max)}</p>
           <span class="day-precip">Precipitation risk: ${precipitationText}</span>
         </article>
       `;
