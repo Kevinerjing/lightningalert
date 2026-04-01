@@ -4,6 +4,7 @@
 !mistakes.html
 !review.html
 !archive.html
+!quizzes.html
 !teen-economic.html
 !updates.html
 !upload-guide.html
@@ -31,6 +32,7 @@ scripts/*
 !scripts/mistakes.js
 !scripts/review.js
 !scripts/science.js
+!scripts/slide-quizzes.js
 !scripts/teen-economic.js
 !scripts/updates.js
 !scripts/utils.js

@@ -1,0 +1,332 @@
+{
+  "quizzes": [
+    {
+      "subject": "Science",
+      "title": "Physical & Chemical Changes of Matter quiz",
+      "referenceSlide": "6.0k Physical & Chemical Changes of Matter",
+      "summary": "This quiz follows the slide details about physical changes, changes of state, dissolving, and the exact clues that confirm a chemical change.",
+      "splitIndex": 4,
+      "questions": [
+        {
+          "prompt": "If you tear a piece of paper in half, what kind of change is it and why?",
+          "answer": "It is a physical change because the substance is still paper and only its form changed."
+        },
+        {
+          "prompt": "Why are changes of state considered physical changes on this slide?",
+          "answer": "Because the substance stays the same even when its state changes."
+        },
+        {
+          "prompt": "Why is dissolving sugar in water called a physical change here?",
+          "answer": "Because if the water evaporates, the sugar is still there, so no new substance was formed."
+        },
+        {
+          "prompt": "What is the main sign that a chemical change has happened?",
+          "answer": "A chemical change forms a new substance."
+        },
+        {
+          "prompt": "What products are given as evidence that burning a candle is a chemical change?",
+          "answer": "Carbon dioxide, water vapour, heat, and light are produced."
+        },
+        {
+          "prompt": "How many clue signs should be present before you confirm a chemical change?",
+          "answer": "At least two clues should be present."
+        },
+        {
+          "prompt": "Name two clue signs from the slide that suggest a chemical change.",
+          "answer": "Possible answers include a new colour, bubbles of gas, light or heat being given off, a precipitate forming, or the change being hard to reverse."
+        },
+        {
+          "prompt": "What does the slide say about reversibility in a chemical change?",
+          "answer": "The change is difficult, if not impossible, to reverse."
+        },
+        {
+          "prompt": "What is a precipitate according to the slide?",
+          "answer": "It is a solid that forms when two solutions are mixed together."
+        }
+      ]
+    },
+    {
+      "subject": "Science",
+      "title": "The Periodic Table quiz",
+      "referenceSlide": "7.0 The Periodic Table (with YouTube link)",
+      "summary": "This quiz checks the history, periodic law, and arrangement details that appear directly on the periodic table slide.",
+      "splitIndex": 4,
+      "questions": [
+        {
+          "prompt": "About how many elements had been discovered by the 1800s according to the slide?",
+          "answer": "More than 63 elements had been discovered."
+        },
+        {
+          "prompt": "Which two chemists developed early periodic tables based on atomic mass?",
+          "answer": "Lothar Meyer and Dmitri Mendeleev."
+        },
+        {
+          "prompt": "Why is Mendeleev known as the father of the periodic table?",
+          "answer": "Because he published his table first in 1869."
+        },
+        {
+          "prompt": "What does periodic law mean on this slide?",
+          "answer": "When elements are arranged by atomic number, their chemical and physical properties repeat periodically."
+        },
+        {
+          "prompt": "Where are metals found on the periodic table?",
+          "answer": "Metals are found on the left side and in the middle of the table."
+        },
+        {
+          "prompt": "Where are non-metals found on the periodic table?",
+          "answer": "Non-metals, except hydrogen, are found on the right side."
+        },
+        {
+          "prompt": "Where are metalloids found?",
+          "answer": "Metalloids are found between the metals and non-metals."
+        },
+        {
+          "prompt": "What are the vertical columns called?",
+          "answer": "They are called groups or families."
+        },
+        {
+          "prompt": "What are the horizontal rows called?",
+          "answer": "They are called periods."
+        },
+        {
+          "prompt": "What rule does the slide give for chemical symbols?",
+          "answer": "The first letter is uppercase and the second letter, if there is one, is lowercase."
+        }
+      ]
+    },
+    {
+      "subject": "Science",
+      "title": "Coding for Science quiz",
+      "referenceSlide": "1.0k Coding for Science (Classroom)",
+      "summary": "This quiz covers the micro:bit vocabulary, selection logic, pins, and conductivity testing details that the teacher can pull straight from the coding slide.",
+      "splitIndex": 4,
+      "questions": [
+        {
+          "prompt": "What is an output according to the slide?",
+          "answer": "An output is something made by a person, system, or machine."
+        },
+        {
+          "prompt": "What does selection mean in coding on this slide?",
+          "answer": "Selection means a set of actions happens when a certain condition is met."
+        },
+        {
+          "prompt": "Which micro:bit pins can be used as inputs in this lesson?",
+          "answer": "Pins 0, 1, and 2 can be used as inputs, together with GND."
+        },
+        {
+          "prompt": "What is the purpose of connecting another clip to the GND pin?",
+          "answer": "It helps create a circuit so the pins can work as an input."
+        },
+        {
+          "prompt": "What should you click when testing the code in the simulator after pressing play?",
+          "answer": "You should click the P0 button."
+        },
+        {
+          "prompt": "After downloading the code, what must you connect to the micro:bit before testing materials?",
+          "answer": "You connect the battery pack and then the alligator clips to GND and P0."
+        },
+        {
+          "prompt": "What is the coded micro:bit being used as in this experiment?",
+          "answer": "It is being used as a conductivity tester."
+        },
+        {
+          "prompt": "What property are students testing in the range of materials?",
+          "answer": "They are testing whether the materials conduct electricity."
+        },
+        {
+          "prompt": "If the condition in the code is met, what can you infer about the material?",
+          "answer": "You can infer that the material is an electrical conductor."
+        }
+      ]
+    },
+    {
+      "subject": "Science",
+      "title": "Atomic Theory quiz",
+      "referenceSlide": "10.0 Atomic Theory",
+      "summary": "This quiz focuses on the order of atomic models, the particle discoveries, and the exact experiment details that often become teacher quiz questions.",
+      "splitIndex": 5,
+      "questions": [
+        {
+          "prompt": "What word did the Ancient Greeks use for indivisible particles?",
+          "answer": "They used the word atomos."
+        },
+        {
+          "prompt": "What two ideas are part of Dalton's billiard ball model?",
+          "answer": "Matter is made of tiny indivisible atoms, and atoms of the same element are identical."
+        },
+        {
+          "prompt": "What was one limitation of the billiard ball model named on the slide?",
+          "answer": "It could not explain why different elements had different masses."
+        },
+        {
+          "prompt": "Which discovery in 1897 led to a new atomic model?",
+          "answer": "The discovery of the electron."
+        },
+        {
+          "prompt": "What did the plum pudding model say about positive and negative charge?",
+          "answer": "It said electrons were scattered through a spherical cloud of positive charge, and the atom as a whole was neutral."
+        },
+        {
+          "prompt": "Why did the slide say the plum pudding model was weak?",
+          "answer": "Because there was no experimental evidence to support it."
+        },
+        {
+          "prompt": "What did Rutherford observe in the gold foil experiment?",
+          "answer": "Most alpha particles passed through, but some were deflected at very large angles."
+        },
+        {
+          "prompt": "What conclusion did Rutherford make about the atom from that result?",
+          "answer": "The atom has a tiny, dense, positively charged nucleus and is mostly empty space."
+        },
+        {
+          "prompt": "Which particles were identified later to revise the nuclear model?",
+          "answer": "The proton and the neutron."
+        },
+        {
+          "prompt": "What does the revised nuclear model say about electrons in a neutral atom?",
+          "answer": "Electrons move rapidly through empty space around the nucleus, and a neutral atom has equal numbers of electrons and protons."
+        }
+      ]
+    },
+    {
+      "subject": "Science",
+      "title": "The Gas Tests quiz",
+      "referenceSlide": "9.0 The Gas Tests",
+      "summary": "This quiz checks the exact gas properties, splint tests, and lab reminders from the gas tests slide.",
+      "splitIndex": 4,
+      "questions": [
+        {
+          "prompt": "Why does the slide say gases can still be identified even though many are colourless and odourless?",
+          "answer": "Because their chemical properties differ even if their physical properties seem similar."
+        },
+        {
+          "prompt": "What test identifies oxygen?",
+          "answer": "A glowing splint test identifies oxygen."
+        },
+        {
+          "prompt": "What result tells you oxygen is present?",
+          "answer": "The glowing splint relights."
+        },
+        {
+          "prompt": "What property of hydrogen is emphasized on the slide?",
+          "answer": "Hydrogen is highly combustible."
+        },
+        {
+          "prompt": "What happens when hydrogen is ignited according to the slide?",
+          "answer": "Hydrogen combines with oxygen in the air to form water molecules."
+        },
+        {
+          "prompt": "What sound is often heard during the hydrogen test?",
+          "answer": "An explosive pop sound."
+        },
+        {
+          "prompt": "What test identifies hydrogen?",
+          "answer": "A flaming splint test identifies hydrogen."
+        },
+        {
+          "prompt": "What does carbon dioxide do to a flame?",
+          "answer": "It extinguishes the flame."
+        },
+        {
+          "prompt": "Why is carbon dioxide found in many fire extinguishers according to the slide?",
+          "answer": "Because it does not support combustion and it puts out a flame."
+        },
+        {
+          "prompt": "What two reminders are given before starting the gas test lab?",
+          "answer": "Follow the instructions carefully and record observations accurately."
+        }
+      ]
+    },
+    {
+      "subject": "Science",
+      "title": "Atom Building Activity quiz",
+      "referenceSlide": "Atom Building Activity",
+      "summary": "This quiz is built from the Build an Atom activity details about protons, neutrons, electrons, ions, isotopes, and what changes an element.",
+      "sourceUrl": "https://phet.colorado.edu/en/simulations/build-an-atom",
+      "splitIndex": 4,
+      "questions": [
+        {
+          "prompt": "Which particle decides what element an atom is?",
+          "answer": "The number of protons decides the element."
+        },
+        {
+          "prompt": "What does a neutral atom always have in equal numbers?",
+          "answer": "A neutral atom has the same number of protons and electrons."
+        },
+        {
+          "prompt": "What changes when you add a neutron but do not change the protons?",
+          "answer": "The mass number changes, but the element stays the same."
+        },
+        {
+          "prompt": "What changes when you add or remove electrons?",
+          "answer": "The charge changes."
+        },
+        {
+          "prompt": "What is an isotope?",
+          "answer": "An isotope has the same number of protons but a different number of neutrons."
+        },
+        {
+          "prompt": "What is an ion?",
+          "answer": "An ion has the same number of protons but a different number of electrons."
+        },
+        {
+          "prompt": "If the element name changes in the simulation, which particle number changed?",
+          "answer": "The number of protons changed."
+        },
+        {
+          "prompt": "If only the charge changes, which particle number changed?",
+          "answer": "The number of electrons changed."
+        },
+        {
+          "prompt": "If only the mass changes, which particle number changed?",
+          "answer": "The number of neutrons changed."
+        }
+      ]
+    },
+    {
+      "subject": "Science",
+      "title": "Bohr-Rutherford Diagrams quiz",
+      "referenceSlide": "Bohr-Rutherford Diagrams & Planetary Model",
+      "summary": "This quiz covers the drawing rules and shell details from the Bohr-Rutherford slide, including what goes in the nucleus and how to place electrons.",
+      "splitIndex": 4,
+      "questions": [
+        {
+          "prompt": "What two particles are found in the nucleus?",
+          "answer": "Protons and neutrons are found in the nucleus."
+        },
+        {
+          "prompt": "How many electrons fit in the first shell for the Grade 9 model?",
+          "answer": "The first shell holds 2 electrons."
+        },
+        {
+          "prompt": "How many electrons fit in the second shell for the atoms used here?",
+          "answer": "The second shell holds up to 8 electrons."
+        },
+        {
+          "prompt": "What does the atomic number tell you?",
+          "answer": "The atomic number tells you the number of protons."
+        },
+        {
+          "prompt": "What must be true about protons and electrons in a neutral atom?",
+          "answer": "A neutral atom has the same number of protons and electrons."
+        },
+        {
+          "prompt": "What does mass number equal?",
+          "answer": "Mass number equals protons plus neutrons."
+        },
+        {
+          "prompt": "When drawing a diagram, what should you place in the centre first?",
+          "answer": "You should place the protons and neutrons in the nucleus first."
+        },
+        {
+          "prompt": "What should you check after drawing the shells for a neutral atom?",
+          "answer": "Check that the number of electrons matches the number of protons."
+        },
+        {
+          "prompt": "If you change only the neutrons in a Bohr-Rutherford diagram, what kind of atom change are you showing?",
+          "answer": "You are showing an isotope."
+        }
+      ]
+    }
+  ]
+}

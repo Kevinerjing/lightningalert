@@ -3,19 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Review | Study Mission Assistant</title>
+  <title>Slide Quizzes | Study Mission Assistant</title>
   <link rel="stylesheet" href="styles/main.css">
   <script defer src="scripts/utils.js"></script>
   <script defer src="scripts/app.js"></script>
-  <script defer src="scripts/review.js"></script>
+  <script defer src="scripts/slide-quizzes.js"></script>
   <script defer src="scripts/chat.js"></script>
 </head>
 <body>
   <header class="site-header compact-header">
     <div class="container header-inner">
       <div>
-        <p class="eyebrow">Spaced review</p>
-        <h1>Review Page</h1>
+        <p class="eyebrow">Teacher slide practice</p>
+        <h1>Slide Quizzes</h1>
       </div>
       <p id="today-date" class="date-chip">Loading date...</p>
     </div>
@@ -25,11 +25,11 @@
     <div class="container nav-links">
       <a href="index.html">Dashboard</a>
       <a href="mistakes.html">Mistakes Notebook</a>
-      <a class="active" href="review.html">Review</a>
+      <a href="review.html">Review</a>
       <a href="pages/science.html">Science</a>
       <a href="pages/math.html">Math</a>
       <a href="pages/english.html">English</a>
-      <a href="quizzes.html">Slide Quizzes</a>
+      <a class="active" href="quizzes.html">Slide Quizzes</a>
       <a href="teen-economic.html">Teen Economic</a>
       <a href="updates.html">Updates</a>
       <a href="upload-guide.html">Upload Guide</a>
@@ -38,38 +38,35 @@
   </nav>
 
   <main class="container page-shell">
-    <section class="hero-grid review-hero">
+    <section class="hero-grid quiz-hero">
       <article class="panel">
-        <p class="section-label">Today's focus</p>
-        <h2 id="review-total">0 items need review today</h2>
+        <p class="section-label">Why this page matters</p>
+        <h2>Practice the details teachers like to test from slides.</h2>
         <p class="muted">
-          Use this page to find the mistakes that still need another look, finish the most urgent ones first, and mark them reviewed when today's round is done.
+          Each quiz pack is tied to one teacher slide or classroom material. The quiz card tells you the slide name,
+          asks detail questions from that slide, and keeps the answer key hidden until you choose to open it.
         </p>
       </article>
       <article class="panel">
-        <p class="section-label">Suggested routine</p>
-        <p id="review-suggestion" class="large-note">Loading review suggestion...</p>
+        <p class="section-label">How to use it</p>
+        <ul class="quiz-usage-list">
+          <li>Open one slide quiz at a time.</li>
+          <li>Try the questions before checking the answer key.</li>
+          <li>Use the slide name to match the quiz to the teacher material.</li>
+          <li>When you give me a new slide later, I can add a new quiz pack here.</li>
+        </ul>
       </article>
     </section>
 
     <section class="panel">
       <div class="section-heading">
         <div>
-          <p class="section-label">Start Here</p>
-          <h2>Top 3 To Review Now</h2>
+          <p class="section-label">Subject filter</p>
+          <h2>Quiz packs by slide</h2>
         </div>
       </div>
-      <div id="review-priority-list" class="card-grid"></div>
-    </section>
-
-    <section class="panel">
-      <div class="section-heading">
-        <div>
-          <p class="section-label">Grouped by subject</p>
-          <h2>Review Queue</h2>
-        </div>
-      </div>
-      <div id="review-groups" class="group-list"></div>
+      <div id="quiz-subject-tabs" class="task-switcher"></div>
+      <div id="slide-quiz-list" class="topic-stack"></div>
     </section>
   </main>
 </body>

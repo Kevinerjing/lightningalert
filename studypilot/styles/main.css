@@ -157,6 +157,10 @@ h3 {
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
+.quiz-hero {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
 .panel,
 .subject-card,
 .group-card,
@@ -328,6 +332,59 @@ h3 {
 
 .teen-feynman-item {
   background: #f7fbfd;
+}
+
+.quiz-usage-list {
+  margin: 0;
+  padding-left: 1.15rem;
+}
+
+.slide-quiz-card {
+  display: grid;
+  gap: 0.9rem;
+}
+
+.slide-quiz-meta {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+  padding: 0.75rem;
+  background: linear-gradient(135deg, #f7fbfd 0%, #ffffff 100%);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+}
+
+.slide-quiz-reference p {
+  margin: 0;
+}
+
+.quiz-source-button {
+  text-decoration: none;
+}
+
+.quiz-question-list,
+.quiz-answer-list {
+  margin: 0;
+  padding-left: 1.2rem;
+}
+
+.quiz-question-list li,
+.quiz-answer-list li {
+  margin-bottom: 0.65rem;
+  line-height: 1.55;
+}
+
+.slide-answer-key {
+  padding: 0.85rem;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: linear-gradient(135deg, #f8fbfd 0%, #ffffff 100%);
+}
+
+.slide-answer-key.collapsed {
+  display: none;
 }
 
 .task-switcher {
@@ -524,6 +581,10 @@ h3 {
 
 .subject-english {
   background: linear-gradient(180deg, var(--english) 0%, #ffffff 80%);
+}
+
+.subject-quiz {
+  background: linear-gradient(180deg, #f2f3ff 0%, #ffffff 80%);
 }
 
 .subject-teen-economic {
@@ -1192,6 +1253,7 @@ h3 {
   .quick-links,
   .filters,
   .review-hero,
+  .quiz-hero,
   .card-grid,
   .teen-economic-grid,
   .topic-section-grid {
