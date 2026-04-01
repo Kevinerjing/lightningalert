@@ -1,5 +1,8 @@
 (function () {
   const { fetchJson, formatLongDate } = window.StudyUtils;
+  const topicCardCache = new Map();
+  const ARCHIVED_TOPIC_PREFIX = "studypilot.archive.topic.";
+  const ARCHIVED_CLASSROOM_PREFIX = "studypilot.archive.classroom.";
 
   function setTodayDate() {
     const dateNode = document.getElementById("today-date");
@@ -92,6 +95,10 @@
 
     container.innerHTML = safeTopics.map((topic) => {
       const cardKey = buildTopicCardKey(config.subjectName, topic.topic);
+      topicCardCache.set(cardKey, {
+        subject: config.subjectName,
+        topic: JSON.parse(JSON.stringify(topic))
+      });
       const expanded = isTopicCardExpanded(cardKey);
       const sections = config.sections.map((section) => {
         const items = toList(topic[section.key]);
@@ -147,6 +154,17 @@
     renderTaskGroups,
     renderTopicSections,
     setTodayDate
+  };
+
+  window.StudyArchive = {
+    buildArchivedTopicKey,
+    saveArchivedTopicCard,
+    removeArchivedTopicCard,
+    listArchivedTopicCards,
+    buildArchivedClassroomKey,
+    saveArchivedClassroomItem,
+    removeArchivedClassroomItem,
+    listArchivedClassroomItems
   };
 
   document.addEventListener("DOMContentLoaded", async () => {
@@ -482,9 +500,19 @@
         button.textContent = "Archiving...";
 
         try {
+          const cardKey = card.getAttribute("data-topic-card-key");
+          const cached = cardKey ? topicCardCache.get(cardKey) : null;
           const result = await archiveTopicCard(topicSubject, topicTitle);
           if (!result.ok) {
             throw new Error(result.error || "Could not archive this card.");
+          }
+
+          if (cached?.topic) {
+            saveArchivedTopicCard({
+              subject: topicSubject,
+              title: topicTitle,
+              topic: cached.topic
+            });
           }
 
           card.remove();
@@ -636,5 +664,68 @@
     const mondayOffset = weekday === 0 ? -6 : 1 - weekday;
     date.setUTCDate(date.getUTCDate() + mondayOffset);
     return `${date.getUTCFullYear()}-${String(date.getUTCMonth() + 1).padStart(2, "0")}-${String(date.getUTCDate()).padStart(2, "0")}`;
+  }
+
+  function buildArchivedTopicKey(subject, title) {
+    return `${ARCHIVED_TOPIC_PREFIX}${String(subject || "").toLowerCase()}::${String(title || "").toLowerCase()}`;
+  }
+
+  function saveArchivedTopicCard(record) {
+    localStorage.setItem(buildArchivedTopicKey(record.subject, record.title), JSON.stringify({
+      type: "topic-card",
+      subject: record.subject,
+      title: record.title,
+      topic: record.topic,
+      archivedAt: new Date().toISOString()
+    }));
+  }
+
+  function removeArchivedTopicCard(subject, title) {
+    localStorage.removeItem(buildArchivedTopicKey(subject, title));
+  }
+
+  function listArchivedTopicCards() {
+    return listArchiveEntries(ARCHIVED_TOPIC_PREFIX);
+  }
+
+  function buildArchivedClassroomKey(subject, title, meta) {
+    return `${ARCHIVED_CLASSROOM_PREFIX}${String(subject || "").toLowerCase()}::${String(title || "").toLowerCase()}::${String(meta || "").toLowerCase()}`;
+  }
+
+  function saveArchivedClassroomItem(record) {
+    localStorage.setItem(buildArchivedClassroomKey(record.subject, record.title, record.meta), JSON.stringify({
+      type: "classroom-item",
+      subject: record.subject,
+      title: record.title,
+      meta: record.meta,
+      page: record.page || "",
+      archivedAt: new Date().toISOString()
+    }));
+  }
+
+  function removeArchivedClassroomItem(subject, title, meta) {
+    localStorage.removeItem(buildArchivedClassroomKey(subject, title, meta));
+  }
+
+  function listArchivedClassroomItems() {
+    return listArchiveEntries(ARCHIVED_CLASSROOM_PREFIX);
+  }
+
+  function listArchiveEntries(prefix) {
+    const entries = [];
+    for (let index = 0; index < localStorage.length; index += 1) {
+      const key = localStorage.key(index);
+      if (!key || !key.startsWith(prefix)) {
+        continue;
+      }
+
+      try {
+        entries.push(JSON.parse(localStorage.getItem(key) || "{}"));
+      } catch {
+        // Ignore malformed archive records.
+      }
+    }
+
+    return entries.sort((left, right) => String(right.archivedAt || "").localeCompare(String(left.archivedAt || "")));
   }
 })();

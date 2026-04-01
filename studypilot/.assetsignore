@@ -3,6 +3,7 @@
 !index.html
 !mistakes.html
 !review.html
+!archive.html
 !teen-economic.html
 !updates.html
 !upload-guide.html
@@ -22,6 +23,7 @@
 !scripts/
 scripts/*
 !scripts/app.js
+!scripts/archive.js
 !scripts/chat.js
 !scripts/english.js
 !scripts/index.js

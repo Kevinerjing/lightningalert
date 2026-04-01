@@ -48,6 +48,10 @@ export default {
       return handleArchiveTopicCard(request, env);
     }
 
+    if (url.pathname === "/api/studypilot-topic-card/restore" && request.method === "POST") {
+      return handleRestoreTopicCard(request, env);
+    }
+
     if (url.pathname === "/api/studypilot-chat" && request.method === "POST") {
       return handleStudyPilotChat(request, env, ctx);
     }
@@ -1767,6 +1771,64 @@ async function handleArchiveTopicCard(request, env) {
     return jsonResponse(
       {
         error: error instanceof Error ? error.message : "Could not archive this topic card."
+      },
+      500
+    );
+  }
+}
+
+async function handleRestoreTopicCard(request, env) {
+  if (!env.studypilot) {
+    return jsonResponse({ error: "Missing D1 binding for StudyPilot restore action." }, 500);
+  }
+
+  try {
+    const payload = await request.json();
+    const subject = normalizeSubject(payload?.subject);
+    const topic = payload?.topic;
+
+    if (!topic || typeof topic !== "object" || !String(topic.topic || "").trim() || subject === "General") {
+      return jsonResponse({ error: "Subject and topic payload are required." }, 400);
+    }
+
+    const subjectSlug = subject.toLowerCase();
+    const now = new Date().toISOString();
+    const sourceRef = String(topic.sourceRef || topic.topic || "").trim().toLowerCase();
+
+    const existingCard = await env.studypilot.prepare(`
+      SELECT id
+      FROM subject_topic_cards
+      WHERE subject_slug = ? AND lower(title) = lower(?)
+      LIMIT 1
+    `).bind(subjectSlug, topic.topic).first();
+
+    const cardId = existingCard?.id || stableId("subject-card", `${subjectSlug}:${topic.topic}:${Date.now()}`);
+
+    if (existingCard?.id) {
+      await env.studypilot.prepare(`
+        UPDATE subject_topic_cards
+        SET summary = ?, source_ref = ?, updated_at = ?
+        WHERE id = ?
+      `).bind(topic.summary || "", sourceRef, now, cardId).run();
+      await env.studypilot.prepare(`DELETE FROM subject_topic_sections WHERE card_id = ?`).bind(cardId).run();
+    } else {
+      await env.studypilot.prepare(`
+        INSERT INTO subject_topic_cards (
+          id, subject_slug, title, summary, source_kind, source_upload_id, source_ref, created_at, updated_at
+        ) VALUES (?, ?, ?, ?, 'archive_restore', NULL, ?, ?, ?)
+      `).bind(cardId, subjectSlug, topic.topic || "Restored topic", topic.summary || "", sourceRef, now, now).run();
+    }
+
+    await insertSectionItems(env, "subject_topic_sections", "card_id", cardId, getSubjectSectionKeys(subject), topic);
+
+    return jsonResponse({
+      ok: true,
+      restored: true
+    });
+  } catch (error) {
+    return jsonResponse(
+      {
+        error: error instanceof Error ? error.message : "Could not restore this topic card."
       },
       500
     );

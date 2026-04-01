@@ -374,11 +374,11 @@ function attachScienceScheduleHandler(container) {
 }
 
 function buildScienceClassroomItemKey(item) {
-  return `studypilot.scienceClassroom.${String(item?.title || "").toLowerCase()}::${String(item?.meta || "").toLowerCase()}`;
+  return window.StudyArchive.buildArchivedClassroomKey("Science", item?.title || "", item?.meta || "");
 }
 
 function isScienceClassroomItemArchived(item) {
-  return localStorage.getItem(buildScienceClassroomItemKey(item)) === "archived";
+  return Boolean(localStorage.getItem(buildScienceClassroomItemKey(item)));
 }
 
 function attachScienceClassroomArchiveHandlers(container) {
@@ -390,7 +390,12 @@ function attachScienceClassroomArchiveHandlers(container) {
     }
 
     archiveButton.addEventListener("click", () => {
-      localStorage.setItem(itemKey, "archived");
+      window.StudyArchive.saveArchivedClassroomItem({
+        subject: "Science",
+        title: card.querySelector("h3")?.textContent || "",
+        meta: card.querySelector(".muted")?.textContent || "",
+        page: "Science"
+      });
       card.remove();
 
       if (!container.querySelector("[data-science-classroom-item]")) {

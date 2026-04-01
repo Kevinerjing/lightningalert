@@ -147,6 +147,29 @@ app.post("/api/studypilot-topic-card/archive", async (request, response) => {
   }
 });
 
+app.post("/api/studypilot-topic-card/restore", async (request, response) => {
+  try {
+    const subject = normalizeSubject(request.body?.subject);
+    const topic = request.body?.topic;
+
+    if (!topic || typeof topic !== "object" || !String(topic.topic || "").trim() || subject === "General") {
+      response.status(400).json({ error: "Subject and topic payload are required." });
+      return;
+    }
+
+    const restored = await restoreTopicCardLocally(subject, topic);
+    response.json({
+      ok: true,
+      restored
+    });
+  } catch (error) {
+    console.error("StudyPilot restore request failed:", error);
+    response.status(500).json({
+      error: error?.message || "Could not restore this topic card."
+    });
+  }
+});
+
 app.post("/api/studypilot-chat", upload.array("files", 5), async (request, response) => {
   if (!process.env.OPENAI_API_KEY) {
     response.status(500).json({
@@ -1712,6 +1735,31 @@ async function archiveTopicCardLocally(subject, title) {
   }
 
   return deleted;
+}
+
+async function restoreTopicCardLocally(subject, topic) {
+  const filePath = getSubjectJsonPath(subject);
+  if (!filePath) {
+    return false;
+  }
+
+  const data = await readJson(filePath, { topics: [] });
+  const topics = toArray(data.topics).filter((item) => String(item.topic || "").trim().toLowerCase() !== String(topic.topic || "").trim().toLowerCase());
+  topics.unshift(topic);
+  data.topics = topics;
+  await writeJson(filePath, data);
+
+  const localD1 = await openLocalD1Writer();
+  try {
+    if (localD1) {
+      ensureSubjectExistsInLocalD1(localD1, subject);
+      mirrorSubjectTopicToLocalD1(localD1, subject, topic, [], topic.sourceRef || buildSourceRef([], topic.topic));
+    }
+  } finally {
+    localD1?.close?.();
+  }
+
+  return true;
 }
 
 function getSubjectJsonPath(subject) {
