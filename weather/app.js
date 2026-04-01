@@ -50,6 +50,17 @@ function weatherLabel(code) {
   return WEATHER_CODES[code] ?? "Conditions unavailable";
 }
 
+function dailyConditionLabel(entry) {
+  const isSnowCode = [71, 73, 75, 77, 85, 86].includes(entry.code);
+  const isMixedTempRange = entry.min <= 1 && entry.max >= 1;
+
+  if (isSnowCode && isMixedTempRange) {
+    return "Rain or flurries";
+  }
+
+  return weatherLabel(entry.code);
+}
+
 function parseLocalDate(dateString) {
   const [year, month, day] = dateString.split("-").map(Number);
   return new Date(year, month - 1, day, 12);
@@ -140,7 +151,7 @@ function renderDailyForecast(data) {
       return `
         <article class="day-card">
           <span class="day-time">${formatDay(entry.time, index)}</span>
-          <p class="day-condition">${weatherLabel(entry.code)}</p>
+          <p class="day-condition">${dailyConditionLabel(entry)}</p>
           <div class="bar-track" aria-hidden="true">
             <div class="bar-fill" style="margin-left: ${lowWidth}%; width: ${barWidth}%"></div>
           </div>
