@@ -47,7 +47,7 @@
 
     container.innerHTML = articles.map((article) => `
       <button class="task-switch teen-article-tab ${article.id === activeId ? "active" : ""}" data-teen-article="${escapeHtml(article.id)}">
-        ${escapeHtml(article.tabLabel || article.title || "Article")}
+        ${escapeHtml(article.title || article.tabLabel || "Article")}
       </button>
     `).join("");
   }
@@ -64,7 +64,7 @@
     }
 
     select.innerHTML = articles.map((article, index) => `
-      <option value="${escapeHtml(article.id)}">Replace ${escapeHtml(article.tabLabel || `Article ${index + 1}`)}: ${escapeHtml(article.title || "")}</option>
+      <option value="${escapeHtml(article.id)}">Replace: ${escapeHtml(article.title || article.tabLabel || `Article ${index + 1}`)}</option>
     `).join("");
   }
 

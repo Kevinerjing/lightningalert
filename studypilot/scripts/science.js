@@ -174,9 +174,9 @@ function renderScienceClassroomItems(items) {
     return;
   }
 
-  const classroomItems = toList(items);
+  const classroomItems = toList(items).filter((item) => !isScienceClassroomItemArchived(item));
   if (!classroomItems.length) {
-    container.innerHTML = createEmptyState("No recent Science classroom items were found.");
+    container.innerHTML = createEmptyState("No recent Science classroom items are showing right now.");
     return;
   }
 
@@ -185,19 +185,24 @@ function renderScienceClassroomItems(items) {
       <p class="section-label">Chemistry</p>
       <div class="task-list">
         ${classroomItems.slice(0, 5).map((item) => `
-          <div class="task-item">
+          <div class="task-item" data-science-classroom-item="${escapeHtml(buildScienceClassroomItemKey(item))}">
             <div class="task-topline">
               <div>
                 <h3>${escapeHtml(item.title)}</h3>
                 <p class="muted">${escapeHtml(item.meta)}</p>
               </div>
-              <span class="chip chip-sync">Classroom sync</span>
+              <div class="chip-row">
+                <span class="chip chip-sync">Classroom sync</span>
+                <button type="button" class="ghost-button science-classroom-archive-button">Archive</button>
+              </div>
             </div>
           </div>
         `).join("")}
       </div>
     </article>
   `;
+
+  attachScienceClassroomArchiveHandlers(container);
 }
 
 function renderUpcomingScienceSupport(items) {
@@ -365,5 +370,32 @@ function attachScienceScheduleHandler(container) {
     button.setAttribute("aria-expanded", String(nextExpanded));
     button.textContent = nextExpanded ? "Hide details" : "Show details";
     localStorage.setItem("studypilot.scienceSchedule", nextExpanded ? "open" : "closed");
+  });
+}
+
+function buildScienceClassroomItemKey(item) {
+  return `studypilot.scienceClassroom.${String(item?.title || "").toLowerCase()}::${String(item?.meta || "").toLowerCase()}`;
+}
+
+function isScienceClassroomItemArchived(item) {
+  return localStorage.getItem(buildScienceClassroomItemKey(item)) === "archived";
+}
+
+function attachScienceClassroomArchiveHandlers(container) {
+  container.querySelectorAll("[data-science-classroom-item]").forEach((card) => {
+    const archiveButton = card.querySelector(".science-classroom-archive-button");
+    const itemKey = card.getAttribute("data-science-classroom-item");
+    if (!archiveButton || !itemKey) {
+      return;
+    }
+
+    archiveButton.addEventListener("click", () => {
+      localStorage.setItem(itemKey, "archived");
+      card.remove();
+
+      if (!container.querySelector("[data-science-classroom-item]")) {
+        container.innerHTML = window.StudyUtils.createEmptyState("No recent Science classroom items are showing right now.");
+      }
+    });
   });
 }
