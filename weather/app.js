@@ -51,10 +51,11 @@ function weatherLabel(code) {
 }
 
 function formatNumber(value) {
+  const roundedValue = Math.round(value);
   return new Intl.NumberFormat("en-CA", {
     maximumFractionDigits: 0,
     minimumFractionDigits: 0,
-  }).format(value);
+  }).format(Object.is(roundedValue, -0) ? 0 : roundedValue);
 }
 
 function formatDay(timestamp, index) {
