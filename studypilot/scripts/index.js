@@ -56,7 +56,7 @@ function setTaskTotal(totalId, panelId) {
 }
 
 async function loadDashboardData(fetchJson) {
-  const { buildRecurringClubTasks, buildRecurringGrade10MathTasks } = window.StudyUtils;
+  const { buildRecurringClubTasks, buildRecurringGrade10MathTasks, buildRecurringSlideQuizTasks } = window.StudyUtils;
   const apiPayload = await fetchJson("./api/studypilot-dashboard", null);
   if (apiPayload && apiPayload.tasks && apiPayload.totals) {
     return apiPayload;
@@ -72,7 +72,11 @@ async function loadDashboardData(fetchJson) {
   const todayTasks = Array.isArray(todayData.tasks) ? todayData.tasks : [];
   const weekTasks = Array.isArray(weekData.tasks) ? weekData.tasks : [];
   const nextWeekTasks = Array.isArray(nextWeekData.tasks) ? nextWeekData.tasks : [];
-  const recurringTasks = [...buildRecurringClubTasks(), ...buildRecurringGrade10MathTasks()];
+  const recurringTasks = [
+    ...buildRecurringClubTasks(),
+    ...buildRecurringGrade10MathTasks(),
+    ...buildRecurringSlideQuizTasks()
+  ];
   const mistakes = Array.isArray(mistakesData.mistakes) ? mistakesData.mistakes : [];
   const normalizedBuckets = normalizeDashboardBuckets({
     today: [...todayTasks, ...recurringTasks.filter((task) => task.bucket === "today").map(stripTaskBucket)],

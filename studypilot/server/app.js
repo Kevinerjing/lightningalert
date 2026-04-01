@@ -1387,7 +1387,11 @@ async function buildDashboardPayloadFromJson() {
     readJson(path.join(dataRoot, "mistakes.json"), { mistakes: [] })
   ]);
 
-  const recurringTasks = [...buildRecurringClubTasks(), ...buildRecurringGrade10MathTasks()];
+  const recurringTasks = [
+    ...buildRecurringClubTasks(),
+    ...buildRecurringGrade10MathTasks(),
+    ...buildRecurringSlideQuizTasks()
+  ];
   const normalizedBuckets = normalizeDashboardBuckets({
     today: [...toArray(todayData.tasks), ...recurringTasks.filter((task) => task.bucket === "today").map(stripTaskBucket)],
     week: [...toArray(weekData.tasks), ...recurringTasks.filter((task) => task.bucket === "week").map(stripTaskBucket)],
@@ -1735,6 +1739,35 @@ async function archiveTopicCardLocally(subject, title) {
   }
 
   return deleted;
+}
+
+function buildRecurringSlideQuizTasks(referenceDate = new Date()) {
+  const today = buildStudyDate(referenceDate);
+  const slideQuizDays = [
+    { weekday: 0, label: "Sunday" },
+    { weekday: 1, label: "Monday" },
+    { weekday: 2, label: "Tuesday" },
+    { weekday: 3, label: "Wednesday" },
+    { weekday: 4, label: "Thursday" },
+    { weekday: 5, label: "Friday" },
+    { weekday: 6, label: "Saturday" }
+  ];
+
+  return slideQuizDays.map(({ weekday, label }) => {
+    const targetDate = getNextWeekday(today, weekday, true);
+    return {
+      bucket: getRecurringBucketForDate(targetDate, today),
+      subject: "Science",
+      topic: "Slide quiz routine",
+      type: "quiz",
+      note: `${label} routine: open one teacher slide quiz, answer a few detail questions, and check the answer key only after trying on your own.`,
+      dueDate: toIsoDate(targetDate),
+      priority: "Medium",
+      resourceLabel: "Open slide quizzes",
+      resourceLink: "quizzes.html",
+      source: "recurring-slide-quiz"
+    };
+  });
 }
 
 async function restoreTopicCardLocally(subject, topic) {
