@@ -744,33 +744,57 @@
       return `Shell ${index + 1}: ${count} e−`;
     }
 
+    function getBohrLayout(shellCount) {
+      const compact = shellCount >= 4;
+      const cx = 180;
+      const cy = compact ? 178 : 170;
+      const firstRadius = compact ? 42 : 48;
+      const maxRadius = compact ? 142 : 132;
+      const shellSpacing = shellCount > 1 ? (maxRadius - firstRadius) / (shellCount - 1) : 0;
+      return {
+        cx,
+        cy,
+        firstRadius,
+        shellSpacing,
+        nucleusRadius: compact ? 31 : 34,
+        symbolFontSize: compact ? 21 : 24,
+        nucleusLabelFontSize: compact ? 11 : 12,
+        titleY: compact ? 24 : 28,
+        titleFontSize: compact ? 17 : 20,
+        shellLabelOffset: compact ? 6 : 8,
+        footerY: compact ? 298 : 305,
+        footerFontSize: compact ? 12 : 13
+      };
+    }
+
     function bohrSvg(atom) {
       const parts = createSvgParts();
-      const cx = 180;
-      const cy = 170;
       const shells = atom.shells;
+      const layout = getBohrLayout(shells.length);
+      const cx = layout.cx;
+      const cy = layout.cy;
       parts.push('<defs><radialGradient id="nucleusGradBohr" cx="50%" cy="45%" r="60%"><stop offset="0%" stop-color="#ffffff"/><stop offset="100%" stop-color="#dfeaf6"/></radialGradient></defs>');
-      parts.push(`<text x="180" y="28" text-anchor="middle" font-size="20" font-weight="700" fill="#17324d">${atom.name} (${atom.displaySymbol})</text>`);
+      parts.push(`<text x="180" y="${layout.titleY}" text-anchor="middle" font-size="${layout.titleFontSize}" font-weight="700" fill="#17324d">${atom.name} (${atom.displaySymbol})</text>`);
 
       shells.forEach((count, index) => {
-        const radius = 48 + index * 42;
+        const radius = layout.firstRadius + index * layout.shellSpacing;
         parts.push(`<circle cx="${cx}" cy="${cy}" r="${radius}" fill="none" stroke="#9ab2c9" stroke-width="2" />`);
         drawElectronsOnShell(parts, cx, cy, radius, count);
         if (state.showLabels) {
-          parts.push(`<text x="${cx}" y="${cy - radius - 8}" text-anchor="middle" font-size="11" fill="#5f7186">${shellLabelText(index, count)}</text>`);
+          parts.push(`<text x="${cx}" y="${cy - radius - layout.shellLabelOffset}" text-anchor="middle" font-size="11" fill="#5f7186">${shellLabelText(index, count)}</text>`);
         }
       });
 
-      parts.push(`<circle cx="${cx}" cy="${cy}" r="34" fill="url(#nucleusGradBohr)" stroke="#6e8ba7" stroke-width="2" />`);
-      parts.push(`<text x="${cx}" y="${cy + 4}" text-anchor="middle" font-size="24" font-weight="800" fill="#17324d">${atom.symbol}</text>`);
+      parts.push(`<circle cx="${cx}" cy="${cy}" r="${layout.nucleusRadius}" fill="url(#nucleusGradBohr)" stroke="#6e8ba7" stroke-width="2" />`);
+      parts.push(`<text x="${cx}" y="${cy + 4}" text-anchor="middle" font-size="${layout.symbolFontSize}" font-weight="800" fill="#17324d">${atom.symbol}</text>`);
 
       if (state.showNucleusLabels) {
-        parts.push(`<text x="${cx}" y="${cy - 12}" text-anchor="middle" font-size="12" font-weight="700" fill="#17324d">${atom.protons} p⁺</text>`);
-        parts.push(`<text x="${cx}" y="${cy + 14}" text-anchor="middle" font-size="12" fill="#17324d">${atom.neutrons} n°</text>`);
+        parts.push(`<text x="${cx}" y="${cy - 12}" text-anchor="middle" font-size="${layout.nucleusLabelFontSize}" font-weight="700" fill="#17324d">${atom.protons} p⁺</text>`);
+        parts.push(`<text x="${cx}" y="${cy + 14}" text-anchor="middle" font-size="${layout.nucleusLabelFontSize}" fill="#17324d">${atom.neutrons} n°</text>`);
       }
 
       if (state.showElectronCount) {
-        parts.push(`<text x="180" y="305" text-anchor="middle" font-size="13" fill="#17324d">Electrons: ${atom.electrons} | Charge: ${formatCharge(atom.charge)}</text>`);
+        parts.push(`<text x="180" y="${layout.footerY}" text-anchor="middle" font-size="${layout.footerFontSize}" fill="#17324d">Electrons: ${atom.electrons} | Charge: ${formatCharge(atom.charge)}</text>`);
       }
       return endSvg(parts);
     }
