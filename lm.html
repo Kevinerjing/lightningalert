@@ -357,8 +357,13 @@ function loadHistory() {
 }
 
 function updateHistory(time, distance) {
+  const entryId = `${time.getTime()}-${distance}`;
+  if (historyEntries.some((entry) => entry.id === entryId)) {
+    return;
+  }
+
   historyEntries.unshift({
-    id: `${time.getTime()}-${distance}`,
+    id: entryId,
     time: formatTime(time),
     distance: Number(distance)
   });
