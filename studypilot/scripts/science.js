@@ -212,7 +212,7 @@ function renderUpcomingScienceSupport(items) {
     return;
   }
 
-  const supportItems = toList(items);
+  const supportItems = toList(items).filter((item) => !isUpcomingSupportArchived(item));
   if (!supportItems.length) {
     container.innerHTML = createEmptyState("No upcoming science lesson support has been added yet.");
     return;
@@ -229,6 +229,9 @@ function renderUpcomingScienceSupport(items) {
           ${item.type ? `<span class="chip chip-sync">${escapeHtml(item.type)}</span>` : ""}
           <button type="button" class="ghost-button upcoming-support-toggle" aria-expanded="${isUpcomingSupportExpanded(item) ? "true" : "false"}">
             ${isUpcomingSupportExpanded(item) ? "Hide details" : "Show details"}
+          </button>
+          <button type="button" class="ghost-button upcoming-support-archive">
+            Archive
           </button>
         </div>
       </div>
@@ -338,6 +341,7 @@ function isUpcomingSupportExpanded(item) {
 function attachUpcomingSupportHandlers(container) {
   container.querySelectorAll("[data-upcoming-support-key]").forEach((card) => {
     const button = card.querySelector(".upcoming-support-toggle");
+    const archiveButton = card.querySelector(".upcoming-support-archive");
     const cardKey = card.getAttribute("data-upcoming-support-key");
     if (!button || !cardKey) {
       return;
@@ -350,11 +354,28 @@ function attachUpcomingSupportHandlers(container) {
       button.textContent = nextExpanded ? "Hide details" : "Show details";
       localStorage.setItem(cardKey, nextExpanded ? "open" : "closed");
     });
+
+    archiveButton?.addEventListener("click", () => {
+      localStorage.setItem(buildUpcomingSupportArchiveKey(cardKey), "archived");
+      card.remove();
+
+      if (!container.querySelector("[data-upcoming-support-key]")) {
+        container.innerHTML = window.StudyUtils.createEmptyState("No upcoming science lesson support has been added yet.");
+      }
+    });
   });
 }
 
 function isScienceScheduleExpanded() {
   return localStorage.getItem("studypilot.scienceSchedule") === "open";
+}
+
+function buildUpcomingSupportArchiveKey(cardKey) {
+  return `${cardKey}::archive`;
+}
+
+function isUpcomingSupportArchived(item) {
+  return localStorage.getItem(buildUpcomingSupportArchiveKey(buildUpcomingSupportKey(item))) === "archived";
 }
 
 function attachScienceScheduleHandler(container) {
