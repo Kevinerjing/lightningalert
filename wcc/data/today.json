@@ -1,14 +1,14 @@
 {
-  "boardDate": "2026-03-31",
-  "generatedAt": "2026-03-31T12:08:34.754Z",
+  "boardDate": "2026-04-01",
+  "generatedAt": "2026-04-01T12:08:18.492Z",
   "sourceCount": 26,
   "weather": [
     {
       "city": "Ottawa",
-      "temperatureC": 2,
-      "maxC": 7,
-      "minC": 2,
-      "summary": "Light drizzle"
+      "temperatureC": 1,
+      "maxC": 4,
+      "minC": 0,
+      "summary": "Clear skies"
     }
   ],
   "extremeWeather": [
@@ -42,15 +42,6 @@
   ],
   "climate": [
     {
-      "title": "More drilling in North Sea ‘not the answer’ for UK energy security, say former military leaders",
-      "whatHappened": "Government told to focus on transition to mix of wind, solar, tidal and nuclear energy More drilling in the North Sea would do nothing to improve...",
-      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
-      "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/environment/2026/mar/31/drilling-north-sea-not-the-answer-uk-energy-security",
-      "publishedAt": "2026-03-31T05:00:32.000Z"
-    },
-    {
       "title": "UN weather agency warns of record ‘climate imbalance’ as planetary warming accelerates",
       "whatHappened": "All-time high greenhouse gas concentrations in Earth’s atmosphere continue to drive heat records on land and sea, with long-lasting consequences for humanity, the World Meteorological Organization...",
       "whyItMatters": "Climate and environment stories connect science to real issues like safety, health, and extreme weather.",
@@ -58,6 +49,15 @@
       "source": "UN Climate",
       "url": "https://news.un.org/feed/view/en/story/2026/03/1167178",
       "publishedAt": "2026-03-23T12:00:00.000Z"
+    },
+    {
+      "title": "Trump’s Iran war and drilling push show ‘dangerous volatility’ of fossil fuel era",
+      "whatHappened": "Critics say president is locking into 20th-century energy systems even as his ‘bet’ on oil and gas ‘isn’t going so well’ By attacking Iran and threatening...",
+      "whyItMatters": "Climate and environment stories connect science to real issues like safety, health, and extreme weather.",
+      "keyWord": "emissions: gases released into the air",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/us-news/2026/mar/31/trump-iran-war-fossil-fuel-policy-environment",
+      "publishedAt": "2026-03-31T12:00:54.000Z"
     },
     {
       "title": "War-driven energy price spikes highlight value of renewables: UN climate chief",
@@ -69,61 +69,34 @@
       "publishedAt": "2026-03-16T12:00:00.000Z"
     },
     {
+      "title": "Nature boys and girls – here’s your chance to get published in the Guardian",
+      "whatHappened": "Our wildlife series Young Country Diary is looking for articles written by children, about their spring encounters with nature Once again, the Young Country Diary series...",
+      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
+      "keyWord": "climate: the usual pattern of weather over a long period of time",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/environment/2021/aug/27/nature-lovers-guardian-young-country-diary-writers",
+      "publishedAt": "2026-04-01T09:48:54.000Z"
+    },
+    {
+      "title": "‘God squad’ waives endangered species law to allow US drilling in Gulf of Mexico",
+      "whatHappened": "Critics say exemption for fossil fuels exploits White House’s ‘self-made gas crisis’, and could doom the rare Rice’s whale Sign up for the Breaking News US...",
+      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
+      "keyWord": "climate: the usual pattern of weather over a long period of time",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/us-news/2026/mar/31/gulf-of-mexico-drilling-endangered-species",
+      "publishedAt": "2026-03-31T15:26:49.000Z"
+    },
+    {
       "title": "Demand for hydropower surges as Trump clamps down on clean energy",
       "whatHappened": "Home to one of the world’s largest deposits of freshwater, the Great Lakes region will soon host next-generation generators – just as prices are being hiked...",
       "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
       "keyWord": "climate: the usual pattern of weather over a long period of time",
       "source": "The Guardian Environment",
       "url": "https://www.theguardian.com/us-news/2026/mar/30/hydropower-great-lakes-clean-energy",
-      "publishedAt": "2026-03-30T13:00:11.000Z"
-    },
-    {
-      "title": "Trump to revoke protections for endangered species in Gulf of Mexico",
-      "whatHappened": "President is convening so-called ‘God squad’ to override provisions of Endangered Species Act for ‘national security’ Sign up for the Breaking News US email to get...",
-      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
-      "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/us-news/2026/mar/30/trump-protections-endangered-species-gulf-of-mexico",
-      "publishedAt": "2026-03-30T11:00:08.000Z"
-    },
-    {
-      "title": "Wily coyote? Urban canines take more risks compared with rural ones, study finds",
-      "whatHappened": "Researchers believe behavioral gap, which may hold true across species, is probably product of less fear of harassment in cities Anyone who has lived long enough...",
-      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
-      "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/us-news/2026/mar/27/urban-rural-coyote-study",
-      "publishedAt": "2026-03-27T14:00:03.000Z"
+      "publishedAt": "2026-03-31T14:38:52.000Z"
     }
   ],
   "weatherTech": [
-    {
-      "title": "More drilling in North Sea ‘not the answer’ for UK energy security, say former military leaders",
-      "whatHappened": "Government told to focus on transition to mix of wind, solar, tidal and nuclear energy More drilling in the North Sea would do nothing to improve...",
-      "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
-      "keyWord": "solar: related to energy from sunlight",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/environment/2026/mar/31/drilling-north-sea-not-the-answer-uk-energy-security",
-      "publishedAt": "2026-03-31T05:00:32.000Z"
-    },
-    {
-      "title": "Another Starlink satellite has inexplicably exploded",
-      "whatHappened": "SpaceX says it lost contact with a Starlink satellite after suffering an \"anomaly.\" SpaceX isn't saying exactly what happened, but space-tracking company LeoLabs says it \"immediately...",
-      "whyItMatters": "Weather technology shows how science tools can predict conditions faster and help people prepare earlier.",
-      "keyWord": "satellite: an object in space that collects information and sends it back to Earth",
-      "source": "The Verge",
-      "url": "https://www.theverge.com/science/903906/another-starlink-satellite-has-inexplicably-exploded",
-      "publishedAt": "2026-03-31T11:02:04.000Z"
-    },
-    {
-      "title": "Belkin’s battery-equipped Switch 2 case is more than 35 percent off right now",
-      "whatHappened": "Belkin makes some of the best zip-up cases for the Nintendo Switch 2.",
-      "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
-      "keyWord": "battery: a device that stores energy for later use",
-      "source": "The Verge",
-      "url": "https://www.theverge.com/gadgets/902603/belkin-charging-case-nintendo-switch-2-amazon-big-spring-sale-2026-deal",
-      "publishedAt": "2026-03-31T04:42:13.000Z"
-    },
     {
       "title": "Demand for hydropower surges as Trump clamps down on clean energy",
       "whatHappened": "Home to one of the world’s largest deposits of freshwater, the Great Lakes region will soon host next-generation generators – just as prices are being hiked...",
@@ -131,16 +104,16 @@
       "keyWord": "weather technology: tools that help people measure, study, or predict weather and climate",
       "source": "The Guardian Environment",
       "url": "https://www.theguardian.com/us-news/2026/mar/30/hydropower-great-lakes-clean-energy",
-      "publishedAt": "2026-03-30T13:00:11.000Z"
+      "publishedAt": "2026-03-31T14:38:52.000Z"
     },
     {
-      "title": "Heat pumps for all new homes and plug-in solar in green tech drive",
-      "whatHappened": "Solar panels that can be plugged in at home could be available to buy in supermarkets in the coming months.",
+      "title": "Trump’s Iran war and drilling push show ‘dangerous volatility’ of fossil fuel era",
+      "whatHappened": "Critics say president is locking into 20th-century energy systems even as his ‘bet’ on oil and gas ‘isn’t going so well’ By attacking Iran and threatening...",
       "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
-      "keyWord": "solar: related to energy from sunlight",
-      "source": "BBC Science & Environment",
-      "url": "https://www.bbc.com/news/articles/czjw7klkjm2o?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-03-24T15:37:53.000Z"
+      "keyWord": "weather technology: tools that help people measure, study, or predict weather and climate",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/us-news/2026/mar/31/trump-iran-war-fossil-fuel-policy-environment",
+      "publishedAt": "2026-03-31T12:00:54.000Z"
     },
     {
       "title": "World News in Brief: Guterres calls for fair swtich to clean energy, Ramadan in Gaza, escalating violence and displacement in South Sudan",
@@ -177,7 +150,7 @@
       "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
       "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
       "source": "MIT Climate & Sustainability",
-      "url": "https://news.mit.edu/2026/climate-change-may-produce-fast-food-phytoplankton",
+      "url": "https://news.mit.edu/2026/climate-change-may-produce-fast-food-phytoplankton-0331",
       "publishedAt": "2026-03-31T09:00:00.000Z"
     },
     {
