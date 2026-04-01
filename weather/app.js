@@ -50,6 +50,11 @@ function weatherLabel(code) {
   return WEATHER_CODES[code] ?? "Conditions unavailable";
 }
 
+function parseLocalDate(dateString) {
+  const [year, month, day] = dateString.split("-").map(Number);
+  return new Date(year, month - 1, day, 12);
+}
+
 function formatNumber(value) {
   const roundedValue = Math.round(value);
   return new Intl.NumberFormat("en-CA", {
@@ -59,7 +64,7 @@ function formatNumber(value) {
 }
 
 function formatDay(timestamp, index) {
-  const date = new Date(timestamp);
+  const date = parseLocalDate(timestamp);
 
   if (index === 0) {
     return "Today";
