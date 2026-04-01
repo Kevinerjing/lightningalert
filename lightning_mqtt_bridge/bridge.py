@@ -145,7 +145,7 @@ def publish_test_message():
     client = build_mqtt_client()
     payload = json.dumps(build_test_payload())
     print(f"Publishing test payload to {TOPIC}: {payload}")
-    info = client.publish(TOPIC, payload, qos=1, retain=True)
+    info = client.publish(TOPIC, payload, qos=1, retain=False)
     info.wait_for_publish(timeout=5)
     client.loop_stop()
     client.disconnect()
