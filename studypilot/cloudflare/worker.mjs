@@ -1815,7 +1815,7 @@ async function handleRestoreTopicCard(request, env) {
       await env.studypilot.prepare(`
         INSERT INTO subject_topic_cards (
           id, subject_slug, title, summary, source_kind, source_upload_id, source_ref, created_at, updated_at
-        ) VALUES (?, ?, ?, ?, 'archive_restore', NULL, ?, ?, ?)
+        ) VALUES (?, ?, ?, ?, 'manual', NULL, ?, ?, ?)
       `).bind(cardId, subjectSlug, topic.topic || "Restored topic", topic.summary || "", sourceRef, now, now).run();
     }
 
