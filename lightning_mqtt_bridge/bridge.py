@@ -6,6 +6,7 @@ import shutil
 import subprocess
 import sys
 import time
+import threading
 from typing import Optional
 
 import paho.mqtt.client as mqtt
@@ -22,8 +23,8 @@ USE_TLS = os.getenv("LIGHTNING_MQTT_TLS", "1").strip().lower() not in {"0", "fal
 TEST_MODE = os.getenv("LIGHTNING_BRIDGE_TEST_MODE", "0").strip().lower() in {"1", "true", "yes"}
 
 
-def on_connect(client: mqtt.Client, userdata, flags, rc, properties=None):
-    print(f"Connected with result code: {rc}")
+def on_connect(client: mqtt.Client, userdata, flags, reason_code, properties=None):
+    print(f"Connected with result code: {reason_code}")
 
 
 def on_publish(client: mqtt.Client, userdata, mid, reason_code=None, properties=None):
@@ -68,7 +69,7 @@ def start_rtl_433_stream(rtl_433_path: str):
     process = subprocess.Popen(
         [rtl_433_path, "-F", "json"],
         stdout=subprocess.PIPE,
-        stderr=subprocess.STDOUT,
+        stderr=subprocess.PIPE,
         text=True,
         encoding="utf-8",
         errors="replace"
@@ -79,7 +80,7 @@ def start_rtl_433_stream(rtl_433_path: str):
 
 
 def build_mqtt_client() -> mqtt.Client:
-    client = mqtt.Client()
+    client = mqtt.Client(callback_api_version=mqtt.CallbackAPIVersion.VERSION2)
     client.username_pw_set(USERNAME, PASSWORD)
     if USE_TLS:
         client.tls_set()
@@ -90,11 +91,44 @@ def build_mqtt_client() -> mqtt.Client:
     return client
 
 
+def forward_rtl_433_stderr(process: subprocess.Popen) -> None:
+    if process.stderr is None:
+        return
+
+    for raw_line in process.stderr:
+        line = raw_line.strip()
+        if not line:
+            continue
+        print(f"rtl_433: {line}")
+
+
+def print_sensor_summary(data: dict) -> None:
+    temperature = data.get("temperature_C")
+    humidity = data.get("humidity")
+    distance = data.get("storm_dist")
+    strike_count = data.get("strike_count")
+    timestamp = data.get("time", "unknown time")
+
+    summary_parts = [f"Acurite-6045M @ {timestamp}"]
+    if temperature is not None:
+        summary_parts.append(f"temperature: {temperature} C")
+    if humidity is not None:
+        summary_parts.append(f"humidity: {humidity}%")
+    if distance is not None:
+        summary_parts.append(f"distance: {distance} km")
+    if strike_count is not None:
+        summary_parts.append(f"strike_count: {strike_count}")
+
+    print(" | ".join(summary_parts))
+
+
 def publish_sensor_stream():
     rtl_433_path = require_rtl_433()
     client = build_mqtt_client()
     process = start_rtl_433_stream(rtl_433_path)
     last_strike_count: Optional[int] = None
+    stderr_thread = threading.Thread(target=forward_rtl_433_stderr, args=(process,), daemon=True)
+    stderr_thread.start()
 
     print(f"Listening to rtl_433 with model filter: {MODEL_FILTER}")
     print(f"Publishing to MQTT topic: {TOPIC}")
@@ -115,13 +149,18 @@ def publish_sensor_stream():
             model = data.get("model")
             strike_count = data.get("strike_count")
 
+            if model == MODEL_FILTER:
+                print_sensor_summary(data)
+
             if model == MODEL_FILTER and strike_count != last_strike_count:
                 payload = json.dumps(data)
                 print(f"Publishing new strike: {payload}")
                 client.publish(TOPIC, payload, qos=1, retain=True)
                 last_strike_count = strike_count
     finally:
-        process.terminate()
+        if process.poll() is None:
+            process.terminate()
+        stderr_thread.join(timeout=1)
         client.loop_stop()
         client.disconnect()
 
