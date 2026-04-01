@@ -89,6 +89,56 @@
   },
   "upcomingSupport": [
     {
+      "when": "Wednesday, April 1, 2026",
+      "topic": "Why is H = 1.008?",
+      "type": "Preview",
+      "summary": "This card explains why hydrogen is written as 1.008 on the periodic table and how average atomic mass is different from mass number.",
+      "beforeClass": [
+        "Atomic mass uses the unit u, which means atomic mass unit.",
+        "u is a very small unit used for atoms; it is not the same as grams.",
+        "Hydrogen on the periodic table is written as 1.008 u because it is an average, not one exact atom.",
+        "Most hydrogen atoms are Hydrogen-1, so the average stays very close to 1."
+      ],
+      "keywords": [
+        "atomic mass",
+        "atomic mass unit",
+        "u",
+        "isotope",
+        "Hydrogen-1",
+        "Hydrogen-2",
+        "Hydrogen-3",
+        "average"
+      ],
+      "quickQuestions": [
+        "Why is hydrogen written as 1.008 instead of 1?",
+        "What unit is used for atomic mass?",
+        "Why is average atomic mass often a decimal?",
+        "How is mass number different from average atomic mass?",
+        "Why does Hydrogen-1 affect the average more than Hydrogen-2 or Hydrogen-3?"
+      ],
+      "resources": [
+        {
+          "label": "11.0 Atomic Structure slide",
+          "url": "/uploads/slide-quizzes%2Fatomic-structure-11-0.pdf"
+        },
+        {
+          "label": "Kevin Apps: Atom Explorer",
+          "url": "https://www.kevin-apps.com/atom"
+        }
+      ],
+      "teacherQuestions": [
+        "What does the 1.008 beside hydrogen mean?",
+        "Why is the periodic table value a decimal instead of a whole number?",
+        "Explain the difference between hydrogen's mass number and hydrogen's average atomic mass."
+      ],
+      "flexibleThinkingExamples": [
+        "Hydrogen-1 is the most common isotope: 1 proton, 0 neutrons.",
+        "Hydrogen-2 is much less common: 1 proton, 1 neutron. It is also called deuterium.",
+        "Hydrogen-3 is much rarer: 1 proton, 2 neutrons.",
+        "Because most hydrogen atoms are Hydrogen-1, the weighted average stays near 1 and becomes 1.008 u."
+      ]
+    },
+    {
       "when": "Monday, March 30, 2026",
       "topic": "Gas Test Lab",
       "type": "Preview",
@@ -175,22 +225,132 @@
   ],
   "topics": [
     {
+      "topic": "The Planetary Model",
+      "summary": "The planetary model explains that electrons move in fixed energy levels around the nucleus, can jump between orbits, and release light when they fall to lower energy levels.",
+      "keyConcepts": [
+        "The nuclear model could not explain where electrons were located.",
+        "Scientists thought moving electrons should release radiation and crash into the nucleus, but atoms do not collapse like that.",
+        "Bohr proposed a planetary model in which electrons orbit the nucleus like planets orbit the Sun.",
+        "Each electron orbit has a definite amount of energy.",
+        "Electrons farther from the nucleus have greater energy.",
+        "Electrons cannot exist between orbits but can jump from one orbit to another.",
+        "When electrons drop from higher to lower orbits, they release energy as light.",
+        "Each orbit can hold a maximum number of electrons."
+      ],
+      "teacherNotes": [
+        "The line spectra idea is the evidence that pushes the lesson beyond the old nuclear model.",
+        "Teacher quiz questions may ask why the nuclear model was incomplete before the planetary model was proposed.",
+        "Know both the strengths and the limitation: the planetary model still could not explain line spectra for atoms with two or more electrons."
+      ],
+      "resources": [
+        {
+          "label": "13.0 The Planetary Model slide",
+          "url": "/uploads/slide-quizzes%2Fthe-planetary-model-13-0.pdf"
+        },
+        {
+          "label": "Kevin Apps: Atom Explorer",
+          "url": "https://www.kevin-apps.com/atom"
+        }
+      ],
+      "quizEasy": [
+        "Why was the nuclear model incomplete?",
+        "What happens when an electron moves from a higher orbit to a lower orbit?",
+        "How does electron energy change as distance from the nucleus increases?"
+      ],
+      "quizMedium": [
+        "Explain why scientists thought the old nuclear model should make atoms unstable.",
+        "What evidence from line spectra supported the idea of fixed energy levels?"
+      ],
+      "quizHard": [
+        "Explain one strength and one limitation of the planetary model.",
+        "Why did scientists later need quantum mechanics even after the planetary model?"
+      ],
+      "feynmanChecklist": [
+        "I can explain why the nuclear model needed to be revised.",
+        "I can describe fixed energy levels in simple English.",
+        "I can explain how line spectra connect to electron jumps."
+      ],
+      "applications": [
+        "Use the orbit and energy-level ideas when explaining emission spectra and why atoms produce specific colours of light."
+      ]
+    },
+    {
+      "topic": "Atomic Structure",
+      "summary": "Atomic structure focuses on the three subatomic particles, atomic number, mass number, isotopes, and how to calculate protons, neutrons, and electrons in a neutral atom.",
+      "keyConcepts": [
+        "Protons are positive and neutrons are neutral in the nucleus; electrons are negative and move around the nucleus.",
+        "Atomic number = number of protons, and in a neutral atom it also equals the number of electrons.",
+        "Mass number = protons + neutrons.",
+        "Neutrons = mass number - protons.",
+        "Isotopes are atoms of the same element with different numbers of neutrons.",
+        "Atomic mass on the periodic table is a weighted average, not the same as the mass number."
+      ],
+      "teacherNotes": [
+        "The slide breaks atomic structure into particle identity first, then atomic number, mass number, isotopes, atomic mass, and finally the reminder formulas.",
+        "Be ready for teacher questions that ask for the difference between atomic number, mass number, and atomic mass.",
+        "The practice sheet focuses on identifying particles, neutral charge, and filling in proton-electron-neutron tables."
+      ],
+      "resources": [
+        {
+          "label": "11.0 Atomic Structure slide",
+          "url": "/uploads/slide-quizzes%2Fatomic-structure-11-0.pdf"
+        },
+        {
+          "label": "11.2 Atomic Structure Practice",
+          "url": "/uploads/slide-quizzes%2Fatomic-structure-practice-11-2.pdf"
+        },
+        {
+          "label": "Kevin Apps: Atom Explorer",
+          "url": "https://www.kevin-apps.com/atom"
+        }
+      ],
+      "quizEasy": [
+        "Which particle decides the atomic number of an atom?",
+        "In a neutral atom, how are protons and electrons related?",
+        "What does mass number count?"
+      ],
+      "quizMedium": [
+        "Explain the difference between mass number and atomic mass.",
+        "Why can two isotopes belong to the same element even though their masses differ?",
+        "If an atom has atomic number 8 and mass number 16, how many neutrons does it have?"
+      ],
+      "quizHard": [
+        "Use the slide formulas to explain how you would find protons, electrons, and neutrons for a neutral atom.",
+        "Why is the decimal on the periodic table not the same as the mass number shown in isotope notation?"
+      ],
+      "feynmanChecklist": [
+        "I can explain atomic number, mass number, and atomic mass in simple words.",
+        "I can tell someone how to find neutrons using mass number and protons.",
+        "I can explain why isotopes are the same element but not exactly the same atom."
+      ],
+      "applications": [
+        "Use atomic number, mass number, and neutral charge rules to complete particle tables quickly on worksheets and quizzes.",
+        "Watch for teacher questions that compare isotope notation with the decimal atomic mass on the periodic table."
+      ]
+    },
+    {
       "topic": "Current Chemistry Test Range",
-      "summary": "The current Chemistry test range starts with the March 23, 2026 content and continues through the most recent posted class materials.",
+      "summary": "The current Chemistry test range starts with the March 23, 2026 content and continues through the newest class materials, including atomic structure and Bohr-Rutherford work.",
       "keyConcepts": [
         "Periodic table patterns",
         "The periodic table",
         "Atomic theory",
+        "Atomic structure",
+        "Bohr-Rutherford diagrams and the planetary model",
         "Coding for Science connections where assigned"
       ],
       "teacherNotes": [
         "March 23, 2026 and later Chemistry posts are part of the next test range.",
-        "Use recent Google Classroom materials as the main review source."
+        "Use recent Google Classroom materials as the main review source.",
+        "Atomic Structure is a priority review area because a quiz is expected next week."
       ],
       "resources": [
         "Mar 23 - Periodic Table Patterns",
         "Mar 24 - The Periodic Table",
-        "Mar 27 - Atomic Theory"
+        "Mar 27 - Atomic Theory",
+        "Apr 1 - Atomic Structure",
+        "Apr 1 - The Planetary Model",
+        "11.2 Atomic Structure Practice"
       ],
       "quizEasy": [],
       "quizMedium": [],
