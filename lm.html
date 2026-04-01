@@ -118,8 +118,12 @@
   }
 
   .history-list li {
-    padding: 4px 0;
+    padding: 6px 0;
     border-bottom: 1px dashed rgba(255,255,255,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
   }
 
   .history-list li span.time {
@@ -129,6 +133,28 @@
 
   .history-list li span.dist {
     color: #ffcc66;
+  }
+
+  .history-entry-text {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 4px;
+  }
+
+  .replay-btn {
+    background: rgba(255,165,0,0.18);
+    color: #ffb84d;
+    border: 1px solid rgba(255,184,77,0.55);
+    border-radius: 999px;
+    padding: 4px 10px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    white-space: nowrap;
+  }
+
+  .replay-btn:hover {
+    background: rgba(255,165,0,0.34);
   }
 </style>
 </head>
@@ -146,6 +172,9 @@
 
 <script>
 let map, marker;
+const HISTORY_STORAGE_KEY = "lightningHistoryEntries";
+const MAX_HISTORY_ITEMS = 10;
+let historyEntries = [];
 
 // Initialize Google Map
 function initMap() {
@@ -285,21 +314,69 @@ function formatTime(date) {
 }
 
 // Update detection history
-function updateHistory(time, distance) {
+function renderHistory() {
   const list = document.getElementById("historyList");
-  const li = document.createElement("li");
-  li.innerHTML = `<span class="time">${formatTime(time)}</span>
-                  <span class="dist">${distance.toFixed(1)} km away</span>`;
-  list.prepend(li);
+  if (!list) return;
+  list.innerHTML = "";
 
-  while (list.children.length > 5) {
-    list.removeChild(list.lastChild);
+  historyEntries.forEach((entry) => {
+    const li = document.createElement("li");
+
+    const text = document.createElement("div");
+    text.className = "history-entry-text";
+    text.innerHTML = `<span class="time">${entry.time}</span>
+                      <span class="dist">${Number(entry.distance).toFixed(1)} km away</span>`;
+
+    const replayButton = document.createElement("button");
+    replayButton.type = "button";
+    replayButton.className = "replay-btn";
+    replayButton.textContent = "Replay";
+    replayButton.addEventListener("click", () => replayHistoryEntry(entry.id));
+
+    li.appendChild(text);
+    li.appendChild(replayButton);
+    list.appendChild(li);
+  });
+}
+
+function persistHistory() {
+  localStorage.setItem(HISTORY_STORAGE_KEY, JSON.stringify(historyEntries));
+}
+
+function loadHistory() {
+  try {
+    const saved = JSON.parse(localStorage.getItem(HISTORY_STORAGE_KEY) || "[]");
+    historyEntries = Array.isArray(saved) ? saved : [];
+  } catch (error) {
+    console.warn("Could not read saved lightning history:", error);
+    historyEntries = [];
   }
+  renderHistory();
+}
+
+function updateHistory(time, distance) {
+  historyEntries.unshift({
+    id: `${time.getTime()}-${distance}`,
+    time: formatTime(time),
+    distance: Number(distance)
+  });
+
+  historyEntries = historyEntries.slice(0, MAX_HISTORY_ITEMS);
+  persistHistory();
+  renderHistory();
+}
+
+function replayHistoryEntry(entryId) {
+  const entry = historyEntries.find((item) => item.id === entryId);
+  if (!entry) return;
+  drawPersistentRing(Number(entry.distance));
 }
 
 // Clear all history
 function clearHistory() {
-  document.getElementById("historyList").innerHTML = "";
+  historyEntries = [];
+  localStorage.removeItem(HISTORY_STORAGE_KEY);
+  renderHistory();
   console.log("🧹 History cleared");
 }
 
@@ -340,6 +417,8 @@ function initMQTT() {
     }
   });
 }
+
+loadHistory();
 </script>
 
 <!-- Replace with your Google Maps API key -->
