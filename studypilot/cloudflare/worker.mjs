@@ -1633,15 +1633,15 @@ async function handleScienceRequest(env) {
         )
         ORDER BY support_id, section_key, item_order
       `),
-      env.studypilot.prepare(`
-        SELECT
-          id,
-          title,
-          summary
-        FROM subject_topic_cards
-        WHERE subject_slug = 'science'
-        ORDER BY updated_at DESC, rowid DESC
-      `),
+        env.studypilot.prepare(`
+          SELECT
+            id,
+            title,
+            summary
+          FROM subject_topic_cards
+          WHERE subject_slug = 'science'
+          ORDER BY updated_at DESC, rowid ASC
+        `),
       env.studypilot.prepare(`
         SELECT
           card_id,
