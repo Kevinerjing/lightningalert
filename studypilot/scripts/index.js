@@ -56,7 +56,7 @@ function setTaskTotal(totalId, panelId) {
 }
 
 async function loadDashboardData(fetchJson) {
-  const { buildRecurringClubTasks, buildRecurringGrade10MathTasks, buildRecurringSlideQuizTasks } = window.StudyUtils;
+  const { buildRecurringClubTasks, buildRecurringBohrRutherfordTasks, buildRecurringGrade10MathTasks, buildRecurringSlideQuizTasks } = window.StudyUtils;
   const apiPayload = await fetchJson("./api/studypilot-dashboard", null);
   if (apiPayload && apiPayload.tasks && apiPayload.totals) {
     return apiPayload;
@@ -74,6 +74,7 @@ async function loadDashboardData(fetchJson) {
   const nextWeekTasks = Array.isArray(nextWeekData.tasks) ? nextWeekData.tasks : [];
   const recurringTasks = [
     ...buildRecurringClubTasks(),
+    ...buildRecurringBohrRutherfordTasks(),
     ...buildRecurringGrade10MathTasks(),
     ...buildRecurringSlideQuizTasks()
   ];

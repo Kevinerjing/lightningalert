@@ -154,6 +154,33 @@
     });
   }
 
+  function buildRecurringBohrRutherfordTasks(referenceDate = new Date()) {
+    const today = buildStudyDate(referenceDate);
+    const weekdays = [
+      { weekday: 1, label: "Monday" },
+      { weekday: 2, label: "Tuesday" },
+      { weekday: 3, label: "Wednesday" },
+      { weekday: 4, label: "Thursday" },
+      { weekday: 5, label: "Friday" }
+    ];
+
+    return weekdays.map(({ weekday, label }) => {
+      const targetDate = getNextWeekday(today, weekday, true);
+      return {
+        bucket: getRecurringBucketForDate(targetDate, today),
+        subject: "Science",
+        topic: "Bohr-Rutherford diagram practice",
+        type: "routine",
+        note: `${label} routine: draw a Bohr-Rutherford diagram in Atom Explorer. Rule: first shell = 12 and 6 o'clock. Other shells = 12 -> 6 -> 3 -> 9, then add pairs next to those positions.`,
+        dueDate: toIsoDate(targetDate),
+        priority: "Medium",
+        resourceLabel: "Open Atom Explorer",
+        resourceLink: "https://www.kevin-apps.com/atom",
+        source: "recurring-bohr-rutherford"
+      };
+    });
+  }
+
   function buildRecurringSlideQuizTasks(referenceDate = new Date()) {
     const today = buildStudyDate(referenceDate);
     const slideQuizDays = [
@@ -229,6 +256,7 @@
 
   window.StudyUtils = {
     buildRecurringClubTasks,
+    buildRecurringBohrRutherfordTasks,
     buildRecurringGrade10MathTasks,
     buildRecurringSlideQuizTasks,
     createEmptyState,
