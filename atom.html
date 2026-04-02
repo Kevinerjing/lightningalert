@@ -694,10 +694,10 @@
       return parts.join('');
     }
 
-    function drawElectronsOnShell(parts, cx, cy, radius, count) {
-      // Classroom-style Bohr electron placement.
-      // Special case: 2 electrons are opposite each other (top and bottom),
-      // matching the common first-shell diagram style.
+    function drawElectronsOnShell(parts, cx, cy, radius, count, shellIndex = 0) {
+      // Classroom-style Bohr electron placement using the classroom "clock" rule.
+      // First shell keeps the common top/bottom pair for 2 electrons.
+      // Outer shells place 2 electrons at 12 o'clock and 3 o'clock.
       const points = [];
 
       const top = { x: cx, y: cy - radius };
@@ -708,7 +708,11 @@
       if (count === 1) {
         points.push(top);
       } else if (count === 2) {
-        points.push(top, bottom);
+        if (shellIndex === 0) {
+          points.push(top, bottom);
+        } else {
+          points.push(top, right);
+        }
       } else if (count === 3) {
         points.push(top, right, bottom);
       } else if (count === 4) {
@@ -779,14 +783,13 @@
       shells.forEach((count, index) => {
         const radius = layout.firstRadius + index * layout.shellSpacing;
         parts.push(`<circle cx="${cx}" cy="${cy}" r="${radius}" fill="none" stroke="#9ab2c9" stroke-width="2" />`);
-        drawElectronsOnShell(parts, cx, cy, radius, count);
+        drawElectronsOnShell(parts, cx, cy, radius, count, index);
         if (state.showLabels) {
           parts.push(`<text x="${cx}" y="${cy - radius - layout.shellLabelOffset}" text-anchor="middle" font-size="11" fill="#5f7186">${shellLabelText(index, count)}</text>`);
         }
       });
 
       parts.push(`<circle cx="${cx}" cy="${cy}" r="${layout.nucleusRadius}" fill="url(#nucleusGradBohr)" stroke="#6e8ba7" stroke-width="2" />`);
-      parts.push(`<text x="${cx}" y="${cy + 4}" text-anchor="middle" font-size="${layout.symbolFontSize}" font-weight="800" fill="#17324d">${atom.symbol}</text>`);
 
       if (state.showNucleusLabels) {
         parts.push(`<text x="${cx}" y="${cy - 12}" text-anchor="middle" font-size="${layout.nucleusLabelFontSize}" font-weight="700" fill="#17324d">${atom.protons} p⁺</text>`);
@@ -812,8 +815,6 @@
       if (state.showNucleusLabels) {
         parts.push(`<text x="${nucleusX}" y="${cy - 6}" text-anchor="middle" font-size="15" font-weight="700" fill="#17324d">${atom.protons} p⁺</text>`);
         parts.push(`<text x="${nucleusX}" y="${cy + 16}" text-anchor="middle" font-size="15" fill="#17324d">${atom.neutrons} n°</text>`);
-      } else {
-        parts.push(`<text x="${nucleusX}" y="${cy + 5}" text-anchor="middle" font-size="24" font-weight="800" fill="#17324d">${atom.symbol}</text>`);
       }
 
       shells.forEach((count, index) => {
