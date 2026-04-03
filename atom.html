@@ -752,7 +752,7 @@
       const compact = shellCount >= 4;
       const cx = 180;
       const cy = compact ? 174 : 168;
-      const firstRadius = compact ? 42 : 48;
+      const firstRadius = compact ? 48 : 54;
       const maxRadius = compact ? 136 : 128;
       const shellSpacing = shellCount > 1 ? (maxRadius - firstRadius) / (shellCount - 1) : 0;
       return {
@@ -760,7 +760,7 @@
         cy,
         firstRadius,
         shellSpacing,
-        nucleusRadius: compact ? 31 : 34,
+        nucleusRadius: compact ? 24 : 27,
         symbolFontSize: compact ? 21 : 24,
         nucleusLabelFontSize: compact ? 11 : 12,
         titleY: compact ? 24 : 28,
