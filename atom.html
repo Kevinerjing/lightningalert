@@ -789,7 +789,8 @@
         }
       });
 
-      parts.push(`<circle cx="${cx}" cy="${cy}" r="${layout.nucleusRadius}" fill="url(#nucleusGradBohr)" stroke="#6e8ba7" stroke-width="2" />`);
+      const nucleusSize = layout.nucleusRadius * 2;
+      parts.push(`<rect x="${(cx - layout.nucleusRadius).toFixed(1)}" y="${(cy - layout.nucleusRadius).toFixed(1)}" width="${nucleusSize.toFixed(1)}" height="${nucleusSize.toFixed(1)}" fill="url(#nucleusGradBohr)" stroke="#6e8ba7" stroke-width="2" />`);
 
       if (state.showNucleusLabels) {
         parts.push(`<text x="${cx}" y="${cy - 12}" text-anchor="middle" font-size="${layout.nucleusLabelFontSize}" font-weight="700" fill="#17324d">${atom.protons} p⁺</text>`);
@@ -811,7 +812,7 @@
 
       parts.push(`<text x="180" y="28" text-anchor="middle" font-size="20" font-weight="700" fill="#17324d">${atom.name} (${atom.displaySymbol})</text>`);
 
-      parts.push(`<circle cx="${nucleusX}" cy="${cy}" r="36" fill="#eef5fd" stroke="#6e8ba7" stroke-width="2" />`);
+      parts.push(`<rect x="${(nucleusX - 36).toFixed(1)}" y="${(cy - 36).toFixed(1)}" width="72" height="72" fill="#eef5fd" stroke="#6e8ba7" stroke-width="2" />`);
       if (state.showNucleusLabels) {
         parts.push(`<text x="${nucleusX}" y="${cy - 6}" text-anchor="middle" font-size="15" font-weight="700" fill="#17324d">${atom.protons} p⁺</text>`);
         parts.push(`<text x="${nucleusX}" y="${cy + 16}" text-anchor="middle" font-size="15" fill="#17324d">${atom.neutrons} n°</text>`);
