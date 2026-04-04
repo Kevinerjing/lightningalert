@@ -1,14 +1,14 @@
 {
-  "boardDate": "2026-04-03",
-  "generatedAt": "2026-04-03T12:02:05.924Z",
+  "boardDate": "2026-04-04",
+  "generatedAt": "2026-04-04T11:53:07.284Z",
   "sourceCount": 26,
   "weather": [
     {
       "city": "Ottawa",
-      "temperatureC": 4,
-      "maxC": 18,
-      "minC": 2,
-      "summary": "Heavy rain"
+      "temperatureC": 1,
+      "maxC": 6,
+      "minC": 0,
+      "summary": "Clear skies"
     }
   ],
   "extremeWeather": [
@@ -89,6 +89,15 @@
   ],
   "weatherTech": [
     {
+      "title": "Anker’s Nebula P1 projector is the portable sound king",
+      "whatHappened": "The Soundcore Nebula P1 from Anker isn't the most portable Google TV projector I've ever reviewed, nor is it the brightest.",
+      "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
+      "keyWord": "battery: a device that stores energy for later use",
+      "source": "The Verge",
+      "url": "https://www.theverge.com/reviews/906455/anker-nebula-p1-review-vanlife-sound-champ",
+      "publishedAt": "2026-04-03T12:21:39.000Z"
+    },
+    {
       "title": "Google to tap into gas plant for AI datacenter in sharp turn from climate goals",
       "whatHappened": "Texas power plant would emit 4.5m tons of carbon dioxide per year, more than that of the entire city of San Francisco Google ’s plan for...",
       "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
@@ -125,15 +134,6 @@
       "publishedAt": "2026-04-01T13:00:01.000Z"
     },
     {
-      "title": "Demand for hydropower surges as Trump clamps down on clean energy",
-      "whatHappened": "Home to one of the world’s largest deposits of freshwater, the Great Lakes region will soon host next-generation generators – just as prices are being hiked...",
-      "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
-      "keyWord": "weather technology: tools that help people measure, study, or predict weather and climate",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/us-news/2026/mar/30/hydropower-great-lakes-clean-energy",
-      "publishedAt": "2026-03-31T14:38:52.000Z"
-    },
-    {
       "title": "World News in Brief: Guterres calls for fair swtich to clean energy, Ramadan in Gaza, escalating violence and displacement in South Sudan",
       "whatHappened": "The world has “entered the age of clean energy” and renewables are now the cheapest, fastest and safest source of new electricity almost everywhere, UN Secretary-General...",
       "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
@@ -161,6 +161,15 @@
       "source": "Carleton Sustainability",
       "url": "https://carleton.ca/sustainability/2025/tiny-forest-coming-to-carleton/",
       "publishedAt": "2025-07-29T18:38:05.000Z"
+    },
+    {
+      "title": "Researchers expose fossil fuel companies’ communications facade",
+      "whatHappened": "Fossil fuel companies say they’re leaders in renewable energy — new research finds a concerted communication strategy suggesting otherwise.",
+      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
+      "keyWord": "research: careful study used to discover new knowledge",
+      "source": "Northeastern Global News",
+      "url": "https://news.northeastern.edu/2026/04/03/greenwashing-fossil-fuel-communications-research/",
+      "publishedAt": "2026-04-03T19:30:58.000Z"
     },
     {
       "title": "Climate change may produce “fast-food” phytoplankton",
@@ -242,15 +251,6 @@
       "source": "University of Michigan Record",
       "url": "https://record.umich.edu/articles/wege-lecturer-companies-that-focus-on-sustainability-long-term-will-thrive/",
       "publishedAt": "2026-03-27T17:46:54.000Z"
-    },
-    {
-      "title": "One-of-a-kind experiment tracked plant evolution in response to climate change at 30 sites worldwide",
-      "whatHappened": "Simultaneous experiments pinpointed genetic variants associated with successful adaptation to climate change — and the tipping point beyond which plants can’t adapt.",
-      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
-      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
-      "source": "Berkeley News",
-      "url": "https://news.berkeley.edu/2026/03/26/one-of-a-kind-experiment-tracked-plant-evolution-in-response-to-climate-change-at-30-sites-worldwide/",
-      "publishedAt": "2026-03-26T18:03:30.000Z"
     }
   ]
 }
