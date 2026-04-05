@@ -1,14 +1,14 @@
 {
-  "boardDate": "2026-04-04",
-  "generatedAt": "2026-04-04T11:53:07.284Z",
+  "boardDate": "2026-04-05",
+  "generatedAt": "2026-04-05T11:54:19.496Z",
   "sourceCount": 26,
   "weather": [
     {
       "city": "Ottawa",
-      "temperatureC": 1,
-      "maxC": 6,
-      "minC": 0,
-      "summary": "Clear skies"
+      "temperatureC": 6,
+      "maxC": 8,
+      "minC": 1,
+      "summary": "Cloudy"
     }
   ],
   "extremeWeather": [
@@ -89,13 +89,22 @@
   ],
   "weatherTech": [
     {
+      "title": "Peter Thiel’s big bet on solar-powered cow collars",
+      "whatHappened": "Why did Founders Fund invest $220 million in cattle management startup Halter?",
+      "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
+      "keyWord": "solar: related to energy from sunlight",
+      "source": "TechCrunch",
+      "url": "https://techcrunch.com/2026/04/04/unpacking-peter-thiels-big-bet-on-solar-powered-cow-collars/",
+      "publishedAt": "2026-04-04T21:30:00.000Z"
+    },
+    {
       "title": "Anker’s Nebula P1 projector is the portable sound king",
       "whatHappened": "The Soundcore Nebula P1 from Anker isn't the most portable Google TV projector I've ever reviewed, nor is it the brightest.",
       "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
       "keyWord": "battery: a device that stores energy for later use",
       "source": "The Verge",
       "url": "https://www.theverge.com/reviews/906455/anker-nebula-p1-review-vanlife-sound-champ",
-      "publishedAt": "2026-04-03T12:21:39.000Z"
+      "publishedAt": "2026-04-04T16:44:43.000Z"
     },
     {
       "title": "Google to tap into gas plant for AI datacenter in sharp turn from climate goals",
@@ -132,15 +141,6 @@
       "source": "The Guardian Environment",
       "url": "https://www.theguardian.com/us-news/2026/apr/01/snowmelt-american-west",
       "publishedAt": "2026-04-01T13:00:01.000Z"
-    },
-    {
-      "title": "World News in Brief: Guterres calls for fair swtich to clean energy, Ramadan in Gaza, escalating violence and displacement in South Sudan",
-      "whatHappened": "The world has “entered the age of clean energy” and renewables are now the cheapest, fastest and safest source of new electricity almost everywhere, UN Secretary-General...",
-      "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
-      "keyWord": "weather technology: tools that help people measure, study, or predict weather and climate",
-      "source": "UN Climate",
-      "url": "https://news.un.org/feed/view/en/story/2026/02/1166995",
-      "publishedAt": "2026-02-18T12:00:00.000Z"
     }
   ],
   "universityNews": [
