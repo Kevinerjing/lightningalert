@@ -1,17 +1,26 @@
 {
-  "boardDate": "2026-04-05",
-  "generatedAt": "2026-04-05T11:54:19.496Z",
+  "boardDate": "2026-04-06",
+  "generatedAt": "2026-04-06T12:06:27.174Z",
   "sourceCount": 26,
   "weather": [
     {
       "city": "Ottawa",
-      "temperatureC": 6,
-      "maxC": 8,
-      "minC": 1,
-      "summary": "Cloudy"
+      "temperatureC": -1,
+      "maxC": 2,
+      "minC": -1,
+      "summary": "Mostly clear"
     }
   ],
   "extremeWeather": [
+    {
+      "title": "Severe Tropical Cyclone Maila could hit far north Queensland three weeks after Narelle tore through",
+      "whatHappened": "While path and strength of storm remain uncertain, BoM warns Cape York could again take direct hit if cyclone makes landfall Get our breaking news email...",
+      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
+      "keyWord": "extreme weather: unusual and dangerous weather like floods, storms, or heat waves",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/australia-news/2026/apr/06/severe-tropical-cyclone-maila-far-north-queensland",
+      "publishedAt": "2026-04-06T10:25:58.000Z"
+    },
     {
       "title": "How a lush Miami park was designed to keep flooding at bay – in pictures",
       "whatHappened": "As the climate crisis intensifies the storms lashing south Florida, it is imperative to design spaces that soak up the water.",
@@ -69,15 +78,6 @@
       "publishedAt": "2026-04-02T12:00:00.000Z"
     },
     {
-      "title": "Why thousands of New Yorkers swap gas for induction stoves in clean energy push: ‘It makes sense’",
-      "whatHappened": "US states from California to Georgia are promoting induction stoves for climate, health and cost benefits Marcos Ramos hasn’t been able to cook a full meal...",
-      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
-      "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/environment/2026/apr/02/new-york-induction-stoves-climate-energy",
-      "publishedAt": "2026-04-02T10:00:21.000Z"
-    },
-    {
       "title": "War-driven energy price spikes highlight value of renewables: UN climate chief",
       "whatHappened": "The disruption of global energy supplies is being felt worldwide, the UN’s top climate change official warned on Monday, as conflict in the Middle East drives...",
       "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
@@ -85,9 +85,27 @@
       "source": "UN Climate",
       "url": "https://news.un.org/feed/view/en/story/2026/03/1167135",
       "publishedAt": "2026-03-16T12:00:00.000Z"
+    },
+    {
+      "title": "‘A surrender to special interests’: alarm as Utah shields fossil-fuel companies",
+      "whatHappened": "New legislation comes amid push from big oil, as critics warn polluters’ profits prioritized over Americans’ health Utah has made it nearly impossible for residents to...",
+      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
+      "keyWord": "climate: the usual pattern of weather over a long period of time",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/us-news/2026/apr/06/utah-fossil-fuels-legal-shield",
+      "publishedAt": "2026-04-06T11:00:18.000Z"
     }
   ],
   "weatherTech": [
+    {
+      "title": "Los Thuthanaka’s Wak’a is a mellower follow-up to last year’s surprise Pitchfork favorite",
+      "whatHappened": "Los Thuthanaka basically came out of nowhere last year to capture Pitchfork's album of the year with their self-titled debut.",
+      "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
+      "keyWord": "weather technology: tools that help people measure, study, or predict weather and climate",
+      "source": "The Verge",
+      "url": "https://www.theverge.com/entertainment/907174/los-thuthanaka-waka-review",
+      "publishedAt": "2026-04-05T18:26:06.000Z"
+    },
     {
       "title": "Peter Thiel’s big bet on solar-powered cow collars",
       "whatHappened": "Why did Founders Fund invest $220 million in cattle management startup Halter?",
@@ -96,15 +114,6 @@
       "source": "TechCrunch",
       "url": "https://techcrunch.com/2026/04/04/unpacking-peter-thiels-big-bet-on-solar-powered-cow-collars/",
       "publishedAt": "2026-04-04T21:30:00.000Z"
-    },
-    {
-      "title": "Anker’s Nebula P1 projector is the portable sound king",
-      "whatHappened": "The Soundcore Nebula P1 from Anker isn't the most portable Google TV projector I've ever reviewed, nor is it the brightest.",
-      "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
-      "keyWord": "battery: a device that stores energy for later use",
-      "source": "The Verge",
-      "url": "https://www.theverge.com/reviews/906455/anker-nebula-p1-review-vanlife-sound-champ",
-      "publishedAt": "2026-04-04T16:44:43.000Z"
     },
     {
       "title": "Google to tap into gas plant for AI datacenter in sharp turn from climate goals",
@@ -125,22 +134,13 @@
       "publishedAt": "2026-04-02T12:00:00.000Z"
     },
     {
-      "title": "Why thousands of New Yorkers swap gas for induction stoves in clean energy push: ‘It makes sense’",
-      "whatHappened": "US states from California to Georgia are promoting induction stoves for climate, health and cost benefits Marcos Ramos hasn’t been able to cook a full meal...",
+      "title": "World News in Brief: Guterres calls for fair swtich to clean energy, Ramadan in Gaza, escalating violence and displacement in South Sudan",
+      "whatHappened": "The world has “entered the age of clean energy” and renewables are now the cheapest, fastest and safest source of new electricity almost everywhere, UN Secretary-General...",
       "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
       "keyWord": "weather technology: tools that help people measure, study, or predict weather and climate",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/environment/2026/apr/02/new-york-induction-stoves-climate-energy",
-      "publishedAt": "2026-04-02T10:00:21.000Z"
-    },
-    {
-      "title": "‘On a whole other level’: rapid snow melt-off in American west stuns scientists",
-      "whatHappened": "Experts say brutal March heat has left critical snowpack at record-low levels – and key basins in uncharted territory Snow surveys taking place across the American...",
-      "whyItMatters": "Weather technology shows how science tools can predict conditions faster and help people prepare earlier.",
-      "keyWord": "forecast: a prediction about future weather conditions",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/us-news/2026/apr/01/snowmelt-american-west",
-      "publishedAt": "2026-04-01T13:00:01.000Z"
+      "source": "UN Climate",
+      "url": "https://news.un.org/feed/view/en/story/2026/02/1166995",
+      "publishedAt": "2026-02-18T12:00:00.000Z"
     }
   ],
   "universityNews": [
