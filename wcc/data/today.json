@@ -1,14 +1,14 @@
 {
-  "boardDate": "2026-04-07",
-  "generatedAt": "2026-04-07T12:08:55.551Z",
+  "boardDate": "2026-04-08",
+  "generatedAt": "2026-04-08T12:09:06.233Z",
   "sourceCount": 26,
   "weather": [
     {
       "city": "Ottawa",
-      "temperatureC": -4,
-      "maxC": 0,
-      "minC": -4,
-      "summary": "Cloudy"
+      "temperatureC": -5,
+      "maxC": 6,
+      "minC": -8,
+      "summary": "Clear skies"
     }
   ],
   "extremeWeather": [
@@ -51,34 +51,52 @@
       "publishedAt": "2026-03-16T12:00:00.000Z"
     },
     {
+      "title": "UK opening new oil and gas fields would imperil global climate goals, experts say",
+      "whatHappened": "Senior climate figures warn North Sea drilling would encourage fossil fuel exploitation by developing countries Opening new oil and gas fields in the North Sea would...",
+      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
+      "keyWord": "climate: the usual pattern of weather over a long period of time",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/environment/2026/apr/08/uk-new-oil-gas-fields-north-sea-global-climate-goals",
+      "publishedAt": "2026-04-08T05:00:16.000Z"
+    },
+    {
+      "title": "Earthset and a solar eclipse: Nasa releases first images from Moon fly-by",
+      "whatHappened": "The first two images show an 'Earthrise' and the solar eclipse the astronauts viewed.",
+      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
+      "keyWord": "climate: the usual pattern of weather over a long period of time",
+      "source": "BBC Science & Environment",
+      "url": "https://www.bbc.com/news/articles/cyv183v02j3o?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-04-07T14:53:18.000Z"
+    },
+    {
       "title": "US is ‘using Mexico as a garbage sink’ leading to ‘toxic crisis’, UN expert says",
-      "whatHappened": "Marcos Orellana, a special rapporteur, found lax environmental standards and lack of oversight allowed pollution to accumulate Mexico is facing a “toxic crisis” and has become...",
+      "whatHappened": "Marcos Orellana, a special rapporteur, found lax environmental standards and lack of oversight allowed pollution to accumulate Revealed: Mexico’s industrial boomtown is making goods for the...",
       "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
       "keyWord": "climate: the usual pattern of weather over a long period of time",
       "source": "The Guardian Environment",
       "url": "https://www.theguardian.com/world/2026/apr/07/mexico-us-toxic-waste-un-special-rapporteur",
       "publishedAt": "2026-04-07T10:00:45.000Z"
-    },
-    {
-      "title": "Using AI to speed up Australia’s environmental approvals risks ‘robodebt-style’ failures, scientists say",
-      "whatHappened": "Conservationists say move could push species closer to extinction and clearer environmental rules are needed instead Follow our Australia news live blog for latest updates Get...",
-      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
-      "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/environment/2026/apr/06/ai-environmental-assessments-robodebt-style-failures",
-      "publishedAt": "2026-04-06T15:00:23.000Z"
-    },
-    {
-      "title": "‘A surrender to special interests’: alarm as Utah shields fossil-fuel companies",
-      "whatHappened": "New legislation comes amid push from big oil, as critics warn polluters’ profits prioritized over Americans’ health Utah has made it nearly impossible for residents to...",
-      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
-      "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/us-news/2026/apr/06/utah-fossil-fuels-legal-shield",
-      "publishedAt": "2026-04-06T11:00:18.000Z"
     }
   ],
   "weatherTech": [
+    {
+      "title": "Continuous glucose monitoring made me continuously crazy",
+      "whatHappened": "Daily life is different when you're tracking glucose.",
+      "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
+      "keyWord": "weather technology: tools that help people measure, study, or predict weather and climate",
+      "source": "The Verge",
+      "url": "https://www.theverge.com/features/907359/cgms-optimizing-metabolism-dexcom-abbott-wearables-health-tech",
+      "publishedAt": "2026-04-08T11:01:19.000Z"
+    },
+    {
+      "title": "Earthset and a solar eclipse: Nasa releases first images from Moon fly-by",
+      "whatHappened": "The first two images show an 'Earthrise' and the solar eclipse the astronauts viewed.",
+      "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
+      "keyWord": "solar: related to energy from sunlight",
+      "source": "BBC Science & Environment",
+      "url": "https://www.bbc.com/news/articles/cyv183v02j3o?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-04-07T14:53:18.000Z"
+    },
     {
       "title": "Middle East crisis exposes global energy fault line as UN urges shift to renewables",
       "whatHappened": "The ongoing crisis in the Middle East is exposing a central vulnerability in the global economy: the dependence on fossil fuels flowing through regions affected by...",
@@ -116,6 +134,15 @@
       "source": "Carleton Sustainability",
       "url": "https://carleton.ca/sustainability/2025/tiny-forest-coming-to-carleton/",
       "publishedAt": "2025-07-29T18:38:05.000Z"
+    },
+    {
+      "title": "Women of Wampum",
+      "whatHappened": "Tue, 07 Apr 2026 12:00:00 +0000 A new short documentary by Dr.",
+      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
+      "keyWord": "sustainability: using resources in a way that can last over time",
+      "source": "Waterloo Environment",
+      "url": "https://uwaterloo.ca/environment/news/women-wampum",
+      "publishedAt": "2026-04-07T12:00:00.000Z"
     },
     {
       "title": "Researchers challenge fossil fuel companies’ communications strategy",
@@ -163,13 +190,13 @@
       "publishedAt": "2026-03-16T14:00:00.000Z"
     },
     {
-      "title": "Congratulations to 2026 GRADflix finalists from Environment",
-      "whatHappened": "Fri, 13 Mar 2026 12:00:00 +0000 Bashirah, a master's student in SEED, and Gurpreet, a PhD student in sustainability management were selected as finalists for the...",
+      "title": "Sensors grab pollution data in these Boston neighborhoods",
+      "whatHappened": "These Boston neighborhoods have heat and noise problems.",
       "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
-      "keyWord": "sustainability: using resources in a way that can last over time",
-      "source": "Waterloo Environment",
-      "url": "https://uwaterloo.ca/environment/news/congratulations-2026-gradflix-finalists-environment",
-      "publishedAt": "2026-03-13T12:00:00.000Z"
+      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
+      "source": "Northeastern Global News",
+      "url": "https://news.northeastern.edu/2026/04/07/boston-air-quality-enviromental-sensor-project/",
+      "publishedAt": "2026-04-07T19:26:36.000Z"
     },
     {
       "title": "Ian Hunt Wrote the Climate Book He Wanted To Read as a Kid",
@@ -188,15 +215,6 @@
       "source": "MIT Climate & Sustainability",
       "url": "https://news.mit.edu/2026/toward-cheaper-cleaner-hydrogen-production-0403",
       "publishedAt": "2026-04-03T04:00:00.000Z"
-    },
-    {
-      "title": "Tia Nelson, champion of environmental stewardship, to receive honorary degree from UW–Madison",
-      "whatHappened": "Nelson, who has been instrumental in advancing local, national and global conservation efforts, will be honored on May 8 at the spring commencement ceremony.",
-      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
-      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
-      "source": "University of Wisconsin News",
-      "url": "https://news.wisc.edu/tia-nelson-champion-of-environmental-stewardship-to-receive-honorary-degree-from-uw-madison/",
-      "publishedAt": "2026-03-26T13:18:00.000Z"
     },
     {
       "title": "Augmenting citizen science with computer vision for fish monitoring",
