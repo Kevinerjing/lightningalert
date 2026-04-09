@@ -1,13 +1,13 @@
 {
-  "boardDate": "2026-04-08",
-  "generatedAt": "2026-04-08T12:09:06.233Z",
+  "boardDate": "2026-04-09",
+  "generatedAt": "2026-04-09T12:10:26.700Z",
   "sourceCount": 26,
   "weather": [
     {
       "city": "Ottawa",
-      "temperatureC": -5,
-      "maxC": 6,
-      "minC": -8,
+      "temperatureC": 1,
+      "maxC": 17,
+      "minC": -2,
       "summary": "Clear skies"
     }
   ],
@@ -51,43 +51,34 @@
       "publishedAt": "2026-03-16T12:00:00.000Z"
     },
     {
-      "title": "UK opening new oil and gas fields would imperil global climate goals, experts say",
-      "whatHappened": "Senior climate figures warn North Sea drilling would encourage fossil fuel exploitation by developing countries Opening new oil and gas fields in the North Sea would...",
-      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
+      "title": "Bitten by snakes 200 times – on purpose: US man’s quest to help deliver new antivenom",
+      "whatHappened": "Tim Friede put his ‘ass on the line’ to help stop snakebite deaths – whose numbers appear to be rising amid the climate crisis As we...",
+      "whyItMatters": "Climate and environment stories connect science to real issues like safety, health, and extreme weather.",
       "keyWord": "climate: the usual pattern of weather over a long period of time",
       "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/environment/2026/apr/08/uk-new-oil-gas-fields-north-sea-global-climate-goals",
-      "publishedAt": "2026-04-08T05:00:16.000Z"
+      "url": "https://www.theguardian.com/environment/2026/apr/09/intentional-snakebites-antivenom",
+      "publishedAt": "2026-04-09T10:00:46.000Z"
     },
     {
-      "title": "Earthset and a solar eclipse: Nasa releases first images from Moon fly-by",
-      "whatHappened": "The first two images show an 'Earthrise' and the solar eclipse the astronauts viewed.",
+      "title": "Nature reserve helping restore crane population",
+      "whatHappened": "The site is home to three breeding pairs and has welcomed 26 chicks since 2007.",
       "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
       "keyWord": "climate: the usual pattern of weather over a long period of time",
       "source": "BBC Science & Environment",
-      "url": "https://www.bbc.com/news/articles/cyv183v02j3o?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-04-07T14:53:18.000Z"
+      "url": "https://www.bbc.com/news/articles/ckgr45pdz35o?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-04-09T05:19:31.000Z"
     },
     {
-      "title": "US is ‘using Mexico as a garbage sink’ leading to ‘toxic crisis’, UN expert says",
-      "whatHappened": "Marcos Orellana, a special rapporteur, found lax environmental standards and lack of oversight allowed pollution to accumulate Revealed: Mexico’s industrial boomtown is making goods for the...",
+      "title": "Trump’s EPA chief Zeldin gives keynote speech at climate-denying group’s event",
+      "whatHappened": "Lee Zeldin opens conference for Heartland Institute, which once compared climate advocates to the Unabomber Sign up for the Breaking News US email to get newsletter...",
       "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
       "keyWord": "climate: the usual pattern of weather over a long period of time",
       "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/world/2026/apr/07/mexico-us-toxic-waste-un-special-rapporteur",
-      "publishedAt": "2026-04-07T10:00:45.000Z"
+      "url": "https://www.theguardian.com/us-news/2026/apr/08/epa-chief-zeldin-climate-denying-group-event",
+      "publishedAt": "2026-04-08T15:58:22.000Z"
     }
   ],
   "weatherTech": [
-    {
-      "title": "Continuous glucose monitoring made me continuously crazy",
-      "whatHappened": "Daily life is different when you're tracking glucose.",
-      "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
-      "keyWord": "weather technology: tools that help people measure, study, or predict weather and climate",
-      "source": "The Verge",
-      "url": "https://www.theverge.com/features/907359/cgms-optimizing-metabolism-dexcom-abbott-wearables-health-tech",
-      "publishedAt": "2026-04-08T11:01:19.000Z"
-    },
     {
       "title": "Earthset and a solar eclipse: Nasa releases first images from Moon fly-by",
       "whatHappened": "The first two images show an 'Earthrise' and the solar eclipse the astronauts viewed.",
@@ -136,6 +127,15 @@
       "publishedAt": "2025-07-29T18:38:05.000Z"
     },
     {
+      "title": "Sinking Land Drives Hidden Flood Risk in One of the World’s Most Populated Regions",
+      "whatHappened": "A new study finds that land subsidence is outpacing ocean-driven sea-level rise along the northern coastline of Java Island, Indonesia.",
+      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
+      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
+      "source": "Columbia Climate School",
+      "url": "https://news.climate.columbia.edu/2026/04/08/sinking-land-drives-hidden-flood-risk-in-one-of-the-worlds-most-populated-regions/",
+      "publishedAt": "2026-04-08T19:49:04.000Z"
+    },
+    {
       "title": "Women of Wampum",
       "whatHappened": "Tue, 07 Apr 2026 12:00:00 +0000 A new short documentary by Dr.",
       "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
@@ -143,15 +143,6 @@
       "source": "Waterloo Environment",
       "url": "https://uwaterloo.ca/environment/news/women-wampum",
       "publishedAt": "2026-04-07T12:00:00.000Z"
-    },
-    {
-      "title": "Researchers challenge fossil fuel companies’ communications strategy",
-      "whatHappened": "Fossil fuel companies say they’re leaders in renewable energy — researchers say there is a communication strategy suggesting otherwise.",
-      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
-      "keyWord": "research: careful study used to discover new knowledge",
-      "source": "Northeastern Global News",
-      "url": "https://news.northeastern.edu/2026/04/03/greenwashing-fossil-fuel-communications-research/",
-      "publishedAt": "2026-04-03T19:30:58.000Z"
     },
     {
       "title": "Climate change may produce “fast-food” phytoplankton",
@@ -181,13 +172,13 @@
       "publishedAt": "2026-03-17T12:00:00.000Z"
     },
     {
-      "title": "Ocean bacteria team up to break down biodegradable plastic",
-      "whatHappened": "MIT researchers uncovered the roles of bacterial species from the environment as they consume biodegradable plastic.",
+      "title": "Desirée Plata appointed associate dean of engineering",
+      "whatHappened": "Faculty member in civil and environmental engineering will advance research and entrepreneurial initiatives across the School of Engineering.",
       "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
       "keyWord": "research: careful study used to discover new knowledge",
-      "source": "MIT Earth & Atmospheric Sciences",
-      "url": "https://news.mit.edu/2026/ocean-bacteria-break-down-biodegradable-plastic-0316",
-      "publishedAt": "2026-03-16T14:00:00.000Z"
+      "source": "MIT Climate & Sustainability",
+      "url": "https://news.mit.edu/2026/desiree-plata-appointed-associate-dean-engineering-0408",
+      "publishedAt": "2026-04-08T16:45:00.000Z"
     },
     {
       "title": "Sensors grab pollution data in these Boston neighborhoods",
@@ -199,24 +190,6 @@
       "publishedAt": "2026-04-07T19:26:36.000Z"
     },
     {
-      "title": "Ian Hunt Wrote the Climate Book He Wanted To Read as a Kid",
-      "whatHappened": "An M.A.",
-      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
-      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
-      "source": "Columbia Climate School",
-      "url": "https://news.climate.columbia.edu/2026/04/06/ian-hunt-wrote-the-climate-book-he-wanted-to-read-as-a-kid/",
-      "publishedAt": "2026-04-06T17:38:47.000Z"
-    },
-    {
-      "title": "Toward cheaper, cleaner hydrogen production",
-      "whatHappened": "Co-founded by Dan Sobek ’88, SM ’92, PhD ’97, 1s1 Energy has developed electrochemical cell materials for hydrogen electrolyzers that it says reduces energy use by...",
-      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
-      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
-      "source": "MIT Climate & Sustainability",
-      "url": "https://news.mit.edu/2026/toward-cheaper-cleaner-hydrogen-production-0403",
-      "publishedAt": "2026-04-03T04:00:00.000Z"
-    },
-    {
       "title": "Augmenting citizen science with computer vision for fish monitoring",
       "whatHappened": "MIT Sea Grant works with the Woodwell Climate Research Center and other collaborators to demonstrate a deep learning-based system for fish monitoring.",
       "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
@@ -224,6 +197,15 @@
       "source": "MIT Earth & Atmospheric Sciences",
       "url": "https://news.mit.edu/2026/augmenting-citizen-science-computer-vision-fish-monitoring-0325",
       "publishedAt": "2026-03-25T21:00:00.000Z"
+    },
+    {
+      "title": "Investigating Antarctic ice shelf melting with global navigation satellite systems",
+      "whatHappened": "Observations suggest a major melting event at the Ross Ice Shelf was connected to atmospheric turbulence.",
+      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
+      "keyWord": "atmospheric: related to the air and layers around Earth",
+      "source": "MIT Earth & Atmospheric Sciences",
+      "url": "https://news.mit.edu/2026/investigating-antarctic-ice-shelf-melting-gnss-satellites-0323",
+      "publishedAt": "2026-03-23T20:55:00.000Z"
     }
   ]
 }
