@@ -33,8 +33,8 @@
       position: relative;
       overflow: hidden;
       border-radius: 30px;
-      padding: 30px;
-      margin-bottom: 22px;
+      padding: 22px 24px;
+      margin-bottom: 18px;
       background: linear-gradient(135deg, rgba(31, 122, 140, 0.96), rgba(50, 99, 137, 0.92));
       color: #fff;
       box-shadow: var(--shadow);
@@ -49,9 +49,9 @@
       background: rgba(255, 255, 255, 0.09);
     }
     .hero h1 {
-      margin: 0 0 10px;
-      font-size: clamp(30px, 4vw, 50px);
-      line-height: 1.04;
+      margin: 0 0 8px;
+      font-size: clamp(28px, 3.4vw, 42px);
+      line-height: 1.06;
       letter-spacing: -0.02em;
       position: relative;
       z-index: 1;
@@ -59,8 +59,8 @@
     .hero p {
       margin: 0;
       max-width: 920px;
-      line-height: 1.6;
-      font-size: 16px;
+      line-height: 1.55;
+      font-size: 15px;
       color: rgba(255, 255, 255, 0.94);
       position: relative;
       z-index: 1;
@@ -70,13 +70,13 @@
       gap: 10px;
       flex-wrap: wrap;
     }
-    .hero-badges { margin-top: 18px; position: relative; z-index: 1; }
+    .hero-badges { margin-top: 14px; position: relative; z-index: 1; }
     .badge, .count-pill, .chip {
       display: inline-flex;
       align-items: center;
-      padding: 8px 12px;
+      padding: 7px 11px;
       border-radius: 999px;
-      font-size: 13px;
+      font-size: 12px;
     }
     .badge {
       background: rgba(255, 255, 255, 0.14);
@@ -219,6 +219,29 @@
     .footer-note { margin-top: 20px; font-size: 13px; }
     .highlight { color: var(--accent-3); font-weight: 700; }
     .muted { color: var(--muted); }
+    .hero-links {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 12px;
+      position: relative;
+      z-index: 1;
+    }
+    .hero-link {
+      display: inline-flex;
+      align-items: center;
+      padding: 9px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.14);
+      border: 1px solid rgba(255,255,255,0.2);
+      color: white;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 700;
+    }
+    .hero-link:hover {
+      background: rgba(255,255,255,0.2);
+    }
     .pdf-links {
       display: grid;
       gap: 10px;
@@ -247,6 +270,10 @@
         Each section is organized into key facts, short-answer style explanations, and quick checks
         based on your teacher's review guide and class handouts.
       </p>
+      <div class="hero-links">
+        <a class="hero-link" href="00%20Chemistry%20Unit%20Test%20-%20Review%20Guide.pdf" target="_blank" rel="noopener noreferrer">Open Teacher Review Guide PDF</a>
+        <a class="hero-link" href="quiz.html">Open Quiz Page</a>
+      </div>
       <div class="hero-badges">
         <span class="badge">Part A: Multiple Choice</span>
         <span class="badge">Part B: Short Answer</span>
@@ -266,6 +293,9 @@
         <div class="topic-list" id="topicList"></div>
         <div class="footer-note">
           Best review order: <strong>Periodic Table</strong>, <strong>Atomic Structure</strong>, <strong>Atomic Theory</strong>, <strong>Ions</strong>, <strong>Chemical Bonds</strong>, then the bonus review topics.
+        </div>
+        <div class="footer-note" style="margin-top:12px;">
+          Teacher outline: <a href="00%20Chemistry%20Unit%20Test%20-%20Review%20Guide.pdf" style="color:#1f7a8c; font-weight:700;" target="_blank" rel="noopener noreferrer">Open 00 Chemistry Unit Test - Review Guide.pdf</a>
         </div>
         <div class="footer-note" style="margin-top:12px;">
           Practice quizzes: <a href="quiz.html" style="color:#1f7a8c; font-weight:700;">Open quiz.html</a>
