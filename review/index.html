@@ -1,0 +1,878 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Grade 9 Chemistry Unit Test Review</title>
+  <style>
+    :root {
+      --panel: rgba(255, 250, 242, 0.9);
+      --card: #fffdf9;
+      --text: #1e2a32;
+      --muted: #5f6d77;
+      --line: #ded4c7;
+      --accent: #1f7a8c;
+      --accent-3: #d04f3f;
+      --shadow: 0 18px 40px rgba(74, 54, 32, 0.12);
+      --radius: 22px;
+      --radius-sm: 16px;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Arial, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(217, 142, 4, 0.18), transparent 32%),
+        radial-gradient(circle at top right, rgba(31, 122, 140, 0.14), transparent 28%),
+        linear-gradient(180deg, #f8f3eb 0%, #f4efe7 50%, #f8f5ee 100%);
+      min-height: 100vh;
+    }
+    .page { max-width: 1440px; margin: 0 auto; padding: 24px; }
+    .hero {
+      position: relative;
+      overflow: hidden;
+      border-radius: 30px;
+      padding: 30px;
+      margin-bottom: 22px;
+      background: linear-gradient(135deg, rgba(31, 122, 140, 0.96), rgba(50, 99, 137, 0.92));
+      color: #fff;
+      box-shadow: var(--shadow);
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: auto -100px -120px auto;
+      width: 360px;
+      height: 360px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.09);
+    }
+    .hero h1 {
+      margin: 0 0 10px;
+      font-size: clamp(30px, 4vw, 50px);
+      line-height: 1.04;
+      letter-spacing: -0.02em;
+      position: relative;
+      z-index: 1;
+    }
+    .hero p {
+      margin: 0;
+      max-width: 920px;
+      line-height: 1.6;
+      font-size: 16px;
+      color: rgba(255, 255, 255, 0.94);
+      position: relative;
+      z-index: 1;
+    }
+    .hero-badges, .progress, .chips {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .hero-badges { margin-top: 18px; position: relative; z-index: 1; }
+    .badge, .count-pill, .chip {
+      display: inline-flex;
+      align-items: center;
+      padding: 8px 12px;
+      border-radius: 999px;
+      font-size: 13px;
+    }
+    .badge {
+      background: rgba(255, 255, 255, 0.14);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+    }
+    .layout {
+      display: grid;
+      grid-template-columns: 360px 1fr;
+      gap: 22px;
+      align-items: start;
+    }
+    @media (max-width: 980px) { .layout, .two-col, .memory-grid { grid-template-columns: 1fr; } .panel { position: static; } }
+    .panel, .content-card {
+      background: var(--panel);
+      border: 1px solid rgba(222, 212, 199, 0.9);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(8px);
+    }
+    .panel { padding: 18px; position: sticky; top: 18px; }
+    .top-tools {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .panel h2 { margin: 0 0 14px; font-size: 22px; }
+    .panel p, .content-head p, .footer-note { color: var(--muted); line-height: 1.6; }
+    .count-pill {
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.75);
+    }
+    .search {
+      width: 100%;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 12px 14px;
+      font: inherit;
+      background: rgba(255, 255, 255, 0.84);
+      color: var(--text);
+      margin-bottom: 14px;
+    }
+    .topic-list {
+      display: grid;
+      gap: 10px;
+      max-height: 72vh;
+      overflow: auto;
+      padding-right: 4px;
+    }
+    .topic-btn {
+      text-align: left;
+      width: 100%;
+      border: 1px solid var(--line);
+      background: var(--card);
+      border-radius: 16px;
+      padding: 14px;
+      cursor: pointer;
+      transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+      color: var(--text);
+    }
+    .topic-btn:hover, .topic-btn.active {
+      transform: translateY(-1px);
+      border-color: rgba(31, 122, 140, 0.55);
+      box-shadow: 0 10px 22px rgba(31, 122, 140, 0.13);
+    }
+    .topic-btn strong { display: block; font-size: 15px; margin-bottom: 4px; }
+    .topic-btn span { display: block; font-size: 12px; color: var(--muted); line-height: 1.4; }
+    .content-card { overflow: hidden; }
+    .content-head {
+      padding: 24px 24px 18px;
+      border-bottom: 1px solid rgba(222, 212, 199, 0.95);
+      background: linear-gradient(180deg, rgba(255,255,255,0.38), rgba(255,255,255,0.14));
+    }
+    .eyebrow {
+      display: inline-block;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--accent);
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .content-head h2 { margin: 0 0 8px; font-size: clamp(24px, 3vw, 36px); line-height: 1.08; }
+    .progress { margin-top: 12px; }
+    .progress button {
+      border: 1px solid var(--line);
+      background: #fff;
+      border-radius: 12px;
+      padding: 10px 12px;
+      font: inherit;
+      cursor: pointer;
+    }
+    .progress button.done {
+      background: #ebf7f2;
+      border-color: rgba(31, 122, 140, 0.25);
+      color: var(--accent);
+      font-weight: 700;
+    }
+    .content-body { padding: 24px; display: grid; gap: 18px; }
+    .two-col { display: grid; grid-template-columns: 1.2fr 0.9fr; gap: 18px; }
+    .box {
+      border: 1px solid var(--line);
+      background: var(--card);
+      border-radius: var(--radius-sm);
+      padding: 18px;
+    }
+    .box h3 { margin: 0 0 10px; font-size: 18px; }
+    .box p { margin: 0; line-height: 1.65; }
+    ul.clean { margin: 0; padding-left: 20px; line-height: 1.7; }
+    .chip {
+      background: #eef6f7;
+      color: var(--accent);
+      border: 1px solid rgba(31, 122, 140, 0.16);
+      font-weight: 600;
+    }
+    .qa { display: grid; gap: 10px; }
+    details {
+      border: 1px solid var(--line);
+      background: var(--card);
+      border-radius: 14px;
+      overflow: hidden;
+    }
+    summary {
+      cursor: pointer;
+      list-style: none;
+      padding: 14px 16px;
+      font-weight: 700;
+    }
+    summary::-webkit-details-marker { display: none; }
+    details p { margin: 0; padding: 0 16px 16px; line-height: 1.65; }
+    .memory-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+    .flash {
+      border: 1px dashed rgba(217, 142, 4, 0.45);
+      background: #fff8e8;
+      border-radius: 16px;
+      padding: 14px;
+    }
+    .flash strong { display: block; margin-bottom: 6px; color: #8a5c00; }
+    .footer-note { margin-top: 20px; font-size: 13px; }
+    .highlight { color: var(--accent-3); font-weight: 700; }
+    .muted { color: var(--muted); }
+    .pdf-links {
+      display: grid;
+      gap: 10px;
+    }
+    .pdf-link {
+      display: block;
+      padding: 12px 14px;
+      border-radius: 14px;
+      border: 1px solid var(--line);
+      background: #f6fbfc;
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .pdf-link:hover {
+      background: #eef6f7;
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <section class="hero">
+      <h1>Grade 9 Chemistry Unit Test Review</h1>
+      <p>
+        Use the topic list on the left, then study the detailed notes on the right.
+        Each section is organized into key facts, short-answer style explanations, and quick checks
+        based on your teacher's review guide and class handouts.
+      </p>
+      <div class="hero-badges">
+        <span class="badge">Part A: Multiple Choice</span>
+        <span class="badge">Part B: Short Answer</span>
+        <span class="badge">Clickable Topic Review</span>
+        <span class="badge">Teacher Handout Wording</span>
+      </div>
+    </section>
+
+    <div class="layout">
+      <aside class="panel">
+        <div class="top-tools">
+          <h2>Review Topics</h2>
+          <span class="count-pill" id="progressText">Mastered 0 / 10</span>
+        </div>
+        <p>Search by topic or keyword such as <span class="highlight">ion</span>, <span class="highlight">periodic</span>, <span class="highlight">bond</span>, or <span class="highlight">isotope</span>.</p>
+        <input id="searchInput" class="search" type="text" placeholder="Search topics..." />
+        <div class="topic-list" id="topicList"></div>
+        <div class="footer-note">
+          Best review order: <strong>Periodic Table</strong>, <strong>Atomic Structure</strong>, <strong>Atomic Theory</strong>, <strong>Ions</strong>, <strong>Chemical Bonds</strong>, then the bonus review topics.
+        </div>
+        <div class="footer-note" style="margin-top:12px;">
+          Practice quizzes: <a href="quiz.html" style="color:#1f7a8c; font-weight:700;">Open quiz.html</a>
+        </div>
+      </aside>
+
+      <main class="content-card">
+        <div class="content-head">
+          <div class="eyebrow" id="topicTag">Review Topic</div>
+          <h2 id="topicTitle">Choose a topic from the left</h2>
+          <p id="topicSummary">Click a topic to see the main ideas, sample answers, and quick reminders for the test.</p>
+          <div class="progress">
+            <button id="markDoneBtn" type="button">Mark as Mastered</button>
+            <button id="nextBtn" type="button">Next Topic</button>
+          </div>
+        </div>
+        <div class="content-body" id="topicContent"></div>
+      </main>
+    </div>
+  </div>
+
+  <script>
+    const topics = [
+      {
+        id: "what-is-chemistry",
+        tag: "Earlier Unit Review",
+        title: "What Is Chemistry? Matter and Energy",
+        search: "what is chemistry matter energy mass volume takes up space",
+        summary: "This earlier handout gives the basic chemistry language your teacher used at the start of the unit.",
+        pdfs: [
+          { label: "2.0k What is chemistry.pdf", href: "2.0k%20What%20is%20chemistry.pdf" }
+        ],
+        sections: [
+          { title: "Teacher Handout Wording", type: "list", items: [
+            "Everything in the universe can be classified as either energy or matter.",
+            "Energy is the ability to perform work or make things move.",
+            "Matter is anything that has mass and volume and takes up space.",
+            "Chemistry is the study of matter."
+          ]},
+          { title: "Short Answer Practice", type: "qa", items: [
+            { q: "What is matter?", a: "Matter is anything that has mass and volume, which means it takes up space." },
+            { q: "What is chemistry?", a: "Chemistry is the study of matter." }
+          ]}
+        ]
+      },
+      {
+        id: "properties-of-matter",
+        tag: "Earlier Unit Review",
+        title: "Properties of Matter",
+        search: "properties of matter physical property chemical property qualitative quantitative vocabulary",
+        summary: "These handouts are useful because they connect observation words to physical and chemical properties.",
+        pdfs: [
+          { label: "2.2 Properties of Matter w.s..pdf", href: "2.2%20Properties%20of%20Matter%20w.s..pdf" },
+          { label: "2.3 Properties of Matter Vocabulary.pdf", href: "2.3%20Properties%20of%20Matter%20Vocabulary.pdf" },
+          { label: "3.2 Activity-Identifying Physical and Chemical Properties of Matter.pdf", href: "3.2%20Activity-Identifying%20Physical%20and%20Chemical%20Properties%20of%20Matter.pdf" }
+        ],
+        sections: [
+          { title: "Teacher Handout Wording", type: "list", items: [
+            "A physical property is observed with the senses and can be determined without destroying the object.",
+            "A chemical property indicates how a substance reacts with something else.",
+            "The original substance is fundamentally changed when a chemical property is observed.",
+            "Examples of physical properties include colour, shape, mass, length, and odour.",
+            "The ability of iron to rust is a chemical property."
+          ]},
+          { title: "Vocabulary You Should Recognize", type: "chips", items: [
+            "lustre",
+            "brittleness",
+            "malleability",
+            "ductility",
+            "viscosity",
+            "solubility",
+            "conductivity",
+            "density",
+            "combustibility",
+            "reactivity"
+          ]},
+          { title: "Class Activity Examples", type: "list", items: [
+            "The activity sheet used salt, baking soda, sugar, and cornstarch.",
+            "You observed state, colour, clarity, and crystal shape.",
+            "You also tested solubility, conductivity, behaviour in iodine, and behaviour in vinegar."
+          ]},
+          { title: "Short Answer Practice", type: "qa", items: [
+            { q: "What is the difference between a physical property and a chemical property?", a: "A physical property can be observed without changing the substance, while a chemical property describes how a substance reacts and changes into a different substance." },
+            { q: "Why is rusting considered a chemical property?", a: "Rusting is a chemical property because iron reacts with oxygen and changes into iron oxide, which is a new substance." }
+          ]}
+        ]
+      },
+      {
+        id: "classification-of-matter",
+        tag: "Earlier Unit Review",
+        title: "Classification of Matter",
+        search: "classification of matter element compound mixture homogeneous heterogeneous",
+        summary: "These worksheets use the exact categories and scientific reasoning your teacher may expect on a test question.",
+        pdfs: [
+          { label: "5.0k The Classification of Matter.pdf", href: "5.0k%20The%20Classification%20of%20Matter.pdf" },
+          { label: "5.2k Classifying Matter Practice.pdf", href: "5.2k%20Classifying%20Matter%20Practice.pdf" }
+        ],
+        sections: [
+          { title: "Main Categories", type: "list", items: [
+            "Element: only one type of particle and cannot be broken down by physical or chemical means.",
+            "Compound: only one type of particle and can be broken down by chemical means.",
+            "Homogeneous mixture: more than one type of particle but appears the same throughout.",
+            "Heterogeneous mixture: more than one type of particle that can be seen with the naked eye or a microscope."
+          ]},
+          { title: "Teacher Practice Examples", type: "list", items: [
+            "Sodium metal (Na), nickel (Ni), silver (Ag), and gold (Au) are examples of elements.",
+            "Table salt (NaCl), methane gas (CH4), ethanol (C2H6O), and chalk are examples of compounds.",
+            "Air, Gatorade, coffee, and salt water are examples of homogeneous mixtures.",
+            "Fruit salad, party mix, vegetable soup, and Cheerios with milk are examples of heterogeneous mixtures."
+          ]},
+          { title: "Short Answer Practice", type: "qa", items: [
+            { q: "How is a compound different from an element?", a: "An element contains only one type of particle and cannot be broken down into simpler substances, while a compound also has one type of particle but can be broken down by chemical means." },
+            { q: "What is the difference between a homogeneous mixture and a heterogeneous mixture?", a: "A homogeneous mixture appears the same throughout, while a heterogeneous mixture has different parts that can be seen." }
+          ]}
+        ]
+      },
+      {
+        id: "citing",
+        tag: "Citing Sources",
+        title: "Citing Your Sources",
+        search: "citation source reference list works cited website author title date url",
+        summary: "Know what information belongs in a citation, how to format a reference list entry, and how to organize the list.",
+        pdfs: [
+          { label: "Citing your Sources Lesson 2025.pdf", href: "Citing%20your%20Sources%20Lesson%202025.pdf" }
+        ],
+        sections: [
+          { title: "Key Facts", type: "list", items: [
+            "If you use someone else's facts, ideas, images, or words, you need to cite the source.",
+            "The title at the top is References. It is centered and bolded.",
+            "A reference list goes at the end of your work.",
+            "Common citation information includes the author, title, source or website name, publication date, and URL.",
+            "Use one consistent citation format throughout the whole reference list.",
+            "Sources are listed in alphabetical order by the author's last name, or by title if no author is listed."
+          ]},
+          { title: "Teacher Handout Reminder", type: "list", items: [
+            "A good source is CRAAP: Currency, Relevance, Author, Accuracy, Purpose.",
+            "We cite sources to show where the information came from, to give credit, and so the reader can find more information."
+          ]},
+          { title: "Short Answer Practice", type: "qa", items: [
+            { q: "What information should be included in a citation?", a: "A citation should include enough information for the reader to find the original source, such as the author, title, date, source name, and URL. For example, your teacher handout says a source needs the author's name, publication date, title, and where it is from." },
+            { q: "How should a reference list be organized?", a: "It should be placed at the end of the assignment, use one consistent format, and be arranged alphabetically by author or title. In the handout, one example of an author is a person, and another example is an organization such as Health Canada." }
+          ]},
+          { title: "Quick Memory Check", type: "flash", items: [
+            ["Author", "Who created it"],
+            ["Title", "What it is called"],
+            ["Source", "Book, website, or article name"],
+            ["Date", "When it was published"],
+            ["URL", "Where to find it online"]
+          ]}
+        ]
+      },
+      {
+        id: "periodic",
+        tag: "Periodic Table",
+        title: "The Periodic Table",
+        search: "periodic table metals non-metals metalloids groups periods atomic number symbol mass",
+        summary: "Understand where metals, non-metals, and metalloids are found, and know the difference between groups and periods.",
+        pdfs: [
+          { label: "7.0 The Periodic Table (with youtube link).pdf", href: "7.0%20The%20Periodic%20Table%20%28with%20youtube%20link%29.pdf" },
+          { label: "Periodic Table patterns.pdf", href: "Periodic%20Table%20patterns.pdf" }
+        ],
+        sections: [
+          { title: "Key Facts", type: "list", items: [
+            "The periodic table is organized based on increasing atomic number.",
+            "Metals are mostly on the left and in the center of the periodic table.",
+            "Non-metals are mostly on the right side of the table.",
+            "Metalloids are found along the staircase line between metals and non-metals.",
+            "A group is a vertical column. Elements in the same group have similar properties.",
+            "A period is a horizontal row."
+          ]},
+          { title: "Teacher Handout Patterns", type: "list", items: [
+            "In the patterns handout, solids were marked in black, liquids in blue, gases in red, and unknown states in grey.",
+            "Metals were colored blue, non-metals pink, metalloids green, and noble gases purple.",
+            "The task also asked you to number the periods (rows) and groups (columns)."
+          ]},
+          { title: "Reading an Element Box", type: "list", items: [
+            "Name: the full name of the element, such as Oxygen.",
+            "Symbol: the shortened chemical symbol, such as O.",
+            "Atomic number: the number of protons in the atom.",
+            "Atomic mass: the average mass of the element's atoms."
+          ]},
+          { title: "Short Answer Practice", type: "qa", items: [
+            { q: "What is the difference between a group and a period?", a: "A group is a vertical column and a period is a horizontal row. Elements in the same group often have similar chemical properties. For example, Group 18 contains the noble gases." },
+            { q: "Where are metals, non-metals, and metalloids located on the periodic table?", a: "Metals are on the left and center, non-metals are on the right, and metalloids are along the staircase line. In the patterns handout, these categories were color-coded to help you see the pattern." }
+          ]},
+          { title: "Quick Memory Check", type: "flash", items: [
+            ["Group", "Vertical column"],
+            ["Period", "Horizontal row"],
+            ["Atomic Number", "Number of protons"],
+            ["Symbol", "Short form of the element name"]
+          ]}
+        ]
+      },
+      {
+        id: "families",
+        tag: "Element Families",
+        title: "The 4 Main Families or Groups",
+        search: "alkali alkaline earth halogens noble gases inert gases family properties reactive",
+        summary: "Know the properties of alkali metals, alkaline earth metals, halogens, and noble gases.",
+        pdfs: [
+          { label: "Periodic Table patterns.pdf", href: "Periodic%20Table%20patterns.pdf" },
+          { label: "11.3 Atoms Family - Math Challenge.pdf", href: "11.3%20Atoms%20Family%20-%20Math%20Challenge.pdf" }
+        ],
+        sections: [
+          { title: "Key Facts", type: "list", items: [
+            "Alkali metals are in Group 1. They are very reactive and usually form +1 ions.",
+            "Alkaline earth metals are in Group 2. They are reactive, but less reactive than alkali metals, and usually form +2 ions.",
+            "Halogens are in Group 17. They are very reactive non-metals and usually form -1 ions.",
+            "Noble gases are in Group 18. They are very stable and rarely react."
+          ]},
+          { title: "What Tests Often Ask", type: "chips", items: [
+            "Which family is most reactive?",
+            "Which family usually loses electrons?",
+            "Which family usually gains electrons?",
+            "Which family is stable?",
+            "What charge do they form?"
+          ]},
+          { title: "Short Answer Practice", type: "qa", items: [
+            { q: "Why are noble gases not very reactive?", a: "They are not very reactive because their outer electron shells are full, so they are already stable. A common example is neon in Group 18." },
+            { q: "Why do halogens often form -1 ions?", a: "They often form -1 ions because they need one more electron to fill their outer shell. Chlorine is a good example of a halogen that tends to gain one electron." }
+          ]}
+        ]
+      },
+      {
+        id: "substances",
+        tag: "Substance Properties",
+        title: "Properties of Substances Tested in Class",
+        search: "metal non-metal metalloid gas luster conductivity brittle malleable dull properties",
+        summary: "Use observed properties to tell whether a substance is a metal, non-metal, metalloid, or gas.",
+        pdfs: [
+          { label: "7.0 The Periodic Table (with youtube link).pdf", href: "7.0%20The%20Periodic%20Table%20%28with%20youtube%20link%29.pdf" },
+          { label: "9.0 The Gas Tests.pdf", href: "9.0%20The%20Gas%20Tests.pdf" }
+        ],
+        sections: [
+          { title: "Key Facts", type: "list", items: [
+            "Metals are usually shiny, good conductors, malleable, and often solid at room temperature.",
+            "Non-metals are often dull, brittle when solid, and poor conductors.",
+            "Metalloids have some properties of metals and some of non-metals. They are often semiconductors.",
+            "Gases have no fixed shape or volume and spread to fill the container."
+          ]},
+          { title: "How to Explain Your Thinking", type: "list", items: [
+            "Do not only name the type of substance. Also include the evidence you observed.",
+            "If a substance is shiny and conducts electricity, it is most likely a metal.",
+            "If it is dull and does not conduct electricity well, it is more likely a non-metal.",
+            "If it shows mixed properties, it may be a metalloid."
+          ]},
+          { title: "Short Answer Practice", type: "qa", items: [
+            { q: "A substance is shiny and conducts electricity. What is it most likely?", a: "It is most likely a metal because those are common metallic properties. In contrast, a gas such as oxygen would not be described that way." }
+          ]}
+        ]
+      },
+      {
+        id: "atomic-theory",
+        tag: "Atomic Theory",
+        title: "Atomic Theory and How It Changed",
+        search: "billiard ball plum pudding nuclear planetary dalton thomson rutherford bohr limitations",
+        summary: "Know the order of the atomic models, the main idea of each one, and the limitations of each model.",
+        pdfs: [
+          { label: "10.0 Atomic Theory.pdf", href: "10.0%20Atomic%20Theory.pdf" },
+          { label: "10.2 Atomic Model Summary.pdf", href: "10.2%20Atomic%20Model%20Summary.pdf" },
+          { label: "13.0 The Planetary Model.pdf", href: "13.0%20The%20Planetary%20Model.pdf" }
+        ],
+        sections: [
+          { title: "Order of the Models", type: "list", items: [
+            "Ancient Greece: matter was thought to be made of tiny particles called atomos, meaning indivisible.",
+            "Billiard Ball Model: atoms were thought to be solid, indivisible spheres.",
+            "Plum Pudding Model: electrons were thought to be stuck inside a positively charged sphere.",
+            "Nuclear Model: the atom is mostly empty space with a small, dense, positively charged nucleus.",
+            "Planetary Model: electrons move around the nucleus in fixed energy levels or shells."
+          ]},
+          { title: "Limitations", type: "list", items: [
+            "The Billiard Ball Model could not explain smaller particles inside the atom.",
+            "The Plum Pudding Model could not explain Rutherford's gold foil experiment.",
+            "The Nuclear Model did not clearly explain how electrons were arranged.",
+            "The Planetary Model works well for Grade 9 understanding, but it still does not explain every detail of atomic behavior."
+          ]},
+          { title: "Short Answer Practice", type: "qa", items: [
+            { q: "How did Rutherford change the atomic model?", a: "Rutherford showed that the atom is mostly empty space and that it has a small, dense, positively charged nucleus. This led scientists away from the plum pudding idea." },
+            { q: "Why was the Plum Pudding Model replaced?", a: "It was replaced because it could not explain the results of Rutherford's gold foil experiment. The revised nuclear model explained the evidence better." }
+          ]}
+        ]
+      },
+      {
+        id: "atomic-structure",
+        tag: "Atomic Structure",
+        title: "Atomic Structure",
+        search: "proton neutron electron charge mass location nucleus shell atomic structure",
+        summary: "Know where protons, neutrons, and electrons are found, their charges, and their relative masses.",
+        pdfs: [
+          { label: "11.0 Atomic Structure.pdf", href: "11.0%20Atomic%20Structure.pdf" },
+          { label: "11.2 Atomic Structure Practice.pdf", href: "11.2%20Atomic%20Structure%20Practice.pdf" },
+          { label: "11.3 Atoms Family - Math Challenge.pdf", href: "11.3%20Atoms%20Family%20-%20Math%20Challenge.pdf" }
+        ],
+        sections: [
+          { title: "The 3 Main Particles", type: "list", items: [
+            "Protons are in the nucleus, have a +1 charge, and have a mass of about 1 amu.",
+            "Neutrons are in the nucleus, have no charge, and have a mass of about 1 amu.",
+            "Electrons are outside the nucleus, orbiting the nucleus in shells or energy levels, have a -1 charge, and have insignificant mass."
+          ]},
+          { title: "Important Relationships", type: "list", items: [
+            "Atomic number = number of protons.",
+            "In a neutral atom, the number of protons equals the number of electrons.",
+            "Mass number = number of protons + number of neutrons.",
+            "The atomic number provides the identity of an element and its location on the periodic table.",
+            "No two elements have the same atomic number.",
+            "To determine the number of neutrons, subtract the number of protons from the mass number.",
+            "Most of the mass of an atom is in the nucleus."
+          ]},
+          { title: "Symbols to Know", type: "chips", items: ["p+", "n0", "e-", "nucleus", "electron shell"] },
+          { title: "Short Answer Practice", type: "qa", items: [
+            { q: "Where is most of the mass of an atom found?", a: "Most of the mass is found in the nucleus because that is where the protons and neutrons are. For example, oxygen has most of its mass in the nucleus, not in its electrons." },
+            { q: "Why is a neutral atom neutral?", a: "A neutral atom has equal numbers of positively charged protons and negatively charged electrons, so the charges cancel out. For example, an oxygen atom with atomic number 8 has 8 protons and 8 electrons when it is neutral." }
+          ]}
+        ]
+      },
+      {
+        id: "isotopes",
+        tag: "Isotopes",
+        title: "Isotopes",
+        search: "isotopes neutrons same element atomic mass mass number",
+        summary: "Understand what isotopes are and what they affect.",
+        pdfs: [
+          { label: "11.0 Atomic Structure.pdf", href: "11.0%20Atomic%20Structure.pdf" },
+          { label: "11.2 Atomic Structure Practice.pdf", href: "11.2%20Atomic%20Structure%20Practice.pdf" }
+        ],
+        sections: [
+          { title: "Key Facts", type: "list", items: [
+            "Isotopes are atoms of the same element that have the same number of protons but different numbers of neutrons.",
+            "Because isotopes have the same number of protons, they are still the same element.",
+            "Because they have different numbers of neutrons, they have different masses.",
+            "Average atomic mass is a weighted average of all the isotopes of an atom."
+          ]},
+          { title: "What Is Affected", type: "list", items: [
+            "Isotopes affect the mass number and the average atomic mass.",
+            "They do not change the identity of the element because the identity is determined by the number of protons."
+          ]},
+          { title: "Short Answer Practice", type: "qa", items: [
+            { q: "What is the difference between isotopes of the same element?", a: "Isotopes of the same element have different numbers of neutrons, so they have different masses. They still have the same number of protons, so they are still the same element." }
+          ]}
+        ]
+      },
+      {
+        id: "ions",
+        tag: "Ions",
+        title: "Ions",
+        search: "ions cation anion positive negative gain lose electrons charge",
+        summary: "Know what ions are, how they form, and the difference between a cation and an anion.",
+        pdfs: [
+          { label: "11.0 Atomic Structure.pdf", href: "11.0%20Atomic%20Structure.pdf" },
+          { label: "13.0 The Planetary Model.pdf", href: "13.0%20The%20Planetary%20Model.pdf" }
+        ],
+        sections: [
+          { title: "Key Facts", type: "list", items: [
+            "An ion is an atom or group of atoms with a charge.",
+            "Ions form when atoms gain or lose electrons.",
+            "If an atom loses electrons, it becomes positively charged.",
+            "If an atom gains electrons, it becomes negatively charged."
+          ]},
+          { title: "Cation vs Anion", type: "list", items: [
+            "A cation is a positive ion.",
+            "An anion is a negative ion.",
+            "Metals usually form cations because they tend to lose electrons.",
+            "Non-metals usually form anions because they tend to gain electrons."
+          ]},
+          { title: "Quick Memory Check", type: "flash", items: [
+            ["Cation", "Positive ion"],
+            ["Anion", "Negative ion"],
+            ["Lose electrons", "Become positive"],
+            ["Gain electrons", "Become negative"]
+          ]},
+          { title: "Short Answer Practice", type: "qa", items: [
+            { q: "How is an ion formed?", a: "An ion is formed when an atom gains or loses electrons. For example, sodium can lose one electron to become a positive ion." },
+            { q: "What is the difference between a cation and an anion?", a: "A cation has a positive charge, while an anion has a negative charge. For example, sodium forms a cation and chlorine forms an anion." }
+          ]}
+        ]
+      },
+      {
+        id: "bonds",
+        tag: "Chemical Bonds",
+        title: "Types of Chemical Bonds",
+        search: "ionic covalent bond transfer share electrons metal non-metal",
+        summary: "Compare ionic and covalent bonds, how they form, and the types of elements that usually make them.",
+        pdfs: [
+          { label: "13.0 The Planetary Model.pdf", href: "13.0%20The%20Planetary%20Model.pdf" }
+        ],
+        sections: [
+          { title: "Ionic vs Covalent", type: "list", items: [
+            "A chemical bond is a force that holds atoms together.",
+            "Ionic bonds form when electrons are transferred between atoms, creating ions.",
+            "Ionic bonds usually form between a metal and a non-metal.",
+            "Covalent bonds form when atoms share electrons.",
+            "Covalent bonding happens when non-metal atoms combine.",
+            "Covalent bonds usually form between two non-metals."
+          ]},
+          { title: "How to Identify Them", type: "list", items: [
+            "If the question says electrons are transferred, it is usually ionic bonding.",
+            "If the question says electrons are shared, it is usually covalent bonding.",
+            "Metal + non-metal usually means ionic.",
+            "Non-metal + non-metal usually means covalent.",
+            "Ionic bonding forms ions (+ / -), while covalent bonding forms molecules."
+          ]},
+          { title: "Short Answer Practice", type: "qa", items: [
+            { q: "How is an ionic bond formed?", a: "An ionic bond forms when electrons are transferred from one atom to another, creating oppositely charged ions that attract each other. A common example is NaCl." },
+            { q: "How is a covalent bond formed?", a: "A covalent bond forms when atoms share electrons. Examples from your notes and chart include H2, O2, CO2, and H2O." }
+          ]}
+        ]
+      },
+      {
+        id: "counting-atoms",
+        tag: "Chemical Formulas",
+        title: "Counting Atoms in Chemical Formulas",
+        search: "counting atoms formula subscript H2O CO2 NaCl CaCl2 NH3",
+        summary: "Given a chemical formula, identify the elements and the number of atoms of each element.",
+        pdfs: [
+          { label: "11.2 Atomic Structure Practice.pdf", href: "11.2%20Atomic%20Structure%20Practice.pdf" },
+          { label: "11.3 Atoms Family - Math Challenge.pdf", href: "11.3%20Atoms%20Family%20-%20Math%20Challenge.pdf" }
+        ],
+        sections: [
+          { title: "Key Rules", type: "list", items: [
+            "A subscript tells you how many atoms of that element are in the formula.",
+            "If there is no subscript, the number of atoms is 1.",
+            "In H2O, there are 2 hydrogen atoms and 1 oxygen atom.",
+            "In CO2, there is 1 carbon atom and 2 oxygen atoms.",
+            "In NaCl, there is 1 sodium atom and 1 chlorine atom."
+          ]},
+          { title: "Examples to Know", type: "list", items: [
+            "H2O: H = 2, O = 1",
+            "CO2: C = 1, O = 2",
+            "NaCl: Na = 1, Cl = 1",
+            "CaCl2: Ca = 1, Cl = 2",
+            "NH3: N = 1, H = 3"
+          ]},
+          { title: "Short Answer Practice", type: "qa", items: [
+            { q: "How many atoms are in CaCl2?", a: "There is 1 calcium atom and 2 chlorine atoms, so there are 3 atoms in total. This follows the same pattern as examples like H2O and CO2." }
+          ]}
+        ]
+      },
+      {
+        id: "bohr-rutherford",
+        tag: "Bohr-Rutherford",
+        title: "Bohr-Rutherford Diagrams",
+        search: "bohr rutherford diagram shells electrons nucleus valence practice",
+        summary: "This was part of your class practice, so be ready to place electrons in shells and connect the diagram to atomic number.",
+        pdfs: [
+          { label: "13.2 Bohr-Rutherford Diagrams Practice.pdf", href: "13.2%20Bohr-Rutherford%20Diagrams%20Practice.pdf" },
+          { label: "13.0 The Planetary Model.pdf", href: "13.0%20The%20Planetary%20Model.pdf" }
+        ],
+        sections: [
+          { title: "Key Facts", type: "list", items: [
+            "Bohr-Rutherford diagrams show the nucleus in the centre and electrons in shells around it.",
+            "Use the atomic number to find the number of protons and, for a neutral atom, the number of electrons.",
+            "The electrons are arranged in energy levels or shells.",
+            "The outer shell contains the valence electrons, which are important for bonding."
+          ]},
+          { title: "What to Watch For", type: "list", items: [
+            "Make sure the total number of electrons matches the atomic number for a neutral atom.",
+            "Do not confuse the number of shells with the number of electrons.",
+            "If the atom is an ion, the number of electrons may be different from the number of protons."
+          ]},
+          { title: "Short Answer Practice", type: "qa", items: [
+            { q: "What does a Bohr-Rutherford diagram show?", a: "It shows the nucleus of an atom and the arrangement of electrons in shells around the nucleus. In your practice sheet, you worked with examples from H to Ca." }
+          ]}
+        ]
+      },
+      {
+        id: "physical-chemical-changes",
+        tag: "Earlier Unit Review",
+        title: "Physical and Chemical Changes of Matter",
+        search: "physical chemical changes matter state change burning tearing earlier unit",
+        summary: "Your teacher noted that earlier chemistry content may still appear, so this is a smart bonus review topic.",
+        pdfs: [
+          { label: "6.0k Physical & Chemical Changes of Matter.pdf", href: "6.0k%20Physical%20%26%20Chemical%20Changes%20of%20Matter.pdf" }
+        ],
+        sections: [
+          { title: "Teacher Handout Wording", type: "list", items: [
+            "If you tear a piece of paper in half, it is still paper, only in smaller pieces.",
+            "A physical change means the substance remains the same and only changes form.",
+            "Changes of state are also physical changes.",
+            "No matter what state it is in, it is still the same substance."
+          ]},
+          { title: "Quick Test Tip", type: "list", items: [
+            "If a new substance forms, it is a chemical change.",
+            "If the same substance is still there but it looks different, it is often a physical change.",
+            "Example: tearing paper is a physical change because it is still paper."
+          ]}
+        ]
+      },
+      {
+        id: "gas-tests",
+        tag: "Earlier Unit Review",
+        title: "The Gas Tests",
+        search: "gas tests oxygen hydrogen carbon dioxide glowing splint burning splint limewater",
+        summary: "This came from an earlier handout and may still show up because your teacher said earlier chemistry material is testable.",
+        pdfs: [
+          { label: "9.0 The Gas Tests.pdf", href: "9.0%20The%20Gas%20Tests.pdf" }
+        ],
+        sections: [
+          { title: "Teacher Handout Wording", type: "list", items: [
+            "Most gases are colourless and odourless, so they are identified using chemical properties.",
+            "A glowing splint test is used to identify oxygen.",
+            "If the glowing splint relights, then oxygen is present."
+          ]},
+          { title: "Extra Gas Test Facts to Know", type: "list", items: [
+            "Hydrogen gives a squeaky pop with a burning splint.",
+            "Carbon dioxide turns limewater cloudy and puts out a flame.",
+            "Example: if a glowing splint relights, the gas is oxygen."
+          ]}
+        ]
+      }
+    ];
+
+    const topicList = document.getElementById("topicList");
+    const searchInput = document.getElementById("searchInput");
+    const topicTag = document.getElementById("topicTag");
+    const topicTitle = document.getElementById("topicTitle");
+    const topicSummary = document.getElementById("topicSummary");
+    const topicContent = document.getElementById("topicContent");
+    const markDoneBtn = document.getElementById("markDoneBtn");
+    const nextBtn = document.getElementById("nextBtn");
+    const progressText = document.getElementById("progressText");
+    let activeId = topics[0].id;
+    const doneKey = "grade9ChemistryReviewDone";
+    let doneTopics = new Set(JSON.parse(localStorage.getItem(doneKey) || "[]"));
+
+    function updateProgress() {
+      progressText.textContent = `Mastered ${doneTopics.size} / ${topics.length}`;
+      markDoneBtn.classList.toggle("done", doneTopics.has(activeId));
+      markDoneBtn.textContent = doneTopics.has(activeId) ? "Marked as Mastered" : "Mark as Mastered";
+    }
+
+    function renderTopicList(filter = "") {
+      const keyword = filter.trim().toLowerCase();
+      topicList.innerHTML = "";
+      const visibleTopics = topics.filter((topic) => `${topic.title} ${topic.tag} ${topic.summary} ${topic.search}`.toLowerCase().includes(keyword));
+      visibleTopics.forEach((topic) => {
+        const button = document.createElement("button");
+        button.className = `topic-btn${topic.id === activeId ? " active" : ""}`;
+        button.type = "button";
+        button.innerHTML = `<strong>${topic.title}</strong><span>${topic.summary}</span>`;
+        button.addEventListener("click", () => {
+          activeId = topic.id;
+          renderTopicList(searchInput.value);
+          renderContent();
+        });
+        topicList.appendChild(button);
+      });
+      if (!visibleTopics.length) {
+        const empty = document.createElement("div");
+        empty.className = "box";
+        empty.innerHTML = "<h3>No topics found</h3><p>Try a keyword such as <strong>ion</strong>, <strong>bond</strong>, or <strong>periodic</strong>.</p>";
+        topicList.appendChild(empty);
+      }
+    }
+
+    function renderSection(section) {
+      if (section.type === "list") {
+        return `<div class="box"><h3>${section.title}</h3><ul class="clean">${section.items.map((item) => `<li>${item}</li>`).join("")}</ul></div>`;
+      }
+      if (section.type === "chips") {
+        return `<div class="box"><h3>${section.title}</h3><div class="chips">${section.items.map((item) => `<span class="chip">${item}</span>`).join("")}</div></div>`;
+      }
+      if (section.type === "qa") {
+        return `<div class="box"><h3>${section.title}</h3><div class="qa">${section.items.map((item) => `<details><summary>${item.q}</summary><p>${item.a}</p></details>`).join("")}</div></div>`;
+      }
+      if (section.type === "flash") {
+        return `<div class="box"><h3>${section.title}</h3><div class="memory-grid">${section.items.map((item) => `<div class="flash"><strong>${item[0]}</strong><div>${item[1]}</div></div>`).join("")}</div></div>`;
+      }
+      return "";
+    }
+
+    function renderContent() {
+      const topic = topics.find((item) => item.id === activeId) || topics[0];
+      topicTag.textContent = topic.tag;
+      topicTitle.textContent = topic.title;
+      topicSummary.textContent = topic.summary;
+      const left = topic.sections.filter((_, index) => index % 2 === 0).map(renderSection).join("");
+      const right = topic.sections.filter((_, index) => index % 2 === 1).map(renderSection).join("");
+      const pdfBox = topic.pdfs && topic.pdfs.length
+        ? `<div class="box"><h3>Teacher PDF Links</h3><div class="pdf-links">${topic.pdfs.map((pdf) => `<a class="pdf-link" href="${pdf.href}" target="_blank" rel="noopener noreferrer">${pdf.label}</a>`).join("")}</div></div>`
+        : "";
+      topicContent.innerHTML = `
+        <div class="two-col">
+          <div>${left}</div>
+          <div>${pdfBox}${right}</div>
+        </div>
+        <div class="box">
+          <h3>Fast Short-Answer Formula</h3>
+          <p>If you are short on time, answer using this structure: <span class="highlight">definition + explanation or evidence + key vocabulary</span>. Example: <span class="muted">"An ion is a charged atom formed when electrons are gained or lost."</span></p>
+        </div>
+      `;
+      updateProgress();
+    }
+
+    searchInput.addEventListener("input", () => renderTopicList(searchInput.value));
+    markDoneBtn.addEventListener("click", () => {
+      doneTopics.has(activeId) ? doneTopics.delete(activeId) : doneTopics.add(activeId);
+      localStorage.setItem(doneKey, JSON.stringify([...doneTopics]));
+      updateProgress();
+    });
+    nextBtn.addEventListener("click", () => {
+      const currentIndex = topics.findIndex((topic) => topic.id === activeId);
+      activeId = topics[(currentIndex + 1) % topics.length].id;
+      renderTopicList(searchInput.value);
+      renderContent();
+    });
+    renderTopicList();
+    renderContent();
+  </script>
+</body>
+</html>

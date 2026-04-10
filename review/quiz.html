@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Grade 9 Chemistry Quiz Sets</title>
+  <style>
+    :root {
+      --card: #fffdf9;
+      --panel: rgba(255, 250, 242, 0.92);
+      --text: #1f2d36;
+      --muted: #62727d;
+      --line: #ddd2c5;
+      --accent: #1f7a8c;
+      --accent-dark: #195f6d;
+      --good: #1f8f5f;
+      --bad: #c14d40;
+      --warn: #c78310;
+      --shadow: 0 18px 40px rgba(74, 54, 32, 0.12);
+      --radius: 22px;
+      --radius-sm: 16px;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Arial, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(217, 142, 4, 0.16), transparent 30%),
+        radial-gradient(circle at top right, rgba(31, 122, 140, 0.12), transparent 28%),
+        linear-gradient(180deg, #f8f3eb 0%, #f4efe7 48%, #f8f5ee 100%);
+      min-height: 100vh;
+    }
+    .page { max-width: 1400px; margin: 0 auto; padding: 24px; }
+    .hero {
+      background: linear-gradient(135deg, rgba(31, 122, 140, 0.96), rgba(50, 99, 137, 0.92));
+      color: white;
+      border-radius: 30px;
+      padding: 30px;
+      box-shadow: var(--shadow);
+      margin-bottom: 22px;
+    }
+    .hero h1 { margin: 0 0 10px; font-size: clamp(30px, 4vw, 48px); line-height: 1.05; }
+    .hero p { margin: 0; max-width: 900px; line-height: 1.65; color: rgba(255,255,255,0.94); }
+    .badges, .tabs, .pill-row, .button-row { display: flex; gap: 10px; flex-wrap: wrap; }
+    .badges { margin-top: 18px; }
+    .badge, .pill {
+      display: inline-flex;
+      align-items: center;
+      padding: 8px 12px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 600;
+    }
+    .badge { background: rgba(255,255,255,0.14); border: 1px solid rgba(255,255,255,0.2); }
+    .layout { display: grid; grid-template-columns: 320px 1fr; gap: 22px; align-items: start; }
+    .sidebar, .main {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(8px);
+    }
+    .sidebar { padding: 18px; position: sticky; top: 18px; }
+    .sidebar h2, .main h2 { margin: 0 0 12px; font-size: 22px; }
+    .sidebar p, .note, .muted { color: var(--muted); line-height: 1.6; }
+    .tab-btn, button {
+      border: 1px solid var(--line);
+      background: #fff;
+      border-radius: 14px;
+      padding: 11px 14px;
+      font: inherit;
+      cursor: pointer;
+      transition: transform 0.15s ease, background 0.15s ease, border-color 0.15s ease;
+    }
+    .tab-btn:hover, button:hover { transform: translateY(-1px); }
+    .tab-btn.active {
+      background: #eef6f7;
+      border-color: rgba(31, 122, 140, 0.45);
+      color: var(--accent-dark);
+      font-weight: 700;
+    }
+    .pill { background: #fff; border: 1px solid var(--line); }
+    .main { overflow: hidden; }
+    .main-head {
+      padding: 24px;
+      border-bottom: 1px solid var(--line);
+      background: linear-gradient(180deg, rgba(255,255,255,0.4), rgba(255,255,255,0.14));
+    }
+    .content { padding: 24px; display: grid; gap: 18px; }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-sm);
+      padding: 18px;
+    }
+    .card h3 { margin: 0 0 10px; font-size: 18px; }
+    .source-links, .answer-key { display: grid; gap: 10px; }
+    .source-link {
+      display: block;
+      padding: 12px 14px;
+      border-radius: 14px;
+      text-decoration: none;
+      color: var(--accent);
+      border: 1px solid var(--line);
+      background: #f6fbfc;
+      font-weight: 600;
+    }
+    .question {
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: #fff;
+      padding: 16px;
+      margin-bottom: 14px;
+    }
+    .question-title { margin: 0 0 12px; font-weight: 700; line-height: 1.55; }
+    .question-media {
+      margin: 10px 0 14px;
+      padding: 10px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: #fcfcfb;
+    }
+    .question-media svg {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .meta {
+      font-size: 12px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 8px;
+      font-weight: 700;
+    }
+    .options { display: grid; gap: 10px; }
+    .option {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 12px;
+      background: #fff;
+    }
+    .option.correct { border-color: rgba(31, 143, 95, 0.45); background: #eef9f4; }
+    .option.incorrect { border-color: rgba(193, 77, 64, 0.4); background: #fdf1ef; }
+    textarea {
+      width: 100%;
+      min-height: 100px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 12px;
+      font: inherit;
+      resize: vertical;
+      background: #fff;
+    }
+    .key-item {
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 14px;
+      background: #fff;
+    }
+    .key-item strong { display: block; margin-bottom: 6px; }
+    .good { color: var(--good); font-weight: 700; }
+    .bad { color: var(--bad); font-weight: 700; }
+    .warn { color: var(--warn); font-weight: 700; }
+    .hidden { display: none; }
+    @media (max-width: 980px) { .layout { grid-template-columns: 1fr; } .sidebar { position: static; } }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <section class="hero">
+      <h1>Grade 9 Chemistry Quiz Sets</h1>
+      <p>
+        Three quiz sets based on your teacher's slides and handouts: Easy, Mid, and Hard.
+        Each set includes 15 multiple-choice questions, 5 short-answer prompts, and a teacher-style answer key.
+      </p>
+      <div class="badges">
+        <span class="badge">15 Multiple Choice</span>
+        <span class="badge">5 Short Answer</span>
+        <span class="badge">Teacher Handout Based</span>
+        <span class="badge">Easy / Mid / Hard</span>
+        <span class="badge"><a href="index.html" style="color:white; text-decoration:none; font-weight:700;">Back to index.html</a></span>
+      </div>
+    </section>
+    <div class="layout">
+      <aside class="sidebar">
+        <h2>Quiz Levels</h2>
+        <p>Start with Easy, move to Mid, then try Hard. The questions use teacher handout wording and examples whenever possible.</p>
+        <div class="tabs" id="levelTabs"></div>
+        <div class="pill-row" style="margin-top:16px;">
+          <span class="pill" id="mcPill">MC: 15</span>
+          <span class="pill" id="saPill">Short Answer: 5</span>
+        </div>
+        <div class="card" style="margin-top:18px;">
+          <h3>How to Use</h3>
+          <p class="note">1. Pick a level.<br />2. Answer the multiple-choice questions.<br />3. Write short answers using science vocabulary.<br />4. Click submit to see the answer key.</p>
+        </div>
+      </aside>
+      <main class="main">
+        <div class="main-head">
+          <div class="meta" id="levelTag">Quiz Set</div>
+          <h2 id="levelTitle">Easy Quiz</h2>
+          <p id="levelSummary" class="note"></p>
+          <div class="button-row" style="margin-top:14px;">
+            <button id="submitBtn">Submit This Quiz</button>
+            <button id="resetBtn">Reset This Quiz</button>
+          </div>
+        </div>
+        <div class="content">
+          <section class="card">
+            <h3>Teacher PDF Links</h3>
+            <div class="source-links" id="sourceLinks"></div>
+          </section>
+          <section class="card">
+            <h3>Multiple Choice</h3>
+            <div id="mcContainer"></div>
+          </section>
+          <section class="card">
+            <h3>Short Answer</h3>
+            <div id="saContainer"></div>
+          </section>
+          <section class="card hidden" id="resultsCard">
+            <h3>Results and Answer Key</h3>
+            <p id="scoreLine"></p>
+            <div class="answer-key" id="answerKey"></div>
+          </section>
+        </div>
+      </main>
+    </div>
+  </div>
+  <script>
+    const quizSets = [
+      {
+        id: "easy",
+        tag: "Easy Level",
+        title: "Easy Quiz",
+        summary: "Core facts from the review guide: periodic table basics, atomic structure, simple ions, basic bonding, and citation fundamentals.",
+        sources: [
+          { label: "Citing your Sources Lesson 2025.pdf", href: "Citing%20your%20Sources%20Lesson%202025.pdf" },
+          { label: "7.0 The Periodic Table (with youtube link).pdf", href: "7.0%20The%20Periodic%20Table%20%28with%20youtube%20link%29.pdf" },
+          { label: "11.0 Atomic Structure.pdf", href: "11.0%20Atomic%20Structure.pdf" },
+          { label: "10.0 Atomic Theory.pdf", href: "10.0%20Atomic%20Theory.pdf" }
+        ],
+        mc: [
+          { topic: "Citing Sources", q: "Where does a reference list go?", options: ["At the beginning of the work", "In the middle of the work", "At the end of the work", "Only on a title page"], answer: 2, why: "The handout says the reference list goes at the end of your work." },
+          { topic: "Periodic Table", q: "A group on the periodic table is a:", options: ["Vertical column", "Horizontal row", "Diagonal pattern", "Single element box"], answer: 0, why: "Groups are vertical columns." },
+          { topic: "Periodic Table", q: "The periodic table is organized by increasing:", options: ["Atomic mass only", "Number of neutrons", "Atomic number", "Number of shells only"], answer: 2, why: "The handout says the periodic table is organized based on increasing atomic number." },
+          { topic: "Atomic Structure", q: "Which particle has a positive charge?", options: ["Electron", "Proton", "Neutron", "Ion"], answer: 1, why: "A proton has a +1 charge." },
+          { topic: "Atomic Structure", q: "Which particles are found in the nucleus?", options: ["Protons and neutrons", "Electrons and protons", "Electrons only", "Neutrons and electrons"], answer: 0, why: "Protons and neutrons are in the nucleus." },
+          { topic: "Atomic Structure", q: "In a neutral atom, the number of electrons equals the number of:", options: ["Neutrons", "Groups", "Protons", "Isotopes"], answer: 2, why: "The handout says that in a neutral atom, protons equal electrons." },
+          { topic: "Ions", q: "A cation is a:", options: ["Negative ion", "Positive ion", "Neutral atom", "Shared pair"], answer: 1, why: "A cation is a positive ion." },
+          { topic: "Ions", q: "An atom becomes negatively charged when it:", options: ["Loses electrons", "Gains electrons", "Loses protons", "Gains neutrons"], answer: 1, why: "Gaining electrons makes an atom negatively charged." },
+          { topic: "Bonds", q: "A chemical bond is a force that:", options: ["Changes mass numbers", "Holds atoms together", "Separates protons", "Creates neutrons"], answer: 1, why: "Your notes say a chemical bond is a force that holds atoms together." },
+          { topic: "Bonds", q: "In an ionic bond, electrons are:", options: ["Shared", "Transferred", "Destroyed", "Doubled"], answer: 1, why: "Ionic bonding involves transferred electrons." },
+          { topic: "Bonds", q: "In a covalent bond, electrons are:", options: ["Transferred", "Removed", "Shared", "Converted"], answer: 2, why: "Covalent bonding involves shared electrons." },
+          { topic: "Bonds", q: "Look at the diagram. Which type of bond is shown?", mediaHtml: `<svg viewBox="0 0 420 180" xmlns="http://www.w3.org/2000/svg" aria-label="Two fluorine atoms sharing electrons"><rect width="420" height="180" fill="#ffffff"/><circle cx="120" cy="90" r="34" fill="#72b01d"/><circle cx="300" cy="90" r="34" fill="#72b01d"/><text x="120" y="98" font-size="24" text-anchor="middle" fill="#083d0c" font-family="Arial">F</text><text x="300" y="98" font-size="24" text-anchor="middle" fill="#083d0c" font-family="Arial">F</text><circle cx="120" cy="90" r="64" fill="none" stroke="#111" stroke-width="3"/><circle cx="300" cy="90" r="64" fill="none" stroke="#111" stroke-width="3"/><circle cx="120" cy="90" r="92" fill="none" stroke="#111" stroke-width="3"/><circle cx="300" cy="90" r="92" fill="none" stroke="#111" stroke-width="3"/><g fill="#47c000"><circle cx="212" cy="82" r="7"/><circle cx="208" cy="98" r="7"/><circle cx="92" cy="25" r="7"/><circle cx="108" cy="25" r="7"/><circle cx="92" cy="155" r="7"/><circle cx="108" cy="155" r="7"/><circle cx="28" cy="82" r="7"/><circle cx="28" cy="98" r="7"/><circle cx="328" cy="82" r="7"/><circle cx="328" cy="98" r="7"/><circle cx="312" cy="25" r="7"/><circle cx="328" cy="25" r="7"/><circle cx="312" cy="155" r="7"/><circle cx="328" cy="155" r="7"/><circle cx="120" cy="40" r="7"/><circle cx="120" cy="140" r="7"/><circle cx="300" cy="40" r="7"/><circle cx="300" cy="140" r="7"/></g></svg>`, options: ["Ionic bond", "Covalent bond", "No bond", "Metallic bond"], answer: 1, why: "The diagram shows two non-metal atoms sharing electrons, so it is a covalent bond." },
+          { topic: "Bonds", q: "Which pair usually forms an ionic bond?", options: ["Metal + non-metal", "Non-metal + non-metal", "Metal + metal only", "Noble gas + noble gas"], answer: 0, why: "Teacher-style rule: ionic bond -> metal + non-metal." },
+          { topic: "Bonds", q: "Which pair usually forms a covalent bond?", options: ["Metal + non-metal", "Non-metal + non-metal", "Metal + noble gas", "Metal + metal only"], answer: 1, why: "Teacher-style rule: covalent bond -> non-metal + non-metal." },
+          { topic: "Atomic Theory", q: "Which model says atoms were solid, indivisible spheres?", options: ["Planetary Model", "Nuclear Model", "Plum Pudding Model", "Billiard Ball Model"], answer: 3, why: "That is the Billiard Ball Model." }
+        ],
+        sa: [
+          { topic: "Citing Sources", q: "Explain how a reference list should be organized.", answer: "A reference list should go at the end of the assignment, use one consistent format, and be arranged in alphabetical order by the author's last name or by title if no author is listed." },
+          { topic: "Periodic Table", q: "Explain the difference between a group and a period.", answer: "A group is a vertical column on the periodic table, while a period is a horizontal row. Elements in the same group often have similar chemical properties." },
+          { topic: "Atomic Structure", q: "Describe the location and charge of protons, neutrons, and electrons.", answer: "Protons are in the nucleus and have a positive charge. Neutrons are in the nucleus and have no charge. Electrons are outside the nucleus in shells and have a negative charge." },
+          { topic: "Ions", q: "How is an ion formed?", answer: "An ion is formed when an atom gains or loses electrons. For example, sodium can lose one electron to become a positive ion." },
+          { topic: "Bonds", q: "Compare ionic bonding and covalent bonding.", answer: "Ionic bonding happens when electrons are transferred between atoms, usually between a metal and a non-metal, creating ions. Covalent bonding happens when atoms share electrons, usually between non-metals, forming molecules." }
+        ]
+      },
+      {
+        id: "mid",
+        tag: "Mid Level",
+        title: "Mid Quiz",
+        summary: "Mixed application questions using teacher examples such as oxygen, sodium, NaCl, Bohr-Rutherford diagrams, and isotopes.",
+        sources: [
+          { label: "Periodic Table patterns.pdf", href: "Periodic%20Table%20patterns.pdf" },
+          { label: "11.2 Atomic Structure Practice.pdf", href: "11.2%20Atomic%20Structure%20Practice.pdf" },
+          { label: "11.3 Atoms Family - Math Challenge.pdf", href: "11.3%20Atoms%20Family%20-%20Math%20Challenge.pdf" },
+          { label: "13.2 Bohr-Rutherford Diagrams Practice.pdf", href: "13.2%20Bohr-Rutherford%20Diagrams%20Practice.pdf" },
+          { label: "10.2 Atomic Model Summary.pdf", href: "10.2%20Atomic%20Model%20Summary.pdf" }
+        ],
+        mc: [
+          { topic: "Citing Sources", q: "Which of the following is part of the CRAAP test?", options: ["Colour", "Relevance", "Calculation", "Prediction"], answer: 1, why: "CRAAP includes Currency, Relevance, Author, Accuracy, and Purpose." },
+          { topic: "Periodic Table", q: "In the patterns handout, noble gases were colored:", options: ["Blue", "Green", "Purple", "Pink"], answer: 2, why: "The handout says noble gases were purple." },
+          { topic: "Periodic Table", q: "Metalloids are usually found:", options: ["Only in Group 1", "Along the staircase line", "Only in Period 1", "At the bottom only"], answer: 1, why: "Metalloids are along the staircase line." },
+          { topic: "Atomic Structure", q: "An atom has atomic number 8. How many protons does it have?", options: ["8", "16", "4", "2"], answer: 0, why: "Atomic number equals the number of protons." },
+          { topic: "Atomic Structure", q: "An atom has atomic number 8 and mass number 16. How many neutrons does it have?", options: ["8", "16", "24", "4"], answer: 0, why: "Neutrons = mass number - protons = 16 - 8 = 8." },
+          { topic: "Atomic Structure", q: "The atomic number also tells you the number of electrons in a:", options: ["Positive ion only", "Neutral atom", "Molecule only", "Covalent bond"], answer: 1, why: "In a neutral atom, electrons equal protons." },
+          { topic: "Isotopes", q: "Isotopes of the same element have different numbers of:", options: ["Protons", "Electrons only", "Neutrons", "Groups"], answer: 2, why: "Isotopes differ in neutrons." },
+          { topic: "Atomic Theory", q: "Which model could not explain where the electrons were located?", options: ["Billiard Ball Model", "Plum Pudding Model", "Nuclear Model", "Planetary Model"], answer: 2, why: "A limitation of the Nuclear Model was that it could not explain where electrons were located." },
+          { topic: "Bohr-Rutherford", q: "A Bohr-Rutherford diagram shows electrons in:", options: ["Rows", "Shells", "Citations", "Families"], answer: 1, why: "Bohr-Rutherford diagrams show electrons in shells around the nucleus." },
+          { topic: "Families", q: "Which family usually forms -1 ions?", options: ["Alkali metals", "Halogens", "Noble gases", "Alkaline earth metals"], answer: 1, why: "Halogens usually form -1 ions." },
+          { topic: "Families", q: "Which family is very stable and rarely reacts?", options: ["Halogens", "Alkali metals", "Noble gases", "Metalloids"], answer: 2, why: "Noble gases are very stable." },
+          { topic: "Bonds", q: "NaCl is best classified as:", options: ["A covalent compound", "An ionic compound", "A noble gas", "A metalloid"], answer: 1, why: "NaCl is a common ionic compound because it is metal + non-metal." },
+          { topic: "Bonds", q: "H2 and O2 are examples of:", options: ["Ionic compounds", "Covalent molecules", "Metals", "Ions"], answer: 1, why: "H2 and O2 are covalent molecules because they are non-metal + non-metal." },
+          { topic: "Bonds", q: "Which statement is true for only one type of bond?", options: ["Ionic bond -> metal + non-metal", "Covalent bond -> non-metal + non-metal", "Both of these are true", "Neither is true"], answer: 2, why: "Both teacher rules are true: ionic is metal + non-metal, and covalent is non-metal + non-metal." },
+          { topic: "Counting Atoms", q: "How many chlorine atoms are in MgCl2?", options: ["1", "2", "3", "4"], answer: 1, why: "The subscript 2 means there are 2 chlorine atoms." }
+        ],
+        sa: [
+          { topic: "Atomic Structure", q: "An atom has atomic number 11 and mass number 23. Find the number of protons, electrons, and neutrons.", answer: "The atom has 11 protons. If the atom is neutral, it also has 11 electrons. The number of neutrons is 23 - 11 = 12." },
+          { topic: "Isotopes", q: "Explain what isotopes are and what they affect.", answer: "Isotopes are atoms of the same element that have the same number of protons but different numbers of neutrons. They affect the mass number and the average atomic mass, but not the identity of the element." },
+          { topic: "Atomic Theory", q: "Explain one limitation of the Nuclear Model and how the Planetary Model improved it.", answer: "The Nuclear Model could not explain where electrons were located. The Planetary Model improved this by showing electrons in fixed energy levels or shells around the nucleus." },
+          { topic: "Bohr-Rutherford", q: "What should you use first when drawing a Bohr-Rutherford diagram for a neutral atom?", answer: "Start with the atomic number because it tells you the number of protons and, in a neutral atom, the number of electrons." },
+          { topic: "Bonds", q: "Use sodium and chlorine to explain ionic bonding.", answer: "In ionic bonding, electrons are transferred. For example, sodium can lose one electron and chlorine can gain that electron. This creates a positive sodium ion and a negative chloride ion that attract each other to form an ionic bond." }
+        ]
+      }
+    ];
+    quizSets.push({
+      id: "hard",
+      tag: "Hard Level",
+      title: "Hard Quiz",
+      summary: "A more demanding mixed review set with reasoning, earlier chemistry handouts, and teacher-style explanation questions.",
+      sources: [
+        { label: "13.0 The Planetary Model.pdf", href: "13.0%20The%20Planetary%20Model.pdf" },
+        { label: "6.0k Physical & Chemical Changes of Matter.pdf", href: "6.0k%20Physical%20%26%20Chemical%20Changes%20of%20Matter.pdf" },
+        { label: "9.0 The Gas Tests.pdf", href: "9.0%20The%20Gas%20Tests.pdf" },
+        { label: "10.0 Atomic Theory.pdf", href: "10.0%20Atomic%20Theory.pdf" },
+        { label: "11.0 Atomic Structure.pdf", href: "11.0%20Atomic%20Structure.pdf" }
+      ],
+      mc: [
+        { topic: "Atomic Theory", q: "What does the Greek word atomos mean?", options: ["Charged", "Stable", "Indivisible", "Reactive"], answer: 2, why: "The atomic theory handout says atomos means indivisible." },
+        { topic: "Atomic Theory", q: "Which model placed electrons inside a positively charged sphere?", options: ["Planetary Model", "Plum Pudding Model", "Nuclear Model", "Billiard Ball Model"], answer: 1, why: "That is the Plum Pudding Model." },
+        { topic: "Planetary Model", q: "Why was the Planetary Model useful for Grade 9 chemistry?", options: ["It removed the nucleus", "It explained electrons in shells", "It proved atoms do not move", "It said atoms are made only of neutrons"], answer: 1, why: "It explained that electrons move in fixed energy levels or shells." },
+        { topic: "Atomic Structure", q: "Which statement is correct?", options: ["Electrons have a mass of about 1 amu", "Neutrons have a positive charge", "Protons and neutrons are in the nucleus", "Electrons determine the identity of an element"], answer: 2, why: "Protons and neutrons are in the nucleus." },
+        { topic: "Atomic Structure", q: "What gives an element its identity?", options: ["Its number of shells only", "Its atomic number", "Its average color", "Its group name only"], answer: 1, why: "The handout says the atomic number provides the identity of an element." },
+        { topic: "Isotopes", q: "Two atoms both have 6 protons, but one has 6 neutrons and the other has 8 neutrons. These atoms are:", options: ["Different elements", "The same isotope", "Ions only", "Isotopes of the same element"], answer: 3, why: "Same protons means same element; different neutrons means different isotopes." },
+          { topic: "Families", q: "Which statement is most accurate?", options: ["Alkali metals are less reactive than noble gases", "Halogens usually need one more electron", "Noble gases usually form -1 ions", "Alkaline earth metals are non-metals"], answer: 1, why: "Halogens usually need one more electron to fill the outer shell." },
+          { topic: "Bonds", q: "Which substance is covalent according to the examples you reviewed?", options: ["NaCl", "Fe2O3", "MgCl2", "CO2"], answer: 3, why: "CO2 is a covalent molecule because it is made of non-metals." },
+          { topic: "Bonds", q: "Look at the diagram. What best explains the bonding in this molecule?", mediaHtml: `<svg viewBox="0 0 460 220" xmlns="http://www.w3.org/2000/svg" aria-label="Water molecule sharing electrons"><rect width="460" height="220" fill="#ffffff"/><circle cx="220" cy="98" r="34" fill="#d85a6a"/><circle cx="120" cy="145" r="24" fill="#f1efe9" stroke="#bbb"/><circle cx="320" cy="145" r="24" fill="#f1efe9" stroke="#bbb"/><text x="220" y="106" font-size="24" text-anchor="middle" fill="#fff" font-family="Arial">O</text><text x="120" y="153" font-size="20" text-anchor="middle" fill="#444" font-family="Arial">H</text><text x="320" y="153" font-size="20" text-anchor="middle" fill="#444" font-family="Arial">H</text><circle cx="220" cy="98" r="76" fill="none" stroke="#111" stroke-width="3"/><circle cx="220" cy="98" r="108" fill="none" stroke="#111" stroke-width="3"/><circle cx="120" cy="145" r="44" fill="none" stroke="#111" stroke-width="3"/><circle cx="320" cy="145" r="44" fill="none" stroke="#111" stroke-width="3"/><g fill="#d85a6a"><circle cx="180" cy="50" r="6"/><circle cx="194" cy="50" r="6"/><circle cx="260" cy="50" r="6"/><circle cx="274" cy="50" r="6"/><circle cx="166" cy="140" r="6"/><circle cx="274" cy="140" r="6"/><circle cx="204" cy="176" r="6"/><circle cx="236" cy="176" r="6"/></g><g fill="#f1efe9" stroke="#999"><circle cx="156" cy="140" r="6"/><circle cx="284" cy="140" r="6"/></g><text x="195" y="208" font-size="22" font-family="Arial" fill="#333">H-O-H</text></svg>`, options: ["Electrons are transferred from oxygen to hydrogen", "Electrons are shared between non-metal atoms", "A metal and a non-metal form ions", "No chemical bond is present"], answer: 1, why: "The diagram shows H2O, where non-metal atoms share electrons in covalent bonds." },
+          { topic: "Bonds", q: "Which statement best matches the teacher-style bond chart?", options: ["Ionic bonds form molecules only", "Covalent bonds form ions", "Transferred electrons create ions; shared electrons create molecules", "All bonds are ionic"], answer: 2, why: "That is the summary shown in your bond notes." },
+          { topic: "Bonds", q: "Which set contains only substances with chemical bonds?", options: ["NaCl, H2O, CO2", "Ne, Ar, He", "p+, n0, e-", "Groups, periods, isotopes"], answer: 0, why: "NaCl, H2O, and CO2 are all substances with chemical bonds." },
+          { topic: "Physical Changes", q: "Tearing a piece of paper in half is a:", options: ["Chemical change", "Physical change", "Gas test", "Covalent bond"], answer: 1, why: "The handout says the paper is still paper, so it is a physical change." },
+          { topic: "Gas Tests", q: "If a glowing splint relights, which gas is present?", options: ["Hydrogen", "Carbon dioxide", "Oxygen", "Helium"], answer: 2, why: "The gas test handout says a glowing splint relights in oxygen." },
+          { topic: "Gas Tests", q: "Why are gas tests useful?", options: ["Because all gases are bright colors", "Because gases always have different physical properties", "Because gases may look similar but have different chemical properties", "Because gases never react"], answer: 2, why: "The handout says gases may have similar physical properties but different chemical properties." },
+          { topic: "Reasoning", q: "A substance is dull, brittle, and does not conduct electricity well. It is most likely a:", options: ["Metal", "Non-metal", "Noble gas", "Cation"], answer: 1, why: "Those are typical non-metal properties." }
+      ],
+      sa: [
+        { topic: "Atomic Theory", q: "Describe the order of the main atomic models and give one key idea from the final model.", answer: "The order is Billiard Ball Model, Plum Pudding Model, Nuclear Model, and Planetary Model. In the Planetary Model, electrons move around the nucleus in fixed energy levels or shells." },
+        { topic: "Atomic Structure", q: "Explain why no two elements have the same atomic number.", answer: "The atomic number is the number of protons in the nucleus. It gives an element its identity, so if two atoms had different identities, they could not have the same atomic number." },
+        { topic: "Bonds", q: "Use teacher-style wording to explain the difference between ionic and covalent bonding, and include one example of each.", answer: "A chemical bond is a force that holds atoms together. An ionic bond forms when electrons are transferred between atoms, creating ions. Ionic bonding usually happens between a metal and a non-metal. A common example is NaCl. A covalent bond forms when atoms share electrons. Covalent bonding usually happens between non-metal atoms. Examples include H2O and CO2." },
+        { topic: "Physical vs Chemical Changes", q: "Explain why tearing paper is a physical change but burning paper is a chemical change.", answer: "Tearing paper is a physical change because the substance remains paper and only changes form. Burning paper is a chemical change because new substances are formed." },
+        { topic: "Gas Tests", q: "Explain how the oxygen gas test works using the handout wording.", answer: "A glowing splint test is used to identify oxygen. If the glowing splint relights, then oxygen is present." }
+      ]
+    });
+    const levelTabs = document.getElementById("levelTabs");
+    const levelTag = document.getElementById("levelTag");
+    const levelTitle = document.getElementById("levelTitle");
+    const levelSummary = document.getElementById("levelSummary");
+    const sourceLinks = document.getElementById("sourceLinks");
+    const mcContainer = document.getElementById("mcContainer");
+    const saContainer = document.getElementById("saContainer");
+    const resultsCard = document.getElementById("resultsCard");
+    const scoreLine = document.getElementById("scoreLine");
+    const answerKey = document.getElementById("answerKey");
+    const submitBtn = document.getElementById("submitBtn");
+    const resetBtn = document.getElementById("resetBtn");
+    const mcPill = document.getElementById("mcPill");
+    const saPill = document.getElementById("saPill");
+    let activeSetId = "easy";
+
+    function getActiveSet() {
+      return quizSets.find((set) => set.id === activeSetId);
+    }
+
+    function renderTabs() {
+      levelTabs.innerHTML = "";
+      quizSets.forEach((set) => {
+        const btn = document.createElement("button");
+        btn.className = `tab-btn${set.id === activeSetId ? " active" : ""}`;
+        btn.type = "button";
+        btn.textContent = set.title;
+        btn.addEventListener("click", () => {
+          activeSetId = set.id;
+          renderAll();
+        });
+        levelTabs.appendChild(btn);
+      });
+    }
+
+    function renderSources(set) {
+      sourceLinks.innerHTML = set.sources.map((source) =>
+        `<a class="source-link" href="${source.href}" target="_blank" rel="noopener noreferrer">${source.label}</a>`
+      ).join("");
+    }
+
+    function renderMC(set) {
+      mcContainer.innerHTML = set.mc.map((item, index) => `
+        <div class="question" data-mc-index="${index}">
+          <div class="meta">Question ${index + 1} - ${item.topic}</div>
+          <div class="question-title">${item.q}</div>
+          ${item.mediaHtml ? `<div class="question-media">${item.mediaHtml}</div>` : ""}
+          <div class="options">
+            ${item.options.map((option, optionIndex) => `
+              <label class="option">
+                <input type="radio" name="mc-${set.id}-${index}" value="${optionIndex}" />
+                <span>${option}</span>
+              </label>
+            `).join("")}
+          </div>
+        </div>
+      `).join("");
+    }
+
+    function renderSA(set) {
+      saContainer.innerHTML = set.sa.map((item, index) => `
+        <div class="question">
+          <div class="meta">Short Answer ${index + 1} - ${item.topic}</div>
+          <div class="question-title">${item.q}</div>
+          <textarea id="sa-${set.id}-${index}" placeholder="Write your answer here..."></textarea>
+        </div>
+      `).join("");
+    }
+
+    function renderAnswerKey(set, selectedAnswers) {
+      const mcScore = set.mc.reduce((score, item, index) => score + (selectedAnswers[index] === item.answer ? 1 : 0), 0);
+      scoreLine.innerHTML = `Multiple Choice Score: <span class="${mcScore >= 12 ? "good" : mcScore >= 8 ? "warn" : "bad"}">${mcScore} / ${set.mc.length}</span>. Use the short-answer key below to compare your wording with teacher-style answers.`;
+
+      answerKey.innerHTML = `
+        <div class="key-item">
+          <strong>Multiple Choice Answer Key</strong>
+          ${set.mc.map((item, index) => {
+            const chosen = selectedAnswers[index];
+            const chosenText = chosen === undefined ? "No answer selected" : item.options[chosen];
+            const status = chosen === item.answer ? "good" : "bad";
+            return `<p><span class="${status}">Q${index + 1}</span> Correct answer: ${item.options[item.answer]}. Your answer: ${chosenText}. ${item.why}</p>`;
+          }).join("")}
+        </div>
+        <div class="key-item">
+          <strong>Short Answer Teacher-Style Key</strong>
+          ${set.sa.map((item, index) => `<p><span class="warn">SA${index + 1}</span> ${item.answer}</p>`).join("")}
+        </div>
+      `;
+    }
+
+    function renderAll() {
+      const set = getActiveSet();
+      levelTag.textContent = set.tag;
+      levelTitle.textContent = set.title;
+      levelSummary.textContent = set.summary;
+      mcPill.textContent = `MC: ${set.mc.length}`;
+      saPill.textContent = `Short Answer: ${set.sa.length}`;
+      renderTabs();
+      renderSources(set);
+      renderMC(set);
+      renderSA(set);
+      resultsCard.classList.add("hidden");
+      scoreLine.textContent = "";
+      answerKey.innerHTML = "";
+    }
+
+    submitBtn.addEventListener("click", () => {
+      const set = getActiveSet();
+      const selectedAnswers = set.mc.map((_, index) => {
+        const selected = document.querySelector(`input[name="mc-${set.id}-${index}"]:checked`);
+        return selected ? Number(selected.value) : undefined;
+      });
+
+      document.querySelectorAll("#mcContainer .question").forEach((questionEl, questionIndex) => {
+        questionEl.querySelectorAll(".option").forEach((optionEl, optionIndex) => {
+          optionEl.classList.remove("correct", "incorrect");
+          if (optionIndex === set.mc[questionIndex].answer) {
+            optionEl.classList.add("correct");
+          } else if (selectedAnswers[questionIndex] === optionIndex) {
+            optionEl.classList.add("incorrect");
+          }
+        });
+      });
+
+      renderAnswerKey(set, selectedAnswers);
+      resultsCard.classList.remove("hidden");
+      resultsCard.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+
+    resetBtn.addEventListener("click", () => {
+      renderAll();
+    });
+
+    renderAll();
+  </script>
+</body>
+</html>
