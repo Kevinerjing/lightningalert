@@ -1,14 +1,14 @@
 {
-  "boardDate": "2026-04-10",
-  "generatedAt": "2026-04-10T12:07:09.083Z",
+  "boardDate": "2026-04-11",
+  "generatedAt": "2026-04-11T11:55:28.419Z",
   "sourceCount": 26,
   "weather": [
     {
       "city": "Ottawa",
-      "temperatureC": 5,
-      "maxC": 11,
-      "minC": 4,
-      "summary": "Cloudy"
+      "temperatureC": 2,
+      "maxC": 8,
+      "minC": 0,
+      "summary": "Clear skies"
     }
   ],
   "extremeWeather": [
@@ -80,6 +80,33 @@
   ],
   "weatherTech": [
     {
+      "title": "Is the ‘Holy Grail of batteries’ finally ready to bless us with its presence?",
+      "whatHappened": "Earlier this year, a relatively unknown startup from Finland made a startling announcement: It had finally solved solid-state batteries.",
+      "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
+      "keyWord": "battery: a device that stores energy for later use",
+      "source": "The Verge",
+      "url": "https://www.theverge.com/transportation/909480/solid-state-battery-donut-lab-ev-china",
+      "publishedAt": "2026-04-10T20:08:37.000Z"
+    },
+    {
+      "title": "Battery recycler Ascend Elements files for bankruptcy",
+      "whatHappened": "Ascend Elements said that it will be filing for Chapter 11 bankruptcy in the wake of a canceled government grant and a challenging market for lithium-ion...",
+      "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
+      "keyWord": "battery: a device that stores energy for later use",
+      "source": "TechCrunch",
+      "url": "https://techcrunch.com/2026/04/10/battery-recycler-ascend-elements-files-for-bankruptcy/",
+      "publishedAt": "2026-04-10T19:16:52.000Z"
+    },
+    {
+      "title": "TechCrunch is heading to Tokyo — and bringing the Startup Battlefield with it",
+      "whatHappened": "SusHi Tech 2026 is zeroing in on four technology domains reshaping society: AI, Robotics, Resilience, and Entertainment.",
+      "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
+      "keyWord": "weather technology: tools that help people measure, study, or predict weather and climate",
+      "source": "TechCrunch",
+      "url": "https://techcrunch.com/2026/04/10/techcrunch-is-heading-to-tokyo-and-bringing-the-startup-battlefield-with-it/",
+      "publishedAt": "2026-04-10T16:38:43.000Z"
+    },
+    {
       "title": "US agency proposes rolling back rules for safe disposal of toxic coal ash",
       "whatHappened": "Advocates warn changes could increase risks of pollutants contaminating water and exposure to toxic waste The Environmental Protection Agency on Thursday proposed weakened rules governing the...",
       "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
@@ -105,15 +132,6 @@
       "source": "UN Climate",
       "url": "https://news.un.org/feed/view/en/story/2026/04/1167243",
       "publishedAt": "2026-04-02T12:00:00.000Z"
-    },
-    {
-      "title": "World News in Brief: Guterres calls for fair swtich to clean energy, Ramadan in Gaza, escalating violence and displacement in South Sudan",
-      "whatHappened": "The world has “entered the age of clean energy” and renewables are now the cheapest, fastest and safest source of new electricity almost everywhere, UN Secretary-General...",
-      "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
-      "keyWord": "weather technology: tools that help people measure, study, or predict weather and climate",
-      "source": "UN Climate",
-      "url": "https://news.un.org/feed/view/en/story/2026/02/1166995",
-      "publishedAt": "2026-02-18T12:00:00.000Z"
     }
   ],
   "universityNews": [
@@ -181,6 +199,24 @@
       "publishedAt": "2026-03-17T12:00:00.000Z"
     },
     {
+      "title": "Is this healthy energy drink coming to a store near you?",
+      "whatHappened": "Nicole Khoury’s own health journey inspired her to create Journée, a healthier alternative to traditional energy drinks The post Is this healthy energy drink coming to...",
+      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
+      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
+      "source": "Northeastern Global News",
+      "url": "https://news.northeastern.edu/2026/04/10/healthy-energy-drink-journee/",
+      "publishedAt": "2026-04-10T20:12:14.000Z"
+    },
+    {
+      "title": "Can Artemis II’s heat shield withstand the force of reentry?",
+      "whatHappened": "Jacqueline McCleary, an assistant professor of physics, said the odds of the Orion capsule’s heat shield failing are largely uncertain.",
+      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
+      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
+      "source": "Northeastern Global News",
+      "url": "https://news.northeastern.edu/2026/04/10/artemis-ii-heat-shield-explained/",
+      "publishedAt": "2026-04-10T16:28:35.000Z"
+    },
+    {
       "title": "In an Alpine Plant Species, Ancient Alleles May Help Drive Climate Change Adaptation",
       "whatHappened": "Researchers found that two alleles in the wood pink plant species may allow the perennials to adapt to warming temperatures.",
       "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
@@ -199,15 +235,6 @@
       "publishedAt": "2026-04-08T16:45:00.000Z"
     },
     {
-      "title": "Sensors grab pollution data in these Boston neighborhoods",
-      "whatHappened": "These Boston neighborhoods have heat and noise problems.",
-      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
-      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
-      "source": "Northeastern Global News",
-      "url": "https://news.northeastern.edu/2026/04/07/boston-air-quality-enviromental-sensor-project/",
-      "publishedAt": "2026-04-07T19:26:36.000Z"
-    },
-    {
       "title": "Augmenting citizen science with computer vision for fish monitoring",
       "whatHappened": "MIT Sea Grant works with the Woodwell Climate Research Center and other collaborators to demonstrate a deep learning-based system for fish monitoring.",
       "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
@@ -215,15 +242,6 @@
       "source": "MIT Earth & Atmospheric Sciences",
       "url": "https://news.mit.edu/2026/augmenting-citizen-science-computer-vision-fish-monitoring-0325",
       "publishedAt": "2026-03-25T21:00:00.000Z"
-    },
-    {
-      "title": "Investigating Antarctic ice shelf melting with global navigation satellite systems",
-      "whatHappened": "Observations suggest a major melting event at the Ross Ice Shelf was connected to atmospheric turbulence.",
-      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
-      "keyWord": "atmospheric: related to the air and layers around Earth",
-      "source": "MIT Earth & Atmospheric Sciences",
-      "url": "https://news.mit.edu/2026/investigating-antarctic-ice-shelf-melting-gnss-satellites-0323",
-      "publishedAt": "2026-03-23T20:55:00.000Z"
     }
   ]
 }
