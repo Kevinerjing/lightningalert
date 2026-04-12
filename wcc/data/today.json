@@ -1,14 +1,14 @@
 {
-  "boardDate": "2026-04-11",
-  "generatedAt": "2026-04-11T11:55:28.419Z",
+  "boardDate": "2026-04-12",
+  "generatedAt": "2026-04-12T11:59:14.303Z",
   "sourceCount": 26,
   "weather": [
     {
       "city": "Ottawa",
-      "temperatureC": 2,
-      "maxC": 8,
-      "minC": 0,
-      "summary": "Clear skies"
+      "temperatureC": -1,
+      "maxC": 9,
+      "minC": -3,
+      "summary": "Partly cloudy"
     }
   ],
   "extremeWeather": [
@@ -51,60 +51,51 @@
       "publishedAt": "2026-03-16T12:00:00.000Z"
     },
     {
-      "title": "US agency proposes rolling back rules for safe disposal of toxic coal ash",
-      "whatHappened": "Advocates warn changes could increase risks of pollutants contaminating water and exposure to toxic waste The Environmental Protection Agency on Thursday proposed weakened rules governing the...",
+      "title": "‘Reverse-gentrify the country’: how Black and Indigenous intentional communities are reclaiming land",
+      "whatHappened": "From California to Alabama, people of color are building communal spaces rooted in care and tradition Zappa Montag steps outside his home to a thicket of...",
       "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
       "keyWord": "climate: the usual pattern of weather over a long period of time",
       "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/us-news/2026/apr/09/epa-toxic-coal-ash-rollback-trump",
-      "publishedAt": "2026-04-09T20:28:28.000Z"
+      "url": "https://www.theguardian.com/us-news/2026/apr/12/black-indigenous-ecovillage-community-reclaim-land",
+      "publishedAt": "2026-04-12T11:00:16.000Z"
     },
     {
-      "title": "Bitten by snakes 200 times – on purpose: US man’s quest to help deliver new antivenom",
-      "whatHappened": "Tim Friede put his ‘ass on the line’ to help stop snakebite deaths – whose numbers appear to be rising amid the climate crisis As we...",
-      "whyItMatters": "Climate and environment stories connect science to real issues like safety, health, and extreme weather.",
-      "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/environment/2026/apr/09/intentional-snakebites-antivenom",
-      "publishedAt": "2026-04-09T10:00:46.000Z"
-    },
-    {
-      "title": "Trump’s EPA chief Zeldin gives keynote speech at climate-denying group’s event",
-      "whatHappened": "Lee Zeldin opens conference for Heartland Institute, which once compared climate advocates to the Unabomber Sign up for the Breaking News US email to get newsletter...",
+      "title": "The team saving native species in case the apocalypse wipes them out",
+      "whatHappened": "Should the apocalypse arrive, Wales as we know it may depend on these two conservationists.",
       "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
       "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/us-news/2026/apr/08/epa-chief-zeldin-climate-denying-group-event",
-      "publishedAt": "2026-04-08T15:58:22.000Z"
+      "source": "BBC Science & Environment",
+      "url": "https://www.bbc.com/news/articles/c2d1k0nrwe9o?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-04-12T06:48:10.000Z"
+    },
+    {
+      "title": "Hopes more pine martens will be born in the wild",
+      "whatHappened": "Conservation charity expects more kits to be born on Dartmoor and Exmoor.",
+      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
+      "keyWord": "climate: the usual pattern of weather over a long period of time",
+      "source": "BBC Science & Environment",
+      "url": "https://www.bbc.com/news/articles/cn9q7vlwnxno?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-04-12T06:12:20.000Z"
     }
   ],
   "weatherTech": [
     {
-      "title": "Is the ‘Holy Grail of batteries’ finally ready to bless us with its presence?",
-      "whatHappened": "Earlier this year, a relatively unknown startup from Finland made a startling announcement: It had finally solved solid-state batteries.",
+      "title": "‘Reverse-gentrify the country’: how Black and Indigenous intentional communities are reclaiming land",
+      "whatHappened": "From California to Alabama, people of color are building communal spaces rooted in care and tradition Zappa Montag steps outside his home to a thicket of...",
+      "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
+      "keyWord": "solar: related to energy from sunlight",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/us-news/2026/apr/12/black-indigenous-ecovillage-community-reclaim-land",
+      "publishedAt": "2026-04-12T11:00:16.000Z"
+    },
+    {
+      "title": "Google’s latest Nest Doorbells just hit their lowest prices of the year",
+      "whatHappened": "If you’ve ever worried about porch pirates stealing packages while you’re away, a video doorbell can offer some peace of mind, letting you keep tabs on...",
       "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
       "keyWord": "battery: a device that stores energy for later use",
       "source": "The Verge",
-      "url": "https://www.theverge.com/transportation/909480/solid-state-battery-donut-lab-ev-china",
-      "publishedAt": "2026-04-10T20:08:37.000Z"
-    },
-    {
-      "title": "Battery recycler Ascend Elements files for bankruptcy",
-      "whatHappened": "Ascend Elements said that it will be filing for Chapter 11 bankruptcy in the wake of a canceled government grant and a challenging market for lithium-ion...",
-      "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
-      "keyWord": "battery: a device that stores energy for later use",
-      "source": "TechCrunch",
-      "url": "https://techcrunch.com/2026/04/10/battery-recycler-ascend-elements-files-for-bankruptcy/",
-      "publishedAt": "2026-04-10T19:16:52.000Z"
-    },
-    {
-      "title": "TechCrunch is heading to Tokyo — and bringing the Startup Battlefield with it",
-      "whatHappened": "SusHi Tech 2026 is zeroing in on four technology domains reshaping society: AI, Robotics, Resilience, and Entertainment.",
-      "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
-      "keyWord": "weather technology: tools that help people measure, study, or predict weather and climate",
-      "source": "TechCrunch",
-      "url": "https://techcrunch.com/2026/04/10/techcrunch-is-heading-to-tokyo-and-bringing-the-startup-battlefield-with-it/",
-      "publishedAt": "2026-04-10T16:38:43.000Z"
+      "url": "https://www.theverge.com/gadgets/910472/google-nest-doorbell-wired-battery-powered-deal-sale",
+      "publishedAt": "2026-04-10T23:47:43.000Z"
     },
     {
       "title": "US agency proposes rolling back rules for safe disposal of toxic coal ash",
@@ -132,6 +123,15 @@
       "source": "UN Climate",
       "url": "https://news.un.org/feed/view/en/story/2026/04/1167243",
       "publishedAt": "2026-04-02T12:00:00.000Z"
+    },
+    {
+      "title": "World News in Brief: Guterres calls for fair swtich to clean energy, Ramadan in Gaza, escalating violence and displacement in South Sudan",
+      "whatHappened": "The world has “entered the age of clean energy” and renewables are now the cheapest, fastest and safest source of new electricity almost everywhere, UN Secretary-General...",
+      "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
+      "keyWord": "weather technology: tools that help people measure, study, or predict weather and climate",
+      "source": "UN Climate",
+      "url": "https://news.un.org/feed/view/en/story/2026/02/1166995",
+      "publishedAt": "2026-02-18T12:00:00.000Z"
     }
   ],
   "universityNews": [
