@@ -1,20 +1,20 @@
 {
-  "boardDate": "2026-04-14",
-  "generatedAt": "2026-04-14T12:40:23.592Z",
+  "boardDate": "2026-04-15",
+  "generatedAt": "2026-04-15T12:12:10.800Z",
   "sourceCount": 26,
   "weather": [
     {
       "city": "Ottawa",
-      "temperatureC": 7,
+      "temperatureC": 6,
       "maxC": 10,
-      "minC": 7,
-      "summary": "Cloudy"
+      "minC": 5,
+      "summary": "Foggy"
     }
   ],
   "extremeWeather": [
     {
       "title": "‘Nothing but tree skeletons’: record-breaking wildfires devastate US cattle country",
-      "whatHappened": "Rising temperatures and extreme drought are driving more destructive spring fires across the American Great Plains.",
+      "whatHappened": "Rising temperatures and extreme drought are driving more destructive spring fires across the Great Plains.",
       "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
       "keyWord": "drought: a long time with very little rain",
       "source": "The Guardian Environment",
@@ -28,7 +28,7 @@
       "keyWord": "extreme weather: unusual and dangerous weather like floods, storms, or heat waves",
       "source": "The Guardian Environment",
       "url": "https://www.theguardian.com/environment/2026/apr/13/el-nino-explainer",
-      "publishedAt": "2026-04-13T11:00:38.000Z"
+      "publishedAt": "2026-04-14T19:03:48.000Z"
     },
     {
       "title": "Forests are more than a resource: How Belarus protects its vital ecosystem",
@@ -42,6 +42,15 @@
   ],
   "climate": [
     {
+      "title": "Butterfly numbers are dropping but here are five species you may see more of",
+      "whatHappened": "A warming climate has helped some to flourish, researchers say, but the outlook is troubling.",
+      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
+      "keyWord": "climate: the usual pattern of weather over a long period of time",
+      "source": "BBC Science & Environment",
+      "url": "https://www.bbc.com/news/articles/c75kk7p41npo?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-04-14T23:14:24.000Z"
+    },
+    {
       "title": "UN weather agency warns of record ‘climate imbalance’ as planetary warming accelerates",
       "whatHappened": "All-time high greenhouse gas concentrations in Earth’s atmosphere continue to drive heat records on land and sea, with long-lasting consequences for humanity, the World Meteorological Organization...",
       "whyItMatters": "Climate and environment stories connect science to real issues like safety, health, and extreme weather.",
@@ -49,6 +58,15 @@
       "source": "UN Climate",
       "url": "https://news.un.org/feed/view/en/story/2026/03/1167178",
       "publishedAt": "2026-03-23T12:00:00.000Z"
+    },
+    {
+      "title": "$30m an hour: big oil reaping huge war windfall from consumers, analysis finds",
+      "whatHappened": "Exclusive: Climate action blockers including Saudi Arabia, Russia and major fossil fuel firms set to make extra $234bn by end of 2026 Middle East crisis –...",
+      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
+      "keyWord": "climate: the usual pattern of weather over a long period of time",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/environment/2026/apr/15/big-oil-huge-war-windfall-consumers",
+      "publishedAt": "2026-04-15T11:02:18.000Z"
     },
     {
       "title": "Middle East crisis exposes global energy fault line as UN urges shift to renewables",
@@ -69,43 +87,16 @@
       "publishedAt": "2026-03-16T12:00:00.000Z"
     },
     {
-      "title": "BP hails ‘exceptional’ trading as oil prices soar in Iran war",
-      "whatHappened": "Citi analysts upgrade profit forecast by 20% to $2.6bn for January to March despite flat oil and gas production Business live – latest updates BP expects...",
+      "title": "UK butterflies declining after 50 years of data",
+      "whatHappened": "Volunteers led by Dorset-based Butterfly Conservation have gathered more than 44m records.",
       "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
       "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/business/2026/apr/14/bp-trading-oil-prices-iran-war-profit-forecast",
-      "publishedAt": "2026-04-14T10:13:25.000Z"
-    },
-    {
-      "title": "Are we heading for ‘super El Niño’ – and what could we expect?",
-      "whatHappened": "Experts say climate pattern could supercharge extreme weather events and push temperatures to record highs There is a high likelihood that the phenomenon known as “El...",
-      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
-      "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/environment/2026/apr/13/el-nino-explainer",
-      "publishedAt": "2026-04-13T11:00:38.000Z"
-    },
-    {
-      "title": "‘Reverse-gentrify the country’: how Black and Indigenous intentional communities are reclaiming land",
-      "whatHappened": "From California to Alabama, people of color are building communal spaces rooted in care and tradition Zappa Montag steps outside his home to a thicket of...",
-      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
-      "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/us-news/2026/apr/12/black-indigenous-ecovillage-community-reclaim-land",
-      "publishedAt": "2026-04-12T11:00:16.000Z"
+      "source": "BBC Science & Environment",
+      "url": "https://www.bbc.com/news/articles/cddq51v7nygo?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-04-15T05:04:11.000Z"
     }
   ],
   "weatherTech": [
-    {
-      "title": "BP hails ‘exceptional’ trading as oil prices soar in Iran war",
-      "whatHappened": "Citi analysts upgrade profit forecast by 20% to $2.6bn for January to March despite flat oil and gas production Business live – latest updates BP expects...",
-      "whyItMatters": "Weather technology shows how science tools can predict conditions faster and help people prepare earlier.",
-      "keyWord": "forecast: a prediction about future weather conditions",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/business/2026/apr/14/bp-trading-oil-prices-iran-war-profit-forecast",
-      "publishedAt": "2026-04-14T10:13:25.000Z"
-    },
     {
       "title": "Troubled Lake Erie is being transformed into a vast water research facility",
       "whatHappened": "For long a dumping ground for pollutants, the Great Lake is being seeded with sensor buoys to make it the world’s largest digitally connected body of...",
@@ -163,6 +154,15 @@
       "publishedAt": "2025-07-29T18:38:05.000Z"
     },
     {
+      "title": "Smarter forest practices could help protect B.C. forests from wildfire and climate stress, new research suggests",
+      "whatHappened": "A decade of research and a new book from UBC's Dr.",
+      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
+      "keyWord": "research: careful study used to discover new knowledge",
+      "source": "UBC News",
+      "url": "https://news.ubc.ca/2026/04/smarter-forest-practices/",
+      "publishedAt": "2026-04-14T15:55:00.000Z"
+    },
+    {
       "title": "Carbon removal project supports Maine’s blue economy, broader marine health",
       "whatHappened": "A chemical-free approach to balancing ocean acidity protects marine life and could dramatically impact the global aquaculture market.",
       "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
@@ -170,15 +170,6 @@
       "source": "MIT Climate & Sustainability",
       "url": "https://news.mit.edu/2026/carbon-removal-project-supports-maines-blue-economy-broader-marine-health-0414",
       "publishedAt": "2026-04-14T04:00:00.000Z"
-    },
-    {
-      "title": "Why are communities pushing back against data centers?",
-      "whatHappened": "Tech, data policy expert says concerns legitimate over rising power rates, water use, environmental issues amid mushrooming growth",
-      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
-      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
-      "source": "Harvard Gazette",
-      "url": "https://news.harvard.edu/gazette/story/2026/04/why-are-communities-pushing-back-against-data-centers/",
-      "publishedAt": "2026-04-09T17:00:37.000Z"
     },
     {
       "title": "Sinking Land Drives Hidden Flood Risk in One of the World’s Most Populated Regions",
@@ -217,6 +208,33 @@
       "publishedAt": "2026-03-17T12:00:00.000Z"
     },
     {
+      "title": "Water balloons, pie-tossing and E-race cars rally on Giving Day",
+      "whatHappened": "This year, the university has set a goal to receive more than $3.5 million in donations from more than 14,000 donors by midnight.",
+      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
+      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
+      "source": "Northeastern Global News",
+      "url": "https://news.northeastern.edu/2026/04/14/giving-day-2026/",
+      "publishedAt": "2026-04-14T20:59:12.000Z"
+    },
+    {
+      "title": "Where Conservation Meets Community: Lessons From South Africa",
+      "whatHappened": "Columbia Climate School students tackled real-world conservation challenges in one of the planet’s most biodiverse regions.",
+      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
+      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
+      "source": "Columbia Climate School",
+      "url": "https://news.climate.columbia.edu/2026/04/14/where-conservation-meets-community-lessons-from-south-africa/",
+      "publishedAt": "2026-04-14T18:11:29.000Z"
+    },
+    {
+      "title": "Indiana bishops issue letter on integral ecology with key contributions from theologian Rev. Terrence Ehrman, C.S.C.",
+      "whatHappened": "The Indiana Catholic Conference, composed of the state’s five bishops, has issued a pastoral letter on integral ecology with key contributions from Rev.",
+      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
+      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
+      "source": "Notre Dame News",
+      "url": "https://news.nd.edu/news/indiana-bishops-issue-letter-on-integral-ecology-with-key-contributions-from-theologian-rev-terrence-ehrman-c-s-c/",
+      "publishedAt": "2026-04-14T15:17:00.000Z"
+    },
+    {
       "title": "Hazy, hot and…shady? Street trees, air pollution and heat",
       "whatHappened": "Researchers measured the “multihazard exposure” of extreme heat and air pollution across 55 American cities.",
       "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
@@ -224,33 +242,6 @@
       "source": "Northeastern Global News",
       "url": "https://news.northeastern.edu/2026/04/13/tree-canopy-heat-air-pollution/",
       "publishedAt": "2026-04-13T17:39:38.000Z"
-    },
-    {
-      "title": "The Energy Vampires Haunting Your Home",
-      "whatHappened": "Here are some of the devices and appliances that might be secretly costing you money and energy, and how to save on both.",
-      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
-      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
-      "source": "Columbia Climate School",
-      "url": "https://news.climate.columbia.edu/2026/04/13/the-energy-vampires-haunting-your-home/",
-      "publishedAt": "2026-04-13T14:56:34.000Z"
-    },
-    {
-      "title": "Is this healthy energy drink coming to a store near you?",
-      "whatHappened": "Nicole Khoury’s own health journey inspired her to create Journée, a healthier alternative to traditional energy drinks The post Is this healthy energy drink coming to...",
-      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
-      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
-      "source": "Northeastern Global News",
-      "url": "https://news.northeastern.edu/2026/04/10/healthy-energy-drink-journee/",
-      "publishedAt": "2026-04-10T20:12:14.000Z"
-    },
-    {
-      "title": "Desirée Plata appointed associate dean of engineering",
-      "whatHappened": "Faculty member in civil and environmental engineering will advance research and entrepreneurial initiatives across the School of Engineering.",
-      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
-      "keyWord": "research: careful study used to discover new knowledge",
-      "source": "MIT Climate & Sustainability",
-      "url": "https://news.mit.edu/2026/desiree-plata-appointed-associate-dean-engineering-0408",
-      "publishedAt": "2026-04-08T16:45:00.000Z"
     }
   ]
 }
