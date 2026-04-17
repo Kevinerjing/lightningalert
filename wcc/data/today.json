@@ -1,14 +1,14 @@
 {
-  "boardDate": "2026-04-16",
-  "generatedAt": "2026-04-16T12:44:12.815Z",
+  "boardDate": "2026-04-17",
+  "generatedAt": "2026-04-17T12:10:32.396Z",
   "sourceCount": 26,
   "weather": [
     {
       "city": "Ottawa",
-      "temperatureC": 7,
-      "maxC": 15,
-      "minC": 7,
-      "summary": "Foggy"
+      "temperatureC": 8,
+      "maxC": 17,
+      "minC": 6,
+      "summary": "Partly cloudy"
     }
   ],
   "extremeWeather": [
@@ -78,15 +78,6 @@
       "publishedAt": "2026-03-16T12:00:00.000Z"
     },
     {
-      "title": "MSC’s ‘blue tick’ scheme creates illusion of ethically sourced fish, study claims",
-      "whatHappened": "Sustainability certification by Marine Stewardship Council may be obscuring labour abuses in seafood supply chains, say researchers The Marine Stewardship Council (MSC), which operates a “blue...",
-      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
-      "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/environment/2026/apr/16/mscs-blue-tick-scheme-creates-illusion-of-ethically-sourced-fish-study-claims",
-      "publishedAt": "2026-04-16T11:00:57.000Z"
-    },
-    {
       "title": "NAACP lawsuit accuses Elon Musk’s xAI of polluting Black neighborhoods near Memphis",
       "whatHappened": "Suit alleges the billionaire’s AI company is illegally spewing toxic pollutants from its datacenter in the Memphis area A new lawsuit accuses Elon Musk’s artificial intelligence...",
       "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
@@ -94,36 +85,18 @@
       "source": "The Guardian Environment",
       "url": "https://www.theguardian.com/technology/2026/apr/14/naacp-lawsuit-elon-musk-xai-memphis",
       "publishedAt": "2026-04-15T20:58:07.000Z"
+    },
+    {
+      "title": "Tobago’s teen archery champion takes aim at sustainability targets",
+      "whatHappened": "Six-time Trinidad and Tobago archery champion, Anthurium Lewis, has told UN News how sport helped her overcome age barriers in environmental advocacy and how in the...",
+      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
+      "keyWord": "climate: the usual pattern of weather over a long period of time",
+      "source": "UN Climate",
+      "url": "https://news.un.org/feed/view/en/story/2026/04/1167310",
+      "publishedAt": "2026-04-15T12:00:00.000Z"
     }
   ],
   "weatherTech": [
-    {
-      "title": "Govee’s new LED Lightwall comes with its own self-standing frame",
-      "whatHappened": "Govee has announced an upgraded version of its hanging Curtain Lights Pro that can instead be used nearly anywhere you have access to an outlet or...",
-      "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
-      "keyWord": "battery: a device that stores energy for later use",
-      "source": "The Verge",
-      "url": "https://www.theverge.com/tech/912668/govee-lightwall-color-changing-led-aluminum-frame-smart-home",
-      "publishedAt": "2026-04-16T01:41:15.000Z"
-    },
-    {
-      "title": "DJI’s Osmo Pocket 4 camera is better at capturing slo-mo footage and photos",
-      "whatHappened": "Following months of leaks, DJI has announced the fourth version of its handheld stabilized vlogger camera.",
-      "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
-      "keyWord": "weather technology: tools that help people measure, study, or predict weather and climate",
-      "source": "The Verge",
-      "url": "https://www.theverge.com/tech/912381/dji-osmo-pocket-4-camera-stabilizied-gimbal-4k-slow-motion",
-      "publishedAt": "2026-04-15T17:37:02.000Z"
-    },
-    {
-      "title": "Troubled Lake Erie is being transformed into a vast water research facility",
-      "whatHappened": "For long a dumping ground for pollutants, the Great Lake is being seeded with sensor buoys to make it the world’s largest digitally connected body of...",
-      "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
-      "keyWord": "weather technology: tools that help people measure, study, or predict weather and climate",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/environment/2026/apr/13/lake-erie-water-research",
-      "publishedAt": "2026-04-13T11:00:38.000Z"
-    },
     {
       "title": "Middle East crisis exposes global energy fault line as UN urges shift to renewables",
       "whatHappened": "The ongoing crisis in the Middle East is exposing a central vulnerability in the global economy: the dependence on fossil fuels flowing through regions affected by...",
@@ -235,15 +208,6 @@
       "publishedAt": "2026-03-17T12:00:00.000Z"
     },
     {
-      "title": "Water balloons, pie-tossing and E-race cars rally on Giving Day",
-      "whatHappened": "This year, the university collected more than $4.4 million from more than 15,700 donors from around the world.",
-      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
-      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
-      "source": "Northeastern Global News",
-      "url": "https://news.northeastern.edu/2026/04/14/giving-day-2026/",
-      "publishedAt": "2026-04-14T20:59:12.000Z"
-    },
-    {
       "title": "Indiana bishops issue letter on integral ecology with key contributions from theologian Rev. Terrence Ehrman, C.S.C.",
       "whatHappened": "The Indiana Catholic Conference, composed of the state’s five bishops, has issued a pastoral letter on integral ecology with key contributions from Rev.",
       "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
@@ -251,6 +215,15 @@
       "source": "Notre Dame News",
       "url": "https://news.nd.edu/news/indiana-bishops-issue-letter-on-integral-ecology-with-key-contributions-from-theologian-rev-terrence-ehrman-c-s-c/",
       "publishedAt": "2026-04-14T15:17:00.000Z"
+    },
+    {
+      "title": "Desirée Plata appointed associate dean of engineering",
+      "whatHappened": "Faculty member in civil and environmental engineering will advance research and entrepreneurial initiatives across the School of Engineering.",
+      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
+      "keyWord": "research: careful study used to discover new knowledge",
+      "source": "MIT Climate & Sustainability",
+      "url": "https://news.mit.edu/2026/desiree-plata-appointed-associate-dean-engineering-0408",
+      "publishedAt": "2026-04-08T16:45:00.000Z"
     }
   ]
 }
