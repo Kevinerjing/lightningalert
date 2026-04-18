@@ -1,26 +1,17 @@
 {
-  "boardDate": "2026-04-17",
-  "generatedAt": "2026-04-17T12:10:32.396Z",
+  "boardDate": "2026-04-18",
+  "generatedAt": "2026-04-18T11:59:01.748Z",
   "sourceCount": 26,
   "weather": [
     {
       "city": "Ottawa",
       "temperatureC": 8,
-      "maxC": 17,
-      "minC": 6,
-      "summary": "Partly cloudy"
+      "maxC": 22,
+      "minC": 7,
+      "summary": "Clear skies"
     }
   ],
   "extremeWeather": [
-    {
-      "title": "‘Nothing but tree skeletons’: record-breaking wildfires devastate US cattle country",
-      "whatHappened": "Rising temperatures and extreme drought are driving more destructive spring fires across the Great Plains.",
-      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
-      "keyWord": "drought: a long time with very little rain",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/world/2026/apr/14/wildfire-cattle-ranchers-american-great-plains",
-      "publishedAt": "2026-04-14T11:00:55.000Z"
-    },
     {
       "title": "Are we heading for ‘super El Niño’ – and what could we expect?",
       "whatHappened": "Experts say climate pattern could supercharge extreme weather events and push temperatures to record highs There is a high likelihood that the phenomenon known as “El...",
@@ -78,25 +69,34 @@
       "publishedAt": "2026-03-16T12:00:00.000Z"
     },
     {
-      "title": "NAACP lawsuit accuses Elon Musk’s xAI of polluting Black neighborhoods near Memphis",
-      "whatHappened": "Suit alleges the billionaire’s AI company is illegally spewing toxic pollutants from its datacenter in the Memphis area A new lawsuit accuses Elon Musk’s artificial intelligence...",
+      "title": "Campaigners hope to save rare rainforest habitat",
+      "whatHappened": "Volunteers are raising funding to continue work to restore a temperate rainforest in Cumbria.",
       "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
-      "keyWord": "emissions: gases released into the air",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/technology/2026/apr/14/naacp-lawsuit-elon-musk-xai-memphis",
-      "publishedAt": "2026-04-15T20:58:07.000Z"
+      "keyWord": "climate: the usual pattern of weather over a long period of time",
+      "source": "BBC Science & Environment",
+      "url": "https://www.bbc.com/news/articles/c4gvvzelnveo?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-04-18T06:23:57.000Z"
     },
     {
-      "title": "Tobago’s teen archery champion takes aim at sustainability targets",
-      "whatHappened": "Six-time Trinidad and Tobago archery champion, Anthurium Lewis, has told UN News how sport helped her overcome age barriers in environmental advocacy and how in the...",
+      "title": "Shockwaves of Middle East war reach Caribbean as food prices soar",
+      "whatHappened": "Six weeks since war erupted in the Middle East, the shockwaves have spread to the Caribbean region, already pushed to the brink, amid fears of a...",
       "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
       "keyWord": "climate: the usual pattern of weather over a long period of time",
       "source": "UN Climate",
-      "url": "https://news.un.org/feed/view/en/story/2026/04/1167310",
-      "publishedAt": "2026-04-15T12:00:00.000Z"
+      "url": "https://news.un.org/feed/view/en/story/2026/04/1167321",
+      "publishedAt": "2026-04-17T12:00:00.000Z"
     }
   ],
   "weatherTech": [
+    {
+      "title": "Betting on the news raises ethical questions for journalists",
+      "whatHappened": "Prediction market exchanges have created an environment where just about any piece of information is potentially monetizable: How well will BTS's new song perform this week?",
+      "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
+      "keyWord": "weather technology: tools that help people measure, study, or predict weather and climate",
+      "source": "The Verge",
+      "url": "https://www.theverge.com/report/914157/prediction-markets-news-outlet-ethics-policy-propublica-kalshi-polymarket",
+      "publishedAt": "2026-04-17T18:24:01.000Z"
+    },
     {
       "title": "Middle East crisis exposes global energy fault line as UN urges shift to renewables",
       "whatHappened": "The ongoing crisis in the Middle East is exposing a central vulnerability in the global economy: the dependence on fossil fuels flowing through regions affected by...",
@@ -105,15 +105,6 @@
       "source": "UN Climate",
       "url": "https://news.un.org/feed/view/en/story/2026/04/1167243",
       "publishedAt": "2026-04-02T12:00:00.000Z"
-    },
-    {
-      "title": "World News in Brief: Guterres calls for fair swtich to clean energy, Ramadan in Gaza, escalating violence and displacement in South Sudan",
-      "whatHappened": "The world has “entered the age of clean energy” and renewables are now the cheapest, fastest and safest source of new electricity almost everywhere, UN Secretary-General...",
-      "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
-      "keyWord": "weather technology: tools that help people measure, study, or predict weather and climate",
-      "source": "UN Climate",
-      "url": "https://news.un.org/feed/view/en/story/2026/02/1166995",
-      "publishedAt": "2026-02-18T12:00:00.000Z"
     }
   ],
   "universityNews": [
@@ -208,6 +199,15 @@
       "publishedAt": "2026-03-17T12:00:00.000Z"
     },
     {
+      "title": "Researcher explains why climate models and observational data disagree",
+      "whatHappened": "The findings are reported in the journal Nature Communications.",
+      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
+      "keyWord": "research: careful study used to discover new knowledge",
+      "source": "Northeastern Global News",
+      "url": "https://news.northeastern.edu/2026/04/17/climate-models-observational-data-research/",
+      "publishedAt": "2026-04-17T21:15:33.000Z"
+    },
+    {
       "title": "Indiana bishops issue letter on integral ecology with key contributions from theologian Rev. Terrence Ehrman, C.S.C.",
       "whatHappened": "The Indiana Catholic Conference, composed of the state’s five bishops, has issued a pastoral letter on integral ecology with key contributions from Rev.",
       "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
@@ -215,15 +215,6 @@
       "source": "Notre Dame News",
       "url": "https://news.nd.edu/news/indiana-bishops-issue-letter-on-integral-ecology-with-key-contributions-from-theologian-rev-terrence-ehrman-c-s-c/",
       "publishedAt": "2026-04-14T15:17:00.000Z"
-    },
-    {
-      "title": "Desirée Plata appointed associate dean of engineering",
-      "whatHappened": "Faculty member in civil and environmental engineering will advance research and entrepreneurial initiatives across the School of Engineering.",
-      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
-      "keyWord": "research: careful study used to discover new knowledge",
-      "source": "MIT Climate & Sustainability",
-      "url": "https://news.mit.edu/2026/desiree-plata-appointed-associate-dean-engineering-0408",
-      "publishedAt": "2026-04-08T16:45:00.000Z"
     }
   ]
 }
