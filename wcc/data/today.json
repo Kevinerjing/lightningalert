@@ -1,14 +1,14 @@
 {
-  "boardDate": "2026-04-20",
-  "generatedAt": "2026-04-20T12:47:34.239Z",
+  "boardDate": "2026-04-21",
+  "generatedAt": "2026-04-21T12:42:56.166Z",
   "sourceCount": 26,
   "weather": [
     {
       "city": "Ottawa",
-      "temperatureC": -2,
-      "maxC": 2,
-      "minC": -2,
-      "summary": "Clear skies"
+      "temperatureC": 0,
+      "maxC": 7,
+      "minC": -4,
+      "summary": "Cloudy"
     }
   ],
   "extremeWeather": [
@@ -20,15 +20,6 @@
       "source": "The Guardian Environment",
       "url": "https://www.theguardian.com/us-news/2026/apr/19/lahaina-maui-rebuild-locals-tourists",
       "publishedAt": "2026-04-19T14:00:44.000Z"
-    },
-    {
-      "title": "Are we heading for ‘super El Niño’ – and what could we expect?",
-      "whatHappened": "Experts say climate pattern could supercharge extreme weather events and push temperatures to record highs There is a high likelihood that the phenomenon known as “El...",
-      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
-      "keyWord": "extreme weather: unusual and dangerous weather like floods, storms, or heat waves",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/environment/2026/apr/13/el-nino-explainer",
-      "publishedAt": "2026-04-14T19:03:48.000Z"
     },
     {
       "title": "Forests are more than a resource: How Belarus protects its vital ecosystem",
@@ -60,6 +51,15 @@
       "publishedAt": "2026-03-23T12:00:00.000Z"
     },
     {
+      "title": "Democrats urged to link clean energy to affordability as Iran war hikes up prices",
+      "whatHappened": "Climate leaders say Democrats need to extol clean energy as a way to cut costs for Americans as war roils oil markets Democrats should get louder...",
+      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
+      "keyWord": "climate: the usual pattern of weather over a long period of time",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/environment/2026/apr/20/democrats-clean-energy-iran-war-affordability",
+      "publishedAt": "2026-04-20T14:00:58.000Z"
+    },
+    {
       "title": "Middle East crisis exposes global energy fault line as UN urges shift to renewables",
       "whatHappened": "The ongoing crisis in the Middle East is exposing a central vulnerability in the global economy: the dependence on fossil fuels flowing through regions affected by...",
       "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
@@ -78,60 +78,24 @@
       "publishedAt": "2026-03-16T12:00:00.000Z"
     },
     {
-      "title": "Shockwaves of Middle East war reach Caribbean as food prices soar",
-      "whatHappened": "Six weeks since war erupted in the Middle East, the shockwaves have spread to the Caribbean region, already pushed to the brink, amid fears of a...",
+      "title": "Electricity bills targeted in planned shakeup to energy pricing",
+      "whatHappened": "The war in the Middle East has brought renewed attention to Britain's vulnerability to energy price shocks.",
       "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
       "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "UN Climate",
-      "url": "https://news.un.org/feed/view/en/story/2026/04/1167321",
-      "publishedAt": "2026-04-17T12:00:00.000Z"
-    },
-    {
-      "title": "NAACP lawsuit accuses Elon Musk’s xAI of polluting Black neighborhoods near Memphis",
-      "whatHappened": "Suit alleges the billionaire’s AI company is illegally spewing toxic pollutants from its datacenter in the Memphis area A new lawsuit accuses Elon Musk’s artificial intelligence...",
-      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
-      "keyWord": "emissions: gases released into the air",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/technology/2026/apr/14/naacp-lawsuit-elon-musk-xai-memphis",
-      "publishedAt": "2026-04-15T20:58:07.000Z"
+      "source": "BBC Science & Environment",
+      "url": "https://www.bbc.com/news/articles/c79jg43vd8no?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-04-21T11:53:27.000Z"
     }
   ],
   "weatherTech": [
     {
-      "title": "The Stars My Destination is classic proto-cyberpunk",
-      "whatHappened": "This might feel like a somewhat obvious recommendation to some, but it flew under my radar until now.",
+      "title": "Democrats urged to link clean energy to affordability as Iran war hikes up prices",
+      "whatHappened": "Climate leaders say Democrats need to extol clean energy as a way to cut costs for Americans as war roils oil markets Democrats should get louder...",
       "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
       "keyWord": "weather technology: tools that help people measure, study, or predict weather and climate",
-      "source": "The Verge",
-      "url": "https://www.theverge.com/entertainment/914680/the-stars-my-destination-alfred-bester-review-cyberpunk",
-      "publishedAt": "2026-04-20T09:38:08.000Z"
-    },
-    {
-      "title": "Marathon battery life makes Keychron’s Ultra 8K keyboards its best yet",
-      "whatHappened": "Keychron's expansive keyboard catalog covers everything from basic full-size mechanical boards to niche layouts like southpaw Alice or a one-handed half-keyboard for gaming.",
-      "whyItMatters": "Weather technology shows how science tools can predict conditions faster and help people prepare earlier.",
-      "keyWord": "battery: a device that stores energy for later use",
-      "source": "The Verge",
-      "url": "https://www.theverge.com/tech/914085/keychron-q1-v5-ultra-8k-zmk-mechanical-keyboards-review",
-      "publishedAt": "2026-04-20T03:01:29.000Z"
-    },
-    {
-      "title": "Blue Origin successfully reused its New Glenn rocket",
-      "whatHappened": "Today's launch of AST SpaceMobile's BlueBird 7 satellite aboard Blue Origin's reusable New Glenn rocket was a partial success.",
-      "whyItMatters": "Weather technology shows how science tools can predict conditions faster and help people prepare earlier.",
-      "keyWord": "satellite: an object in space that collects information and sends it back to Earth",
-      "source": "The Verge",
-      "url": "https://www.theverge.com/science/914729/blue-origin-successfully-reused-its-new-glenn-rocket",
-      "publishedAt": "2026-04-19T20:28:52.000Z"
-    },
-    {
-      "title": "Blue Origin’s New Glenn put a customer satellite in the wrong orbit during its third launch",
-      "whatHappened": "The first major failure of Blue Origin's new heavy-launch system could create delays to its ambition to help NASA and the Trump administration return to the...",
-      "whyItMatters": "Weather technology shows how science tools can predict conditions faster and help people prepare earlier.",
-      "keyWord": "satellite: an object in space that collects information and sends it back to Earth",
-      "source": "TechCrunch",
-      "url": "https://techcrunch.com/2026/04/19/blue-origins-new-glenn-put-a-customer-satellite-in-the-wrong-orbit-during-its-third-launch/",
-      "publishedAt": "2026-04-19T19:02:09.000Z"
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/environment/2026/apr/20/democrats-clean-energy-iran-war-affordability",
+      "publishedAt": "2026-04-20T14:00:58.000Z"
     },
     {
       "title": "Middle East crisis exposes global energy fault line as UN urges shift to renewables",
@@ -235,22 +199,22 @@
       "publishedAt": "2026-03-17T12:00:00.000Z"
     },
     {
-      "title": "Researcher explains why climate models and observational data disagree",
-      "whatHappened": "The findings are reported in the journal Nature Communications.",
-      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
-      "keyWord": "research: careful study used to discover new knowledge",
-      "source": "Northeastern Global News",
-      "url": "https://news.northeastern.edu/2026/04/17/climate-models-observational-data-research/",
-      "publishedAt": "2026-04-17T21:15:33.000Z"
-    },
-    {
-      "title": "Indiana bishops issue letter on integral ecology with key contributions from theologian Rev. Terrence Ehrman, C.S.C.",
-      "whatHappened": "The Indiana Catholic Conference, composed of the state’s five bishops, has issued a pastoral letter on integral ecology with key contributions from Rev.",
+      "title": "A tiny forest takes root at uOttawa",
+      "whatHappened": "A tiny forest takes root at uOttawa",
       "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
       "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
+      "source": "uOttawa News",
+      "url": "https://www.uottawa.ca/en/news-all/tiny-forest-takes-root-uottawa",
+      "publishedAt": "2026-04-21T12:42:46.863Z"
+    },
+    {
+      "title": "Notre Dame’s Nathan Swenson elected 2026 Fellow of the Ecological Society of America",
+      "whatHappened": "Nathan Swenson, the Gillen Director of the University of Notre Dame Environmental Research Center and professor in the Department of Biological Sciences at the University of...",
+      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
+      "keyWord": "research: careful study used to discover new knowledge",
       "source": "Notre Dame News",
-      "url": "https://news.nd.edu/news/indiana-bishops-issue-letter-on-integral-ecology-with-key-contributions-from-theologian-rev-terrence-ehrman-c-s-c/",
-      "publishedAt": "2026-04-14T15:17:00.000Z"
+      "url": "https://news.nd.edu/news/notre-dames-nathan-swenson-elected-2026-fellow-of-the-ecological-society-of-america/",
+      "publishedAt": "2026-04-20T17:50:10.000Z"
     }
   ]
 }
