@@ -1,13 +1,13 @@
 {
-  "boardDate": "2026-04-21",
-  "generatedAt": "2026-04-21T12:42:56.166Z",
+  "boardDate": "2026-04-22",
+  "generatedAt": "2026-04-22T12:41:05.478Z",
   "sourceCount": 26,
   "weather": [
     {
       "city": "Ottawa",
-      "temperatureC": 0,
-      "maxC": 7,
-      "minC": -4,
+      "temperatureC": 5,
+      "maxC": 15,
+      "minC": 3,
       "summary": "Cloudy"
     }
   ],
@@ -51,6 +51,15 @@
       "publishedAt": "2026-03-23T12:00:00.000Z"
     },
     {
+      "title": "Guterres urges countries to ‘unleash the renewables revolution’",
+      "whatHappened": "UN Secretary-General António Guterres has again urged governments to step up the transition from fossil fuels to clean energy as war and climate risks create unprecedented...",
+      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
+      "keyWord": "renewable energy: energy from sources that can be used again, like sun or wind",
+      "source": "UN Climate",
+      "url": "https://news.un.org/feed/view/en/story/2026/04/1167343",
+      "publishedAt": "2026-04-21T12:00:00.000Z"
+    },
+    {
       "title": "Democrats urged to link clean energy to affordability as Iran war hikes up prices",
       "whatHappened": "Climate leaders say Democrats need to extol clean energy as a way to cut costs for Americans as war roils oil markets Democrats should get louder...",
       "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
@@ -69,25 +78,25 @@
       "publishedAt": "2026-04-02T12:00:00.000Z"
     },
     {
-      "title": "War-driven energy price spikes highlight value of renewables: UN climate chief",
-      "whatHappened": "The disruption of global energy supplies is being felt worldwide, the UN’s top climate change official warned on Monday, as conflict in the Middle East drives...",
-      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
-      "keyWord": "renewable energy: energy from sources that can be used again, like sun or wind",
-      "source": "UN Climate",
-      "url": "https://news.un.org/feed/view/en/story/2026/03/1167135",
-      "publishedAt": "2026-03-16T12:00:00.000Z"
-    },
-    {
-      "title": "Electricity bills targeted in planned shakeup to energy pricing",
-      "whatHappened": "The war in the Middle East has brought renewed attention to Britain's vulnerability to energy price shocks.",
+      "title": "‘Petro-masculinity’ is destroying the planet. Can eco-masculinity help save it? | Andrew Boyd",
+      "whatHappened": "It’s crucial to understanding how gender is affecting our ability to rally behind a shared ecological vision Feminist influencer Liz Plank opens her groundbreaking book For...",
       "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
       "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "BBC Science & Environment",
-      "url": "https://www.bbc.com/news/articles/c79jg43vd8no?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-04-21T11:53:27.000Z"
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/commentisfree/2026/apr/22/masculinity-gender-climate-crisis",
+      "publishedAt": "2026-04-22T10:00:24.000Z"
     }
   ],
   "weatherTech": [
+    {
+      "title": "Guterres urges countries to ‘unleash the renewables revolution’",
+      "whatHappened": "UN Secretary-General António Guterres has again urged governments to step up the transition from fossil fuels to clean energy as war and climate risks create unprecedented...",
+      "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
+      "keyWord": "weather technology: tools that help people measure, study, or predict weather and climate",
+      "source": "UN Climate",
+      "url": "https://news.un.org/feed/view/en/story/2026/04/1167343",
+      "publishedAt": "2026-04-21T12:00:00.000Z"
+    },
     {
       "title": "Democrats urged to link clean energy to affordability as Iran war hikes up prices",
       "whatHappened": "Climate leaders say Democrats need to extol clean energy as a way to cut costs for Americans as war roils oil markets Democrats should get louder...",
@@ -125,6 +134,15 @@
       "source": "Carleton Sustainability",
       "url": "https://carleton.ca/sustainability/2025/tiny-forest-coming-to-carleton/",
       "publishedAt": "2025-07-29T18:38:05.000Z"
+    },
+    {
+      "title": "Tackling the housing shortage with robotic microfactories",
+      "whatHappened": "Reframe Systems, co-founded by Vikas Enti SM '20, creates microfactories for modular home construction, reducing carbon emissions and costs.",
+      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
+      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
+      "source": "MIT Climate & Sustainability",
+      "url": "https://news.mit.edu/2026/tackling-housing-shortage-robotic-microfactories-0421",
+      "publishedAt": "2026-04-21T21:45:00.000Z"
     },
     {
       "title": "Geothermal energy turns red hot",
@@ -181,15 +199,6 @@
       "publishedAt": "2026-04-07T12:00:00.000Z"
     },
     {
-      "title": "Climate change may produce “fast-food” phytoplankton",
-      "whatHappened": "With warmer ocean temperatures, the composition of marine plankton could shift from protein-rich to carb-heavy, a new study suggests.",
-      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
-      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
-      "source": "MIT Earth & Atmospheric Sciences",
-      "url": "https://news.mit.edu/2026/climate-change-may-produce-fast-food-phytoplankton-0331",
-      "publishedAt": "2026-03-31T09:00:00.000Z"
-    },
-    {
       "title": "Breeding habitat selection in eastern population sandhill cranes",
       "whatHappened": "Tue, 17 Mar 2026 12:00:00 +0000 Canada’s eastern boreal forest supports a wide diversity of wildlife, including sandhill cranes.",
       "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
@@ -205,16 +214,16 @@
       "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
       "source": "uOttawa News",
       "url": "https://www.uottawa.ca/en/news-all/tiny-forest-takes-root-uottawa",
-      "publishedAt": "2026-04-21T12:42:46.863Z"
+      "publishedAt": "2026-04-22T12:40:58.074Z"
     },
     {
-      "title": "Notre Dame’s Nathan Swenson elected 2026 Fellow of the Ecological Society of America",
-      "whatHappened": "Nathan Swenson, the Gillen Director of the University of Notre Dame Environmental Research Center and professor in the Department of Biological Sciences at the University of...",
+      "title": "Why voting ‘neither’ could harm American democracy",
+      "whatHappened": "What is one of the greatest threats to American democracy?",
       "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
-      "keyWord": "research: careful study used to discover new knowledge",
+      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
       "source": "Notre Dame News",
-      "url": "https://news.nd.edu/news/notre-dames-nathan-swenson-elected-2026-fellow-of-the-ecological-society-of-america/",
-      "publishedAt": "2026-04-20T17:50:10.000Z"
+      "url": "https://news.nd.edu/news/why-voting-neither-could-harm-american-democracy/",
+      "publishedAt": "2026-04-21T17:20:10.000Z"
     }
   ]
 }
