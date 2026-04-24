@@ -1,13 +1,13 @@
 {
-  "boardDate": "2026-04-23",
-  "generatedAt": "2026-04-23T12:41:24.848Z",
+  "boardDate": "2026-04-24",
+  "generatedAt": "2026-04-24T12:39:35.700Z",
   "sourceCount": 26,
   "weather": [
     {
       "city": "Ottawa",
-      "temperatureC": 6,
+      "temperatureC": 3,
       "maxC": 14,
-      "minC": 4,
+      "minC": 0,
       "summary": "Clear skies"
     }
   ],
@@ -41,6 +41,15 @@
       "publishedAt": "2026-03-23T12:00:00.000Z"
     },
     {
+      "title": "How frustration at Cop stalemates inspires first global talks on phasing out fossil fuels",
+      "whatHappened": "‘Coalition of the willing’ gathers in Colombia to try to bypass petrostate blockages of Cop summits and chart fresh path The world’s first Transitioning Away from...",
+      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
+      "keyWord": "climate: the usual pattern of weather over a long period of time",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/environment/2026/apr/24/global-talks-ditch-fossil-fuels-colombia",
+      "publishedAt": "2026-04-24T11:42:26.000Z"
+    },
+    {
       "title": "Republican lawmakers attempt to shield big oil from climate lawsuits in ‘alarming’ bills",
       "whatHappened": "Climate experts and advocates warn House and Senate bills will protect polluters at the cost of the climate Republican lawmakers are attempting to shield big oil...",
       "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
@@ -57,15 +66,6 @@
       "source": "UN Climate",
       "url": "https://news.un.org/feed/view/en/story/2026/04/1167343",
       "publishedAt": "2026-04-21T12:00:00.000Z"
-    },
-    {
-      "title": "Middle East crisis exposes global energy fault line as UN urges shift to renewables",
-      "whatHappened": "The ongoing crisis in the Middle East is exposing a central vulnerability in the global economy: the dependence on fossil fuels flowing through regions affected by...",
-      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
-      "keyWord": "renewable energy: energy from sources that can be used again, like sun or wind",
-      "source": "UN Climate",
-      "url": "https://news.un.org/feed/view/en/story/2026/04/1167243",
-      "publishedAt": "2026-04-02T12:00:00.000Z"
     }
   ],
   "weatherTech": [
@@ -79,13 +79,22 @@
       "publishedAt": "2026-04-22T16:15:27.000Z"
     },
     {
-      "title": "Govee’s new colorful outdoor lights are its first with solar power",
-      "whatHappened": "Govee announced its first solar-powered lights today.",
+      "title": "Saros is pure action nirvana",
+      "whatHappened": "The alien world of Saros feels like it has been touched by King Midas.",
       "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
-      "keyWord": "battery: a device that stores energy for later use",
+      "keyWord": "solar: related to energy from sunlight",
       "source": "The Verge",
-      "url": "https://www.theverge.com/tech/916707/govee-outdoor-solar-string-lights-battery-rechargeable-pricing-availability",
-      "publishedAt": "2026-04-22T16:17:20.000Z"
+      "url": "https://www.theverge.com/entertainment/917462/saros-review-ps5",
+      "publishedAt": "2026-04-24T03:33:53.000Z"
+    },
+    {
+      "title": "Authorities arrest special forces soldier who allegedly made $400K on Polymarket bet involving Maduro operation",
+      "whatHappened": "The soldier is accused of using classified government information to inform a wager on the prediction market Polymarket.",
+      "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
+      "keyWord": "weather technology: tools that help people measure, study, or predict weather and climate",
+      "source": "TechCrunch",
+      "url": "https://techcrunch.com/2026/04/23/authorities-arrest-special-forces-soldier-who-allegedly-made-400k-on-polymarket-bet-involving-maduro-operation/",
+      "publishedAt": "2026-04-23T23:32:33.000Z"
     },
     {
       "title": "Guterres urges countries to ‘unleash the renewables revolution’",
@@ -135,6 +144,24 @@
       "publishedAt": "2025-07-29T18:38:05.000Z"
     },
     {
+      "title": "For this environmental health researcher, science is an ‘act of hope’",
+      "whatHappened": "David J.X.",
+      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
+      "keyWord": "research: careful study used to discover new knowledge",
+      "source": "Berkeley News",
+      "url": "https://news.berkeley.edu/2026/04/23/for-this-environmental-health-researcher-science-is-an-act-of-hope/",
+      "publishedAt": "2026-04-23T17:25:37.000Z"
+    },
+    {
+      "title": "Why Climate Work Is Community Work",
+      "whatHappened": "At a recent Climate School event, speaker Memphis Washington discussed the Waterfront Alliance's climate resilience and environmental justice efforts in Coney Island.",
+      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
+      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
+      "source": "Columbia Climate School",
+      "url": "https://news.climate.columbia.edu/2026/04/23/why-climate-work-is-community-work/",
+      "publishedAt": "2026-04-23T17:07:42.000Z"
+    },
+    {
       "title": "Carleton Researcher Named Canada’s 2026 Frontiers Planet Prize National Champion",
       "whatHappened": "Carleton University’s engineering researcher Ahmed Abdulla has been named Canada’s 2026 National Champion by the Frontiers Planet Prize for his research on direct air capture, a...",
       "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
@@ -160,15 +187,6 @@
       "source": "MIT Earth & Atmospheric Sciences",
       "url": "https://news.mit.edu/2026/geothermal-energy-turns-red-hot-0415",
       "publishedAt": "2026-04-15T23:30:00.000Z"
-    },
-    {
-      "title": "The Environmental Cost of War",
-      "whatHappened": "Daryush Nourbaha, an M.S.",
-      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
-      "keyWord": "sustainability: using resources in a way that can last over time",
-      "source": "Columbia Climate School",
-      "url": "https://news.climate.columbia.edu/2026/04/15/the-environmental-cost-of-war/",
-      "publishedAt": "2026-04-15T15:10:58.000Z"
     },
     {
       "title": "Smarter forest practices could help protect B.C. forests from wildfire and climate stress, new research suggests",
@@ -205,15 +223,6 @@
       "source": "Waterloo Environment",
       "url": "https://uwaterloo.ca/environment/news/breeding-habitat-selection-eastern-population-sandhill",
       "publishedAt": "2026-03-17T12:00:00.000Z"
-    },
-    {
-      "title": "Earth Day: Canada’s environmental policy and infrastructure needs",
-      "whatHappened": "Earth Day: Canada’s environmental policy and infrastructure needs",
-      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
-      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
-      "source": "uOttawa News",
-      "url": "https://www.uottawa.ca/en/news-all/expert-earth-day-canadas-environmental-policy-infrastructure-needs",
-      "publishedAt": "2026-04-23T12:41:15.592Z"
     }
   ]
 }
