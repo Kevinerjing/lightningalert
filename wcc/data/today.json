@@ -1,17 +1,27 @@
 {
-  "boardDate": "2026-04-25",
-  "generatedAt": "2026-04-25T12:03:10.387Z",
+  "boardDate": "2026-04-26",
+  "generatedAt": "2026-04-26T12:05:57.562Z",
   "sourceCount": 26,
   "weather": [
     {
       "city": "Ottawa",
-      "temperatureC": 4,
-      "maxC": 15,
-      "minC": 1,
-      "summary": "Cloudy"
+      "temperatureC": 5,
+      "maxC": 18,
+      "minC": 2,
+      "summary": "Clear skies"
     }
   ],
-  "extremeWeather": [],
+  "extremeWeather": [
+    {
+      "title": "World News in Brief: Airliner safety warning, drought in Somalia, solar boosts farming in Ethiopia",
+      "whatHappened": "The head of the UN’s civil aviation agency, ICAO, has called for immediate global action to protect commercial flights from escalating military threats, including missiles, drones,...",
+      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
+      "keyWord": "drought: a long time with very little rain",
+      "source": "UN Climate",
+      "url": "https://news.un.org/feed/view/en/story/2026/04/1167379",
+      "publishedAt": "2026-04-24T12:00:00.000Z"
+    }
+  ],
   "climate": [
     {
       "title": "Federal judge blocks Trump administration restrictions on wind and solar projects",
@@ -32,13 +42,13 @@
       "publishedAt": "2026-04-14T23:14:24.000Z"
     },
     {
-      "title": "UN weather agency warns of record ‘climate imbalance’ as planetary warming accelerates",
-      "whatHappened": "All-time high greenhouse gas concentrations in Earth’s atmosphere continue to drive heat records on land and sea, with long-lasting consequences for humanity, the World Meteorological Organization...",
-      "whyItMatters": "Climate and environment stories connect science to real issues like safety, health, and extreme weather.",
-      "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "UN Climate",
-      "url": "https://news.un.org/feed/view/en/story/2026/03/1167178",
-      "publishedAt": "2026-03-23T12:00:00.000Z"
+      "title": "UK departments at odds over energy demands of AI datacentres",
+      "whatHappened": "Discrepancy in forecasts raises questions over government planning for net zero One vision of the UK’s future involves a decarbonised economy powered by clean, renewable energy.",
+      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
+      "keyWord": "renewable energy: energy from sources that can be used again, like sun or wind",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/technology/2026/apr/26/uk-departments-at-odds-over-energy-demands-of-ai-datacentres",
+      "publishedAt": "2026-04-26T07:00:08.000Z"
     },
     {
       "title": "Republican lawmakers attempt to shield big oil from climate lawsuits in ‘alarming’ bills",
@@ -79,6 +89,42 @@
       "publishedAt": "2026-04-22T16:15:27.000Z"
     },
     {
+      "title": "UK departments at odds over energy demands of AI datacentres",
+      "whatHappened": "Discrepancy in forecasts raises questions over government planning for net zero One vision of the UK’s future involves a decarbonised economy powered by clean, renewable energy.",
+      "whyItMatters": "Weather technology shows how science tools can predict conditions faster and help people prepare earlier.",
+      "keyWord": "forecast: a prediction about future weather conditions",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/technology/2026/apr/26/uk-departments-at-odds-over-energy-demands-of-ai-datacentres",
+      "publishedAt": "2026-04-26T07:00:08.000Z"
+    },
+    {
+      "title": "The climate tech IPO window could finally be cracking open",
+      "whatHappened": "Nuclear startup X-energy went public, geothermal startup Fervo is about to.",
+      "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
+      "keyWord": "weather technology: tools that help people measure, study, or predict weather and climate",
+      "source": "TechCrunch",
+      "url": "https://techcrunch.com/2026/04/25/the-climate-tech-ipo-window-could-finally-be-cracking-open/",
+      "publishedAt": "2026-04-25T16:33:00.000Z"
+    },
+    {
+      "title": "Sharge’s fast Qi2.2 MagSafe battery is down to $70 with a free USB-C cable",
+      "whatHappened": "I’ve been testing compact, magnetic Qi2 power banks that can snap onto your phone for an upcoming buying guide.",
+      "whyItMatters": "Weather technology shows how science tools can predict conditions faster and help people prepare earlier.",
+      "keyWord": "battery: a device that stores energy for later use",
+      "source": "The Verge",
+      "url": "https://www.theverge.com/gadgets/918410/sharge-icemag-3-qi2-usb-c-wireless-power-bank-battery-deal-sale",
+      "publishedAt": "2026-04-24T19:03:38.000Z"
+    },
+    {
+      "title": "World News in Brief: Airliner safety warning, drought in Somalia, solar boosts farming in Ethiopia",
+      "whatHappened": "The head of the UN’s civil aviation agency, ICAO, has called for immediate global action to protect commercial flights from escalating military threats, including missiles, drones,...",
+      "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
+      "keyWord": "solar: related to energy from sunlight",
+      "source": "UN Climate",
+      "url": "https://news.un.org/feed/view/en/story/2026/04/1167379",
+      "publishedAt": "2026-04-24T12:00:00.000Z"
+    },
+    {
       "title": "Guterres urges countries to ‘unleash the renewables revolution’",
       "whatHappened": "UN Secretary-General António Guterres has again urged governments to step up the transition from fossil fuels to clean energy as war and climate risks create unprecedented...",
       "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
@@ -86,15 +132,6 @@
       "source": "UN Climate",
       "url": "https://news.un.org/feed/view/en/story/2026/04/1167343",
       "publishedAt": "2026-04-21T12:00:00.000Z"
-    },
-    {
-      "title": "Middle East crisis exposes global energy fault line as UN urges shift to renewables",
-      "whatHappened": "The ongoing crisis in the Middle East is exposing a central vulnerability in the global economy: the dependence on fossil fuels flowing through regions affected by...",
-      "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
-      "keyWord": "weather technology: tools that help people measure, study, or predict weather and climate",
-      "source": "UN Climate",
-      "url": "https://news.un.org/feed/view/en/story/2026/04/1167243",
-      "publishedAt": "2026-04-02T12:00:00.000Z"
     }
   ],
   "universityNews": [
