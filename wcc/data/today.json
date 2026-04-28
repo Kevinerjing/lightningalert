@@ -1,14 +1,14 @@
 {
-  "boardDate": "2026-04-27",
-  "generatedAt": "2026-04-27T13:06:39.366Z",
+  "boardDate": "2026-04-28",
+  "generatedAt": "2026-04-28T13:15:33.096Z",
   "sourceCount": 26,
   "weather": [
     {
       "city": "Ottawa",
-      "temperatureC": 10,
-      "maxC": 21,
-      "minC": 4,
-      "summary": "Clear skies"
+      "temperatureC": 16,
+      "maxC": 22,
+      "minC": 8,
+      "summary": "Cloudy"
     }
   ],
   "extremeWeather": [
@@ -22,6 +22,15 @@
       "publishedAt": "2026-04-26T19:10:23.000Z"
     },
     {
+      "title": "Heavy rain not ‘nearly enough’ to tame two wildfires in drought-stricken Georgia",
+      "whatHappened": "Pineland Road fire and Highway 82 fire have destroyed over 100 homes, and are part of large number of wildfires this spring in the US south...",
+      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
+      "keyWord": "drought: a long time with very little rain",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/us-news/2026/apr/27/georgia-wildfires-rain",
+      "publishedAt": "2026-04-27T17:05:12.000Z"
+    },
+    {
       "title": "World News in Brief: Airliner safety warning, drought in Somalia, solar boosts farming in Ethiopia",
       "whatHappened": "The head of the UN’s civil aviation agency, ICAO, has called for immediate global action to protect commercial flights from escalating military threats, including missiles, drones,...",
       "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
@@ -33,22 +42,13 @@
   ],
   "climate": [
     {
-      "title": "Clean energy switch must not be excuse to plunder Indigenous lands, say leaders",
-      "whatHappened": "Global conference told benefits should not come at expense of well-protected environments The energy transition must not be used as a fresh excuse to plunder Indigenous...",
-      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
+      "title": "Trump’s attempt to crush clean energy progress not going to plan, experts say",
+      "whatHappened": "US generated more power from renewables like solar and wind than gas last month in a first Donald Trump has wielded the full might of his...",
+      "whyItMatters": "Climate and environment stories connect science to real issues like safety, health, and extreme weather.",
       "keyWord": "renewable energy: energy from sources that can be used again, like sun or wind",
       "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/world/2026/apr/27/clean-energy-switch-must-not-be-excuse-to-plunder-indigenous-lands-say-leaders",
-      "publishedAt": "2026-04-27T11:00:09.000Z"
-    },
-    {
-      "title": "Federal judge blocks Trump administration restrictions on wind and solar projects",
-      "whatHappened": "The injunction pauses policy giving senior Trump official direct sign-off on federal clean energy projects A federal judge in Massachusetts on Tuesday struck down several Trump...",
-      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
-      "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/us-news/2026/apr/22/trump-wind-solar-clean-energy-order",
-      "publishedAt": "2026-04-22T16:15:27.000Z"
+      "url": "https://www.theguardian.com/us-news/2026/apr/28/trump-clean-energy-progress",
+      "publishedAt": "2026-04-28T12:30:09.000Z"
     },
     {
       "title": "Butterfly numbers are dropping but here are five species you may see more of",
@@ -85,62 +85,53 @@
       "source": "UN Climate",
       "url": "https://news.un.org/feed/view/en/story/2026/04/1167366",
       "publishedAt": "2026-04-25T12:00:00.000Z"
+    },
+    {
+      "title": "Guterres urges countries to ‘unleash the renewables revolution’",
+      "whatHappened": "UN Secretary-General António Guterres has again urged governments to step up the transition from fossil fuels to clean energy as war and climate risks create unprecedented...",
+      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
+      "keyWord": "renewable energy: energy from sources that can be used again, like sun or wind",
+      "source": "UN Climate",
+      "url": "https://news.un.org/feed/view/en/story/2026/04/1167343",
+      "publishedAt": "2026-04-21T12:00:00.000Z"
     }
   ],
   "weatherTech": [
     {
-      "title": "Federal judge blocks Trump administration restrictions on wind and solar projects",
-      "whatHappened": "The injunction pauses policy giving senior Trump official direct sign-off on federal clean energy projects A federal judge in Massachusetts on Tuesday struck down several Trump...",
+      "title": "Trump’s attempt to crush clean energy progress not going to plan, experts say",
+      "whatHappened": "US generated more power from renewables like solar and wind than gas last month in a first Donald Trump has wielded the full might of his...",
       "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
       "keyWord": "solar: related to energy from sunlight",
       "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/us-news/2026/apr/22/trump-wind-solar-clean-energy-order",
-      "publishedAt": "2026-04-22T16:15:27.000Z"
+      "url": "https://www.theguardian.com/us-news/2026/apr/28/trump-clean-energy-progress",
+      "publishedAt": "2026-04-28T12:30:09.000Z"
     },
     {
-      "title": "Clean energy switch must not be excuse to plunder Indigenous lands, say leaders",
-      "whatHappened": "Global conference told benefits should not come at expense of well-protected environments The energy transition must not be used as a fresh excuse to plunder Indigenous...",
+      "title": "Renewables rising, Part 1: How four countries are reshaping energy security",
+      "whatHappened": "The ongoing insecurity in the Middle East, where a large proportion of the world’s oil and gas is extracted, is forcing many countries to focus on...",
       "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
       "keyWord": "weather technology: tools that help people measure, study, or predict weather and climate",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/world/2026/apr/27/clean-energy-switch-must-not-be-excuse-to-plunder-indigenous-lands-say-leaders",
-      "publishedAt": "2026-04-27T11:00:09.000Z"
+      "source": "UN Climate",
+      "url": "https://news.un.org/feed/view/en/story/2026/04/1167366",
+      "publishedAt": "2026-04-25T12:00:00.000Z"
     },
     {
-      "title": "Critical infrastructure giant Itron says it was hacked",
-      "whatHappened": "The American technology giant provides water and energy monitoring and utility meters to hundreds of millions of homes and businesses.",
-      "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
-      "keyWord": "weather technology: tools that help people measure, study, or predict weather and climate",
-      "source": "TechCrunch",
-      "url": "https://techcrunch.com/2026/04/27/critical-infrastructure-giant-itron-says-it-was-hacked/",
-      "publishedAt": "2026-04-27T13:03:36.000Z"
-    },
-    {
-      "title": "Govee’s multicolor ceiling light doubles as a low-res screen",
-      "whatHappened": "The smart lighting company is having a busy month.",
+      "title": "World News in Brief: Airliner safety warning, drought in Somalia, solar boosts farming in Ethiopia",
+      "whatHappened": "The head of the UN’s civil aviation agency, ICAO, has called for immediate global action to protect commercial flights from escalating military threats, including missiles, drones,...",
       "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
       "keyWord": "solar: related to energy from sunlight",
-      "source": "The Verge",
-      "url": "https://www.theverge.com/tech/918165/govee-ceiling-light-ultra-led-pricing-availability",
-      "publishedAt": "2026-04-27T12:18:29.000Z"
+      "source": "UN Climate",
+      "url": "https://news.un.org/feed/view/en/story/2026/04/1167379",
+      "publishedAt": "2026-04-24T12:00:00.000Z"
     },
     {
-      "title": "Meta inks deal for solar power at night, beamed from space",
-      "whatHappened": "Overview Energy's first contract with Meta is a small step toward a future of space-based solar power.",
-      "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
-      "keyWord": "solar: related to energy from sunlight",
-      "source": "TechCrunch",
-      "url": "https://techcrunch.com/2026/04/27/meta-inks-deal-for-solar-power-at-night-beamed-from-space/",
-      "publishedAt": "2026-04-27T10:00:00.000Z"
-    },
-    {
-      "title": "Tomora’s Come Closer is an ecstatic love letter to 90s dance music",
-      "whatHappened": "Before Coachella, Tomora wasn't on my radar at all.",
+      "title": "Guterres urges countries to ‘unleash the renewables revolution’",
+      "whatHappened": "UN Secretary-General António Guterres has again urged governments to step up the transition from fossil fuels to clean energy as war and climate risks create unprecedented...",
       "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
       "keyWord": "weather technology: tools that help people measure, study, or predict weather and climate",
-      "source": "The Verge",
-      "url": "https://www.theverge.com/entertainment/918826/tomora-come-closer-review-90s-dance-music",
-      "publishedAt": "2026-04-26T20:16:16.000Z"
+      "source": "UN Climate",
+      "url": "https://news.un.org/feed/view/en/story/2026/04/1167343",
+      "publishedAt": "2026-04-21T12:00:00.000Z"
     }
   ],
   "universityNews": [
@@ -172,6 +163,15 @@
       "publishedAt": "2025-07-29T18:38:05.000Z"
     },
     {
+      "title": "This Ph.D. candidate is studying how rising seas can push buried toxins into our homes",
+      "whatHappened": "Emma Lasky, a graduate student in landscape architecture and environmental planning, discusses her multidisciplinary research on how climate change-induced groundwater rise presents urgent challenges for public...",
+      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
+      "keyWord": "research: careful study used to discover new knowledge",
+      "source": "Berkeley News",
+      "url": "https://ced.berkeley.edu/news/uc-berkeley-phd-candidate-emma-lasky-climate-change-public-health-environmental-policy",
+      "publishedAt": "2026-04-27T19:26:06.000Z"
+    },
+    {
       "title": "The power of “and” in energy and climate entrepreneurship",
       "whatHappened": "Greentown Labs CEO Georgina Campbell Flatter emphasizes the importance of collaboration in the entrepreneurship space, and the role that universities play in this landscape.",
       "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
@@ -179,15 +179,6 @@
       "source": "MIT Climate & Sustainability",
       "url": "https://news.mit.edu/2026/power-and-energy-climate-entrepreneurship-0424",
       "publishedAt": "2026-04-24T17:27:00.000Z"
-    },
-    {
-      "title": "For this environmental health researcher, science is an ‘act of hope’",
-      "whatHappened": "David J.X.",
-      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
-      "keyWord": "research: careful study used to discover new knowledge",
-      "source": "Berkeley News",
-      "url": "https://news.berkeley.edu/2026/04/23/for-this-environmental-health-researcher-science-is-an-act-of-hope/",
-      "publishedAt": "2026-04-23T17:25:37.000Z"
     },
     {
       "title": "Why Climate Work Is Community Work",
@@ -235,6 +226,15 @@
       "publishedAt": "2026-04-14T15:55:00.000Z"
     },
     {
+      "title": "Carbon removal project supports Maine’s blue economy, broader marine health",
+      "whatHappened": "A chemical-free approach to balancing ocean acidity protects marine life and could dramatically impact the global aquaculture market.",
+      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
+      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
+      "source": "MIT Earth & Atmospheric Sciences",
+      "url": "https://news.mit.edu/2026/carbon-removal-project-supports-maines-blue-economy-broader-marine-health-0414",
+      "publishedAt": "2026-04-14T04:00:00.000Z"
+    },
+    {
       "title": "Women of Wampum",
       "whatHappened": "Tue, 07 Apr 2026 12:00:00 +0000 A new short documentary by Dr.",
       "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
@@ -242,15 +242,6 @@
       "source": "Waterloo Environment",
       "url": "https://uwaterloo.ca/environment/news/women-wampum",
       "publishedAt": "2026-04-07T12:00:00.000Z"
-    },
-    {
-      "title": "Breeding habitat selection in eastern population sandhill cranes",
-      "whatHappened": "Tue, 17 Mar 2026 12:00:00 +0000 Canada’s eastern boreal forest supports a wide diversity of wildlife, including sandhill cranes.",
-      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
-      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
-      "source": "Waterloo Environment",
-      "url": "https://uwaterloo.ca/environment/news/breeding-habitat-selection-eastern-population-sandhill",
-      "publishedAt": "2026-03-17T12:00:00.000Z"
     }
   ]
 }
