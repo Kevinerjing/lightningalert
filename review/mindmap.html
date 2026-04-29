@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EOM Astronomy Mind Map</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar mindmap-hero">
+    <div>
+      <p class="eyebrow">EOM Grade 9 Review</p>
+      <h1>Astronomy Unit Mind Map</h1>
+      <p class="subtitle">Use this page to scan the full unit at once, then zoom in for details before quiz practice.</p>
+    </div>
+    <nav class="toplinks" aria-label="Mind map navigation">
+      <a href="index.html">Knowledge</a>
+      <a href="index.html#pdfs">Teacher PDFs</a>
+      <a href="index.html#quiz">Quiz Practice</a>
+    </nav>
+  </header>
+
+  <main class="mindmap-page">
+    <section class="panel mindmap-shell">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Visual Overview</p>
+          <h2>Full Unit Mind Map</h2>
+        </div>
+        <p class="muted">Drag the image to move around. Use the controls to zoom in, zoom out, reset, or fit the map to the viewer.</p>
+      </div>
+
+      <div class="mindmap-controls" aria-label="Mind map zoom controls">
+        <button id="zoomOut" type="button">-</button>
+        <label class="zoom-slider">
+          <span>Zoom</span>
+          <input id="zoomRange" type="range" min="50" max="240" value="100" />
+        </label>
+        <button id="zoomIn" type="button">+</button>
+        <button id="fitMap" type="button">Fit</button>
+        <button id="resetMap" type="button">Reset</button>
+        <a class="pdf-link compact-link" href="mindmap.png" target="_blank" rel="noopener noreferrer">Open Image</a>
+      </div>
+
+      <div class="mindmap-viewer" id="mapViewer">
+        <img id="mindmapImage" src="mindmap.png" alt="Astronomy unit mind map" draggable="false" />
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const viewer = document.querySelector("#mapViewer");
+    const image = document.querySelector("#mindmapImage");
+    const zoomRange = document.querySelector("#zoomRange");
+    const zoomIn = document.querySelector("#zoomIn");
+    const zoomOut = document.querySelector("#zoomOut");
+    const fitMap = document.querySelector("#fitMap");
+    const resetMap = document.querySelector("#resetMap");
+
+    let scale = 1;
+    let offsetX = 0;
+    let offsetY = 0;
+    let isDragging = false;
+    let startX = 0;
+    let startY = 0;
+
+    function applyTransform() {
+      image.style.transform = `translate(${offsetX}px, ${offsetY}px) scale(${scale})`;
+      zoomRange.value = Math.round(scale * 100);
+    }
+
+    function setZoom(nextScale) {
+      scale = Math.min(2.4, Math.max(0.5, nextScale));
+      applyTransform();
+    }
+
+    function fitToViewer() {
+      const widthScale = (viewer.clientWidth - 32) / image.naturalWidth;
+      const heightScale = (viewer.clientHeight - 32) / image.naturalHeight;
+      scale = Math.min(1, Math.max(0.5, Math.min(widthScale, heightScale)));
+      offsetX = 0;
+      offsetY = 0;
+      applyTransform();
+    }
+
+    zoomRange.addEventListener("input", () => setZoom(Number(zoomRange.value) / 100));
+    zoomIn.addEventListener("click", () => setZoom(scale + 0.15));
+    zoomOut.addEventListener("click", () => setZoom(scale - 0.15));
+    fitMap.addEventListener("click", fitToViewer);
+    resetMap.addEventListener("click", () => {
+      scale = 1;
+      offsetX = 0;
+      offsetY = 0;
+      applyTransform();
+    });
+
+    viewer.addEventListener("pointerdown", (event) => {
+      isDragging = true;
+      viewer.setPointerCapture(event.pointerId);
+      startX = event.clientX - offsetX;
+      startY = event.clientY - offsetY;
+      viewer.classList.add("dragging");
+    });
+
+    viewer.addEventListener("pointermove", (event) => {
+      if (!isDragging) return;
+      offsetX = event.clientX - startX;
+      offsetY = event.clientY - startY;
+      applyTransform();
+    });
+
+    viewer.addEventListener("pointerup", () => {
+      isDragging = false;
+      viewer.classList.remove("dragging");
+    });
+
+    viewer.addEventListener("wheel", (event) => {
+      event.preventDefault();
+      setZoom(scale + (event.deltaY < 0 ? 0.08 : -0.08));
+    }, { passive: false });
+
+    image.addEventListener("load", fitToViewer);
+    if (image.complete) fitToViewer();
+  </script>
+</body>
+</html>

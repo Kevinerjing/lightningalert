@@ -96,6 +96,11 @@ button,
   border-color: rgba(255, 255, 255, 0.28);
 }
 
+.toplinks a:first-child {
+  background: rgba(255, 216, 143, 0.24);
+  border-color: rgba(255, 216, 143, 0.5);
+}
+
 main {
   display: grid;
   gap: 22px;
@@ -348,6 +353,86 @@ summary {
   gap: 16px;
 }
 
+.mindmap-hero {
+  min-height: 220px;
+}
+
+.mindmap-page {
+  padding-top: 22px;
+}
+
+.mindmap-shell {
+  padding: 18px;
+}
+
+.mindmap-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 14px;
+}
+
+.mindmap-controls button {
+  min-width: 44px;
+  min-height: 42px;
+  padding: 9px 12px;
+}
+
+.zoom-slider {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  min-height: 42px;
+  padding: 8px 12px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fff;
+  font-weight: 700;
+}
+
+.zoom-slider input {
+  width: min(260px, 44vw);
+  accent-color: var(--blue);
+}
+
+.compact-link {
+  width: auto;
+  padding: 10px 12px;
+}
+
+.mindmap-viewer {
+  height: min(72vh, 780px);
+  min-height: 420px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background:
+    linear-gradient(45deg, rgba(49, 92, 131, 0.05) 25%, transparent 25%),
+    linear-gradient(-45deg, rgba(49, 92, 131, 0.05) 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, rgba(49, 92, 131, 0.05) 75%),
+    linear-gradient(-45deg, transparent 75%, rgba(49, 92, 131, 0.05) 75%);
+  background-size: 28px 28px;
+  background-position: 0 0, 0 14px, 14px -14px, -14px 0;
+  cursor: grab;
+  touch-action: none;
+  display: grid;
+  place-items: center;
+}
+
+.mindmap-viewer.dragging {
+  cursor: grabbing;
+}
+
+.mindmap-viewer img {
+  max-width: 100%;
+  max-height: 100%;
+  transform-origin: center center;
+  transition: transform 0.08s ease-out;
+  user-select: none;
+  pointer-events: none;
+}
+
 @media (max-width: 900px) {
   .topbar,
   .section-head {
@@ -363,5 +448,10 @@ summary {
   .knowledge-layout,
   .two-col {
     grid-template-columns: 1fr;
+  }
+
+  .mindmap-viewer {
+    height: 64vh;
+    min-height: 360px;
   }
 }
