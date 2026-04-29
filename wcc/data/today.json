@@ -1,13 +1,13 @@
 {
-  "boardDate": "2026-04-28",
-  "generatedAt": "2026-04-28T13:15:33.096Z",
+  "boardDate": "2026-04-29",
+  "generatedAt": "2026-04-29T13:09:08.991Z",
   "sourceCount": 26,
   "weather": [
     {
       "city": "Ottawa",
-      "temperatureC": 16,
-      "maxC": 22,
-      "minC": 8,
+      "temperatureC": 11,
+      "maxC": 15,
+      "minC": 10,
       "summary": "Cloudy"
     }
   ],
@@ -43,7 +43,7 @@
   "climate": [
     {
       "title": "Trump’s attempt to crush clean energy progress not going to plan, experts say",
-      "whatHappened": "US generated more power from renewables like solar and wind than gas last month in a first Donald Trump has wielded the full might of his...",
+      "whatHappened": "US generated more power from renewables including solar and wind than gas last month in a first Donald Trump has wielded the full might of his...",
       "whyItMatters": "Climate and environment stories connect science to real issues like safety, health, and extreme weather.",
       "keyWord": "renewable energy: energy from sources that can be used again, like sun or wind",
       "source": "The Guardian Environment",
@@ -51,13 +51,31 @@
       "publishedAt": "2026-04-28T12:30:09.000Z"
     },
     {
-      "title": "Butterfly numbers are dropping but here are five species you may see more of",
-      "whatHappened": "A warming climate has helped some to flourish, researchers say, but the outlook is troubling.",
+      "title": "Iran crisis shows fossil fuels-based energy system ‘is inherently volatile and unstable’",
+      "whatHappened": "Senior UN climate leaders are getting behind countries mobilising this week for a transition away from fossil fuels at a groundbreaking event in Colombia.",
       "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
       "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "BBC Science & Environment",
-      "url": "https://www.bbc.com/news/articles/c75kk7p41npo?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-04-14T23:14:24.000Z"
+      "source": "UN Climate",
+      "url": "https://news.un.org/feed/view/en/story/2026/04/1167401",
+      "publishedAt": "2026-04-29T12:00:00.000Z"
+    },
+    {
+      "title": "Critical minerals are ‘oil of 21st century’ as demand fuels poverty and pollution in poorer countries",
+      "whatHappened": "Rush for lithium, cobalt and nickel is ravaging livelihoods, water and health of world’s most vulnerable, UN study says Critical minerals such as lithium, cobalt and...",
+      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
+      "keyWord": "climate: the usual pattern of weather over a long period of time",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/global-development/2026/apr/29/critical-minerals-are-oil-of-21st-century-as-demand-fuels-poverty-and-pollution-in-poorer-countries",
+      "publishedAt": "2026-04-29T10:00:53.000Z"
+    },
+    {
+      "title": "Trump administration blocks US wind energy projects in switch to oil and gas",
+      "whatHappened": "US representatives Jared Huffman and Jamie Raskin earlier this month called agreements outrageous and unlawful Sign up for the Breaking News US email to get newsletter...",
+      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
+      "keyWord": "climate: the usual pattern of weather over a long period of time",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/us-news/2026/apr/28/trump-administration-wind-projects",
+      "publishedAt": "2026-04-28T21:37:43.000Z"
     },
     {
       "title": "Toxins plus climate harms likely cause of reduced fertility, study finds",
@@ -76,35 +94,26 @@
       "source": "UN Climate",
       "url": "https://news.un.org/feed/view/en/story/2026/04/1167368",
       "publishedAt": "2026-04-26T12:00:00.000Z"
-    },
-    {
-      "title": "Renewables rising, Part 1: How four countries are reshaping energy security",
-      "whatHappened": "The ongoing insecurity in the Middle East, where a large proportion of the world’s oil and gas is extracted, is forcing many countries to focus on...",
-      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
-      "keyWord": "renewable energy: energy from sources that can be used again, like sun or wind",
-      "source": "UN Climate",
-      "url": "https://news.un.org/feed/view/en/story/2026/04/1167366",
-      "publishedAt": "2026-04-25T12:00:00.000Z"
-    },
-    {
-      "title": "Guterres urges countries to ‘unleash the renewables revolution’",
-      "whatHappened": "UN Secretary-General António Guterres has again urged governments to step up the transition from fossil fuels to clean energy as war and climate risks create unprecedented...",
-      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
-      "keyWord": "renewable energy: energy from sources that can be used again, like sun or wind",
-      "source": "UN Climate",
-      "url": "https://news.un.org/feed/view/en/story/2026/04/1167343",
-      "publishedAt": "2026-04-21T12:00:00.000Z"
     }
   ],
   "weatherTech": [
     {
       "title": "Trump’s attempt to crush clean energy progress not going to plan, experts say",
-      "whatHappened": "US generated more power from renewables like solar and wind than gas last month in a first Donald Trump has wielded the full might of his...",
+      "whatHappened": "US generated more power from renewables including solar and wind than gas last month in a first Donald Trump has wielded the full might of his...",
       "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
       "keyWord": "solar: related to energy from sunlight",
       "source": "The Guardian Environment",
       "url": "https://www.theguardian.com/us-news/2026/apr/28/trump-clean-energy-progress",
       "publishedAt": "2026-04-28T12:30:09.000Z"
+    },
+    {
+      "title": "Trump administration blocks US wind energy projects in switch to oil and gas",
+      "whatHappened": "US representatives Jared Huffman and Jamie Raskin earlier this month called agreements outrageous and unlawful Sign up for the Breaking News US email to get newsletter...",
+      "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
+      "keyWord": "weather technology: tools that help people measure, study, or predict weather and climate",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/us-news/2026/apr/28/trump-administration-wind-projects",
+      "publishedAt": "2026-04-28T21:37:43.000Z"
     },
     {
       "title": "Renewables rising, Part 1: How four countries are reshaping energy security",
@@ -136,7 +145,7 @@
   ],
   "universityNews": [
     {
-      "title": "UC Berkeley appoints Rachel Morello-Frosh as inaugural associate provost for energy, climate, and environment",
+      "title": "UC Berkeley appoints Rachel Morello-Frosch as inaugural associate provost for energy, climate, and environment",
       "whatHappened": "The public health expert and Berkeley professor will unite scholars across campus to address crucial environmental challenges.",
       "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
       "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
@@ -217,15 +226,6 @@
       "publishedAt": "2026-04-15T23:30:00.000Z"
     },
     {
-      "title": "Smarter forest practices could help protect B.C. forests from wildfire and climate stress, new research suggests",
-      "whatHappened": "A decade of research and a new book from UBC's Dr.",
-      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
-      "keyWord": "research: careful study used to discover new knowledge",
-      "source": "UBC News",
-      "url": "https://news.ubc.ca/2026/04/smarter-forest-practices/",
-      "publishedAt": "2026-04-14T15:55:00.000Z"
-    },
-    {
       "title": "Carbon removal project supports Maine’s blue economy, broader marine health",
       "whatHappened": "A chemical-free approach to balancing ocean acidity protects marine life and could dramatically impact the global aquaculture market.",
       "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
@@ -242,6 +242,15 @@
       "source": "Waterloo Environment",
       "url": "https://uwaterloo.ca/environment/news/women-wampum",
       "publishedAt": "2026-04-07T12:00:00.000Z"
+    },
+    {
+      "title": "Breeding habitat selection in eastern population sandhill cranes",
+      "whatHappened": "Tue, 17 Mar 2026 12:00:00 +0000 Canada’s eastern boreal forest supports a wide diversity of wildlife, including sandhill cranes.",
+      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
+      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
+      "source": "Waterloo Environment",
+      "url": "https://uwaterloo.ca/environment/news/breeding-habitat-selection-eastern-population-sandhill",
+      "publishedAt": "2026-03-17T12:00:00.000Z"
     }
   ]
 }
