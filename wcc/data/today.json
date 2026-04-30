@@ -1,13 +1,13 @@
 {
-  "boardDate": "2026-04-29",
-  "generatedAt": "2026-04-29T13:09:08.991Z",
+  "boardDate": "2026-04-30",
+  "generatedAt": "2026-04-30T13:07:44.310Z",
   "sourceCount": 26,
   "weather": [
     {
       "city": "Ottawa",
-      "temperatureC": 11,
-      "maxC": 15,
-      "minC": 10,
+      "temperatureC": 5,
+      "maxC": 8,
+      "minC": 3,
       "summary": "Cloudy"
     }
   ],
@@ -29,6 +29,15 @@
       "source": "The Guardian Environment",
       "url": "https://www.theguardian.com/us-news/2026/apr/27/georgia-wildfires-rain",
       "publishedAt": "2026-04-27T17:05:12.000Z"
+    },
+    {
+      "title": "Global forest loss slows but El Niño fires could threaten progress",
+      "whatHappened": "The loss of tropical rainforests eased last year, according to new analysis, but scientists warn they are still disappearing rapidly.",
+      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
+      "keyWord": "extreme weather: unusual and dangerous weather like floods, storms, or heat waves",
+      "source": "BBC Science & Environment",
+      "url": "https://www.bbc.com/news/articles/c78q5pygn66o?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-04-29T13:26:08.000Z"
     },
     {
       "title": "World News in Brief: Airliner safety warning, drought in Somalia, solar boosts farming in Ethiopia",
@@ -60,15 +69,6 @@
       "publishedAt": "2026-04-29T12:00:00.000Z"
     },
     {
-      "title": "Critical minerals are ‘oil of 21st century’ as demand fuels poverty and pollution in poorer countries",
-      "whatHappened": "Rush for lithium, cobalt and nickel is ravaging livelihoods, water and health of world’s most vulnerable, UN study says Critical minerals such as lithium, cobalt and...",
-      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
-      "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/global-development/2026/apr/29/critical-minerals-are-oil-of-21st-century-as-demand-fuels-poverty-and-pollution-in-poorer-countries",
-      "publishedAt": "2026-04-29T10:00:53.000Z"
-    },
-    {
       "title": "Trump administration blocks US wind energy projects in switch to oil and gas",
       "whatHappened": "US representatives Jared Huffman and Jamie Raskin earlier this month called agreements outrageous and unlawful Sign up for the Breaking News US email to get newsletter...",
       "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
@@ -94,6 +94,15 @@
       "source": "UN Climate",
       "url": "https://news.un.org/feed/view/en/story/2026/04/1167368",
       "publishedAt": "2026-04-26T12:00:00.000Z"
+    },
+    {
+      "title": "Renewables rising, Part 1: How four countries are reshaping energy security",
+      "whatHappened": "The ongoing insecurity in the Middle East, where a large proportion of the world’s oil and gas is extracted, is forcing many countries to focus on...",
+      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
+      "keyWord": "renewable energy: energy from sources that can be used again, like sun or wind",
+      "source": "UN Climate",
+      "url": "https://news.un.org/feed/view/en/story/2026/04/1167366",
+      "publishedAt": "2026-04-25T12:00:00.000Z"
     }
   ],
   "weatherTech": [
@@ -132,27 +141,9 @@
       "source": "UN Climate",
       "url": "https://news.un.org/feed/view/en/story/2026/04/1167379",
       "publishedAt": "2026-04-24T12:00:00.000Z"
-    },
-    {
-      "title": "Guterres urges countries to ‘unleash the renewables revolution’",
-      "whatHappened": "UN Secretary-General António Guterres has again urged governments to step up the transition from fossil fuels to clean energy as war and climate risks create unprecedented...",
-      "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
-      "keyWord": "weather technology: tools that help people measure, study, or predict weather and climate",
-      "source": "UN Climate",
-      "url": "https://news.un.org/feed/view/en/story/2026/04/1167343",
-      "publishedAt": "2026-04-21T12:00:00.000Z"
     }
   ],
   "universityNews": [
-    {
-      "title": "UC Berkeley appoints Rachel Morello-Frosch as inaugural associate provost for energy, climate, and environment",
-      "whatHappened": "The public health expert and Berkeley professor will unite scholars across campus to address crucial environmental challenges.",
-      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
-      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
-      "source": "Berkeley News",
-      "url": "https://news.berkeley.edu/2026/04/22/uc-berkeley-appoints-rachel-morello-frosh-as-inaugural-associate-provost-for-energy-climate-and-environment/",
-      "publishedAt": "2026-04-22T18:45:00.000Z"
-    },
     {
       "title": "Carleton Recognised as Only University in Canada to Achieve Bronze Tier in Net-Zero Challenge",
       "whatHappened": "Carleton University has been recognised as the only university in Canada to achieve the Bronze Tier in the Government of Canada’ Net-Zero Challenge, a significant milestone...",
@@ -172,6 +163,15 @@
       "publishedAt": "2025-07-29T18:38:05.000Z"
     },
     {
+      "title": "Exploring Connections Between Environment and Society",
+      "whatHappened": "Aynsley Kretschmar, a soon-to-be graduate of the M.A.",
+      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
+      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
+      "source": "Columbia Climate School",
+      "url": "https://news.climate.columbia.edu/2026/04/29/exploring-connections-between-environment-and-society/",
+      "publishedAt": "2026-04-29T16:11:42.000Z"
+    },
+    {
       "title": "This Ph.D. candidate is studying how rising seas can push buried toxins into our homes",
       "whatHappened": "Emma Lasky, a graduate student in landscape architecture and environmental planning, discusses her multidisciplinary research on how climate change-induced groundwater rise presents urgent challenges for public...",
       "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
@@ -188,6 +188,15 @@
       "source": "MIT Climate & Sustainability",
       "url": "https://news.mit.edu/2026/power-and-energy-climate-entrepreneurship-0424",
       "publishedAt": "2026-04-24T17:27:00.000Z"
+    },
+    {
+      "title": "For this environmental health researcher, science is an ‘act of hope’",
+      "whatHappened": "David J.X.",
+      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
+      "keyWord": "research: careful study used to discover new knowledge",
+      "source": "Berkeley News",
+      "url": "https://news.berkeley.edu/2026/04/23/for-this-environmental-health-researcher-science-is-an-act-of-hope/",
+      "publishedAt": "2026-04-23T17:25:37.000Z"
     },
     {
       "title": "Why Climate Work Is Community Work",
@@ -242,15 +251,6 @@
       "source": "Waterloo Environment",
       "url": "https://uwaterloo.ca/environment/news/women-wampum",
       "publishedAt": "2026-04-07T12:00:00.000Z"
-    },
-    {
-      "title": "Breeding habitat selection in eastern population sandhill cranes",
-      "whatHappened": "Tue, 17 Mar 2026 12:00:00 +0000 Canada’s eastern boreal forest supports a wide diversity of wildlife, including sandhill cranes.",
-      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
-      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
-      "source": "Waterloo Environment",
-      "url": "https://uwaterloo.ca/environment/news/breeding-habitat-selection-eastern-population-sandhill",
-      "publishedAt": "2026-03-17T12:00:00.000Z"
     }
   ]
 }
