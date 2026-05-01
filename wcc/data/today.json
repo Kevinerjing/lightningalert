@@ -1,26 +1,17 @@
 {
-  "boardDate": "2026-04-30",
-  "generatedAt": "2026-04-30T13:07:44.310Z",
+  "boardDate": "2026-05-01",
+  "generatedAt": "2026-05-01T12:37:06.915Z",
   "sourceCount": 26,
   "weather": [
     {
       "city": "Ottawa",
-      "temperatureC": 5,
-      "maxC": 8,
-      "minC": 3,
-      "summary": "Cloudy"
+      "temperatureC": 4,
+      "maxC": 9,
+      "minC": 0,
+      "summary": "Clear skies"
     }
   ],
   "extremeWeather": [
-    {
-      "title": "Texas tornado kills at least two people as wildfires still rage in parts of Georgia",
-      "whatHappened": "Extreme weather likely to continue after devastating homes and endangering millions in US south and midwest At least two people are dead after a very powerful...",
-      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
-      "keyWord": "extreme weather: unusual and dangerous weather like floods, storms, or heat waves",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/us-news/2026/apr/26/texas-tornado-georgia-wildfires-storms",
-      "publishedAt": "2026-04-26T19:10:23.000Z"
-    },
     {
       "title": "Heavy rain not ‘nearly enough’ to tame two wildfires in drought-stricken Georgia",
       "whatHappened": "Pineland Road fire and Highway 82 fire have destroyed over 100 homes, and are part of large number of wildfires this spring in the US south...",
@@ -60,6 +51,24 @@
       "publishedAt": "2026-04-28T12:30:09.000Z"
     },
     {
+      "title": "How LNG interests are seeking to disrupt global talks on decarbonising shipping",
+      "whatHappened": "Observers say pressure on IMO negotiations appears to be linked to countries that have invested heavily in gas About a fifth of the world’s oil and...",
+      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
+      "keyWord": "climate: the usual pattern of weather over a long period of time",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/environment/2026/may/01/lng-liquefied-natural-gas-imo-talks-shipping",
+      "publishedAt": "2026-05-01T06:00:38.000Z"
+    },
+    {
+      "title": "Democrats say EPA head’s budget cut proposal ‘reads like climate change deniers’ manifesto’",
+      "whatHappened": "Lee Zeldin claims before Senate that Trump administration plan will make Environmental Protection Agency ‘more efficient’ Senate Democrats accused the Trump administration of abandoning the Environmental...",
+      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
+      "keyWord": "climate: the usual pattern of weather over a long period of time",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/environment/2026/apr/30/epa-budget-cut-proposal",
+      "publishedAt": "2026-04-30T15:20:59.000Z"
+    },
+    {
       "title": "Iran crisis shows fossil fuels-based energy system ‘is inherently volatile and unstable’",
       "whatHappened": "Senior UN climate leaders are getting behind countries mobilising this week for a transition away from fossil fuels at a groundbreaking event in Colombia.",
       "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
@@ -78,15 +87,6 @@
       "publishedAt": "2026-04-28T21:37:43.000Z"
     },
     {
-      "title": "Toxins plus climate harms likely cause of reduced fertility, study finds",
-      "whatHappened": "Researchers find ‘alarming’ effect on fertility across global species from simultaneous exposures Simultaneous exposure to toxic chemicals and climate change’s impacts likely generates an additive or...",
-      "whyItMatters": "Climate and environment stories connect science to real issues like safety, health, and extreme weather.",
-      "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/science/2026/apr/26/toxic-exposure-climate-crisis-study",
-      "publishedAt": "2026-04-26T13:00:15.000Z"
-    },
-    {
       "title": "Renewables rising, Part 2: Seeking stability amid volatile fossil fuel markets",
       "whatHappened": "As global energy markets remain volatile and the price of oil high due to instability and conflict in the Middle East, more countries are looking at...",
       "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
@@ -94,15 +94,6 @@
       "source": "UN Climate",
       "url": "https://news.un.org/feed/view/en/story/2026/04/1167368",
       "publishedAt": "2026-04-26T12:00:00.000Z"
-    },
-    {
-      "title": "Renewables rising, Part 1: How four countries are reshaping energy security",
-      "whatHappened": "The ongoing insecurity in the Middle East, where a large proportion of the world’s oil and gas is extracted, is forcing many countries to focus on...",
-      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
-      "keyWord": "renewable energy: energy from sources that can be used again, like sun or wind",
-      "source": "UN Climate",
-      "url": "https://news.un.org/feed/view/en/story/2026/04/1167366",
-      "publishedAt": "2026-04-25T12:00:00.000Z"
     }
   ],
   "weatherTech": [
@@ -163,6 +154,15 @@
       "publishedAt": "2025-07-29T18:38:05.000Z"
     },
     {
+      "title": "Partnering for Environmental Justice in Harlem",
+      "whatHappened": "Now in its fifth year, the annual conference was created to highlight the critical climate-driven health and environmental impacts affecting our shared community.",
+      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
+      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
+      "source": "Columbia Climate School",
+      "url": "https://news.climate.columbia.edu/2026/04/30/partnering-for-environmental-justice-in-harlem/",
+      "publishedAt": "2026-04-30T15:55:29.000Z"
+    },
+    {
       "title": "Exploring Connections Between Environment and Society",
       "whatHappened": "Aynsley Kretschmar, a soon-to-be graduate of the M.A.",
       "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
@@ -188,24 +188,6 @@
       "source": "MIT Climate & Sustainability",
       "url": "https://news.mit.edu/2026/power-and-energy-climate-entrepreneurship-0424",
       "publishedAt": "2026-04-24T17:27:00.000Z"
-    },
-    {
-      "title": "For this environmental health researcher, science is an ‘act of hope’",
-      "whatHappened": "David J.X.",
-      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
-      "keyWord": "research: careful study used to discover new knowledge",
-      "source": "Berkeley News",
-      "url": "https://news.berkeley.edu/2026/04/23/for-this-environmental-health-researcher-science-is-an-act-of-hope/",
-      "publishedAt": "2026-04-23T17:25:37.000Z"
-    },
-    {
-      "title": "Why Climate Work Is Community Work",
-      "whatHappened": "At a recent Climate School event, speaker Memphis Washington discussed the Waterfront Alliance's climate resilience and environmental justice efforts in Coney Island.",
-      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
-      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
-      "source": "Columbia Climate School",
-      "url": "https://news.climate.columbia.edu/2026/04/23/why-climate-work-is-community-work/",
-      "publishedAt": "2026-04-23T17:07:42.000Z"
     },
     {
       "title": "Carleton Researcher Named Canada’s 2026 Frontiers Planet Prize National Champion",
@@ -251,6 +233,15 @@
       "source": "Waterloo Environment",
       "url": "https://uwaterloo.ca/environment/news/women-wampum",
       "publishedAt": "2026-04-07T12:00:00.000Z"
+    },
+    {
+      "title": "Breeding habitat selection in eastern population sandhill cranes",
+      "whatHappened": "Tue, 17 Mar 2026 12:00:00 +0000 Canada’s eastern boreal forest supports a wide diversity of wildlife, including sandhill cranes.",
+      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
+      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
+      "source": "Waterloo Environment",
+      "url": "https://uwaterloo.ca/environment/news/breeding-habitat-selection-eastern-population-sandhill",
+      "publishedAt": "2026-03-17T12:00:00.000Z"
     }
   ]
 }
