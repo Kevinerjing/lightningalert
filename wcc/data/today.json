@@ -1,26 +1,17 @@
 {
-  "boardDate": "2026-05-01",
-  "generatedAt": "2026-05-01T12:37:06.915Z",
+  "boardDate": "2026-05-02",
+  "generatedAt": "2026-05-02T12:09:43.241Z",
   "sourceCount": 26,
   "weather": [
     {
       "city": "Ottawa",
-      "temperatureC": 4,
+      "temperatureC": 5,
       "maxC": 9,
-      "minC": 0,
-      "summary": "Clear skies"
+      "minC": 4,
+      "summary": "Cloudy"
     }
   ],
   "extremeWeather": [
-    {
-      "title": "Heavy rain not ‘nearly enough’ to tame two wildfires in drought-stricken Georgia",
-      "whatHappened": "Pineland Road fire and Highway 82 fire have destroyed over 100 homes, and are part of large number of wildfires this spring in the US south...",
-      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
-      "keyWord": "drought: a long time with very little rain",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/us-news/2026/apr/27/georgia-wildfires-rain",
-      "publishedAt": "2026-04-27T17:05:12.000Z"
-    },
     {
       "title": "Global forest loss slows but El Niño fires could threaten progress",
       "whatHappened": "The loss of tropical rainforests eased last year, according to new analysis, but scientists warn they are still disappearing rapidly.",
@@ -49,15 +40,6 @@
       "source": "The Guardian Environment",
       "url": "https://www.theguardian.com/us-news/2026/apr/28/trump-clean-energy-progress",
       "publishedAt": "2026-04-28T12:30:09.000Z"
-    },
-    {
-      "title": "How LNG interests are seeking to disrupt global talks on decarbonising shipping",
-      "whatHappened": "Observers say pressure on IMO negotiations appears to be linked to countries that have invested heavily in gas About a fifth of the world’s oil and...",
-      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
-      "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/environment/2026/may/01/lng-liquefied-natural-gas-imo-talks-shipping",
-      "publishedAt": "2026-05-01T06:00:38.000Z"
     },
     {
       "title": "Democrats say EPA head’s budget cut proposal ‘reads like climate change deniers’ manifesto’",
@@ -94,6 +76,15 @@
       "source": "UN Climate",
       "url": "https://news.un.org/feed/view/en/story/2026/04/1167368",
       "publishedAt": "2026-04-26T12:00:00.000Z"
+    },
+    {
+      "title": "Renewables rising, Part 1: How four countries are reshaping energy security",
+      "whatHappened": "The ongoing insecurity in the Middle East, where a large proportion of the world’s oil and gas is extracted, is forcing many countries to focus on...",
+      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
+      "keyWord": "renewable energy: energy from sources that can be used again, like sun or wind",
+      "source": "UN Climate",
+      "url": "https://news.un.org/feed/view/en/story/2026/04/1167366",
+      "publishedAt": "2026-04-25T12:00:00.000Z"
     }
   ],
   "weatherTech": [
@@ -105,6 +96,15 @@
       "source": "The Guardian Environment",
       "url": "https://www.theguardian.com/us-news/2026/apr/28/trump-clean-energy-progress",
       "publishedAt": "2026-04-28T12:30:09.000Z"
+    },
+    {
+      "title": "Uber wants to turn its millions of drivers into a sensor grid for self-driving companies",
+      "whatHappened": "Praveen Neppalli Naga, Uber's chief technology officer, revealed the plan in an interview at TechCrunch's StrictlyVC event in San Francisco on Thursday night, describing it as...",
+      "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
+      "keyWord": "weather technology: tools that help people measure, study, or predict weather and climate",
+      "source": "TechCrunch",
+      "url": "https://techcrunch.com/2026/05/01/uber-wants-to-turn-its-millions-of-drivers-into-a-sensor-grid-for-self-driving-companies/",
+      "publishedAt": "2026-05-02T06:36:28.000Z"
     },
     {
       "title": "Trump administration blocks US wind energy projects in switch to oil and gas",
