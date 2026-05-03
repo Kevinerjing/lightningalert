@@ -1,17 +1,26 @@
 {
-  "boardDate": "2026-05-02",
-  "generatedAt": "2026-05-02T12:09:43.241Z",
+  "boardDate": "2026-05-03",
+  "generatedAt": "2026-05-03T12:07:21.008Z",
   "sourceCount": 26,
   "weather": [
     {
       "city": "Ottawa",
       "temperatureC": 5,
-      "maxC": 9,
-      "minC": 4,
-      "summary": "Cloudy"
+      "maxC": 13,
+      "minC": 3,
+      "summary": "Clear skies"
     }
   ],
   "extremeWeather": [
+    {
+      "title": "Reform UK council backs release of beavers amid party row over rewilding",
+      "whatHappened": "Councillors in Leicestershire support move in efforts to reduce flooding as Reform faces divisions on nature policy A Reform UK council has backed the release of...",
+      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
+      "keyWord": "flood: water covering land that is usually dry",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/politics/2026/may/03/reform-uk-leicestershire-council-backs-release-wild-beavers-row-rewilding",
+      "publishedAt": "2026-05-03T10:50:35.000Z"
+    },
     {
       "title": "Global forest loss slows but El Niño fires could threaten progress",
       "whatHappened": "The loss of tropical rainforests eased last year, according to new analysis, but scientists warn they are still disappearing rapidly.",
@@ -33,13 +42,13 @@
   ],
   "climate": [
     {
-      "title": "Trump’s attempt to crush clean energy progress not going to plan, experts say",
-      "whatHappened": "US generated more power from renewables including solar and wind than gas last month in a first Donald Trump has wielded the full might of his...",
-      "whyItMatters": "Climate and environment stories connect science to real issues like safety, health, and extreme weather.",
-      "keyWord": "renewable energy: energy from sources that can be used again, like sun or wind",
+      "title": "Solar booms in industrial US midwest as energy crisis persists",
+      "whatHappened": "Electricity has become one of the most important commodities in the region thanks to demand from datacenters, Iran war and rising utility charges For decades, the...",
+      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
+      "keyWord": "climate: the usual pattern of weather over a long period of time",
       "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/us-news/2026/apr/28/trump-clean-energy-progress",
-      "publishedAt": "2026-04-28T12:30:09.000Z"
+      "url": "https://www.theguardian.com/us-news/2026/may/02/solar-midwest-energy-crisis",
+      "publishedAt": "2026-05-02T16:00:29.000Z"
     },
     {
       "title": "Democrats say EPA head’s budget cut proposal ‘reads like climate change deniers’ manifesto’",
@@ -60,15 +69,6 @@
       "publishedAt": "2026-04-29T12:00:00.000Z"
     },
     {
-      "title": "Trump administration blocks US wind energy projects in switch to oil and gas",
-      "whatHappened": "US representatives Jared Huffman and Jamie Raskin earlier this month called agreements outrageous and unlawful Sign up for the Breaking News US email to get newsletter...",
-      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
-      "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/us-news/2026/apr/28/trump-administration-wind-projects",
-      "publishedAt": "2026-04-28T21:37:43.000Z"
-    },
-    {
       "title": "Renewables rising, Part 2: Seeking stability amid volatile fossil fuel markets",
       "whatHappened": "As global energy markets remain volatile and the price of oil high due to instability and conflict in the Middle East, more countries are looking at...",
       "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
@@ -85,17 +85,26 @@
       "source": "UN Climate",
       "url": "https://news.un.org/feed/view/en/story/2026/04/1167366",
       "publishedAt": "2026-04-25T12:00:00.000Z"
+    },
+    {
+      "title": "Reform UK council backs release of beavers amid party row over rewilding",
+      "whatHappened": "Councillors in Leicestershire support move in efforts to reduce flooding as Reform faces divisions on nature policy A Reform UK council has backed the release of...",
+      "whyItMatters": "Climate and environment stories connect science to real issues like safety, health, and extreme weather.",
+      "keyWord": "climate: the usual pattern of weather over a long period of time",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/politics/2026/may/03/reform-uk-leicestershire-council-backs-release-wild-beavers-row-rewilding",
+      "publishedAt": "2026-05-03T10:50:35.000Z"
     }
   ],
   "weatherTech": [
     {
-      "title": "Trump’s attempt to crush clean energy progress not going to plan, experts say",
-      "whatHappened": "US generated more power from renewables including solar and wind than gas last month in a first Donald Trump has wielded the full might of his...",
+      "title": "Solar booms in industrial US midwest as energy crisis persists",
+      "whatHappened": "Electricity has become one of the most important commodities in the region thanks to demand from datacenters, Iran war and rising utility charges For decades, the...",
       "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
       "keyWord": "solar: related to energy from sunlight",
       "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/us-news/2026/apr/28/trump-clean-energy-progress",
-      "publishedAt": "2026-04-28T12:30:09.000Z"
+      "url": "https://www.theguardian.com/us-news/2026/may/02/solar-midwest-energy-crisis",
+      "publishedAt": "2026-05-02T16:00:29.000Z"
     },
     {
       "title": "Uber wants to turn its millions of drivers into a sensor grid for self-driving companies",
@@ -105,15 +114,6 @@
       "source": "TechCrunch",
       "url": "https://techcrunch.com/2026/05/01/uber-wants-to-turn-its-millions-of-drivers-into-a-sensor-grid-for-self-driving-companies/",
       "publishedAt": "2026-05-02T06:36:28.000Z"
-    },
-    {
-      "title": "Trump administration blocks US wind energy projects in switch to oil and gas",
-      "whatHappened": "US representatives Jared Huffman and Jamie Raskin earlier this month called agreements outrageous and unlawful Sign up for the Breaking News US email to get newsletter...",
-      "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
-      "keyWord": "weather technology: tools that help people measure, study, or predict weather and climate",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/us-news/2026/apr/28/trump-administration-wind-projects",
-      "publishedAt": "2026-04-28T21:37:43.000Z"
     },
     {
       "title": "Renewables rising, Part 1: How four countries are reshaping energy security",
