@@ -1,26 +1,17 @@
 {
-  "boardDate": "2026-05-03",
-  "generatedAt": "2026-05-03T12:07:21.008Z",
+  "boardDate": "2026-05-04",
+  "generatedAt": "2026-05-04T13:10:05.609Z",
   "sourceCount": 26,
   "weather": [
     {
       "city": "Ottawa",
-      "temperatureC": 5,
-      "maxC": 13,
-      "minC": 3,
-      "summary": "Clear skies"
+      "temperatureC": 11,
+      "maxC": 21,
+      "minC": 8,
+      "summary": "Cloudy"
     }
   ],
   "extremeWeather": [
-    {
-      "title": "Reform UK council backs release of beavers amid party row over rewilding",
-      "whatHappened": "Councillors in Leicestershire support move in efforts to reduce flooding as Reform faces divisions on nature policy A Reform UK council has backed the release of...",
-      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
-      "keyWord": "flood: water covering land that is usually dry",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/politics/2026/may/03/reform-uk-leicestershire-council-backs-release-wild-beavers-row-rewilding",
-      "publishedAt": "2026-05-03T10:50:35.000Z"
-    },
     {
       "title": "Global forest loss slows but El Niño fires could threaten progress",
       "whatHappened": "The loss of tropical rainforests eased last year, according to new analysis, but scientists warn they are still disappearing rapidly.",
@@ -42,6 +33,24 @@
   ],
   "climate": [
     {
+      "title": "Reform government could cause Truss-style chaos, says renewables industry",
+      "whatHappened": "Lobbyist Tara Singh says stripping projects of subsidy contracts would undermine investor confidence in UK Britain could be beset by levels of economic chaos last seen...",
+      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
+      "keyWord": "renewable energy: energy from sources that can be used again, like sun or wind",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/environment/2026/may/04/reform-uk-government-truss-renewable-energy-policy",
+      "publishedAt": "2026-05-04T13:00:23.000Z"
+    },
+    {
+      "title": "California, Arizona and Nevada propose water-saving plan for Colorado River",
+      "whatHappened": "Proposal includes cutbacks for three years as negotiations over future of shrinking reservoirs have been unsuccessful The states of California , Arizona and Nevada have proposed...",
+      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
+      "keyWord": "climate: the usual pattern of weather over a long period of time",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/us-news/2026/may/03/colorado-river-water-plan-california-arizona-nevada",
+      "publishedAt": "2026-05-03T19:32:57.000Z"
+    },
+    {
       "title": "Solar booms in industrial US midwest as energy crisis persists",
       "whatHappened": "Electricity has become one of the most important commodities in the region thanks to demand from datacenters, Iran war and rising utility charges For decades, the...",
       "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
@@ -49,15 +58,6 @@
       "source": "The Guardian Environment",
       "url": "https://www.theguardian.com/us-news/2026/may/02/solar-midwest-energy-crisis",
       "publishedAt": "2026-05-02T16:00:29.000Z"
-    },
-    {
-      "title": "Democrats say EPA head’s budget cut proposal ‘reads like climate change deniers’ manifesto’",
-      "whatHappened": "Lee Zeldin claims before Senate that Trump administration plan will make Environmental Protection Agency ‘more efficient’ Senate Democrats accused the Trump administration of abandoning the Environmental...",
-      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
-      "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/environment/2026/apr/30/epa-budget-cut-proposal",
-      "publishedAt": "2026-04-30T15:20:59.000Z"
     },
     {
       "title": "Iran crisis shows fossil fuels-based energy system ‘is inherently volatile and unstable’",
@@ -85,18 +85,18 @@
       "source": "UN Climate",
       "url": "https://news.un.org/feed/view/en/story/2026/04/1167366",
       "publishedAt": "2026-04-25T12:00:00.000Z"
-    },
-    {
-      "title": "Reform UK council backs release of beavers amid party row over rewilding",
-      "whatHappened": "Councillors in Leicestershire support move in efforts to reduce flooding as Reform faces divisions on nature policy A Reform UK council has backed the release of...",
-      "whyItMatters": "Climate and environment stories connect science to real issues like safety, health, and extreme weather.",
-      "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/politics/2026/may/03/reform-uk-leicestershire-council-backs-release-wild-beavers-row-rewilding",
-      "publishedAt": "2026-05-03T10:50:35.000Z"
     }
   ],
   "weatherTech": [
+    {
+      "title": "Ouster’s new color lidar is coming to replace cameras",
+      "whatHappened": "A sensor that can simultaneously capture depth and image data has long been a \"holy grail,\" Ouster CEO Angus Pacala told TechCrunch.",
+      "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
+      "keyWord": "weather technology: tools that help people measure, study, or predict weather and climate",
+      "source": "TechCrunch",
+      "url": "https://techcrunch.com/2026/05/04/ousters-new-color-lidar-is-coming-to-replace-cameras/",
+      "publishedAt": "2026-05-04T10:00:00.000Z"
+    },
     {
       "title": "Solar booms in industrial US midwest as energy crisis persists",
       "whatHappened": "Electricity has become one of the most important commodities in the region thanks to demand from datacenters, Iran war and rising utility charges For decades, the...",
@@ -105,15 +105,6 @@
       "source": "The Guardian Environment",
       "url": "https://www.theguardian.com/us-news/2026/may/02/solar-midwest-energy-crisis",
       "publishedAt": "2026-05-02T16:00:29.000Z"
-    },
-    {
-      "title": "Uber wants to turn its millions of drivers into a sensor grid for self-driving companies",
-      "whatHappened": "Praveen Neppalli Naga, Uber's chief technology officer, revealed the plan in an interview at TechCrunch's StrictlyVC event in San Francisco on Thursday night, describing it as...",
-      "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
-      "keyWord": "weather technology: tools that help people measure, study, or predict weather and climate",
-      "source": "TechCrunch",
-      "url": "https://techcrunch.com/2026/05/01/uber-wants-to-turn-its-millions-of-drivers-into-a-sensor-grid-for-self-driving-companies/",
-      "publishedAt": "2026-05-02T06:36:28.000Z"
     },
     {
       "title": "Renewables rising, Part 1: How four countries are reshaping energy security",
