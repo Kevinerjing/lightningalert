@@ -1,14 +1,14 @@
 {
-  "boardDate": "2026-05-04",
-  "generatedAt": "2026-05-04T13:10:05.609Z",
+  "boardDate": "2026-05-05",
+  "generatedAt": "2026-05-05T12:49:07.009Z",
   "sourceCount": 26,
   "weather": [
     {
       "city": "Ottawa",
-      "temperatureC": 11,
-      "maxC": 21,
-      "minC": 8,
-      "summary": "Cloudy"
+      "temperatureC": 15,
+      "maxC": 22,
+      "minC": 9,
+      "summary": "Light drizzle"
     }
   ],
   "extremeWeather": [
@@ -32,15 +32,6 @@
     }
   ],
   "climate": [
-    {
-      "title": "Reform government could cause Truss-style chaos, says renewables industry",
-      "whatHappened": "Lobbyist Tara Singh says stripping projects of subsidy contracts would undermine investor confidence in UK Britain could be beset by levels of economic chaos last seen...",
-      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
-      "keyWord": "renewable energy: energy from sources that can be used again, like sun or wind",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/environment/2026/may/04/reform-uk-government-truss-renewable-energy-policy",
-      "publishedAt": "2026-05-04T13:00:23.000Z"
-    },
     {
       "title": "California, Arizona and Nevada propose water-saving plan for Colorado River",
       "whatHappened": "Proposal includes cutbacks for three years as negotiations over future of shrinking reservoirs have been unsuccessful The states of California , Arizona and Nevada have proposed...",
@@ -85,18 +76,18 @@
       "source": "UN Climate",
       "url": "https://news.un.org/feed/view/en/story/2026/04/1167366",
       "publishedAt": "2026-04-25T12:00:00.000Z"
+    },
+    {
+      "title": "As household bills soar, is it time for a ‘working-class climate agenda’?",
+      "whatHappened": "Proposal from group that worked with AOC and Bernie Sanders seeks to counter claim that climate policy is politically toxic Americans do not care about the...",
+      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
+      "keyWord": "climate: the usual pattern of weather over a long period of time",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/us-news/2026/may/05/climate-crisis-working-class-economy",
+      "publishedAt": "2026-05-05T11:30:38.000Z"
     }
   ],
   "weatherTech": [
-    {
-      "title": "Ouster’s new color lidar is coming to replace cameras",
-      "whatHappened": "A sensor that can simultaneously capture depth and image data has long been a \"holy grail,\" Ouster CEO Angus Pacala told TechCrunch.",
-      "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
-      "keyWord": "weather technology: tools that help people measure, study, or predict weather and climate",
-      "source": "TechCrunch",
-      "url": "https://techcrunch.com/2026/05/04/ousters-new-color-lidar-is-coming-to-replace-cameras/",
-      "publishedAt": "2026-05-04T10:00:00.000Z"
-    },
     {
       "title": "Solar booms in industrial US midwest as energy crisis persists",
       "whatHappened": "Electricity has become one of the most important commodities in the region thanks to demand from datacenters, Iran war and rising utility charges For decades, the...",
@@ -145,6 +136,15 @@
       "publishedAt": "2025-07-29T18:38:05.000Z"
     },
     {
+      "title": "Melanie Nakagawa To Speak at Columbia Climate School Graduation",
+      "whatHappened": "Columbia Climate School is thrilled to announce that Melanie Nakagawa, Chief Sustainability Officer at Microsoft, will deliver the keynote address at the Climate School’s Class Day...",
+      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
+      "keyWord": "sustainability: using resources in a way that can last over time",
+      "source": "Columbia Climate School",
+      "url": "https://news.climate.columbia.edu/2026/05/05/melanie-nakagawa-to-speak-at-columbia-climate-school-graduation/",
+      "publishedAt": "2026-05-05T12:32:20.000Z"
+    },
+    {
       "title": "Partnering for Environmental Justice in Harlem",
       "whatHappened": "Now in its fifth year, the annual conference was created to highlight the critical climate-driven health and environmental impacts affecting our shared community.",
       "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
@@ -152,24 +152,6 @@
       "source": "Columbia Climate School",
       "url": "https://news.climate.columbia.edu/2026/04/30/partnering-for-environmental-justice-in-harlem/",
       "publishedAt": "2026-04-30T15:55:29.000Z"
-    },
-    {
-      "title": "Exploring Connections Between Environment and Society",
-      "whatHappened": "Aynsley Kretschmar, a soon-to-be graduate of the M.A.",
-      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
-      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
-      "source": "Columbia Climate School",
-      "url": "https://news.climate.columbia.edu/2026/04/29/exploring-connections-between-environment-and-society/",
-      "publishedAt": "2026-04-29T16:11:42.000Z"
-    },
-    {
-      "title": "This Ph.D. candidate is studying how rising seas can push buried toxins into our homes",
-      "whatHappened": "Emma Lasky, a graduate student in landscape architecture and environmental planning, discusses her multidisciplinary research on how climate change-induced groundwater rise presents urgent challenges for public...",
-      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
-      "keyWord": "research: careful study used to discover new knowledge",
-      "source": "Berkeley News",
-      "url": "https://ced.berkeley.edu/news/uc-berkeley-phd-candidate-emma-lasky-climate-change-public-health-environmental-policy",
-      "publishedAt": "2026-04-27T19:26:06.000Z"
     },
     {
       "title": "The power of “and” in energy and climate entrepreneurship",
@@ -226,13 +208,22 @@
       "publishedAt": "2026-04-07T12:00:00.000Z"
     },
     {
-      "title": "Breeding habitat selection in eastern population sandhill cranes",
-      "whatHappened": "Tue, 17 Mar 2026 12:00:00 +0000 Canada’s eastern boreal forest supports a wide diversity of wildlife, including sandhill cranes.",
+      "title": "Clear and simple: Students reimagine Indigenous climate website",
+      "whatHappened": "Clear and simple: Students reimagine Indigenous climate website",
       "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
       "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
-      "source": "Waterloo Environment",
-      "url": "https://uwaterloo.ca/environment/news/breeding-habitat-selection-eastern-population-sandhill",
-      "publishedAt": "2026-03-17T12:00:00.000Z"
+      "source": "uOttawa News",
+      "url": "https://www.uottawa.ca/en/news-all/clear-simple-students-reimagine-indigenous-climate-website",
+      "publishedAt": "2026-05-05T12:49:05.706Z"
+    },
+    {
+      "title": "Notre Dame’s Kyle Doudrick named to EPA Science Advisory Board",
+      "whatHappened": "Kyle Doudrick, associate professor of Environmental Engineering at the University of Notre Dame, has been selected to serve on the Science Advisory Board of the United...",
+      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
+      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
+      "source": "Notre Dame News",
+      "url": "https://news.nd.edu/news/notre-dames-kyle-doudrick-named-to-epa-science-advisory-board/",
+      "publishedAt": "2026-05-01T18:30:59.000Z"
     }
   ]
 }
