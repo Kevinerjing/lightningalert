@@ -1,17 +1,26 @@
 {
-  "boardDate": "2026-05-07",
-  "generatedAt": "2026-05-07T13:16:57.197Z",
+  "boardDate": "2026-05-08",
+  "generatedAt": "2026-05-08T12:55:25.511Z",
   "sourceCount": 26,
   "weather": [
     {
       "city": "Ottawa",
       "temperatureC": 8,
-      "maxC": 11,
+      "maxC": 12,
       "minC": 5,
-      "summary": "Clear skies"
+      "summary": "Mostly clear"
     }
   ],
   "extremeWeather": [
+    {
+      "title": "‘The worst time for wheat’: US farmers face losses to extreme heat and drought",
+      "whatHappened": "Temperature swings have left crops across the Plains in terrible conditions, with some farmers opting not to harvest Merrill Nielsen’s wheat crop looked healthy after he...",
+      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
+      "keyWord": "drought: a long time with very little rain",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/environment/2026/may/08/wheat-farmers-face-loss-crops-heat-drought",
+      "publishedAt": "2026-05-08T10:00:24.000Z"
+    },
     {
       "title": "Global forest loss slows but El Niño fires could threaten progress",
       "whatHappened": "The loss of tropical rainforests eased last year, according to new analysis, but scientists warn they are still disappearing rapidly.",
@@ -33,13 +42,13 @@
   ],
   "climate": [
     {
-      "title": "Climate campaigners attack Shell over ‘windfall’ profits from Iran war",
-      "whatHappened": "Firm benefits from conflict to rake in $6.9bn as higher energy prices turbocharge profits Business live – latest updates Shell has reported better than expected profits...",
+      "title": "Airline emissions in Europe top pre-Covid levels despite pledge to decarbonise",
+      "whatHappened": "Promises to cut emissions and use more fuel-efficient planes fail to stop rise, with Ryanair’s carbon footprint 50% up on 2019 Emissions from flying in Europe...",
       "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
-      "keyWord": "climate: the usual pattern of weather over a long period of time",
+      "keyWord": "emissions: gases released into the air",
       "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/business/2026/may/07/climate-campaigners-attack-shell-over-windfall-profits-from-iran-war",
-      "publishedAt": "2026-05-07T12:09:24.000Z"
+      "url": "https://www.theguardian.com/environment/2026/may/08/airline-emissions-in-europe-top-pre-covid-levels-despite-pledge-to-decarbonise",
+      "publishedAt": "2026-05-08T10:30:25.000Z"
     },
     {
       "title": "Trump’s Iran war may stymie climate gains with boost to big oil, experts say",
@@ -49,24 +58,6 @@
       "source": "The Guardian Environment",
       "url": "https://www.theguardian.com/us-news/2026/may/07/iran-war-big-oil-climate",
       "publishedAt": "2026-05-07T11:30:47.000Z"
-    },
-    {
-      "title": "California, Arizona and Nevada propose water-saving plan for Colorado River",
-      "whatHappened": "Proposal includes cutbacks for three years as negotiations over future of shrinking reservoirs have been unsuccessful The states of California , Arizona and Nevada have proposed...",
-      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
-      "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/us-news/2026/may/03/colorado-river-water-plan-california-arizona-nevada",
-      "publishedAt": "2026-05-03T19:32:57.000Z"
-    },
-    {
-      "title": "Solar booms in industrial US midwest as energy crisis persists",
-      "whatHappened": "Electricity has become one of the most important commodities in the region thanks to demand from datacenters, Iran war and rising utility charges For decades, the...",
-      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
-      "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/us-news/2026/may/02/solar-midwest-energy-crisis",
-      "publishedAt": "2026-05-02T16:00:29.000Z"
     },
     {
       "title": "Iran crisis shows fossil fuels-based energy system ‘is inherently volatile and unstable’",
@@ -85,18 +76,27 @@
       "source": "UN Climate",
       "url": "https://news.un.org/feed/view/en/story/2026/04/1167368",
       "publishedAt": "2026-04-26T12:00:00.000Z"
+    },
+    {
+      "title": "Renewables rising, Part 1: How four countries are reshaping energy security",
+      "whatHappened": "The ongoing insecurity in the Middle East, where a large proportion of the world’s oil and gas is extracted, is forcing many countries to focus on...",
+      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
+      "keyWord": "renewable energy: energy from sources that can be used again, like sun or wind",
+      "source": "UN Climate",
+      "url": "https://news.un.org/feed/view/en/story/2026/04/1167366",
+      "publishedAt": "2026-04-25T12:00:00.000Z"
+    },
+    {
+      "title": "Massive Alaska megatsunami was second largest ever recorded",
+      "whatHappened": "New research suggests glacier melt driven by climate change is increasing the risk of giant waves.",
+      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
+      "keyWord": "climate: the usual pattern of weather over a long period of time",
+      "source": "BBC Science & Environment",
+      "url": "https://www.bbc.com/news/articles/c1m253033m4o?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-05-06T12:00:25.000Z"
     }
   ],
   "weatherTech": [
-    {
-      "title": "Solar booms in industrial US midwest as energy crisis persists",
-      "whatHappened": "Electricity has become one of the most important commodities in the region thanks to demand from datacenters, Iran war and rising utility charges For decades, the...",
-      "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
-      "keyWord": "solar: related to energy from sunlight",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/us-news/2026/may/02/solar-midwest-energy-crisis",
-      "publishedAt": "2026-05-02T16:00:29.000Z"
-    },
     {
       "title": "Renewables rising, Part 1: How four countries are reshaping energy security",
       "whatHappened": "The ongoing insecurity in the Middle East, where a large proportion of the world’s oil and gas is extracted, is forcing many countries to focus on...",
@@ -136,6 +136,15 @@
       "publishedAt": "2025-07-29T18:38:05.000Z"
     },
     {
+      "title": "Mapping the ocean with autonomous sensors",
+      "whatHappened": "Founded by Ravi Pappu SM ’95, PhD ’01, Apeiron Labs is deploying low-cost ocean sensors to improve storm forecasts, detect endangered species, and more.",
+      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
+      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
+      "source": "MIT Earth & Atmospheric Sciences",
+      "url": "https://news.mit.edu/2026/apeiron-labs-maps-ocean-with-autonomous-sensors-0508",
+      "publishedAt": "2026-05-08T04:00:00.000Z"
+    },
+    {
       "title": "You Asked: Lamont and Climate School Experts Tackle Reader Questions on Science and Sustainability",
       "whatHappened": "We invite readers to share their most pressing questions about climate, science and sustainability.",
       "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
@@ -172,15 +181,6 @@
       "publishedAt": "2026-04-22T14:37:48.000Z"
     },
     {
-      "title": "Tackling the housing shortage with robotic microfactories",
-      "whatHappened": "Reframe Systems, co-founded by Vikas Enti SM '20, creates microfactories for modular home construction, reducing carbon emissions and costs.",
-      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
-      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
-      "source": "MIT Climate & Sustainability",
-      "url": "https://news.mit.edu/2026/tackling-housing-shortage-robotic-microfactories-0421",
-      "publishedAt": "2026-04-21T21:45:00.000Z"
-    },
-    {
       "title": "Geothermal energy turns red hot",
       "whatHappened": "MIT Energy Initiative symposium maps a path to tap the planet’s heat-rich rocks for clean power at scale.",
       "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
@@ -188,15 +188,6 @@
       "source": "MIT Earth & Atmospheric Sciences",
       "url": "https://news.mit.edu/2026/geothermal-energy-turns-red-hot-0415",
       "publishedAt": "2026-04-15T23:30:00.000Z"
-    },
-    {
-      "title": "Carbon removal project supports Maine’s blue economy, broader marine health",
-      "whatHappened": "A chemical-free approach to balancing ocean acidity protects marine life and could dramatically impact the global aquaculture market.",
-      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
-      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
-      "source": "MIT Earth & Atmospheric Sciences",
-      "url": "https://news.mit.edu/2026/carbon-removal-project-supports-maines-blue-economy-broader-marine-health-0414",
-      "publishedAt": "2026-04-14T04:00:00.000Z"
     },
     {
       "title": "Women of Wampum",
@@ -208,13 +199,13 @@
       "publishedAt": "2026-04-07T12:00:00.000Z"
     },
     {
-      "title": "Clear and simple: Students reimagine Indigenous climate website",
-      "whatHappened": "Clear and simple: Students reimagine Indigenous climate website",
+      "title": "Second fusion summit at UW signals the Midwest’s rise as a fusion powerhouse",
+      "whatHappened": "The event brought together researchers, industry leaders, government officials and investors to learn about and discuss fusion as a viable energy source.",
       "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
-      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
-      "source": "uOttawa News",
-      "url": "https://www.uottawa.ca/en/news-all/clear-simple-students-reimagine-indigenous-climate-website",
-      "publishedAt": "2026-05-07T13:16:48.000Z"
+      "keyWord": "research: careful study used to discover new knowledge",
+      "source": "University of Wisconsin News",
+      "url": "https://engineering.wisc.edu/news/second-fusion-summit-at-uw-madison-signals-the-midwests-rise-as-a-fusion-powerhouse/",
+      "publishedAt": "2026-05-07T16:35:48.000Z"
     },
     {
       "title": "Six UC Berkeley Journalism alumni among 2026 Pulitzer Prize winners",
@@ -224,6 +215,15 @@
       "source": "Berkeley News",
       "url": "https://journalism.berkeley.edu/2026-pulitzer-prizes/",
       "publishedAt": "2026-05-06T19:14:33.000Z"
+    },
+    {
+      "title": "As students graduate into a turbulent world, commencement speaker Robert Reich embraces hope",
+      "whatHappened": "This is not the first time that America has struggled through an era of instability, says the respected professor and activist.",
+      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
+      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
+      "source": "Berkeley News",
+      "url": "https://news.berkeley.edu/2026/05/05/as-students-graduate-into-a-turbulent-world-commencement-speaker-robert-reich-embraces-hope/",
+      "publishedAt": "2026-05-05T23:25:14.000Z"
     }
   ]
 }
