@@ -3,66 +3,605 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>EOM Grade 9 Astronomy Review</title>
-  <link rel="stylesheet" href="styles.css" />
+  <title>Electrostatics Review - Unit Test Prep</title>
+  <style>
+    :root {
+      --bg: #f5efe6;
+      --paper: rgba(255, 251, 245, 0.92);
+      --card: #fffdfa;
+      --ink: #1d2933;
+      --muted: #5d6b74;
+      --line: #dccfbe;
+      --accent: #1f6f8b;
+      --accent-2: #c5543c;
+      --good: #176d49;
+      --warm: #9a6500;
+      --shadow: 0 18px 40px rgba(68, 50, 28, 0.12);
+      --radius: 24px;
+      --radius-sm: 18px;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Arial, sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at top left, rgba(31, 111, 139, 0.16), transparent 28%),
+        radial-gradient(circle at top right, rgba(197, 84, 60, 0.12), transparent 24%),
+        linear-gradient(180deg, #f7f2ea 0%, #f3ede4 48%, #f8f4ed 100%);
+    }
+    .page {
+      max-width: 1320px;
+      margin: 0 auto;
+      padding: 24px;
+    }
+    .hero, .panel, .card {
+      background: var(--paper);
+      border: 1px solid rgba(220, 207, 190, 0.92);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(8px);
+    }
+    .hero {
+      position: relative;
+      overflow: hidden;
+      border-radius: 30px;
+      padding: 30px;
+      margin-bottom: 22px;
+      background: linear-gradient(135deg, rgba(31, 111, 139, 0.96), rgba(48, 88, 126, 0.94));
+      color: white;
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      right: -60px;
+      bottom: -80px;
+      width: 280px;
+      height: 280px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.08);
+    }
+    .hero h1 {
+      margin: 0 0 12px;
+      font-size: clamp(30px, 4vw, 50px);
+      line-height: 1.04;
+      position: relative;
+      z-index: 1;
+    }
+    .hero p {
+      margin: 0;
+      max-width: 920px;
+      line-height: 1.7;
+      color: rgba(255, 255, 255, 0.94);
+      position: relative;
+      z-index: 1;
+    }
+    .hero-links, .badge-row, .grid, .two-col, .mini-grid {
+      display: grid;
+      gap: 14px;
+    }
+    .badge-row {
+      margin-top: 18px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      position: relative;
+      z-index: 1;
+    }
+    .badge, .pill-link {
+      display: inline-flex;
+      align-items: center;
+      padding: 9px 12px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 700;
+    }
+    .badge {
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    .pill-link {
+      text-decoration: none;
+      color: white;
+      background: rgba(255, 255, 255, 0.14);
+      border: 1px solid rgba(255, 255, 255, 0.24);
+    }
+    .layout {
+      display: grid;
+      grid-template-columns: 320px 1fr;
+      gap: 22px;
+      align-items: start;
+    }
+    .panel {
+      border-radius: var(--radius);
+      padding: 18px;
+      position: sticky;
+      top: 18px;
+    }
+    .panel h2, .card h2, .card h3 {
+      margin: 0 0 12px;
+    }
+    .panel p, .card p, .card li, .card td, .card th {
+      line-height: 1.7;
+    }
+    .panel p, .tip, .muted {
+      color: var(--muted);
+    }
+    .nav-list, .checklist, .pdf-list, .formula-list {
+      display: grid;
+      gap: 10px;
+    }
+    .nav-link, .pdf-link {
+      display: block;
+      padding: 12px 14px;
+      border-radius: 14px;
+      background: var(--card);
+      border: 1px solid var(--line);
+      color: var(--ink);
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .nav-link:hover, .pdf-link:hover, .pill-link:hover {
+      filter: brightness(1.03);
+    }
+    .content {
+      display: grid;
+      gap: 18px;
+    }
+    .card {
+      border-radius: var(--radius);
+      padding: 22px;
+    }
+    .eyebrow {
+      display: inline-block;
+      margin-bottom: 8px;
+      font-size: 12px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-weight: 800;
+    }
+    .mini-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .two-col {
+      grid-template-columns: 1.15fr 0.85fr;
+      align-items: start;
+    }
+    .box {
+      border: 1px solid var(--line);
+      background: var(--card);
+      border-radius: var(--radius-sm);
+      padding: 18px;
+    }
+    .box h3 {
+      margin: 0 0 10px;
+      font-size: 18px;
+    }
+    ul.clean {
+      margin: 0;
+      padding-left: 20px;
+    }
+    .check {
+      border-left: 4px solid var(--accent);
+      padding: 10px 12px;
+      border-radius: 12px;
+      background: #f6fbfc;
+    }
+    .formula {
+      padding: 12px 14px;
+      border-radius: 14px;
+      background: #fff8ea;
+      border: 1px dashed rgba(154, 101, 0, 0.45);
+    }
+    .callout-good, .callout-warn {
+      padding: 14px 16px;
+      border-radius: 16px;
+      border: 1px solid var(--line);
+    }
+    .callout-good {
+      background: #edf9f2;
+      color: var(--good);
+    }
+    .callout-warn {
+      background: #fff3ef;
+      color: #9e4333;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      overflow: hidden;
+      border-radius: 16px;
+      border: 1px solid var(--line);
+      background: white;
+    }
+    th, td {
+      padding: 12px 14px;
+      text-align: left;
+      vertical-align: top;
+      border-bottom: 1px solid var(--line);
+      border-right: 1px solid var(--line);
+    }
+    th:last-child, td:last-child { border-right: none; }
+    tr:last-child td { border-bottom: none; }
+    th {
+      background: #eef6f7;
+      color: var(--accent);
+      font-size: 14px;
+    }
+    .accent { color: var(--accent-2); font-weight: 700; }
+    .anchor {
+      scroll-margin-top: 24px;
+    }
+    .diagram {
+      width: 100%;
+      display: block;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: white;
+      margin-top: 14px;
+    }
+    @media (max-width: 980px) {
+      .layout, .two-col, .mini-grid { grid-template-columns: 1fr; }
+      .panel { position: static; }
+    }
+  </style>
 </head>
 <body>
-  <header class="topbar">
-    <div>
-      <p class="eyebrow">Earl of March Secondary School</p>
-      <h1>Grade 9 Earth & Space Science Review</h1>
-      <p class="subtitle">A focused English review site for the SNC1W astronomy unit, built from the teacher PDF folder.</p>
-    </div>
-    <nav class="toplinks" aria-label="Main sections">
-      <a href="mindmap.html">Mind Map</a>
-      <a href="#knowledge">Knowledge</a>
-      <a href="#pdfs">Teacher PDFs</a>
-      <a href="#quiz">Quiz Practice</a>
-    </nav>
-  </header>
+  <div class="page">
+    <section class="hero">
+      <h1>Electrostatics Unit Test Review</h1>
+      <p>
+        This page is built from your updated review PDFs and aimed at one goal:
+        help you predict the teacher-style unit test and push for a <strong>Level 4+</strong>.
+        It focuses on the ideas students confuse most often, uses comparison tables, and connects electrostatics to real life.
+      </p>
+      <div class="badge-row">
+        <span class="badge">Target: 4+</span>
+        <span class="badge">Key skill: explain with electron movement</span>
+        <span class="badge">Most testable: friction, contact, induction, grounding</span>
+        <a class="pill-link" href="electroscope-history.html">Open Electroscope History</a>
+        <a class="pill-link" href="mistakes.html">Open Common Mistakes</a>
+        <a class="pill-link" href="quiz.html">Open 2 Mock Exams</a>
+      </div>
+    </section>
 
-  <main>
-    <section class="study-grid" id="knowledge">
+    <div class="layout">
       <aside class="panel">
-        <h2>Unit Topics</h2>
-        <p class="muted">Select a topic, read the must-know points, then use the connected teacher PDFs.</p>
-        <div class="topic-list" id="topicList"></div>
+        <h2>Study Map</h2>
+        <p>Best order for fast improvement: charge basics, law of charges, electron movement, charging methods, electrostatic series, then real-life safety questions.</p>
+        <div class="nav-list">
+          <a class="nav-link" href="#must-know">Must-Know Ideas</a>
+          <a class="nav-link" href="#compare">Confusing Concepts Table</a>
+          <a class="nav-link" href="#examples">Real-Life Examples</a>
+          <a class="nav-link" href="#short-answer">Short Answer Formula</a>
+          <a class="nav-link" href="electroscope-history.html">Electroscope History</a>
+          <a class="nav-link" href="mistakes.html">Teacher Trap Questions</a>
+          <a class="nav-link" href="#pdfs">Teacher PDFs</a>
+          <a class="nav-link" href="quiz.html">Mock Exam A and B</a>
+        </div>
+
+        <div class="box" style="margin-top:16px;">
+          <h3>4+ Checklist</h3>
+          <div class="checklist">
+            <div class="check">I can state the <strong>law of electric charges</strong>.</div>
+            <div class="check">I remember that <strong>only electrons move</strong>.</div>
+            <div class="check">I can tell <strong>friction</strong>, <strong>contact</strong>, and <strong>induction</strong> apart.</div>
+            <div class="check">I can explain why a neutral object can still be <strong>attracted</strong>.</div>
+            <div class="check">I can use the <strong>electrostatic series</strong> to predict who gains or loses electrons.</div>
+            <div class="check">I can answer safety examples like the <strong>gasoline truck chain</strong>.</div>
+          </div>
+        </div>
       </aside>
 
-      <section class="panel topic-panel" id="topicPanel" aria-live="polite"></section>
-    </section>
+      <main class="content">
+        <section class="card anchor" id="must-know">
+          <span class="eyebrow">Core Review</span>
+          <h2>Must-Know Ideas From This Unit</h2>
+          <div class="two-col">
+            <div class="box">
+              <h3>Big Ideas</h3>
+              <ul class="clean">
+                <li><strong>Static electricity</strong> is charge that builds up on the surface of an object.</li>
+                <li><strong>Electrons move</strong>; protons stay in the nucleus. This is one of the most important test ideas.</li>
+                <li><strong>Like charges repel</strong> and <strong>opposite charges attract</strong>.</li>
+                <li>A neutral object has the same number of protons and electrons.</li>
+                <li>An object becomes <strong>negative</strong> when it gains electrons.</li>
+                <li>An object becomes <strong>positive</strong> when it loses electrons.</li>
+                <li><strong>Conductors</strong> let electrons move easily. <strong>Insulators</strong> do not.</li>
+                <li><strong>Induction</strong> can cause a temporary separation of charge without touching.</li>
+                <li><strong>Grounding</strong> lets extra electrons move to Earth or from Earth to remove charge buildup.</li>
+              </ul>
+            </div>
+            <div class="box">
+              <h3>Most Likely Teacher Questions</h3>
+              <ul class="clean">
+                <li>Why does a charged balloon stick to a wall?</li>
+                <li>Why can a charged rod attract a neutral pith ball?</li>
+                <li>Which way do electrons move during charging by contact?</li>
+                <li>How do you read the electrostatic series?</li>
+                <li>Why is static electricity sometimes dangerous?</li>
+                <li>Why does a person get a shock after walking on carpet?</li>
+                <li>Why would a gasoline truck drag a grounding chain?</li>
+              </ul>
+            </div>
+          </div>
+          <div class="callout-good" style="margin-top:16px;">
+            Strong test answers usually include these words: <strong>electrons</strong>, <strong>attract</strong>, <strong>repel</strong>, <strong>neutral</strong>, <strong>temporary charge separation</strong>, <strong>contact</strong>, <strong>induction</strong>, and <strong>grounding</strong>.
+          </div>
+        </section>
 
-    <section class="panel" id="pdfs">
-      <div class="section-head">
-        <div>
-          <p class="eyebrow">Teacher Materials</p>
-          <h2>PDF Links From the Review Folder</h2>
-        </div>
-        <p class="muted">Open these beside the website when you want to check teacher wording or diagrams.</p>
-      </div>
-      <div class="pdf-grid" id="pdfGrid"></div>
-    </section>
+        <section class="card anchor" id="compare">
+          <span class="eyebrow">Comparison Tables</span>
+          <h2>Concepts Students Mix Up</h2>
+          <div class="box">
+            <h3>High-Value Comparison Table</h3>
+            <table>
+              <thead>
+                <tr>
+                  <th>Concept</th>
+                  <th>What It Means</th>
+                  <th>What Moves?</th>
+                  <th>Easy Test Clue</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Neutral</strong></td>
+                  <td>Equal numbers of protons and electrons</td>
+                  <td>No extra net charge</td>
+                  <td>Neutral does <span class="accent">not</span> mean “no charges at all”</td>
+                </tr>
+                <tr>
+                  <td><strong>Positive object</strong></td>
+                  <td>Has lost electrons</td>
+                  <td>Electrons moved away</td>
+                  <td>Positive means electron shortage</td>
+                </tr>
+                <tr>
+                  <td><strong>Negative object</strong></td>
+                  <td>Has gained electrons</td>
+                  <td>Electrons moved onto it</td>
+                  <td>Negative means extra electrons</td>
+                </tr>
+                <tr>
+                  <td><strong>Conductor</strong></td>
+                  <td>Electrons move easily through it</td>
+                  <td>Electrons can spread out</td>
+                  <td>Usually metals</td>
+                </tr>
+                <tr>
+                  <td><strong>Insulator</strong></td>
+                  <td>Electrons do not move easily</td>
+                  <td>Very little electron movement</td>
+                  <td>Rubber, plastic, many fabrics</td>
+                </tr>
+                <tr>
+                  <td><strong>Charging by friction</strong></td>
+                  <td>Rubbing transfers electrons between materials</td>
+                  <td>Electrons move from one object to the other</td>
+                  <td>Balloon on hair, shoes on carpet</td>
+                </tr>
+                <tr>
+                  <td><strong>Charging by contact / conduction</strong></td>
+                  <td>A charged object touches another object</td>
+                  <td>Electrons move during contact</td>
+                  <td>Touching is required</td>
+                </tr>
+                <tr>
+                  <td><strong>Charging by induction</strong></td>
+                  <td>A nearby charge causes charges to rearrange without touching</td>
+                  <td>Electrons shift position</td>
+                  <td>No touching, often temporary</td>
+                </tr>
+                <tr>
+                  <td><strong>Grounding</strong></td>
+                  <td>Charge flows to or from Earth</td>
+                  <td>Extra electrons leave or enter</td>
+                  <td>Used for safety</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
 
-    <section class="panel quiz-panel" id="quiz">
-      <div class="section-head">
-        <div>
-          <p class="eyebrow">Practice For 4+</p>
-          <h2>Three-Level Quiz Bank</h2>
-        </div>
-        <p class="muted">Each level includes 20 multiple-choice questions, figure analysis, 5 short answers, and 2 concept definitions.</p>
-      </div>
+          <div class="mini-grid" style="margin-top:16px;">
+            <div class="box">
+              <h3>Attract vs Repel</h3>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Situation</th>
+                    <th>Result</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Positive + negative</td>
+                    <td>Attract</td>
+                  </tr>
+                  <tr>
+                    <td>Positive + positive</td>
+                    <td>Repel</td>
+                  </tr>
+                  <tr>
+                    <td>Negative + negative</td>
+                    <td>Repel</td>
+                  </tr>
+                  <tr>
+                    <td>Charged + neutral</td>
+                    <td>Often attract because of induction</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="box">
+              <h3>Temporary vs Permanent Charge</h3>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>What Happens</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Induced temporary charge</td>
+                    <td>Charges separate only while the charged object is nearby</td>
+                  </tr>
+                  <tr>
+                    <td>Net charge after friction/contact</td>
+                    <td>The object actually gains or loses electrons</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
 
-      <div class="quiz-tabs" id="quizTabs" role="tablist" aria-label="Quiz difficulty"></div>
-      <div class="quiz-meta" id="quizMeta"></div>
-      <div class="quiz-actions">
-        <button id="checkQuiz" type="button">Check Multiple Choice</button>
-        <button id="resetQuiz" type="button">Reset Current Quiz</button>
-      </div>
-      <div class="score" id="scoreBox" hidden></div>
-      <div id="quizContent"></div>
-    </section>
-  </main>
+          <div class="callout-warn" style="margin-top:16px;">
+            Common mistake: saying a positive rod gives positive charges to another object. In this unit, the safe answer is usually: <strong>electrons move</strong>, not positive charges.
+          </div>
+        </section>
 
-  <script src="app.js"></script>
+        <section class="card">
+          <span class="eyebrow">Electrostatic Series</span>
+          <h2>How To Read The Electrostatic Series</h2>
+          <div class="two-col">
+            <div class="box">
+              <h3>Reading Rule</h3>
+              <ul class="clean">
+                <li>The material with the <strong>stronger attraction for electrons</strong> pulls electrons from the other material.</li>
+                <li>The material that <strong>gains electrons</strong> becomes <strong>negative</strong>.</li>
+                <li>The material that <strong>loses electrons</strong> becomes <strong>positive</strong>.</li>
+                <li>The farther apart two materials are on the series, the stronger the charging effect is often expected to be.</li>
+              </ul>
+            </div>
+            <div class="box">
+              <h3>Example</h3>
+              <p>
+                If vinyl attracts electrons more strongly than silk, then electrons move
+                <strong>from silk to vinyl</strong>. Vinyl becomes <strong>negative</strong>.
+                Silk becomes <strong>positive</strong>. Because the charges are opposite,
+                the two materials will <strong>attract</strong>.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section class="card anchor" id="examples">
+          <span class="eyebrow">Real Life</span>
+          <h2>Real-Life Examples You Can Use In Short Answers</h2>
+          <div class="mini-grid">
+            <div class="box">
+              <h3>Balloon Sticking to a Wall</h3>
+              <p>Rubbing the balloon on hair gives the balloon extra electrons, so it becomes negative. When it comes near the wall, electrons in the wall are pushed slightly away. The near side of the wall becomes relatively positive, so the balloon is attracted.</p>
+            </div>
+            <div class="box">
+              <h3>Shock After Walking on Carpet</h3>
+              <p>Friction moves electrons between your shoes, the carpet, and your body. When you touch a metal doorknob, the charge discharges quickly through one point, which is why you feel a small shock.</p>
+            </div>
+            <div class="box">
+              <h3>Dust on a TV or Computer Screen</h3>
+              <p>A charged screen can attract neutral dust particles by induction. The charges in the dust shift slightly, and the dust is pulled toward the screen.</p>
+            </div>
+            <div class="box">
+              <h3>Water Bending Toward a Charged Rod</h3>
+              <p>Water molecules have uneven charge distribution. A charged rod makes the charges in the water line up more, so the stream is attracted and bends.</p>
+            </div>
+            <div class="box">
+              <h3>Why Hair Stands Up</h3>
+              <p>When hairs get the same charge, they repel each other. That is why they spread apart and stand up after static charging.</p>
+            </div>
+            <div class="box">
+              <h3>Gasoline Truck Grounding Chain</h3>
+              <p>A fuel truck can build up static charge while moving and while fuel flows. The grounding chain lets extra charge move safely to Earth so a spark does not form. This matters because a spark near gasoline vapour could start a fire or explosion.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="card anchor" id="short-answer">
+          <span class="eyebrow">Writing Help</span>
+          <h2>Short Answer Formula That Sounds Like a Strong Science Answer</h2>
+          <div class="formula-list">
+            <div class="formula"><strong>Formula 1:</strong> name the charge + explain electron movement + state the result</div>
+            <div class="formula"><strong>Formula 2:</strong> identify the charging method + say whether touching happens + explain why attraction or repulsion occurs</div>
+            <div class="formula"><strong>Formula 3:</strong> use the electrostatic series + say who gains electrons + say who becomes positive/negative</div>
+          </div>
+          <div class="two-col" style="margin-top:16px;">
+            <div class="box">
+              <h3>Model Answer: Balloon and Wall</h3>
+              <p>A balloon rubbed on hair gains electrons and becomes negatively charged. When it comes near a neutral wall, the electrons in the wall shift slightly away, so the near surface becomes relatively positive. Because opposite charges attract, the balloon sticks to the wall.</p>
+            </div>
+            <div class="box">
+              <h3>Model Answer: Gas Truck Chain</h3>
+              <p>The chain grounds the truck. Extra electrons can move to Earth, which prevents a buildup of static charge. This reduces the chance of a spark, and that is important because gasoline vapour is flammable.</p>
+              <svg class="diagram" viewBox="0 0 520 250" xmlns="http://www.w3.org/2000/svg" aria-label="Gas truck with negative charge and grounding chain">
+                <rect width="520" height="250" fill="#ffffff"/>
+                <rect x="0" y="205" width="520" height="45" fill="#e9dfcf"/>
+                <text x="430" y="232" font-size="18" fill="#7c6649" font-family="Arial">Ground</text>
+
+                <rect x="90" y="95" width="200" height="65" rx="18" fill="#d9e6f3" stroke="#4c6a85" stroke-width="3"/>
+                <rect x="295" y="115" width="85" height="45" rx="8" fill="#d9e6f3" stroke="#4c6a85" stroke-width="3"/>
+                <rect x="310" y="92" width="42" height="28" rx="6" fill="#d9e6f3" stroke="#4c6a85" stroke-width="3"/>
+                <circle cx="155" cy="184" r="24" fill="#333"/>
+                <circle cx="330" cy="184" r="24" fill="#333"/>
+                <circle cx="155" cy="184" r="10" fill="#bbb"/>
+                <circle cx="330" cy="184" r="10" fill="#bbb"/>
+                <line x1="95" y1="160" x2="372" y2="160" stroke="#4c6a85" stroke-width="4"/>
+                <line x1="90" y1="160" x2="65" y2="185" stroke="#4c6a85" stroke-width="4"/>
+                <line x1="380" y1="160" x2="410" y2="160" stroke="#4c6a85" stroke-width="4"/>
+
+                <text x="132" y="125" font-size="24" fill="#4569b3" font-family="Arial">-</text>
+                <text x="175" y="128" font-size="24" fill="#4569b3" font-family="Arial">-</text>
+                <text x="218" y="124" font-size="24" fill="#4569b3" font-family="Arial">-</text>
+                <text x="310" y="145" font-size="24" fill="#4569b3" font-family="Arial">-</text>
+                <text x="345" y="145" font-size="24" fill="#4569b3" font-family="Arial">-</text>
+
+                <line x1="345" y1="183" x2="360" y2="214" stroke="#888" stroke-width="4" stroke-dasharray="6 5"/>
+                <line x1="360" y1="214" x2="374" y2="205" stroke="#888" stroke-width="4" stroke-dasharray="6 5"/>
+                <text x="318" y="198" font-size="15" fill="#666" font-family="Arial">grounding chain</text>
+
+                <line x1="408" y1="70" x2="408" y2="115" stroke="#4569b3" stroke-width="3"/>
+                <polygon points="408,130 401,116 415,116" fill="#4569b3"/>
+                <line x1="430" y1="95" x2="430" y2="140" stroke="#4569b3" stroke-width="3"/>
+                <polygon points="430,155 423,141 437,141" fill="#4569b3"/>
+                <line x1="452" y1="120" x2="452" y2="165" stroke="#4569b3" stroke-width="3"/>
+                <polygon points="452,180 445,166 459,166" fill="#4569b3"/>
+                <text x="394" y="58" font-size="16" fill="#4569b3" font-family="Arial">electrons moving to Earth</text>
+              </svg>
+            </div>
+          </div>
+        </section>
+
+        <section class="card">
+          <span class="eyebrow">Prediction Help</span>
+          <h2>What Your Teacher Is Most Likely To Test</h2>
+          <ul class="clean">
+            <li>Definition questions: static electricity, conductor, insulator, grounding, induction.</li>
+            <li>Charge questions: neutral, net positive, net negative, and whether electrons are added or removed.</li>
+            <li>Diagram reasoning: what happens when a charged rod comes near a neutral object.</li>
+            <li>Comparison questions: friction vs contact vs induction.</li>
+            <li>Application questions: balloon and wall, carpet shock, fuel truck chain, dust attraction.</li>
+            <li>Electrostatic series questions: who attracts electrons more strongly, who becomes positive, who becomes negative.</li>
+          </ul>
+          <p class="tip" style="margin-top:14px;">If you want only the hardest and most confusing teacher-style questions, open <a href="mistakes.html" style="color: var(--accent); font-weight: 700;">mistakes.html</a>.</p>
+        </section>
+
+        <section class="card anchor" id="pdfs">
+          <span class="eyebrow">Teacher Materials</span>
+          <h2>PDFs In Your Review Folder</h2>
+          <div class="pdf-list">
+            <a class="pdf-link" href="1.0k%20What%20is%20static%20electricity.pdf" target="_blank" rel="noopener noreferrer">1.0k What is static electricity.pdf</a>
+            <a class="pdf-link" href="1.1k%20Activity-Charge%20It.pdf" target="_blank" rel="noopener noreferrer">1.1k Activity-Charge It.pdf</a>
+            <a class="pdf-link" href="1.2%20Static%20Charge%20Detective.pdf" target="_blank" rel="noopener noreferrer">1.2 Static Charge Detective.pdf</a>
+            <a class="pdf-link" href="1.3%20Charged%20and%20Neutral%20Atoms%20%28w.s.%29.pdf" target="_blank" rel="noopener noreferrer">1.3 Charged and Neutral Atoms (w.s.).pdf</a>
+            <a class="pdf-link" href="2.0%20Charging%20by%20Contact%20and%20Induction%20%28note%29.pdf" target="_blank" rel="noopener noreferrer">2.0 Charging by Contact and Induction (note).pdf</a>
+            <a class="pdf-link" href="2.3%20Charging%20by%20Conduction%20%26%20Induction%20Practice.pdf" target="_blank" rel="noopener noreferrer">2.3 Charging by Conduction &amp; Induction Practice.pdf</a>
+            <a class="pdf-link" href="2.3k%20Exploring%20Static%20Electricity.pdf" target="_blank" rel="noopener noreferrer">2.3k Exploring Static Electricity.pdf</a>
+            <a class="pdf-link" href="2.4%20Electrostatics%20Review%20Questions.pdf" target="_blank" rel="noopener noreferrer">2.4 Electrostatics Review Questions.pdf</a>
+          </div>
+          <p class="tip" style="margin-top:14px;">Use this page for fast review, then do the mock exams in <a href="quiz.html" style="color: var(--accent); font-weight: 700;">quiz.html</a> to test whether you can explain ideas in teacher-style wording.</p>
+        </section>
+      </main>
+    </div>
+  </div>
 </body>
 </html>

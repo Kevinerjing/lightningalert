@@ -3,18 +3,592 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta http-equiv="refresh" content="0; url=index.html#quiz" />
-  <title>EOM Astronomy Quiz Practice</title>
-  <link rel="stylesheet" href="styles.css" />
+  <title>Electrostatics Mock Exams</title>
+  <style>
+    :root {
+      --paper: rgba(255, 251, 245, 0.94);
+      --card: #fffdfa;
+      --ink: #1d2933;
+      --muted: #5f6d76;
+      --line: #dccfbe;
+      --accent: #1f6f8b;
+      --accent-dark: #184f63;
+      --good: #176d49;
+      --warn: #9a6500;
+      --bad: #a14637;
+      --shadow: 0 18px 40px rgba(68, 50, 28, 0.12);
+      --radius: 24px;
+      --radius-sm: 18px;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Arial, sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at top left, rgba(31, 111, 139, 0.14), transparent 28%),
+        radial-gradient(circle at top right, rgba(197, 84, 60, 0.12), transparent 24%),
+        linear-gradient(180deg, #f7f2ea 0%, #f3ede4 50%, #f8f4ed 100%);
+    }
+    .page {
+      max-width: 1320px;
+      margin: 0 auto;
+      padding: 24px;
+    }
+    .hero, .sidebar, .main {
+      background: var(--paper);
+      border: 1px solid rgba(220, 207, 190, 0.92);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(8px);
+    }
+    .hero {
+      border-radius: 30px;
+      padding: 30px;
+      margin-bottom: 22px;
+      background: linear-gradient(135deg, rgba(31, 111, 139, 0.96), rgba(48, 88, 126, 0.94));
+      color: white;
+    }
+    .hero h1 {
+      margin: 0 0 10px;
+      font-size: clamp(30px, 4vw, 48px);
+      line-height: 1.05;
+    }
+    .hero p {
+      margin: 0;
+      max-width: 940px;
+      line-height: 1.7;
+      color: rgba(255, 255, 255, 0.94);
+    }
+    .hero-row, .tabs, .pill-row, .button-row {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .hero-row { margin-top: 16px; }
+    .hero-link, .badge {
+      display: inline-flex;
+      align-items: center;
+      border-radius: 999px;
+      padding: 9px 12px;
+      font-size: 13px;
+      font-weight: 700;
+    }
+    .hero-link {
+      text-decoration: none;
+      color: white;
+      background: rgba(255, 255, 255, 0.14);
+      border: 1px solid rgba(255, 255, 255, 0.22);
+    }
+    .badge {
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    .layout {
+      display: grid;
+      grid-template-columns: 320px 1fr;
+      gap: 22px;
+      align-items: start;
+    }
+    .sidebar, .main {
+      border-radius: var(--radius);
+    }
+    .sidebar {
+      padding: 18px;
+      position: sticky;
+      top: 18px;
+    }
+    .main { overflow: hidden; }
+    .main-head {
+      padding: 24px;
+      border-bottom: 1px solid var(--line);
+      background: linear-gradient(180deg, rgba(255,255,255,0.4), rgba(255,255,255,0.14));
+    }
+    .content {
+      padding: 24px;
+      display: grid;
+      gap: 18px;
+    }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-sm);
+      padding: 18px;
+    }
+    h2, h3 { margin: 0 0 12px; }
+    p, li, td, th { line-height: 1.7; }
+    .muted { color: var(--muted); }
+    .tab-btn, button {
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 11px 14px;
+      background: white;
+      font: inherit;
+      cursor: pointer;
+    }
+    .tab-btn.active {
+      background: #eef6f7;
+      border-color: rgba(31, 111, 139, 0.45);
+      color: var(--accent-dark);
+      font-weight: 700;
+    }
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: white;
+      border: 1px solid var(--line);
+      font-size: 13px;
+      font-weight: 700;
+    }
+    .question {
+      padding: 16px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: white;
+      margin-bottom: 14px;
+    }
+    .meta {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--muted);
+      margin-bottom: 8px;
+      font-weight: 800;
+    }
+    .question-title {
+      margin: 0 0 12px;
+      font-weight: 700;
+    }
+    .options {
+      display: grid;
+      gap: 10px;
+    }
+    .option {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 12px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: white;
+    }
+    .option.correct {
+      background: #edf9f2;
+      border-color: rgba(23, 109, 73, 0.42);
+    }
+    .option.incorrect {
+      background: #fff2ef;
+      border-color: rgba(161, 70, 55, 0.35);
+    }
+    textarea {
+      width: 100%;
+      min-height: 96px;
+      resize: vertical;
+      font: inherit;
+      padding: 12px;
+      border-radius: 14px;
+      border: 1px solid var(--line);
+      background: white;
+    }
+    .hidden { display: none; }
+    .key-item {
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 14px;
+      background: white;
+    }
+    .good { color: var(--good); font-weight: 700; }
+    .warn { color: var(--warn); font-weight: 700; }
+    .bad { color: var(--bad); font-weight: 700; }
+    details {
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: white;
+      overflow: hidden;
+    }
+    summary {
+      cursor: pointer;
+      padding: 13px 15px;
+      font-weight: 700;
+    }
+    details p, details ul {
+      margin: 0;
+      padding: 0 15px 15px;
+    }
+    @media (max-width: 980px) {
+      .layout { grid-template-columns: 1fr; }
+      .sidebar { position: static; }
+    }
+  </style>
 </head>
 <body>
-  <main>
-    <section class="panel">
-      <p class="eyebrow">Quiz Practice</p>
-      <h1>EOM Astronomy Quiz Practice</h1>
-      <p class="muted">The quiz bank is part of the main review site.</p>
-      <p><a class="pdf-link" href="index.html#quiz">Open the three-level quiz bank</a></p>
+  <div class="page">
+    <section class="hero">
+      <h1>Electrostatics Mock Exams</h1>
+      <p>
+        Two teacher-style practice exams based on your review PDFs. Each paper includes
+        true/false, multiple choice, and short answer. The answer key is built in so you can
+        self-check right away.
+      </p>
+      <div class="hero-row">
+        <span class="badge">2 Mock Exams</span>
+        <span class="badge">True / False</span>
+        <span class="badge">Multiple Choice</span>
+        <span class="badge">Short Answer</span>
+        <a class="hero-link" href="mistakes.html">Teacher Trap Questions</a>
+        <a class="hero-link" href="index.html">Back to Review Notes</a>
+      </div>
     </section>
-  </main>
+
+    <div class="layout">
+      <aside class="sidebar">
+        <h2>Exam Sets</h2>
+        <p class="muted">Do Exam A first. If you can explain the short answers without guessing, move to Exam B.</p>
+        <div class="tabs" id="tabs"></div>
+        <div class="pill-row" style="margin-top:16px;">
+          <span class="pill" id="tfPill">TF: 0</span>
+          <span class="pill" id="mcPill">MC: 0</span>
+          <span class="pill" id="saPill">SA: 0</span>
+        </div>
+        <div class="card" style="margin-top:18px;">
+          <h3>4+ Tip</h3>
+          <p class="muted">For short answers, do not stop at naming the concept. Explain what happens to <strong>electrons</strong> and why that causes <strong>attraction</strong>, <strong>repulsion</strong>, or <strong>discharge</strong>.</p>
+        </div>
+        <div class="card" style="margin-top:18px;">
+          <h3>Key Phrases</h3>
+          <ul>
+            <li>only electrons move</li>
+            <li>like charges repel</li>
+            <li>opposite charges attract</li>
+            <li>temporary charge separation</li>
+            <li>grounding removes extra charge</li>
+          </ul>
+        </div>
+      </aside>
+
+      <main class="main">
+        <div class="main-head">
+          <div class="meta" id="examTag">Mock Exam</div>
+          <h2 id="examTitle">Exam A</h2>
+          <p id="examSummary" class="muted"></p>
+          <div class="button-row" style="margin-top:14px;">
+            <button id="submitBtn">Show Answers</button>
+            <button id="resetBtn">Reset This Exam</button>
+          </div>
+        </div>
+
+        <div class="content">
+          <section class="card">
+            <h3>True / False</h3>
+            <div id="tfContainer"></div>
+          </section>
+
+          <section class="card">
+            <h3>Multiple Choice</h3>
+            <div id="mcContainer"></div>
+          </section>
+
+          <section class="card">
+            <h3>Short Answer</h3>
+            <div id="saContainer"></div>
+          </section>
+
+          <section class="card hidden" id="resultsCard">
+            <h3>Answer Key</h3>
+            <p id="scoreLine"></p>
+            <div id="answerKey"></div>
+          </section>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script>
+    const exams = [
+      {
+        id: "exam-a",
+        tag: "Mock Exam A",
+        title: "Exam A - Core Concepts",
+        summary: "Focuses on basic definitions, charge movement, and standard classroom examples.",
+        tf: [
+          { q: "Static electricity is a buildup of charge on the surface of an object.", answer: true, why: "That matches the unit definition." },
+          { q: "Protons move from one object to another during charging by friction.", answer: false, why: "In this unit, only electrons move." },
+          { q: "Two negatively charged objects repel each other.", answer: true, why: "Like charges repel." },
+          { q: "A neutral object has no protons and no electrons.", answer: false, why: "Neutral means equal numbers of protons and electrons." },
+          { q: "A conductor allows electrons to move easily.", answer: true, why: "That is the definition of a conductor." },
+          { q: "Charging by induction requires two objects to touch.", answer: false, why: "Induction happens without touching." },
+          { q: "An object that gains electrons becomes positively charged.", answer: false, why: "Gaining electrons makes an object negative." },
+          { q: "Grounding can reduce the danger caused by static charge buildup.", answer: true, why: "Grounding lets excess charge move safely to Earth." }
+        ],
+        mc: [
+          { q: "Which subatomic particle is negatively charged?", options: ["Proton", "Neutron", "Electron", "Nucleus"], answer: 2, why: "Electrons have a negative charge." },
+          { q: "What usually happens when a negatively charged rod touches a neutral metal sphere?", options: ["Electrons move from the sphere to the rod", "Electrons move from the rod to the sphere", "Protons move to the sphere", "Nothing can happen"], answer: 1, why: "During contact, electrons move from the negative rod to the neutral sphere." },
+          { q: "Which is the best example of charging by friction?", options: ["A charged rod near a pith ball without touching", "A balloon rubbed on hair", "Touching a sphere with a charged rod", "Connecting an object to ground"], answer: 1, why: "Rubbing transfers electrons by friction." },
+          { q: "A charged balloon sticks to a wall mainly because:", options: ["The wall becomes permanently negative", "The wall has no charges", "Charges in the wall shift by induction", "Protons jump to the balloon"], answer: 2, why: "The balloon induces a temporary charge separation in the wall." },
+          { q: "Which material type does not let electrons move easily?", options: ["Conductor", "Insulator", "Metal", "Ground wire"], answer: 1, why: "Insulators do not let electrons move easily." },
+          { q: "If an object loses electrons, it becomes:", options: ["Neutral", "Negative", "Positive", "Grounded only"], answer: 2, why: "Losing electrons leaves more protons than electrons." },
+          { q: "What does the electrostatic series help you predict?", options: ["Atomic mass", "Which material gains or loses electrons", "Boiling point", "Number of neutrons"], answer: 1, why: "It helps predict electron transfer between materials." },
+          { q: "When you walk across carpet and then touch a doorknob, the shock happens because:", options: ["Charge discharges quickly through one point", "The doorknob becomes an insulator", "Neutrons move into your hand", "Your hand becomes neutral before contact"], answer: 0, why: "The stored charge discharges quickly through a small area." }
+        ],
+        sa: [
+          { q: "Explain the law of electric charges.", answer: "Like charges repel and opposite charges attract." },
+          { q: "Compare charging by contact and charging by induction.", answer: "Charging by contact happens when a charged object touches another object and electrons move during the touch. Charging by induction happens when a charged object comes close without touching and causes charges in the other object to shift position." },
+          { q: "Why can a charged object attract a neutral object?", answer: "A charged object can cause charges in the neutral object to rearrange. This temporary charge separation makes the near side oppositely charged, so attraction occurs." },
+          { q: "Use electron movement to explain why a balloon rubbed on hair becomes charged.", answer: "Rubbing causes electrons to transfer between the hair and the balloon. The balloon gains electrons and becomes negatively charged, while the hair loses electrons and becomes positively charged." },
+          { q: "Why do gasoline trucks sometimes drag a grounding chain behind them?", answer: "The chain grounds the truck and allows extra charge to move to Earth. This prevents a spark from static buildup, which is important because gasoline vapour can catch fire." }
+        ]
+      },
+      {
+        id: "exam-b",
+        tag: "Mock Exam B",
+        title: "Exam B - Applied Reasoning",
+        summary: "A slightly harder set with electrostatic series reasoning, conductors vs insulators, and real-life safety applications.",
+        tf: [
+          { q: "An object can be neutral and still contain charged particles.", answer: true, why: "Neutral means the positive and negative charges balance." },
+          { q: "A positively charged object has extra electrons.", answer: false, why: "A positive object has lost electrons." },
+          { q: "Induction often creates a temporary charge separation.", answer: true, why: "That is a key feature of induction." },
+          { q: "Electrons move more easily through conductors than through insulators.", answer: true, why: "That is the main difference." },
+          { q: "Opposite charges repel one another.", answer: false, why: "Opposite charges attract." },
+          { q: "If two materials are rubbed together, one may gain electrons and the other may lose electrons.", answer: true, why: "That is charging by friction." },
+          { q: "Grounding means giving an object more and more charge.", answer: false, why: "Grounding reduces or removes excess charge." },
+          { q: "A neutral pith ball can be attracted to a charged rod without touching it.", answer: true, why: "This can happen by induction." }
+        ],
+        mc: [
+          { q: "Which answer best describes a neutral object?", options: ["It has no electrons", "It has equal numbers of protons and electrons", "It has more protons than electrons", "It repels everything"], answer: 1, why: "Neutral means balanced positive and negative charges." },
+          { q: "If vinyl attracts electrons more strongly than silk, electrons move:", options: ["From vinyl to silk", "From silk to vinyl", "From Earth to silk", "Nowhere"], answer: 1, why: "The stronger electron attractor pulls electrons from the other material." },
+          { q: "After the transfer in the previous question, vinyl becomes:", options: ["Positive", "Negative", "Neutral", "Insulating"], answer: 1, why: "Gaining electrons makes vinyl negative." },
+          { q: "A charged screen attracting dust is best explained by:", options: ["Nuclear force", "Induction", "Photosynthesis", "Chemical bonding"], answer: 1, why: "The charged screen polarizes nearby dust particles." },
+          { q: "Which situation is the best example of grounding?", options: ["Rubbing a rod with wool", "Touching a charged object to Earth with a wire", "Bringing a balloon near a wall", "Watching dust stick to a monitor"], answer: 1, why: "Grounding provides a path for electrons to flow to or from Earth." },
+          { q: "Why does hair on your arm rise near a charged balloon?", options: ["The hairs melt", "Each hair gets the same type of induced charge and they repel", "Protons leave the arm", "The balloon becomes neutral"], answer: 1, why: "Nearby charges shift, and similarly charged hairs repel one another." },
+          { q: "If a positively charged rod touches a neutral conductor, electrons move:", options: ["From the rod to the conductor", "From the conductor to the rod", "From the nucleus to the rod", "Only inside the rod"], answer: 1, why: "A positive rod attracts electrons from the neutral conductor." },
+          { q: "Which answer best explains why static sparks can be dangerous near fuel?", options: ["Sparks cool the fuel", "A spark is a fast discharge that can ignite vapour", "Fuel removes all electrons", "Grounding makes bigger sparks"], answer: 1, why: "A static spark can ignite flammable vapour." }
+        ],
+        sa: [
+          { q: "What is the difference between a conductor and an insulator? Give one example of each.", answer: "A conductor allows electrons to move easily, while an insulator does not. A metal object is a common conductor, and rubber or plastic is a common insulator." },
+          { q: "Use the electrostatic series to explain how two rubbed materials become oppositely charged.", answer: "The material with the stronger attraction for electrons pulls electrons from the other material. The object that gains electrons becomes negative, and the object that loses electrons becomes positive." },
+          { q: "Explain why a neutral wall can attract a negatively charged balloon but does not stay permanently charged afterward.", answer: "The balloon repels some electrons in the wall, causing a temporary charge separation by induction. The near surface becomes relatively positive and attracts the balloon. When the balloon moves away, the charges in the wall spread out again, so the wall returns to neutral overall." },
+          { q: "A student says, 'The positive charges moved from the rod into the sphere.' Fix this statement.", answer: "A better statement is that electrons moved. In this unit, protons stay in the nucleus, so the change in charge is explained by electrons moving from one object to another or shifting position." },
+          { q: "Why can static electricity be dangerous in everyday life? Give one example and explain the science.", answer: "Static electricity can be dangerous because a sudden discharge can create a spark. For example, near gasoline vapour, a spark could start a fire or explosion. Grounding is used to reduce this risk by letting excess charge flow safely away." }
+        ]
+      },
+      {
+        id: "exam-c",
+        tag: "Mock Exam C",
+        title: "Exam C - Trap Questions",
+        summary: "A harder set focused on common mistakes: induction vs conduction vs grounding, overall neutral vs locally separated charge, electroscope reasoning, and questions where the electron direction is easy to mix up.",
+        tf: [
+          { q: "If a charged rod is brought near an electroscope without touching it, the electroscope must end up permanently charged.", answer: false, why: "Without touching, induction can separate charge temporarily without giving the electroscope a permanent net charge." },
+          { q: "A neutral object can contain both positive and negative charges at the same time.", answer: true, why: "Neutral means the charges balance overall, not that charges are absent." },
+          { q: "If a positively charged rod is removed after non-contact induction, the leaves of the electroscope will usually stay separated because electrons were permanently transferred.", answer: false, why: "In simple induction without grounding, charges are rearranged, not permanently transferred." },
+          { q: "A charged rod touching an electroscope is always grounding.", answer: false, why: "Touching a charged rod is usually conduction or contact, not grounding." },
+          { q: "A finger touching an electroscope is often treated as grounding in classroom questions.", answer: true, why: "The body is a conductor and is usually assumed to be effectively connected to Earth." },
+          { q: "When a positively charged rod touches a neutral electroscope, electrons move from the electroscope to the rod.", answer: true, why: "A positive rod attracts electrons from the neutral electroscope." },
+          { q: "Two leaves of an electroscope separate because they end up with opposite charges.", answer: false, why: "They separate because they end up with the same type of charge and repel." },
+          { q: "A pith ball can be neutral overall while still having one side more negative than the other.", answer: true, why: "This is temporary charge separation by induction." }
+        ],
+        mc: [
+          { q: "A positively charged rod is brought close to, but does not touch, a neutral electroscope. Which statement is best?", options: ["Electrons move from the rod into the electroscope", "Protons move from the knob into the leaves", "Electrons shift upward in the electroscope and the leaves separate", "The electroscope becomes permanently positive"], answer: 2, why: "Induction causes charge separation inside the electroscope, with electrons moving toward the positive rod." },
+          { q: "After the positive rod in the previous question is taken away, what usually happens?", options: ["The leaves stay apart forever", "The leaves usually come back together because the charge was only rearranged", "The knob becomes more negative than before", "The electroscope becomes grounded automatically"], answer: 1, why: "If there was no touching and no grounding, the separated charges usually redistribute again." },
+          { q: "Which situation is definitely grounding?", options: ["A charged rod touches the knob", "A charged rod comes near the knob", "A wire connects the electroscope to Earth", "A balloon is rubbed on hair"], answer: 2, why: "Grounding means giving charge a path to or from Earth." },
+          { q: "A student says, 'The pith ball is negative because the side near the positive rod is negative.' What is the best correction?", options: ["Correct, the whole pith ball is negative", "Correct, because positive charges moved away", "The near side is negative, but the whole pith ball can still be neutral overall", "The pith ball has no charge particles at all"], answer: 2, why: "Induction can make one side relatively negative while the whole object remains neutral overall." },
+          { q: "A negatively charged rod touches a neutral electroscope. What happens to the electroscope?", options: ["It gains electrons and becomes negatively charged", "It loses electrons and becomes positively charged", "It stays neutral because only the rod changes", "Its leaves collapse because like charges attract"], answer: 0, why: "Electrons transfer from the negative rod into the neutral electroscope." },
+          { q: "Which comparison is most accurate?", options: ["Conduction and grounding are the same because electrons may move in the same direction", "They are different because conduction is charge transfer between objects, while grounding is charge transfer between an object and Earth", "Grounding happens only with positive charge", "Conduction never changes net charge"], answer: 1, why: "The direction of electron flow can look similar, but the second object is different: rod vs Earth." },
+          { q: "A finger touches an electroscope while a charged rod is nearby. In most classroom problems, the finger is acting as:", options: ["An insulator", "A source of protons", "A grounding path", "A negatively charged rod"], answer: 2, why: "The body is usually treated as a conductor connected to Earth." },
+          { q: "Which statement about the electroscope leaves is best?", options: ["They separate because one leaf is positive and the other is negative", "They separate because both leaves become similarly charged", "They separate because neutral leaves attract", "They separate only when protons move"], answer: 1, why: "Leaves separate when both have the same type of charge and repel." }
+        ],
+        sa: [
+          { q: "Explain why the leaves of an electroscope usually come back together after a charged rod is brought near without touching and then removed.", answer: "If the rod does not touch, the electroscope is charged by induction. The electrons are only rearranged, not permanently transferred. When the rod is removed, the attraction disappears, charge spreads out more evenly again, repulsion decreases, and the leaves usually come back together." },
+          { q: "Compare conduction and grounding. Why do students sometimes confuse them?", answer: "In both cases electrons may really move, and the direction of movement can even look similar. However, conduction is electron transfer between objects such as a rod and an electroscope, while grounding is electron transfer between an object and Earth." },
+          { q: "A positive rod is brought near a neutral pith ball. Explain why the near side becomes negative but the whole pith ball can still be neutral.", answer: "The positive rod attracts electrons within the pith ball toward the near side. This makes the near side relatively negative and the far side relatively positive. Since the pith ball did not gain or lose total electrons, it can still be neutral overall." },
+          { q: "Why is the statement 'the positive charges moved into the leaves' not a good explanation for an electroscope diagram?", answer: "In this unit, the better explanation is in terms of electrons moving or shifting. Protons stay in the nucleus, so the visible charging effects are explained by electron movement and charge separation." },
+          { q: "In a classroom diagram, a finger touches the electroscope while a charged rod is nearby. Explain why this is often treated as grounding, and give one case where that assumption may fail.", answer: "It is often treated as grounding because the human body is a conductor and is usually assumed to be connected to Earth. The assumption may fail if the person is insulated from the ground, such as standing on a strong insulating surface." }
+        ]
+      }
+    ];
+
+    const tabs = document.getElementById("tabs");
+    const examTag = document.getElementById("examTag");
+    const examTitle = document.getElementById("examTitle");
+    const examSummary = document.getElementById("examSummary");
+    const tfPill = document.getElementById("tfPill");
+    const mcPill = document.getElementById("mcPill");
+    const saPill = document.getElementById("saPill");
+    const tfContainer = document.getElementById("tfContainer");
+    const mcContainer = document.getElementById("mcContainer");
+    const saContainer = document.getElementById("saContainer");
+    const submitBtn = document.getElementById("submitBtn");
+    const resetBtn = document.getElementById("resetBtn");
+    const resultsCard = document.getElementById("resultsCard");
+    const scoreLine = document.getElementById("scoreLine");
+    const answerKey = document.getElementById("answerKey");
+
+    let activeExamId = exams[0].id;
+
+    function getActiveExam() {
+      return exams.find((exam) => exam.id === activeExamId);
+    }
+
+    function renderTabs() {
+      tabs.innerHTML = "";
+      exams.forEach((exam) => {
+        const btn = document.createElement("button");
+        btn.className = `tab-btn${exam.id === activeExamId ? " active" : ""}`;
+        btn.type = "button";
+        btn.textContent = exam.tag;
+        btn.addEventListener("click", () => {
+          activeExamId = exam.id;
+          renderAll();
+        });
+        tabs.appendChild(btn);
+      });
+    }
+
+    function renderTF(exam) {
+      tfContainer.innerHTML = exam.tf.map((item, index) => `
+        <div class="question" data-tf-index="${index}">
+          <div class="meta">True / False ${index + 1}</div>
+          <div class="question-title">${item.q}</div>
+          <div class="options">
+            <label class="option">
+              <input type="radio" name="tf-${exam.id}-${index}" value="true" />
+              <span>True</span>
+            </label>
+            <label class="option">
+              <input type="radio" name="tf-${exam.id}-${index}" value="false" />
+              <span>False</span>
+            </label>
+          </div>
+        </div>
+      `).join("");
+    }
+
+    function renderMC(exam) {
+      mcContainer.innerHTML = exam.mc.map((item, index) => `
+        <div class="question" data-mc-index="${index}">
+          <div class="meta">Multiple Choice ${index + 1}</div>
+          <div class="question-title">${item.q}</div>
+          <div class="options">
+            ${item.options.map((option, optionIndex) => `
+              <label class="option">
+                <input type="radio" name="mc-${exam.id}-${index}" value="${optionIndex}" />
+                <span>${option}</span>
+              </label>
+            `).join("")}
+          </div>
+        </div>
+      `).join("");
+    }
+
+    function renderSA(exam) {
+      saContainer.innerHTML = exam.sa.map((item, index) => `
+        <div class="question">
+          <div class="meta">Short Answer ${index + 1}</div>
+          <div class="question-title">${item.q}</div>
+          <textarea id="sa-${exam.id}-${index}" placeholder="Write your answer here..."></textarea>
+        </div>
+      `).join("");
+    }
+
+    function renderAnswerKey(exam, tfAnswers, mcAnswers) {
+      const tfScore = exam.tf.reduce((score, item, index) => score + (tfAnswers[index] === item.answer ? 1 : 0), 0);
+      const mcScore = exam.mc.reduce((score, item, index) => score + (mcAnswers[index] === item.answer ? 1 : 0), 0);
+      const totalScore = tfScore + mcScore;
+      const totalPossible = exam.tf.length + exam.mc.length;
+      const scoreClass = totalScore >= 13 ? "good" : totalScore >= 9 ? "warn" : "bad";
+
+      scoreLine.innerHTML = `Selected-answer score: <span class="${scoreClass}">${totalScore} / ${totalPossible}</span>. Compare your short answers with the teacher-style key below.`;
+
+      answerKey.innerHTML = `
+        <div class="key-item">
+          <strong>True / False Key</strong>
+          ${exam.tf.map((item, index) => {
+            const chosen = tfAnswers[index];
+            const chosenText = chosen === undefined ? "No answer selected" : chosen ? "True" : "False";
+            const status = chosen === item.answer ? "good" : "bad";
+            return `<p><span class="${status}">TF${index + 1}</span> Correct: ${item.answer ? "True" : "False"}. Your answer: ${chosenText}. ${item.why}</p>`;
+          }).join("")}
+        </div>
+        <div class="key-item" style="margin-top:14px;">
+          <strong>Multiple Choice Key</strong>
+          ${exam.mc.map((item, index) => {
+            const chosen = mcAnswers[index];
+            const chosenText = chosen === undefined ? "No answer selected" : item.options[chosen];
+            const status = chosen === item.answer ? "good" : "bad";
+            return `<p><span class="${status}">MC${index + 1}</span> Correct: ${item.options[item.answer]}. Your answer: ${chosenText}. ${item.why}</p>`;
+          }).join("")}
+        </div>
+        <div class="key-item" style="margin-top:14px;">
+          <strong>Short Answer Key</strong>
+          ${exam.sa.map((item, index) => `<details><summary>SA${index + 1} Answer</summary><p>${item.answer}</p></details>`).join("")}
+        </div>
+      `;
+    }
+
+    function markSelectedAnswers(exam, tfAnswers, mcAnswers) {
+      document.querySelectorAll("#tfContainer .question").forEach((questionEl, questionIndex) => {
+        questionEl.querySelectorAll(".option").forEach((optionEl, optionIndex) => {
+          optionEl.classList.remove("correct", "incorrect");
+          const optionValue = optionIndex === 0;
+          if (optionValue === exam.tf[questionIndex].answer) {
+            optionEl.classList.add("correct");
+          } else if (tfAnswers[questionIndex] === optionValue) {
+            optionEl.classList.add("incorrect");
+          }
+        });
+      });
+
+      document.querySelectorAll("#mcContainer .question").forEach((questionEl, questionIndex) => {
+        questionEl.querySelectorAll(".option").forEach((optionEl, optionIndex) => {
+          optionEl.classList.remove("correct", "incorrect");
+          if (optionIndex === exam.mc[questionIndex].answer) {
+            optionEl.classList.add("correct");
+          } else if (mcAnswers[questionIndex] === optionIndex) {
+            optionEl.classList.add("incorrect");
+          }
+        });
+      });
+    }
+
+    function renderAll() {
+      const exam = getActiveExam();
+      examTag.textContent = exam.tag;
+      examTitle.textContent = exam.title;
+      examSummary.textContent = exam.summary;
+      tfPill.textContent = `TF: ${exam.tf.length}`;
+      mcPill.textContent = `MC: ${exam.mc.length}`;
+      saPill.textContent = `SA: ${exam.sa.length}`;
+      renderTabs();
+      renderTF(exam);
+      renderMC(exam);
+      renderSA(exam);
+      resultsCard.classList.add("hidden");
+      scoreLine.textContent = "";
+      answerKey.innerHTML = "";
+    }
+
+    submitBtn.addEventListener("click", () => {
+      const exam = getActiveExam();
+      const tfAnswers = exam.tf.map((_, index) => {
+        const selected = document.querySelector(`input[name="tf-${exam.id}-${index}"]:checked`);
+        return selected ? selected.value === "true" : undefined;
+      });
+      const mcAnswers = exam.mc.map((_, index) => {
+        const selected = document.querySelector(`input[name="mc-${exam.id}-${index}"]:checked`);
+        return selected ? Number(selected.value) : undefined;
+      });
+
+      markSelectedAnswers(exam, tfAnswers, mcAnswers);
+      renderAnswerKey(exam, tfAnswers, mcAnswers);
+      resultsCard.classList.remove("hidden");
+      resultsCard.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+
+    resetBtn.addEventListener("click", () => {
+      renderAll();
+    });
+
+    renderAll();
+  </script>
 </body>
 </html>

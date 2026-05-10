@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Electroscope History and Practice Matrix</title>
+  <style>
+    :root {
+      --paper: rgba(255, 251, 245, 0.95);
+      --card: #fffdfa;
+      --ink: #1d2933;
+      --muted: #5f6d76;
+      --line: #dccfbe;
+      --accent: #1f6f8b;
+      --accent-2: #b34e3a;
+      --good: #176d49;
+      --shadow: 0 18px 40px rgba(68, 50, 28, 0.12);
+      --radius: 24px;
+      --radius-sm: 18px;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Arial, sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at top left, rgba(31, 111, 139, 0.14), transparent 28%),
+        radial-gradient(circle at top right, rgba(179, 78, 58, 0.12), transparent 24%),
+        linear-gradient(180deg, #f7f2ea 0%, #f3ede4 50%, #f8f4ed 100%);
+    }
+    .page {
+      max-width: 1320px;
+      margin: 0 auto;
+      padding: 24px;
+    }
+    .hero, .card, .sidebar {
+      background: var(--paper);
+      border: 1px solid rgba(220, 207, 190, 0.92);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(8px);
+    }
+    .hero {
+      border-radius: 30px;
+      padding: 30px;
+      margin-bottom: 22px;
+      background: linear-gradient(135deg, rgba(31, 111, 139, 0.96), rgba(48, 88, 126, 0.94));
+      color: white;
+    }
+    .hero h1 {
+      margin: 0 0 10px;
+      font-size: clamp(30px, 4vw, 48px);
+      line-height: 1.05;
+    }
+    .hero p {
+      margin: 0;
+      max-width: 980px;
+      line-height: 1.7;
+      color: rgba(255, 255, 255, 0.94);
+    }
+    .hero-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 16px;
+    }
+    .hero-link, .badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 9px 12px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 700;
+    }
+    .hero-link {
+      text-decoration: none;
+      color: white;
+      background: rgba(255, 255, 255, 0.14);
+      border: 1px solid rgba(255, 255, 255, 0.22);
+    }
+    .badge {
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    .layout {
+      display: grid;
+      grid-template-columns: 300px 1fr;
+      gap: 22px;
+      align-items: start;
+    }
+    .sidebar {
+      border-radius: var(--radius);
+      padding: 18px;
+      position: sticky;
+      top: 18px;
+    }
+    .sidebar h2, .card h2, .card h3 {
+      margin: 0 0 12px;
+    }
+    .sidebar p, .card p, .card li, .card td, .card th {
+      line-height: 1.7;
+    }
+    .muted { color: var(--muted); }
+    .nav-list, .timeline, .type-grid, .matrix {
+      display: grid;
+      gap: 12px;
+    }
+    .nav-link {
+      display: block;
+      padding: 12px 14px;
+      border-radius: 14px;
+      background: var(--card);
+      border: 1px solid var(--line);
+      color: var(--ink);
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .content {
+      display: grid;
+      gap: 18px;
+    }
+    .card {
+      border-radius: var(--radius);
+      padding: 22px;
+    }
+    .eyebrow {
+      display: inline-block;
+      margin-bottom: 8px;
+      font-size: 12px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-weight: 800;
+    }
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      align-items: start;
+    }
+    .type-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+    .box {
+      border: 1px solid var(--line);
+      background: var(--card);
+      border-radius: var(--radius-sm);
+      padding: 18px;
+    }
+    .timeline-item {
+      border-left: 4px solid var(--accent);
+      background: var(--card);
+      border-radius: 14px;
+      padding: 14px 16px;
+      border: 1px solid var(--line);
+    }
+    .timeline-item strong {
+      display: block;
+      margin-bottom: 4px;
+    }
+    .diagram {
+      width: 100%;
+      display: block;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: white;
+    }
+    .matrix {
+      grid-template-columns: 1fr 1fr;
+    }
+    .scenario-title {
+      margin: 0 0 8px;
+      font-size: 17px;
+    }
+    details {
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: white;
+      overflow: hidden;
+      margin-top: 12px;
+    }
+    summary {
+      cursor: pointer;
+      padding: 12px 14px;
+      font-weight: 700;
+    }
+    details p, details ul {
+      margin: 0;
+      padding: 0 14px 14px;
+    }
+    .source-note, .good {
+      padding: 14px 16px;
+      border-radius: 16px;
+    }
+    .source-note {
+      background: #f6fbfc;
+      border: 1px solid rgba(31, 111, 139, 0.18);
+    }
+    .good {
+      background: #edf9f2;
+      border: 1px solid rgba(23, 109, 73, 0.16);
+      color: var(--good);
+    }
+    a.inline {
+      color: var(--accent);
+      font-weight: 700;
+    }
+    @media (max-width: 980px) {
+      .layout, .two-col, .type-grid, .matrix { grid-template-columns: 1fr; }
+      .sidebar { position: static; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <section class="hero">
+      <h1>Electroscope History and Practice Matrix</h1>
+      <p>
+        This page gives you a fast electroscope history review, short type summaries, and a practice matrix for the four most testable situations:
+        positive or negative rod, touching or not touching.
+      </p>
+      <div class="hero-row">
+        <span class="badge">History timeline</span>
+        <span class="badge">Type notes under 50 words</span>
+        <span class="badge">4 scenario matrix</span>
+        <a class="hero-link" href="index.html">Back to Review Notes</a>
+        <a class="hero-link" href="mistakes.html">Back to Trap Questions</a>
+      </div>
+    </section>
+
+    <div class="layout">
+      <aside class="sidebar">
+        <h2>Sections</h2>
+        <p class="muted">Use this page when the test asks about electroscopes, charge detection, or diagrams with a rod near the knob.</p>
+        <div class="nav-list">
+          <a class="nav-link" href="#history">History Timeline</a>
+          <a class="nav-link" href="#types">Types of Electroscope</a>
+          <a class="nav-link" href="#matrix">Practice Matrix</a>
+          <a class="nav-link" href="#rules">Fast Rules</a>
+        </div>
+        <div class="good" style="margin-top:18px;">
+          Fast exam clue: leaves separate because they end up with the <strong>same type of charge</strong>, so they <strong>repel</strong>.
+        </div>
+      </aside>
+
+      <main class="content">
+        <section class="card" id="history">
+          <span class="eyebrow">History</span>
+          <h2>Short Timeline</h2>
+          <div class="timeline">
+            <div class="timeline-item">
+              <strong>c. 600 BC - Thales of Miletus</strong>
+              He noticed that rubbed amber attracted light objects. This was an early observation of static electricity and helped start the long path toward charge detection.
+            </div>
+            <div class="timeline-item">
+              <strong>1600 - William Gilbert</strong>
+              Gilbert invented the earliest electroscope, the <em>versorium</em>, a pivoting needle that turned when a charged object was nearby.
+            </div>
+            <div class="timeline-item">
+              <strong>1754 - John Canton</strong>
+              Canton developed the pith-ball electroscope, which made charge effects easier to observe using light suspended balls.
+            </div>
+            <div class="timeline-item">
+              <strong>1787 - Abraham Bennet</strong>
+              Bennet introduced the gold-leaf electroscope, a more sensitive design that made small charge changes easier to detect.
+            </div>
+          </div>
+          <div class="source-note" style="margin-top:16px;">
+            History and type facts summarized from
+            <a class="inline" href="https://www.geeksforgeeks.org/physics/electroscope/" target="_blank" rel="noopener noreferrer">GeeksforGeeks - Electroscope</a>.
+          </div>
+        </section>
+
+        <section class="card" id="types">
+          <span class="eyebrow">Types</span>
+          <h2>Types of Electroscope</h2>
+          <div class="type-grid">
+            <div class="box">
+              <h3>Pith-Ball Electroscope</h3>
+              <svg class="diagram" viewBox="0 0 420 240" xmlns="http://www.w3.org/2000/svg" aria-label="Pith-ball electroscope diagram">
+                <rect width="420" height="240" fill="#ffffff"/>
+                <line x1="60" y1="40" x2="360" y2="40" stroke="#222" stroke-width="4"/>
+                <line x1="180" y1="40" x2="150" y2="145" stroke="#777" stroke-width="2"/>
+                <line x1="240" y1="40" x2="270" y2="145" stroke="#777" stroke-width="2"/>
+                <circle cx="145" cy="160" r="22" fill="#e8e3d8" stroke="#666" stroke-width="2"/>
+                <circle cx="275" cy="160" r="22" fill="#e8e3d8" stroke="#666" stroke-width="2"/>
+                <text x="128" y="166" font-size="20" fill="#b34e3a">+</text>
+                <text x="258" y="166" font-size="20" fill="#b34e3a">+</text>
+                <line x1="170" y1="160" x2="250" y2="160" stroke="#b34e3a" stroke-width="3" stroke-dasharray="8 8"/>
+              </svg>
+              <p>Uses one or two very light balls on thread. A nearby charged object makes the balls move, so it is useful for showing attraction, repulsion, and charge transfer in a simple way.</p>
+            </div>
+            <div class="box">
+              <h3>Gold-Leaf Electroscope</h3>
+              <svg class="diagram" viewBox="0 0 420 240" xmlns="http://www.w3.org/2000/svg" aria-label="Gold-leaf electroscope diagram">
+                <rect width="420" height="240" fill="#ffffff"/>
+                <rect x="135" y="72" width="150" height="132" rx="8" fill="#dcebfa" stroke="#7d8b99" stroke-width="2"/>
+                <circle cx="210" cy="52" r="24" fill="#d7d7d7" stroke="#777" stroke-width="2"/>
+                <rect x="196" y="76" width="28" height="20" fill="#8d8d8d"/>
+                <rect x="205" y="96" width="10" height="58" fill="#9a9a9a"/>
+                <line x1="210" y1="154" x2="190" y2="196" stroke="#b9972f" stroke-width="5"/>
+                <line x1="210" y1="154" x2="230" y2="196" stroke="#b9972f" stroke-width="5"/>
+              </svg>
+              <p>Uses thin metal leaves inside a case. When charge reaches the leaves, they separate. It is more sensitive than the pith-ball electroscope and is the classic school model.</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="card" id="matrix">
+          <span class="eyebrow">Practice Matrix</span>
+          <h2>Rod Charge x Touching Matrix</h2>
+          <div class="matrix">
+            <div class="box">
+              <h3 class="scenario-title">1. Positive Rod, No Touching</h3>
+              <svg class="diagram" viewBox="0 0 420 220" xmlns="http://www.w3.org/2000/svg" aria-label="Positive rod near electroscope without touching">
+                <rect width="420" height="220" fill="#ffffff"/>
+                <rect x="40" y="52" width="44" height="116" rx="10" fill="#f2b7ad" stroke="#b34e3a" stroke-width="2"/>
+                <text x="62" y="118" text-anchor="middle" font-size="34" fill="#b34e3a">+</text>
+                <circle cx="250" cy="52" r="24" fill="#d7d7d7" stroke="#777" stroke-width="2"/>
+                <rect x="236" y="76" width="28" height="20" fill="#8d8d8d"/>
+                <rect x="245" y="96" width="10" height="52" fill="#9a9a9a"/>
+                <line x1="250" y1="148" x2="228" y2="192" stroke="#b9972f" stroke-width="5"/>
+                <line x1="250" y1="148" x2="272" y2="192" stroke="#b9972f" stroke-width="5"/>
+                <text x="215" y="38" font-size="18" fill="#1f6f8b">- - -</text>
+                <text x="220" y="210" font-size="18" fill="#b34e3a">+     +</text>
+              </svg>
+              <details>
+                <summary>Show Answer</summary>
+                <p>Electrons move up toward the knob. The leaves lose electrons, become positive, and separate. This is induction because there is no touching.</p>
+              </details>
+            </div>
+
+            <div class="box">
+              <h3 class="scenario-title">2. Negative Rod, No Touching</h3>
+              <svg class="diagram" viewBox="0 0 420 220" xmlns="http://www.w3.org/2000/svg" aria-label="Negative rod near electroscope without touching">
+                <rect width="420" height="220" fill="#ffffff"/>
+                <rect x="40" y="52" width="44" height="116" rx="10" fill="#c7d8fb" stroke="#4569b3" stroke-width="2"/>
+                <text x="62" y="118" text-anchor="middle" font-size="34" fill="#4569b3">-</text>
+                <circle cx="250" cy="52" r="24" fill="#d7d7d7" stroke="#777" stroke-width="2"/>
+                <rect x="236" y="76" width="28" height="20" fill="#8d8d8d"/>
+                <rect x="245" y="96" width="10" height="52" fill="#9a9a9a"/>
+                <line x1="250" y1="148" x2="228" y2="192" stroke="#b9972f" stroke-width="5"/>
+                <line x1="250" y1="148" x2="272" y2="192" stroke="#b9972f" stroke-width="5"/>
+                <text x="222" y="38" font-size="18" fill="#b34e3a">+</text>
+                <text x="214" y="210" font-size="18" fill="#4569b3">-     -</text>
+              </svg>
+              <details>
+                <summary>Show Answer</summary>
+                <p>Electrons are pushed down into the leaves. The leaves become negative and separate. This is also induction because the rod is only nearby.</p>
+              </details>
+            </div>
+
+            <div class="box">
+              <h3 class="scenario-title">3. Positive Rod, Touching</h3>
+              <svg class="diagram" viewBox="0 0 420 220" xmlns="http://www.w3.org/2000/svg" aria-label="Positive rod touching electroscope">
+                <rect width="420" height="220" fill="#ffffff"/>
+                <rect x="120" y="40" width="124" height="16" rx="8" fill="#f2b7ad" stroke="#b34e3a" stroke-width="2"/>
+                <text x="182" y="53" text-anchor="middle" font-size="22" fill="#b34e3a">positive rod</text>
+                <circle cx="250" cy="70" r="24" fill="#d7d7d7" stroke="#777" stroke-width="2"/>
+                <rect x="236" y="94" width="28" height="20" fill="#8d8d8d"/>
+                <rect x="245" y="114" width="10" height="40" fill="#9a9a9a"/>
+                <line x1="250" y1="154" x2="228" y2="196" stroke="#b9972f" stroke-width="5"/>
+                <line x1="250" y1="154" x2="272" y2="196" stroke="#b9972f" stroke-width="5"/>
+                <text x="210" y="212" font-size="18" fill="#b34e3a">+ + + on the electroscope</text>
+              </svg>
+              <details>
+                <summary>Show Answer</summary>
+                <p>Electrons move from the electroscope into the positive rod. The electroscope is left with a net positive charge, so the leaves separate. This is charging by contact.</p>
+              </details>
+            </div>
+
+            <div class="box">
+              <h3 class="scenario-title">4. Negative Rod, Touching</h3>
+              <svg class="diagram" viewBox="0 0 420 220" xmlns="http://www.w3.org/2000/svg" aria-label="Negative rod touching electroscope">
+                <rect width="420" height="220" fill="#ffffff"/>
+                <rect x="120" y="40" width="130" height="16" rx="8" fill="#c7d8fb" stroke="#4569b3" stroke-width="2"/>
+                <text x="185" y="53" text-anchor="middle" font-size="22" fill="#4569b3">negative rod</text>
+                <circle cx="250" cy="70" r="24" fill="#d7d7d7" stroke="#777" stroke-width="2"/>
+                <rect x="236" y="94" width="28" height="20" fill="#8d8d8d"/>
+                <rect x="245" y="114" width="10" height="40" fill="#9a9a9a"/>
+                <line x1="250" y1="154" x2="228" y2="196" stroke="#b9972f" stroke-width="5"/>
+                <line x1="250" y1="154" x2="272" y2="196" stroke="#b9972f" stroke-width="5"/>
+                <text x="212" y="212" font-size="18" fill="#4569b3">- - - on the electroscope</text>
+              </svg>
+              <details>
+                <summary>Show Answer</summary>
+                <p>Electrons move from the negative rod into the electroscope. The electroscope gains a net negative charge, so the leaves separate. This is charging by contact.</p>
+              </details>
+            </div>
+          </div>
+        </section>
+
+        <section class="card" id="rules">
+          <span class="eyebrow">Fast Rules</span>
+          <h2>What To Remember</h2>
+          <div class="box" style="margin-bottom:18px;">
+            <h3>Contact vs Grounding</h3>
+            <table>
+              <thead>
+                <tr>
+                  <th>Situation</th>
+                  <th>What electrons move between</th>
+                  <th>Best label</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>A charged rod touches the electroscope</td>
+                  <td>The rod and the electroscope</td>
+                  <td>Contact / conduction</td>
+                </tr>
+                <tr>
+                  <td>A finger touches the electroscope</td>
+                  <td>The electroscope and the person, often effectively Earth in classroom questions</td>
+                  <td>Usually grounding</td>
+                </tr>
+                <tr>
+                  <td>A wire connects the electroscope to Earth</td>
+                  <td>The electroscope and Earth</td>
+                  <td>Grounding</td>
+                </tr>
+              </tbody>
+            </table>
+            <p style="margin-top:12px;">Important reminder: not every touching case is grounding. Touching a charged rod is usually conduction, not grounding.</p>
+          </div>
+          <div class="two-col">
+            <div class="box">
+              <h3>Induction</h3>
+              <p>No touching. Charges shift inside the electroscope. The total charge of the electroscope can stay neutral overall.</p>
+            </div>
+            <div class="box">
+              <h3>Contact</h3>
+              <p>Touching happens. Electrons transfer between the rod and the electroscope, so the electroscope ends up with a net charge.</p>
+            </div>
+            <div class="box">
+              <h3>Positive Rod</h3>
+              <p>It attracts electrons toward itself. If it touches, electrons leave the electroscope and the electroscope becomes positive.</p>
+            </div>
+            <div class="box">
+              <h3>Negative Rod</h3>
+              <p>It pushes electrons away. If it touches, electrons enter the electroscope and the electroscope becomes negative.</p>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+</body>
+</html>

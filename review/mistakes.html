@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Electrostatics Common Mistakes</title>
+  <style>
+    :root {
+      --paper: rgba(255, 251, 245, 0.94);
+      --card: #fffdfa;
+      --ink: #1d2933;
+      --muted: #5f6d76;
+      --line: #dccfbe;
+      --accent: #1f6f8b;
+      --accent-2: #b34e3a;
+      --good: #176d49;
+      --shadow: 0 18px 40px rgba(68, 50, 28, 0.12);
+      --radius: 24px;
+      --radius-sm: 18px;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Arial, sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at top left, rgba(31, 111, 139, 0.14), transparent 28%),
+        radial-gradient(circle at top right, rgba(179, 78, 58, 0.12), transparent 24%),
+        linear-gradient(180deg, #f7f2ea 0%, #f3ede4 50%, #f8f4ed 100%);
+    }
+    .page {
+      max-width: 1320px;
+      margin: 0 auto;
+      padding: 24px;
+    }
+    .hero, .card, .sidebar {
+      background: var(--paper);
+      border: 1px solid rgba(220, 207, 190, 0.92);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(8px);
+    }
+    .hero {
+      border-radius: 30px;
+      padding: 30px;
+      margin-bottom: 22px;
+      background: linear-gradient(135deg, rgba(31, 111, 139, 0.96), rgba(48, 88, 126, 0.94));
+      color: white;
+    }
+    .hero h1 {
+      margin: 0 0 10px;
+      font-size: clamp(30px, 4vw, 48px);
+      line-height: 1.05;
+    }
+    .hero p {
+      margin: 0;
+      max-width: 960px;
+      line-height: 1.7;
+      color: rgba(255, 255, 255, 0.94);
+    }
+    .hero-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 16px;
+    }
+    .hero-link, .badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 9px 12px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 700;
+    }
+    .hero-link {
+      text-decoration: none;
+      color: white;
+      background: rgba(255, 255, 255, 0.14);
+      border: 1px solid rgba(255, 255, 255, 0.22);
+    }
+    .badge {
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    .layout {
+      display: grid;
+      grid-template-columns: 310px 1fr;
+      gap: 22px;
+      align-items: start;
+    }
+    .sidebar {
+      border-radius: var(--radius);
+      padding: 18px;
+      position: sticky;
+      top: 18px;
+    }
+    .sidebar h2, .card h2, .card h3 {
+      margin: 0 0 12px;
+    }
+    .sidebar p, .card p, .card li, .card td, .card th {
+      line-height: 1.7;
+    }
+    .muted { color: var(--muted); }
+    .nav-list {
+      display: grid;
+      gap: 10px;
+    }
+    .nav-link {
+      display: block;
+      padding: 12px 14px;
+      border-radius: 14px;
+      background: var(--card);
+      border: 1px solid var(--line);
+      color: var(--ink);
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .content {
+      display: grid;
+      gap: 18px;
+    }
+    .card {
+      border-radius: var(--radius);
+      padding: 22px;
+    }
+    .eyebrow {
+      display: inline-block;
+      margin-bottom: 8px;
+      font-size: 12px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-weight: 800;
+    }
+    .two-col {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 18px;
+      align-items: start;
+    }
+    .box {
+      border: 1px solid var(--line);
+      background: var(--card);
+      border-radius: var(--radius-sm);
+      padding: 18px;
+    }
+    .shot {
+      width: 100%;
+      border-radius: 16px;
+      border: 1px solid var(--line);
+      background: white;
+      display: block;
+    }
+    .diagram {
+      width: 100%;
+      display: block;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: white;
+      margin-top: 14px;
+    }
+    .callout {
+      padding: 14px 16px;
+      border-radius: 16px;
+      background: #fff3ef;
+      border: 1px solid rgba(179, 78, 58, 0.18);
+      color: #914131;
+    }
+    .good {
+      padding: 14px 16px;
+      border-radius: 16px;
+      background: #edf9f2;
+      border: 1px solid rgba(23, 109, 73, 0.16);
+      color: var(--good);
+    }
+    ul.clean {
+      margin: 0;
+      padding-left: 20px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      overflow: hidden;
+      background: white;
+    }
+    th, td {
+      padding: 12px 14px;
+      text-align: left;
+      vertical-align: top;
+      border-bottom: 1px solid var(--line);
+      border-right: 1px solid var(--line);
+    }
+    th:last-child, td:last-child { border-right: none; }
+    tr:last-child td { border-bottom: none; }
+    th {
+      background: #eef6f7;
+      color: var(--accent);
+      font-size: 14px;
+    }
+    code {
+      font-family: Consolas, monospace;
+      background: #f4f1eb;
+      padding: 1px 5px;
+      border-radius: 6px;
+    }
+    @media (max-width: 980px) {
+      .layout, .two-col { grid-template-columns: 1fr; }
+      .sidebar { position: static; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <section class="hero">
+      <h1>Teacher Trap Questions</h1>
+      <p>
+        This page pulls out the questions students are most likely to miss from your teacher's electrostatics sheets.
+        I kept the original visuals where possible, then added clear notes on the hidden traps, the right thinking steps, and the key answers you should remember.
+      </p>
+      <div class="hero-row">
+        <span class="badge">Original worksheet screenshots</span>
+        <span class="badge">Most confusing questions</span>
+        <span class="badge">Answer strategy included</span>
+        <a class="hero-link" href="electroscope-history.html">Electroscope History</a>
+        <a class="hero-link" href="index.html">Back to Review Notes</a>
+        <a class="hero-link" href="quiz.html">Back to Mock Exams</a>
+      </div>
+    </section>
+
+    <div class="layout">
+      <aside class="sidebar">
+        <h2>Quick Route</h2>
+        <p class="muted">If your test has diagrams, start with these four. They cover most of the mistakes students make.</p>
+        <div class="nav-list">
+          <a class="nav-link" href="#detective">1. Attract or Repel</a>
+          <a class="nav-link" href="#charges">2. Net Charge on Objects</a>
+          <a class="nav-link" href="#contact-induction">3. Contact or Induction</a>
+          <a class="nav-link" href="#pith-ball">4. Pith Ball and Electroscope</a>
+          <a class="nav-link" href="#text-traps">5. Text-Only Trap Questions</a>
+        </div>
+        <div class="good" style="margin-top:18px;">
+          Universal first step for diagram questions: ask whether there is <strong>touching</strong>, then decide how <strong>electrons move</strong>, then judge <strong>attract / repel / neutral / charged</strong>.
+        </div>
+      </aside>
+
+      <main class="content">
+        <section class="card" id="detective">
+          <span class="eyebrow">Worksheet 1.2</span>
+          <h2>Static Charge Detective: Attract or Repel</h2>
+          <div class="two-col">
+            <div class="box">
+              <img class="shot" src="extracted/crops/static-detective-q1-q2.png" alt="Static Charge Detective worksheet crop" />
+            </div>
+            <div class="box">
+              <h3>Why students miss this</h3>
+              <ul class="clean">
+                <li>They see a <code>+</code> or <code>-</code> and stop before checking the <strong>net charge</strong>.</li>
+                <li>They forget that a <strong>neutral object can still be attracted</strong>.</li>
+                <li>They assume no touching means no interaction.</li>
+              </ul>
+              <h3 style="margin-top:14px;">How to solve it</h3>
+              <ul class="clean">
+                <li>Count the positive and negative signs first.</li>
+                <li>Decide whether each object is positive, negative, or neutral overall.</li>
+                <li>Then apply the law: <strong>like charges repel</strong>, <strong>opposite charges attract</strong>.</li>
+                <li>If one object is charged and the other is neutral, think about <strong>induced charge separation</strong>.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="callout" style="margin-top:16px;">
+            The biggest mistake here is skipping the "find the total charge first" step.
+          </div>
+        </section>
+
+        <section class="card" id="charges">
+          <span class="eyebrow">Worksheet 1.3</span>
+          <h2>Charges on Objects: Net Positive, Net Negative, or Neutral</h2>
+          <div class="two-col">
+            <div class="box">
+              <img class="shot" src="extracted/crops/charged-objects-q1-q5.png" alt="Charges on Objects worksheet crop" />
+            </div>
+            <div class="box">
+              <h3>Why students miss this</h3>
+              <ul class="clean">
+                <li>They see many <code>+</code> signs and write positive without comparing the total number of <code>+</code> and <code>-</code>.</li>
+                <li>They forget to write <strong>add</strong> or <strong>remove</strong> in part (b).</li>
+                <li>Some students write about moving protons. In this unit, the safe answer is <strong>only electrons move</strong>.</li>
+              </ul>
+              <h3 style="margin-top:14px;">Answer pattern to memorize</h3>
+              <ul class="clean">
+                <li>If there are more <code>+</code> than <code>-</code>: net positive.</li>
+                <li>If there are more <code>-</code> than <code>+</code>: net negative.</li>
+                <li>If the numbers are equal: neutral.</li>
+                <li>To neutralize a positive object: <strong>add electrons</strong>.</li>
+                <li>To neutralize a negative object: <strong>remove electrons</strong>.</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section class="card" id="contact-induction">
+          <span class="eyebrow">Worksheet 2.3</span>
+          <h2>Charging by Contact or Induction</h2>
+          <div class="two-col">
+            <div class="box">
+              <img class="shot" src="extracted/crops/contact-vs-induction-q3-q4.png" alt="Charging by contact or induction worksheet crop" />
+            </div>
+            <div class="box">
+              <h3>Fast rule</h3>
+              <ul class="clean">
+                <li><strong>If there is touching, think contact / conduction.</strong></li>
+                <li><strong>If there is no touching, think induction.</strong></li>
+              </ul>
+              <h3 style="margin-top:14px;">Why arm hair rises near a charged balloon</h3>
+              <p>
+                A nearby negatively charged balloon causes charge separation.
+                Electrons in the hairs are pushed slightly away, so nearby parts of the hairs become similarly charged.
+                Because like charges repel, the hairs spread apart and rise.
+              </p>
+              <h3 style="margin-top:14px;">Common mistakes</h3>
+              <ul class="clean">
+                <li>Writing contact even when the objects are only close together.</li>
+                <li>Writing "because of static electricity" without explaining <strong>electron movement</strong> and <strong>repulsion</strong>.</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section class="card" id="pith-ball">
+          <span class="eyebrow">Worksheet 2.4</span>
+          <h2>Pith Ball and Electroscope: The Hardest Diagram Questions</h2>
+          <div class="two-col">
+            <div class="box">
+              <img class="shot" src="extracted/crops/pith-ball-electroscope-q9-q11.png" alt="Pith ball and electroscope worksheet crop" />
+            </div>
+            <div class="box">
+              <h3>Q9 standard logic</h3>
+              <ul class="clean">
+                <li>A positive rod near a neutral pith ball pulls <strong>electrons in the pith ball toward the rod</strong>.</li>
+                <li>The side closer to the rod becomes relatively negative.</li>
+                <li>The far side becomes relatively positive.</li>
+                <li>The whole pith ball is still <strong>neutral overall</strong> because it did not gain or lose total electrons.</li>
+                <li>This is <strong>induction</strong>.</li>
+              </ul>
+              <h3 style="margin-top:14px;">Answers you should know</h3>
+              <ul class="clean">
+                <li>a) Did the protons move? <strong>No</strong></li>
+                <li>b) Near side charge? <strong>Negative</strong></li>
+                <li>c) Whole pith ball? <strong>Neutral</strong></li>
+                <li>d) Type of charging? <strong>Induction</strong></li>
+              </ul>
+              <h3 style="margin-top:14px;">Electroscope idea</h3>
+              <p>
+                A positive rod near the top sphere pulls electrons upward inside the electroscope.
+                The leaves lose electrons, become positive, and repel each other.
+              </p>
+              <svg class="diagram" viewBox="0 0 520 420" xmlns="http://www.w3.org/2000/svg" aria-label="Positive rod near electroscope without touching">
+                <rect width="520" height="420" fill="#ffffff"/>
+                <rect x="28" y="42" width="118" height="34" rx="12" transform="rotate(-38 28 42)" fill="#f7f7f7" stroke="#777" stroke-width="2"/>
+                <text x="76" y="52" font-size="28" fill="#cf2f2f" font-family="Arial">+</text>
+                <text x="100" y="78" font-size="28" fill="#cf2f2f" font-family="Arial">+</text>
+                <text x="124" y="104" font-size="28" fill="#cf2f2f" font-family="Arial">+</text>
+                <text x="148" y="130" font-size="28" fill="#cf2f2f" font-family="Arial">+</text>
+
+                <rect x="138" y="122" width="244" height="250" rx="32" fill="none" stroke="#9cc0e6" stroke-width="4"/>
+                <path d="M210 122 L210 80 L310 80 L310 122" fill="#c6f0f2" opacity="0.75"/>
+                <circle cx="260" cy="68" r="32" fill="#9b9b9b"/>
+                <rect x="248" y="100" width="24" height="120" fill="#a9a9a9"/>
+                <line x1="260" y1="220" x2="220" y2="300" stroke="#8f8f8f" stroke-width="14"/>
+                <line x1="260" y1="220" x2="304" y2="300" stroke="#8f8f8f" stroke-width="14"/>
+
+                <circle cx="214" cy="62" r="11" fill="#2453ff"/><text x="208" y="69" font-size="16" fill="#fff" font-family="Arial">-</text>
+                <circle cx="238" cy="58" r="11" fill="#2453ff"/><text x="232" y="65" font-size="16" fill="#fff" font-family="Arial">-</text>
+                <circle cx="262" cy="58" r="11" fill="#2453ff"/><text x="256" y="65" font-size="16" fill="#fff" font-family="Arial">-</text>
+                <circle cx="286" cy="62" r="11" fill="#2453ff"/><text x="280" y="69" font-size="16" fill="#fff" font-family="Arial">-</text>
+                <circle cx="310" cy="66" r="11" fill="#2453ff"/><text x="304" y="73" font-size="16" fill="#fff" font-family="Arial">-</text>
+
+                <circle cx="226" cy="248" r="11" fill="#cf2f2f"/><text x="220" y="255" font-size="16" fill="#fff" font-family="Arial">+</text>
+                <circle cx="210" cy="278" r="11" fill="#cf2f2f"/><text x="204" y="285" font-size="16" fill="#fff" font-family="Arial">+</text>
+                <circle cx="194" cy="306" r="11" fill="#cf2f2f"/><text x="188" y="313" font-size="16" fill="#fff" font-family="Arial">+</text>
+                <circle cx="294" cy="248" r="11" fill="#cf2f2f"/><text x="288" y="255" font-size="16" fill="#fff" font-family="Arial">+</text>
+                <circle cx="310" cy="278" r="11" fill="#cf2f2f"/><text x="304" y="285" font-size="16" fill="#fff" font-family="Arial">+</text>
+                <circle cx="326" cy="306" r="11" fill="#cf2f2f"/><text x="320" y="313" font-size="16" fill="#fff" font-family="Arial">+</text>
+
+                <text x="22" y="26" font-size="18" fill="#b34e3a" font-family="Arial">Positive rod nearby</text>
+                <text x="338" y="44" font-size="17" fill="#2453ff" font-family="Arial">electrons shift upward</text>
+                <text x="162" y="340" font-size="17" fill="#b34e3a" font-family="Arial">leaves become similarly charged</text>
+              </svg>
+              <div class="callout" style="margin-top:14px;">
+                If the rod is only nearby and does not touch, the electroscope is charged by <strong>induction</strong>. The electrons are not transferred permanently; they are only rearranged. When the rod is moved away, the attraction disappears, charge spreads out more evenly again, the leaves no longer keep a strong like charge, repulsion decreases, and the leaves usually come back together.
+              </div>
+            </div>
+          </div>
+          <div class="callout" style="margin-top:16px;">
+            The most common wrong answer is "the pith ball becomes negative." The better answer is:
+            <strong>the near side becomes negative, but the whole pith ball stays neutral overall</strong>.
+          </div>
+        </section>
+
+        <section class="card" id="text-traps">
+          <span class="eyebrow">Likely Short Answers</span>
+          <h2>Text-Only Trap Questions From The Teacher Sheets</h2>
+          <div class="callout" style="margin-bottom:16px;">
+            Easy-to-mix-up reminder: <strong>not every touching case is grounding.</strong> If a <strong>charged rod touches</strong> the electroscope, that is usually <strong>contact / conduction</strong>. If a <strong>finger touches</strong> the electroscope, classroom questions often treat it as <strong>grounding</strong>, because the human body is a conductor and is usually assumed to be connected to Earth. If the person is insulated from the ground, that grounding assumption may not hold.
+          </div>
+          <div class="box">
+            <table>
+              <thead>
+                <tr>
+                  <th>Source</th>
+                  <th>Trap Question</th>
+                  <th>What To Say</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1.1k Activity-Charge It</td>
+                  <td>Why does the balloon stick to the wall?</td>
+                  <td>The balloon gains electrons and becomes negative. It causes charge separation in the neutral wall, so the near side becomes relatively positive and attracts the balloon.</td>
+                </tr>
+                <tr>
+                  <td>1.1k Activity-Charge It</td>
+                  <td>What charge do you think the water has? Explain.</td>
+                  <td>Water is overall neutral, but its charges can shift or line up so it is attracted to a charged object.</td>
+                </tr>
+                <tr>
+                  <td>2.0 Notes / 2.4 Review</td>
+                  <td>What is grounding?</td>
+                  <td>Grounding connects an object to Earth so excess charge can move away or be supplied, helping neutralize the object.</td>
+                </tr>
+                <tr>
+                  <td>2.3 Practice</td>
+                  <td>Where do electrons move in charging by contact?</td>
+                  <td>From the object with more negative charge to the object with less negative charge.</td>
+                </tr>
+                <tr>
+                  <td>2.4 Review</td>
+                  <td>How do you read the electrostatic series?</td>
+                  <td>The material with a stronger attraction for electrons pulls electrons from the other material. The one that gains electrons becomes negative. The other becomes positive.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="good" style="margin-top:16px;">
+            If the teacher asks "why" or "explain", do not stop at the result. Add:
+            <strong>electrons moved or shifted</strong>, then explain <strong>attract / repel / neutralize</strong>.
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+</body>
+</html>
