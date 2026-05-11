@@ -1,26 +1,17 @@
 {
-  "boardDate": "2026-05-10",
-  "generatedAt": "2026-05-10T12:10:28.811Z",
+  "boardDate": "2026-05-11",
+  "generatedAt": "2026-05-11T14:05:36.445Z",
   "sourceCount": 26,
   "weather": [
     {
       "city": "Ottawa",
-      "temperatureC": 9,
-      "maxC": 12,
-      "minC": 6,
-      "summary": "Clear skies"
+      "temperatureC": 8,
+      "maxC": 11,
+      "minC": 3,
+      "summary": "Mostly clear"
     }
   ],
   "extremeWeather": [
-    {
-      "title": "‘The worst time for wheat’: US farmers face losses to extreme heat and drought",
-      "whatHappened": "Temperature swings have left crops across the Plains in terrible conditions, with some farmers opting not to harvest Merrill Nielsen’s wheat crop looked healthy after he...",
-      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
-      "keyWord": "drought: a long time with very little rain",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/environment/2026/may/08/wheat-farmers-face-loss-crops-heat-drought",
-      "publishedAt": "2026-05-08T10:00:24.000Z"
-    },
     {
       "title": "‘Closing the chapter’ on Fema: Trump panel seeks to weaken disaster response amid climate crisis",
       "whatHappened": "Council’s plan will leave Federal Emergency Management Agency ill-equipped to respond to extreme weather events, experts say Sweeping changes may be in store at the Federal...",
@@ -51,15 +42,6 @@
   ],
   "climate": [
     {
-      "title": "Google developers significantly misstate carbon emissions of proposed UK datacentres",
-      "whatHappened": "Emissions understated by factor of five in Essex plans for tech giant, while Greystoke’s Lincolnshire plans show similar error Developers working for Google have significantly misstated...",
-      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
-      "keyWord": "emissions: gases released into the air",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/technology/2026/may/09/google-developers-significantly-misstate-carbon-emissions-of-proposed-uk-datacentres",
-      "publishedAt": "2026-05-09T16:00:01.000Z"
-    },
-    {
       "title": "Iran crisis shows fossil fuels-based energy system ‘is inherently volatile and unstable’",
       "whatHappened": "Senior UN climate leaders are getting behind countries mobilising this week for a transition away from fossil fuels at a groundbreaking event in Colombia.",
       "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
@@ -87,6 +69,24 @@
       "publishedAt": "2026-04-25T12:00:00.000Z"
     },
     {
+      "title": "Advocates decry Trump’s plan to open 24m acres of federal lands to cattle grazing",
+      "whatHappened": "Opponents say administration’s plan prioritizes big agriculture at expense of wildlife and protected species New legal action aims to head off a Trump administration plan to...",
+      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
+      "keyWord": "climate: the usual pattern of weather over a long period of time",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/us-news/2026/may/11/trump-plans-24m-acres-federal-lands-cattle-grazing",
+      "publishedAt": "2026-05-11T12:00:54.000Z"
+    },
+    {
+      "title": "A deadly bacterium is creeping up the US east coast. How worried should we be?",
+      "whatHappened": "Warming ocean waters are priming beaches and raw shellfish for Vibrio even as scientists are trying to stay one step ahead Bailey Magers and Sunil Kumar...",
+      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
+      "keyWord": "climate: the usual pattern of weather over a long period of time",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/environment/2026/may/10/vibrio-bacteria-east-coast-climate-change",
+      "publishedAt": "2026-05-10T14:11:19.000Z"
+    },
+    {
       "title": "‘Closing the chapter’ on Fema: Trump panel seeks to weaken disaster response amid climate crisis",
       "whatHappened": "Council’s plan will leave Federal Emergency Management Agency ill-equipped to respond to extreme weather events, experts say Sweeping changes may be in store at the Federal...",
       "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
@@ -94,18 +94,18 @@
       "source": "The Guardian Environment",
       "url": "https://www.theguardian.com/us-news/2026/may/09/trump-council-fema-disaster-preparedness",
       "publishedAt": "2026-05-09T12:00:57.000Z"
-    },
-    {
-      "title": "Nuclear energy in the Middle East: A realistic choice or a risk?",
-      "whatHappened": "As global electricity demand grows, so does the popularity of nuclear energy.",
-      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
-      "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "UN Climate",
-      "url": "https://news.un.org/feed/view/en/story/2026/05/1167448",
-      "publishedAt": "2026-05-09T12:00:00.000Z"
     }
   ],
   "weatherTech": [
+    {
+      "title": "A deadly bacterium is creeping up the US east coast. How worried should we be?",
+      "whatHappened": "Warming ocean waters are priming beaches and raw shellfish for Vibrio even as scientists are trying to stay one step ahead Bailey Magers and Sunil Kumar...",
+      "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
+      "keyWord": "weather technology: tools that help people measure, study, or predict weather and climate",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/environment/2026/may/10/vibrio-bacteria-east-coast-climate-change",
+      "publishedAt": "2026-05-10T14:11:19.000Z"
+    },
     {
       "title": "Renewables rising, Part 1: How four countries are reshaping energy security",
       "whatHappened": "The ongoing insecurity in the Middle East, where a large proportion of the world’s oil and gas is extracted, is forcing many countries to focus on...",
