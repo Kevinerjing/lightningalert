@@ -1,14 +1,14 @@
 {
-  "boardDate": "2026-05-11",
-  "generatedAt": "2026-05-11T14:05:36.445Z",
+  "boardDate": "2026-05-12",
+  "generatedAt": "2026-05-12T13:20:36.574Z",
   "sourceCount": 26,
   "weather": [
     {
       "city": "Ottawa",
-      "temperatureC": 8,
-      "maxC": 11,
-      "minC": 3,
-      "summary": "Mostly clear"
+      "temperatureC": 9,
+      "maxC": 15,
+      "minC": 1,
+      "summary": "Clear skies"
     }
   ],
   "extremeWeather": [
@@ -42,6 +42,15 @@
   ],
   "climate": [
     {
+      "title": "Trump’s rollback of toxic gas rules limits EPA’s authority to protect public health, analysis says",
+      "whatHappened": "Ethylene oxide (EtO) is about 60 times more carcinogenic than believed in 2006, research finds A new Trump administration plan to rescind 2024 regulations for toxic...",
+      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
+      "keyWord": "emissions: gases released into the air",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/us-news/2026/may/12/trump-rollback-eto-pollution-epa",
+      "publishedAt": "2026-05-12T12:00:46.000Z"
+    },
+    {
       "title": "Iran crisis shows fossil fuels-based energy system ‘is inherently volatile and unstable’",
       "whatHappened": "Senior UN climate leaders are getting behind countries mobilising this week for a transition away from fossil fuels at a groundbreaking event in Colombia.",
       "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
@@ -69,6 +78,15 @@
       "publishedAt": "2026-04-25T12:00:00.000Z"
     },
     {
+      "title": "Trump officials cancel rule that made conservation a ‘use’ of public lands",
+      "whatHappened": "Move comes as administration seeks to boost drilling, logging, mining and grazing on taxpayer-owned land The interior department is canceling a rule that put conservation on...",
+      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
+      "keyWord": "climate: the usual pattern of weather over a long period of time",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/us-news/2026/may/11/trump-public-lands-conservation-rule",
+      "publishedAt": "2026-05-12T00:50:09.000Z"
+    },
+    {
       "title": "Advocates decry Trump’s plan to open 24m acres of federal lands to cattle grazing",
       "whatHappened": "Opponents say administration’s plan prioritizes big agriculture at expense of wildlife and protected species New legal action aims to head off a Trump administration plan to...",
       "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
@@ -76,24 +94,6 @@
       "source": "The Guardian Environment",
       "url": "https://www.theguardian.com/us-news/2026/may/11/trump-plans-24m-acres-federal-lands-cattle-grazing",
       "publishedAt": "2026-05-11T12:00:54.000Z"
-    },
-    {
-      "title": "A deadly bacterium is creeping up the US east coast. How worried should we be?",
-      "whatHappened": "Warming ocean waters are priming beaches and raw shellfish for Vibrio even as scientists are trying to stay one step ahead Bailey Magers and Sunil Kumar...",
-      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
-      "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/environment/2026/may/10/vibrio-bacteria-east-coast-climate-change",
-      "publishedAt": "2026-05-10T14:11:19.000Z"
-    },
-    {
-      "title": "‘Closing the chapter’ on Fema: Trump panel seeks to weaken disaster response amid climate crisis",
-      "whatHappened": "Council’s plan will leave Federal Emergency Management Agency ill-equipped to respond to extreme weather events, experts say Sweeping changes may be in store at the Federal...",
-      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
-      "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/us-news/2026/may/09/trump-council-fema-disaster-preparedness",
-      "publishedAt": "2026-05-09T12:00:57.000Z"
     }
   ],
   "weatherTech": [
@@ -181,15 +181,6 @@
       "publishedAt": "2026-04-22T14:37:48.000Z"
     },
     {
-      "title": "Geothermal energy turns red hot",
-      "whatHappened": "MIT Energy Initiative symposium maps a path to tap the planet’s heat-rich rocks for clean power at scale.",
-      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
-      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
-      "source": "MIT Earth & Atmospheric Sciences",
-      "url": "https://news.mit.edu/2026/geothermal-energy-turns-red-hot-0415",
-      "publishedAt": "2026-04-15T23:30:00.000Z"
-    },
-    {
       "title": "Women of Wampum",
       "whatHappened": "Tue, 07 Apr 2026 12:00:00 +0000 A new short documentary by Dr.",
       "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
@@ -197,6 +188,15 @@
       "source": "Waterloo Environment",
       "url": "https://uwaterloo.ca/environment/news/women-wampum",
       "publishedAt": "2026-04-07T12:00:00.000Z"
+    },
+    {
+      "title": "For most US drivers, EVs offer emissions benefits and cost savings",
+      "whatHappened": "When it comes to emissions, individual driving patterns matter as much as how “green” the regional electricity mix is, MIT researchers report.",
+      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
+      "keyWord": "research: careful study used to discover new knowledge",
+      "source": "MIT Climate & Sustainability",
+      "url": "https://news.mit.edu/2026/us-drivers-electric-vehicles-offer-emissions-benefits-cost-savings-0512",
+      "publishedAt": "2026-05-12T04:00:00.000Z"
     },
     {
       "title": "Scientists split gentoo penguins into four species, one totally new to science. Three of them are already threatened.",
