@@ -1,25 +1,34 @@
 {
-  "boardDate": "2026-05-12",
-  "generatedAt": "2026-05-12T13:20:36.574Z",
+  "boardDate": "2026-05-13",
+  "generatedAt": "2026-05-13T13:36:49.260Z",
   "sourceCount": 26,
   "weather": [
     {
       "city": "Ottawa",
-      "temperatureC": 9,
-      "maxC": 15,
-      "minC": 1,
-      "summary": "Clear skies"
+      "temperatureC": 8,
+      "maxC": 11,
+      "minC": 7,
+      "summary": "Light rain"
     }
   ],
   "extremeWeather": [
     {
-      "title": "‘Closing the chapter’ on Fema: Trump panel seeks to weaken disaster response amid climate crisis",
-      "whatHappened": "Council’s plan will leave Federal Emergency Management Agency ill-equipped to respond to extreme weather events, experts say Sweeping changes may be in store at the Federal...",
+      "title": "Storm, displacement and hidden wartime explosives deepen emergency in Solomon Islands",
+      "whatHappened": "More than 150,000 people have been affected by Tropical Cyclone Maila, the latest storm in the Pacific area, which continues to drive what the UN relief...",
       "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
       "keyWord": "extreme weather: unusual and dangerous weather like floods, storms, or heat waves",
+      "source": "UN Climate",
+      "url": "https://news.un.org/feed/view/en/story/2026/05/1167485",
+      "publishedAt": "2026-05-11T12:00:00.000Z"
+    },
+    {
+      "title": "‘Irresponsible’: backlash as Utah approves datacenter twice the size of Manhattan",
+      "whatHappened": "Facility would require more power than entire state uses and suck up vast amount of water in drought-stricken area A plan to create one of the...",
+      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
+      "keyWord": "drought: a long time with very little rain",
       "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/us-news/2026/may/09/trump-council-fema-disaster-preparedness",
-      "publishedAt": "2026-05-09T12:00:57.000Z"
+      "url": "https://www.theguardian.com/us-news/2026/may/13/utah-approves-datacenter-backlash",
+      "publishedAt": "2026-05-13T11:30:56.000Z"
     },
     {
       "title": "World News in Brief: Somalia drought response, Gaza and Ukraine aid updates, human rights abuses in Tunisia",
@@ -48,7 +57,7 @@
       "keyWord": "emissions: gases released into the air",
       "source": "The Guardian Environment",
       "url": "https://www.theguardian.com/us-news/2026/may/12/trump-rollback-eto-pollution-epa",
-      "publishedAt": "2026-05-12T12:00:46.000Z"
+      "publishedAt": "2026-05-13T02:04:35.000Z"
     },
     {
       "title": "Iran crisis shows fossil fuels-based energy system ‘is inherently volatile and unstable’",
@@ -69,13 +78,13 @@
       "publishedAt": "2026-04-26T12:00:00.000Z"
     },
     {
-      "title": "Renewables rising, Part 1: How four countries are reshaping energy security",
-      "whatHappened": "The ongoing insecurity in the Middle East, where a large proportion of the world’s oil and gas is extracted, is forcing many countries to focus on...",
+      "title": "‘Irresponsible’: backlash as Utah approves datacenter twice the size of Manhattan",
+      "whatHappened": "Facility would require more power than entire state uses and suck up vast amount of water in drought-stricken area A plan to create one of the...",
       "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
-      "keyWord": "renewable energy: energy from sources that can be used again, like sun or wind",
-      "source": "UN Climate",
-      "url": "https://news.un.org/feed/view/en/story/2026/04/1167366",
-      "publishedAt": "2026-04-25T12:00:00.000Z"
+      "keyWord": "climate: the usual pattern of weather over a long period of time",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/us-news/2026/may/13/utah-approves-datacenter-backlash",
+      "publishedAt": "2026-05-13T11:30:56.000Z"
     },
     {
       "title": "Trump officials cancel rule that made conservation a ‘use’ of public lands",
@@ -105,15 +114,6 @@
       "source": "The Guardian Environment",
       "url": "https://www.theguardian.com/environment/2026/may/10/vibrio-bacteria-east-coast-climate-change",
       "publishedAt": "2026-05-10T14:11:19.000Z"
-    },
-    {
-      "title": "Renewables rising, Part 1: How four countries are reshaping energy security",
-      "whatHappened": "The ongoing insecurity in the Middle East, where a large proportion of the world’s oil and gas is extracted, is forcing many countries to focus on...",
-      "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
-      "keyWord": "weather technology: tools that help people measure, study, or predict weather and climate",
-      "source": "UN Climate",
-      "url": "https://news.un.org/feed/view/en/story/2026/04/1167366",
-      "publishedAt": "2026-04-25T12:00:00.000Z"
     }
   ],
   "universityNews": [
@@ -136,6 +136,24 @@
       "publishedAt": "2025-07-29T18:38:05.000Z"
     },
     {
+      "title": "A New Study Explains How Carbon Dioxide Cools the Upper Atmosphere—and Warms Earth Below",
+      "whatHappened": "Researchers have solved a long-standing atmospheric puzzle: how rising carbon dioxide cools the stratosphere even as it warms Earth’s surface and lower atmosphere.",
+      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
+      "keyWord": "atmospheric: related to the air and layers around Earth",
+      "source": "Columbia Climate School",
+      "url": "https://news.climate.columbia.edu/2026/05/12/a-new-study-explains-how-carbon-dioxide-cools-the-upper-atmosphere-and-warms-earth-below/",
+      "publishedAt": "2026-05-12T14:07:05.000Z"
+    },
+    {
+      "title": "UM-Dearborn’s Environmental Interpretive Center celebrates 25 years",
+      "whatHappened": "This month marks 25 years of the Environmental Interpretive Center at UM-Dearborn, which since its opening has connected people to a 120-acre landscape shaped by history,...",
+      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
+      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
+      "source": "University of Michigan Record",
+      "url": "https://mbgna.umich.edu/post/look-look-down-look-all-around-experiencing-nature-environmental-interpretive-center",
+      "publishedAt": "2026-05-11T17:16:06.000Z"
+    },
+    {
       "title": "Mapping the ocean with autonomous sensors",
       "whatHappened": "Founded by Ravi Pappu SM ’95, PhD ’01, Apeiron Labs is deploying low-cost ocean sensors to improve storm forecasts, detect endangered species, and more.",
       "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
@@ -152,15 +170,6 @@
       "source": "Columbia Climate School",
       "url": "https://news.climate.columbia.edu/2026/05/06/you-asked-lamont-and-climate-school-experts-tackle-reader-questions-on-science-and-sustainability/",
       "publishedAt": "2026-05-06T13:40:08.000Z"
-    },
-    {
-      "title": "Melanie Nakagawa To Speak at Columbia Climate School Graduation",
-      "whatHappened": "Columbia Climate School is thrilled to announce that Melanie Nakagawa, Chief Sustainability Officer at Microsoft, will deliver the keynote address at the Climate School’s Class Day...",
-      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
-      "keyWord": "sustainability: using resources in a way that can last over time",
-      "source": "Columbia Climate School",
-      "url": "https://news.climate.columbia.edu/2026/05/05/melanie-nakagawa-to-speak-at-columbia-climate-school-graduation/",
-      "publishedAt": "2026-05-05T12:32:20.000Z"
     },
     {
       "title": "The power of “and” in energy and climate entrepreneurship",
@@ -190,6 +199,15 @@
       "publishedAt": "2026-04-07T12:00:00.000Z"
     },
     {
+      "title": "Giving Day thrives all year in Environment",
+      "whatHappened": "Tue, 12 May 2026 12:00:00 +0000 An Environment faculty member, staff and retiree share what motivates them to support the student experience through their service and...",
+      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
+      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
+      "source": "Waterloo Environment",
+      "url": "https://uwaterloo.ca/environment/news/giving-day-thrives-all-year-environment",
+      "publishedAt": "2026-05-12T12:00:00.000Z"
+    },
+    {
       "title": "For most US drivers, EVs offer emissions benefits and cost savings",
       "whatHappened": "When it comes to emissions, individual driving patterns matter as much as how “green” the regional electricity mix is, MIT researchers report.",
       "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
@@ -206,24 +224,6 @@
       "source": "Berkeley News",
       "url": "https://news.berkeley.edu/2026/05/08/scientists-split-gentoo-penguins-into-four-species-one-totally-new-to-science-three-of-them-are-already-threatened/",
       "publishedAt": "2026-05-08T15:40:45.000Z"
-    },
-    {
-      "title": "Second fusion summit at UW signals the Midwest’s rise as a fusion powerhouse",
-      "whatHappened": "The event brought together researchers, industry leaders, government officials and investors to learn about and discuss fusion as a viable energy source.",
-      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
-      "keyWord": "research: careful study used to discover new knowledge",
-      "source": "University of Wisconsin News",
-      "url": "https://engineering.wisc.edu/news/second-fusion-summit-at-uw-madison-signals-the-midwests-rise-as-a-fusion-powerhouse/",
-      "publishedAt": "2026-05-07T16:35:48.000Z"
-    },
-    {
-      "title": "Six UC Berkeley Journalism alumni among 2026 Pulitzer Prize winners",
-      "whatHappened": "Graduates of the school won journalism's highest honor for reporting on California wildfire insurance, Border Patrol surveillance and a school shooting.",
-      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
-      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
-      "source": "Berkeley News",
-      "url": "https://journalism.berkeley.edu/2026-pulitzer-prizes/",
-      "publishedAt": "2026-05-06T19:14:33.000Z"
     }
   ]
 }
