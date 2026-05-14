@@ -1,14 +1,14 @@
 {
-  "boardDate": "2026-05-13",
-  "generatedAt": "2026-05-13T13:36:49.260Z",
+  "boardDate": "2026-05-14",
+  "generatedAt": "2026-05-14T13:16:49.775Z",
   "sourceCount": 26,
   "weather": [
     {
       "city": "Ottawa",
-      "temperatureC": 8,
-      "maxC": 11,
-      "minC": 7,
-      "summary": "Light rain"
+      "temperatureC": 9,
+      "maxC": 13,
+      "minC": 8,
+      "summary": "Cloudy"
     }
   ],
   "extremeWeather": [
@@ -20,6 +20,15 @@
       "source": "UN Climate",
       "url": "https://news.un.org/feed/view/en/story/2026/05/1167485",
       "publishedAt": "2026-05-11T12:00:00.000Z"
+    },
+    {
+      "title": "Roots of resilience: the experts working to bolster apples against the climate crisis",
+      "whatHappened": "Scientists are focusing on improving apples’ resilience after stressors like wild temperature swings and drought Terence Robinson still remembers the Valentine’s Day Massacre – of 2015,...",
+      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
+      "keyWord": "drought: a long time with very little rain",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/environment/2026/may/13/apples-orchards-climate-crisis-scientists",
+      "publishedAt": "2026-05-13T17:00:03.000Z"
     },
     {
       "title": "‘Irresponsible’: backlash as Utah approves datacenter twice the size of Manhattan",
@@ -69,13 +78,22 @@
       "publishedAt": "2026-04-29T12:00:00.000Z"
     },
     {
-      "title": "Renewables rising, Part 2: Seeking stability amid volatile fossil fuel markets",
-      "whatHappened": "As global energy markets remain volatile and the price of oil high due to instability and conflict in the Middle East, more countries are looking at...",
+      "title": "Salmon farm faces new cruelty claims as Trump seeks to supersize fish farming",
+      "whatHappened": "New undercover video appears to show cruel treatment of salmon at Cooke hatchery amid push for ‘chickenification’ of fish The Trump administration is keen to do...",
       "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
-      "keyWord": "renewable energy: energy from sources that can be used again, like sun or wind",
-      "source": "UN Climate",
-      "url": "https://news.un.org/feed/view/en/story/2026/04/1167368",
-      "publishedAt": "2026-04-26T12:00:00.000Z"
+      "keyWord": "climate: the usual pattern of weather over a long period of time",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/environment/2026/may/14/seafood-company-abuse-claims-fish-farming",
+      "publishedAt": "2026-05-14T12:30:07.000Z"
+    },
+    {
+      "title": "Roots of resilience: the experts working to bolster apples against the climate crisis",
+      "whatHappened": "Scientists are focusing on improving apples’ resilience after stressors like wild temperature swings and drought Terence Robinson still remembers the Valentine’s Day Massacre – of 2015,...",
+      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
+      "keyWord": "climate: the usual pattern of weather over a long period of time",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/environment/2026/may/13/apples-orchards-climate-crisis-scientists",
+      "publishedAt": "2026-05-13T17:00:03.000Z"
     },
     {
       "title": "‘Irresponsible’: backlash as Utah approves datacenter twice the size of Manhattan",
@@ -94,26 +112,35 @@
       "source": "The Guardian Environment",
       "url": "https://www.theguardian.com/us-news/2026/may/11/trump-public-lands-conservation-rule",
       "publishedAt": "2026-05-12T00:50:09.000Z"
-    },
-    {
-      "title": "Advocates decry Trump’s plan to open 24m acres of federal lands to cattle grazing",
-      "whatHappened": "Opponents say administration’s plan prioritizes big agriculture at expense of wildlife and protected species New legal action aims to head off a Trump administration plan to...",
-      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
-      "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/us-news/2026/may/11/trump-plans-24m-acres-federal-lands-cattle-grazing",
-      "publishedAt": "2026-05-11T12:00:54.000Z"
     }
   ],
   "weatherTech": [
     {
-      "title": "A deadly bacterium is creeping up the US east coast. How worried should we be?",
-      "whatHappened": "Warming ocean waters are priming beaches and raw shellfish for Vibrio even as scientists are trying to stay one step ahead Bailey Magers and Sunil Kumar...",
+      "title": "Insta360’s new viewfinder turns the action cam into a retro shooter",
+      "whatHappened": "The pill-shaped Insta360 Go 3S 4K action camera launched in June 2024 as an updated version of the 2.7K Go 3 that debuted a year prior.",
+      "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
+      "keyWord": "weather technology: tools that help people measure, study, or predict weather and climate",
+      "source": "The Verge",
+      "url": "https://www.theverge.com/tech/929125/insta360-360-go-3s-retro-bundle-viewfinder-accessory",
+      "publishedAt": "2026-05-14T11:39:51.000Z"
+    },
+    {
+      "title": "The Razr Fold is stuck in the middle",
+      "whatHappened": "For a phone that gets a lot right, the Motorola Razr Fold is frustratingly hard to recommend.",
+      "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
+      "keyWord": "battery: a device that stores energy for later use",
+      "source": "The Verge",
+      "url": "https://www.theverge.com/tech/930246/motorola-razr-fold-review-battery",
+      "publishedAt": "2026-05-14T11:24:19.000Z"
+    },
+    {
+      "title": "Brazil’s Atlantic forest records lowest deforestation in 40 years",
+      "whatHappened": "Environmentalists hail decline but warn weakened laws could reverse gains Brazil’s Atlantic forest, the country’s most threatened biome, last year recorded its lowest level of deforestation...",
       "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
       "keyWord": "weather technology: tools that help people measure, study, or predict weather and climate",
       "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/environment/2026/may/10/vibrio-bacteria-east-coast-climate-change",
-      "publishedAt": "2026-05-10T14:11:19.000Z"
+      "url": "https://www.theguardian.com/world/2026/may/14/brazil-atlantic-forest-deforestation-record",
+      "publishedAt": "2026-05-14T10:29:49.000Z"
     }
   ],
   "universityNews": [
