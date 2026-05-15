@@ -1,13 +1,13 @@
 {
-  "boardDate": "2026-05-14",
-  "generatedAt": "2026-05-14T13:16:49.775Z",
+  "boardDate": "2026-05-15",
+  "generatedAt": "2026-05-15T13:14:36.271Z",
   "sourceCount": 26,
   "weather": [
     {
       "city": "Ottawa",
-      "temperatureC": 9,
-      "maxC": 13,
-      "minC": 8,
+      "temperatureC": 12,
+      "maxC": 16,
+      "minC": 7,
       "summary": "Cloudy"
     }
   ],
@@ -60,6 +60,15 @@
   ],
   "climate": [
     {
+      "title": "Ban private jets and cut speed limits to avert UK fuel crisis, say campaigners",
+      "whatHappened": "Climate and transport organisations warn ministers not to ‘sleepwalk into crisis’ amid Iran war oil and gas shortages Private jets should be banned and the speed...",
+      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
+      "keyWord": "climate: the usual pattern of weather over a long period of time",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/environment/2026/may/15/ban-private-jets-cut-speed-limits-uk-fuel-crisis",
+      "publishedAt": "2026-05-15T10:12:29.000Z"
+    },
+    {
       "title": "Trump’s rollback of toxic gas rules limits EPA’s authority to protect public health, analysis says",
       "whatHappened": "Ethylene oxide (EtO) is about 60 times more carcinogenic than believed in 2006, research finds A new Trump administration plan to rescind 2024 regulations for toxic...",
       "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
@@ -78,6 +87,15 @@
       "publishedAt": "2026-04-29T12:00:00.000Z"
     },
     {
+      "title": "Watchdog groups urge Senate to investigate Samuel Alito over oil stock conflicts",
+      "whatHappened": "Groups say supreme court justice, who owns oil stocks, may be violating ethics codes by participating in certain cases The supreme court justice Samuel Alito ,...",
+      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
+      "keyWord": "climate: the usual pattern of weather over a long period of time",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/us-news/2026/may/14/alito-stock-conflicts-senate-investigation",
+      "publishedAt": "2026-05-14T21:06:28.000Z"
+    },
+    {
       "title": "Salmon farm faces new cruelty claims as Trump seeks to supersize fish farming",
       "whatHappened": "New undercover video appears to show cruel treatment of salmon at Cooke hatchery amid push for ‘chickenification’ of fish The Trump administration is keen to do...",
       "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
@@ -94,55 +112,9 @@
       "source": "The Guardian Environment",
       "url": "https://www.theguardian.com/environment/2026/may/13/apples-orchards-climate-crisis-scientists",
       "publishedAt": "2026-05-13T17:00:03.000Z"
-    },
-    {
-      "title": "‘Irresponsible’: backlash as Utah approves datacenter twice the size of Manhattan",
-      "whatHappened": "Facility would require more power than entire state uses and suck up vast amount of water in drought-stricken area A plan to create one of the...",
-      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
-      "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/us-news/2026/may/13/utah-approves-datacenter-backlash",
-      "publishedAt": "2026-05-13T11:30:56.000Z"
-    },
-    {
-      "title": "Trump officials cancel rule that made conservation a ‘use’ of public lands",
-      "whatHappened": "Move comes as administration seeks to boost drilling, logging, mining and grazing on taxpayer-owned land The interior department is canceling a rule that put conservation on...",
-      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
-      "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/us-news/2026/may/11/trump-public-lands-conservation-rule",
-      "publishedAt": "2026-05-12T00:50:09.000Z"
     }
   ],
-  "weatherTech": [
-    {
-      "title": "Insta360’s new viewfinder turns the action cam into a retro shooter",
-      "whatHappened": "The pill-shaped Insta360 Go 3S 4K action camera launched in June 2024 as an updated version of the 2.7K Go 3 that debuted a year prior.",
-      "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
-      "keyWord": "weather technology: tools that help people measure, study, or predict weather and climate",
-      "source": "The Verge",
-      "url": "https://www.theverge.com/tech/929125/insta360-360-go-3s-retro-bundle-viewfinder-accessory",
-      "publishedAt": "2026-05-14T11:39:51.000Z"
-    },
-    {
-      "title": "The Razr Fold is stuck in the middle",
-      "whatHappened": "For a phone that gets a lot right, the Motorola Razr Fold is frustratingly hard to recommend.",
-      "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
-      "keyWord": "battery: a device that stores energy for later use",
-      "source": "The Verge",
-      "url": "https://www.theverge.com/tech/930246/motorola-razr-fold-review-battery",
-      "publishedAt": "2026-05-14T11:24:19.000Z"
-    },
-    {
-      "title": "Brazil’s Atlantic forest records lowest deforestation in 40 years",
-      "whatHappened": "Environmentalists hail decline but warn weakened laws could reverse gains Brazil’s Atlantic forest, the country’s most threatened biome, last year recorded its lowest level of deforestation...",
-      "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
-      "keyWord": "weather technology: tools that help people measure, study, or predict weather and climate",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/world/2026/may/14/brazil-atlantic-forest-deforestation-record",
-      "publishedAt": "2026-05-14T10:29:49.000Z"
-    }
-  ],
+  "weatherTech": [],
   "universityNews": [
     {
       "title": "Carleton Recognised as Only University in Canada to Achieve Bronze Tier in Net-Zero Challenge",
@@ -226,6 +198,15 @@
       "publishedAt": "2026-04-07T12:00:00.000Z"
     },
     {
+      "title": "Navigating the shift: New Kroc Institute report maps the future of Colombian peace amidst pivotal political transition",
+      "whatHappened": "As Colombia stands at a historic threshold in the implementation of its 2016 Final Peace Agreement, decisions made in the coming months will be important for...",
+      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
+      "keyWord": "sustainability: using resources in a way that can last over time",
+      "source": "Notre Dame News",
+      "url": "https://news.nd.edu/news/navigating-the-shift-new-kroc-institute-report-maps-the-future-of-colombian-peace-amidst-pivotal-political-transition/",
+      "publishedAt": "2026-05-14T17:22:00.000Z"
+    },
+    {
       "title": "Giving Day thrives all year in Environment",
       "whatHappened": "Tue, 12 May 2026 12:00:00 +0000 An Environment faculty member, staff and retiree share what motivates them to support the student experience through their service and...",
       "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
@@ -242,15 +223,6 @@
       "source": "MIT Climate & Sustainability",
       "url": "https://news.mit.edu/2026/us-drivers-electric-vehicles-offer-emissions-benefits-cost-savings-0512",
       "publishedAt": "2026-05-12T04:00:00.000Z"
-    },
-    {
-      "title": "Scientists split gentoo penguins into four species, one totally new to science. Three of them are already threatened.",
-      "whatHappened": "Biologists argue that gentoo penguins should be divided into four separate species, including a newly recognized “cryptic” species.",
-      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
-      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
-      "source": "Berkeley News",
-      "url": "https://news.berkeley.edu/2026/05/08/scientists-split-gentoo-penguins-into-four-species-one-totally-new-to-science-three-of-them-are-already-threatened/",
-      "publishedAt": "2026-05-08T15:40:45.000Z"
     }
   ]
 }
