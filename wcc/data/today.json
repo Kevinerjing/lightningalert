@@ -1,13 +1,13 @@
 {
-  "boardDate": "2026-05-16",
-  "generatedAt": "2026-05-16T12:39:14.601Z",
+  "boardDate": "2026-05-17",
+  "generatedAt": "2026-05-17T12:12:22.035Z",
   "sourceCount": 26,
   "weather": [
     {
       "city": "Ottawa",
-      "temperatureC": 13,
+      "temperatureC": 16,
       "maxC": 23,
-      "minC": 8,
+      "minC": 13,
       "summary": "Clear skies"
     }
   ],
@@ -60,15 +60,6 @@
   ],
   "climate": [
     {
-      "title": "Trump’s rollback of toxic gas rules limits EPA’s authority to protect public health, analysis says",
-      "whatHappened": "Ethylene oxide (EtO) is about 60 times more carcinogenic than believed in 2006, research finds A new Trump administration plan to rescind 2024 regulations for toxic...",
-      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
-      "keyWord": "emissions: gases released into the air",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/us-news/2026/may/12/trump-rollback-eto-pollution-epa",
-      "publishedAt": "2026-05-13T02:04:35.000Z"
-    },
-    {
       "title": "Iran crisis shows fossil fuels-based energy system ‘is inherently volatile and unstable’",
       "whatHappened": "Senior UN climate leaders are getting behind countries mobilising this week for a transition away from fossil fuels at a groundbreaking event in Colombia.",
       "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
@@ -76,6 +67,15 @@
       "source": "UN Climate",
       "url": "https://news.un.org/feed/view/en/story/2026/04/1167401",
       "publishedAt": "2026-04-29T12:00:00.000Z"
+    },
+    {
+      "title": "Experts sound alarm as North America’s bees start swarm season unusually early",
+      "whatHappened": "After record losses last year, beekeepers report a warm winter has led to bees ‘waking up earlier’ this year After a series of record-breaking US heatwaves...",
+      "whyItMatters": "Climate and environment stories connect science to real issues like safety, health, and extreme weather.",
+      "keyWord": "climate: the usual pattern of weather over a long period of time",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/environment/2026/may/17/north-america-bees-early-swarm-season",
+      "publishedAt": "2026-05-17T12:00:38.000Z"
     },
     {
       "title": "Florida tightens rules on capturing giant manta rays but stops short of full ban",
@@ -114,17 +114,7 @@
       "publishedAt": "2026-05-13T17:00:03.000Z"
     }
   ],
-  "weatherTech": [
-    {
-      "title": "Power prices are up 76% on America’s biggest grid, and a watchdog is pointing fingers",
-      "whatHappened": "The price spike is a reminder of a deeper problem: The U.S.",
-      "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
-      "keyWord": "weather technology: tools that help people measure, study, or predict weather and climate",
-      "source": "TechCrunch",
-      "url": "https://techcrunch.com/2026/05/15/power-prices-are-up-76-on-americas-biggest-grid-and-a-watchdog-is-pointing-fingers/",
-      "publishedAt": "2026-05-15T15:45:53.000Z"
-    }
-  ],
+  "weatherTech": [],
   "universityNews": [
     {
       "title": "Carleton Recognised as Only University in Canada to Achieve Bronze Tier in Net-Zero Challenge",
@@ -199,6 +189,15 @@
       "publishedAt": "2026-04-07T12:00:00.000Z"
     },
     {
+      "title": "The Commencement of the Graduate School class of 2026",
+      "whatHappened": "Mary Cunningham Boyce delivered the keynote address Saturday during the Graduate School’s annual Commencement Ceremony, encouraging students in this moment of profound change, from rapid advances...",
+      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
+      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
+      "source": "Notre Dame News",
+      "url": "https://news.nd.edu/news/the-commencement-of-the-graduate-school-class-of-2026/",
+      "publishedAt": "2026-05-16T15:27:06.000Z"
+    },
+    {
       "title": "Navigating the shift: New Kroc Institute report maps the future of Colombian peace amidst pivotal political transition",
       "whatHappened": "As Colombia stands at a historic threshold in the implementation of its 2016 Final Peace Agreement, decisions made in the coming months will be important for...",
       "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
@@ -224,15 +223,6 @@
       "source": "MIT Climate & Sustainability",
       "url": "https://news.mit.edu/2026/us-drivers-electric-vehicles-offer-emissions-benefits-cost-savings-0512",
       "publishedAt": "2026-05-12T04:00:00.000Z"
-    },
-    {
-      "title": "UBC researchers find Indigenous lands can outperform protected areas on conservation",
-      "whatHappened": "UBC researchers reviewed 111 studies and found Indigenous-managed lands match or outperform government protected areas on forests, biodiversity and carbon storage — yet remain under-resourced and...",
-      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
-      "keyWord": "research: careful study used to discover new knowledge",
-      "source": "UBC News",
-      "url": "https://news.ubc.ca/2026/05/indigenous-lands-outperform-protected-areas-on-conservation/",
-      "publishedAt": "2026-05-06T17:28:56.000Z"
     }
   ]
 }
