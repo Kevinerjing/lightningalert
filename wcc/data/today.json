@@ -1,14 +1,14 @@
 {
-  "boardDate": "2026-05-18",
-  "generatedAt": "2026-05-18T14:42:23.024Z",
+  "boardDate": "2026-05-19",
+  "generatedAt": "2026-05-19T14:11:28.179Z",
   "sourceCount": 26,
   "weather": [
     {
       "city": "Ottawa",
-      "temperatureC": 12,
-      "maxC": 26,
-      "minC": 9,
-      "summary": "Partly cloudy"
+      "temperatureC": 23,
+      "maxC": 30,
+      "minC": 17,
+      "summary": "Mostly clear"
     }
   ],
   "extremeWeather": [
@@ -31,6 +31,15 @@
       "publishedAt": "2026-05-18T12:00:46.000Z"
     },
     {
+      "title": "Extreme heat, floods and drought threaten lives across Latin America and Caribbean",
+      "whatHappened": "Record-breaking temperatures, deadly floods, worsening drought and intensifying hurricanes are placing millions of people across Latin America and the Caribbean at growing risk of hunger, displacement...",
+      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
+      "keyWord": "drought: a long time with very little rain",
+      "source": "UN Climate",
+      "url": "https://news.un.org/feed/view/en/story/2026/05/1167537",
+      "publishedAt": "2026-05-18T12:00:00.000Z"
+    },
+    {
       "title": "World News in Brief: Somalia drought response, Gaza and Ukraine aid updates, human rights abuses in Tunisia",
       "whatHappened": "In Somalia’s Puntland region, dried out watering holes, animal carcasses and old pots filled with ash have become part of the landscape as worsening drought conditions...",
       "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
@@ -38,15 +47,6 @@
       "source": "UN Climate",
       "url": "https://news.un.org/feed/view/en/story/2026/05/1167461",
       "publishedAt": "2026-05-07T12:00:00.000Z"
-    },
-    {
-      "title": "Global forest loss slows but El Niño fires could threaten progress",
-      "whatHappened": "The loss of tropical rainforests eased last year, according to new analysis, but scientists warn they are still disappearing rapidly.",
-      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
-      "keyWord": "extreme weather: unusual and dangerous weather like floods, storms, or heat waves",
-      "source": "BBC Science & Environment",
-      "url": "https://www.bbc.com/news/articles/c78q5pygn66o?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-04-29T13:26:08.000Z"
     }
   ],
   "climate": [
@@ -60,13 +60,13 @@
       "publishedAt": "2026-05-18T10:00:54.000Z"
     },
     {
-      "title": "Iran crisis shows fossil fuels-based energy system ‘is inherently volatile and unstable’",
-      "whatHappened": "Senior UN climate leaders are getting behind countries mobilising this week for a transition away from fossil fuels at a groundbreaking event in Colombia.",
+      "title": "Orcas could be casualty in Carney’s push for pipeline, environmental groups fear",
+      "whatHappened": "Rush to develop fossil fuel infrastructure in Canada collides with laws meant to protect endangered species Environmental groups in Canada fear endangered orcas could become a...",
       "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
       "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "UN Climate",
-      "url": "https://news.un.org/feed/view/en/story/2026/04/1167401",
-      "publishedAt": "2026-04-29T12:00:00.000Z"
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/world/2026/may/19/canada-orcas-oil-pipeline-mark-carney",
+      "publishedAt": "2026-05-19T11:00:02.000Z"
     },
     {
       "title": "Trump cuts to weather data could make forecasts less reliable, warn experts",
@@ -76,6 +76,15 @@
       "source": "The Guardian Environment",
       "url": "https://www.theguardian.com/us-news/2026/may/18/trump-cuts-ai-weather-prediction-forecasts",
       "publishedAt": "2026-05-18T12:00:46.000Z"
+    },
+    {
+      "title": "Rise in solar panel sales as people 'want to save money'",
+      "whatHappened": "One director, who has just bought 2,000 panels, hopes to safeguard the company's future bills.",
+      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
+      "keyWord": "climate: the usual pattern of weather over a long period of time",
+      "source": "BBC Science & Environment",
+      "url": "https://www.bbc.com/news/articles/cjrp19v9vl2o?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-05-18T05:18:57.000Z"
     },
     {
       "title": "The American epoch of oil is collapsing. What comes next could be ugly | Jonathan Watts",
@@ -94,15 +103,6 @@
       "source": "The Guardian Environment",
       "url": "https://www.theguardian.com/environment/2026/may/17/north-america-bees-early-swarm-season",
       "publishedAt": "2026-05-17T12:00:38.000Z"
-    },
-    {
-      "title": "Florida tightens rules on capturing giant manta rays but stops short of full ban",
-      "whatHappened": "Move follows upsetting viral video of ray being manhandled into unmarked boat in Florida waters last year Wildlife officials in Florida will continue to allow threatened...",
-      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
-      "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/us-news/2026/may/16/florida-giant-manta-rays-capture-rules",
-      "publishedAt": "2026-05-16T10:00:07.000Z"
     }
   ],
   "weatherTech": [
@@ -116,13 +116,22 @@
       "publishedAt": "2026-05-18T12:00:46.000Z"
     },
     {
-      "title": "Starlink raises prices across satellite internet plans",
-      "whatHappened": "Starlink is raising prices across its satellite internet plans in the US - including Standby Mode - with the cheapest 100Mbps Residential plan going from $50...",
-      "whyItMatters": "Weather technology shows how science tools can predict conditions faster and help people prepare earlier.",
-      "keyWord": "satellite: an object in space that collects information and sends it back to Earth",
+      "title": "Anker fixes the two worst things about power stations",
+      "whatHappened": "Anker's Solix S2000 solves two major pain points with power stations: idle power draw that can leave a battery unexpectedly dead, and the large footprint required...",
+      "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
+      "keyWord": "battery: a device that stores energy for later use",
       "source": "The Verge",
-      "url": "https://www.theverge.com/science/932294/starlink-price-increase-standby-mode",
-      "publishedAt": "2026-05-18T14:08:19.000Z"
+      "url": "https://www.theverge.com/tech/928420/anker-solix-s2000-power-station",
+      "publishedAt": "2026-05-19T14:02:30.000Z"
+    },
+    {
+      "title": "Solar to dominate energy by 2035, but AI data centers will keep fossil fuels in business",
+      "whatHappened": "Costs for solar panels are expected to drop another 30% in the coming decade, helping the tech cement its lead in energy markets.",
+      "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
+      "keyWord": "solar: related to energy from sunlight",
+      "source": "TechCrunch",
+      "url": "https://techcrunch.com/2026/05/19/solar-to-dominate-energy-in-2035-but-data-centers-will-keep-fossil-fuels-in-business/",
+      "publishedAt": "2026-05-19T10:00:00.000Z"
     },
     {
       "title": "The Iran war reminds us: we’ll never be energy-independent with fossil fuels | Lloyd Doggett and Michael Shank",
@@ -132,6 +141,15 @@
       "source": "The Guardian Environment",
       "url": "https://www.theguardian.com/commentisfree/2026/may/18/iran-war-energy-independence-fossil-fuels",
       "publishedAt": "2026-05-18T10:00:54.000Z"
+    },
+    {
+      "title": "Rise in solar panel sales as people 'want to save money'",
+      "whatHappened": "One director, who has just bought 2,000 panels, hopes to safeguard the company's future bills.",
+      "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
+      "keyWord": "solar: related to energy from sunlight",
+      "source": "BBC Science & Environment",
+      "url": "https://www.bbc.com/news/articles/cjrp19v9vl2o?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-05-18T05:18:57.000Z"
     }
   ],
   "universityNews": [
@@ -152,6 +170,15 @@
       "source": "Carleton Sustainability",
       "url": "https://carleton.ca/sustainability/2025/tiny-forest-coming-to-carleton/",
       "publishedAt": "2025-07-29T18:38:05.000Z"
+    },
+    {
+      "title": "The true impact of Canadian milk packaging",
+      "whatHappened": "Tue, 19 May 2026 12:00:00 +0000 Milk is a cornerstone of Canadian diets and a regularly purchased item at the grocery store.",
+      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
+      "keyWord": "sustainability: using resources in a way that can last over time",
+      "source": "Waterloo Environment",
+      "url": "https://uwaterloo.ca/environment/news/true-impact-canadian-milk-packaging",
+      "publishedAt": "2026-05-19T12:00:00.000Z"
     },
     {
       "title": "A New Study Explains How Carbon Dioxide Cools the Upper Atmosphere—and Warms Earth Below",
@@ -206,15 +233,6 @@
       "source": "Waterloo Environment",
       "url": "https://uwaterloo.ca/environment/news/women-wampum",
       "publishedAt": "2026-04-07T12:00:00.000Z"
-    },
-    {
-      "title": "Giving Day thrives all year in Environment",
-      "whatHappened": "Tue, 12 May 2026 12:00:00 +0000 An Environment faculty member, staff and retiree share what motivates them to support the student experience through their service and...",
-      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
-      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
-      "source": "Waterloo Environment",
-      "url": "https://uwaterloo.ca/environment/news/giving-day-thrives-all-year-environment",
-      "publishedAt": "2026-05-12T12:00:00.000Z"
     },
     {
       "title": "For most US drivers, EVs offer emissions benefits and cost savings",
