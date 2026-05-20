@@ -1,14 +1,14 @@
 {
-  "boardDate": "2026-05-19",
-  "generatedAt": "2026-05-19T14:11:28.179Z",
+  "boardDate": "2026-05-20",
+  "generatedAt": "2026-05-20T14:06:07.603Z",
   "sourceCount": 26,
   "weather": [
     {
       "city": "Ottawa",
-      "temperatureC": 23,
-      "maxC": 30,
-      "minC": 17,
-      "summary": "Mostly clear"
+      "temperatureC": 17,
+      "maxC": 21,
+      "minC": 8,
+      "summary": "Cloudy"
     }
   ],
   "extremeWeather": [
@@ -60,13 +60,22 @@
       "publishedAt": "2026-05-18T10:00:54.000Z"
     },
     {
-      "title": "Orcas could be casualty in Carney’s push for pipeline, environmental groups fear",
-      "whatHappened": "Rush to develop fossil fuel infrastructure in Canada collides with laws meant to protect endangered species Environmental groups in Canada fear endangered orcas could become a...",
+      "title": "Eva v Goliath: the 20-year-old climate activist taking on Trump and the fossil fuel industry",
+      "whatHappened": "Young Americans are suing the president for violating rights with executive orders that fuel the climate crisis Eva Lighthiser was at a dorm party on her...",
       "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
       "keyWord": "climate: the usual pattern of weather over a long period of time",
       "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/world/2026/may/19/canada-orcas-oil-pipeline-mark-carney",
-      "publishedAt": "2026-05-19T11:00:02.000Z"
+      "url": "https://www.theguardian.com/us-news/ng-interactive/2026/may/20/eva-lighthiser-trump-climate",
+      "publishedAt": "2026-05-20T13:00:42.000Z"
+    },
+    {
+      "title": "UK should set maximum working temperature rules, advisers say",
+      "whatHappened": "Successive governments have failed to prepare the UK for extreme heat, the climate watchdog says.",
+      "whyItMatters": "Climate and environment stories connect science to real issues like safety, health, and extreme weather.",
+      "keyWord": "climate: the usual pattern of weather over a long period of time",
+      "source": "BBC Science & Environment",
+      "url": "https://www.bbc.com/news/articles/cm2p1j4y0kro?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-05-19T23:40:12.000Z"
     },
     {
       "title": "Trump cuts to weather data could make forecasts less reliable, warn experts",
@@ -94,15 +103,6 @@
       "source": "The Guardian Environment",
       "url": "https://www.theguardian.com/us-news/ng-interactive/2026/may/17/america-china-energy-oil-renewables",
       "publishedAt": "2026-05-17T13:00:41.000Z"
-    },
-    {
-      "title": "Experts sound alarm as North America’s bees start swarm season unusually early",
-      "whatHappened": "After record losses last year, beekeepers report a warm winter has led to bees ‘waking up earlier’ this year After a series of record-breaking US heatwaves...",
-      "whyItMatters": "Climate and environment stories connect science to real issues like safety, health, and extreme weather.",
-      "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/environment/2026/may/17/north-america-bees-early-swarm-season",
-      "publishedAt": "2026-05-17T12:00:38.000Z"
     }
   ],
   "weatherTech": [
@@ -114,24 +114,6 @@
       "source": "The Guardian Environment",
       "url": "https://www.theguardian.com/us-news/2026/may/18/trump-cuts-ai-weather-prediction-forecasts",
       "publishedAt": "2026-05-18T12:00:46.000Z"
-    },
-    {
-      "title": "Anker fixes the two worst things about power stations",
-      "whatHappened": "Anker's Solix S2000 solves two major pain points with power stations: idle power draw that can leave a battery unexpectedly dead, and the large footprint required...",
-      "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
-      "keyWord": "battery: a device that stores energy for later use",
-      "source": "The Verge",
-      "url": "https://www.theverge.com/tech/928420/anker-solix-s2000-power-station",
-      "publishedAt": "2026-05-19T14:02:30.000Z"
-    },
-    {
-      "title": "Solar to dominate energy by 2035, but AI data centers will keep fossil fuels in business",
-      "whatHappened": "Costs for solar panels are expected to drop another 30% in the coming decade, helping the tech cement its lead in energy markets.",
-      "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
-      "keyWord": "solar: related to energy from sunlight",
-      "source": "TechCrunch",
-      "url": "https://techcrunch.com/2026/05/19/solar-to-dominate-energy-in-2035-but-data-centers-will-keep-fossil-fuels-in-business/",
-      "publishedAt": "2026-05-19T10:00:00.000Z"
     },
     {
       "title": "The Iran war reminds us: we’ll never be energy-independent with fossil fuels | Lloyd Doggett and Michael Shank",
@@ -190,15 +172,6 @@
       "publishedAt": "2026-05-12T14:07:05.000Z"
     },
     {
-      "title": "UM-Dearborn’s Environmental Interpretive Center celebrates 25 years",
-      "whatHappened": "This month marks 25 years of the Environmental Interpretive Center at UM-Dearborn, which since its opening has connected people to a 120-acre landscape shaped by history,...",
-      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
-      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
-      "source": "University of Michigan Record",
-      "url": "https://mbgna.umich.edu/post/look-look-down-look-all-around-experiencing-nature-environmental-interpretive-center",
-      "publishedAt": "2026-05-11T17:16:06.000Z"
-    },
-    {
       "title": "Mapping the ocean with autonomous sensors",
       "whatHappened": "Founded by Ravi Pappu SM ’95, PhD ’01, Apeiron Labs is deploying low-cost ocean sensors to improve storm forecasts, detect endangered species, and more.",
       "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
@@ -217,15 +190,6 @@
       "publishedAt": "2026-05-06T13:40:08.000Z"
     },
     {
-      "title": "The power of “and” in energy and climate entrepreneurship",
-      "whatHappened": "Greentown Labs CEO Georgina Campbell Flatter emphasizes the importance of collaboration in the entrepreneurship space, and the role that universities play in this landscape.",
-      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
-      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
-      "source": "MIT Climate & Sustainability",
-      "url": "https://news.mit.edu/2026/power-and-energy-climate-entrepreneurship-0424",
-      "publishedAt": "2026-04-24T17:27:00.000Z"
-    },
-    {
       "title": "Women of Wampum",
       "whatHappened": "Tue, 07 Apr 2026 12:00:00 +0000 A new short documentary by Dr.",
       "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
@@ -233,6 +197,24 @@
       "source": "Waterloo Environment",
       "url": "https://uwaterloo.ca/environment/news/women-wampum",
       "publishedAt": "2026-04-07T12:00:00.000Z"
+    },
+    {
+      "title": "A day in the life of MIT MBA student Patrick Yeung",
+      "whatHappened": "MIT Sloan’s Sustainability Initiative provides opportunities to lead in ways that will help build a more sustainable future.",
+      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
+      "keyWord": "sustainability: using resources in a way that can last over time",
+      "source": "MIT Climate & Sustainability",
+      "url": "https://news.mit.edu/2026/day-life-mit-mba-student-patrick-yeung-0519",
+      "publishedAt": "2026-05-19T18:20:00.000Z"
+    },
+    {
+      "title": "U-M earns Gold STARS rating for sustainability efforts",
+      "whatHappened": "U-M has once again earned a Gold rating through the Sustainability Tracking, Assessment & Rating System, or STARS, in recognition of universitywide sustainability efforts.",
+      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
+      "keyWord": "sustainability: using resources in a way that can last over time",
+      "source": "University of Michigan Record",
+      "url": "https://record.umich.edu/articles/u-m-earns-gold-stars-rating-for-sustainability-efforts/",
+      "publishedAt": "2026-05-14T15:04:29.000Z"
     },
     {
       "title": "For most US drivers, EVs offer emissions benefits and cost savings",
