@@ -1,14 +1,14 @@
 {
-  "boardDate": "2026-05-20",
-  "generatedAt": "2026-05-20T14:06:07.603Z",
+  "boardDate": "2026-05-21",
+  "generatedAt": "2026-05-21T14:21:38.806Z",
   "sourceCount": 26,
   "weather": [
     {
       "city": "Ottawa",
-      "temperatureC": 17,
-      "maxC": 21,
-      "minC": 8,
-      "summary": "Cloudy"
+      "temperatureC": 8,
+      "maxC": 15,
+      "minC": 5,
+      "summary": "Clear skies"
     }
   ],
   "extremeWeather": [
@@ -20,6 +20,15 @@
       "source": "UN Climate",
       "url": "https://news.un.org/feed/view/en/story/2026/05/1167485",
       "publishedAt": "2026-05-11T12:00:00.000Z"
+    },
+    {
+      "title": "‘It’s put the joy levels up’: the flood-prone London school with a climate-adapted playground",
+      "whatHappened": "When pupils could no longer play outside, St John’s school in Barnet decided to act, enlisting Trees for Cities to help rethink its outside space The...",
+      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
+      "keyWord": "flood: water covering land that is usually dry",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/environment/2026/may/21/flood-prone-london-school-climate-adapted-playground",
+      "publishedAt": "2026-05-21T14:00:31.000Z"
     },
     {
       "title": "Trump cuts to weather data could make forecasts less reliable, warn experts",
@@ -51,6 +60,15 @@
   ],
   "climate": [
     {
+      "title": "Young Americans demand court halt Trump’s biggest rollbacks of pollution protections",
+      "whatHappened": "Suit says administration is impinging on rights to life and liberty by worsening planet-warming and toxic pollution Eva v Goliath: the 20-year-old climate activist taking on...",
+      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
+      "keyWord": "climate: the usual pattern of weather over a long period of time",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/us-news/2026/may/20/trump-administration-climate-pollution-lawsuit",
+      "publishedAt": "2026-05-20T20:04:02.000Z"
+    },
+    {
       "title": "The Iran war reminds us: we’ll never be energy-independent with fossil fuels | Lloyd Doggett and Michael Shank",
       "whatHappened": "Energy security comes from using local, renewable resources to power, heat and cool communities, as Ukraine is doing Donald Trump ’s unjustified war on Iran and...",
       "whyItMatters": "Climate and environment stories connect science to real issues like safety, health, and extreme weather.",
@@ -61,7 +79,7 @@
     },
     {
       "title": "Eva v Goliath: the 20-year-old climate activist taking on Trump and the fossil fuel industry",
-      "whatHappened": "Young Americans are suing the president for violating rights with executive orders that fuel the climate crisis Eva Lighthiser was at a dorm party on her...",
+      "whatHappened": "Young Americans are suing the president for violating rights with executive orders that fuel the climate crisis Young Americans demand court halt Trump’s biggest rollbacks of...",
       "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
       "keyWord": "climate: the usual pattern of weather over a long period of time",
       "source": "The Guardian Environment",
@@ -69,40 +87,31 @@
       "publishedAt": "2026-05-20T13:00:42.000Z"
     },
     {
-      "title": "UK should set maximum working temperature rules, advisers say",
-      "whatHappened": "Successive governments have failed to prepare the UK for extreme heat, the climate watchdog says.",
-      "whyItMatters": "Climate and environment stories connect science to real issues like safety, health, and extreme weather.",
-      "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "BBC Science & Environment",
-      "url": "https://www.bbc.com/news/articles/cm2p1j4y0kro?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-05-19T23:40:12.000Z"
-    },
-    {
-      "title": "Trump cuts to weather data could make forecasts less reliable, warn experts",
-      "whatHappened": "Use of AI is a valuable tool for weather prediction but only when it’s trained with ample data, experts say As the US prepares for hurricane...",
+      "title": "‘It’s put the joy levels up’: the flood-prone London school with a climate-adapted playground",
+      "whatHappened": "When pupils could no longer play outside, St John’s school in Barnet decided to act, enlisting Trees for Cities to help rethink its outside space The...",
       "whyItMatters": "Climate and environment stories connect science to real issues like safety, health, and extreme weather.",
       "keyWord": "climate: the usual pattern of weather over a long period of time",
       "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/us-news/2026/may/18/trump-cuts-ai-weather-prediction-forecasts",
-      "publishedAt": "2026-05-18T12:00:46.000Z"
+      "url": "https://www.theguardian.com/environment/2026/may/21/flood-prone-london-school-climate-adapted-playground",
+      "publishedAt": "2026-05-21T14:00:31.000Z"
     },
     {
-      "title": "Rise in solar panel sales as people 'want to save money'",
-      "whatHappened": "One director, who has just bought 2,000 panels, hopes to safeguard the company's future bills.",
-      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
-      "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "BBC Science & Environment",
-      "url": "https://www.bbc.com/news/articles/cjrp19v9vl2o?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-05-18T05:18:57.000Z"
-    },
-    {
-      "title": "The American epoch of oil is collapsing. What comes next could be ugly | Jonathan Watts",
-      "whatHappened": "China is dominating the energy transition with astonishing result, while fossil fuel fascists in the US try to turn back the clock “Farewell,” the flag-waving Chinese...",
-      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
+      "title": "San Francisco turns to AI to save whales from ship strikes as deaths soar",
+      "whatHappened": "Climate change is pushing starving grey whales to San Francisco Bay, where ship strikes led to 40% of 21 deaths Ferries, cargo ships and tankers cut...",
+      "whyItMatters": "Climate and environment stories connect science to real issues like safety, health, and extreme weather.",
       "keyWord": "climate: the usual pattern of weather over a long period of time",
       "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/us-news/ng-interactive/2026/may/17/america-china-energy-oil-renewables",
-      "publishedAt": "2026-05-17T13:00:41.000Z"
+      "url": "https://www.theguardian.com/environment/2026/may/20/san-francisco-bay-ai-whales",
+      "publishedAt": "2026-05-20T18:43:41.000Z"
+    },
+    {
+      "title": "General Assembly backs historic World Court climate crisis ruling",
+      "whatHappened": "A landmark General Assembly resolution adopted on Wednesday is “a powerful affirmation” of international law, climate justice and science, according to UN chief António Guterres.",
+      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
+      "keyWord": "climate: the usual pattern of weather over a long period of time",
+      "source": "UN Climate",
+      "url": "https://news.un.org/feed/view/en/story/2026/05/1167561",
+      "publishedAt": "2026-05-20T12:00:00.000Z"
     }
   ],
   "weatherTech": [
@@ -154,6 +163,15 @@
       "publishedAt": "2025-07-29T18:38:05.000Z"
     },
     {
+      "title": "Columbia’s Energy Tech Conference Spotlights the Race for AI’s Clean Power Future",
+      "whatHappened": "How do we power the AI boom without blowing past climate goals and breaking the grid?",
+      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
+      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
+      "source": "Columbia Climate School",
+      "url": "https://news.climate.columbia.edu/2026/05/20/columbias-energy-tech-conference-spotlights-the-race-for-ais-clean-power-future/",
+      "publishedAt": "2026-05-20T17:28:01.000Z"
+    },
+    {
       "title": "The true impact of Canadian milk packaging",
       "whatHappened": "Tue, 19 May 2026 12:00:00 +0000 Milk is a cornerstone of Canadian diets and a regularly purchased item at the grocery store.",
       "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
@@ -181,15 +199,6 @@
       "publishedAt": "2026-05-08T04:00:00.000Z"
     },
     {
-      "title": "You Asked: Lamont and Climate School Experts Tackle Reader Questions on Science and Sustainability",
-      "whatHappened": "We invite readers to share their most pressing questions about climate, science and sustainability.",
-      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
-      "keyWord": "sustainability: using resources in a way that can last over time",
-      "source": "Columbia Climate School",
-      "url": "https://news.climate.columbia.edu/2026/05/06/you-asked-lamont-and-climate-school-experts-tackle-reader-questions-on-science-and-sustainability/",
-      "publishedAt": "2026-05-06T13:40:08.000Z"
-    },
-    {
       "title": "Women of Wampum",
       "whatHappened": "Tue, 07 Apr 2026 12:00:00 +0000 A new short documentary by Dr.",
       "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
@@ -197,6 +206,24 @@
       "source": "Waterloo Environment",
       "url": "https://uwaterloo.ca/environment/news/women-wampum",
       "publishedAt": "2026-04-07T12:00:00.000Z"
+    },
+    {
+      "title": "Can AI help predict how you might be feeling in the future?",
+      "whatHappened": "A Northeastern professor is using machine-learning models to understand if emotions can be predicted like the weather or stocks.",
+      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
+      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
+      "source": "Northeastern Global News",
+      "url": "https://news.northeastern.edu/2026/05/20/machine-learning-mental-health/",
+      "publishedAt": "2026-05-20T20:54:44.000Z"
+    },
+    {
+      "title": "UW–Madison student awarded prestigious Udall Scholarship",
+      "whatHappened": "The national honor recognizes undergraduate Aryana Wadhwani as a future leader in the environmental field.",
+      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
+      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
+      "source": "University of Wisconsin News",
+      "url": "https://news.wisc.edu/uw-madison-student-awarded-prestigious-udall-scholarship/",
+      "publishedAt": "2026-05-20T18:07:01.000Z"
     },
     {
       "title": "A day in the life of MIT MBA student Patrick Yeung",
@@ -224,24 +251,6 @@
       "source": "MIT Climate & Sustainability",
       "url": "https://news.mit.edu/2026/us-drivers-electric-vehicles-offer-emissions-benefits-cost-savings-0512",
       "publishedAt": "2026-05-12T04:00:00.000Z"
-    },
-    {
-      "title": "UBC researchers find Indigenous lands can outperform protected areas on conservation",
-      "whatHappened": "UBC researchers reviewed 111 studies and found Indigenous-managed lands match or outperform government protected areas on forests, biodiversity and carbon storage — yet remain under-resourced and...",
-      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
-      "keyWord": "research: careful study used to discover new knowledge",
-      "source": "UBC News",
-      "url": "https://news.ubc.ca/2026/05/indigenous-lands-outperform-protected-areas-on-conservation/",
-      "publishedAt": "2026-05-06T17:28:56.000Z"
-    },
-    {
-      "title": "Climate policy isn’t partisan — research suggests more on the right support it than oppose it",
-      "whatHappened": "by Dr.",
-      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
-      "keyWord": "research: careful study used to discover new knowledge",
-      "source": "UBC News",
-      "url": "https://news.ubc.ca/2026/04/climate-policy-isnt-partisan-research-suggests-more-on-the-right-support-it-than-oppose-it/",
-      "publishedAt": "2026-04-28T22:20:37.000Z"
     }
   ]
 }
