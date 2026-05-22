@@ -1,13 +1,13 @@
 {
-  "boardDate": "2026-05-21",
-  "generatedAt": "2026-05-21T14:21:38.806Z",
+  "boardDate": "2026-05-22",
+  "generatedAt": "2026-05-22T13:54:58.159Z",
   "sourceCount": 26,
   "weather": [
     {
       "city": "Ottawa",
-      "temperatureC": 8,
-      "maxC": 15,
-      "minC": 5,
+      "temperatureC": 11,
+      "maxC": 20,
+      "minC": 3,
       "summary": "Clear skies"
     }
   ],
@@ -22,13 +22,22 @@
       "publishedAt": "2026-05-11T12:00:00.000Z"
     },
     {
-      "title": "‘It’s put the joy levels up’: the flood-prone London school with a climate-adapted playground",
-      "whatHappened": "When pupils could no longer play outside, St John’s school in Barnet decided to act, enlisting Trees for Cities to help rethink its outside space The...",
+      "title": "Why an immense marine heatwave off the US west coast has alarmed scientists",
+      "whatHappened": "What does a surge in ocean temperatures, compounded with El Niño, bode for the summer?",
       "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
-      "keyWord": "flood: water covering land that is usually dry",
+      "keyWord": "heat wave: a long period of unusually hot weather",
       "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/environment/2026/may/21/flood-prone-london-school-climate-adapted-playground",
-      "publishedAt": "2026-05-21T14:00:31.000Z"
+      "url": "https://www.theguardian.com/us-news/2026/may/22/marine-heatwave-west-coast",
+      "publishedAt": "2026-05-22T13:00:01.000Z"
+    },
+    {
+      "title": "How do hurricanes and typhoons form and is climate change making them stronger?",
+      "whatHappened": "These powerful tropical storms are generally becoming more intense as the world warms.",
+      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
+      "keyWord": "extreme weather: unusual and dangerous weather like floods, storms, or heat waves",
+      "source": "BBC Science & Environment",
+      "url": "https://www.bbc.com/news/articles/cz913gxlw3jo?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-05-21T15:28:27.000Z"
     },
     {
       "title": "Trump cuts to weather data could make forecasts less reliable, warn experts",
@@ -69,15 +78,6 @@
       "publishedAt": "2026-05-20T20:04:02.000Z"
     },
     {
-      "title": "The Iran war reminds us: we’ll never be energy-independent with fossil fuels | Lloyd Doggett and Michael Shank",
-      "whatHappened": "Energy security comes from using local, renewable resources to power, heat and cool communities, as Ukraine is doing Donald Trump ’s unjustified war on Iran and...",
-      "whyItMatters": "Climate and environment stories connect science to real issues like safety, health, and extreme weather.",
-      "keyWord": "renewable energy: energy from sources that can be used again, like sun or wind",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/commentisfree/2026/may/18/iran-war-energy-independence-fossil-fuels",
-      "publishedAt": "2026-05-18T10:00:54.000Z"
-    },
-    {
       "title": "Eva v Goliath: the 20-year-old climate activist taking on Trump and the fossil fuel industry",
       "whatHappened": "Young Americans are suing the president for violating rights with executive orders that fuel the climate crisis Young Americans demand court halt Trump’s biggest rollbacks of...",
       "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
@@ -87,13 +87,31 @@
       "publishedAt": "2026-05-20T13:00:42.000Z"
     },
     {
-      "title": "‘It’s put the joy levels up’: the flood-prone London school with a climate-adapted playground",
-      "whatHappened": "When pupils could no longer play outside, St John’s school in Barnet decided to act, enlisting Trees for Cities to help rethink its outside space The...",
-      "whyItMatters": "Climate and environment stories connect science to real issues like safety, health, and extreme weather.",
+      "title": "‘We will not survive’: jailing of Daria Egereva highlights plight of Russia’s Indigenous people",
+      "whatHappened": "Authorities are cracking down on rights activists fighting for Indigenous people threatened by authoritarianism, extractivism and climate breakdown The operation began at 9am Moscow time, but...",
+      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
       "keyWord": "climate: the usual pattern of weather over a long period of time",
       "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/environment/2026/may/21/flood-prone-london-school-climate-adapted-playground",
-      "publishedAt": "2026-05-21T14:00:31.000Z"
+      "url": "https://www.theguardian.com/world/2026/may/22/jailing-daria-egereva-plight-russia-indigenous-people",
+      "publishedAt": "2026-05-22T13:00:01.000Z"
+    },
+    {
+      "title": "How do hurricanes and typhoons form and is climate change making them stronger?",
+      "whatHappened": "These powerful tropical storms are generally becoming more intense as the world warms.",
+      "whyItMatters": "Climate and environment stories connect science to real issues like safety, health, and extreme weather.",
+      "keyWord": "climate: the usual pattern of weather over a long period of time",
+      "source": "BBC Science & Environment",
+      "url": "https://www.bbc.com/news/articles/cz913gxlw3jo?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-05-21T15:28:27.000Z"
+    },
+    {
+      "title": "Trump’s EPA to roll back refrigerant rule for grocery stores in push it claims will lower prices",
+      "whatHappened": "EPA is loosening Biden-era rule that requires US businesses to reduce greenhouse gases used in cooling equipment The Trump administration is set to loosen a federal...",
+      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
+      "keyWord": "climate: the usual pattern of weather over a long period of time",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/us-news/2026/may/21/trump-epa-refrigerant-rule-grocery-costs",
+      "publishedAt": "2026-05-21T14:34:55.000Z"
     },
     {
       "title": "San Francisco turns to AI to save whales from ship strikes as deaths soar",
@@ -103,15 +121,6 @@
       "source": "The Guardian Environment",
       "url": "https://www.theguardian.com/environment/2026/may/20/san-francisco-bay-ai-whales",
       "publishedAt": "2026-05-20T18:43:41.000Z"
-    },
-    {
-      "title": "General Assembly backs historic World Court climate crisis ruling",
-      "whatHappened": "A landmark General Assembly resolution adopted on Wednesday is “a powerful affirmation” of international law, climate justice and science, according to UN chief António Guterres.",
-      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
-      "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "UN Climate",
-      "url": "https://news.un.org/feed/view/en/story/2026/05/1167561",
-      "publishedAt": "2026-05-20T12:00:00.000Z"
     }
   ],
   "weatherTech": [
@@ -125,15 +134,6 @@
       "publishedAt": "2026-05-18T12:00:46.000Z"
     },
     {
-      "title": "The Iran war reminds us: we’ll never be energy-independent with fossil fuels | Lloyd Doggett and Michael Shank",
-      "whatHappened": "Energy security comes from using local, renewable resources to power, heat and cool communities, as Ukraine is doing Donald Trump ’s unjustified war on Iran and...",
-      "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
-      "keyWord": "weather technology: tools that help people measure, study, or predict weather and climate",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/commentisfree/2026/may/18/iran-war-energy-independence-fossil-fuels",
-      "publishedAt": "2026-05-18T10:00:54.000Z"
-    },
-    {
       "title": "Rise in solar panel sales as people 'want to save money'",
       "whatHappened": "One director, who has just bought 2,000 panels, hopes to safeguard the company's future bills.",
       "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
@@ -144,6 +144,15 @@
     }
   ],
   "universityNews": [
+    {
+      "title": "The Paradox of AI and Climate",
+      "whatHappened": "AI is a two-sided coin, with tremendous potential to benefit the environment while also requiring an immense amount of water and energy.",
+      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
+      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
+      "source": "Columbia Climate School",
+      "url": "https://news.climate.columbia.edu/2026/05/21/the-paradox-of-ai-and-climate/",
+      "publishedAt": "2026-05-21T18:45:36.000Z"
+    },
     {
       "title": "Carleton Recognised as Only University in Canada to Achieve Bronze Tier in Net-Zero Challenge",
       "whatHappened": "Carleton University has been recognised as the only university in Canada to achieve the Bronze Tier in the Government of Canada’ Net-Zero Challenge, a significant milestone...",
@@ -181,15 +190,6 @@
       "publishedAt": "2026-05-19T12:00:00.000Z"
     },
     {
-      "title": "A New Study Explains How Carbon Dioxide Cools the Upper Atmosphere—and Warms Earth Below",
-      "whatHappened": "Researchers have solved a long-standing atmospheric puzzle: how rising carbon dioxide cools the stratosphere even as it warms Earth’s surface and lower atmosphere.",
-      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
-      "keyWord": "atmospheric: related to the air and layers around Earth",
-      "source": "Columbia Climate School",
-      "url": "https://news.climate.columbia.edu/2026/05/12/a-new-study-explains-how-carbon-dioxide-cools-the-upper-atmosphere-and-warms-earth-below/",
-      "publishedAt": "2026-05-12T14:07:05.000Z"
-    },
-    {
       "title": "Mapping the ocean with autonomous sensors",
       "whatHappened": "Founded by Ravi Pappu SM ’95, PhD ’01, Apeiron Labs is deploying low-cost ocean sensors to improve storm forecasts, detect endangered species, and more.",
       "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
@@ -206,6 +206,15 @@
       "source": "Waterloo Environment",
       "url": "https://uwaterloo.ca/environment/news/women-wampum",
       "publishedAt": "2026-04-07T12:00:00.000Z"
+    },
+    {
+      "title": "MIT science writing students collaborate with The Associated Press",
+      "whatHappened": "Students developed and pitched local climate stories, then worked with visual journalists from the AP over an intensive four-day weekend.",
+      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
+      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
+      "source": "MIT Climate & Sustainability",
+      "url": "https://news.mit.edu/2026/science-writing-students-collaborate-with-associated-press-0521",
+      "publishedAt": "2026-05-21T19:35:00.000Z"
     },
     {
       "title": "Can AI help predict how you might be feeling in the future?",
@@ -242,15 +251,6 @@
       "source": "University of Michigan Record",
       "url": "https://record.umich.edu/articles/u-m-earns-gold-stars-rating-for-sustainability-efforts/",
       "publishedAt": "2026-05-14T15:04:29.000Z"
-    },
-    {
-      "title": "For most US drivers, EVs offer emissions benefits and cost savings",
-      "whatHappened": "When it comes to emissions, individual driving patterns matter as much as how “green” the regional electricity mix is, MIT researchers report.",
-      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
-      "keyWord": "research: careful study used to discover new knowledge",
-      "source": "MIT Climate & Sustainability",
-      "url": "https://news.mit.edu/2026/us-drivers-electric-vehicles-offer-emissions-benefits-cost-savings-0512",
-      "publishedAt": "2026-05-12T04:00:00.000Z"
     }
   ]
 }
