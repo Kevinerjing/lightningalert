@@ -1,14 +1,14 @@
 {
-  "boardDate": "2026-05-22",
-  "generatedAt": "2026-05-22T13:54:58.159Z",
+  "boardDate": "2026-05-23",
+  "generatedAt": "2026-05-23T12:36:58.673Z",
   "sourceCount": 26,
   "weather": [
     {
       "city": "Ottawa",
-      "temperatureC": 11,
-      "maxC": 20,
-      "minC": 3,
-      "summary": "Clear skies"
+      "temperatureC": 13,
+      "maxC": 22,
+      "minC": 8,
+      "summary": "Mostly clear"
     }
   ],
   "extremeWeather": [
@@ -20,6 +20,15 @@
       "source": "UN Climate",
       "url": "https://news.un.org/feed/view/en/story/2026/05/1167485",
       "publishedAt": "2026-05-11T12:00:00.000Z"
+    },
+    {
+      "title": "California: 40,000 people ordered to evacuate over chemical leak fears",
+      "whatHappened": "Authorities in Orange county say tank holding methyl methacrylate ‘actively in crisis’ and urge residents to leave Authorities in Orange county, California have ordered the evacuation...",
+      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
+      "keyWord": "extreme weather: unusual and dangerous weather like floods, storms, or heat waves",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/us-news/2026/may/22/california-orange-county-chemical-tank",
+      "publishedAt": "2026-05-23T06:46:43.000Z"
     },
     {
       "title": "Why an immense marine heatwave off the US west coast has alarmed scientists",
@@ -38,15 +47,6 @@
       "source": "BBC Science & Environment",
       "url": "https://www.bbc.com/news/articles/cz913gxlw3jo?at_medium=RSS&at_campaign=rss",
       "publishedAt": "2026-05-21T15:28:27.000Z"
-    },
-    {
-      "title": "Trump cuts to weather data could make forecasts less reliable, warn experts",
-      "whatHappened": "Use of AI is a valuable tool for weather prediction but only when it’s trained with ample data, experts say As the US prepares for hurricane...",
-      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
-      "keyWord": "extreme weather: unusual and dangerous weather like floods, storms, or heat waves",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/us-news/2026/may/18/trump-cuts-ai-weather-prediction-forecasts",
-      "publishedAt": "2026-05-18T12:00:46.000Z"
     },
     {
       "title": "Extreme heat, floods and drought threaten lives across Latin America and Caribbean",
@@ -87,13 +87,13 @@
       "publishedAt": "2026-05-20T13:00:42.000Z"
     },
     {
-      "title": "‘We will not survive’: jailing of Daria Egereva highlights plight of Russia’s Indigenous people",
-      "whatHappened": "Authorities are cracking down on rights activists fighting for Indigenous people threatened by authoritarianism, extractivism and climate breakdown The operation began at 9am Moscow time, but...",
+      "title": "Nearly 30 illegal waste 'super sites' revealed in new government watchlist",
+      "whatHappened": "The list, published by the Environment Agency on Friday, includes 28 so-called \"super sites\" that contain more than 20,000 tonnes of waste.",
       "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
       "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/world/2026/may/22/jailing-daria-egereva-plight-russia-indigenous-people",
-      "publishedAt": "2026-05-22T13:00:01.000Z"
+      "source": "BBC Science & Environment",
+      "url": "https://www.bbc.com/news/articles/c9v30r0944go?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-05-22T14:28:43.000Z"
     },
     {
       "title": "How do hurricanes and typhoons form and is climate change making them stronger?",
@@ -125,13 +125,22 @@
   ],
   "weatherTech": [
     {
-      "title": "Trump cuts to weather data could make forecasts less reliable, warn experts",
-      "whatHappened": "Use of AI is a valuable tool for weather prediction but only when it’s trained with ample data, experts say As the US prepares for hurricane...",
+      "title": "Blue Origin cleared to fly New Glenn mega-rocket after April mishap",
+      "whatHappened": "Jeff Bezos' rocket company confirmed an engine failure led to the loss of an AST SpaceMobile satellite last month, but offered little detail.",
       "whyItMatters": "Weather technology shows how science tools can predict conditions faster and help people prepare earlier.",
-      "keyWord": "forecast: a prediction about future weather conditions",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/us-news/2026/may/18/trump-cuts-ai-weather-prediction-forecasts",
-      "publishedAt": "2026-05-18T12:00:46.000Z"
+      "keyWord": "satellite: an object in space that collects information and sends it back to Earth",
+      "source": "TechCrunch",
+      "url": "https://techcrunch.com/2026/05/22/blue-origin-cleared-to-fly-new-glenn-mega-rocket-after-april-mishap/",
+      "publishedAt": "2026-05-22T21:37:17.000Z"
+    },
+    {
+      "title": "The best Memorial Day sales you can shop this weekend",
+      "whatHappened": "Memorial Day is nearly here, meaning the seasonal sales are in full swing.",
+      "whyItMatters": "Weather technology shows how science tools can predict conditions faster and help people prepare earlier.",
+      "keyWord": "solar: related to energy from sunlight",
+      "source": "The Verge",
+      "url": "https://www.theverge.com/gadgets/936196/best-memorial-day-sales-tech-deals-2026",
+      "publishedAt": "2026-05-22T17:32:33.000Z"
     },
     {
       "title": "Rise in solar panel sales as people 'want to save money'",
@@ -217,15 +226,6 @@
       "publishedAt": "2026-05-21T19:35:00.000Z"
     },
     {
-      "title": "Can AI help predict how you might be feeling in the future?",
-      "whatHappened": "A Northeastern professor is using machine-learning models to understand if emotions can be predicted like the weather or stocks.",
-      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
-      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
-      "source": "Northeastern Global News",
-      "url": "https://news.northeastern.edu/2026/05/20/machine-learning-mental-health/",
-      "publishedAt": "2026-05-20T20:54:44.000Z"
-    },
-    {
       "title": "UW–Madison student awarded prestigious Udall Scholarship",
       "whatHappened": "The national honor recognizes undergraduate Aryana Wadhwani as a future leader in the environmental field.",
       "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
@@ -251,6 +251,15 @@
       "source": "University of Michigan Record",
       "url": "https://record.umich.edu/articles/u-m-earns-gold-stars-rating-for-sustainability-efforts/",
       "publishedAt": "2026-05-14T15:04:29.000Z"
+    },
+    {
+      "title": "UBC researchers find Indigenous lands can outperform protected areas on conservation",
+      "whatHappened": "UBC researchers reviewed 111 studies and found Indigenous-managed lands match or outperform government protected areas on forests, biodiversity and carbon storage — yet remain under-resourced and...",
+      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
+      "keyWord": "research: careful study used to discover new knowledge",
+      "source": "UBC News",
+      "url": "https://news.ubc.ca/2026/05/indigenous-lands-outperform-protected-areas-on-conservation/",
+      "publishedAt": "2026-05-06T17:28:56.000Z"
     }
   ]
 }
