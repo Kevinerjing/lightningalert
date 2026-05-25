@@ -1,17 +1,26 @@
 {
-  "boardDate": "2026-05-24",
-  "generatedAt": "2026-05-24T12:42:11.845Z",
+  "boardDate": "2026-05-25",
+  "generatedAt": "2026-05-25T14:21:06.054Z",
   "sourceCount": 26,
   "weather": [
     {
       "city": "Ottawa",
-      "temperatureC": 11,
-      "maxC": 12,
-      "minC": 11,
+      "temperatureC": 14,
+      "maxC": 20,
+      "minC": 12,
       "summary": "Cloudy"
     }
   ],
   "extremeWeather": [
+    {
+      "title": "Why Michigan is emerging as one of America’s worst-hit climate states",
+      "whatHappened": "The state saw 33 tornadoes last year and severe flooding as researchers say links to climate change are undeniable The tornado hit west Ann Arbor at...",
+      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
+      "keyWord": "flood: water covering land that is usually dry",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/us-news/2026/may/25/michigan-climate-crisis",
+      "publishedAt": "2026-05-25T11:00:23.000Z"
+    },
     {
       "title": "Storm, displacement and hidden wartime explosives deepen emergency in Solomon Islands",
       "whatHappened": "More than 150,000 people have been affected by Tropical Cyclone Maila, the latest storm in the Pacific area, which continues to drive what the UN relief...",
@@ -56,35 +65,35 @@
       "source": "BBC Science & Environment",
       "url": "https://www.bbc.com/news/articles/cz913gxlw3jo?at_medium=RSS&at_campaign=rss",
       "publishedAt": "2026-05-21T15:28:27.000Z"
-    },
-    {
-      "title": "Extreme heat, floods and drought threaten lives across Latin America and Caribbean",
-      "whatHappened": "Record-breaking temperatures, deadly floods, worsening drought and intensifying hurricanes are placing millions of people across Latin America and the Caribbean at growing risk of hunger, displacement...",
-      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
-      "keyWord": "drought: a long time with very little rain",
-      "source": "UN Climate",
-      "url": "https://news.un.org/feed/view/en/story/2026/05/1167537",
-      "publishedAt": "2026-05-18T12:00:00.000Z"
     }
   ],
   "climate": [
     {
-      "title": "Young Americans demand court halt Trump’s biggest rollbacks of pollution protections",
-      "whatHappened": "Suit says administration is impinging on rights to life and liberty by worsening planet-warming and toxic pollution Eva v Goliath: the 20-year-old climate activist taking on...",
-      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
+      "title": "A Louisiana state senator helped secure Meta’s largest datacenter. Then he sold the land beside it",
+      "whatHappened": "Jay Morris denies experts’ claims that he violated ethics rules over land deals near the site of Meta’s Hyperion datacenter This story is from Floodlight ,...",
+      "whyItMatters": "Climate and environment stories connect science to real issues like safety, health, and extreme weather.",
       "keyWord": "climate: the usual pattern of weather over a long period of time",
       "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/us-news/2026/may/20/trump-administration-climate-pollution-lawsuit",
-      "publishedAt": "2026-05-20T20:04:02.000Z"
+      "url": "https://www.theguardian.com/environment/2026/may/25/louisiana-state-senator-jay-morris-meta-datacenter",
+      "publishedAt": "2026-05-25T12:00:25.000Z"
     },
     {
-      "title": "Eva v Goliath: the 20-year-old climate activist taking on Trump and the fossil fuel industry",
-      "whatHappened": "Young Americans are suing the president for violating rights with executive orders that fuel the climate crisis Young Americans demand court halt Trump’s biggest rollbacks of...",
+      "title": "Why Michigan is emerging as one of America’s worst-hit climate states",
+      "whatHappened": "The state saw 33 tornadoes last year and severe flooding as researchers say links to climate change are undeniable The tornado hit west Ann Arbor at...",
+      "whyItMatters": "Climate and environment stories connect science to real issues like safety, health, and extreme weather.",
+      "keyWord": "climate: the usual pattern of weather over a long period of time",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/us-news/2026/may/25/michigan-climate-crisis",
+      "publishedAt": "2026-05-25T11:00:23.000Z"
+    },
+    {
+      "title": "Half of UK adults say they spend less than three hours a week outside in nature",
+      "whatHappened": "Most people have joyful memories of playing outside as children – and now wildlife charities are urging people to ‘rewild their inner child’ Climbing trees, squelching...",
       "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
       "keyWord": "climate: the usual pattern of weather over a long period of time",
       "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/us-news/ng-interactive/2026/may/20/eva-lighthiser-trump-climate",
-      "publishedAt": "2026-05-20T13:00:42.000Z"
+      "url": "https://www.theguardian.com/environment/2026/may/25/half-of-uk-adults-say-they-spend-less-than-three-hours-a-week-outside-in-nature",
+      "publishedAt": "2026-05-25T05:00:19.000Z"
     },
     {
       "title": "This US island is home to flora found nowhere else. Now, a wildfire threatens extinction",
@@ -112,18 +121,18 @@
       "source": "BBC Science & Environment",
       "url": "https://www.bbc.com/news/articles/cz913gxlw3jo?at_medium=RSS&at_campaign=rss",
       "publishedAt": "2026-05-21T15:28:27.000Z"
-    },
-    {
-      "title": "Trump’s EPA to roll back refrigerant rule for grocery stores in push it claims will lower prices",
-      "whatHappened": "EPA is loosening Biden-era rule that requires US businesses to reduce greenhouse gases used in cooling equipment The Trump administration is set to loosen a federal...",
-      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
-      "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/us-news/2026/may/21/trump-epa-refrigerant-rule-grocery-costs",
-      "publishedAt": "2026-05-21T14:34:55.000Z"
     }
   ],
   "weatherTech": [
+    {
+      "title": "The best Memorial Day sales you can shop this weekend",
+      "whatHappened": "Memorial Day is nearly here, meaning the seasonal sales are in full swing.",
+      "whyItMatters": "Weather technology shows how science tools can predict conditions faster and help people prepare earlier.",
+      "keyWord": "solar: related to energy from sunlight",
+      "source": "The Verge",
+      "url": "https://www.theverge.com/gadgets/936196/best-memorial-day-sales-tech-deals-2026",
+      "publishedAt": "2026-05-24T15:29:10.000Z"
+    },
     {
       "title": "SolarSquare in talks to raise up to $60M as India’s rooftop solar market draws major VC interest",
       "whatHappened": "SolarSquare could be valued at up to $500 million in the financing expected to close next month.",
@@ -132,15 +141,6 @@
       "source": "TechCrunch",
       "url": "https://techcrunch.com/2026/05/23/solarsquare-in-talks-to-raise-up-to-60m-as-indias-rooftop-solar-market-draws-major-vc-interest/",
       "publishedAt": "2026-05-23T20:03:13.000Z"
-    },
-    {
-      "title": "Elon Musk has given up on solar power (on Earth)",
-      "whatHappened": "Elon Muks's xAI has gone all in on natural gas, while SpaceX is obsessed with orbital data centers.",
-      "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
-      "keyWord": "solar: related to energy from sunlight",
-      "source": "TechCrunch",
-      "url": "https://techcrunch.com/2026/05/23/elon-musk-has-given-up-on-solar-power-on-earth/",
-      "publishedAt": "2026-05-23T13:00:00.000Z"
     },
     {
       "title": "Rise in solar panel sales as people 'want to save money'",
