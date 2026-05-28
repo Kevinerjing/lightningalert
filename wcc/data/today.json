@@ -1,14 +1,14 @@
 {
-  "boardDate": "2026-05-27",
-  "generatedAt": "2026-05-27T14:40:00.876Z",
+  "boardDate": "2026-05-28",
+  "generatedAt": "2026-05-28T14:52:40.577Z",
   "sourceCount": 26,
   "weather": [
     {
       "city": "Ottawa",
-      "temperatureC": 19,
-      "maxC": 23,
-      "minC": 15,
-      "summary": "Clear skies"
+      "temperatureC": 15,
+      "maxC": 19,
+      "minC": 12,
+      "summary": "Mostly clear"
     }
   ],
   "extremeWeather": [
@@ -29,15 +29,6 @@
       "source": "UN Climate",
       "url": "https://news.un.org/feed/view/en/story/2026/05/1167485",
       "publishedAt": "2026-05-11T12:00:00.000Z"
-    },
-    {
-      "title": "UK heatwave triggers price rises for items such as hot tubs and air conditioning units",
-      "whatHappened": "Of 11 seasonal items in Guardian price comparison, six hit highest price in last three months, with some nearly doubling in price in last week The...",
-      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
-      "keyWord": "heat wave: a long period of unusually hot weather",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/environment/2026/may/27/uk-heatwave-price-rises-hot-tubs-air-conditioning-units",
-      "publishedAt": "2026-05-27T13:50:06.000Z"
     },
     {
       "title": "How do hurricanes and typhoons form and is climate change making them stronger?",
@@ -87,6 +78,15 @@
       "publishedAt": "2026-05-27T11:30:17.000Z"
     },
     {
+      "title": "‘Hidden datacentre tax’ costing Irish households millions, report says",
+      "whatHappened": "Datacentres used 22% of country’s electricity last year, pushing up household bills, study suggests Energy demand by datacentres in Ireland has added hundreds of euros to...",
+      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
+      "keyWord": "climate: the usual pattern of weather over a long period of time",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/technology/2026/may/28/irish-datacentres-household-bills-electricity",
+      "publishedAt": "2026-05-28T13:01:49.000Z"
+    },
+    {
       "title": "Why temperature records are being not only broken but smashed",
       "whatHappened": "The combined effects of a heat dome and climate change have brought extreme warmth to western Europe.",
       "whyItMatters": "Climate and environment stories connect science to real issues like safety, health, and extreme weather.",
@@ -112,18 +112,18 @@
       "source": "The Guardian Environment",
       "url": "https://www.theguardian.com/environment/2026/may/25/louisiana-state-senator-jay-morris-meta-datacenter",
       "publishedAt": "2026-05-25T12:00:25.000Z"
-    },
-    {
-      "title": "Why Michigan is emerging as one of America’s worst-hit climate states",
-      "whatHappened": "The state saw 33 tornadoes last year and severe flooding as researchers say links to climate change are undeniable The tornado hit west Ann Arbor at...",
-      "whyItMatters": "Climate and environment stories connect science to real issues like safety, health, and extreme weather.",
-      "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/us-news/2026/may/25/michigan-climate-crisis",
-      "publishedAt": "2026-05-25T11:00:23.000Z"
     }
   ],
   "weatherTech": [
+    {
+      "title": "Xiaomi 17T Pro arrives with the company’s biggest battery yet",
+      "whatHappened": "Xiaomi has announced the 17T and 17T Pro, two cheaper spins on its 17 series flagships.",
+      "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
+      "keyWord": "battery: a device that stores energy for later use",
+      "source": "The Verge",
+      "url": "https://www.theverge.com/tech/938795/xiaomi-17t-pro-launch-specs-battery-price",
+      "publishedAt": "2026-05-28T13:02:02.000Z"
+    },
     {
       "title": "Power to the people: how ‘balcony solar’ could help fight rising US utility costs",
       "whatHappened": "More Americans are using small solar panels in their back yards or balconies as a clean way to cut their electric bills If you feel like...",
@@ -199,6 +199,24 @@
       "publishedAt": "2026-04-07T12:00:00.000Z"
     },
     {
+      "title": "Place-based pathways to a viable future",
+      "whatHappened": "Living Climate Futures Symposium explores climate challenges and solutions at the community level.",
+      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
+      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
+      "source": "MIT Climate & Sustainability",
+      "url": "https://news.mit.edu/2026/place-based-pathways-to-a-viable-future-0527",
+      "publishedAt": "2026-05-27T20:25:00.000Z"
+    },
+    {
+      "title": "Mark Patterson receives Fulbright to explore hydrothermal vents",
+      "whatHappened": "Formed by superheated glacial water from the last ice age, these hydrothermal vents have been bubbling beneath a fjord for centuries.",
+      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
+      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
+      "source": "Northeastern Global News",
+      "url": "https://news.northeastern.edu/2026/05/27/mark-patterson-fulbright-hydrothermal-vents/",
+      "publishedAt": "2026-05-27T20:18:42.000Z"
+    },
+    {
       "title": "Gas nears $5. Why aren’t electric vehicles selling in the US?",
       "whatHappened": "EV sales in the US are projected to fall from 1.5 million to 1.2 million this year, according to the International Energy Agency.",
       "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
@@ -206,15 +224,6 @@
       "source": "Northeastern Global News",
       "url": "https://news.northeastern.edu/2026/05/26/electric-vehicles-us-market/",
       "publishedAt": "2026-05-26T21:02:06.000Z"
-    },
-    {
-      "title": "MIT science writing students collaborate with The Associated Press",
-      "whatHappened": "Students developed and pitched local climate stories, then worked with visual journalists from the AP over an intensive four-day weekend.",
-      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
-      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
-      "source": "MIT Climate & Sustainability",
-      "url": "https://news.mit.edu/2026/science-writing-students-collaborate-with-associated-press-0521",
-      "publishedAt": "2026-05-21T19:35:00.000Z"
     },
     {
       "title": "UW–Madison student awarded prestigious Udall Scholarship",
