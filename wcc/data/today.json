@@ -1,14 +1,14 @@
 {
-  "boardDate": "2026-05-30",
-  "generatedAt": "2026-05-30T12:47:09.960Z",
+  "boardDate": "2026-05-31",
+  "generatedAt": "2026-05-31T12:58:46.552Z",
   "sourceCount": 26,
   "weather": [
     {
       "city": "Ottawa",
-      "temperatureC": 14,
-      "maxC": 20,
-      "minC": 9,
-      "summary": "Clear skies"
+      "temperatureC": 16,
+      "maxC": 21,
+      "minC": 11,
+      "summary": "Cloudy"
     }
   ],
   "extremeWeather": [
@@ -60,6 +60,15 @@
       "publishedAt": "2026-05-27T11:30:17.000Z"
     },
     {
+      "title": "'Killer fungus' could be good news for habitats decimated by invasive moss",
+      "whatHappened": "A newly discovered species raises hope that some native British habitats could be restored.",
+      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
+      "keyWord": "climate: the usual pattern of weather over a long period of time",
+      "source": "BBC Science & Environment",
+      "url": "https://www.bbc.com/news/articles/c4g48jy4j1yo?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-05-30T23:03:12.000Z"
+    },
+    {
       "title": "Global temperatures set to stay near record levels: UN weather agency",
       "whatHappened": "The world is heading into another period of dangerous heat, a new UN report warns on Thursday, and it’s nearly certain global temperatures over the next...",
       "whyItMatters": "Climate and environment stories connect science to real issues like safety, health, and extreme weather.",
@@ -76,26 +85,17 @@
       "source": "BBC Science & Environment",
       "url": "https://www.bbc.com/news/articles/c62rrj66p3eo?at_medium=RSS&at_campaign=rss",
       "publishedAt": "2026-05-27T14:08:50.000Z"
-    },
-    {
-      "title": "Why Trump administration’s plan to attempt to destroy Pfas is ‘nonsensical’",
-      "whatHappened": "The EPA said it was cutting Biden-era regulations on Pfas in drinking water, but advocates say the move will harm public health and benefit industry A...",
-      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
-      "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/us-news/2026/may/26/trump-administration-pfas-drinking-water-regulation",
-      "publishedAt": "2026-05-26T12:00:50.000Z"
     }
   ],
   "weatherTech": [
     {
-      "title": "SpaceX gets $4 billion contract to build missile-tracking ‘Golden Dome’ satellites",
-      "whatHappened": "The Pentagon awarded SpaceX a $4.16 billion contract to build missile-tracking satellites linked with President Donald Trump's planned \"Golden Dome\" defense system, as reported earlier by...",
-      "whyItMatters": "Weather technology shows how science tools can predict conditions faster and help people prepare earlier.",
-      "keyWord": "satellite: an object in space that collects information and sends it back to Earth",
+      "title": "The Mercedes CLA offers great EV specs for an average price",
+      "whatHappened": "Despite headwinds from the current administration, automakers continue to release well-equipped EVs with bigger battery packs and increasingly faster charging speeds.",
+      "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
+      "keyWord": "battery: a device that stores energy for later use",
       "source": "The Verge",
-      "url": "https://www.theverge.com/science/940207/spacex-golden-dome-satellite-contract",
-      "publishedAt": "2026-05-29T21:59:46.000Z"
+      "url": "https://www.theverge.com/transportation/940387/mercedes-cla-350-ev-review-price-specs",
+      "publishedAt": "2026-05-30T13:45:17.000Z"
     },
     {
       "title": "Power to the people: how ‘balcony solar’ could help fight rising US utility costs",
