@@ -1,14 +1,14 @@
 {
-  "boardDate": "2026-05-31",
-  "generatedAt": "2026-05-31T12:58:46.552Z",
+  "boardDate": "2026-06-01",
+  "generatedAt": "2026-06-01T17:02:27.375Z",
   "sourceCount": 26,
   "weather": [
     {
       "city": "Ottawa",
-      "temperatureC": 16,
+      "temperatureC": 20,
       "maxC": 21,
-      "minC": 11,
-      "summary": "Cloudy"
+      "minC": 8,
+      "summary": "Mostly clear"
     }
   ],
   "extremeWeather": [
@@ -60,6 +60,15 @@
       "publishedAt": "2026-05-27T11:30:17.000Z"
     },
     {
+      "title": "Nature boys and girls – here’s your chance to get published in the Guardian",
+      "whatHappened": "Our wildlife series Young Country Diary is looking for articles written by children, about their summer encounters with nature Once again, the Young Country Diary series...",
+      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
+      "keyWord": "climate: the usual pattern of weather over a long period of time",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/environment/2021/aug/27/nature-lovers-guardian-young-country-diary-writers",
+      "publishedAt": "2026-06-01T16:35:23.000Z"
+    },
+    {
       "title": "'Killer fungus' could be good news for habitats decimated by invasive moss",
       "whatHappened": "A newly discovered species raises hope that some native British habitats could be restored.",
       "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
@@ -69,34 +78,16 @@
       "publishedAt": "2026-05-30T23:03:12.000Z"
     },
     {
-      "title": "Global temperatures set to stay near record levels: UN weather agency",
-      "whatHappened": "The world is heading into another period of dangerous heat, a new UN report warns on Thursday, and it’s nearly certain global temperatures over the next...",
-      "whyItMatters": "Climate and environment stories connect science to real issues like safety, health, and extreme weather.",
-      "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "UN Climate",
-      "url": "https://news.un.org/feed/view/en/story/2026/05/1167596",
-      "publishedAt": "2026-05-28T12:00:00.000Z"
-    },
-    {
-      "title": "Why temperature records are being not only broken but smashed",
-      "whatHappened": "The combined effects of a heat dome and climate change have brought extreme warmth to western Europe.",
-      "whyItMatters": "Climate and environment stories connect science to real issues like safety, health, and extreme weather.",
+      "title": "Farmers warn food security can't be taken for granted",
+      "whatHappened": "Farmers at the Bath and West Show say there are strong parallels between energy and food security.",
+      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
       "keyWord": "climate: the usual pattern of weather over a long period of time",
       "source": "BBC Science & Environment",
-      "url": "https://www.bbc.com/news/articles/c62rrj66p3eo?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-05-27T14:08:50.000Z"
+      "url": "https://www.bbc.com/news/articles/cy024zvrdl1o?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-05-29T05:16:12.000Z"
     }
   ],
   "weatherTech": [
-    {
-      "title": "The Mercedes CLA offers great EV specs for an average price",
-      "whatHappened": "Despite headwinds from the current administration, automakers continue to release well-equipped EVs with bigger battery packs and increasingly faster charging speeds.",
-      "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
-      "keyWord": "battery: a device that stores energy for later use",
-      "source": "The Verge",
-      "url": "https://www.theverge.com/transportation/940387/mercedes-cla-350-ev-review-price-specs",
-      "publishedAt": "2026-05-30T13:45:17.000Z"
-    },
     {
       "title": "Power to the people: how ‘balcony solar’ could help fight rising US utility costs",
       "whatHappened": "More Americans are using small solar panels in their back yards or balconies as a clean way to cut their electric bills If you feel like...",
@@ -170,6 +161,15 @@
       "source": "Waterloo Environment",
       "url": "https://uwaterloo.ca/environment/news/women-wampum",
       "publishedAt": "2026-04-07T12:00:00.000Z"
+    },
+    {
+      "title": "Nicholas de Monchaux appointed dean of the College of Environmental Design",
+      "whatHappened": "The internationally recognized architect, urbanist and scholar will be the thirteenth dean to lead the college since its founding by William W.",
+      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
+      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
+      "source": "Berkeley News",
+      "url": "https://ced.berkeley.edu/news/nicholas-de-monchaux-appointed-dean-uc-berkeley-ced",
+      "publishedAt": "2026-06-01T16:52:25.000Z"
     },
     {
       "title": "Place-based pathways to a viable future",
