@@ -1,14 +1,14 @@
 {
-  "boardDate": "2026-06-01",
-  "generatedAt": "2026-06-01T17:02:27.375Z",
+  "boardDate": "2026-06-02",
+  "generatedAt": "2026-06-02T15:43:33.123Z",
   "sourceCount": 26,
   "weather": [
     {
       "city": "Ottawa",
-      "temperatureC": 20,
-      "maxC": 21,
+      "temperatureC": 22,
+      "maxC": 24,
       "minC": 8,
-      "summary": "Mostly clear"
+      "summary": "Clear skies"
     }
   ],
   "extremeWeather": [
@@ -22,6 +22,15 @@
       "publishedAt": "2026-05-11T12:00:00.000Z"
     },
     {
+      "title": "El Niño confirmed, set to fuel more extreme weather, says WMO",
+      "whatHappened": "The UN urged all countries on Tuesday to bolster early warning systems after confirming the onset of El Niño, warning that the Pacific Ocean-warming phenomenon will...",
+      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
+      "keyWord": "extreme weather: unusual and dangerous weather like floods, storms, or heat waves",
+      "source": "UN Climate",
+      "url": "https://news.un.org/feed/view/en/story/2026/06/1167620",
+      "publishedAt": "2026-06-02T12:00:00.000Z"
+    },
+    {
       "title": "Extreme heat, floods and drought threaten lives across Latin America and Caribbean",
       "whatHappened": "Record-breaking temperatures, deadly floods, worsening drought and intensifying hurricanes are placing millions of people across Latin America and the Caribbean at growing risk of hunger, displacement...",
       "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
@@ -33,13 +42,13 @@
   ],
   "climate": [
     {
-      "title": "Revealed: huge climate cost of harmful emissions from US immigration flights",
-      "whatHappened": "Trump campaign accelerating climate crisis as officials move migrants to detention jails and deport them from US US immigration enforcement flights are producing hundreds of thousands...",
+      "title": "Six US states sue Trump administration over deal to kill windfarm project",
+      "whatHappened": "State attorneys general argue $1bn deal to terminate major offshore wind lease off the coast of New York is unlawful Six states sued the Trump administration...",
       "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
-      "keyWord": "emissions: gases released into the air",
+      "keyWord": "climate: the usual pattern of weather over a long period of time",
       "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/us-news/2026/may/26/us-immigration-flights-emissions",
-      "publishedAt": "2026-05-26T09:00:51.000Z"
+      "url": "https://www.theguardian.com/us-news/2026/jun/02/lawsuit-trump-administration-windfarm-leases",
+      "publishedAt": "2026-06-02T14:22:36.000Z"
     },
     {
       "title": "US garbage incinerators are failing to eliminate ‘forever chemical’ air pollution, experts warn",
@@ -60,13 +69,22 @@
       "publishedAt": "2026-05-27T11:30:17.000Z"
     },
     {
-      "title": "Nature boys and girls – here’s your chance to get published in the Guardian",
-      "whatHappened": "Our wildlife series Young Country Diary is looking for articles written by children, about their summer encounters with nature Once again, the Young Country Diary series...",
+      "title": "Next El Niño could be strongest in decades",
+      "whatHappened": "A new phase of the natural El Niño weather pattern could begin in a matter of weeks, the UN has warned, boosting temperatures on a planet...",
       "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
       "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/environment/2021/aug/27/nature-lovers-guardian-young-country-diary-writers",
-      "publishedAt": "2026-06-01T16:35:23.000Z"
+      "source": "BBC Science & Environment",
+      "url": "https://www.bbc.com/news/videos/c8e8zzw30zyo?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-06-02T14:50:54.000Z"
+    },
+    {
+      "title": "El Niño confirmed, set to fuel more extreme weather, says WMO",
+      "whatHappened": "The UN urged all countries on Tuesday to bolster early warning systems after confirming the onset of El Niño, warning that the Pacific Ocean-warming phenomenon will...",
+      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
+      "keyWord": "climate: the usual pattern of weather over a long period of time",
+      "source": "UN Climate",
+      "url": "https://news.un.org/feed/view/en/story/2026/06/1167620",
+      "publishedAt": "2026-06-02T12:00:00.000Z"
     },
     {
       "title": "'Killer fungus' could be good news for habitats decimated by invasive moss",
@@ -76,18 +94,18 @@
       "source": "BBC Science & Environment",
       "url": "https://www.bbc.com/news/articles/c4g48jy4j1yo?at_medium=RSS&at_campaign=rss",
       "publishedAt": "2026-05-30T23:03:12.000Z"
-    },
-    {
-      "title": "Farmers warn food security can't be taken for granted",
-      "whatHappened": "Farmers at the Bath and West Show say there are strong parallels between energy and food security.",
-      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
-      "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "BBC Science & Environment",
-      "url": "https://www.bbc.com/news/articles/cy024zvrdl1o?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-05-29T05:16:12.000Z"
     }
   ],
   "weatherTech": [
+    {
+      "title": "Six US states sue Trump administration over deal to kill windfarm project",
+      "whatHappened": "State attorneys general argue $1bn deal to terminate major offshore wind lease off the coast of New York is unlawful Six states sued the Trump administration...",
+      "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
+      "keyWord": "weather technology: tools that help people measure, study, or predict weather and climate",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/us-news/2026/jun/02/lawsuit-trump-administration-windfarm-leases",
+      "publishedAt": "2026-06-02T14:22:36.000Z"
+    },
     {
       "title": "Power to the people: how ‘balcony solar’ could help fight rising US utility costs",
       "whatHappened": "More Americans are using small solar panels in their back yards or balconies as a clean way to cut their electric bills If you feel like...",
@@ -172,6 +190,24 @@
       "publishedAt": "2026-06-01T16:52:25.000Z"
     },
     {
+      "title": "Taubman Library honored by state for energy conservation",
+      "whatHappened": "The Michigan Green Building Collaborative named the A.",
+      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
+      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
+      "source": "University of Michigan Record",
+      "url": "https://record.umich.edu/articles/taubman-library-honored-by-state-for-energy-conservation/",
+      "publishedAt": "2026-05-29T15:38:16.000Z"
+    },
+    {
+      "title": "U-M move-out, commencement efforts keep tons of material out of landfills",
+      "whatHappened": "U-M collected more than 32,000 pounds of reusable goods during spring student move-out and limited landfill waste at major commencement events to just 217 pounds this...",
+      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
+      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
+      "source": "University of Michigan Record",
+      "url": "https://record.umich.edu/articles/u-m-move-out-commencement-efforts-keep-tons-of-material-out-of-landfills/",
+      "publishedAt": "2026-05-29T13:45:06.000Z"
+    },
+    {
       "title": "Place-based pathways to a viable future",
       "whatHappened": "Living Climate Futures Symposium explores climate challenges and solutions at the community level.",
       "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
@@ -188,24 +224,6 @@
       "source": "University of Wisconsin News",
       "url": "https://news.wisc.edu/uw-madison-student-awarded-prestigious-udall-scholarship/",
       "publishedAt": "2026-05-20T18:07:01.000Z"
-    },
-    {
-      "title": "UBC welcomes 45 scholars in first wave of Canada Impact+ Research Training Awards",
-      "whatHappened": "The scholars' work will advance research in areas of strategic importance to B.C.",
-      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
-      "keyWord": "research: careful study used to discover new knowledge",
-      "source": "UBC News",
-      "url": "https://news.ubc.ca/2026/05/ubc-welcomes-45-scholars-in-first-wave-of-canada-impact-research-training-awards/",
-      "publishedAt": "2026-05-29T17:24:37.000Z"
-    },
-    {
-      "title": "Multinational firms drive growth but can come with steep environmental costs, study finds",
-      "whatHappened": "Tracking firms across borders reveals ripple effects on forests, crops and local economies.",
-      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
-      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
-      "source": "UBC News",
-      "url": "https://news.ubc.ca/2026/05/multinational-firms-growth-environmental-costs/",
-      "publishedAt": "2026-05-28T15:25:00.000Z"
     }
   ]
 }
