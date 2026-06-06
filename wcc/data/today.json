@@ -1,13 +1,13 @@
 {
-  "boardDate": "2026-06-05",
-  "generatedAt": "2026-06-05T14:07:47.186Z",
+  "boardDate": "2026-06-06",
+  "generatedAt": "2026-06-06T12:52:11.316Z",
   "sourceCount": 26,
   "weather": [
     {
       "city": "Ottawa",
-      "temperatureC": 24,
-      "maxC": 30,
-      "minC": 15,
+      "temperatureC": 19,
+      "maxC": 23,
+      "minC": 18,
       "summary": "Cloudy"
     }
   ],
@@ -114,6 +114,15 @@
       "source": "The Guardian Environment",
       "url": "https://www.theguardian.com/environment/2026/jun/04/climate-crisis-blue-states-california-new-york",
       "publishedAt": "2026-06-04T16:00:10.000Z"
+    },
+    {
+      "title": "GM’s electric future depends on a new battery — and this facility",
+      "whatHappened": "GM wants to slash EV prices by deploying new battery tech up to a year earlier than planned.",
+      "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
+      "keyWord": "battery: a device that stores energy for later use",
+      "source": "TechCrunch",
+      "url": "https://techcrunch.com/2026/06/05/gms-electric-future-depends-on-a-new-battery-and-this-building/",
+      "publishedAt": "2026-06-05T17:44:18.000Z"
     },
     {
       "title": "Scientists warn Trump plan to axe US ocean monitoring system will leave world ‘flying blind’",
