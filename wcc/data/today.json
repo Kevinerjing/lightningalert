@@ -1,14 +1,14 @@
 {
-  "boardDate": "2026-06-07",
-  "generatedAt": "2026-06-07T13:06:05.106Z",
+  "boardDate": "2026-06-08",
+  "generatedAt": "2026-06-08T14:57:58.638Z",
   "sourceCount": 26,
   "weather": [
     {
       "city": "Ottawa",
-      "temperatureC": 18,
-      "maxC": 20,
-      "minC": 15,
-      "summary": "Partly cloudy"
+      "temperatureC": 21,
+      "maxC": 24,
+      "minC": 11,
+      "summary": "Mostly clear"
     }
   ],
   "extremeWeather": [
@@ -20,6 +20,24 @@
       "source": "The Guardian Environment",
       "url": "https://www.theguardian.com/us-news/2026/jun/04/wildfire-smoke-air-quality-ozone",
       "publishedAt": "2026-06-04T19:16:15.000Z"
+    },
+    {
+      "title": "Arizona lake closes indefinitely to visitors after all of its fish die",
+      "whatHappened": "Wildlife department says drought conditions and water released from dam led to ‘major fish kill’ at San Carlos Lake Arizona officials have indefinitely closed a popular...",
+      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
+      "keyWord": "drought: a long time with very little rain",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/us-news/2026/jun/08/san-carlos-lake-arizona-fish-kill",
+      "publishedAt": "2026-06-08T11:33:49.000Z"
+    },
+    {
+      "title": "Majority of US’s new AI datacenters to be built on drought-hit land",
+      "whatHappened": "Guardian analysis finds facilities to be built in some of the driest areas as outcry grows over water needed to power AI A record-shattering drought has...",
+      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
+      "keyWord": "drought: a long time with very little rain",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/us-news/2026/jun/08/datacenter-ai-drought-water",
+      "publishedAt": "2026-06-08T11:00:23.000Z"
     },
     {
       "title": "Failing sea defences 'disaster' for nature reserve",
@@ -42,15 +60,6 @@
   ],
   "climate": [
     {
-      "title": "California and New York weaken climate rules as red states ramp up green energy",
-      "whatHappened": "Republican-led states growing renewable capabilities at faster rate as Texas emerges as clean-energy leader Democratic-led states are eroding their climate policies, as red states are scaling...",
-      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
-      "keyWord": "emissions: gases released into the air",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/environment/2026/jun/04/climate-crisis-blue-states-california-new-york",
-      "publishedAt": "2026-06-04T16:00:10.000Z"
-    },
-    {
       "title": "AI’s environmental costs threaten water, land and climate",
       "whatHappened": "Artificial Intelligence is not only responsible for worrying amounts of earth-warming greenhouse gases: the technology's environmental footprint is also expanding at a pace that could strain...",
       "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
@@ -58,6 +67,15 @@
       "source": "UN Climate",
       "url": "https://news.un.org/feed/view/en/story/2026/06/1167658",
       "publishedAt": "2026-06-04T12:00:00.000Z"
+    },
+    {
+      "title": "Humanity’s future depends on protecting the rapidly changing ocean",
+      "whatHappened": "The ocean covers more than 70 per cent of the planet&nbsp;and regulates climate, sustains biodiversity, and supports economies and cultures worldwide.",
+      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
+      "keyWord": "climate: the usual pattern of weather over a long period of time",
+      "source": "UN Climate",
+      "url": "https://news.un.org/feed/view/en/story/2026/06/1167654",
+      "publishedAt": "2026-06-07T12:00:00.000Z"
     },
     {
       "title": "Wildfire smoke has reversed US progress toward ozone air quality, study finds",
@@ -98,13 +116,13 @@
   ],
   "weatherTech": [
     {
-      "title": "California and New York weaken climate rules as red states ramp up green energy",
-      "whatHappened": "Republican-led states growing renewable capabilities at faster rate as Texas emerges as clean-energy leader Democratic-led states are eroding their climate policies, as red states are scaling...",
+      "title": "TechCrunch Mobility: Inside GM’s $900M EV battery gamble",
+      "whatHappened": "Welcome back to TechCrunch Mobility — your central hub for news and insights on the future of transportation.",
       "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
-      "keyWord": "weather technology: tools that help people measure, study, or predict weather and climate",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/environment/2026/jun/04/climate-crisis-blue-states-california-new-york",
-      "publishedAt": "2026-06-04T16:00:10.000Z"
+      "keyWord": "battery: a device that stores energy for later use",
+      "source": "TechCrunch",
+      "url": "https://techcrunch.com/2026/06/07/inside-gms-900m-ev-battery-gamble/",
+      "publishedAt": "2026-06-07T16:05:00.000Z"
     },
     {
       "title": "Scientists warn Trump plan to axe US ocean monitoring system will leave world ‘flying blind’",
@@ -118,15 +136,6 @@
   ],
   "universityNews": [
     {
-      "title": "The Paradox of AI and Climate",
-      "whatHappened": "AI is a two-sided coin, with tremendous potential to benefit the environment while also requiring an immense amount of water and energy.",
-      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
-      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
-      "source": "Columbia Climate School",
-      "url": "https://news.climate.columbia.edu/2026/05/21/the-paradox-of-ai-and-climate/",
-      "publishedAt": "2026-05-21T18:45:36.000Z"
-    },
-    {
       "title": "Carleton Recognised as Only University in Canada to Achieve Bronze Tier in Net-Zero Challenge",
       "whatHappened": "Carleton University has been recognised as the only university in Canada to achieve the Bronze Tier in the Government of Canada’ Net-Zero Challenge, a significant milestone...",
       "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
@@ -136,6 +145,15 @@
       "publishedAt": "2025-07-29T18:25:35.000Z"
     },
     {
+      "title": "World Oceans Day Reimagines Our Relationship With the Water Around Us",
+      "whatHappened": "In honor of this annual U.N.",
+      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
+      "keyWord": "research: careful study used to discover new knowledge",
+      "source": "Columbia Climate School",
+      "url": "https://news.climate.columbia.edu/2026/06/08/world-oceans-day-reimagines-our-relationship-with-the-water-around-us/",
+      "publishedAt": "2026-06-08T12:45:00.000Z"
+    },
+    {
       "title": "Tiny Forest Coming to Carleton",
       "whatHappened": "Sustainability Carleton is thrilled to announce that we are partnering with local environmental organization EnviroCentre to establish a tiny forest at Carleton!",
       "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
@@ -143,6 +161,15 @@
       "source": "Carleton Sustainability",
       "url": "https://carleton.ca/sustainability/2025/tiny-forest-coming-to-carleton/",
       "publishedAt": "2025-07-29T18:38:05.000Z"
+    },
+    {
+      "title": "Environment professor recognized for her outstanding research contributions",
+      "whatHappened": "Mon, 08 Jun 2026 12:00:00 +0000 The Canadian Geophysical Union has recognized Dr.",
+      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
+      "keyWord": "research: careful study used to discover new knowledge",
+      "source": "Waterloo Environment",
+      "url": "https://uwaterloo.ca/environment/news/environment-professor-recognized-her-outstanding-research",
+      "publishedAt": "2026-06-08T12:00:00.000Z"
     },
     {
       "title": "A day in the life of MIT Sloan Fellow Alecia Asiamigbe",
@@ -161,15 +188,6 @@
       "source": "Waterloo Environment",
       "url": "https://uwaterloo.ca/environment/news/true-impact-canadian-milk-packaging",
       "publishedAt": "2026-05-19T12:00:00.000Z"
-    },
-    {
-      "title": "Women of Wampum",
-      "whatHappened": "Tue, 07 Apr 2026 12:00:00 +0000 A new short documentary by Dr.",
-      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
-      "keyWord": "sustainability: using resources in a way that can last over time",
-      "source": "Waterloo Environment",
-      "url": "https://uwaterloo.ca/environment/news/women-wampum",
-      "publishedAt": "2026-04-07T12:00:00.000Z"
     },
     {
       "title": "Raising AI for a Just Climate Future",
