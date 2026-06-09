@@ -1,26 +1,17 @@
 {
-  "boardDate": "2026-06-08",
-  "generatedAt": "2026-06-08T14:57:58.638Z",
+  "boardDate": "2026-06-09",
+  "generatedAt": "2026-06-09T14:00:54.317Z",
   "sourceCount": 26,
   "weather": [
     {
       "city": "Ottawa",
       "temperatureC": 21,
-      "maxC": 24,
-      "minC": 11,
-      "summary": "Mostly clear"
+      "maxC": 28,
+      "minC": 12,
+      "summary": "Clear skies"
     }
   ],
   "extremeWeather": [
-    {
-      "title": "Wildfire smoke has reversed US progress toward ozone air quality, study finds",
-      "whatHappened": "Since 2015, fires have undone years of effort to reduce ozone levels, underscoring a growing public health crisis The highly destructive wildfires that have battered the...",
-      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
-      "keyWord": "extreme weather: unusual and dangerous weather like floods, storms, or heat waves",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/us-news/2026/jun/04/wildfire-smoke-air-quality-ozone",
-      "publishedAt": "2026-06-04T19:16:15.000Z"
-    },
     {
       "title": "Arizona lake closes indefinitely to visitors after all of its fish die",
       "whatHappened": "Wildlife department says drought conditions and water released from dam led to ‘major fish kill’ at San Carlos Lake Arizona officials have indefinitely closed a popular...",
@@ -47,18 +38,18 @@
       "source": "BBC Science & Environment",
       "url": "https://www.bbc.com/news/articles/c0q2kk4ek8qo?at_medium=RSS&at_campaign=rss",
       "publishedAt": "2026-06-04T05:17:47.000Z"
-    },
-    {
-      "title": "El Niño confirmed, set to fuel more extreme weather, says WMO",
-      "whatHappened": "The UN urged all countries on Tuesday to bolster early warning systems after confirming the onset of El Niño, warning that the Pacific Ocean-warming phenomenon will...",
-      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
-      "keyWord": "extreme weather: unusual and dangerous weather like floods, storms, or heat waves",
-      "source": "UN Climate",
-      "url": "https://news.un.org/feed/view/en/story/2026/06/1167620",
-      "publishedAt": "2026-06-02T12:00:00.000Z"
     }
   ],
   "climate": [
+    {
+      "title": "‘Electrify daily life’, urges Cop31 host",
+      "whatHappened": "Third of world’s energy needs should come from electricity by 2035, says Murat Kurum, as priorities set out for this year’s UN climate summit The world...",
+      "whyItMatters": "Climate and environment stories connect science to real issues like safety, health, and extreme weather.",
+      "keyWord": "emissions: gases released into the air",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/environment/2026/jun/09/third-of-world-energy-electricity-by-2035-says-turkey-cop31-host",
+      "publishedAt": "2026-06-09T11:00:49.000Z"
+    },
     {
       "title": "AI’s environmental costs threaten water, land and climate",
       "whatHappened": "Artificial Intelligence is not only responsible for worrying amounts of earth-warming greenhouse gases: the technology's environmental footprint is also expanding at a pace that could strain...",
@@ -78,51 +69,60 @@
       "publishedAt": "2026-06-07T12:00:00.000Z"
     },
     {
-      "title": "Wildfire smoke has reversed US progress toward ozone air quality, study finds",
-      "whatHappened": "Since 2015, fires have undone years of effort to reduce ozone levels, underscoring a growing public health crisis The highly destructive wildfires that have battered the...",
+      "title": "This US neighborhood is full of hazardous air pollution. Can a network of sensors make ‘the invisible visible’?",
+      "whatHappened": "Pacoima is hemmed in by highways and heavy industry, and its residents are fighting pollution with hyperlocal air quality monitoring Jose Luis Salas looks up at...",
       "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
-      "keyWord": "emissions: gases released into the air",
+      "keyWord": "climate: the usual pattern of weather over a long period of time",
       "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/us-news/2026/jun/04/wildfire-smoke-air-quality-ozone",
-      "publishedAt": "2026-06-04T19:16:15.000Z"
+      "url": "https://www.theguardian.com/us-news/2026/jun/09/pacoima-pollution-air-sensors-monitoring",
+      "publishedAt": "2026-06-09T13:00:52.000Z"
     },
     {
-      "title": "Five things you need to know about ocean plastics",
-      "whatHappened": "From surgical gloves to water bottles, shopping bags and chewing gum, every part of our daily lives includes plastic.",
+      "title": "Countries urged to ‘go further, faster’ and deliver on climate commitments",
+      "whatHappened": "The United Nations climate chief called on Monday for countries to step up action to implement existing commitments, warning that fossil fuel dependency is deepening economic...",
       "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
       "keyWord": "climate: the usual pattern of weather over a long period of time",
       "source": "UN Climate",
-      "url": "https://news.un.org/feed/view/en/story/2026/06/1167637",
-      "publishedAt": "2026-06-06T12:00:00.000Z"
+      "url": "https://news.un.org/feed/view/en/story/2026/06/1167673",
+      "publishedAt": "2026-06-08T12:00:00.000Z"
     },
     {
-      "title": "The Trump administration is trying to kill a rule that protects millions of acres of national forests | Charles F Sams III",
-      "whatHappened": "The bipartisan Roadless Rule is under fire.",
+      "title": "Why sustainable alternatives to plastic are struggling to compete",
+      "whatHappened": "Plastic pollution is choking the ocean, but sustainable alternatives - including seaweed - remain held back by tariffs, fragmented regulations and the overwhelming market advantage enjoyed...",
       "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
       "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/commentisfree/2026/jun/05/trump-roadless-rule-national-forests-protection",
-      "publishedAt": "2026-06-05T12:00:34.000Z"
-    },
-    {
-      "title": "Scientists warn Trump plan to axe US ocean monitoring system will leave world ‘flying blind’",
-      "whatHappened": "Experts say dismantling the ocean observation system will ‘severely degrade’ the accuracy of weather predictions The Trump administration’s plan to dismantle an ocean observation system vital...",
-      "whyItMatters": "Climate and environment stories connect science to real issues like safety, health, and extreme weather.",
-      "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/environment/2026/jun/05/trump-plan-ocean-monitoring-system-concern-scientists",
-      "publishedAt": "2026-06-05T10:00:31.000Z"
+      "source": "UN Climate",
+      "url": "https://news.un.org/feed/view/en/story/2026/06/1167670",
+      "publishedAt": "2026-06-08T12:00:00.000Z"
     }
   ],
   "weatherTech": [
     {
-      "title": "TechCrunch Mobility: Inside GM’s $900M EV battery gamble",
-      "whatHappened": "Welcome back to TechCrunch Mobility — your central hub for news and insights on the future of transportation.",
+      "title": "This US neighborhood is full of hazardous air pollution. Can a network of sensors make ‘the invisible visible’?",
+      "whatHappened": "Pacoima is hemmed in by highways and heavy industry, and its residents are fighting pollution with hyperlocal air quality monitoring Jose Luis Salas looks up at...",
       "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
+      "keyWord": "weather technology: tools that help people measure, study, or predict weather and climate",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/us-news/2026/jun/09/pacoima-pollution-air-sensors-monitoring",
+      "publishedAt": "2026-06-09T13:00:52.000Z"
+    },
+    {
+      "title": "‘Electrify daily life’, urges Cop31 host",
+      "whatHappened": "Third of world’s energy needs should come from electricity by 2035, says Murat Kurum, as priorities set out for this year’s UN climate summit The world...",
+      "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
+      "keyWord": "weather technology: tools that help people measure, study, or predict weather and climate",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/environment/2026/jun/09/third-of-world-energy-electricity-by-2035-says-turkey-cop31-host",
+      "publishedAt": "2026-06-09T11:00:49.000Z"
+    },
+    {
+      "title": "Marshall’s Stockwell speaker gets a replaceable battery that runs twice as long",
+      "whatHappened": "Marshall has announced a new version of its stylish Stockwell Bluetooth speaker, putting a new focus on repairability.",
+      "whyItMatters": "Weather technology shows how science tools can predict conditions faster and help people prepare earlier.",
       "keyWord": "battery: a device that stores energy for later use",
-      "source": "TechCrunch",
-      "url": "https://techcrunch.com/2026/06/07/inside-gms-900m-ev-battery-gamble/",
-      "publishedAt": "2026-06-07T16:05:00.000Z"
+      "source": "The Verge",
+      "url": "https://www.theverge.com/tech/945623/marshalls-stockwell-speaker-gets-a-replaceable-battery-that-runs-twice-as-long",
+      "publishedAt": "2026-06-08T14:01:45.000Z"
     },
     {
       "title": "Scientists warn Trump plan to axe US ocean monitoring system will leave world ‘flying blind’",
@@ -143,6 +143,15 @@
       "source": "Carleton Sustainability",
       "url": "https://carleton.ca/sustainability/2025/carleton-recognised-as-only-university-in-canada-to-achieve-bronze-tier-in-net-zero-challenge/",
       "publishedAt": "2025-07-29T18:25:35.000Z"
+    },
+    {
+      "title": "Innovative projects explore ways to deal with extreme heat",
+      "whatHappened": "Low-cost personal cooling and emissions-free air conditioning among ideas studied with MIT’s Climate Project seed funding.",
+      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
+      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
+      "source": "MIT Climate & Sustainability",
+      "url": "https://news.mit.edu/2026/innovative-projects-explore-ways-to-deal-with-extreme-heat-0608",
+      "publishedAt": "2026-06-08T20:45:00.000Z"
     },
     {
       "title": "World Oceans Day Reimagines Our Relationship With the Water Around Us",
@@ -190,22 +199,13 @@
       "publishedAt": "2026-05-19T12:00:00.000Z"
     },
     {
-      "title": "Raising AI for a Just Climate Future",
-      "whatHappened": "Raising a responsible child and building responsible AI both require a deep awareness of what we are training them to notice and value.",
+      "title": "You Asked: What Exactly Is a ‘Super’ El Niño?",
+      "whatHappened": "Lamont and Climate School scientists explain what a stronger El Niño would mean for the U.S.",
       "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
       "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
       "source": "Columbia Climate School",
-      "url": "https://news.climate.columbia.edu/2026/06/04/raising-ai-for-a-just-climate-future/",
-      "publishedAt": "2026-06-04T22:02:38.000Z"
-    },
-    {
-      "title": "Developing innovative alternatives to conventional carbon capture methods",
-      "whatHappened": "MIT researchers present a promising new approach to efficient, flexible carbon capture and removal.",
-      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
-      "keyWord": "research: careful study used to discover new knowledge",
-      "source": "MIT Climate & Sustainability",
-      "url": "https://news.mit.edu/2026/developing-innovative-carbon-capture-methods-0604",
-      "publishedAt": "2026-06-04T20:35:00.000Z"
+      "url": "https://news.climate.columbia.edu/2026/06/09/you-asked-what-exactly-is-a-super-el-nino/",
+      "publishedAt": "2026-06-09T13:53:25.000Z"
     },
     {
       "title": "Rice-fish farming may help curb schistosomiasis while increasing food production",
@@ -235,13 +235,13 @@
       "publishedAt": "2026-06-03T20:20:25.000Z"
     },
     {
-      "title": "Nicholas de Monchaux appointed dean of the College of Environmental Design",
-      "whatHappened": "The internationally recognized architect, urbanist and scholar will be the thirteenth dean to lead the college since its founding by William W.",
+      "title": "A day in the life of MIT MBA student Patrick Yeung",
+      "whatHappened": "MIT Sloan’s Sustainability Initiative provides opportunities to lead in ways that will help build a more sustainable future.",
       "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
-      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
-      "source": "Berkeley News",
-      "url": "https://ced.berkeley.edu/news/nicholas-de-monchaux-appointed-dean-uc-berkeley-ced",
-      "publishedAt": "2026-06-01T16:52:25.000Z"
+      "keyWord": "sustainability: using resources in a way that can last over time",
+      "source": "MIT Earth & Atmospheric Sciences",
+      "url": "https://news.mit.edu/2026/day-life-mit-mba-student-patrick-yeung-0519",
+      "publishedAt": "2026-05-19T18:20:00.000Z"
     }
   ]
 }
