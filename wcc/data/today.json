@@ -1,34 +1,34 @@
 {
-  "boardDate": "2026-06-09",
-  "generatedAt": "2026-06-09T14:00:54.317Z",
+  "boardDate": "2026-06-10",
+  "generatedAt": "2026-06-10T14:37:28.747Z",
   "sourceCount": 26,
   "weather": [
     {
       "city": "Ottawa",
-      "temperatureC": 21,
-      "maxC": 28,
-      "minC": 12,
-      "summary": "Clear skies"
+      "temperatureC": 23,
+      "maxC": 27,
+      "minC": 19,
+      "summary": "Cloudy"
     }
   ],
   "extremeWeather": [
     {
-      "title": "Arizona lake closes indefinitely to visitors after all of its fish die",
-      "whatHappened": "Wildlife department says drought conditions and water released from dam led to ‘major fish kill’ at San Carlos Lake Arizona officials have indefinitely closed a popular...",
+      "title": "‘Every day it’s more barriers’: how the US is shutting out climate refugees",
+      "whatHappened": "As the US shuts its doors to most refugees, there’s little hope of a new system to help those forced from home by climate impacts Trump...",
       "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
-      "keyWord": "drought: a long time with very little rain",
+      "keyWord": "heat wave: a long period of unusually hot weather",
       "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/us-news/2026/jun/08/san-carlos-lake-arizona-fish-kill",
-      "publishedAt": "2026-06-08T11:33:49.000Z"
+      "url": "https://www.theguardian.com/us-news/2026/jun/10/climate-change-crisis-refugees",
+      "publishedAt": "2026-06-10T13:00:21.000Z"
     },
     {
-      "title": "Majority of US’s new AI datacenters to be built on drought-hit land",
-      "whatHappened": "Guardian analysis finds facilities to be built in some of the driest areas as outcry grows over water needed to power AI A record-shattering drought has...",
+      "title": "Trump targeting immigrants from countries hit most by climate shocks",
+      "whatHappened": "A Guardian analysis reveals how most of 39 countries facing US entry restrictions are most vulnerable environmentally ‘Every day it’s more barriers’: how the US is...",
       "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
       "keyWord": "drought: a long time with very little rain",
       "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/us-news/2026/jun/08/datacenter-ai-drought-water",
-      "publishedAt": "2026-06-08T11:00:23.000Z"
+      "url": "https://www.theguardian.com/us-news/2026/jun/10/trump-administration-immigrants-climate-crisis",
+      "publishedAt": "2026-06-10T13:00:20.000Z"
     },
     {
       "title": "Failing sea defences 'disaster' for nature reserve",
@@ -42,15 +42,6 @@
   ],
   "climate": [
     {
-      "title": "‘Electrify daily life’, urges Cop31 host",
-      "whatHappened": "Third of world’s energy needs should come from electricity by 2035, says Murat Kurum, as priorities set out for this year’s UN climate summit The world...",
-      "whyItMatters": "Climate and environment stories connect science to real issues like safety, health, and extreme weather.",
-      "keyWord": "emissions: gases released into the air",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/environment/2026/jun/09/third-of-world-energy-electricity-by-2035-says-turkey-cop31-host",
-      "publishedAt": "2026-06-09T11:00:49.000Z"
-    },
-    {
       "title": "AI’s environmental costs threaten water, land and climate",
       "whatHappened": "Artificial Intelligence is not only responsible for worrying amounts of earth-warming greenhouse gases: the technology's environmental footprint is also expanding at a pace that could strain...",
       "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
@@ -58,6 +49,15 @@
       "source": "UN Climate",
       "url": "https://news.un.org/feed/view/en/story/2026/06/1167658",
       "publishedAt": "2026-06-04T12:00:00.000Z"
+    },
+    {
+      "title": "The rightwing campaign to control how US judges view the climate crisis",
+      "whatHappened": "US energy secretary Chris Wright featured in seminars to judges when he was a fracking executive As cities and states sue big oil for billions in...",
+      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
+      "keyWord": "climate: the usual pattern of weather over a long period of time",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/us-news/2026/jun/10/judges-climate-crisis-energy-secretary",
+      "publishedAt": "2026-06-10T12:00:19.000Z"
     },
     {
       "title": "Humanity’s future depends on protecting the rapidly changing ocean",
@@ -69,69 +69,42 @@
       "publishedAt": "2026-06-07T12:00:00.000Z"
     },
     {
-      "title": "This US neighborhood is full of hazardous air pollution. Can a network of sensors make ‘the invisible visible’?",
-      "whatHappened": "Pacoima is hemmed in by highways and heavy industry, and its residents are fighting pollution with hyperlocal air quality monitoring Jose Luis Salas looks up at...",
+      "title": "Sardinian beach bans umbrellas for people aged 10 to 65",
+      "whatHappened": "Incredulous Italians ask if they should bring grandparents to beach to stay safe, after unpopular move in Villasimìus Umbrellas have been banned on a beach in...",
       "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
       "keyWord": "climate: the usual pattern of weather over a long period of time",
       "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/us-news/2026/jun/09/pacoima-pollution-air-sensors-monitoring",
-      "publishedAt": "2026-06-09T13:00:52.000Z"
+      "url": "https://www.theguardian.com/world/2026/jun/10/sardinian-beach-bans-umbrellas-people-aged-10-65-punta-molentis",
+      "publishedAt": "2026-06-10T13:02:05.000Z"
     },
     {
-      "title": "Countries urged to ‘go further, faster’ and deliver on climate commitments",
-      "whatHappened": "The United Nations climate chief called on Monday for countries to step up action to implement existing commitments, warning that fossil fuel dependency is deepening economic...",
-      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
+      "title": "‘Every day it’s more barriers’: how the US is shutting out climate refugees",
+      "whatHappened": "As the US shuts its doors to most refugees, there’s little hope of a new system to help those forced from home by climate impacts Trump...",
+      "whyItMatters": "Climate and environment stories connect science to real issues like safety, health, and extreme weather.",
       "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "UN Climate",
-      "url": "https://news.un.org/feed/view/en/story/2026/06/1167673",
-      "publishedAt": "2026-06-08T12:00:00.000Z"
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/us-news/2026/jun/10/climate-change-crisis-refugees",
+      "publishedAt": "2026-06-10T13:00:21.000Z"
     },
     {
-      "title": "Why sustainable alternatives to plastic are struggling to compete",
-      "whatHappened": "Plastic pollution is choking the ocean, but sustainable alternatives - including seaweed - remain held back by tariffs, fragmented regulations and the overwhelming market advantage enjoyed...",
-      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
+      "title": "Trump targeting immigrants from countries hit most by climate shocks",
+      "whatHappened": "A Guardian analysis reveals how most of 39 countries facing US entry restrictions are most vulnerable environmentally ‘Every day it’s more barriers’: how the US is...",
+      "whyItMatters": "Climate and environment stories connect science to real issues like safety, health, and extreme weather.",
       "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "UN Climate",
-      "url": "https://news.un.org/feed/view/en/story/2026/06/1167670",
-      "publishedAt": "2026-06-08T12:00:00.000Z"
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/us-news/2026/jun/10/trump-administration-immigrants-climate-crisis",
+      "publishedAt": "2026-06-10T13:00:20.000Z"
     }
   ],
   "weatherTech": [
     {
-      "title": "This US neighborhood is full of hazardous air pollution. Can a network of sensors make ‘the invisible visible’?",
+      "title": "This LA neighborhood is choked by smog. The solution: a network of sensors on offices, homes and bags",
       "whatHappened": "Pacoima is hemmed in by highways and heavy industry, and its residents are fighting pollution with hyperlocal air quality monitoring Jose Luis Salas looks up at...",
       "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
       "keyWord": "weather technology: tools that help people measure, study, or predict weather and climate",
       "source": "The Guardian Environment",
       "url": "https://www.theguardian.com/us-news/2026/jun/09/pacoima-pollution-air-sensors-monitoring",
       "publishedAt": "2026-06-09T13:00:52.000Z"
-    },
-    {
-      "title": "‘Electrify daily life’, urges Cop31 host",
-      "whatHappened": "Third of world’s energy needs should come from electricity by 2035, says Murat Kurum, as priorities set out for this year’s UN climate summit The world...",
-      "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
-      "keyWord": "weather technology: tools that help people measure, study, or predict weather and climate",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/environment/2026/jun/09/third-of-world-energy-electricity-by-2035-says-turkey-cop31-host",
-      "publishedAt": "2026-06-09T11:00:49.000Z"
-    },
-    {
-      "title": "Marshall’s Stockwell speaker gets a replaceable battery that runs twice as long",
-      "whatHappened": "Marshall has announced a new version of its stylish Stockwell Bluetooth speaker, putting a new focus on repairability.",
-      "whyItMatters": "Weather technology shows how science tools can predict conditions faster and help people prepare earlier.",
-      "keyWord": "battery: a device that stores energy for later use",
-      "source": "The Verge",
-      "url": "https://www.theverge.com/tech/945623/marshalls-stockwell-speaker-gets-a-replaceable-battery-that-runs-twice-as-long",
-      "publishedAt": "2026-06-08T14:01:45.000Z"
-    },
-    {
-      "title": "Scientists warn Trump plan to axe US ocean monitoring system will leave world ‘flying blind’",
-      "whatHappened": "Experts say dismantling the ocean observation system will ‘severely degrade’ the accuracy of weather predictions The Trump administration’s plan to dismantle an ocean observation system vital...",
-      "whyItMatters": "Weather technology shows how science tools can predict conditions faster and help people prepare earlier.",
-      "keyWord": "forecast: a prediction about future weather conditions",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/environment/2026/jun/05/trump-plan-ocean-monitoring-system-concern-scientists",
-      "publishedAt": "2026-06-05T10:00:31.000Z"
     }
   ],
   "universityNews": [
@@ -172,6 +145,15 @@
       "publishedAt": "2025-07-29T18:38:05.000Z"
     },
     {
+      "title": "Startup’s nuclear-inspired cooling system could make data centers more sustainable",
+      "whatHappened": "Founded by two researchers from MIT, Ferveret reduces the amount of energy and water required to cool the chips that power AI.",
+      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
+      "keyWord": "research: careful study used to discover new knowledge",
+      "source": "MIT Climate & Sustainability",
+      "url": "https://news.mit.edu/2026/nuclear-inspired-cooling-system-ferveret-could-make-data-centers-more-sustainable-0610",
+      "publishedAt": "2026-06-10T04:00:00.000Z"
+    },
+    {
       "title": "Environment professor recognized for her outstanding research contributions",
       "whatHappened": "Mon, 08 Jun 2026 12:00:00 +0000 The Canadian Geophysical Union has recognized Dr.",
       "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
@@ -179,15 +161,6 @@
       "source": "Waterloo Environment",
       "url": "https://uwaterloo.ca/environment/news/environment-professor-recognized-her-outstanding-research",
       "publishedAt": "2026-06-08T12:00:00.000Z"
-    },
-    {
-      "title": "A day in the life of MIT Sloan Fellow Alecia Asiamigbe",
-      "whatHappened": "The MBA student and entrepreneur is learning to lead a more resilient future with her renewable energy company.",
-      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
-      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
-      "source": "MIT Climate & Sustainability",
-      "url": "https://news.mit.edu/2026/day-life-mit-sloan-fellow-alecia-asiamigbe-0526",
-      "publishedAt": "2026-05-26T20:10:00.000Z"
     },
     {
       "title": "The true impact of Canadian milk packaging",
@@ -199,8 +172,26 @@
       "publishedAt": "2026-05-19T12:00:00.000Z"
     },
     {
+      "title": "When global warming becomes malnutrition: New study links climate change, childhood stunting and local inequality",
+      "whatHappened": "Millions of children under age five worldwide suffer from childhood stunting.",
+      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
+      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
+      "source": "Notre Dame News",
+      "url": "https://news.nd.edu/news/when-global-warming-becomes-malnutrition-new-study-links-climate-change-childhood-stunting-and-local-inequality/",
+      "publishedAt": "2026-06-09T19:52:14.000Z"
+    },
+    {
+      "title": "As California warms, cases of dengue fever are expected to grow",
+      "whatHappened": "Climate change may increase local transmission of “breakbone fever” in the state’s mosquito-friendly cities.",
+      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
+      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
+      "source": "Berkeley News",
+      "url": "https://news.berkeley.edu/2026/06/09/as-california-warms-cases-of-dengue-fever-are-expected-to-grow/",
+      "publishedAt": "2026-06-09T17:32:33.000Z"
+    },
+    {
       "title": "You Asked: What Exactly Is a ‘Super’ El Niño?",
-      "whatHappened": "Lamont and Climate School scientists explain what a stronger El Niño would mean for the U.S.",
+      "whatHappened": "Columbia Climate School experts explain what a strong El Niño could mean for the planet this year.",
       "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
       "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
       "source": "Columbia Climate School",
@@ -224,24 +215,6 @@
       "source": "Berkeley News",
       "url": "https://engineering.berkeley.edu/news/2026/05/from-forest-to-front-door/",
       "publishedAt": "2026-06-04T18:19:31.000Z"
-    },
-    {
-      "title": "20 societal problems, 20 solutions",
-      "whatHappened": "Projects translating research into public good — spanning fields from medicine and climate to civics and arts — win $4 million from new Harvard fund",
-      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
-      "keyWord": "research: careful study used to discover new knowledge",
-      "source": "Harvard Gazette",
-      "url": "https://news.harvard.edu/gazette/story/2026/06/20-societal-problems-20-solutions/",
-      "publishedAt": "2026-06-03T20:20:25.000Z"
-    },
-    {
-      "title": "A day in the life of MIT MBA student Patrick Yeung",
-      "whatHappened": "MIT Sloan’s Sustainability Initiative provides opportunities to lead in ways that will help build a more sustainable future.",
-      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
-      "keyWord": "sustainability: using resources in a way that can last over time",
-      "source": "MIT Earth & Atmospheric Sciences",
-      "url": "https://news.mit.edu/2026/day-life-mit-mba-student-patrick-yeung-0519",
-      "publishedAt": "2026-05-19T18:20:00.000Z"
     }
   ]
 }
