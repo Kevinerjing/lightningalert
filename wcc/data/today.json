@@ -1,17 +1,35 @@
 {
-  "boardDate": "2026-06-10",
-  "generatedAt": "2026-06-10T14:37:28.747Z",
+  "boardDate": "2026-06-11",
+  "generatedAt": "2026-06-11T15:07:10.897Z",
   "sourceCount": 26,
   "weather": [
     {
       "city": "Ottawa",
-      "temperatureC": 23,
-      "maxC": 27,
-      "minC": 19,
+      "temperatureC": 25,
+      "maxC": 29,
+      "minC": 20,
       "summary": "Cloudy"
     }
   ],
   "extremeWeather": [
+    {
+      "title": "El Niño forms in Pacific as experts say it will likely turbocharge extreme weather",
+      "whatHappened": "Meteorologists forecast it will rival – or exceed – record El Niño from 1997 and further heat globe El Niño, Nature’s chaotic climate agent, has formed...",
+      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
+      "keyWord": "heat wave: a long period of unusually hot weather",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/us-news/2026/jun/11/el-nino-forms-historic-strength",
+      "publishedAt": "2026-06-11T13:50:55.000Z"
+    },
+    {
+      "title": "El Niño under way and threatens weather extremes, scientists say",
+      "whatHappened": "An El Niño event has officially started, say US scientists, raising fears of extreme weather and higher temperatures.",
+      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
+      "keyWord": "extreme weather: unusual and dangerous weather like floods, storms, or heat waves",
+      "source": "BBC Science & Environment",
+      "url": "https://www.bbc.com/news/articles/c75ylx7g00xo?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-06-11T13:26:24.000Z"
+    },
     {
       "title": "‘Every day it’s more barriers’: how the US is shutting out climate refugees",
       "whatHappened": "As the US shuts its doors to most refugees, there’s little hope of a new system to help those forced from home by climate impacts Trump...",
@@ -29,18 +47,18 @@
       "source": "The Guardian Environment",
       "url": "https://www.theguardian.com/us-news/2026/jun/10/trump-administration-immigrants-climate-crisis",
       "publishedAt": "2026-06-10T13:00:20.000Z"
-    },
-    {
-      "title": "Failing sea defences 'disaster' for nature reserve",
-      "whatHappened": "An internationally important nature reserve in Hampshire is under threat from failing flood defences.",
-      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
-      "keyWord": "flood: water covering land that is usually dry",
-      "source": "BBC Science & Environment",
-      "url": "https://www.bbc.com/news/articles/c0q2kk4ek8qo?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-06-04T05:17:47.000Z"
     }
   ],
   "climate": [
+    {
+      "title": "El Niño forms in Pacific as experts say it will likely turbocharge extreme weather",
+      "whatHappened": "Meteorologists forecast it will rival – or exceed – record El Niño from 1997 and further heat globe El Niño, Nature’s chaotic climate agent, has formed...",
+      "whyItMatters": "Climate and environment stories connect science to real issues like safety, health, and extreme weather.",
+      "keyWord": "climate: the usual pattern of weather over a long period of time",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/us-news/2026/jun/11/el-nino-forms-historic-strength",
+      "publishedAt": "2026-06-11T13:50:55.000Z"
+    },
     {
       "title": "AI’s environmental costs threaten water, land and climate",
       "whatHappened": "Artificial Intelligence is not only responsible for worrying amounts of earth-warming greenhouse gases: the technology's environmental footprint is also expanding at a pace that could strain...",
@@ -49,6 +67,15 @@
       "source": "UN Climate",
       "url": "https://news.un.org/feed/view/en/story/2026/06/1167658",
       "publishedAt": "2026-06-04T12:00:00.000Z"
+    },
+    {
+      "title": "Solar generates more energy in US than coal for first time",
+      "whatHappened": "Solar supplied 12.8% of US electricity in May even as Trump boosts coal over clean energy Even as Donald Trump boosts coal over clean energy, solar...",
+      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
+      "keyWord": "climate: the usual pattern of weather over a long period of time",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/us-news/2026/jun/11/solar-energy-us-coal",
+      "publishedAt": "2026-06-11T10:00:20.000Z"
     },
     {
       "title": "The rightwing campaign to control how US judges view the climate crisis",
@@ -69,42 +96,33 @@
       "publishedAt": "2026-06-07T12:00:00.000Z"
     },
     {
-      "title": "Sardinian beach bans umbrellas for people aged 10 to 65",
-      "whatHappened": "Incredulous Italians ask if they should bring grandparents to beach to stay safe, after unpopular move in Villasimìus Umbrellas have been banned on a beach in...",
-      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
-      "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/world/2026/jun/10/sardinian-beach-bans-umbrellas-people-aged-10-65-punta-molentis",
-      "publishedAt": "2026-06-10T13:02:05.000Z"
-    },
-    {
-      "title": "‘Every day it’s more barriers’: how the US is shutting out climate refugees",
-      "whatHappened": "As the US shuts its doors to most refugees, there’s little hope of a new system to help those forced from home by climate impacts Trump...",
+      "title": "Millions of homes in London, Essex and Kent at risk of sinking as climate crisis worsens",
+      "whatHappened": "Analysis pinpoints areas most vulnerable to hotter, drier weather causing ground to shrink and drag foundations down Millions of homes are at risk from climate-related subsidence,...",
       "whyItMatters": "Climate and environment stories connect science to real issues like safety, health, and extreme weather.",
       "keyWord": "climate: the usual pattern of weather over a long period of time",
       "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/us-news/2026/jun/10/climate-change-crisis-refugees",
-      "publishedAt": "2026-06-10T13:00:21.000Z"
-    },
-    {
-      "title": "Trump targeting immigrants from countries hit most by climate shocks",
-      "whatHappened": "A Guardian analysis reveals how most of 39 countries facing US entry restrictions are most vulnerable environmentally ‘Every day it’s more barriers’: how the US is...",
-      "whyItMatters": "Climate and environment stories connect science to real issues like safety, health, and extreme weather.",
-      "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/us-news/2026/jun/10/trump-administration-immigrants-climate-crisis",
-      "publishedAt": "2026-06-10T13:00:20.000Z"
+      "url": "https://www.theguardian.com/environment/2026/jun/11/millions-homes-london-essex-and-kent-sinking-climate-crisis-subsidence",
+      "publishedAt": "2026-06-11T05:00:07.000Z"
     }
   ],
   "weatherTech": [
     {
-      "title": "This LA neighborhood is choked by smog. The solution: a network of sensors on offices, homes and bags",
-      "whatHappened": "Pacoima is hemmed in by highways and heavy industry, and its residents are fighting pollution with hyperlocal air quality monitoring Jose Luis Salas looks up at...",
+      "title": "Solar generates more energy in US than coal for first time",
+      "whatHappened": "Solar supplied 12.8% of US electricity in May even as Trump boosts coal over clean energy Even as Donald Trump boosts coal over clean energy, solar...",
       "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
-      "keyWord": "weather technology: tools that help people measure, study, or predict weather and climate",
+      "keyWord": "solar: related to energy from sunlight",
       "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/us-news/2026/jun/09/pacoima-pollution-air-sensors-monitoring",
-      "publishedAt": "2026-06-09T13:00:52.000Z"
+      "url": "https://www.theguardian.com/us-news/2026/jun/11/solar-energy-us-coal",
+      "publishedAt": "2026-06-11T10:00:20.000Z"
+    },
+    {
+      "title": "El Niño forms in Pacific as experts say it will likely turbocharge extreme weather",
+      "whatHappened": "Meteorologists forecast it will rival – or exceed – record El Niño from 1997 and further heat globe El Niño, Nature’s chaotic climate agent, has formed...",
+      "whyItMatters": "Weather technology shows how science tools can predict conditions faster and help people prepare earlier.",
+      "keyWord": "forecast: a prediction about future weather conditions",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/us-news/2026/jun/11/el-nino-forms-historic-strength",
+      "publishedAt": "2026-06-11T13:50:55.000Z"
     }
   ],
   "universityNews": [
@@ -145,6 +163,15 @@
       "publishedAt": "2025-07-29T18:38:05.000Z"
     },
     {
+      "title": "This robotic system may soon be used to prevent forest fires",
+      "whatHappened": "These Northeastern students built a sensor system designed to identify wildfire risk in real time The post This robotic system may soon be used to prevent...",
+      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
+      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
+      "source": "Northeastern Global News",
+      "url": "https://news.northeastern.edu/2026/06/10/wildfire-containment-robotics/",
+      "publishedAt": "2026-06-10T20:02:20.000Z"
+    },
+    {
       "title": "Startup’s nuclear-inspired cooling system could make data centers more sustainable",
       "whatHappened": "Founded by two researchers from MIT, Ferveret reduces the amount of energy and water required to cool the chips that power AI.",
       "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
@@ -172,6 +199,24 @@
       "publishedAt": "2026-05-19T12:00:00.000Z"
     },
     {
+      "title": "How Do Glacial Ecosystems Respond to Climate Change?",
+      "whatHappened": "Microbiologist Arwyn Edwards discusses the complex role of microbial life in glacial ecosystems and the impact of climate change on his field.",
+      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
+      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
+      "source": "Columbia Climate School",
+      "url": "https://news.climate.columbia.edu/2026/06/11/how-do-glacial-ecosystems-respond-to-climate-change/",
+      "publishedAt": "2026-06-11T14:40:52.000Z"
+    },
+    {
+      "title": "New imaging system sees through murky waters",
+      "whatHappened": "The “Sonar-MASt3R” combines sonar and visual data to create real-time 3D maps, even in cloudy water.",
+      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
+      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
+      "source": "MIT Earth & Atmospheric Sciences",
+      "url": "https://news.mit.edu/2026/new-imaging-system-sees-through-murky-waters-0611",
+      "publishedAt": "2026-06-11T04:00:00.000Z"
+    },
+    {
       "title": "When global warming becomes malnutrition: New study links climate change, childhood stunting and local inequality",
       "whatHappened": "Millions of children under age five worldwide suffer from childhood stunting.",
       "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
@@ -188,33 +233,6 @@
       "source": "Berkeley News",
       "url": "https://news.berkeley.edu/2026/06/09/as-california-warms-cases-of-dengue-fever-are-expected-to-grow/",
       "publishedAt": "2026-06-09T17:32:33.000Z"
-    },
-    {
-      "title": "You Asked: What Exactly Is a ‘Super’ El Niño?",
-      "whatHappened": "Columbia Climate School experts explain what a strong El Niño could mean for the planet this year.",
-      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
-      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
-      "source": "Columbia Climate School",
-      "url": "https://news.climate.columbia.edu/2026/06/09/you-asked-what-exactly-is-a-super-el-nino/",
-      "publishedAt": "2026-06-09T13:53:25.000Z"
-    },
-    {
-      "title": "Rice-fish farming may help curb schistosomiasis while increasing food production",
-      "whatHappened": "New research published in Nature Sustainability and led by Notre Dame has explored how rice-fish coculturing — an intervention technique that introduces fish into the rice...",
-      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
-      "keyWord": "sustainability: using resources in a way that can last over time",
-      "source": "Notre Dame News",
-      "url": "https://news.nd.edu/news/rice-fish-farming-may-help-curb-schistosomiasis-while-increasing-food-production/",
-      "publishedAt": "2026-06-04T19:25:16.000Z"
-    },
-    {
-      "title": "The new math of urban wildfires",
-      "whatHappened": "Michael Gollner, an associate professor of mechanical engineering, is building models to predict how wildfire spreads through communities.",
-      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
-      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
-      "source": "Berkeley News",
-      "url": "https://engineering.berkeley.edu/news/2026/05/from-forest-to-front-door/",
-      "publishedAt": "2026-06-04T18:19:31.000Z"
     }
   ]
 }
