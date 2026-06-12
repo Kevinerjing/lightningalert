@@ -1,22 +1,31 @@
 {
-  "boardDate": "2026-06-11",
-  "generatedAt": "2026-06-11T15:07:10.897Z",
+  "boardDate": "2026-06-12",
+  "generatedAt": "2026-06-12T14:20:31.537Z",
   "sourceCount": 26,
   "weather": [
     {
       "city": "Ottawa",
-      "temperatureC": 25,
-      "maxC": 29,
-      "minC": 20,
-      "summary": "Cloudy"
+      "temperatureC": 26,
+      "maxC": 28,
+      "minC": 19,
+      "summary": "Mostly clear"
     }
   ],
   "extremeWeather": [
     {
-      "title": "El Niño forms in Pacific as experts say it will likely turbocharge extreme weather",
-      "whatHappened": "Meteorologists forecast it will rival – or exceed – record El Niño from 1997 and further heat globe El Niño, Nature’s chaotic climate agent, has formed...",
+      "title": "‘Super El Niño’ is officially here, scientists say. What can we expect?",
+      "whatHappened": "Experts say climate pattern could supercharge extreme weather events and push temperatures to record highs EL Niño has officially arrived, US officials at the National Oceanic...",
       "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
-      "keyWord": "heat wave: a long period of unusually hot weather",
+      "keyWord": "extreme weather: unusual and dangerous weather like floods, storms, or heat waves",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/environment/2026/apr/13/el-nino-explainer",
+      "publishedAt": "2026-06-11T20:46:27.000Z"
+    },
+    {
+      "title": "El Niño forms in Pacific as experts say it will likely turbocharge extreme weather",
+      "whatHappened": "Meteorologists in US predict it will be the strongest of century, while UN secretary-general calls it ‘urgent climate warning’ El Niño , the climate phenomenon that...",
+      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
+      "keyWord": "extreme weather: unusual and dangerous weather like floods, storms, or heat waves",
       "source": "The Guardian Environment",
       "url": "https://www.theguardian.com/us-news/2026/jun/11/el-nino-forms-historic-strength",
       "publishedAt": "2026-06-11T13:50:55.000Z"
@@ -51,15 +60,6 @@
   ],
   "climate": [
     {
-      "title": "El Niño forms in Pacific as experts say it will likely turbocharge extreme weather",
-      "whatHappened": "Meteorologists forecast it will rival – or exceed – record El Niño from 1997 and further heat globe El Niño, Nature’s chaotic climate agent, has formed...",
-      "whyItMatters": "Climate and environment stories connect science to real issues like safety, health, and extreme weather.",
-      "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/us-news/2026/jun/11/el-nino-forms-historic-strength",
-      "publishedAt": "2026-06-11T13:50:55.000Z"
-    },
-    {
       "title": "AI’s environmental costs threaten water, land and climate",
       "whatHappened": "Artificial Intelligence is not only responsible for worrying amounts of earth-warming greenhouse gases: the technology's environmental footprint is also expanding at a pace that could strain...",
       "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
@@ -78,15 +78,6 @@
       "publishedAt": "2026-06-11T10:00:20.000Z"
     },
     {
-      "title": "The rightwing campaign to control how US judges view the climate crisis",
-      "whatHappened": "US energy secretary Chris Wright featured in seminars to judges when he was a fracking executive As cities and states sue big oil for billions in...",
-      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
-      "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/us-news/2026/jun/10/judges-climate-crisis-energy-secretary",
-      "publishedAt": "2026-06-10T12:00:19.000Z"
-    },
-    {
       "title": "Humanity’s future depends on protecting the rapidly changing ocean",
       "whatHappened": "The ocean covers more than 70 per cent of the planet&nbsp;and regulates climate, sustains biodiversity, and supports economies and cultures worldwide.",
       "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
@@ -96,13 +87,31 @@
       "publishedAt": "2026-06-07T12:00:00.000Z"
     },
     {
-      "title": "Millions of homes in London, Essex and Kent at risk of sinking as climate crisis worsens",
-      "whatHappened": "Analysis pinpoints areas most vulnerable to hotter, drier weather causing ground to shrink and drag foundations down Millions of homes are at risk from climate-related subsidence,...",
-      "whyItMatters": "Climate and environment stories connect science to real issues like safety, health, and extreme weather.",
+      "title": "Goblin shark with face ‘not even a mother would love’ seen alive in natural habitat for first time",
+      "whatHappened": "Elusive creatures have previously only been seen on fishing lines and experts know ‘virtually nothing about them’ Get our breaking news email , free app or...",
+      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
       "keyWord": "climate: the usual pattern of weather over a long period of time",
       "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/environment/2026/jun/11/millions-homes-london-essex-and-kent-sinking-climate-crisis-subsidence",
-      "publishedAt": "2026-06-11T05:00:07.000Z"
+      "url": "https://www.theguardian.com/environment/2026/jun/12/goblin-shark-seen-alive-natural-habitat-first-time",
+      "publishedAt": "2026-06-12T07:35:24.000Z"
+    },
+    {
+      "title": "‘Super El Niño’ is officially here, scientists say. What can we expect?",
+      "whatHappened": "Experts say climate pattern could supercharge extreme weather events and push temperatures to record highs EL Niño has officially arrived, US officials at the National Oceanic...",
+      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
+      "keyWord": "climate: the usual pattern of weather over a long period of time",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/environment/2026/apr/13/el-nino-explainer",
+      "publishedAt": "2026-06-11T20:46:27.000Z"
+    },
+    {
+      "title": "El Niño forms in Pacific as experts say it will likely turbocharge extreme weather",
+      "whatHappened": "Meteorologists in US predict it will be the strongest of century, while UN secretary-general calls it ‘urgent climate warning’ El Niño , the climate phenomenon that...",
+      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
+      "keyWord": "climate: the usual pattern of weather over a long period of time",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/us-news/2026/jun/11/el-nino-forms-historic-strength",
+      "publishedAt": "2026-06-11T13:50:55.000Z"
     }
   ],
   "weatherTech": [
@@ -116,13 +125,13 @@
       "publishedAt": "2026-06-11T10:00:20.000Z"
     },
     {
-      "title": "El Niño forms in Pacific as experts say it will likely turbocharge extreme weather",
-      "whatHappened": "Meteorologists forecast it will rival – or exceed – record El Niño from 1997 and further heat globe El Niño, Nature’s chaotic climate agent, has formed...",
-      "whyItMatters": "Weather technology shows how science tools can predict conditions faster and help people prepare earlier.",
-      "keyWord": "forecast: a prediction about future weather conditions",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/us-news/2026/jun/11/el-nino-forms-historic-strength",
-      "publishedAt": "2026-06-11T13:50:55.000Z"
+      "title": "Summer Upgrade Week",
+      "whatHappened": "The sun is out, the sky is clear.",
+      "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
+      "keyWord": "weather technology: tools that help people measure, study, or predict weather and climate",
+      "source": "The Verge",
+      "url": "https://www.theverge.com/tech/942658/summer-upgrade-week-2026",
+      "publishedAt": "2026-06-12T00:23:30.000Z"
     }
   ],
   "universityNews": [
@@ -199,13 +208,13 @@
       "publishedAt": "2026-05-19T12:00:00.000Z"
     },
     {
-      "title": "How Do Glacial Ecosystems Respond to Climate Change?",
-      "whatHappened": "Microbiologist Arwyn Edwards discusses the complex role of microbial life in glacial ecosystems and the impact of climate change on his field.",
+      "title": "What I’ve Learned From ‘The End of Poverty,’ 20 Years Later",
+      "whatHappened": "The author reflects on Jeffrey Sachs, the U.N., and the need to redesign global institutions for a world shaped by climate change, poverty and geopolitical strain.",
       "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
       "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
       "source": "Columbia Climate School",
-      "url": "https://news.climate.columbia.edu/2026/06/11/how-do-glacial-ecosystems-respond-to-climate-change/",
-      "publishedAt": "2026-06-11T14:40:52.000Z"
+      "url": "https://news.climate.columbia.edu/2026/06/11/what-ive-learned-from-the-end-of-poverty-20-years-later/",
+      "publishedAt": "2026-06-11T20:31:30.000Z"
     },
     {
       "title": "New imaging system sees through murky waters",
