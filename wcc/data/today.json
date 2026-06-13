@@ -1,14 +1,14 @@
 {
-  "boardDate": "2026-06-12",
-  "generatedAt": "2026-06-12T14:20:31.537Z",
+  "boardDate": "2026-06-13",
+  "generatedAt": "2026-06-13T13:06:50.507Z",
   "sourceCount": 26,
   "weather": [
     {
       "city": "Ottawa",
-      "temperatureC": 26,
+      "temperatureC": 22,
       "maxC": 28,
-      "minC": 19,
-      "summary": "Mostly clear"
+      "minC": 16,
+      "summary": "Clear skies"
     }
   ],
   "extremeWeather": [
@@ -87,15 +87,6 @@
       "publishedAt": "2026-06-07T12:00:00.000Z"
     },
     {
-      "title": "Goblin shark with face ‘not even a mother would love’ seen alive in natural habitat for first time",
-      "whatHappened": "Elusive creatures have previously only been seen on fishing lines and experts know ‘virtually nothing about them’ Get our breaking news email , free app or...",
-      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
-      "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/environment/2026/jun/12/goblin-shark-seen-alive-natural-habitat-first-time",
-      "publishedAt": "2026-06-12T07:35:24.000Z"
-    },
-    {
       "title": "‘Super El Niño’ is officially here, scientists say. What can we expect?",
       "whatHappened": "Experts say climate pattern could supercharge extreme weather events and push temperatures to record highs EL Niño has officially arrived, US officials at the National Oceanic...",
       "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
@@ -112,6 +103,15 @@
       "source": "The Guardian Environment",
       "url": "https://www.theguardian.com/us-news/2026/jun/11/el-nino-forms-historic-strength",
       "publishedAt": "2026-06-11T13:50:55.000Z"
+    },
+    {
+      "title": "Trump administration land gift to SpaceX would hurt Texas habitat, lawsuit says",
+      "whatHappened": "Environmental groups say exchange between US government and SpaceX would worsen ecological risks Sign up for the Breaking News US newsletter email Environmental groups on Wednesday...",
+      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
+      "keyWord": "climate: the usual pattern of weather over a long period of time",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/us-news/2026/jun/10/spacex-trump-administration-texas-land-swap",
+      "publishedAt": "2026-06-10T22:12:15.000Z"
     }
   ],
   "weatherTech": [
@@ -123,15 +123,6 @@
       "source": "The Guardian Environment",
       "url": "https://www.theguardian.com/us-news/2026/jun/11/solar-energy-us-coal",
       "publishedAt": "2026-06-11T10:00:20.000Z"
-    },
-    {
-      "title": "Summer Upgrade Week",
-      "whatHappened": "The sun is out, the sky is clear.",
-      "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
-      "keyWord": "weather technology: tools that help people measure, study, or predict weather and climate",
-      "source": "The Verge",
-      "url": "https://www.theverge.com/tech/942658/summer-upgrade-week-2026",
-      "publishedAt": "2026-06-12T00:23:30.000Z"
     }
   ],
   "universityNews": [
@@ -172,15 +163,6 @@
       "publishedAt": "2025-07-29T18:38:05.000Z"
     },
     {
-      "title": "This robotic system may soon be used to prevent forest fires",
-      "whatHappened": "These Northeastern students built a sensor system designed to identify wildfire risk in real time The post This robotic system may soon be used to prevent...",
-      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
-      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
-      "source": "Northeastern Global News",
-      "url": "https://news.northeastern.edu/2026/06/10/wildfire-containment-robotics/",
-      "publishedAt": "2026-06-10T20:02:20.000Z"
-    },
-    {
       "title": "Startup’s nuclear-inspired cooling system could make data centers more sustainable",
       "whatHappened": "Founded by two researchers from MIT, Ferveret reduces the amount of energy and water required to cool the chips that power AI.",
       "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
@@ -208,13 +190,31 @@
       "publishedAt": "2026-05-19T12:00:00.000Z"
     },
     {
-      "title": "What I’ve Learned From ‘The End of Poverty,’ 20 Years Later",
-      "whatHappened": "The author reflects on Jeffrey Sachs, the U.N., and the need to redesign global institutions for a world shaped by climate change, poverty and geopolitical strain.",
+      "title": "Will World Cup water breaks have a big impact on team tactics?",
+      "whatHappened": "FIFA's hydration breaks at the World Cup are more than a safety measure.",
       "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
-      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
+      "keyWord": "research: careful study used to discover new knowledge",
+      "source": "Northeastern Global News",
+      "url": "https://news.northeastern.edu/2026/06/12/world-cup-water-breaks/",
+      "publishedAt": "2026-06-12T20:27:40.000Z"
+    },
+    {
+      "title": "New Research Indicates That in the Future, Trees May Store Less Carbon Than Expected",
+      "whatHappened": "Even as trees photosynthesize late into the year, their growth stops by mid-summer, which impacts their carbon uptake.",
+      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
+      "keyWord": "research: careful study used to discover new knowledge",
       "source": "Columbia Climate School",
-      "url": "https://news.climate.columbia.edu/2026/06/11/what-ive-learned-from-the-end-of-poverty-20-years-later/",
-      "publishedAt": "2026-06-11T20:31:30.000Z"
+      "url": "https://news.climate.columbia.edu/2026/06/12/new-research-indicates-that-in-the-future-trees-may-store-less-carbon-than-expected/",
+      "publishedAt": "2026-06-12T18:00:00.000Z"
+    },
+    {
+      "title": "Research: vehicle miles traveled an improved, but imperfect, traffic metric",
+      "whatHappened": "In 2013, California implemented a new metric to evaluate the environmental impact of development on transportation infrastructure.",
+      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
+      "keyWord": "research: careful study used to discover new knowledge",
+      "source": "Northeastern Global News",
+      "url": "https://news.northeastern.edu/2026/06/12/california-vmt-traffic-development/",
+      "publishedAt": "2026-06-12T16:21:40.000Z"
     },
     {
       "title": "New imaging system sees through murky waters",
@@ -233,15 +233,6 @@
       "source": "Notre Dame News",
       "url": "https://news.nd.edu/news/when-global-warming-becomes-malnutrition-new-study-links-climate-change-childhood-stunting-and-local-inequality/",
       "publishedAt": "2026-06-09T19:52:14.000Z"
-    },
-    {
-      "title": "As California warms, cases of dengue fever are expected to grow",
-      "whatHappened": "Climate change may increase local transmission of “breakbone fever” in the state’s mosquito-friendly cities.",
-      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
-      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
-      "source": "Berkeley News",
-      "url": "https://news.berkeley.edu/2026/06/09/as-california-warms-cases-of-dengue-fever-are-expected-to-grow/",
-      "publishedAt": "2026-06-09T17:32:33.000Z"
     }
   ]
 }
