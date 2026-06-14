@@ -1,14 +1,14 @@
 {
-  "boardDate": "2026-06-13",
-  "generatedAt": "2026-06-13T13:06:50.507Z",
+  "boardDate": "2026-06-14",
+  "generatedAt": "2026-06-14T13:14:54.764Z",
   "sourceCount": 26,
   "weather": [
     {
       "city": "Ottawa",
-      "temperatureC": 22,
-      "maxC": 28,
+      "temperatureC": 18,
+      "maxC": 21,
       "minC": 16,
-      "summary": "Clear skies"
+      "summary": "Cloudy"
     }
   ],
   "extremeWeather": [
@@ -38,24 +38,6 @@
       "source": "BBC Science & Environment",
       "url": "https://www.bbc.com/news/articles/c75ylx7g00xo?at_medium=RSS&at_campaign=rss",
       "publishedAt": "2026-06-11T13:26:24.000Z"
-    },
-    {
-      "title": "‘Every day it’s more barriers’: how the US is shutting out climate refugees",
-      "whatHappened": "As the US shuts its doors to most refugees, there’s little hope of a new system to help those forced from home by climate impacts Trump...",
-      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
-      "keyWord": "heat wave: a long period of unusually hot weather",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/us-news/2026/jun/10/climate-change-crisis-refugees",
-      "publishedAt": "2026-06-10T13:00:21.000Z"
-    },
-    {
-      "title": "Trump targeting immigrants from countries hit most by climate shocks",
-      "whatHappened": "A Guardian analysis reveals how most of 39 countries facing US entry restrictions are most vulnerable environmentally ‘Every day it’s more barriers’: how the US is...",
-      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
-      "keyWord": "drought: a long time with very little rain",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/us-news/2026/jun/10/trump-administration-immigrants-climate-crisis",
-      "publishedAt": "2026-06-10T13:00:20.000Z"
     }
   ],
   "climate": [
@@ -123,6 +105,24 @@
       "source": "The Guardian Environment",
       "url": "https://www.theguardian.com/us-news/2026/jun/11/solar-energy-us-coal",
       "publishedAt": "2026-06-11T10:00:20.000Z"
+    },
+    {
+      "title": "UK poised to water down 2030 EV sales targets after industry and union pressure",
+      "whatHappened": "Keir Starmer ready to overrule Ed Miliband after warnings that manufacturers would be penalised and jobs put at risk The UK government is poised to water...",
+      "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
+      "keyWord": "battery: a device that stores energy for later use",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/business/2026/jun/14/uk-poised-water-down-2030-ev-sales-targets-industry-union-pressure",
+      "publishedAt": "2026-06-14T12:37:22.000Z"
+    },
+    {
+      "title": "‘It’s going to be extremely hot’: workers imperiled as sweltering World Cup temperatures are forecast",
+      "whatHappened": "It could top 90F in several cities hosting World Cup games – and workers could pay the price with their health As the World Cup kicks...",
+      "whyItMatters": "Weather technology shows how science tools can predict conditions faster and help people prepare earlier.",
+      "keyWord": "forecast: a prediction about future weather conditions",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/us-news/2026/jun/14/world-cup-heat-workers",
+      "publishedAt": "2026-06-14T10:00:41.000Z"
     }
   ],
   "universityNews": [
