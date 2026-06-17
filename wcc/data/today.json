@@ -1,17 +1,26 @@
 {
-  "boardDate": "2026-06-16",
-  "generatedAt": "2026-06-16T16:10:00.286Z",
+  "boardDate": "2026-06-17",
+  "generatedAt": "2026-06-17T14:37:34.194Z",
   "sourceCount": 26,
   "weather": [
     {
       "city": "Ottawa",
-      "temperatureC": 21,
-      "maxC": 24,
-      "minC": 9,
-      "summary": "Clear skies"
+      "temperatureC": 20,
+      "maxC": 23,
+      "minC": 12,
+      "summary": "Partly cloudy"
     }
   ],
   "extremeWeather": [
+    {
+      "title": "The ocean has shielded us from the worst of climate change. Now it is running a fever | Karina Von Schuckmann",
+      "whatHappened": "Nearly every indicator of climate change is flashing red.",
+      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
+      "keyWord": "heat wave: a long period of unusually hot weather",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/commentisfree/2026/jun/17/ocean-fever-climate-change",
+      "publishedAt": "2026-06-17T10:00:28.000Z"
+    },
     {
       "title": "US lawmakers fight Trump cuts to $386m ocean monitoring program: ‘supreme stupidity’",
       "whatHappened": "Lisa Murkowski, a Republican senator, joins Democrats in bid to stop dismantling of Ocean Observatories Initiative US politics live – latest updates A group of Democratic...",
@@ -20,6 +29,15 @@
       "source": "The Guardian Environment",
       "url": "https://www.theguardian.com/us-news/2026/jun/16/ocean-monitoring-cuts-trump",
       "publishedAt": "2026-06-16T14:48:20.000Z"
+    },
+    {
+      "title": "King tides along California coast prompt advisories following two deaths",
+      "whatHappened": "A five-year-old girl was swept away and a woman was pulled into the water, prompting authorities to urge precaution Massive waves, coastal flooding and dangerous rip...",
+      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
+      "keyWord": "flood: water covering land that is usually dry",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/us-news/2026/jun/15/king-tides-warning-california-coast",
+      "publishedAt": "2026-06-15T19:38:32.000Z"
     },
     {
       "title": "Triple climate threats affect nearly half the world’s children",
@@ -51,15 +69,6 @@
       "publishedAt": "2026-06-04T12:00:00.000Z"
     },
     {
-      "title": "Retail giants join UK government drive to boost ‘plug-in’ balcony solar panels",
-      "whatHappened": "Asda, Amazon and B&Q among retailers in talks to sell devices that feed into household sockets and can cut electricity bills by 30% Spanish homes save...",
-      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
-      "keyWord": "renewable energy: energy from sources that can be used again, like sun or wind",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/money/2026/jun/16/retail-giants-join-uk-government-drive-to-boost-plug-in-balcony-solar-panels",
-      "publishedAt": "2026-06-16T14:01:36.000Z"
-    },
-    {
       "title": "Critics say Trump’s opening of public lands to off-road vehicles is ‘reckless and nonsensical’",
       "whatHappened": "Move is part of broad effort to open public lands to industry and other uses, threatening wildlife and ecosystems The Trump administration is executing a controversial...",
       "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
@@ -78,33 +87,42 @@
       "publishedAt": "2026-06-07T12:00:00.000Z"
     },
     {
-      "title": "US lawmakers fight Trump cuts to $386m ocean monitoring program: ‘supreme stupidity’",
-      "whatHappened": "Lisa Murkowski, a Republican senator, joins Democrats in bid to stop dismantling of Ocean Observatories Initiative US politics live – latest updates A group of Democratic...",
-      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
+      "title": "US public still favours action on climate change despite Trump’s fossil fuel drive",
+      "whatHappened": "Two-thirds of Americans say they are worried about climate but level of media coverage does not reflect this US political and media discourse has drifted away...",
+      "whyItMatters": "Climate and environment stories connect science to real issues like safety, health, and extreme weather.",
       "keyWord": "climate: the usual pattern of weather over a long period of time",
       "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/us-news/2026/jun/16/ocean-monitoring-cuts-trump",
-      "publishedAt": "2026-06-16T14:48:20.000Z"
+      "url": "https://www.theguardian.com/environment/2026/jun/17/climate-change-public-opinion-trump-fossil-fuel",
+      "publishedAt": "2026-06-17T12:00:31.000Z"
     },
     {
-      "title": "Trump wants to put a $75m coal terminal in this liberal California city. Residents aren’t having it",
-      "whatHappened": "Residents of West Oakland, which suffers from toxic waste and high pollution rates, rally against a coal export facility West Oakland, a California neighborhood known for...",
+      "title": "The ocean has shielded us from the worst of climate change. Now it is running a fever | Karina Von Schuckmann",
+      "whatHappened": "Nearly every indicator of climate change is flashing red.",
+      "whyItMatters": "Climate and environment stories connect science to real issues like safety, health, and extreme weather.",
+      "keyWord": "climate: the usual pattern of weather over a long period of time",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/commentisfree/2026/jun/17/ocean-fever-climate-change",
+      "publishedAt": "2026-06-17T10:00:28.000Z"
+    },
+    {
+      "title": "Trump’s DoJ intervenes to back Elon Musk in datacenter pollution lawsuit",
+      "whatHappened": "Justice department urges judge to throw out suit brought by NAACP over xAI’s methane-gas turbines in Mississippi The Trump administration is coming to the defense of...",
       "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
       "keyWord": "climate: the usual pattern of weather over a long period of time",
       "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/us-news/2026/jun/15/oakland-coal-terminal-trump-administration",
-      "publishedAt": "2026-06-15T15:01:28.000Z"
+      "url": "https://www.theguardian.com/technology/2026/jun/16/elon-musk-xai-datacenters-trump-administration",
+      "publishedAt": "2026-06-16T23:01:13.000Z"
     }
   ],
   "weatherTech": [
     {
-      "title": "We now know how DJI’s dual camera Osmo Pocket 4P compares to Insta360’s",
-      "whatHappened": "After a brief debut at the Cannes film festival last month, DJI announced all the details of its Osmo Pocket 4P stabilized camera today as part...",
+      "title": "The best early Amazon Prime Day deals so far",
+      "whatHappened": "Amazon’s earlier-than-usual Prime Day doesn’t begin until June 23rd, but there are several even earlier deals on must-have products that you can check out right now.",
       "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
-      "keyWord": "weather technology: tools that help people measure, study, or predict weather and climate",
+      "keyWord": "battery: a device that stores energy for later use",
       "source": "The Verge",
-      "url": "https://www.theverge.com/tech/950591/dji-osmo-pocket-4p-dual-gimbal-camera-baby-steadicam-4k-tracking",
-      "publishedAt": "2026-06-16T15:25:26.000Z"
+      "url": "https://www.theverge.com/gadgets/944084/best-early-prime-day-deals",
+      "publishedAt": "2026-06-17T14:13:01.000Z"
     },
     {
       "title": "US lawmakers fight Trump cuts to $386m ocean monitoring program: ‘supreme stupidity’",
@@ -114,33 +132,6 @@
       "source": "The Guardian Environment",
       "url": "https://www.theguardian.com/us-news/2026/jun/16/ocean-monitoring-cuts-trump",
       "publishedAt": "2026-06-16T14:48:20.000Z"
-    },
-    {
-      "title": "Retail giants join UK government drive to boost ‘plug-in’ balcony solar panels",
-      "whatHappened": "Asda, Amazon and B&Q among retailers in talks to sell devices that feed into household sockets and can cut electricity bills by 30% Spanish homes save...",
-      "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
-      "keyWord": "solar: related to energy from sunlight",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/money/2026/jun/16/retail-giants-join-uk-government-drive-to-boost-plug-in-balcony-solar-panels",
-      "publishedAt": "2026-06-16T14:01:36.000Z"
-    },
-    {
-      "title": "Amazon’s capable sound system is over $100 off ahead of Prime Day",
-      "whatHappened": "Built-in television speakers are almost always underwhelming, so getting a soundbar is the best way to elevate any and all content.",
-      "whyItMatters": "Weather technology shows how science tools can predict conditions faster and help people prepare earlier.",
-      "keyWord": "satellite: an object in space that collects information and sends it back to Earth",
-      "source": "The Verge",
-      "url": "https://www.theverge.com/gadgets/950210/amazon-fire-tv-plus-subwoofer-satellite-deal-sale",
-      "publishedAt": "2026-06-16T13:27:59.000Z"
-    },
-    {
-      "title": "‘It’s going to be extremely hot’: workers imperiled as sweltering World Cup temperatures are forecast",
-      "whatHappened": "It could top 90F in several cities hosting World Cup games – and workers could pay the price with their health As the World Cup kicks...",
-      "whyItMatters": "Weather technology shows how science tools can predict conditions faster and help people prepare earlier.",
-      "keyWord": "forecast: a prediction about future weather conditions",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/us-news/2026/jun/14/world-cup-heat-workers",
-      "publishedAt": "2026-06-14T10:00:41.000Z"
     }
   ],
   "universityNews": [
@@ -217,15 +208,6 @@
       "publishedAt": "2026-05-19T12:00:00.000Z"
     },
     {
-      "title": "Will World Cup water breaks have a big impact on team tactics?",
-      "whatHappened": "FIFA's hydration breaks at the World Cup are more than a safety measure.",
-      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
-      "keyWord": "research: careful study used to discover new knowledge",
-      "source": "Northeastern Global News",
-      "url": "https://news.northeastern.edu/2026/06/12/world-cup-water-breaks/",
-      "publishedAt": "2026-06-12T20:27:40.000Z"
-    },
-    {
       "title": "New Research Indicates That in the Future, Trees May Store Less Carbon Than Expected",
       "whatHappened": "Even as trees photosynthesize late into the year, their growth stops by mid-summer, which impacts their carbon uptake.",
       "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
@@ -235,15 +217,6 @@
       "publishedAt": "2026-06-12T18:00:00.000Z"
     },
     {
-      "title": "Research: vehicle miles traveled an improved, but imperfect, traffic metric",
-      "whatHappened": "In 2013, California implemented a new metric to evaluate the environmental impact of development on transportation infrastructure.",
-      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
-      "keyWord": "research: careful study used to discover new knowledge",
-      "source": "Northeastern Global News",
-      "url": "https://news.northeastern.edu/2026/06/12/california-vmt-traffic-development/",
-      "publishedAt": "2026-06-12T16:21:40.000Z"
-    },
-    {
       "title": "New imaging system sees through murky waters",
       "whatHappened": "The “Sonar-MASt3R” combines sonar and visual data to create real-time 3D maps, even in cloudy water.",
       "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
@@ -251,6 +224,24 @@
       "source": "MIT Earth & Atmospheric Sciences",
       "url": "https://news.mit.edu/2026/new-imaging-system-sees-through-murky-waters-0611",
       "publishedAt": "2026-06-11T04:00:00.000Z"
+    },
+    {
+      "title": "When global warming becomes malnutrition: New study links climate change, childhood stunting and local inequality",
+      "whatHappened": "Millions of children under age five worldwide suffer from childhood stunting.",
+      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
+      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
+      "source": "Notre Dame News",
+      "url": "https://news.nd.edu/news/when-global-warming-becomes-malnutrition-new-study-links-climate-change-childhood-stunting-and-local-inequality/",
+      "publishedAt": "2026-06-09T19:52:14.000Z"
+    },
+    {
+      "title": "Rice-fish farming may help curb schistosomiasis while increasing food production",
+      "whatHappened": "New research published in Nature Sustainability and led by Notre Dame has explored how rice-fish coculturing — an intervention technique that introduces fish into the rice...",
+      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
+      "keyWord": "sustainability: using resources in a way that can last over time",
+      "source": "Notre Dame News",
+      "url": "https://news.nd.edu/news/rice-fish-farming-may-help-curb-schistosomiasis-while-increasing-food-production/",
+      "publishedAt": "2026-06-04T19:25:16.000Z"
     }
   ]
 }
