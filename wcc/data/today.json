@@ -1,17 +1,35 @@
 {
-  "boardDate": "2026-06-17",
-  "generatedAt": "2026-06-17T14:37:34.194Z",
+  "boardDate": "2026-06-18",
+  "generatedAt": "2026-06-18T14:29:40.797Z",
   "sourceCount": 26,
   "weather": [
     {
       "city": "Ottawa",
-      "temperatureC": 20,
-      "maxC": 23,
-      "minC": 12,
-      "summary": "Partly cloudy"
+      "temperatureC": 16,
+      "maxC": 20,
+      "minC": 16,
+      "summary": "Rain"
     }
   ],
   "extremeWeather": [
+    {
+      "title": "Atlantic hurricane season opens with Tropical Storm Arthur inundating Gulf coast",
+      "whatHappened": "The southern US is seeing intense rain that is expected to cause dangerous flash flooding Sign up for the Breaking News US newsletter email The first...",
+      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
+      "keyWord": "flood: water covering land that is usually dry",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/us-news/2026/jun/17/tropical-storm-arthur-atlantic-hurricane-season",
+      "publishedAt": "2026-06-17T19:19:55.000Z"
+    },
+    {
+      "title": "Even as Florida moves detainees from ‘Alligator Alcatraz’, activists fight for its permanent closure",
+      "whatHappened": "Groups cite detainee maltreatment and degradation of surrounding land as reasons to close facility permanently Sign up for the Breaking News US newsletter email An alliance...",
+      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
+      "keyWord": "extreme weather: unusual and dangerous weather like floods, storms, or heat waves",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/us-news/2026/jun/17/florida-alligator-alcatraz-activists",
+      "publishedAt": "2026-06-17T20:28:08.000Z"
+    },
     {
       "title": "The ocean has shielded us from the worst of climate change. Now it is running a fever | Karina Von Schuckmann",
       "whatHappened": "Nearly every indicator of climate change is flashing red.",
@@ -29,15 +47,6 @@
       "source": "The Guardian Environment",
       "url": "https://www.theguardian.com/us-news/2026/jun/16/ocean-monitoring-cuts-trump",
       "publishedAt": "2026-06-16T14:48:20.000Z"
-    },
-    {
-      "title": "King tides along California coast prompt advisories following two deaths",
-      "whatHappened": "A five-year-old girl was swept away and a woman was pulled into the water, prompting authorities to urge precaution Massive waves, coastal flooding and dangerous rip...",
-      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
-      "keyWord": "flood: water covering land that is usually dry",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/us-news/2026/jun/15/king-tides-warning-california-coast",
-      "publishedAt": "2026-06-15T19:38:32.000Z"
     },
     {
       "title": "Triple climate threats affect nearly half the world’s children",
@@ -69,15 +78,6 @@
       "publishedAt": "2026-06-04T12:00:00.000Z"
     },
     {
-      "title": "Critics say Trump’s opening of public lands to off-road vehicles is ‘reckless and nonsensical’",
-      "whatHappened": "Move is part of broad effort to open public lands to industry and other uses, threatening wildlife and ecosystems The Trump administration is executing a controversial...",
-      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
-      "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/us-news/2026/jun/15/trump-public-lands-wildlife-off-roading",
-      "publishedAt": "2026-06-15T13:00:26.000Z"
-    },
-    {
       "title": "Humanity’s future depends on protecting the rapidly changing ocean",
       "whatHappened": "The ocean covers more than 70 per cent of the planet&nbsp;and regulates climate, sustains biodiversity, and supports economies and cultures worldwide.",
       "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
@@ -85,6 +85,15 @@
       "source": "UN Climate",
       "url": "https://news.un.org/feed/view/en/story/2026/06/1167654",
       "publishedAt": "2026-06-07T12:00:00.000Z"
+    },
+    {
+      "title": "Drax cleared after investigation into sourcing of wood pellets",
+      "whatHappened": "Generator’s shares rise as regulator finds no evidence of misleading statements about fuel’s sustainability Business live – latest updates The City watchdog has closed an investigation...",
+      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
+      "keyWord": "climate: the usual pattern of weather over a long period of time",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/business/2026/jun/18/fca-closes-investigation-drax-biomass-fuel-sourcing-wood-pellets",
+      "publishedAt": "2026-06-18T11:35:50.000Z"
     },
     {
       "title": "US public still favours action on climate change despite Trump’s fossil fuel drive",
@@ -116,15 +125,6 @@
   ],
   "weatherTech": [
     {
-      "title": "The best early Amazon Prime Day deals so far",
-      "whatHappened": "Amazon’s earlier-than-usual Prime Day doesn’t begin until June 23rd, but there are several even earlier deals on must-have products that you can check out right now.",
-      "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
-      "keyWord": "battery: a device that stores energy for later use",
-      "source": "The Verge",
-      "url": "https://www.theverge.com/gadgets/944084/best-early-prime-day-deals",
-      "publishedAt": "2026-06-17T14:13:01.000Z"
-    },
-    {
       "title": "US lawmakers fight Trump cuts to $386m ocean monitoring program: ‘supreme stupidity’",
       "whatHappened": "Lisa Murkowski, a Republican senator, joins Democrats in bid to stop dismantling of Ocean Observatories Initiative US politics live – latest updates A group of Democratic...",
       "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
@@ -135,6 +135,15 @@
     }
   ],
   "universityNews": [
+    {
+      "title": "Susan Solomon named 2026 Tang Prize laureate",
+      "whatHappened": "The MIT professor’s groundbreaking work on atmospheric chemistry helped lay steps towards recovery of the ozone layer and demonstrated the lasting impacts of carbon emissions on...",
+      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
+      "keyWord": "atmospheric: related to the air and layers around Earth",
+      "source": "MIT Climate & Sustainability",
+      "url": "https://news.mit.edu/2026/susan-solomon-named-tang-prize-laureate-0617",
+      "publishedAt": "2026-06-17T20:35:00.000Z"
+    },
     {
       "title": "Carleton Recognised as Only University in Canada to Achieve Bronze Tier in Net-Zero Challenge",
       "whatHappened": "Carleton University has been recognised as the only university in Canada to achieve the Bronze Tier in the Government of Canada’ Net-Zero Challenge, a significant milestone...",
@@ -154,15 +163,6 @@
       "publishedAt": "2026-06-08T20:45:00.000Z"
     },
     {
-      "title": "World Oceans Day Reimagines Our Relationship With the Water Around Us",
-      "whatHappened": "In honor of this annual U.N.",
-      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
-      "keyWord": "research: careful study used to discover new knowledge",
-      "source": "Columbia Climate School",
-      "url": "https://news.climate.columbia.edu/2026/06/08/world-oceans-day-reimagines-our-relationship-with-the-water-around-us/",
-      "publishedAt": "2026-06-08T12:45:00.000Z"
-    },
-    {
       "title": "Tiny Forest Coming to Carleton",
       "whatHappened": "Sustainability Carleton is thrilled to announce that we are partnering with local environmental organization EnviroCentre to establish a tiny forest at Carleton!",
       "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
@@ -170,6 +170,24 @@
       "source": "Carleton Sustainability",
       "url": "https://carleton.ca/sustainability/2025/tiny-forest-coming-to-carleton/",
       "publishedAt": "2025-07-29T18:38:05.000Z"
+    },
+    {
+      "title": "The Centre for Environmental Law and Global Sustainability welcomes new Co-Directors",
+      "whatHappened": "The Centre for Environmental Law and Global Sustainability welcomes new Co-Directors",
+      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
+      "keyWord": "sustainability: using resources in a way that can last over time",
+      "source": "uOttawa News",
+      "url": "https://www.uottawa.ca/en/news-all/centre-environmental-law-global-sustainability-welcomes-new-co-directors",
+      "publishedAt": "2026-06-18T14:29:34.036Z"
+    },
+    {
+      "title": "The Colorado River is running dry. Is desalination the solution?",
+      "whatHappened": "Arizona and Nevada agreed to a trade for desalinated water from the Pacific Ocean as the Colorado River dries.",
+      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
+      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
+      "source": "Northeastern Global News",
+      "url": "https://news.northeastern.edu/2026/06/17/colorado-river-desalination-agreement/",
+      "publishedAt": "2026-06-17T22:15:01.000Z"
     },
     {
       "title": "Dean search advisory committees named for Taubman, Marsal, SEAS",
@@ -181,15 +199,6 @@
       "publishedAt": "2026-06-10T05:55:00.000Z"
     },
     {
-      "title": "Startup’s nuclear-inspired cooling system could make data centers more sustainable",
-      "whatHappened": "Founded by two researchers from MIT, Ferveret reduces the amount of energy and water required to cool the chips that power AI.",
-      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
-      "keyWord": "research: careful study used to discover new knowledge",
-      "source": "MIT Climate & Sustainability",
-      "url": "https://news.mit.edu/2026/nuclear-inspired-cooling-system-ferveret-could-make-data-centers-more-sustainable-0610",
-      "publishedAt": "2026-06-10T04:00:00.000Z"
-    },
-    {
       "title": "Environment professor recognized for her outstanding research contributions",
       "whatHappened": "Mon, 08 Jun 2026 12:00:00 +0000 The Canadian Geophysical Union has recognized Dr.",
       "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
@@ -197,6 +206,15 @@
       "source": "Waterloo Environment",
       "url": "https://uwaterloo.ca/environment/news/environment-professor-recognized-her-outstanding-research",
       "publishedAt": "2026-06-08T12:00:00.000Z"
+    },
+    {
+      "title": "A day in the life of MIT Sloan Fellow Alecia Asiamigbe",
+      "whatHappened": "The MBA student and entrepreneur is learning to lead a more resilient future with her renewable energy company.",
+      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
+      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
+      "source": "MIT Earth & Atmospheric Sciences",
+      "url": "https://news.mit.edu/2026/day-life-mit-sloan-fellow-alecia-asiamigbe-0526",
+      "publishedAt": "2026-05-26T20:10:00.000Z"
     },
     {
       "title": "The true impact of Canadian milk packaging",
@@ -208,6 +226,15 @@
       "publishedAt": "2026-05-19T12:00:00.000Z"
     },
     {
+      "title": "Interwoven",
+      "whatHappened": "How Indigenous knowledge and science can work together to communicate about climate.",
+      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
+      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
+      "source": "University of Wisconsin News",
+      "url": "https://news.wisc.edu/interwoven/",
+      "publishedAt": "2026-06-17T15:09:51.000Z"
+    },
+    {
       "title": "New Research Indicates That in the Future, Trees May Store Less Carbon Than Expected",
       "whatHappened": "Even as trees photosynthesize late into the year, their growth stops by mid-summer, which impacts their carbon uptake.",
       "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
@@ -215,33 +242,6 @@
       "source": "Columbia Climate School",
       "url": "https://news.climate.columbia.edu/2026/06/12/new-research-indicates-that-in-the-future-trees-may-store-less-carbon-than-expected/",
       "publishedAt": "2026-06-12T18:00:00.000Z"
-    },
-    {
-      "title": "New imaging system sees through murky waters",
-      "whatHappened": "The “Sonar-MASt3R” combines sonar and visual data to create real-time 3D maps, even in cloudy water.",
-      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
-      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
-      "source": "MIT Earth & Atmospheric Sciences",
-      "url": "https://news.mit.edu/2026/new-imaging-system-sees-through-murky-waters-0611",
-      "publishedAt": "2026-06-11T04:00:00.000Z"
-    },
-    {
-      "title": "When global warming becomes malnutrition: New study links climate change, childhood stunting and local inequality",
-      "whatHappened": "Millions of children under age five worldwide suffer from childhood stunting.",
-      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
-      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
-      "source": "Notre Dame News",
-      "url": "https://news.nd.edu/news/when-global-warming-becomes-malnutrition-new-study-links-climate-change-childhood-stunting-and-local-inequality/",
-      "publishedAt": "2026-06-09T19:52:14.000Z"
-    },
-    {
-      "title": "Rice-fish farming may help curb schistosomiasis while increasing food production",
-      "whatHappened": "New research published in Nature Sustainability and led by Notre Dame has explored how rice-fish coculturing — an intervention technique that introduces fish into the rice...",
-      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
-      "keyWord": "sustainability: using resources in a way that can last over time",
-      "source": "Notre Dame News",
-      "url": "https://news.nd.edu/news/rice-fish-farming-may-help-curb-schistosomiasis-while-increasing-food-production/",
-      "publishedAt": "2026-06-04T19:25:16.000Z"
     }
   ]
 }
