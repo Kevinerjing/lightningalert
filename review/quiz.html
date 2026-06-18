@@ -3,592 +3,769 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Electrostatics Mock Exams</title>
+  <title>Grade 9 Science Final Exam Practice</title>
   <style>
     :root {
-      --paper: rgba(255, 251, 245, 0.94);
-      --card: #fffdfa;
-      --ink: #1d2933;
-      --muted: #5f6d76;
-      --line: #dccfbe;
-      --accent: #1f6f8b;
-      --accent-dark: #184f63;
-      --good: #176d49;
-      --warn: #9a6500;
-      --bad: #a14637;
-      --shadow: 0 18px 40px rgba(68, 50, 28, 0.12);
-      --radius: 24px;
-      --radius-sm: 18px;
+      --bg: #f6f7f3;
+      --paper: #ffffff;
+      --ink: #20242a;
+      --muted: #66717d;
+      --line: #d8ded7;
+      --green: #26734d;
+      --green-soft: #edf8f1;
+      --red: #a64235;
+      --red-soft: #fff0ee;
+      --blue: #315c83;
+      --blue-soft: #eef4fa;
+      --gold: #a06a18;
+      --gold-soft: #fff6e6;
+      --shadow: 0 14px 34px rgba(27, 37, 48, 0.09);
     }
+
     * { box-sizing: border-box; }
+
     body {
       margin: 0;
-      font-family: "Segoe UI", Arial, sans-serif;
+      font-family: Arial, "Segoe UI", sans-serif;
       color: var(--ink);
+      background: linear-gradient(180deg, #f7f8f4 0%, #edf3f0 100%);
+    }
+
+    button, select, textarea, input { font: inherit; }
+
+    .topbar {
+      min-height: 230px;
+      padding: 28px clamp(16px, 4vw, 48px);
+      color: #fff;
       background:
-        radial-gradient(circle at top left, rgba(31, 111, 139, 0.14), transparent 28%),
-        radial-gradient(circle at top right, rgba(197, 84, 60, 0.12), transparent 24%),
-        linear-gradient(180deg, #f7f2ea 0%, #f3ede4 50%, #f8f4ed 100%);
+        linear-gradient(rgba(12, 25, 35, 0.68), rgba(12, 25, 35, 0.72)),
+        url("Big%20Bang%20PXL_20251118_161116801.jpg") center / cover;
+      display: grid;
+      align-items: end;
+      gap: 16px;
     }
-    .page {
-      max-width: 1320px;
-      margin: 0 auto;
-      padding: 24px;
+
+    .topbar h1 {
+      margin: 0 0 8px;
+      font-size: clamp(32px, 5vw, 60px);
+      line-height: 1;
+      letter-spacing: 0;
     }
-    .hero, .sidebar, .main {
-      background: var(--paper);
-      border: 1px solid rgba(220, 207, 190, 0.92);
-      box-shadow: var(--shadow);
-      backdrop-filter: blur(8px);
-    }
-    .hero {
-      border-radius: 30px;
-      padding: 30px;
-      margin-bottom: 22px;
-      background: linear-gradient(135deg, rgba(31, 111, 139, 0.96), rgba(48, 88, 126, 0.94));
-      color: white;
-    }
-    .hero h1 {
-      margin: 0 0 10px;
-      font-size: clamp(30px, 4vw, 48px);
-      line-height: 1.05;
-    }
-    .hero p {
+
+    .topbar p {
       margin: 0;
-      max-width: 940px;
-      line-height: 1.7;
-      color: rgba(255, 255, 255, 0.94);
+      max-width: 900px;
+      line-height: 1.55;
+      color: rgba(255, 255, 255, 0.93);
     }
-    .hero-row, .tabs, .pill-row, .button-row {
+
+    .toplinks {
       display: flex;
-      gap: 10px;
       flex-wrap: wrap;
+      gap: 10px;
     }
-    .hero-row { margin-top: 16px; }
-    .hero-link, .badge {
+
+    .toplinks a, .pill {
       display: inline-flex;
       align-items: center;
-      border-radius: 999px;
-      padding: 9px 12px;
-      font-size: 13px;
-      font-weight: 700;
-    }
-    .hero-link {
+      min-height: 38px;
+      padding: 8px 12px;
+      border: 1px solid rgba(255,255,255,0.28);
+      border-radius: 8px;
+      background: rgba(255,255,255,0.14);
+      color: #fff;
       text-decoration: none;
-      color: white;
-      background: rgba(255, 255, 255, 0.14);
-      border: 1px solid rgba(255, 255, 255, 0.22);
+      font-weight: 700;
+      font-size: 14px;
     }
-    .badge {
-      background: rgba(255, 255, 255, 0.12);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-    }
-    .layout {
-      display: grid;
-      grid-template-columns: 320px 1fr;
-      gap: 22px;
-      align-items: start;
-    }
-    .sidebar, .main {
-      border-radius: var(--radius);
-    }
-    .sidebar {
-      padding: 18px;
-      position: sticky;
-      top: 18px;
-    }
-    .main { overflow: hidden; }
-    .main-head {
-      padding: 24px;
-      border-bottom: 1px solid var(--line);
-      background: linear-gradient(180deg, rgba(255,255,255,0.4), rgba(255,255,255,0.14));
-    }
-    .content {
-      padding: 24px;
+
+    main {
+      padding: 22px clamp(16px, 4vw, 48px) 44px;
       display: grid;
       gap: 18px;
     }
-    .card {
-      background: var(--card);
+
+    .shell {
+      display: grid;
+      grid-template-columns: 320px 1fr;
+      gap: 18px;
+      align-items: start;
+    }
+
+    .panel, .exam-card, .question, .result-card {
+      background: var(--paper);
       border: 1px solid var(--line);
-      border-radius: var(--radius-sm);
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+    }
+
+    .panel {
+      position: sticky;
+      top: 16px;
       padding: 18px;
     }
-    h2, h3 { margin: 0 0 12px; }
-    p, li, td, th { line-height: 1.7; }
-    .muted { color: var(--muted); }
-    .tab-btn, button {
+
+    h2, h3 { margin: 0 0 10px; }
+
+    .muted {
+      color: var(--muted);
+      line-height: 1.55;
+    }
+
+    .set-tabs, .meta-grid, .actions, .unit-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .set-tabs button, .actions button, .unit-nav a {
       border: 1px solid var(--line);
-      border-radius: 14px;
-      padding: 11px 14px;
-      background: white;
-      font: inherit;
+      border-radius: 8px;
+      background: #fff;
+      color: var(--ink);
+      min-height: 42px;
+      padding: 9px 12px;
+      font-weight: 800;
       cursor: pointer;
+      text-decoration: none;
     }
-    .tab-btn.active {
-      background: #eef6f7;
-      border-color: rgba(31, 111, 139, 0.45);
-      color: var(--accent-dark);
-      font-weight: 700;
+
+    .set-tabs button.active {
+      border-color: var(--blue);
+      background: var(--blue-soft);
+      color: #1e4668;
     }
-    .pill {
+
+    .actions button:first-child {
+      background: var(--green);
+      border-color: var(--green);
+      color: #fff;
+    }
+
+    .actions button:disabled {
+      opacity: 0.55;
+      cursor: not-allowed;
+    }
+
+    .metric {
       display: inline-flex;
       align-items: center;
-      padding: 8px 12px;
+      min-height: 34px;
+      padding: 7px 10px;
+      border: 1px solid var(--line);
       border-radius: 999px;
-      background: white;
-      border: 1px solid var(--line);
+      background: #fff;
       font-size: 13px;
-      font-weight: 700;
-    }
-    .question {
-      padding: 16px;
-      border: 1px solid var(--line);
-      border-radius: 16px;
-      background: white;
-      margin-bottom: 14px;
-    }
-    .meta {
-      font-size: 12px;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      color: var(--muted);
-      margin-bottom: 8px;
       font-weight: 800;
     }
-    .question-title {
-      margin: 0 0 12px;
-      font-weight: 700;
+
+    .exam-card { overflow: hidden; }
+
+    .exam-head {
+      padding: 20px;
+      border-bottom: 1px solid var(--line);
+      background: #fbfcfa;
     }
+
+    .exam-content {
+      display: grid;
+      gap: 18px;
+      padding: 20px;
+    }
+
+    .unit-section {
+      scroll-margin-top: 18px;
+    }
+
+    .unit-title {
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+      align-items: end;
+      padding-bottom: 10px;
+      border-bottom: 2px solid var(--line);
+    }
+
+    .question {
+      box-shadow: none;
+      padding: 15px;
+      margin: 12px 0;
+    }
+
+    .tag {
+      display: inline-flex;
+      margin-bottom: 8px;
+      padding: 4px 8px;
+      border-radius: 999px;
+      background: var(--gold-soft);
+      color: #724707;
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .prompt {
+      margin: 0 0 12px;
+      font-weight: 800;
+      line-height: 1.45;
+    }
+
     .options {
       display: grid;
-      gap: 10px;
+      gap: 8px;
     }
+
     .option {
       display: flex;
+      gap: 9px;
       align-items: flex-start;
-      gap: 10px;
-      padding: 12px;
+      padding: 10px;
       border: 1px solid var(--line);
-      border-radius: 14px;
-      background: white;
+      border-radius: 8px;
+      background: #fff;
+      line-height: 1.45;
     }
-    .option.correct {
-      background: #edf9f2;
-      border-color: rgba(23, 109, 73, 0.42);
+
+    .option.correct, .short-answer.correct textarea {
+      border-color: #64a87c;
+      background: var(--green-soft);
     }
-    .option.incorrect {
-      background: #fff2ef;
-      border-color: rgba(161, 70, 55, 0.35);
+
+    .option.incorrect, .short-answer.incorrect textarea {
+      border-color: #d38d84;
+      background: var(--red-soft);
     }
+
     textarea {
       width: 100%;
-      min-height: 96px;
+      min-height: 100px;
       resize: vertical;
-      font: inherit;
-      padding: 12px;
-      border-radius: 14px;
       border: 1px solid var(--line);
-      background: white;
+      border-radius: 8px;
+      padding: 10px;
+      background: #fff;
+      line-height: 1.45;
     }
-    .hidden { display: none; }
-    .key-item {
+
+    .feedback {
+      display: none;
+      margin-top: 10px;
+      padding: 10px;
+      border-radius: 8px;
+      line-height: 1.5;
       border: 1px solid var(--line);
-      border-radius: 14px;
-      padding: 14px;
-      background: white;
+      background: #fbfcfa;
     }
-    .good { color: var(--good); font-weight: 700; }
-    .warn { color: var(--warn); font-weight: 700; }
-    .bad { color: var(--bad); font-weight: 700; }
-    details {
-      border: 1px solid var(--line);
-      border-radius: 14px;
-      background: white;
-      overflow: hidden;
-    }
-    summary {
-      cursor: pointer;
-      padding: 13px 15px;
+
+    .submitted .feedback { display: block; }
+
+    .feedback.good {
+      color: var(--green);
+      border-color: #b8d8c4;
+      background: var(--green-soft);
       font-weight: 700;
     }
-    details p, details ul {
-      margin: 0;
-      padding: 0 15px 15px;
+
+    .feedback.bad {
+      color: var(--red);
+      border-color: #e2b2ad;
+      background: var(--red-soft);
+      font-weight: 700;
     }
-    @media (max-width: 980px) {
-      .layout { grid-template-columns: 1fr; }
-      .sidebar { position: static; }
+
+    .model {
+      margin-top: 8px;
+      color: var(--muted);
+      font-weight: 400;
+    }
+
+    .figure {
+      margin: 10px 0 12px;
+      padding: 10px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #f9faf8;
+    }
+
+    .figure img, .figure svg {
+      display: block;
+      width: 100%;
+      max-height: 330px;
+      object-fit: contain;
+    }
+
+    .result-card {
+      padding: 18px;
+      border-left: 5px solid var(--blue);
+    }
+
+    .hidden { display: none; }
+
+    .good-text { color: var(--green); font-weight: 800; }
+    .bad-text { color: var(--red); font-weight: 800; }
+
+    @media (max-width: 930px) {
+      .shell { grid-template-columns: 1fr; }
+      .panel { position: static; }
+      .unit-title { display: block; }
     }
   </style>
 </head>
 <body>
-  <div class="page">
-    <section class="hero">
-      <h1>Electrostatics Mock Exams</h1>
-      <p>
-        Two teacher-style practice exams based on your review PDFs. Each paper includes
-        true/false, multiple choice, and short answer. The answer key is built in so you can
-        self-check right away.
-      </p>
-      <div class="hero-row">
-        <span class="badge">2 Mock Exams</span>
-        <span class="badge">True / False</span>
-        <span class="badge">Multiple Choice</span>
-        <span class="badge">Short Answer</span>
-        <a class="hero-link" href="mistakes.html">Teacher Trap Questions</a>
-        <a class="hero-link" href="index.html">Back to Review Notes</a>
-      </div>
-    </section>
+  <header class="topbar">
+    <div>
+      <h1>Final Exam Practice</h1>
+      <p>Five full practice sets based on the review folder: Inquiry, Chemistry, Space, Electricity, and Ecology. Each set has 25 multiple-choice questions and 10 short-answer questions.</p>
+    </div>
+    <nav class="toplinks" aria-label="Review links">
+      <span class="pill">5 Exam Sets</span>
+      <span class="pill">25 MC + 10 SA Each</span>
+      <a href="index.html">Review Notes</a>
+      <a href="mindmap.html">Mind Map</a>
+    </nav>
+  </header>
 
-    <div class="layout">
-      <aside class="sidebar">
-        <h2>Exam Sets</h2>
-        <p class="muted">Do Exam A first. If you can explain the short answers without guessing, move to Exam B.</p>
-        <div class="tabs" id="tabs"></div>
-        <div class="pill-row" style="margin-top:16px;">
-          <span class="pill" id="tfPill">TF: 0</span>
-          <span class="pill" id="mcPill">MC: 0</span>
-          <span class="pill" id="saPill">SA: 0</span>
+  <main>
+    <div class="shell">
+      <aside class="panel">
+        <h2>Exam Set</h2>
+        <p class="muted">Choose a set, answer everything, then submit. Multiple-choice answers are marked automatically. Short answers are checked by key words and should also be compared with the model answer.</p>
+        <div class="set-tabs" id="setTabs"></div>
+        <div class="meta-grid" style="margin-top:16px;">
+          <span class="metric" id="mcCount">MC: 25</span>
+          <span class="metric" id="saCount">SA: 10</span>
+          <span class="metric" id="levelTag">Mixed levels</span>
         </div>
-        <div class="card" style="margin-top:18px;">
-          <h3>4+ Tip</h3>
-          <p class="muted">For short answers, do not stop at naming the concept. Explain what happens to <strong>electrons</strong> and why that causes <strong>attraction</strong>, <strong>repulsion</strong>, or <strong>discharge</strong>.</p>
+        <div class="actions" style="margin-top:16px;">
+          <button id="submitBtn" type="button">Submit Exam</button>
+          <button id="resetBtn" type="button">Reset Set</button>
         </div>
-        <div class="card" style="margin-top:18px;">
-          <h3>Key Phrases</h3>
-          <ul>
-            <li>only electrons move</li>
-            <li>like charges repel</li>
-            <li>opposite charges attract</li>
-            <li>temporary charge separation</li>
-            <li>grounding removes extra charge</li>
-          </ul>
+        <div class="unit-nav" style="margin-top:18px;">
+          <a href="#unit-Inquiry">Inquiry</a>
+          <a href="#unit-Chemistry">Chemistry</a>
+          <a href="#unit-Space">Space</a>
+          <a href="#unit-Electricity">Electricity</a>
+          <a href="#unit-Ecology">Ecology</a>
         </div>
       </aside>
 
-      <main class="main">
-        <div class="main-head">
-          <div class="meta" id="examTag">Mock Exam</div>
-          <h2 id="examTitle">Exam A</h2>
-          <p id="examSummary" class="muted"></p>
-          <div class="button-row" style="margin-top:14px;">
-            <button id="submitBtn">Show Answers</button>
-            <button id="resetBtn">Reset This Exam</button>
-          </div>
+      <section class="exam-card">
+        <div class="exam-head">
+          <h2 id="examTitle">Set 1</h2>
+          <p class="muted" id="examSummary"></p>
+          <div id="scoreBox" class="result-card hidden"></div>
         </div>
-
-        <div class="content">
-          <section class="card">
-            <h3>True / False</h3>
-            <div id="tfContainer"></div>
-          </section>
-
-          <section class="card">
-            <h3>Multiple Choice</h3>
-            <div id="mcContainer"></div>
-          </section>
-
-          <section class="card">
-            <h3>Short Answer</h3>
-            <div id="saContainer"></div>
-          </section>
-
-          <section class="card hidden" id="resultsCard">
-            <h3>Answer Key</h3>
-            <p id="scoreLine"></p>
-            <div id="answerKey"></div>
-          </section>
-        </div>
-      </main>
+        <form class="exam-content" id="examForm"></form>
+      </section>
     </div>
-  </div>
+  </main>
 
   <script>
-    const exams = [
+    const units = [
       {
-        id: "exam-a",
-        tag: "Mock Exam A",
-        title: "Exam A - Core Concepts",
-        summary: "Focuses on basic definitions, charge movement, and standard classroom examples.",
-        tf: [
-          { q: "Static electricity is a buildup of charge on the surface of an object.", answer: true, why: "That matches the unit definition." },
-          { q: "Protons move from one object to another during charging by friction.", answer: false, why: "In this unit, only electrons move." },
-          { q: "Two negatively charged objects repel each other.", answer: true, why: "Like charges repel." },
-          { q: "A neutral object has no protons and no electrons.", answer: false, why: "Neutral means equal numbers of protons and electrons." },
-          { q: "A conductor allows electrons to move easily.", answer: true, why: "That is the definition of a conductor." },
-          { q: "Charging by induction requires two objects to touch.", answer: false, why: "Induction happens without touching." },
-          { q: "An object that gains electrons becomes positively charged.", answer: false, why: "Gaining electrons makes an object negative." },
-          { q: "Grounding can reduce the danger caused by static charge buildup.", answer: true, why: "Grounding lets excess charge move safely to Earth." }
-        ],
+        name: "Inquiry",
+        source: "Citing Sources, Controlled Experiments, Observation vs Inference, Qualitative vs Quantitative, Accuracy vs Precision, Metric System, Graphing Checklist, GRASS method",
         mc: [
-          { q: "Which subatomic particle is negatively charged?", options: ["Proton", "Neutron", "Electron", "Nucleus"], answer: 2, why: "Electrons have a negative charge." },
-          { q: "What usually happens when a negatively charged rod touches a neutral metal sphere?", options: ["Electrons move from the sphere to the rod", "Electrons move from the rod to the sphere", "Protons move to the sphere", "Nothing can happen"], answer: 1, why: "During contact, electrons move from the negative rod to the neutral sphere." },
-          { q: "Which is the best example of charging by friction?", options: ["A charged rod near a pith ball without touching", "A balloon rubbed on hair", "Touching a sphere with a charged rod", "Connecting an object to ground"], answer: 1, why: "Rubbing transfers electrons by friction." },
-          { q: "A charged balloon sticks to a wall mainly because:", options: ["The wall becomes permanently negative", "The wall has no charges", "Charges in the wall shift by induction", "Protons jump to the balloon"], answer: 2, why: "The balloon induces a temporary charge separation in the wall." },
-          { q: "Which material type does not let electrons move easily?", options: ["Conductor", "Insulator", "Metal", "Ground wire"], answer: 1, why: "Insulators do not let electrons move easily." },
-          { q: "If an object loses electrons, it becomes:", options: ["Neutral", "Negative", "Positive", "Grounded only"], answer: 2, why: "Losing electrons leaves more protons than electrons." },
-          { q: "What does the electrostatic series help you predict?", options: ["Atomic mass", "Which material gains or loses electrons", "Boiling point", "Number of neutrons"], answer: 1, why: "It helps predict electron transfer between materials." },
-          { q: "When you walk across carpet and then touch a doorknob, the shock happens because:", options: ["Charge discharges quickly through one point", "The doorknob becomes an insulator", "Neutrons move into your hand", "Your hand becomes neutral before contact"], answer: 0, why: "The stored charge discharges quickly through a small area." }
+          m("Foundation", "Which question is best written as a testable scientific inquiry question?", ["Do students like plants?", "How does the amount of light affect bean plant height?", "Are plants interesting?", "Why is science important?"], 1, "It names an independent variable and a measurable dependent variable."),
+          m("Foundation", "Which statement is an observation?", ["The liquid is blue.", "The liquid is probably acidic.", "The liquid reacted because it is old.", "The liquid must contain copper."], 0, "An observation uses the senses or measurements."),
+          m("Foundation", "Which measurement is quantitative?", ["The gas smelled sharp.", "The solution was cloudy.", "The wire was 12 cm long.", "The flame looked bright."], 2, "Quantitative observations include numbers and units."),
+          m("Foundation", "In a controlled experiment, the variable deliberately changed by the student is the:", ["dependent variable", "controlled variable", "independent variable", "conclusion"], 2, "The independent variable is changed on purpose."),
+          m("Foundation", "Which metric unit is most suitable for measuring the mass of a textbook?", ["grams", "litres", "degrees Celsius", "seconds"], 0, "Mass is measured in grams or kilograms."),
+          m("Standard", "A student measures the same 10.0 cm object as 9.9 cm, 10.0 cm, and 10.1 cm. The measurements are:", ["precise but not accurate", "accurate and fairly precise", "neither accurate nor precise", "qualitative only"], 1, "The values are close to the true value and close to one another."),
+          m("Standard", "Which item should be kept the same in an experiment testing fertilizer amount and plant growth?", ["amount of fertilizer", "final plant height", "type of plant", "conclusion wording"], 2, "Controlled variables are conditions kept constant."),
+          m("Standard", "The best graph for showing how temperature changes over time is usually a:", ["line graph", "pie chart", "map", "flowchart"], 0, "Line graphs show trends in continuous data."),
+          m("Standard", "A bibliography is used to:", ["make data more accurate", "credit sources used in research", "replace observations", "hide copied work"], 1, "Citing sources gives credit and supports academic honesty."),
+          m("Standard", "In GRASS problem solving, the first step usually involves:", ["writing the final sentence", "listing given information", "checking spelling only", "drawing a bar graph"], 1, "GRASS starts by identifying the givens."),
+          m("Application", "A student concludes that salt makes ice melt faster after testing one salted cube and one unsalted cube once. What is the biggest weakness?", ["The experiment has no independent variable.", "Only one trial was done.", "The dependent variable is too clear.", "The conclusion uses science words."], 1, "Repeated trials improve reliability."),
+          m("Application", "Which title best matches a graph of current versus potential difference?", ["Current and Potential Difference", "How Current Changes as Potential Difference Changes", "My Science Graph", "Electricity"], 1, "A strong title names the relationship between variables."),
+          m("Application", "A student says, 'The powder disappeared, so it was destroyed.' What is the better inference?", ["The powder may have dissolved.", "The powder is alive.", "No observation was made.", "The beaker gained protons."], 0, "An inference explains observations using evidence."),
+          m("Application", "Which source would usually be most reliable for facts about Artemis II?", ["a random comment", "NASA or CSA mission pages", "an unsourced meme", "a shopping site review"], 1, "Official agency sources are most reliable for mission facts."),
+          m("Application", "A graph has no units on either axis. Which checklist item is missing?", ["labelled axes with units", "a conclusion", "a hypothesis", "a citation style"], 0, "Axes need variable names and units."),
+          m("Thinking", "An experiment tests whether wire length affects resistance. Which dependent variable should be measured?", ["wire length", "wire material", "resistance", "room colour"], 2, "The dependent variable is the result measured."),
+          m("Thinking", "Which conclusion is best supported by data showing plant height rose from 4 cm to 14 cm as light increased?", ["More light may increase plant growth under these conditions.", "Light always makes every plant 14 cm tall.", "Plants do not need water.", "The experiment failed."], 0, "Good conclusions are evidence-based and not overgeneralized."),
+          m("Thinking", "Which pair shows accuracy vs precision correctly?", ["Accuracy is closeness to true value; precision is closeness of repeated values.", "Accuracy is speed; precision is colour.", "Accuracy is a guess; precision is a source.", "Accuracy is qualitative; precision is a graph."], 0, "This is the key distinction from the review."),
+          m("Thinking", "Which is the best controlled experiment design?", ["Change light and water at the same time.", "Change one variable and keep others constant.", "Change all variables randomly.", "Do not record observations."], 1, "Controlled experiments isolate one variable."),
+          m("Thinking", "A student copies a sentence from a website into a report. What should they do?", ["Use quotation marks or paraphrase and cite the source.", "Delete the bibliography.", "Change one word and ignore the source.", "Say it was observed in class."], 0, "Source use requires citation and honest wording."),
+          m("Challenge", "Which data table is best prepared for graphing?", ["Variables named, units included, repeated trials organized", "Only final answers with no units", "A paragraph with no numbers", "A picture with no labels"], 0, "Good tables organize variables, units, and trials."),
+          m("Challenge", "Which revision makes a hypothesis stronger?", ["Plants are cool.", "If light time increases, then plant height will increase because plants use light for photosynthesis.", "I think the answer is yes.", "Light experiment."], 1, "A strong hypothesis predicts a relationship and gives reasoning."),
+          m("Challenge", "A thermometer reads 2 degrees too high every time. The measurements are likely:", ["precise but systematically inaccurate", "accurate but random", "qualitative", "uncontrolled only"], 0, "Consistent offset can be precise but inaccurate."),
+          m("Challenge", "Which statement best separates observation from inference?", ["Observation describes evidence; inference explains what the evidence may mean.", "Inference is always more accurate than observation.", "Observation never uses numbers.", "Inference is the same as copying."], 0, "That is the classroom distinction."),
+          m("Challenge", "Which is the strongest final conclusion?", ["My hypothesis was right.", "The data support the hypothesis because the average reaction time decreased from 18 s to 9 s as temperature increased; more trials would improve confidence.", "The lab was fun.", "The graph proves everything forever."], 1, "It uses data, connects to the hypothesis, and notes limits.")
         ],
         sa: [
-          { q: "Explain the law of electric charges.", answer: "Like charges repel and opposite charges attract." },
-          { q: "Compare charging by contact and charging by induction.", answer: "Charging by contact happens when a charged object touches another object and electrons move during the touch. Charging by induction happens when a charged object comes close without touching and causes charges in the other object to shift position." },
-          { q: "Why can a charged object attract a neutral object?", answer: "A charged object can cause charges in the neutral object to rearrange. This temporary charge separation makes the near side oppositely charged, so attraction occurs." },
-          { q: "Use electron movement to explain why a balloon rubbed on hair becomes charged.", answer: "Rubbing causes electrons to transfer between the hair and the balloon. The balloon gains electrons and becomes negatively charged, while the hair loses electrons and becomes positively charged." },
-          { q: "Why do gasoline trucks sometimes drag a grounding chain behind them?", answer: "The chain grounds the truck and allows extra charge to move to Earth. This prevents a spark from static buildup, which is important because gasoline vapour can catch fire." }
+          s("Foundation", "Explain the difference between an observation and an inference.", "An observation is information gathered with senses or measurements. An inference is an explanation based on observations and prior knowledge.", [["observation"], ["inference"], ["evidence", "measure", "senses"]]),
+          s("Foundation", "Write one example of a qualitative observation and one quantitative observation.", "Qualitative: the solution turned cloudy. Quantitative: the solution temperature was 28 degrees Celsius.", [["qualitative"], ["quantitative"], ["number", "unit", "cm", "g", "degree"]]),
+          s("Standard", "Identify the independent, dependent, and controlled variables in an experiment testing how light affects plant height.", "The independent variable is amount of light. The dependent variable is plant height. Controlled variables could include plant type, water, soil, container size, and time.", [["independent", "light"], ["dependent", "height"], ["controlled", "same", "constant"]]),
+          s("Standard", "Why are repeated trials important in an experiment?", "Repeated trials make results more reliable by reducing the effect of random errors or unusual results.", [["repeat", "trial"], ["reliable", "consistent"], ["error", "random"]]),
+          s("Application", "A student graph has labelled axes but no units. Explain why this is a problem.", "Without units, readers cannot tell what scale or measurement was used, so the graph is less clear and harder to interpret.", [["unit"], ["axis", "axes"], ["interpret", "scale", "measurement"]]),
+          s("Application", "Use GRASS to describe how you would solve a calculation problem.", "List the givens, state the required answer, choose the equation or analysis, solve with units, and write a final statement.", [["given"], ["required"], ["solve"], ["statement", "sentence"]]),
+          s("Thinking", "Explain accuracy versus precision using a target or measurement example.", "Accuracy means close to the true value or bullseye. Precision means repeated measurements are close to each other, even if they are not close to the true value.", [["accuracy", "accurate"], ["precision", "precise"], ["true", "close"]]),
+          s("Thinking", "How should you use and cite information from a website in a science assignment?", "Use reliable sources, paraphrase in your own words or quote briefly, and include a citation or bibliography so the source is credited.", [["source", "website"], ["cite", "citation", "bibliography"], ["paraphrase", "quote", "credit"]]),
+          s("Challenge", "Design a fair test for whether wire length affects resistance.", "Use wires of the same material and thickness, change only wire length, measure resistance for each length, repeat trials, and graph resistance versus length.", [["wire length"], ["resistance"], ["same", "controlled"], ["repeat", "trial"]]),
+          s("Challenge", "What makes a conclusion strong in a science lab report?", "A strong conclusion answers the question, uses specific data as evidence, explains whether the hypothesis was supported, and mentions possible errors or improvements.", [["data", "evidence"], ["hypothesis"], ["error", "improve", "limitation"], ["question", "answer"]])
         ]
       },
       {
-        id: "exam-b",
-        tag: "Mock Exam B",
-        title: "Exam B - Applied Reasoning",
-        summary: "A slightly harder set with electrostatic series reasoning, conductors vs insulators, and real-life safety applications.",
-        tf: [
-          { q: "An object can be neutral and still contain charged particles.", answer: true, why: "Neutral means the positive and negative charges balance." },
-          { q: "A positively charged object has extra electrons.", answer: false, why: "A positive object has lost electrons." },
-          { q: "Induction often creates a temporary charge separation.", answer: true, why: "That is a key feature of induction." },
-          { q: "Electrons move more easily through conductors than through insulators.", answer: true, why: "That is the main difference." },
-          { q: "Opposite charges repel one another.", answer: false, why: "Opposite charges attract." },
-          { q: "If two materials are rubbed together, one may gain electrons and the other may lose electrons.", answer: true, why: "That is charging by friction." },
-          { q: "Grounding means giving an object more and more charge.", answer: false, why: "Grounding reduces or removes excess charge." },
-          { q: "A neutral pith ball can be attracted to a charged rod without touching it.", answer: true, why: "This can happen by induction." }
-        ],
+        name: "Chemistry",
+        source: "Gas Tests, Atomic Theory, Atomic Structure, Planetary Model, Atoms Family Math Challenge",
         mc: [
-          { q: "Which answer best describes a neutral object?", options: ["It has no electrons", "It has equal numbers of protons and electrons", "It has more protons than electrons", "It repels everything"], answer: 1, why: "Neutral means balanced positive and negative charges." },
-          { q: "If vinyl attracts electrons more strongly than silk, electrons move:", options: ["From vinyl to silk", "From silk to vinyl", "From Earth to silk", "Nowhere"], answer: 1, why: "The stronger electron attractor pulls electrons from the other material." },
-          { q: "After the transfer in the previous question, vinyl becomes:", options: ["Positive", "Negative", "Neutral", "Insulating"], answer: 1, why: "Gaining electrons makes vinyl negative." },
-          { q: "A charged screen attracting dust is best explained by:", options: ["Nuclear force", "Induction", "Photosynthesis", "Chemical bonding"], answer: 1, why: "The charged screen polarizes nearby dust particles." },
-          { q: "Which situation is the best example of grounding?", options: ["Rubbing a rod with wool", "Touching a charged object to Earth with a wire", "Bringing a balloon near a wall", "Watching dust stick to a monitor"], answer: 1, why: "Grounding provides a path for electrons to flow to or from Earth." },
-          { q: "Why does hair on your arm rise near a charged balloon?", options: ["The hairs melt", "Each hair gets the same type of induced charge and they repel", "Protons leave the arm", "The balloon becomes neutral"], answer: 1, why: "Nearby charges shift, and similarly charged hairs repel one another." },
-          { q: "If a positively charged rod touches a neutral conductor, electrons move:", options: ["From the rod to the conductor", "From the conductor to the rod", "From the nucleus to the rod", "Only inside the rod"], answer: 1, why: "A positive rod attracts electrons from the neutral conductor." },
-          { q: "Which answer best explains why static sparks can be dangerous near fuel?", options: ["Sparks cool the fuel", "A spark is a fast discharge that can ignite vapour", "Fuel removes all electrons", "Grounding makes bigger sparks"], answer: 1, why: "A static spark can ignite flammable vapour." }
+          m("Foundation", "Which particle has a negative charge?", ["proton", "neutron", "electron", "nucleus"], 2, "Electrons are negative."),
+          m("Foundation", "Which particle has a positive charge?", ["proton", "neutron", "electron", "orbital"], 0, "Protons are positive."),
+          m("Foundation", "Where are protons and neutrons located?", ["electron shell", "nucleus", "empty space outside the atom", "period"], 1, "The nucleus contains protons and neutrons."),
+          m("Foundation", "The atomic number tells you the number of:", ["protons", "neutrons", "shells", "compounds"], 0, "Atomic number equals proton number."),
+          m("Foundation", "Which gas relights a glowing splint?", ["hydrogen", "oxygen", "carbon dioxide", "nitrogen"], 1, "Oxygen supports combustion and relights a glowing splint."),
+          m("Standard", "Which gas makes a flaming splint go out and turns limewater cloudy?", ["hydrogen", "oxygen", "carbon dioxide", "helium"], 2, "Carbon dioxide extinguishes flame and clouds limewater."),
+          m("Standard", "Hydrogen gas is commonly identified by:", ["a squeaky pop with a lit splint", "turning blue litmus red only", "relighting a glowing splint", "turning limewater clear"], 0, "Hydrogen gives a squeaky pop."),
+          m("Standard", "In a neutral atom, the number of electrons equals the number of:", ["neutrons", "protons", "shells", "families"], 1, "Neutral atoms have balanced protons and electrons."),
+          m("Standard", "The mass number is the total number of:", ["protons and electrons", "protons and neutrons", "neutrons and electrons", "outer electrons only"], 1, "Mass number counts particles in the nucleus."),
+          m("Standard", "Which model shows electrons moving around a small central nucleus?", ["planetary model", "raisin bun only", "solid sphere only", "cell theory"], 0, "The planetary model has orbiting electrons."),
+          m("Application", "An atom has atomic number 8 and mass number 16. How many neutrons does it have?", ["8", "16", "24", "4"], 0, "Neutrons = mass number - atomic number = 16 - 8."),
+          m("Application", "A neutral atom has 11 protons. How many electrons does it have?", ["0", "10", "11", "22"], 2, "A neutral atom has equal protons and electrons."),
+          m("Application", "Which family is usually very reactive and found in Group 1?", ["alkali metals", "noble gases", "halogens", "metalloids"], 0, "Group 1 elements are alkali metals."),
+          m("Application", "Which family has full outer electron shells and is usually unreactive?", ["halogens", "alkali metals", "noble gases", "alkaline earth metals"], 2, "Noble gases have full valence shells."),
+          m("Application", "Which statement best describes valence electrons?", ["electrons in the outer shell", "protons in the nucleus", "neutrons in every shell", "gas test bubbles"], 0, "Valence electrons are outer-shell electrons."),
+          m("Thinking", "Which pair has similar chemical properties?", ["elements in the same group", "elements with the same mass number only", "any two metals and gases", "elements in different periods only"], 0, "Groups/families share valence electron patterns."),
+          m("Thinking", "An atom with 17 protons, 18 neutrons, and 17 electrons has mass number:", ["17", "18", "34", "35"], 3, "17 + 18 = 35."),
+          m("Thinking", "Which is an ion?", ["an atom with equal protons and electrons", "an atom that has gained or lost electrons", "a neutron in the nucleus", "a gas test"], 1, "Ions have net charge due to electron transfer."),
+          m("Thinking", "If an atom gains electrons, it becomes:", ["negative", "positive", "a proton", "a nucleus"], 0, "Extra electrons make a negative ion."),
+          m("Thinking", "Which historical idea changed most when scientists discovered the nucleus?", ["Atoms are solid indivisible spheres.", "Matter takes up space.", "Gases exist.", "Water can freeze."], 0, "The nuclear model replaced simpler solid-sphere ideas."),
+          m("Challenge", "Why are chemical families useful for prediction?", ["They show elements with similar valence electrons and reactions.", "They remove the need for experiments.", "They only list atomic masses.", "They show constellation patterns."], 0, "Families help predict properties."),
+          m("Challenge", "An unknown gas pops with a lit splint but does not relight a glowing splint. It is most likely:", ["hydrogen", "oxygen", "carbon dioxide", "water vapour"], 0, "The pop test identifies hydrogen."),
+          m("Challenge", "Element X has 2 electrons in the first shell and 7 in the second shell. It likely belongs to:", ["Group 1", "Group 17 halogens", "noble gases", "Group 2"], 1, "Seven valence electrons suggests halogens."),
+          m("Challenge", "Which explanation best connects atomic structure to reactivity?", ["Valence electrons control how atoms bond and react.", "Neutrons alone decide every reaction.", "Only mass number matters.", "Gas tests change the nucleus."], 0, "Reactivity depends strongly on valence electrons."),
+          m("Challenge", "Which result best supports that oxygen was produced?", ["glowing splint relights", "limewater stays clear", "lit splint pops", "blue paper becomes wet"], 0, "The oxygen test relights a glowing splint.")
         ],
         sa: [
-          { q: "What is the difference between a conductor and an insulator? Give one example of each.", answer: "A conductor allows electrons to move easily, while an insulator does not. A metal object is a common conductor, and rubber or plastic is a common insulator." },
-          { q: "Use the electrostatic series to explain how two rubbed materials become oppositely charged.", answer: "The material with the stronger attraction for electrons pulls electrons from the other material. The object that gains electrons becomes negative, and the object that loses electrons becomes positive." },
-          { q: "Explain why a neutral wall can attract a negatively charged balloon but does not stay permanently charged afterward.", answer: "The balloon repels some electrons in the wall, causing a temporary charge separation by induction. The near surface becomes relatively positive and attracts the balloon. When the balloon moves away, the charges in the wall spread out again, so the wall returns to neutral overall." },
-          { q: "A student says, 'The positive charges moved from the rod into the sphere.' Fix this statement.", answer: "A better statement is that electrons moved. In this unit, protons stay in the nucleus, so the change in charge is explained by electrons moving from one object to another or shifting position." },
-          { q: "Why can static electricity be dangerous in everyday life? Give one example and explain the science.", answer: "Static electricity can be dangerous because a sudden discharge can create a spark. For example, near gasoline vapour, a spark could start a fire or explosion. Grounding is used to reduce this risk by letting excess charge flow safely away." }
+          s("Foundation", "Describe the charges and locations of protons, neutrons, and electrons.", "Protons are positive and in the nucleus. Neutrons are neutral and in the nucleus. Electrons are negative and found around the nucleus in shells or energy levels.", [["proton", "positive"], ["neutron", "neutral"], ["electron", "negative"], ["nucleus"]]),
+          s("Foundation", "Explain how to test for oxygen gas.", "Place a glowing splint into the gas. If oxygen is present, the glowing splint relights.", [["oxygen"], ["glowing splint"], ["relight"]]),
+          s("Standard", "How do you find the number of neutrons in an atom?", "Subtract the atomic number from the mass number. Atomic number gives protons, and mass number is protons plus neutrons.", [["mass number"], ["atomic number"], ["subtract", "minus"], ["neutron"]]),
+          s("Standard", "Compare atomic number and mass number.", "Atomic number is the number of protons. Mass number is the total number of protons and neutrons.", [["atomic number", "proton"], ["mass number"], ["neutron"]]),
+          s("Application", "A neutral atom has 13 protons and 14 neutrons. Find electrons and mass number.", "It has 13 electrons because it is neutral. Its mass number is 27 because 13 protons plus 14 neutrons equals 27.", [["13", "electron"], ["27", "mass"], ["proton"], ["neutron"]]),
+          s("Application", "Explain how to test for hydrogen and carbon dioxide.", "Hydrogen makes a squeaky pop with a lit splint. Carbon dioxide puts out a flame and turns limewater cloudy.", [["hydrogen", "pop"], ["carbon dioxide", "CO2"], ["limewater", "cloudy"]]),
+          s("Thinking", "Why do elements in the same chemical family often behave similarly?", "They have the same number of valence electrons, so they tend to form similar bonds and undergo similar reactions.", [["family", "group"], ["valence electron"], ["similar"], ["react"]]),
+          s("Thinking", "Explain why noble gases are usually unreactive.", "Noble gases have full outer electron shells, so they are already stable and do not easily gain, lose, or share electrons.", [["noble gas"], ["full", "outer", "valence"], ["stable", "unreactive"]]),
+          s("Challenge", "Use atomic structure to explain how an atom becomes a positive ion.", "An atom becomes a positive ion when it loses electrons. It then has more protons than electrons, so the net charge is positive.", [["lose", "lost"], ["electron"], ["more protons"], ["positive"]]),
+          s("Challenge", "Explain why the planetary model was an improvement over earlier atomic models.", "It included a small central nucleus with electrons around it, which better matched evidence that atoms are mostly empty space with positive charge concentrated in the nucleus.", [["nucleus"], ["electron"], ["empty space"], ["evidence"]])
         ]
       },
       {
-        id: "exam-c",
-        tag: "Mock Exam C",
-        title: "Exam C - Trap Questions",
-        summary: "A harder set focused on common mistakes: induction vs conduction vs grounding, overall neutral vs locally separated charge, electroscope reasoning, and questions where the electron direction is easy to mix up.",
-        tf: [
-          { q: "If a charged rod is brought near an electroscope without touching it, the electroscope must end up permanently charged.", answer: false, why: "Without touching, induction can separate charge temporarily without giving the electroscope a permanent net charge." },
-          { q: "A neutral object can contain both positive and negative charges at the same time.", answer: true, why: "Neutral means the charges balance overall, not that charges are absent." },
-          { q: "If a positively charged rod is removed after non-contact induction, the leaves of the electroscope will usually stay separated because electrons were permanently transferred.", answer: false, why: "In simple induction without grounding, charges are rearranged, not permanently transferred." },
-          { q: "A charged rod touching an electroscope is always grounding.", answer: false, why: "Touching a charged rod is usually conduction or contact, not grounding." },
-          { q: "A finger touching an electroscope is often treated as grounding in classroom questions.", answer: true, why: "The body is a conductor and is usually assumed to be effectively connected to Earth." },
-          { q: "When a positively charged rod touches a neutral electroscope, electrons move from the electroscope to the rod.", answer: true, why: "A positive rod attracts electrons from the neutral electroscope." },
-          { q: "Two leaves of an electroscope separate because they end up with opposite charges.", answer: false, why: "They separate because they end up with the same type of charge and repel." },
-          { q: "A pith ball can be neutral overall while still having one side more negative than the other.", answer: true, why: "This is temporary charge separation by induction." }
-        ],
+        name: "Space",
+        source: "Astronomy, Earth-Moon-Sun, Spectroscopy, Stars, Big Bang, Space Exploration and Artemis II",
         mc: [
-          { q: "A positively charged rod is brought close to, but does not touch, a neutral electroscope. Which statement is best?", options: ["Electrons move from the rod into the electroscope", "Protons move from the knob into the leaves", "Electrons shift upward in the electroscope and the leaves separate", "The electroscope becomes permanently positive"], answer: 2, why: "Induction causes charge separation inside the electroscope, with electrons moving toward the positive rod." },
-          { q: "After the positive rod in the previous question is taken away, what usually happens?", options: ["The leaves stay apart forever", "The leaves usually come back together because the charge was only rearranged", "The knob becomes more negative than before", "The electroscope becomes grounded automatically"], answer: 1, why: "If there was no touching and no grounding, the separated charges usually redistribute again." },
-          { q: "Which situation is definitely grounding?", options: ["A charged rod touches the knob", "A charged rod comes near the knob", "A wire connects the electroscope to Earth", "A balloon is rubbed on hair"], answer: 2, why: "Grounding means giving charge a path to or from Earth." },
-          { q: "A student says, 'The pith ball is negative because the side near the positive rod is negative.' What is the best correction?", options: ["Correct, the whole pith ball is negative", "Correct, because positive charges moved away", "The near side is negative, but the whole pith ball can still be neutral overall", "The pith ball has no charge particles at all"], answer: 2, why: "Induction can make one side relatively negative while the whole object remains neutral overall." },
-          { q: "A negatively charged rod touches a neutral electroscope. What happens to the electroscope?", options: ["It gains electrons and becomes negatively charged", "It loses electrons and becomes positively charged", "It stays neutral because only the rod changes", "Its leaves collapse because like charges attract"], answer: 0, why: "Electrons transfer from the negative rod into the neutral electroscope." },
-          { q: "Which comparison is most accurate?", options: ["Conduction and grounding are the same because electrons may move in the same direction", "They are different because conduction is charge transfer between objects, while grounding is charge transfer between an object and Earth", "Grounding happens only with positive charge", "Conduction never changes net charge"], answer: 1, why: "The direction of electron flow can look similar, but the second object is different: rod vs Earth." },
-          { q: "A finger touches an electroscope while a charged rod is nearby. In most classroom problems, the finger is acting as:", options: ["An insulator", "A source of protons", "A grounding path", "A negatively charged rod"], answer: 2, why: "The body is usually treated as a conductor connected to Earth." },
-          { q: "Which statement about the electroscope leaves is best?", options: ["They separate because one leaf is positive and the other is negative", "They separate because both leaves become similarly charged", "They separate because neutral leaves attract", "They separate only when protons move"], answer: 1, why: "Leaves separate when both have the same type of charge and repel." }
+          m("Foundation", "A light-year measures:", ["time", "distance", "brightness", "temperature"], 1, "A light-year is the distance light travels in one year."),
+          m("Foundation", "Earth's rotation causes:", ["day and night", "the Moon to glow", "Big Bang evidence", "spectral lines"], 0, "Rotation on an axis causes day and night."),
+          m("Foundation", "Earth's revolution around the Sun takes about:", ["24 hours", "7 days", "1 month", "1 year"], 3, "One revolution takes about one year."),
+          m("Foundation", "A constellation is:", ["a recognized star pattern seen from Earth", "a single planet", "a gas test", "an electric circuit"], 0, "Constellations are apparent star patterns."),
+          m("Foundation", "Visible light is part of the:", ["electromagnetic spectrum", "rock cycle", "food web", "periodic table"], 0, "Visible light is electromagnetic radiation."),
+          m("Standard", "Red shift usually means an object is moving:", ["toward us", "away from us", "around Earth only", "nowhere"], 1, "Red shift means wavelengths are stretched longer."),
+          m("Standard", "Blue stars are generally:", ["hotter than red stars", "cooler than red stars", "always smaller than planets", "not real stars"], 0, "Blue stars have higher surface temperature."),
+          m("Standard", "Stars spend most of their lives in the:", ["main sequence", "comet stage", "lunar phase", "tide stage"], 0, "The main sequence is the long stable fusion stage."),
+          m("Standard", "The Big Bang theory says the universe:", ["began hot and dense and expanded", "is only the solar system", "is not changing", "started as a cold planet"], 0, "That is the basic Big Bang model."),
+          m("Standard", "CMB radiation is important because it is:", ["leftover radiation from the early universe", "a Moon shadow", "a gas test", "a circuit diagram"], 0, "Cosmic microwave background is key evidence."),
+          m("Application", "A solar eclipse occurs when:", ["the Moon is between the Sun and Earth", "Earth is between the Sun and Moon", "Mars blocks the Moon", "the Sun is between Earth and Moon"], 0, "The Moon's shadow falls on Earth."),
+          m("Application", "A lunar eclipse occurs when:", ["Earth's shadow falls on the Moon", "the Moon's shadow falls on Earth", "a star explodes", "a galaxy red shifts"], 0, "Earth is between the Sun and Moon."),
+          m("Application", "Spectral lines are useful because they can identify:", ["elements in stars", "the number of shoes astronauts wear", "plant height only", "wire resistance only"], 0, "Elements have unique spectral patterns."),
+          m("Application", "A high-mass star may end as:", ["a neutron star or black hole", "a tide", "a small asteroid only", "a pith ball"], 0, "High-mass stars can supernova and leave compact remnants."),
+          m("Application", "A robotic mission is useful because it can:", ["collect data with less risk to humans", "avoid all engineering needs", "breathe oxygen", "replace evidence"], 0, "Robots reduce human risk."),
+          m("Thinking", "If a galaxy has stronger red shift than another galaxy, it is likely:", ["receding faster", "moving toward us faster", "inside the Moon", "not made of matter"], 0, "More red shift can indicate faster recession."),
+          m("Thinking", "The correct scale order is:", ["planet, solar system, galaxy, universe", "universe, planet, solar system, galaxy", "galaxy, planet, universe, solar system", "solar system, planet, universe, galaxy"], 0, "This is the small-to-large order."),
+          m("Thinking", "Why are stars in a constellation not necessarily close together?", ["They only appear close from Earth's line of sight.", "They are all touching.", "They all orbit Earth.", "They are all the same distance."], 0, "Constellations are apparent patterns."),
+          m("Thinking", "Which evidence best supports an expanding universe?", ["Many distant galaxies are red-shifted.", "The Moon has craters.", "Circuits use wires.", "Plants need nutrients."], 0, "Galaxy red shift supports expansion."),
+          m("Thinking", "A star with high luminosity but low apparent brightness may be:", ["very far away", "not producing light", "a Moon phase", "inside Earth"], 0, "Distance affects apparent brightness."),
+          m("Challenge", "The Big Bang is best described as:", ["expansion of space from a hot dense early state", "an explosion into empty space from one centre", "the birth of the Moon only", "a supernova yesterday"], 0, "The model is expansion of space itself."),
+          m("Challenge", "An unknown spectrum matches hydrogen lines but is shifted red. Best conclusion:", ["hydrogen is present and moving away", "no hydrogen is present", "the object is a planet with no light", "the data show a gas test"], 0, "Line pattern identifies hydrogen; red shift shows motion away."),
+          m("Challenge", "Why do massive stars usually have shorter lifetimes?", ["They use nuclear fuel much faster.", "They have no gravity.", "They are always closer.", "They do not fuse atoms."], 0, "High mass creates faster fuel use."),
+          m("Challenge", "Which is a challenge of crewed exploration?", ["life support and radiation safety", "no scientific value", "no teamwork", "no need for technology"], 0, "Humans require protection and support systems."),
+          m("Challenge", "Which answer combines Big Bang evidence correctly?", ["red shift, CMB, and light-element abundance", "Moon phases, tides, and circuits", "gas tests, Ohm's law, and food webs", "accuracy, precision, and pH only"], 0, "These are three major evidence lines.")
         ],
         sa: [
-          { q: "Explain why the leaves of an electroscope usually come back together after a charged rod is brought near without touching and then removed.", answer: "If the rod does not touch, the electroscope is charged by induction. The electrons are only rearranged, not permanently transferred. When the rod is removed, the attraction disappears, charge spreads out more evenly again, repulsion decreases, and the leaves usually come back together." },
-          { q: "Compare conduction and grounding. Why do students sometimes confuse them?", answer: "In both cases electrons may really move, and the direction of movement can even look similar. However, conduction is electron transfer between objects such as a rod and an electroscope, while grounding is electron transfer between an object and Earth." },
-          { q: "A positive rod is brought near a neutral pith ball. Explain why the near side becomes negative but the whole pith ball can still be neutral.", answer: "The positive rod attracts electrons within the pith ball toward the near side. This makes the near side relatively negative and the far side relatively positive. Since the pith ball did not gain or lose total electrons, it can still be neutral overall." },
-          { q: "Why is the statement 'the positive charges moved into the leaves' not a good explanation for an electroscope diagram?", answer: "In this unit, the better explanation is in terms of electrons moving or shifting. Protons stay in the nucleus, so the visible charging effects are explained by electron movement and charge separation." },
-          { q: "In a classroom diagram, a finger touches the electroscope while a charged rod is nearby. Explain why this is often treated as grounding, and give one case where that assumption may fail.", answer: "It is often treated as grounding because the human body is a conductor and is usually assumed to be connected to Earth. The assumption may fail if the person is insulated from the ground, such as standing on a strong insulating surface." }
+          s("Foundation", "Explain the difference between rotation and revolution.", "Rotation is spinning on an axis, such as Earth causing day and night. Revolution is orbiting another object, such as Earth orbiting the Sun once per year.", [["rotation"], ["revolution"], ["axis", "spin"], ["orbit", "sun"]]),
+          s("Foundation", "What is a light-year?", "A light-year is a distance: the distance light travels in one year.", [["light-year", "light year"], ["distance"], ["one year"]]),
+          s("Standard", "How can spectra help astronomers study stars?", "Spectra show line patterns that identify elements and shifts that show motion toward or away from us.", [["spectrum", "spectra"], ["element", "line"], ["red shift", "blue shift", "motion"]]),
+          s("Standard", "Compare red shift and blue shift.", "Red shift means spectral lines move toward longer wavelengths and the object is moving away. Blue shift means shorter wavelengths and motion toward us.", [["red shift", "away"], ["blue shift", "toward"], ["wavelength"]]),
+          s("Application", "Give two pieces of evidence for the Big Bang theory.", "Evidence includes galaxy red shift, cosmic microwave background radiation, and the abundance of light elements such as hydrogen and helium.", [["red shift"], ["CMB", "cosmic microwave"], ["hydrogen", "helium", "light element"]]),
+          s("Application", "Explain why Moon phases happen.", "Moon phases happen because we see different amounts of the Moon's sunlit half as the Moon revolves around Earth.", [["moon"], ["sunlit", "light"], ["revolve", "orbit"], ["earth"]]),
+          s("Thinking", "Use mass to compare the final stages of low/medium-mass and high-mass stars.", "Low or medium mass stars can become red giants, planetary nebulae, and white dwarfs. High-mass stars can become supergiants, supernovae, neutron stars, or black holes.", [["low", "medium"], ["white dwarf"], ["high"], ["supernova", "black hole", "neutron star"]]),
+          s("Thinking", "Why can constellations be useful but misleading?", "They are useful for navigation and locating sky regions, but misleading because stars that look close together from Earth may be far apart in space.", [["navigation", "locating"], ["appear", "look"], ["far apart", "distance"]]),
+          s("Challenge", "Explain how red shift supports an expanding universe.", "Many distant galaxies show red shift, meaning their light is stretched and they are moving away. This supports the idea that the universe is expanding.", [["red shift"], ["moving away"], ["expanding universe"], ["light", "wavelength"]]),
+          s("Challenge", "Compare robotic and crewed space missions.", "Robotic missions reduce risk to humans and can collect data in dangerous places. Crewed missions allow flexible problem solving but need life support, safety systems, and careful return planning.", [["robotic"], ["crewed", "human"], ["risk"], ["life support", "safety"]])
+        ]
+      },
+      {
+        name: "Electricity",
+        source: "Static Electricity, Charge It, Contact and Induction, Current/Potential Difference/Resistance, Series and Parallel Circuits, Ohm's Law, Energy Costs",
+        mc: [
+          m("Foundation", "Static electricity is:", ["a buildup of charge on a surface", "water moving downhill", "a food web", "a star spectrum"], 0, "Static electricity is charge buildup."),
+          m("Foundation", "Like charges:", ["repel", "attract", "become neutrons", "disappear"], 0, "Like charges repel."),
+          m("Foundation", "Opposite charges:", ["attract", "repel", "always ground", "make oxygen"], 0, "Opposite charges attract."),
+          m("Foundation", "Which particle moves during charging?", ["electron", "proton", "neutron", "nucleus"], 0, "In this unit, electrons move."),
+          m("Foundation", "An object that gains electrons becomes:", ["negative", "positive", "neutral only", "a resistor"], 0, "Extra electrons give negative charge."),
+          m("Standard", "Charging by friction happens when:", ["rubbing transfers electrons", "Earth blocks the Moon", "limewater clouds", "stars form"], 0, "Friction can transfer electrons."),
+          m("Standard", "Charging by induction means:", ["charge separation without touching", "burning a gas", "measuring plant height", "forming a galaxy"], 0, "Induction does not require contact."),
+          m("Standard", "A conductor allows electrons to:", ["move easily", "stop completely", "become protons", "turn into light-years"], 0, "Conductors allow charge movement."),
+          m("Standard", "A grounding wire provides:", ["a path for charge to or from Earth", "a way to increase Moon phases", "a gas test", "a citation"], 0, "Grounding connects to Earth."),
+          m("Standard", "Current is the rate of flow of:", ["electric charge", "mass number", "moonlight", "carbon dioxide"], 0, "Current is charge flow rate."),
+          m("Application", "A charged balloon sticks to a neutral wall mainly because:", ["charges in the wall shift by induction", "the wall has no charges", "protons leave the balloon", "the wall becomes a battery"], 0, "The charged balloon induces charge separation."),
+          m("Application", "In Ohm's law, V equals:", ["I x R", "I / R", "R / I", "mass - protons"], 0, "Voltage equals current times resistance."),
+          m("Application", "If V = 12 V and R = 4 ohms, current is:", ["3 A", "8 A", "16 A", "48 A"], 0, "I = V/R = 3 A."),
+          m("Application", "In a series circuit, adding more identical bulbs usually makes total resistance:", ["increase", "decrease to zero", "stay impossible", "become mass number"], 0, "Series resistance adds."),
+          m("Application", "In a parallel circuit, branches provide:", ["more than one path for current", "no path for current", "only one path", "a Moon shadow"], 0, "Parallel circuits have multiple paths."),
+          m("Thinking", "Why can a neutral pith ball be attracted to a charged rod?", ["temporary charge separation", "nuclear fusion", "limewater reaction", "red shift"], 0, "Induction can attract neutral objects.", "extracted/crops/pith-ball-electroscope-q9-q11.png"),
+          m("Thinking", "A positive rod touches a neutral conductor. Electrons move:", ["from the conductor to the rod", "from the rod to the conductor", "as protons", "nowhere always"], 0, "Positive rods attract electrons."),
+          m("Thinking", "Which circuit keeps other branches working if one branch opens?", ["parallel", "series", "open single path only", "no circuit"], 0, "Parallel branches can keep working independently."),
+          m("Thinking", "Which change would decrease resistance in a wire?", ["use a thicker wire", "make it longer", "heat it strongly", "use a poorer conductor"], 0, "Thicker wire lowers resistance."),
+          m("Thinking", "Electrical power can be calculated by:", ["P = V x I", "P = mass/protons", "P = light-year/time", "P = pH + CMB"], 0, "Power equals voltage times current."),
+          m("Challenge", "Which explanation best fixes 'positive charges moved into the object'?", ["Electrons moved; protons stayed in nuclei.", "Positive charges always move faster.", "Neutrons moved into shells.", "No charges exist."], 0, "Electron movement explains charging."),
+          m("Challenge", "A fuel truck drags a chain because it:", ["grounds charge and reduces spark risk", "increases static charge", "measures voltage", "creates oxygen"], 0, "Grounding prevents dangerous sparks."),
+          m("Challenge", "A device uses 0.5 kW for 4 h. Energy used is:", ["2 kWh", "0.125 kWh", "4.5 kWh", "8 kWh"], 0, "Energy = power x time."),
+          m("Challenge", "Which statement best compares series and parallel circuits?", ["Series has one path; parallel has multiple paths.", "Series has multiple paths; parallel has none.", "Both always have no current.", "They are atomic families."], 0, "This is the key structural difference."),
+          m("Challenge", "The image question is best solved by first deciding:", ["whether objects touch or only come near", "which star is blue", "the pH of water", "the mass number"], 0, "Contact vs non-contact is the key clue.", "extracted/crops/contact-vs-induction-q3-q4.png")
+        ],
+        sa: [
+          s("Foundation", "State the law of electric charges.", "Like charges repel and opposite charges attract.", [["like", "repel"], ["opposite", "attract"]]),
+          s("Foundation", "What happens when an object gains or loses electrons?", "An object that gains electrons becomes negative. An object that loses electrons becomes positive.", [["gain", "electron", "negative"], ["lose", "electron", "positive"]]),
+          s("Standard", "Compare charging by contact and charging by induction.", "Contact requires touching and transfers electrons between objects. Induction happens without touching and causes charges to rearrange or separate.", [["contact", "touch"], ["electron"], ["induction"], ["without touching", "no touch", "separate"]]),
+          s("Standard", "Explain why a charged balloon can stick to a neutral wall.", "The charged balloon causes charges in the wall to shift. The side closest to the balloon becomes relatively opposite in charge, so attraction occurs.", [["balloon"], ["wall"], ["shift", "separate", "induction"], ["attract"]]),
+          s("Application", "Use Ohm's law to find current when V = 9 V and R = 3 ohms.", "Using I = V/R, current equals 9/3 = 3 A.", [["I", "current"], ["V/R", "divide"], ["3"], ["A", "amp"]]),
+          s("Application", "Explain the difference between series and parallel circuits.", "A series circuit has one path for current, so one break stops the whole circuit. A parallel circuit has multiple paths, so other branches may keep working.", [["series", "one path"], ["parallel", "multiple", "branches"], ["break", "keep working"]]),
+          s("Thinking", "Why does a gasoline truck use grounding?", "Moving fuel can build static charge. Grounding lets extra electrons move safely to Earth, reducing the chance of a spark near flammable vapour.", [["static"], ["ground"], ["electron", "charge"], ["spark"], ["fuel", "gasoline", "vapour"]]),
+          s("Thinking", "Describe factors that affect resistance in a wire.", "Resistance increases with longer wire, thinner wire, higher temperature, and less conductive material. It decreases with shorter, thicker, better-conducting wire.", [["length", "long"], ["thick", "thin"], ["temperature"], ["material"]]),
+          s("Challenge", "A student says an induced neutral object is permanently charged. Correct the idea.", "In induction without contact or grounding, charges usually only rearrange temporarily. The object can remain neutral overall because it has not gained or lost total electrons.", [["induction"], ["temporary"], ["neutral"], ["gained", "lost", "electrons"]]),
+          s("Challenge", "Calculate energy cost if a 1.5 kW heater runs for 6 h at 12 cents per kWh.", "Energy = 1.5 kW x 6 h = 9 kWh. Cost = 9 x 12 cents = 108 cents, or $1.08.", [["9", "kWh"], ["108", "1.08"], ["cost"], ["power", "time"]])
+        ]
+      },
+      {
+        name: "Ecology",
+        source: "Introduction to Ecology, Energy and Ecosystems, Cycling of Matter, Ecosystem Services and Biodiversity, Food Security and Climate Change",
+        mc: [
+          m("Foundation", "Ecology is the study of:", ["interactions between organisms and their environment", "only stars", "only atoms", "only circuits"], 0, "Ecology studies living things and environments."),
+          m("Foundation", "A producer is an organism that:", ["makes its own food", "eats only animals", "decomposes plastic only", "has no role"], 0, "Producers make food, often by photosynthesis."),
+          m("Foundation", "A consumer is an organism that:", ["gets energy by eating other organisms", "makes sunlight", "is always a plant", "is non-living"], 0, "Consumers eat organisms or organic matter."),
+          m("Foundation", "A decomposer helps:", ["break down dead matter and recycle nutrients", "stop all nutrient cycling", "create red shift", "measure current"], 0, "Decomposers recycle matter."),
+          m("Foundation", "Biodiversity means:", ["variety of life in an area", "one species only", "a gas test", "wire thickness"], 0, "Biodiversity is living variety."),
+          m("Standard", "In a food chain, arrows show:", ["direction of energy flow", "direction animals face", "Moon orbit", "electron shells"], 0, "Arrows point from food to eater/energy flow."),
+          m("Standard", "Most energy in ecosystems originally comes from:", ["the Sun", "the Moon", "static sparks", "limewater"], 0, "Sunlight powers most ecosystems."),
+          m("Standard", "Energy transfer between trophic levels is inefficient because:", ["much energy is lost as heat and life processes", "energy is created from nothing", "producers eat all consumers", "atoms disappear"], 0, "Only some energy transfers upward."),
+          m("Standard", "Matter cycles through ecosystems, but energy:", ["flows through and is lost as heat", "cycles perfectly forever", "does not enter", "turns into protons"], 0, "Energy flows; matter cycles."),
+          m("Standard", "An ecosystem service is:", ["a benefit humans receive from ecosystems", "an atomic model", "a voltage equation", "a Moon phase"], 0, "Ecosystem services include pollination, clean water, etc."),
+          m("Application", "Which is an example of a regulating ecosystem service?", ["pollination", "a periodic table", "Ohm's law", "red shift"], 0, "Pollination supports reproduction and food systems."),
+          m("Application", "Which action can reduce biodiversity?", ["habitat destruction", "protecting wetlands", "planting native species", "creating wildlife corridors"], 0, "Habitat loss is a major biodiversity threat."),
+          m("Application", "In a chain grass -> rabbit -> fox, the rabbit is a:", ["primary consumer", "producer", "decomposer", "tertiary producer"], 0, "It eats the producer."),
+          m("Application", "In the same chain, the fox is a:", ["secondary consumer", "producer", "abiotic factor", "decomposer only"], 0, "It eats the primary consumer."),
+          m("Application", "Climate change can affect food security by:", ["changing crop yields and increasing extreme weather", "removing the need for farms", "stopping photosynthesis everywhere instantly", "making all species identical"], 0, "Climate affects crop production and reliability."),
+          m("Thinking", "Which is an abiotic factor?", ["temperature", "tree", "rabbit", "fungus"], 0, "Abiotic means non-living."),
+          m("Thinking", "Which is a biotic factor?", ["bacteria", "sunlight", "water temperature", "rock size"], 0, "Biotic means living or once living."),
+          m("Thinking", "Why can removing one species affect many others?", ["food webs connect species through energy and interactions", "species never interact", "matter stops cycling", "the Moon changes phase"], 0, "Food webs show interdependence."),
+          m("Thinking", "Which statement is best about matter in ecosystems?", ["Atoms are reused through cycles such as carbon and water cycles.", "Matter is destroyed at each trophic level.", "Only energy cycles.", "Decomposers stop matter cycling."], 0, "Matter is recycled."),
+          m("Thinking", "Why are decomposers important to producers?", ["They return nutrients to soil or water.", "They block sunlight forever.", "They make red shift.", "They increase wire resistance."], 0, "Nutrients support producer growth."),
+          m("Challenge", "Which ecosystem likely has greater resilience?", ["a diverse wetland with many species", "a monoculture with one crop species", "a sealed jar with no producers", "a habitat with no decomposers"], 0, "Biodiversity supports resilience."),
+          m("Challenge", "Which answer best links biodiversity and food security?", ["Diverse ecosystems support pollinators, soil health, and stable food systems.", "Biodiversity only matters in space.", "Food security does not involve ecosystems.", "Pollinators reduce all crops."], 0, "Biodiversity supports services needed for food."),
+          m("Challenge", "A pesticide reduces insects in a field. What indirect effect is possible?", ["less food for insect-eating birds", "more red shift", "lower atomic number", "higher voltage only"], 0, "Food web changes can ripple."),
+          m("Challenge", "Which choice best compares food chains and food webs?", ["Food chains are simple pathways; food webs show many connected feeding relationships.", "Food webs have one organism only.", "Food chains show circuits.", "They are both gas tests."], 0, "Food webs are more realistic networks."),
+          m("Challenge", "Which human action best protects ecosystem services?", ["protecting habitats and reducing pollution", "removing all wetlands", "overusing soil without rest", "spreading invasive species"], 0, "Healthy habitats maintain services.")
+        ],
+        sa: [
+          s("Foundation", "Define ecosystem.", "An ecosystem includes living organisms and the non-living parts of their environment interacting in a particular area.", [["living"], ["non-living", "abiotic"], ["interact"], ["area", "environment"]]),
+          s("Foundation", "Compare producer, consumer, and decomposer.", "Producers make their own food, consumers get energy by eating other organisms, and decomposers break down dead matter and recycle nutrients.", [["producer"], ["consumer"], ["decomposer"], ["nutrient", "recycle"]]),
+          s("Standard", "Explain how energy flows through a food chain.", "Energy usually enters through sunlight captured by producers, then moves to consumers when they eat. Some energy is lost as heat at each transfer.", [["sun", "sunlight"], ["producer"], ["consumer"], ["heat", "lost"]]),
+          s("Standard", "Explain why matter cycles but energy flows in ecosystems.", "Matter is made of atoms that are reused through cycles such as water, carbon, and nutrient cycles. Energy enters, moves through trophic levels, and is eventually lost as heat.", [["matter", "cycle"], ["energy", "flow"], ["heat"], ["atom", "carbon", "water", "nutrient"]]),
+          s("Application", "Give two examples of ecosystem services.", "Examples include pollination, clean water, oxygen production, soil formation, climate regulation, flood control, and food resources.", [["pollination", "clean water", "oxygen", "soil", "climate", "flood", "food"], ["ecosystem service", "benefit"]]),
+          s("Application", "How can climate change affect food security?", "Climate change can change rainfall and temperature, increase droughts, floods, or pests, and reduce crop reliability or yields.", [["climate change"], ["food security", "crop"], ["drought", "flood", "weather", "temperature"], ["yield", "reliable"]]),
+          s("Thinking", "Why is biodiversity important for ecosystem stability?", "Higher biodiversity gives ecosystems more species with different roles, which can make them more resilient to disturbance and help maintain food webs and ecosystem services.", [["biodiversity"], ["resilient", "stable"], ["food web", "roles"], ["ecosystem service"]]),
+          s("Thinking", "Explain how removing a predator could affect a food web.", "Removing a predator can increase prey populations, which may reduce the organisms the prey eat and cause changes across the food web.", [["predator"], ["prey"], ["increase"], ["food web"]]),
+          s("Challenge", "Use a carbon-cycle example to explain cycling of matter.", "Carbon in carbon dioxide can be taken in by plants during photosynthesis, passed to consumers when they eat, and returned by respiration, decomposition, or combustion.", [["carbon"], ["photosynthesis"], ["consumer", "eat"], ["respiration", "decomposition", "combustion"]]),
+          s("Challenge", "Propose one action that improves food security while protecting ecosystems.", "Protecting pollinator habitat, using crop rotation, reducing food waste, conserving water, and using sustainable farming can support food production while protecting ecosystem health.", [["food security"], ["protect", "sustainable", "conserve", "reduce"], ["pollinator", "crop rotation", "water", "waste", "habitat"]])
         ]
       }
     ];
 
-    const tabs = document.getElementById("tabs");
-    const examTag = document.getElementById("examTag");
-    const examTitle = document.getElementById("examTitle");
-    const examSummary = document.getElementById("examSummary");
-    const tfPill = document.getElementById("tfPill");
-    const mcPill = document.getElementById("mcPill");
-    const saPill = document.getElementById("saPill");
-    const tfContainer = document.getElementById("tfContainer");
-    const mcContainer = document.getElementById("mcContainer");
-    const saContainer = document.getElementById("saContainer");
-    const submitBtn = document.getElementById("submitBtn");
-    const resetBtn = document.getElementById("resetBtn");
-    const resultsCard = document.getElementById("resultsCard");
-    const scoreLine = document.getElementById("scoreLine");
-    const answerKey = document.getElementById("answerKey");
+    const examProfiles = [
+      { title: "Set 1 - Foundation to Standard", summary: "A gentler full exam with direct vocabulary, basic calculations, and clear examples.", mcOffset: 0, saOffset: 0 },
+      { title: "Set 2 - Standard Practice", summary: "A balanced set with more application questions and common teacher wording.", mcOffset: 5, saOffset: 2 },
+      { title: "Set 3 - Application Focus", summary: "More data, scenario, and diagram-style questions across all units.", mcOffset: 10, saOffset: 4 },
+      { title: "Set 4 - Thinking Questions", summary: "A harder set that asks you to compare, explain, and avoid common traps.", mcOffset: 15, saOffset: 6 },
+      { title: "Set 5 - Challenge Review", summary: "The most demanding set, useful after you are comfortable with the core content.", mcOffset: 20, saOffset: 8 }
+    ];
 
-    let activeExamId = exams[0].id;
+    function m(level, prompt, options, answer, why, image = "") {
+      return { level, prompt, options, answer, why, image };
+    }
 
-    function getActiveExam() {
-      return exams.find((exam) => exam.id === activeExamId);
+    function s(level, prompt, answer, keywords) {
+      return { level, prompt, answer, keywords };
+    }
+
+    const setTabs = document.querySelector("#setTabs");
+    const examForm = document.querySelector("#examForm");
+    const examTitle = document.querySelector("#examTitle");
+    const examSummary = document.querySelector("#examSummary");
+    const scoreBox = document.querySelector("#scoreBox");
+    const submitBtn = document.querySelector("#submitBtn");
+    const resetBtn = document.querySelector("#resetBtn");
+    let activeSet = 0;
+    let submitted = false;
+
+    function examForSet(index) {
+      const profile = examProfiles[index];
+      return units.map((unit) => ({
+        ...unit,
+        mcSet: unit.mc.slice(profile.mcOffset, profile.mcOffset + 5),
+        saSet: [
+          unit.sa[profile.saOffset % unit.sa.length],
+          unit.sa[(profile.saOffset + 1) % unit.sa.length]
+        ]
+      }));
     }
 
     function renderTabs() {
-      tabs.innerHTML = "";
-      exams.forEach((exam) => {
-        const btn = document.createElement("button");
-        btn.className = `tab-btn${exam.id === activeExamId ? " active" : ""}`;
-        btn.type = "button";
-        btn.textContent = exam.tag;
-        btn.addEventListener("click", () => {
-          activeExamId = exam.id;
-          renderAll();
-        });
-        tabs.appendChild(btn);
-      });
-    }
-
-    function renderTF(exam) {
-      tfContainer.innerHTML = exam.tf.map((item, index) => `
-        <div class="question" data-tf-index="${index}">
-          <div class="meta">True / False ${index + 1}</div>
-          <div class="question-title">${item.q}</div>
-          <div class="options">
-            <label class="option">
-              <input type="radio" name="tf-${exam.id}-${index}" value="true" />
-              <span>True</span>
-            </label>
-            <label class="option">
-              <input type="radio" name="tf-${exam.id}-${index}" value="false" />
-              <span>False</span>
-            </label>
-          </div>
-        </div>
+      setTabs.innerHTML = examProfiles.map((profile, index) => `
+        <button type="button" class="${index === activeSet ? "active" : ""}" data-set="${index}">Set ${index + 1}</button>
       `).join("");
     }
 
-    function renderMC(exam) {
-      mcContainer.innerHTML = exam.mc.map((item, index) => `
-        <div class="question" data-mc-index="${index}">
-          <div class="meta">Multiple Choice ${index + 1}</div>
-          <div class="question-title">${item.q}</div>
-          <div class="options">
-            ${item.options.map((option, optionIndex) => `
-              <label class="option">
-                <input type="radio" name="mc-${exam.id}-${index}" value="${optionIndex}" />
-                <span>${option}</span>
-              </label>
-            `).join("")}
-          </div>
-        </div>
-      `).join("");
-    }
-
-    function renderSA(exam) {
-      saContainer.innerHTML = exam.sa.map((item, index) => `
-        <div class="question">
-          <div class="meta">Short Answer ${index + 1}</div>
-          <div class="question-title">${item.q}</div>
-          <textarea id="sa-${exam.id}-${index}" placeholder="Write your answer here..."></textarea>
-        </div>
-      `).join("");
-    }
-
-    function renderAnswerKey(exam, tfAnswers, mcAnswers) {
-      const tfScore = exam.tf.reduce((score, item, index) => score + (tfAnswers[index] === item.answer ? 1 : 0), 0);
-      const mcScore = exam.mc.reduce((score, item, index) => score + (mcAnswers[index] === item.answer ? 1 : 0), 0);
-      const totalScore = tfScore + mcScore;
-      const totalPossible = exam.tf.length + exam.mc.length;
-      const scoreClass = totalScore >= 13 ? "good" : totalScore >= 9 ? "warn" : "bad";
-
-      scoreLine.innerHTML = `Selected-answer score: <span class="${scoreClass}">${totalScore} / ${totalPossible}</span>. Compare your short answers with the teacher-style key below.`;
-
-      answerKey.innerHTML = `
-        <div class="key-item">
-          <strong>True / False Key</strong>
-          ${exam.tf.map((item, index) => {
-            const chosen = tfAnswers[index];
-            const chosenText = chosen === undefined ? "No answer selected" : chosen ? "True" : "False";
-            const status = chosen === item.answer ? "good" : "bad";
-            return `<p><span class="${status}">TF${index + 1}</span> Correct: ${item.answer ? "True" : "False"}. Your answer: ${chosenText}. ${item.why}</p>`;
-          }).join("")}
-        </div>
-        <div class="key-item" style="margin-top:14px;">
-          <strong>Multiple Choice Key</strong>
-          ${exam.mc.map((item, index) => {
-            const chosen = mcAnswers[index];
-            const chosenText = chosen === undefined ? "No answer selected" : item.options[chosen];
-            const status = chosen === item.answer ? "good" : "bad";
-            return `<p><span class="${status}">MC${index + 1}</span> Correct: ${item.options[item.answer]}. Your answer: ${chosenText}. ${item.why}</p>`;
-          }).join("")}
-        </div>
-        <div class="key-item" style="margin-top:14px;">
-          <strong>Short Answer Key</strong>
-          ${exam.sa.map((item, index) => `<details><summary>SA${index + 1} Answer</summary><p>${item.answer}</p></details>`).join("")}
-        </div>
-      `;
-    }
-
-    function markSelectedAnswers(exam, tfAnswers, mcAnswers) {
-      document.querySelectorAll("#tfContainer .question").forEach((questionEl, questionIndex) => {
-        questionEl.querySelectorAll(".option").forEach((optionEl, optionIndex) => {
-          optionEl.classList.remove("correct", "incorrect");
-          const optionValue = optionIndex === 0;
-          if (optionValue === exam.tf[questionIndex].answer) {
-            optionEl.classList.add("correct");
-          } else if (tfAnswers[questionIndex] === optionValue) {
-            optionEl.classList.add("incorrect");
-          }
-        });
-      });
-
-      document.querySelectorAll("#mcContainer .question").forEach((questionEl, questionIndex) => {
-        questionEl.querySelectorAll(".option").forEach((optionEl, optionIndex) => {
-          optionEl.classList.remove("correct", "incorrect");
-          if (optionIndex === exam.mc[questionIndex].answer) {
-            optionEl.classList.add("correct");
-          } else if (mcAnswers[questionIndex] === optionIndex) {
-            optionEl.classList.add("incorrect");
-          }
-        });
-      });
-    }
-
-    function renderAll() {
-      const exam = getActiveExam();
-      examTag.textContent = exam.tag;
-      examTitle.textContent = exam.title;
-      examSummary.textContent = exam.summary;
-      tfPill.textContent = `TF: ${exam.tf.length}`;
-      mcPill.textContent = `MC: ${exam.mc.length}`;
-      saPill.textContent = `SA: ${exam.sa.length}`;
+    function renderExam() {
+      submitted = false;
+      const profile = examProfiles[activeSet];
+      examTitle.textContent = profile.title;
+      examSummary.textContent = profile.summary;
+      scoreBox.classList.add("hidden");
+      scoreBox.innerHTML = "";
+      submitBtn.disabled = false;
       renderTabs();
-      renderTF(exam);
-      renderMC(exam);
-      renderSA(exam);
-      resultsCard.classList.add("hidden");
-      scoreLine.textContent = "";
-      answerKey.innerHTML = "";
+
+      const examUnits = examForSet(activeSet);
+      let mcNumber = 1;
+      let saNumber = 1;
+      examForm.classList.remove("submitted");
+      examForm.innerHTML = examUnits.map((unit) => {
+        const mcHtml = unit.mcSet.map((item, index) => {
+          const questionNumber = mcNumber++;
+          return `
+            <div class="question mc-question" data-unit="${unit.name}" data-mc="${questionNumber - 1}" data-answer="${item.answer}">
+              <span class="tag">MC ${questionNumber} | ${unit.name} | ${item.level}</span>
+              <p class="prompt">${item.prompt}</p>
+              ${item.image ? `<div class="figure"><img src="${item.image}" alt="Review worksheet crop for ${unit.name} question" /></div>` : ""}
+              <div class="options">
+                ${item.options.map((option, optionIndex) => `
+                  <label class="option">
+                    <input type="radio" name="mc-${questionNumber}" value="${optionIndex}" />
+                    <span>${option}</span>
+                  </label>
+                `).join("")}
+              </div>
+              <div class="feedback" data-feedback></div>
+            </div>
+          `;
+        }).join("");
+
+        const saHtml = unit.saSet.map((item) => {
+          const questionNumber = saNumber++;
+          return `
+            <div class="question short-answer" data-sa="${questionNumber - 1}">
+              <span class="tag">SA ${questionNumber} | ${unit.name} | ${item.level}</span>
+              <p class="prompt">${item.prompt}</p>
+              <textarea name="sa-${questionNumber}" aria-label="Short answer ${questionNumber}"></textarea>
+              <div class="feedback" data-feedback></div>
+            </div>
+          `;
+        }).join("");
+
+        return `
+          <section class="unit-section" id="unit-${unit.name}">
+            <div class="unit-title">
+              <div>
+                <h3>Unit: ${unit.name}</h3>
+                <p class="muted">${unit.source}</p>
+              </div>
+              <span class="metric">5 MC + 2 SA</span>
+            </div>
+            ${mcHtml}
+            ${saHtml}
+          </section>
+        `;
+      }).join("");
     }
 
-    submitBtn.addEventListener("click", () => {
-      const exam = getActiveExam();
-      const tfAnswers = exam.tf.map((_, index) => {
-        const selected = document.querySelector(`input[name="tf-${exam.id}-${index}"]:checked`);
-        return selected ? selected.value === "true" : undefined;
-      });
-      const mcAnswers = exam.mc.map((_, index) => {
-        const selected = document.querySelector(`input[name="mc-${exam.id}-${index}"]:checked`);
-        return selected ? Number(selected.value) : undefined;
+    function normalize(text) {
+      return text.toLowerCase().replace(/[^a-z0-9+\-./ ]/g, " ");
+    }
+
+    function keywordHit(answer, group) {
+      const text = normalize(answer);
+      return group.some((term) => text.includes(normalize(term).trim()));
+    }
+
+    function gradeShortAnswer(answer, keywords) {
+      if (!answer.trim()) return false;
+      const hits = keywords.filter((group) => keywordHit(answer, group)).length;
+      return hits >= Math.min(3, keywords.length);
+    }
+
+    function submitExam() {
+      if (submitted) return;
+      submitted = true;
+      const examUnits = examForSet(activeSet);
+      const allMc = examUnits.flatMap((unit) => unit.mcSet);
+      const allSa = examUnits.flatMap((unit) => unit.saSet);
+      let mcScore = 0;
+      let saScore = 0;
+
+      document.querySelectorAll(".mc-question").forEach((question, index) => {
+        const item = allMc[index];
+        const selected = question.querySelector("input[type='radio']:checked");
+        const selectedValue = selected ? Number(selected.value) : -1;
+        if (selectedValue === item.answer) mcScore += 1;
+
+        question.querySelectorAll(".option").forEach((option, optionIndex) => {
+          option.classList.remove("correct", "incorrect");
+          if (optionIndex === item.answer) option.classList.add("correct");
+          if (optionIndex === selectedValue && selectedValue !== item.answer) option.classList.add("incorrect");
+        });
+
+        const feedback = question.querySelector("[data-feedback]");
+        const chosenText = selectedValue >= 0 ? item.options[selectedValue] : "No answer selected";
+        const correctText = item.options[item.answer];
+        feedback.className = `feedback ${selectedValue === item.answer ? "good" : "bad"}`;
+        feedback.innerHTML = selectedValue === item.answer
+          ? `Correct. ${item.why}`
+          : `Wrong. Your answer: ${chosenText}. Correct answer: ${correctText}. <span class="model">${item.why}</span>`;
       });
 
-      markSelectedAnswers(exam, tfAnswers, mcAnswers);
-      renderAnswerKey(exam, tfAnswers, mcAnswers);
-      resultsCard.classList.remove("hidden");
-      resultsCard.scrollIntoView({ behavior: "smooth", block: "start" });
+      document.querySelectorAll(".short-answer").forEach((question, index) => {
+        const item = allSa[index];
+        const textarea = question.querySelector("textarea");
+        const correct = gradeShortAnswer(textarea.value, item.keywords);
+        if (correct) saScore += 1;
+        question.classList.add(correct ? "correct" : "incorrect");
+        const feedback = question.querySelector("[data-feedback]");
+        feedback.className = `feedback ${correct ? "good" : "bad"}`;
+        feedback.innerHTML = correct
+          ? `Likely correct based on key words. <div class="model">Model answer: ${item.answer}</div>`
+          : `Needs review or more detail. <div class="model">Model answer: ${item.answer}</div>`;
+      });
+
+      examForm.classList.add("submitted");
+      submitBtn.disabled = true;
+      const total = mcScore + saScore;
+      const percent = Math.round((total / 35) * 100);
+      scoreBox.classList.remove("hidden");
+      scoreBox.innerHTML = `
+        <h3>Results</h3>
+        <p>Multiple choice: <span class="good-text">${mcScore} / 25</span>. Short answer keyword check: <span class="${saScore >= 7 ? "good-text" : "bad-text"}">${saScore} / 10</span>. Overall: <strong>${total} / 35 (${percent}%)</strong>.</p>
+        <p class="muted">Green shows correct answers or likely-correct short answers. Red shows wrong multiple-choice selections or short answers that need more key science terms.</p>
+      `;
+      scoreBox.scrollIntoView({ behavior: "smooth", block: "center" });
+    }
+
+    setTabs.addEventListener("click", (event) => {
+      const button = event.target.closest("[data-set]");
+      if (!button) return;
+      activeSet = Number(button.dataset.set);
+      renderExam();
     });
 
-    resetBtn.addEventListener("click", () => {
-      renderAll();
-    });
-
-    renderAll();
+    submitBtn.addEventListener("click", submitExam);
+    resetBtn.addEventListener("click", renderExam);
+    renderExam();
   </script>
 </body>
 </html>
