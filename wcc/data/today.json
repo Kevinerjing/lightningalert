@@ -1,14 +1,14 @@
 {
-  "boardDate": "2026-06-18",
-  "generatedAt": "2026-06-18T14:29:40.797Z",
+  "boardDate": "2026-06-19",
+  "generatedAt": "2026-06-19T14:25:31.751Z",
   "sourceCount": 26,
   "weather": [
     {
       "city": "Ottawa",
-      "temperatureC": 16,
-      "maxC": 20,
-      "minC": 16,
-      "summary": "Rain"
+      "temperatureC": 17,
+      "maxC": 18,
+      "minC": 15,
+      "summary": "Light rain"
     }
   ],
   "extremeWeather": [
@@ -22,6 +22,15 @@
       "publishedAt": "2026-06-17T19:19:55.000Z"
     },
     {
+      "title": "Climate shocks accelerating as El Niño threat looms over already vulnerable regions",
+      "whatHappened": "Millions of people already facing hunger, displacement and economic hardship could soon face another major climate shock, as UN agencies warned on Thursday that extreme weather...",
+      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
+      "keyWord": "extreme weather: unusual and dangerous weather like floods, storms, or heat waves",
+      "source": "UN Climate",
+      "url": "https://news.un.org/feed/view/en/story/2026/06/1167753",
+      "publishedAt": "2026-06-18T12:00:00.000Z"
+    },
+    {
       "title": "Even as Florida moves detainees from ‘Alligator Alcatraz’, activists fight for its permanent closure",
       "whatHappened": "Groups cite detainee maltreatment and degradation of surrounding land as reasons to close facility permanently Sign up for the Breaking News US newsletter email An alliance...",
       "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
@@ -29,24 +38,6 @@
       "source": "The Guardian Environment",
       "url": "https://www.theguardian.com/us-news/2026/jun/17/florida-alligator-alcatraz-activists",
       "publishedAt": "2026-06-17T20:28:08.000Z"
-    },
-    {
-      "title": "The ocean has shielded us from the worst of climate change. Now it is running a fever | Karina Von Schuckmann",
-      "whatHappened": "Nearly every indicator of climate change is flashing red.",
-      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
-      "keyWord": "heat wave: a long period of unusually hot weather",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/commentisfree/2026/jun/17/ocean-fever-climate-change",
-      "publishedAt": "2026-06-17T10:00:28.000Z"
-    },
-    {
-      "title": "US lawmakers fight Trump cuts to $386m ocean monitoring program: ‘supreme stupidity’",
-      "whatHappened": "Lisa Murkowski, a Republican senator, joins Democrats in bid to stop dismantling of Ocean Observatories Initiative US politics live – latest updates A group of Democratic...",
-      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
-      "keyWord": "extreme weather: unusual and dangerous weather like floods, storms, or heat waves",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/us-news/2026/jun/16/ocean-monitoring-cuts-trump",
-      "publishedAt": "2026-06-16T14:48:20.000Z"
     },
     {
       "title": "Triple climate threats affect nearly half the world’s children",
@@ -69,13 +60,13 @@
   ],
   "climate": [
     {
-      "title": "AI’s environmental costs threaten water, land and climate",
-      "whatHappened": "Artificial Intelligence is not only responsible for worrying amounts of earth-warming greenhouse gases: the technology's environmental footprint is also expanding at a pace that could strain...",
+      "title": "Datacenters driving US clean energy growth while still threatening climate",
+      "whatHappened": "As datacenters’ connections to electric grids are held up, big tech is forced to throw money at producing its own power Datacenters are driving unprecedented growth...",
       "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
       "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "UN Climate",
-      "url": "https://news.un.org/feed/view/en/story/2026/06/1167658",
-      "publishedAt": "2026-06-04T12:00:00.000Z"
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/us-news/2026/jun/19/datacenters-us-clean-energy-growth-climate",
+      "publishedAt": "2026-06-19T11:00:30.000Z"
     },
     {
       "title": "Humanity’s future depends on protecting the rapidly changing ocean",
@@ -87,13 +78,22 @@
       "publishedAt": "2026-06-07T12:00:00.000Z"
     },
     {
-      "title": "Drax cleared after investigation into sourcing of wood pellets",
-      "whatHappened": "Generator’s shares rise as regulator finds no evidence of misleading statements about fuel’s sustainability Business live – latest updates The City watchdog has closed an investigation...",
+      "title": "Fermentation, flavour and the future of food: Making sustainability delicious",
+      "whatHappened": "Words like “sustainability” and “healthy” shouldn’t take the joy out of eating.",
       "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
       "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/business/2026/jun/18/fca-closes-investigation-drax-biomass-fuel-sourcing-wood-pellets",
-      "publishedAt": "2026-06-18T11:35:50.000Z"
+      "source": "UN Climate",
+      "url": "https://news.un.org/feed/view/en/story/2026/06/1167755",
+      "publishedAt": "2026-06-18T12:00:00.000Z"
+    },
+    {
+      "title": "Climate shocks accelerating as El Niño threat looms over already vulnerable regions",
+      "whatHappened": "Millions of people already facing hunger, displacement and economic hardship could soon face another major climate shock, as UN agencies warned on Thursday that extreme weather...",
+      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
+      "keyWord": "climate: the usual pattern of weather over a long period of time",
+      "source": "UN Climate",
+      "url": "https://news.un.org/feed/view/en/story/2026/06/1167753",
+      "publishedAt": "2026-06-18T12:00:00.000Z"
     },
     {
       "title": "US public still favours action on climate change despite Trump’s fossil fuel drive",
@@ -105,33 +105,33 @@
       "publishedAt": "2026-06-17T12:00:31.000Z"
     },
     {
-      "title": "The ocean has shielded us from the worst of climate change. Now it is running a fever | Karina Von Schuckmann",
-      "whatHappened": "Nearly every indicator of climate change is flashing red.",
+      "title": "Triple climate threats affect nearly half the world’s children",
+      "whatHappened": "Drought, extreme heat and heatwaves are the most prevalent trio of hazards endangering millions of children globally, warned a newly released climate report by the UN...",
       "whyItMatters": "Climate and environment stories connect science to real issues like safety, health, and extreme weather.",
       "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/commentisfree/2026/jun/17/ocean-fever-climate-change",
-      "publishedAt": "2026-06-17T10:00:28.000Z"
-    },
-    {
-      "title": "Trump’s DoJ intervenes to back Elon Musk in datacenter pollution lawsuit",
-      "whatHappened": "Justice department urges judge to throw out suit brought by NAACP over xAI’s methane-gas turbines in Mississippi The Trump administration is coming to the defense of...",
-      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
-      "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/technology/2026/jun/16/elon-musk-xai-datacenters-trump-administration",
-      "publishedAt": "2026-06-16T23:01:13.000Z"
+      "source": "UN Climate",
+      "url": "https://news.un.org/feed/view/en/story/2026/06/1167723",
+      "publishedAt": "2026-06-15T12:00:00.000Z"
     }
   ],
   "weatherTech": [
     {
-      "title": "US lawmakers fight Trump cuts to $386m ocean monitoring program: ‘supreme stupidity’",
-      "whatHappened": "Lisa Murkowski, a Republican senator, joins Democrats in bid to stop dismantling of Ocean Observatories Initiative US politics live – latest updates A group of Democratic...",
+      "title": "Datacenters driving US clean energy growth while still threatening climate",
+      "whatHappened": "As datacenters’ connections to electric grids are held up, big tech is forced to throw money at producing its own power Datacenters are driving unprecedented growth...",
+      "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
+      "keyWord": "solar: related to energy from sunlight",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/us-news/2026/jun/19/datacenters-us-clean-energy-growth-climate",
+      "publishedAt": "2026-06-19T11:00:30.000Z"
+    },
+    {
+      "title": "Trump administration reverses decision to scrap ocean monitoring system",
+      "whatHappened": "Move to dismantle $368m sea observatory initiative faced opposition from experts and lawmakers The Donald Trump administration has reversed its decision to dismantle a $368m deep-sea...",
       "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
       "keyWord": "weather technology: tools that help people measure, study, or predict weather and climate",
       "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/us-news/2026/jun/16/ocean-monitoring-cuts-trump",
-      "publishedAt": "2026-06-16T14:48:20.000Z"
+      "url": "https://www.theguardian.com/us-news/2026/jun/18/ocean-monitoring-system-reversal-trump-administration",
+      "publishedAt": "2026-06-18T19:31:44.000Z"
     }
   ],
   "universityNews": [
@@ -177,8 +177,17 @@
       "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
       "keyWord": "sustainability: using resources in a way that can last over time",
       "source": "uOttawa News",
-      "url": "https://www.uottawa.ca/en/news-all/centre-environmental-law-global-sustainability-welcomes-new-co-directors",
-      "publishedAt": "2026-06-18T14:29:34.036Z"
+      "url": "https://www.uottawa.ca/en/news-all/centre-environmental-law-global-sustainability-welcomes-new-co-directors-0",
+      "publishedAt": "2026-06-19T14:25:23.819Z"
+    },
+    {
+      "title": "Carbon Dioxide and Water Played Key Roles in Historic Mount Etna Eruptions",
+      "whatHappened": "Understanding these dynamics can help geologists assess the risk of future eruptions.",
+      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
+      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
+      "source": "Columbia Climate School",
+      "url": "https://news.climate.columbia.edu/2026/06/18/carbon-dioxide-and-water-played-key-roles-in-historic-mount-etna-eruptions/",
+      "publishedAt": "2026-06-18T16:45:46.000Z"
     },
     {
       "title": "The Colorado River is running dry. Is desalination the solution?",
@@ -226,22 +235,13 @@
       "publishedAt": "2026-05-19T12:00:00.000Z"
     },
     {
-      "title": "Interwoven",
-      "whatHappened": "How Indigenous knowledge and science can work together to communicate about climate.",
+      "title": "Professor Geneviève Dufour moderates discussion with Canada’s Minister of Energy and Natural Resources",
+      "whatHappened": "Professor Geneviève Dufour moderates discussion with Canada’s Minister of Energy and Natural Resources",
       "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
       "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
-      "source": "University of Wisconsin News",
-      "url": "https://news.wisc.edu/interwoven/",
-      "publishedAt": "2026-06-17T15:09:51.000Z"
-    },
-    {
-      "title": "New Research Indicates That in the Future, Trees May Store Less Carbon Than Expected",
-      "whatHappened": "Even as trees photosynthesize late into the year, their growth stops by mid-summer, which impacts their carbon uptake.",
-      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
-      "keyWord": "research: careful study used to discover new knowledge",
-      "source": "Columbia Climate School",
-      "url": "https://news.climate.columbia.edu/2026/06/12/new-research-indicates-that-in-the-future-trees-may-store-less-carbon-than-expected/",
-      "publishedAt": "2026-06-12T18:00:00.000Z"
+      "source": "uOttawa News",
+      "url": "https://www.uottawa.ca/en/news-all/professor-genevieve-dufour-moderates-discussion-canadas-minister-energy-natural-resources",
+      "publishedAt": "2026-06-19T14:25:23.818Z"
     }
   ]
 }
