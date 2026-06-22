@@ -1,13 +1,13 @@
 {
-  "boardDate": "2026-06-21",
-  "generatedAt": "2026-06-21T13:22:57.370Z",
+  "boardDate": "2026-06-22",
+  "generatedAt": "2026-06-22T16:11:47.857Z",
   "sourceCount": 26,
   "weather": [
     {
       "city": "Ottawa",
-      "temperatureC": 18,
-      "maxC": 22,
-      "minC": 15,
+      "temperatureC": 23,
+      "maxC": 25,
+      "minC": 12,
       "summary": "Cloudy"
     }
   ],
@@ -20,6 +20,15 @@
       "source": "The Guardian Environment",
       "url": "https://www.theguardian.com/us-news/2026/jun/17/tropical-storm-arthur-atlantic-hurricane-season",
       "publishedAt": "2026-06-17T19:19:55.000Z"
+    },
+    {
+      "title": "Two children found dead in family car in France as Europe suffers under extreme heatwave",
+      "whatHappened": "Rail services, schools and sports events hit as several cities experience record night-time temperatures of 25C Two children aged four and two have been found dead...",
+      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
+      "keyWord": "heat wave: a long period of unusually hot weather",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/environment/2026/jun/22/europe-record-heatwave-temperatures-forecast-reach-44c",
+      "publishedAt": "2026-06-22T15:22:05.000Z"
     },
     {
       "title": "Climate shocks accelerating as El Niño threat looms over already vulnerable regions",
@@ -125,22 +134,13 @@
       "publishedAt": "2026-06-19T11:00:30.000Z"
     },
     {
-      "title": "How Roomba started a robot revolution",
-      "whatHappened": "If you had a Roomba, especially in the early days of the robot vacuum, it was in many ways a fairly unsophisticated machine.",
-      "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
-      "keyWord": "battery: a device that stores energy for later use",
-      "source": "The Verge",
-      "url": "https://www.theverge.com/podcast/953275/roomba-robot-vacuum-version-history",
-      "publishedAt": "2026-06-21T12:29:01.000Z"
-    },
-    {
-      "title": "SwitchBot’s Standing Circulator Fan is worth fighting for",
-      "whatHappened": "I can't remember the last time I got excited about a fan.",
+      "title": "Two children found dead in family car in France as Europe suffers under extreme heatwave",
+      "whatHappened": "Rail services, schools and sports events hit as several cities experience record night-time temperatures of 25C Two children aged four and two have been found dead...",
       "whyItMatters": "Weather technology shows how science tools can predict conditions faster and help people prepare earlier.",
-      "keyWord": "battery: a device that stores energy for later use",
-      "source": "The Verge",
-      "url": "https://www.theverge.com/tech/952855/switchbot-standing-circulator-fan-review",
-      "publishedAt": "2026-06-20T10:30:50.000Z"
+      "keyWord": "forecast: a prediction about future weather conditions",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/environment/2026/jun/22/europe-record-heatwave-temperatures-forecast-reach-44c",
+      "publishedAt": "2026-06-22T15:22:05.000Z"
     },
     {
       "title": "Trump administration reverses decision to scrap ocean monitoring system",
@@ -190,15 +190,6 @@
       "publishedAt": "2025-07-29T18:38:05.000Z"
     },
     {
-      "title": "The Centre for Environmental Law and Global Sustainability welcomes new Co-Directors",
-      "whatHappened": "The Centre for Environmental Law and Global Sustainability welcomes new Co-Directors",
-      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
-      "keyWord": "sustainability: using resources in a way that can last over time",
-      "source": "uOttawa News",
-      "url": "https://www.uottawa.ca/en/news-all/centre-environmental-law-global-sustainability-welcomes-new-co-directors-0",
-      "publishedAt": "2026-06-21T13:22:56.166Z"
-    },
-    {
       "title": "Carbon Dioxide and Water Played Key Roles in Historic Mount Etna Eruptions",
       "whatHappened": "Understanding these dynamics can help geologists assess the risk of future eruptions.",
       "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
@@ -206,15 +197,6 @@
       "source": "Columbia Climate School",
       "url": "https://news.climate.columbia.edu/2026/06/18/carbon-dioxide-and-water-played-key-roles-in-historic-mount-etna-eruptions/",
       "publishedAt": "2026-06-18T16:45:46.000Z"
-    },
-    {
-      "title": "The Colorado River is running dry. Is desalination the solution?",
-      "whatHappened": "Arizona and Nevada agreed to a trade for desalinated water from the Pacific Ocean as the Colorado River dries.",
-      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
-      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
-      "source": "Northeastern Global News",
-      "url": "https://news.northeastern.edu/2026/06/17/colorado-river-desalination-agreement/",
-      "publishedAt": "2026-06-17T22:15:01.000Z"
     },
     {
       "title": "Dean search advisory committees named for Taubman, Marsal, SEAS",
@@ -259,7 +241,25 @@
       "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
       "source": "uOttawa News",
       "url": "https://www.uottawa.ca/en/news-all/professor-genevieve-dufour-moderates-discussion-canadas-minister-energy-natural-resources",
-      "publishedAt": "2026-06-21T13:22:56.166Z"
+      "publishedAt": "2026-06-22T16:11:46.078Z"
+    },
+    {
+      "title": "June Research Roundup: Select Papers",
+      "whatHappened": "In this month's edition of our research roundup, we highlight a new study on African air pollution; deep Earth carbon recycling; and a Pacific cooling mystery.",
+      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
+      "keyWord": "research: careful study used to discover new knowledge",
+      "source": "Columbia Climate School",
+      "url": "https://news.climate.columbia.edu/2026/06/22/june-research-roundup-select-papers/",
+      "publishedAt": "2026-06-22T15:18:30.000Z"
+    },
+    {
+      "title": "Interwoven",
+      "whatHappened": "How Indigenous knowledge and science can work together to communicate about climate.",
+      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
+      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
+      "source": "University of Wisconsin News",
+      "url": "https://news.wisc.edu/interwoven/",
+      "publishedAt": "2026-06-17T15:09:51.000Z"
     }
   ]
 }
