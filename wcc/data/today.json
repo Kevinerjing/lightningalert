@@ -1,34 +1,52 @@
 {
-  "boardDate": "2026-06-22",
-  "generatedAt": "2026-06-22T16:11:47.857Z",
+  "boardDate": "2026-06-23",
+  "generatedAt": "2026-06-23T14:00:32.163Z",
   "sourceCount": 26,
   "weather": [
     {
       "city": "Ottawa",
-      "temperatureC": 23,
-      "maxC": 25,
-      "minC": 12,
+      "temperatureC": 19,
+      "maxC": 23,
+      "minC": 13,
       "summary": "Cloudy"
     }
   ],
   "extremeWeather": [
     {
-      "title": "Atlantic hurricane season opens with Tropical Storm Arthur inundating Gulf coast",
-      "whatHappened": "The southern US is seeing intense rain that is expected to cause dangerous flash flooding Sign up for the Breaking News US newsletter email The first...",
+      "title": "Majority of datacenters are vulnerable to climate threats like floods and fires, study finds",
+      "whatHappened": "Study warns AI datacenters are vulnerable to the climate hazards that their global greenhouse gas emissions bolster Amid rising concern that the artificial intelligence boom is...",
       "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
       "keyWord": "flood: water covering land that is usually dry",
       "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/us-news/2026/jun/17/tropical-storm-arthur-atlantic-hurricane-season",
-      "publishedAt": "2026-06-17T19:19:55.000Z"
+      "url": "https://www.theguardian.com/us-news/2026/jun/23/datacenters-climate-hazards-study",
+      "publishedAt": "2026-06-23T11:30:26.000Z"
     },
     {
-      "title": "Two children found dead in family car in France as Europe suffers under extreme heatwave",
-      "whatHappened": "Rail services, schools and sports events hit as several cities experience record night-time temperatures of 25C Two children aged four and two have been found dead...",
+      "title": "Forty drown across France in heatwave and parts of Spain above 30C at night",
+      "whatHappened": "France has its hottest night on record, 15 Italian cities under red heat alert and UN chief says London is ‘cooking’ Europe heatwave live – latest...",
       "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
       "keyWord": "heat wave: a long period of unusually hot weather",
       "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/environment/2026/jun/22/europe-record-heatwave-temperatures-forecast-reach-44c",
-      "publishedAt": "2026-06-22T15:22:05.000Z"
+      "url": "https://www.theguardian.com/world/2026/jun/23/heatwave-france-spain-italy-europe",
+      "publishedAt": "2026-06-23T13:44:33.000Z"
+    },
+    {
+      "title": "A super El Niño threatens disaster. Trump is handling it recklessly | Terry Garcia",
+      "whatHappened": "The administration interrupted data streams that are key to forecasting.",
+      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
+      "keyWord": "drought: a long time with very little rain",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/commentisfree/2026/jun/23/super-el-nino-extreme-weather-trump",
+      "publishedAt": "2026-06-23T12:00:27.000Z"
+    },
+    {
+      "title": "Climate crisis: UN chief lays out solutions blueprint for clean energy transition",
+      "whatHappened": "As a deadly heatwave continued to grip Europe on Tuesday, UN Secretary-General António Guterres issued an impassioned appeal for more ambitious global action on climate change...",
+      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
+      "keyWord": "heat wave: a long period of unusually hot weather",
+      "source": "UN Climate",
+      "url": "https://news.un.org/feed/view/en/story/2026/06/1167785",
+      "publishedAt": "2026-06-23T12:00:00.000Z"
     },
     {
       "title": "Climate shocks accelerating as El Niño threat looms over already vulnerable regions",
@@ -40,15 +58,6 @@
       "publishedAt": "2026-06-18T12:00:00.000Z"
     },
     {
-      "title": "Even as Florida moves detainees from ‘Alligator Alcatraz’, activists fight for its permanent closure",
-      "whatHappened": "Groups cite detainee maltreatment and degradation of surrounding land as reasons to close facility permanently Sign up for the Breaking News US newsletter email An alliance...",
-      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
-      "keyWord": "extreme weather: unusual and dangerous weather like floods, storms, or heat waves",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/us-news/2026/jun/17/florida-alligator-alcatraz-activists",
-      "publishedAt": "2026-06-17T20:28:08.000Z"
-    },
-    {
       "title": "Triple climate threats affect nearly half the world’s children",
       "whatHappened": "Drought, extreme heat and heatwaves are the most prevalent trio of hazards endangering millions of children globally, warned a newly released climate report by the UN...",
       "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
@@ -56,15 +65,6 @@
       "source": "UN Climate",
       "url": "https://news.un.org/feed/view/en/story/2026/06/1167723",
       "publishedAt": "2026-06-15T12:00:00.000Z"
-    },
-    {
-      "title": "El Niño under way and threatens weather extremes, scientists say",
-      "whatHappened": "An El Niño event has officially started, say US scientists, raising fears of extreme weather and higher temperatures.",
-      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
-      "keyWord": "extreme weather: unusual and dangerous weather like floods, storms, or heat waves",
-      "source": "BBC Science & Environment",
-      "url": "https://www.bbc.com/news/articles/c75ylx7g00xo?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-06-11T13:26:24.000Z"
     }
   ],
   "climate": [
@@ -78,13 +78,40 @@
       "publishedAt": "2026-06-19T11:00:30.000Z"
     },
     {
-      "title": "Humanity’s future depends on protecting the rapidly changing ocean",
-      "whatHappened": "The ocean covers more than 70 per cent of the planet&nbsp;and regulates climate, sustains biodiversity, and supports economies and cultures worldwide.",
+      "title": "Majority of datacenters are vulnerable to climate threats like floods and fires, study finds",
+      "whatHappened": "Study warns AI datacenters are vulnerable to the climate hazards that their global greenhouse gas emissions bolster Amid rising concern that the artificial intelligence boom is...",
+      "whyItMatters": "Climate and environment stories connect science to real issues like safety, health, and extreme weather.",
+      "keyWord": "emissions: gases released into the air",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/us-news/2026/jun/23/datacenters-climate-hazards-study",
+      "publishedAt": "2026-06-23T11:30:26.000Z"
+    },
+    {
+      "title": "Climate crisis: UN chief lays out solutions blueprint for clean energy transition",
+      "whatHappened": "As a deadly heatwave continued to grip Europe on Tuesday, UN Secretary-General António Guterres issued an impassioned appeal for more ambitious global action on climate change...",
+      "whyItMatters": "Climate and environment stories connect science to real issues like safety, health, and extreme weather.",
+      "keyWord": "climate: the usual pattern of weather over a long period of time",
+      "source": "UN Climate",
+      "url": "https://news.un.org/feed/view/en/story/2026/06/1167785",
+      "publishedAt": "2026-06-23T12:00:00.000Z"
+    },
+    {
+      "title": "Powering resilience: How Indonesia is building a more secure energy future",
+      "whatHappened": "As countries grapple with energy price shocks, supply disruptions and the growing impacts of climate change, energy security has become a pressing concern.&nbsp;",
       "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
       "keyWord": "climate: the usual pattern of weather over a long period of time",
       "source": "UN Climate",
-      "url": "https://news.un.org/feed/view/en/story/2026/06/1167654",
-      "publishedAt": "2026-06-07T12:00:00.000Z"
+      "url": "https://news.un.org/feed/view/en/story/2026/06/1167784",
+      "publishedAt": "2026-06-22T12:00:00.000Z"
+    },
+    {
+      "title": "A super El Niño threatens disaster. Trump is handling it recklessly | Terry Garcia",
+      "whatHappened": "The administration interrupted data streams that are key to forecasting.",
+      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
+      "keyWord": "climate: the usual pattern of weather over a long period of time",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/commentisfree/2026/jun/23/super-el-nino-extreme-weather-trump",
+      "publishedAt": "2026-06-23T12:00:27.000Z"
     },
     {
       "title": "Fermentation, flavour and the future of food: Making sustainability delicious",
@@ -94,33 +121,6 @@
       "source": "UN Climate",
       "url": "https://news.un.org/feed/view/en/story/2026/06/1167755",
       "publishedAt": "2026-06-18T12:00:00.000Z"
-    },
-    {
-      "title": "Climate shocks accelerating as El Niño threat looms over already vulnerable regions",
-      "whatHappened": "Millions of people already facing hunger, displacement and economic hardship could soon face another major climate shock, as UN agencies warned on Thursday that extreme weather...",
-      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
-      "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "UN Climate",
-      "url": "https://news.un.org/feed/view/en/story/2026/06/1167753",
-      "publishedAt": "2026-06-18T12:00:00.000Z"
-    },
-    {
-      "title": "Triple climate threats affect nearly half the world’s children",
-      "whatHappened": "Drought, extreme heat and heatwaves are the most prevalent trio of hazards endangering millions of children globally, warned a newly released climate report by the UN...",
-      "whyItMatters": "Climate and environment stories connect science to real issues like safety, health, and extreme weather.",
-      "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "UN Climate",
-      "url": "https://news.un.org/feed/view/en/story/2026/06/1167723",
-      "publishedAt": "2026-06-15T12:00:00.000Z"
-    },
-    {
-      "title": "Countries urged to ‘go further, faster’ and deliver on climate commitments",
-      "whatHappened": "The United Nations climate chief called on Monday for countries to step up action to implement existing commitments, warning that fossil fuel dependency is deepening economic...",
-      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
-      "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "UN Climate",
-      "url": "https://news.un.org/feed/view/en/story/2026/06/1167673",
-      "publishedAt": "2026-06-08T12:00:00.000Z"
     }
   ],
   "weatherTech": [
@@ -134,13 +134,22 @@
       "publishedAt": "2026-06-19T11:00:30.000Z"
     },
     {
-      "title": "Two children found dead in family car in France as Europe suffers under extreme heatwave",
-      "whatHappened": "Rail services, schools and sports events hit as several cities experience record night-time temperatures of 25C Two children aged four and two have been found dead...",
+      "title": "A super El Niño threatens disaster. Trump is handling it recklessly | Terry Garcia",
+      "whatHappened": "The administration interrupted data streams that are key to forecasting.",
       "whyItMatters": "Weather technology shows how science tools can predict conditions faster and help people prepare earlier.",
       "keyWord": "forecast: a prediction about future weather conditions",
       "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/environment/2026/jun/22/europe-record-heatwave-temperatures-forecast-reach-44c",
-      "publishedAt": "2026-06-22T15:22:05.000Z"
+      "url": "https://www.theguardian.com/commentisfree/2026/jun/23/super-el-nino-extreme-weather-trump",
+      "publishedAt": "2026-06-23T12:00:27.000Z"
+    },
+    {
+      "title": "Climate crisis: UN chief lays out solutions blueprint for clean energy transition",
+      "whatHappened": "As a deadly heatwave continued to grip Europe on Tuesday, UN Secretary-General António Guterres issued an impassioned appeal for more ambitious global action on climate change...",
+      "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
+      "keyWord": "weather technology: tools that help people measure, study, or predict weather and climate",
+      "source": "UN Climate",
+      "url": "https://news.un.org/feed/view/en/story/2026/06/1167785",
+      "publishedAt": "2026-06-23T12:00:00.000Z"
     },
     {
       "title": "Trump administration reverses decision to scrap ocean monitoring system",
@@ -172,6 +181,15 @@
       "publishedAt": "2025-07-29T18:25:35.000Z"
     },
     {
+      "title": "Energy agreement puts U-M on track to zero emissions tied to purchased electricity in 2027",
+      "whatHappened": "A new renewable energy agreement with DTE Energy marks a major milestone in the University of Michigan's campus energy transition, putting U-M on track to eliminate...",
+      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
+      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
+      "source": "University of Michigan Record",
+      "url": "https://record.umich.edu/articles/energy-agreement-puts-u-m-on-track-to-zero-emissions-tied-to-purchased-electricity-in-2027/",
+      "publishedAt": "2026-06-16T13:36:18.000Z"
+    },
+    {
       "title": "Innovative projects explore ways to deal with extreme heat",
       "whatHappened": "Low-cost personal cooling and emissions-free air conditioning among ideas studied with MIT’s Climate Project seed funding.",
       "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
@@ -197,15 +215,6 @@
       "source": "Columbia Climate School",
       "url": "https://news.climate.columbia.edu/2026/06/18/carbon-dioxide-and-water-played-key-roles-in-historic-mount-etna-eruptions/",
       "publishedAt": "2026-06-18T16:45:46.000Z"
-    },
-    {
-      "title": "Dean search advisory committees named for Taubman, Marsal, SEAS",
-      "whatHappened": "The search process has started for the next deans of the A.",
-      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
-      "keyWord": "sustainability: using resources in a way that can last over time",
-      "source": "University of Michigan Record",
-      "url": "https://record.umich.edu/articles/dean-search-advisory-committees-named-for-taubman-marsal-seas/",
-      "publishedAt": "2026-06-10T05:55:00.000Z"
     },
     {
       "title": "Environment professor recognized for her outstanding research contributions",
@@ -235,13 +244,13 @@
       "publishedAt": "2026-05-19T12:00:00.000Z"
     },
     {
-      "title": "Professor Geneviève Dufour moderates discussion with Canada’s Minister of Energy and Natural Resources",
-      "whatHappened": "Professor Geneviève Dufour moderates discussion with Canada’s Minister of Energy and Natural Resources",
+      "title": "Europe is facing a heat wave that is intensifying",
+      "whatHappened": "Europe is facing a heat wave that is intensifying",
       "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
       "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
       "source": "uOttawa News",
-      "url": "https://www.uottawa.ca/en/news-all/professor-genevieve-dufour-moderates-discussion-canadas-minister-energy-natural-resources",
-      "publishedAt": "2026-06-22T16:11:46.078Z"
+      "url": "https://www.uottawa.ca/en/news-all/uottawa-academic-expertise-europe-facing-heat-wave-intensifying",
+      "publishedAt": "2026-06-23T14:00:23.945Z"
     },
     {
       "title": "June Research Roundup: Select Papers",
