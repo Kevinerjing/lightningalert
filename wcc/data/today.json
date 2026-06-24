@@ -1,14 +1,14 @@
 {
-  "boardDate": "2026-06-23",
-  "generatedAt": "2026-06-23T14:00:32.163Z",
+  "boardDate": "2026-06-24",
+  "generatedAt": "2026-06-24T13:37:15.599Z",
   "sourceCount": 26,
   "weather": [
     {
       "city": "Ottawa",
-      "temperatureC": 19,
-      "maxC": 23,
+      "temperatureC": 20,
+      "maxC": 25,
       "minC": 13,
-      "summary": "Cloudy"
+      "summary": "Clear skies"
     }
   ],
   "extremeWeather": [
@@ -22,13 +22,40 @@
       "publishedAt": "2026-06-23T11:30:26.000Z"
     },
     {
-      "title": "Forty drown across France in heatwave and parts of Spain above 30C at night",
-      "whatHappened": "France has its hottest night on record, 15 Italian cities under red heat alert and UN chief says London is ‘cooking’ Europe heatwave live – latest...",
+      "title": "Europe heatwave live: estimated 94 million people to experience temperatures above 35C today",
+      "whatHappened": "UK issues rare red heat alert as 68,000 households lose electricity in northern France and Italy puts warnings in place for 16 cities Tell us: how...",
       "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
       "keyWord": "heat wave: a long period of unusually hot weather",
       "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/world/2026/jun/23/heatwave-france-spain-italy-europe",
-      "publishedAt": "2026-06-23T13:44:33.000Z"
+      "url": "https://www.theguardian.com/world/live/2026/jun/24/europe-heatwave-live-news-updates-uk-record-breaking-temperatures-italy-red-alert",
+      "publishedAt": "2026-06-24T12:52:43.000Z"
+    },
+    {
+      "title": "Why this heatwave feels worse than the last one",
+      "whatHappened": "A combination of factors is making this heatwave more uncomfortable than some we have had in the past, as Simon King explains",
+      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
+      "keyWord": "heat wave: a long period of unusually hot weather",
+      "source": "BBC Science & Environment",
+      "url": "https://www.bbc.co.uk/weather/articles/c3vyzly206no?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-06-24T12:24:39.000Z"
+    },
+    {
+      "title": "Red extreme heat warning extended as record-breaking heatwave continues",
+      "whatHappened": "Temperatures are predicted to climb to around 37 or 38C in southern England, with a maximum of 39C not out of the question",
+      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
+      "keyWord": "heat wave: a long period of unusually hot weather",
+      "source": "BBC Science & Environment",
+      "url": "https://www.bbc.co.uk/weather/articles/cwy0n6r5zrzo?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-06-24T11:51:06.000Z"
+    },
+    {
+      "title": "Drowning deaths soar in France as Europe buckles in peak of heatwave",
+      "whatHappened": "Forty people have drowned in heatwave-related deaths in France since last Thursday, Prime Minister Sébastien Lecornu says.",
+      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
+      "keyWord": "heat wave: a long period of unusually hot weather",
+      "source": "BBC Science & Environment",
+      "url": "https://www.bbc.co.uk/news/articles/c79yvw3j114o?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-06-23T16:27:17.000Z"
     },
     {
       "title": "A super El Niño threatens disaster. Trump is handling it recklessly | Terry Garcia",
@@ -38,33 +65,6 @@
       "source": "The Guardian Environment",
       "url": "https://www.theguardian.com/commentisfree/2026/jun/23/super-el-nino-extreme-weather-trump",
       "publishedAt": "2026-06-23T12:00:27.000Z"
-    },
-    {
-      "title": "Climate crisis: UN chief lays out solutions blueprint for clean energy transition",
-      "whatHappened": "As a deadly heatwave continued to grip Europe on Tuesday, UN Secretary-General António Guterres issued an impassioned appeal for more ambitious global action on climate change...",
-      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
-      "keyWord": "heat wave: a long period of unusually hot weather",
-      "source": "UN Climate",
-      "url": "https://news.un.org/feed/view/en/story/2026/06/1167785",
-      "publishedAt": "2026-06-23T12:00:00.000Z"
-    },
-    {
-      "title": "Climate shocks accelerating as El Niño threat looms over already vulnerable regions",
-      "whatHappened": "Millions of people already facing hunger, displacement and economic hardship could soon face another major climate shock, as UN agencies warned on Thursday that extreme weather...",
-      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
-      "keyWord": "extreme weather: unusual and dangerous weather like floods, storms, or heat waves",
-      "source": "UN Climate",
-      "url": "https://news.un.org/feed/view/en/story/2026/06/1167753",
-      "publishedAt": "2026-06-18T12:00:00.000Z"
-    },
-    {
-      "title": "Triple climate threats affect nearly half the world’s children",
-      "whatHappened": "Drought, extreme heat and heatwaves are the most prevalent trio of hazards endangering millions of children globally, warned a newly released climate report by the UN...",
-      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
-      "keyWord": "heat wave: a long period of unusually hot weather",
-      "source": "UN Climate",
-      "url": "https://news.un.org/feed/view/en/story/2026/06/1167723",
-      "publishedAt": "2026-06-15T12:00:00.000Z"
     }
   ],
   "climate": [
@@ -105,6 +105,15 @@
       "publishedAt": "2026-06-22T12:00:00.000Z"
     },
     {
+      "title": "Heat pump growth stalls as government support cut, warns climate watchdog",
+      "whatHappened": "The growth in sales has slowed significantly after a critical government grant programme was cut.",
+      "whyItMatters": "Climate and environment stories connect science to real issues like safety, health, and extreme weather.",
+      "keyWord": "climate: the usual pattern of weather over a long period of time",
+      "source": "BBC Science & Environment",
+      "url": "https://www.bbc.co.uk/news/articles/cn8k4pek3gzo?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-06-24T10:05:19.000Z"
+    },
+    {
       "title": "A super El Niño threatens disaster. Trump is handling it recklessly | Terry Garcia",
       "whatHappened": "The administration interrupted data streams that are key to forecasting.",
       "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
@@ -112,15 +121,6 @@
       "source": "The Guardian Environment",
       "url": "https://www.theguardian.com/commentisfree/2026/jun/23/super-el-nino-extreme-weather-trump",
       "publishedAt": "2026-06-23T12:00:27.000Z"
-    },
-    {
-      "title": "Fermentation, flavour and the future of food: Making sustainability delicious",
-      "whatHappened": "Words like “sustainability” and “healthy” shouldn’t take the joy out of eating.",
-      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
-      "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "UN Climate",
-      "url": "https://news.un.org/feed/view/en/story/2026/06/1167755",
-      "publishedAt": "2026-06-18T12:00:00.000Z"
     }
   ],
   "weatherTech": [
@@ -132,6 +132,15 @@
       "source": "The Guardian Environment",
       "url": "https://www.theguardian.com/us-news/2026/jun/19/datacenters-us-clean-energy-growth-climate",
       "publishedAt": "2026-06-19T11:00:30.000Z"
+    },
+    {
+      "title": "Mark Zuckerberg wants Meta to launch its own prediction market",
+      "whatHappened": "The app would be independent of Meta's other social media offerings, although sources told the NYT that those social sites could direct users to engagement with...",
+      "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
+      "keyWord": "weather technology: tools that help people measure, study, or predict weather and climate",
+      "source": "TechCrunch",
+      "url": "https://techcrunch.com/2026/06/23/mark-zuckerberg-wants-meta-to-launch-its-own-prediction-market/",
+      "publishedAt": "2026-06-23T19:19:44.000Z"
     },
     {
       "title": "A super El Niño threatens disaster. Trump is handling it recklessly | Terry Garcia",
@@ -226,15 +235,6 @@
       "publishedAt": "2026-06-08T12:00:00.000Z"
     },
     {
-      "title": "A day in the life of MIT Sloan Fellow Alecia Asiamigbe",
-      "whatHappened": "The MBA student and entrepreneur is learning to lead a more resilient future with her renewable energy company.",
-      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
-      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
-      "source": "MIT Earth & Atmospheric Sciences",
-      "url": "https://news.mit.edu/2026/day-life-mit-sloan-fellow-alecia-asiamigbe-0526",
-      "publishedAt": "2026-05-26T20:10:00.000Z"
-    },
-    {
       "title": "The true impact of Canadian milk packaging",
       "whatHappened": "Tue, 19 May 2026 12:00:00 +0000 Milk is a cornerstone of Canadian diets and a regularly purchased item at the grocery store.",
       "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
@@ -250,7 +250,25 @@
       "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
       "source": "uOttawa News",
       "url": "https://www.uottawa.ca/en/news-all/uottawa-academic-expertise-europe-facing-heat-wave-intensifying",
-      "publishedAt": "2026-06-23T14:00:23.945Z"
+      "publishedAt": "2026-06-24T13:37:14.217Z"
+    },
+    {
+      "title": "Inside the ‘concrete battery’: Berkeley researcher exposes lethal heat in Florida prisons",
+      "whatHappened": "A study by Professor Stefano Schiavon found that temperatures inside a Miami-area prison routinely reach dangerous levels for extended periods.",
+      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
+      "keyWord": "research: careful study used to discover new knowledge",
+      "source": "Berkeley News",
+      "url": "https://ced.berkeley.edu/news/stefano-schiavon-concrete-battery-lethal-heat-florida-prisons",
+      "publishedAt": "2026-06-23T16:49:57.000Z"
+    },
+    {
+      "title": "Can a walk through downtown Vancouver change how we think about climate change?",
+      "whatHappened": "UBC researchers are exploring new ways to engage people on climate change through Urban Future Walks, an experience that highlights real-world sustainability solutions in Vancouver through...",
+      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
+      "keyWord": "sustainability: using resources in a way that can last over time",
+      "source": "UBC News",
+      "url": "https://news.ubc.ca/2026/06/downtown-vancouver-walk-climate-change/",
+      "publishedAt": "2026-06-23T14:55:00.000Z"
     },
     {
       "title": "June Research Roundup: Select Papers",
@@ -260,15 +278,6 @@
       "source": "Columbia Climate School",
       "url": "https://news.climate.columbia.edu/2026/06/22/june-research-roundup-select-papers/",
       "publishedAt": "2026-06-22T15:18:30.000Z"
-    },
-    {
-      "title": "Interwoven",
-      "whatHappened": "How Indigenous knowledge and science can work together to communicate about climate.",
-      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
-      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
-      "source": "University of Wisconsin News",
-      "url": "https://news.wisc.edu/interwoven/",
-      "publishedAt": "2026-06-17T15:09:51.000Z"
     }
   ]
 }
