@@ -1,17 +1,26 @@
 {
-  "boardDate": "2026-06-25",
-  "generatedAt": "2026-06-25T13:37:27.859Z",
+  "boardDate": "2026-06-26",
+  "generatedAt": "2026-06-26T13:31:50.752Z",
   "sourceCount": 26,
   "weather": [
     {
       "city": "Ottawa",
-      "temperatureC": 21,
-      "maxC": 26,
-      "minC": 15,
-      "summary": "Clear skies"
+      "temperatureC": 19,
+      "maxC": 23,
+      "minC": 16,
+      "summary": "Cloudy"
     }
   ],
   "extremeWeather": [
+    {
+      "title": "Europe heatwave live: UK June heat record broken for third day in a row; France and Belgium cancel events",
+      "whatHappened": "Estimated 150 million people in Europe could experience temperatures above 35C today European heatwave is worst ever and impossible without climate crisis, scientists say Over in...",
+      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
+      "keyWord": "heat wave: a long period of unusually hot weather",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/environment/live/2026/jun/26/europe-heatwave-extreme-heat-red-alert-weather-uk-england-france-climate-crisis-latest-news-updates",
+      "publishedAt": "2026-06-26T13:25:05.000Z"
+    },
     {
       "title": "Majority of datacenters are vulnerable to climate threats like floods and fires, study finds",
       "whatHappened": "Study warns AI datacenters are vulnerable to the climate hazards that their global greenhouse gas emissions bolster Amid rising concern that the artificial intelligence boom is...",
@@ -22,31 +31,31 @@
       "publishedAt": "2026-06-23T11:30:26.000Z"
     },
     {
-      "title": "In pictures: Britain braves record breaking June temperatures",
+      "title": "In pictures: Britain swelters in record-breaking June heat",
       "whatHappened": "A rare red weather warning is in place as extreme temperatures continue across much of the UK.",
       "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
       "keyWord": "extreme weather: unusual and dangerous weather like floods, storms, or heat waves",
       "source": "BBC Science & Environment",
       "url": "https://www.bbc.co.uk/news/articles/cy5vq3q2g19o?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-06-25T13:35:34.000Z"
-    },
-    {
-      "title": "Extreme heat grips Europe as UK extends warnings, France shuts down nuclear reactors and deaths rise across continent – live",
-      "whatHappened": "The highest UK temperatures are expected across the east and southeastern England while heatwave-related deaths climbed across Europe Farryn Stock Over in the UK, South East...",
-      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
-      "keyWord": "heat wave: a long period of unusually hot weather",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/world/live/2026/jun/25/europe-heatwave-uk-italy-france-record-temperature-latest-news-updates",
-      "publishedAt": "2026-06-25T13:18:50.000Z"
+      "publishedAt": "2026-06-25T13:48:24.000Z"
     },
     {
       "title": "Why this heatwave feels worse than the last one",
-      "whatHappened": "A combination of factors is making this heatwave more uncomfortable than some we have had in the past, as Simon King explains",
+      "whatHappened": "A combination of factors is making this heatwave more uncomfortable than some we have had in the past, as Simon King explains.",
       "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
       "keyWord": "heat wave: a long period of unusually hot weather",
       "source": "BBC Science & Environment",
       "url": "https://www.bbc.co.uk/weather/articles/c3vyzly206no?at_medium=RSS&at_campaign=rss",
       "publishedAt": "2026-06-24T12:24:39.000Z"
+    },
+    {
+      "title": "Drowning deaths soar in France as Europe buckles in peak of heatwave",
+      "whatHappened": "Forty people have drowned in heatwave-related deaths in France since last Thursday, Prime Minister Sébastien Lecornu says.",
+      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
+      "keyWord": "heat wave: a long period of unusually hot weather",
+      "source": "BBC Science & Environment",
+      "url": "https://www.bbc.co.uk/news/articles/c79yvw3j114o?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-06-23T16:27:17.000Z"
     },
     {
       "title": "A super El Niño threatens disaster. Trump is handling it recklessly | Terry Garcia",
@@ -56,27 +65,9 @@
       "source": "The Guardian Environment",
       "url": "https://www.theguardian.com/commentisfree/2026/jun/23/super-el-nino-extreme-weather-trump",
       "publishedAt": "2026-06-23T12:00:27.000Z"
-    },
-    {
-      "title": "Climate crisis: UN chief lays out solutions blueprint for clean energy transition",
-      "whatHappened": "As a deadly heatwave continued to grip Europe on Tuesday, UN Secretary-General António Guterres issued an impassioned appeal for more ambitious global action on climate change...",
-      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
-      "keyWord": "heat wave: a long period of unusually hot weather",
-      "source": "UN Climate",
-      "url": "https://news.un.org/feed/view/en/story/2026/06/1167785",
-      "publishedAt": "2026-06-23T12:00:00.000Z"
     }
   ],
   "climate": [
-    {
-      "title": "Datacenters driving US clean energy growth while still threatening climate",
-      "whatHappened": "As datacenters’ connections to electric grids are held up, big tech is forced to throw money at producing its own power Datacenters are driving unprecedented growth...",
-      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
-      "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/us-news/2026/jun/19/datacenters-us-clean-energy-growth-climate",
-      "publishedAt": "2026-06-19T11:00:30.000Z"
-    },
     {
       "title": "UN chief: Targeting methane is a climate battle ‘we can win’",
       "whatHappened": "Amid efforts to cool global warming, the battle hinges on targeting such super-pollutants as methane, which emits one third of the world’s greenhouse gases and “is...",
@@ -114,42 +105,33 @@
       "publishedAt": "2026-06-22T12:00:00.000Z"
     },
     {
-      "title": "Heat pump growth stalls as government support cut, warns climate watchdog",
-      "whatHappened": "The growth in sales has slowed significantly after a critical government grant programme was cut.",
+      "title": "Europe heatwave live: UK June heat record broken for third day in a row; France and Belgium cancel events",
+      "whatHappened": "Estimated 150 million people in Europe could experience temperatures above 35C today European heatwave is worst ever and impossible without climate crisis, scientists say Over in...",
       "whyItMatters": "Climate and environment stories connect science to real issues like safety, health, and extreme weather.",
       "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "BBC Science & Environment",
-      "url": "https://www.bbc.co.uk/news/articles/cn8k4pek3gzo?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-06-24T14:32:02.000Z"
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/environment/live/2026/jun/26/europe-heatwave-extreme-heat-red-alert-weather-uk-england-france-climate-crisis-latest-news-updates",
+      "publishedAt": "2026-06-26T13:25:05.000Z"
+    },
+    {
+      "title": "In pictures: a San Antonio land bridge designed for wildlife and people",
+      "whatHappened": "Spanning a six-lane highway and located in a public park, this crossing is part of a larger restoration of endangered Texas prairie land The Guardian receives...",
+      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
+      "keyWord": "climate: the usual pattern of weather over a long period of time",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/environment/gallery/2026/jun/26/san-antonio-texas-land-bridge-wildlife",
+      "publishedAt": "2026-06-26T12:00:15.000Z"
     }
   ],
   "weatherTech": [
     {
-      "title": "Datacenters driving US clean energy growth while still threatening climate",
-      "whatHappened": "As datacenters’ connections to electric grids are held up, big tech is forced to throw money at producing its own power Datacenters are driving unprecedented growth...",
+      "title": "Polymarket says hackers stole users’ funds",
+      "whatHappened": "The prediction market giant Polymarket said it's refunding users who had funds stolen due to a third-party breach.",
       "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
-      "keyWord": "solar: related to energy from sunlight",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/us-news/2026/jun/19/datacenters-us-clean-energy-growth-climate",
-      "publishedAt": "2026-06-19T11:00:30.000Z"
-    },
-    {
-      "title": "Is this solar e-bike a good idea or sophisticated e-waste?",
-      "whatHappened": "I like the idea of a solar-powered electric bike, but I don't think anyone should buy the new Phosgo Go5 - not yet, anyway.",
-      "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
-      "keyWord": "solar: related to energy from sunlight",
-      "source": "The Verge",
-      "url": "https://www.theverge.com/news/956095/worlds-first-solar-ebike-do-not-buy",
-      "publishedAt": "2026-06-25T07:28:59.000Z"
-    },
-    {
-      "title": "Cerebras stock plunges after earnings as CEO says margin outlook was misunderstood",
-      "whatHappened": "In its first earnings report since going public, the AI chipmaker forecast a narrower gross margin in its core business, scaring investors.",
-      "whyItMatters": "Weather technology shows how science tools can predict conditions faster and help people prepare earlier.",
-      "keyWord": "forecast: a prediction about future weather conditions",
+      "keyWord": "weather technology: tools that help people measure, study, or predict weather and climate",
       "source": "TechCrunch",
-      "url": "https://techcrunch.com/2026/06/24/cerebras-stock-plunges-after-earnings-as-ceo-says-margin-outlook-was-misunderstood/",
-      "publishedAt": "2026-06-24T22:41:41.000Z"
+      "url": "https://techcrunch.com/2026/06/25/polymarket-says-hackers-stole-users-funds/",
+      "publishedAt": "2026-06-25T19:58:46.000Z"
     },
     {
       "title": "A super El Niño threatens disaster. Trump is handling it recklessly | Terry Garcia",
@@ -168,15 +150,6 @@
       "source": "UN Climate",
       "url": "https://news.un.org/feed/view/en/story/2026/06/1167785",
       "publishedAt": "2026-06-23T12:00:00.000Z"
-    },
-    {
-      "title": "Trump administration reverses decision to scrap ocean monitoring system",
-      "whatHappened": "Move to dismantle $368m sea observatory initiative faced opposition from experts and lawmakers The Donald Trump administration has reversed its decision to dismantle a $368m deep-sea...",
-      "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
-      "keyWord": "weather technology: tools that help people measure, study, or predict weather and climate",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/us-news/2026/jun/18/ocean-monitoring-system-reversal-trump-administration",
-      "publishedAt": "2026-06-18T19:31:44.000Z"
     }
   ],
   "universityNews": [
@@ -253,13 +226,31 @@
       "publishedAt": "2026-05-19T12:00:00.000Z"
     },
     {
-      "title": "When Glaciers Disappear, So Do Deities",
-      "whatHappened": "The loss of glaciers across the Andes and the Himalayas impacts not only water supplies, but also the cultural and spiritual lives of local communities.",
+      "title": "Climate Attribution Conference Explores Science, Law and Accountability",
+      "whatHappened": "Speakers explored how climate attribution research is shaping lawsuits, policy and public health.",
+      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
+      "keyWord": "research: careful study used to discover new knowledge",
+      "source": "Columbia Climate School",
+      "url": "https://news.climate.columbia.edu/2026/06/25/climate-attribution-conference-explores-science-law-and-accountability/",
+      "publishedAt": "2026-06-25T20:13:42.000Z"
+    },
+    {
+      "title": "Greater international co-operation is needed to achieve the UN’s global forest goals",
+      "whatHappened": "by Dr.",
       "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
       "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
-      "source": "Columbia Climate School",
-      "url": "https://news.climate.columbia.edu/2026/06/24/when-glaciers-disappear-so-do-deities/",
-      "publishedAt": "2026-06-24T16:03:18.000Z"
+      "source": "UBC News",
+      "url": "https://news.ubc.ca/2026/06/greater-international-co-operation-is-needed-to-achieve-the-uns-global-forest-goals/",
+      "publishedAt": "2026-06-25T20:03:41.000Z"
+    },
+    {
+      "title": "What heat maps can tell us about the World Cup teams",
+      "whatHappened": "Pressure heat maps are helpful to understand a soccer team’s tactical approach to regain possession of the ball.",
+      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
+      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
+      "source": "Northeastern Global News",
+      "url": "https://news.northeastern.edu/2026/06/25/soccer-tactics-heat-map/",
+      "publishedAt": "2026-06-25T19:17:41.000Z"
     },
     {
       "title": "Inside the ‘concrete battery’: Berkeley researcher exposes lethal heat in Florida prisons",
@@ -269,24 +260,6 @@
       "source": "Berkeley News",
       "url": "https://ced.berkeley.edu/news/stefano-schiavon-concrete-battery-lethal-heat-florida-prisons",
       "publishedAt": "2026-06-23T16:49:57.000Z"
-    },
-    {
-      "title": "Can a walk through downtown Vancouver change how we think about climate change?",
-      "whatHappened": "UBC researchers are exploring new ways to engage people on climate change through Urban Future Walks, an experience that highlights real-world sustainability solutions in Vancouver through...",
-      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
-      "keyWord": "sustainability: using resources in a way that can last over time",
-      "source": "UBC News",
-      "url": "https://news.ubc.ca/2026/06/downtown-vancouver-walk-climate-change/",
-      "publishedAt": "2026-06-23T14:55:00.000Z"
-    },
-    {
-      "title": "Interwoven",
-      "whatHappened": "How Indigenous knowledge and science can work together to communicate about climate.",
-      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
-      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
-      "source": "University of Wisconsin News",
-      "url": "https://news.wisc.edu/interwoven/",
-      "publishedAt": "2026-06-17T15:09:51.000Z"
     }
   ]
 }
