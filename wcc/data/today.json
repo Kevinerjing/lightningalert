@@ -1,34 +1,43 @@
 {
-  "boardDate": "2026-06-26",
-  "generatedAt": "2026-06-26T13:31:50.752Z",
+  "boardDate": "2026-06-27",
+  "generatedAt": "2026-06-27T12:52:40.214Z",
   "sourceCount": 26,
   "weather": [
     {
       "city": "Ottawa",
       "temperatureC": 19,
-      "maxC": 23,
-      "minC": 16,
-      "summary": "Cloudy"
+      "maxC": 26,
+      "minC": 14,
+      "summary": "Clear skies"
     }
   ],
   "extremeWeather": [
     {
-      "title": "Europe heatwave live: UK June heat record broken for third day in a row; France and Belgium cancel events",
-      "whatHappened": "Estimated 150 million people in Europe could experience temperatures above 35C today European heatwave is worst ever and impossible without climate crisis, scientists say Over in...",
+      "title": "Europe heatwave live: Germany braced for temperatures ‘well over 40C’; extreme heat warnings for England",
+      "whatHappened": "Forecasters say hottest conditions spreading into central and eastern Europe After decades of climate warnings, why is Europe so unprepared for rising heat?",
       "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
       "keyWord": "heat wave: a long period of unusually hot weather",
       "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/environment/live/2026/jun/26/europe-heatwave-extreme-heat-red-alert-weather-uk-england-france-climate-crisis-latest-news-updates",
-      "publishedAt": "2026-06-26T13:25:05.000Z"
+      "url": "https://www.theguardian.com/world/live/2026/jun/27/europe-heatwave-germany-poland-france-uk-temperature-heat-latest-news-updates",
+      "publishedAt": "2026-06-27T12:42:23.000Z"
     },
     {
-      "title": "Majority of datacenters are vulnerable to climate threats like floods and fires, study finds",
-      "whatHappened": "Study warns AI datacenters are vulnerable to the climate hazards that their global greenhouse gas emissions bolster Amid rising concern that the artificial intelligence boom is...",
+      "title": "Amber extreme heat warning extended before cooldown ends record-breaking heatwave",
+      "whatHappened": "The record-breaking heatwave is set to end with cooler and more unsettled weather by Sunday.",
       "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
-      "keyWord": "flood: water covering land that is usually dry",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/us-news/2026/jun/23/datacenters-climate-hazards-study",
-      "publishedAt": "2026-06-23T11:30:26.000Z"
+      "keyWord": "heat wave: a long period of unusually hot weather",
+      "source": "BBC Science & Environment",
+      "url": "https://www.bbc.co.uk/weather/articles/crkvl343jj3o?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-06-27T10:38:36.000Z"
+    },
+    {
+      "title": "Europe's deadly heatwave breaks German record and halts public events",
+      "whatHappened": "Germany's highest ever temperature of 41.3C is recorded provisionally in Saarbrücken, over the border from France.",
+      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
+      "keyWord": "heat wave: a long period of unusually hot weather",
+      "source": "BBC Science & Environment",
+      "url": "https://www.bbc.co.uk/news/articles/cx2knzzwprgo?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-06-26T18:14:36.000Z"
     },
     {
       "title": "In pictures: Britain swelters in record-breaking June heat",
@@ -40,6 +49,15 @@
       "publishedAt": "2026-06-25T13:48:24.000Z"
     },
     {
+      "title": "Europe heatwave breaks records as UN agencies ramp up health warnings",
+      "whatHappened": "As a record-breaking heatwave grips large parts of Europe, the World Meteorological Organization (WMO), national weather services and partners are mobilising heat-health action plans for millions...",
+      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
+      "keyWord": "heat wave: a long period of unusually hot weather",
+      "source": "UN Climate",
+      "url": "https://news.un.org/feed/view/en/story/2026/06/1167808",
+      "publishedAt": "2026-06-25T12:00:00.000Z"
+    },
+    {
       "title": "Why this heatwave feels worse than the last one",
       "whatHappened": "A combination of factors is making this heatwave more uncomfortable than some we have had in the past, as Simon King explains.",
       "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
@@ -47,24 +65,6 @@
       "source": "BBC Science & Environment",
       "url": "https://www.bbc.co.uk/weather/articles/c3vyzly206no?at_medium=RSS&at_campaign=rss",
       "publishedAt": "2026-06-24T12:24:39.000Z"
-    },
-    {
-      "title": "Drowning deaths soar in France as Europe buckles in peak of heatwave",
-      "whatHappened": "Forty people have drowned in heatwave-related deaths in France since last Thursday, Prime Minister Sébastien Lecornu says.",
-      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
-      "keyWord": "heat wave: a long period of unusually hot weather",
-      "source": "BBC Science & Environment",
-      "url": "https://www.bbc.co.uk/news/articles/c79yvw3j114o?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-06-23T16:27:17.000Z"
-    },
-    {
-      "title": "A super El Niño threatens disaster. Trump is handling it recklessly | Terry Garcia",
-      "whatHappened": "The administration interrupted data streams that are key to forecasting.",
-      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
-      "keyWord": "drought: a long time with very little rain",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/commentisfree/2026/jun/23/super-el-nino-extreme-weather-trump",
-      "publishedAt": "2026-06-23T12:00:27.000Z"
     }
   ],
   "climate": [
@@ -76,15 +76,6 @@
       "source": "UN Climate",
       "url": "https://news.un.org/feed/view/en/story/2026/06/1167802",
       "publishedAt": "2026-06-24T12:00:00.000Z"
-    },
-    {
-      "title": "Majority of datacenters are vulnerable to climate threats like floods and fires, study finds",
-      "whatHappened": "Study warns AI datacenters are vulnerable to the climate hazards that their global greenhouse gas emissions bolster Amid rising concern that the artificial intelligence boom is...",
-      "whyItMatters": "Climate and environment stories connect science to real issues like safety, health, and extreme weather.",
-      "keyWord": "emissions: gases released into the air",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/us-news/2026/jun/23/datacenters-climate-hazards-study",
-      "publishedAt": "2026-06-23T11:30:26.000Z"
     },
     {
       "title": "Climate crisis: UN chief lays out solutions blueprint for clean energy transition",
@@ -105,13 +96,13 @@
       "publishedAt": "2026-06-22T12:00:00.000Z"
     },
     {
-      "title": "Europe heatwave live: UK June heat record broken for third day in a row; France and Belgium cancel events",
-      "whatHappened": "Estimated 150 million people in Europe could experience temperatures above 35C today European heatwave is worst ever and impossible without climate crisis, scientists say Over in...",
+      "title": "Europe heatwave live: Germany braced for temperatures ‘well over 40C’; extreme heat warnings for England",
+      "whatHappened": "Forecasters say hottest conditions spreading into central and eastern Europe After decades of climate warnings, why is Europe so unprepared for rising heat?",
       "whyItMatters": "Climate and environment stories connect science to real issues like safety, health, and extreme weather.",
       "keyWord": "climate: the usual pattern of weather over a long period of time",
       "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/environment/live/2026/jun/26/europe-heatwave-extreme-heat-red-alert-weather-uk-england-france-climate-crisis-latest-news-updates",
-      "publishedAt": "2026-06-26T13:25:05.000Z"
+      "url": "https://www.theguardian.com/world/live/2026/jun/27/europe-heatwave-germany-poland-france-uk-temperature-heat-latest-news-updates",
+      "publishedAt": "2026-06-27T12:42:23.000Z"
     },
     {
       "title": "In pictures: a San Antonio land bridge designed for wildlife and people",
@@ -121,27 +112,18 @@
       "source": "The Guardian Environment",
       "url": "https://www.theguardian.com/environment/gallery/2026/jun/26/san-antonio-texas-land-bridge-wildlife",
       "publishedAt": "2026-06-26T12:00:15.000Z"
+    },
+    {
+      "title": "Heat pump growth stalls as government support cut, warns climate watchdog",
+      "whatHappened": "The growth in sales has slowed significantly after a critical government grant programme was cut.",
+      "whyItMatters": "Climate and environment stories connect science to real issues like safety, health, and extreme weather.",
+      "keyWord": "climate: the usual pattern of weather over a long period of time",
+      "source": "BBC Science & Environment",
+      "url": "https://www.bbc.co.uk/news/articles/cn8k4pek3gzo?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-06-24T14:32:02.000Z"
     }
   ],
   "weatherTech": [
-    {
-      "title": "Polymarket says hackers stole users’ funds",
-      "whatHappened": "The prediction market giant Polymarket said it's refunding users who had funds stolen due to a third-party breach.",
-      "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
-      "keyWord": "weather technology: tools that help people measure, study, or predict weather and climate",
-      "source": "TechCrunch",
-      "url": "https://techcrunch.com/2026/06/25/polymarket-says-hackers-stole-users-funds/",
-      "publishedAt": "2026-06-25T19:58:46.000Z"
-    },
-    {
-      "title": "A super El Niño threatens disaster. Trump is handling it recklessly | Terry Garcia",
-      "whatHappened": "The administration interrupted data streams that are key to forecasting.",
-      "whyItMatters": "Weather technology shows how science tools can predict conditions faster and help people prepare earlier.",
-      "keyWord": "forecast: a prediction about future weather conditions",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/commentisfree/2026/jun/23/super-el-nino-extreme-weather-trump",
-      "publishedAt": "2026-06-23T12:00:27.000Z"
-    },
     {
       "title": "Climate crisis: UN chief lays out solutions blueprint for clean energy transition",
       "whatHappened": "As a deadly heatwave continued to grip Europe on Tuesday, UN Secretary-General António Guterres issued an impassioned appeal for more ambitious global action on climate change...",
@@ -244,15 +226,6 @@
       "publishedAt": "2026-06-25T20:03:41.000Z"
     },
     {
-      "title": "What heat maps can tell us about the World Cup teams",
-      "whatHappened": "Pressure heat maps are helpful to understand a soccer team’s tactical approach to regain possession of the ball.",
-      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
-      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
-      "source": "Northeastern Global News",
-      "url": "https://news.northeastern.edu/2026/06/25/soccer-tactics-heat-map/",
-      "publishedAt": "2026-06-25T19:17:41.000Z"
-    },
-    {
       "title": "Inside the ‘concrete battery’: Berkeley researcher exposes lethal heat in Florida prisons",
       "whatHappened": "A study by Professor Stefano Schiavon found that temperatures inside a Miami-area prison routinely reach dangerous levels for extended periods.",
       "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
@@ -260,6 +233,15 @@
       "source": "Berkeley News",
       "url": "https://ced.berkeley.edu/news/stefano-schiavon-concrete-battery-lethal-heat-florida-prisons",
       "publishedAt": "2026-06-23T16:49:57.000Z"
+    },
+    {
+      "title": "Can a walk through downtown Vancouver change how we think about climate change?",
+      "whatHappened": "UBC researchers are exploring new ways to engage people on climate change through Urban Future Walks, an experience that highlights real-world sustainability solutions in Vancouver through...",
+      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
+      "keyWord": "sustainability: using resources in a way that can last over time",
+      "source": "UBC News",
+      "url": "https://news.ubc.ca/2026/06/downtown-vancouver-walk-climate-change/",
+      "publishedAt": "2026-06-23T14:55:00.000Z"
     }
   ]
 }
