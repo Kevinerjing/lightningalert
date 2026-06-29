@@ -1,52 +1,52 @@
 {
-  "boardDate": "2026-06-28",
-  "generatedAt": "2026-06-28T12:57:53.244Z",
+  "boardDate": "2026-06-29",
+  "generatedAt": "2026-06-29T14:59:41.100Z",
   "sourceCount": 26,
   "weather": [
     {
       "city": "Ottawa",
-      "temperatureC": 20,
-      "maxC": 29,
-      "minC": 14,
+      "temperatureC": 24,
+      "maxC": 30,
+      "minC": 15,
       "summary": "Clear skies"
     }
   ],
   "extremeWeather": [
     {
-      "title": "Temperature records tumble across Europe as heatwave moves east",
-      "whatHappened": "More than 191m people in Europe face temperatures over 35C, with extreme heat warnings from Germany to Hungary ‘A sad inevitability’: after decades of climate warnings,...",
+      "title": "Heatwave and high humidity to blast much of US: ‘impactful to anyone’",
+      "whatHappened": "Forecasters expect days of high temperatures in central and eastern US before Fourth of July and World Cup festivities A long and dangerous heatwave will blast...",
       "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
       "keyWord": "heat wave: a long period of unusually hot weather",
       "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/environment/2026/jun/28/temperature-records-tumble-across-europe-as-heatwave-moves-east",
-      "publishedAt": "2026-06-28T11:24:05.000Z"
+      "url": "https://www.theguardian.com/us-news/2026/jun/28/heatwave-humidity-fourth-of-july-weather",
+      "publishedAt": "2026-06-28T20:53:29.000Z"
     },
     {
-      "title": "Europe's deadly heatwave breaks German record and halts public events",
-      "whatHappened": "Germany's highest ever temperature of 41.3C is recorded provisionally in Saarbrücken, over the border from France.",
+      "title": "Dangerous temperatures forecast for central and eastern Europe",
+      "whatHappened": "Red warnings issued as record-breaking heatwave pushes east, with authorities urging people to stay indoors Parts of central, eastern and southern Europe sweltered on Monday as...",
+      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
+      "keyWord": "heat wave: a long period of unusually hot weather",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/environment/2026/jun/29/dangerous-temperatures-forecast-central-eastern-europe-heatwave",
+      "publishedAt": "2026-06-29T14:48:24.000Z"
+    },
+    {
+      "title": "Deadly flash flooding hits Kentucky",
+      "whatHappened": "Flash flooding has left at least four people dead, with 60 water rescues and evacuations carried out across Kentucky.",
+      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
+      "keyWord": "flood: water covering land that is usually dry",
+      "source": "BBC Science & Environment",
+      "url": "https://www.bbc.co.uk/news/videos/c5yzd666r6ko?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-06-29T14:18:11.000Z"
+    },
+    {
+      "title": "Europe's heatwave linked to 1,300 deaths, WHO says, as Germany hits record 41.7C",
+      "whatHappened": "WHO chief Tedros Adhanom Ghebreyesus warned that Europe is not prepared for high temperatures.",
       "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
       "keyWord": "heat wave: a long period of unusually hot weather",
       "source": "BBC Science & Environment",
-      "url": "https://www.bbc.co.uk/news/articles/cx2knzzwprgo?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-06-27T16:51:17.000Z"
-    },
-    {
-      "title": "Amber extreme heat warning extended before cooldown ends record-breaking heatwave",
-      "whatHappened": "The record-breaking heatwave is set to end with cooler and more unsettled weather by Sunday.",
-      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
-      "keyWord": "heat wave: a long period of unusually hot weather",
-      "source": "BBC Science & Environment",
-      "url": "https://www.bbc.co.uk/weather/articles/crkvl343jj3o?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-06-27T10:38:36.000Z"
-    },
-    {
-      "title": "In pictures: Britain swelters in record-breaking June heat",
-      "whatHappened": "A rare red weather warning is in place as extreme temperatures continue across much of the UK.",
-      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
-      "keyWord": "extreme weather: unusual and dangerous weather like floods, storms, or heat waves",
-      "source": "BBC Science & Environment",
-      "url": "https://www.bbc.co.uk/news/articles/cy5vq3q2g19o?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-06-25T13:48:24.000Z"
+      "url": "https://www.bbc.co.uk/news/articles/cn4d2vv935lo?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-06-28T19:37:07.000Z"
     },
     {
       "title": "Europe heatwave breaks records as UN agencies ramp up health warnings",
@@ -78,6 +78,15 @@
       "publishedAt": "2026-06-24T12:00:00.000Z"
     },
     {
+      "title": "Five Americans die every hour from toxic vehicle emissions, study finds",
+      "whatHappened": "Research suggests 41,800 premature US deaths in 2024 were attributable to road pollution Roughly five Americans die every hour due to exposure to toxic road vehicle...",
+      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
+      "keyWord": "emissions: gases released into the air",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/us-news/2026/jun/29/deaths-vehicle-emissions-pollution",
+      "publishedAt": "2026-06-29T10:00:42.000Z"
+    },
+    {
       "title": "Appeals court rejects Trump EPA bid to abandon rule restricting deadly soot pollution",
       "whatHappened": "Decision leaves in place Biden-era standard on pollution from coal-fired plants, factories and other industrial sources A federal appeals court on Friday rejected the Environmental Protection...",
       "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
@@ -105,25 +114,34 @@
       "publishedAt": "2026-06-22T12:00:00.000Z"
     },
     {
-      "title": "Temperature records tumble across Europe as heatwave moves east",
-      "whatHappened": "More than 191m people in Europe face temperatures over 35C, with extreme heat warnings from Germany to Hungary ‘A sad inevitability’: after decades of climate warnings,...",
-      "whyItMatters": "Climate and environment stories connect science to real issues like safety, health, and extreme weather.",
-      "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/environment/2026/jun/28/temperature-records-tumble-across-europe-as-heatwave-moves-east",
-      "publishedAt": "2026-06-28T11:24:05.000Z"
-    },
-    {
-      "title": "Could legal 'personhood' help save Lough Neagh?",
-      "whatHappened": "Rights of Nature could give Lough Neagh the same status as a person, entitled to the same protections.",
+      "title": "Trump administration targets California coastal agency in escalation of energy production fight",
+      "whatHappened": "US commerce department accuses state of ‘environmental terrorism’ and plans to evaluate its coastal agency The Trump administration plans to evaluate the performance of the California...",
       "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
       "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "BBC Science & Environment",
-      "url": "https://www.bbc.co.uk/news/articles/cvg7vy307xlo?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-06-27T23:01:27.000Z"
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/us-news/2026/jun/29/california-trump-administration-energy-production",
+      "publishedAt": "2026-06-29T12:00:44.000Z"
     }
   ],
   "weatherTech": [
+    {
+      "title": "Dangerous temperatures forecast for central and eastern Europe",
+      "whatHappened": "Red warnings issued as record-breaking heatwave pushes east, with authorities urging people to stay indoors Parts of central, eastern and southern Europe sweltered on Monday as...",
+      "whyItMatters": "Weather technology shows how science tools can predict conditions faster and help people prepare earlier.",
+      "keyWord": "forecast: a prediction about future weather conditions",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/environment/2026/jun/29/dangerous-temperatures-forecast-central-eastern-europe-heatwave",
+      "publishedAt": "2026-06-29T14:48:24.000Z"
+    },
+    {
+      "title": "Rocket Lab is buying Iridium’s satellite network for $8 billion to take on SpaceX",
+      "whatHappened": "Rocket Lab, the space company best known for its small satellite launcher Electron, has announced plans to acquire Iridium Communications for $8 billion.",
+      "whyItMatters": "Weather technology shows how science tools can predict conditions faster and help people prepare earlier.",
+      "keyWord": "satellite: an object in space that collects information and sends it back to Earth",
+      "source": "The Verge",
+      "url": "https://www.theverge.com/science/958891/rocket-lab-iridium-acquisition-satellite-communications",
+      "publishedAt": "2026-06-29T13:51:24.000Z"
+    },
     {
       "title": "Climate crisis: UN chief lays out solutions blueprint for clean energy transition",
       "whatHappened": "As a deadly heatwave continued to grip Europe on Tuesday, UN Secretary-General António Guterres issued an impassioned appeal for more ambitious global action on climate change...",
@@ -172,6 +190,15 @@
       "publishedAt": "2025-07-29T18:38:05.000Z"
     },
     {
+      "title": "Environment professor honoured with Distinguished Teacher Award",
+      "whatHappened": "Mon, 29 Jun 2026 12:00:00 +0000 Dr.",
+      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
+      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
+      "source": "Waterloo Environment",
+      "url": "https://uwaterloo.ca/environment/news/environment-professor-honoured-distinguished-teacher-award",
+      "publishedAt": "2026-06-29T12:00:00.000Z"
+    },
+    {
       "title": "Carbon Dioxide and Water Played Key Roles in Historic Mount Etna Eruptions",
       "whatHappened": "Understanding these dynamics can help geologists assess the risk of future eruptions.",
       "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
@@ -197,15 +224,6 @@
       "source": "Waterloo Environment",
       "url": "https://uwaterloo.ca/environment/news/environment-professor-recognized-her-outstanding-research",
       "publishedAt": "2026-06-08T12:00:00.000Z"
-    },
-    {
-      "title": "The true impact of Canadian milk packaging",
-      "whatHappened": "Tue, 19 May 2026 12:00:00 +0000 Milk is a cornerstone of Canadian diets and a regularly purchased item at the grocery store.",
-      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
-      "keyWord": "sustainability: using resources in a way that can last over time",
-      "source": "Waterloo Environment",
-      "url": "https://uwaterloo.ca/environment/news/true-impact-canadian-milk-packaging",
-      "publishedAt": "2026-05-19T12:00:00.000Z"
     },
     {
       "title": "Climate Attribution Conference Explores Science, Law and Accountability",
