@@ -1,14 +1,14 @@
 {
-  "boardDate": "2026-06-29",
-  "generatedAt": "2026-06-29T14:59:41.100Z",
+  "boardDate": "2026-06-30",
+  "generatedAt": "2026-06-30T13:23:32.080Z",
   "sourceCount": 26,
   "weather": [
     {
       "city": "Ottawa",
-      "temperatureC": 24,
-      "maxC": 30,
-      "minC": 15,
-      "summary": "Clear skies"
+      "temperatureC": 22,
+      "maxC": 27,
+      "minC": 18,
+      "summary": "Cloudy"
     }
   ],
   "extremeWeather": [
@@ -22,17 +22,35 @@
       "publishedAt": "2026-06-28T20:53:29.000Z"
     },
     {
-      "title": "Dangerous temperatures forecast for central and eastern Europe",
-      "whatHappened": "Red warnings issued as record-breaking heatwave pushes east, with authorities urging people to stay indoors Parts of central, eastern and southern Europe sweltered on Monday as...",
+      "title": "Amid crushing European heatwave, things are about to get hotter for transport systems",
+      "whatHappened": "As European transport officials scramble to deal with melting train tracks and buckling roads amid a crushing heatwave, a UN report released Tuesday warns of more...",
+      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
+      "keyWord": "heat wave: a long period of unusually hot weather",
+      "source": "UN Climate",
+      "url": "https://news.un.org/feed/view/en/story/2026/06/1167839",
+      "publishedAt": "2026-06-30T12:00:00.000Z"
+    },
+    {
+      "title": "Flooding hits Ghana's capital killing 13 people - with another storm forecast",
+      "whatHappened": "People have been urged to relocate to high ground or stay indoors as more rain is expected to come.",
+      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
+      "keyWord": "flood: water covering land that is usually dry",
+      "source": "BBC Science & Environment",
+      "url": "https://www.bbc.co.uk/news/articles/cn4r8zlv8edo?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-06-30T11:20:44.000Z"
+    },
+    {
+      "title": "Reader Q&A live: we answer your questions about Europe’s hellish week of heat",
+      "whatHappened": "Our European environment correspondent Ajit Niranjan answers your questions on the climate after reporting on the shocking heatwave that continues to scorch its way across Europe,...",
       "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
       "keyWord": "heat wave: a long period of unusually hot weather",
       "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/environment/2026/jun/29/dangerous-temperatures-forecast-central-eastern-europe-heatwave",
-      "publishedAt": "2026-06-29T14:48:24.000Z"
+      "url": "https://www.theguardian.com/community/live/2026/jun/30/reader-qa-ask-ajit-niranjan-anything-about-europes-hellish-week-of-heat",
+      "publishedAt": "2026-06-30T13:02:52.000Z"
     },
     {
-      "title": "Deadly flash flooding hits Kentucky",
-      "whatHappened": "Flash flooding has left at least four people dead, with 60 water rescues and evacuations carried out across Kentucky.",
+      "title": "Aerial video shows extent of deadly flash flooding in Kentucky",
+      "whatHappened": "At least four people are dead, with 60 water rescues and evacuations carried out across the state.",
       "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
       "keyWord": "flood: water covering land that is usually dry",
       "source": "BBC Science & Environment",
@@ -47,27 +65,18 @@
       "source": "BBC Science & Environment",
       "url": "https://www.bbc.co.uk/news/articles/cn4d2vv935lo?at_medium=RSS&at_campaign=rss",
       "publishedAt": "2026-06-28T19:37:07.000Z"
-    },
-    {
-      "title": "Europe heatwave breaks records as UN agencies ramp up health warnings",
-      "whatHappened": "As a record-breaking heatwave grips large parts of Europe, the World Meteorological Organization (WMO), national weather services and partners are mobilising heat-health action plans for millions...",
-      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
-      "keyWord": "heat wave: a long period of unusually hot weather",
-      "source": "UN Climate",
-      "url": "https://news.un.org/feed/view/en/story/2026/06/1167808",
-      "publishedAt": "2026-06-25T12:00:00.000Z"
-    },
-    {
-      "title": "Climate crisis: UN chief lays out solutions blueprint for clean energy transition",
-      "whatHappened": "As a deadly heatwave continued to grip Europe on Tuesday, UN Secretary-General António Guterres issued an impassioned appeal for more ambitious global action on climate change...",
-      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
-      "keyWord": "heat wave: a long period of unusually hot weather",
-      "source": "UN Climate",
-      "url": "https://news.un.org/feed/view/en/story/2026/06/1167785",
-      "publishedAt": "2026-06-23T12:00:00.000Z"
     }
   ],
   "climate": [
+    {
+      "title": "Reader Q&A live: we answer your questions about Europe’s hellish week of heat",
+      "whatHappened": "Our European environment correspondent Ajit Niranjan answers your questions on the climate after reporting on the shocking heatwave that continues to scorch its way across Europe,...",
+      "whyItMatters": "Climate and environment stories connect science to real issues like safety, health, and extreme weather.",
+      "keyWord": "climate: the usual pattern of weather over a long period of time",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/community/live/2026/jun/30/reader-qa-ask-ajit-niranjan-anything-about-europes-hellish-week-of-heat",
+      "publishedAt": "2026-06-30T13:02:52.000Z"
+    },
     {
       "title": "UN chief: Targeting methane is a climate battle ‘we can win’",
       "whatHappened": "Amid efforts to cool global warming, the battle hinges on targeting such super-pollutants as methane, which emits one third of the world’s greenhouse gases and “is...",
@@ -112,35 +121,26 @@
       "source": "UN Climate",
       "url": "https://news.un.org/feed/view/en/story/2026/06/1167784",
       "publishedAt": "2026-06-22T12:00:00.000Z"
-    },
-    {
-      "title": "Trump administration targets California coastal agency in escalation of energy production fight",
-      "whatHappened": "US commerce department accuses state of ‘environmental terrorism’ and plans to evaluate its coastal agency The Trump administration plans to evaluate the performance of the California...",
-      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
-      "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/us-news/2026/jun/29/california-trump-administration-energy-production",
-      "publishedAt": "2026-06-29T12:00:44.000Z"
     }
   ],
   "weatherTech": [
     {
-      "title": "Dangerous temperatures forecast for central and eastern Europe",
-      "whatHappened": "Red warnings issued as record-breaking heatwave pushes east, with authorities urging people to stay indoors Parts of central, eastern and southern Europe sweltered on Monday as...",
-      "whyItMatters": "Weather technology shows how science tools can predict conditions faster and help people prepare earlier.",
-      "keyWord": "forecast: a prediction about future weather conditions",
+      "title": "Reader Q&A live: we answer your questions about Europe’s hellish week of heat",
+      "whatHappened": "Our European environment correspondent Ajit Niranjan answers your questions on the climate after reporting on the shocking heatwave that continues to scorch its way across Europe,...",
+      "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
+      "keyWord": "solar: related to energy from sunlight",
       "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/environment/2026/jun/29/dangerous-temperatures-forecast-central-eastern-europe-heatwave",
-      "publishedAt": "2026-06-29T14:48:24.000Z"
+      "url": "https://www.theguardian.com/community/live/2026/jun/30/reader-qa-ask-ajit-niranjan-anything-about-europes-hellish-week-of-heat",
+      "publishedAt": "2026-06-30T13:02:52.000Z"
     },
     {
-      "title": "Rocket Lab is buying Iridium’s satellite network for $8 billion to take on SpaceX",
-      "whatHappened": "Rocket Lab, the space company best known for its small satellite launcher Electron, has announced plans to acquire Iridium Communications for $8 billion.",
+      "title": "Flooding hits Ghana's capital killing 13 people - with another storm forecast",
+      "whatHappened": "People have been urged to relocate to high ground or stay indoors as more rain is expected to come.",
       "whyItMatters": "Weather technology shows how science tools can predict conditions faster and help people prepare earlier.",
-      "keyWord": "satellite: an object in space that collects information and sends it back to Earth",
-      "source": "The Verge",
-      "url": "https://www.theverge.com/science/958891/rocket-lab-iridium-acquisition-satellite-communications",
-      "publishedAt": "2026-06-29T13:51:24.000Z"
+      "keyWord": "forecast: a prediction about future weather conditions",
+      "source": "BBC Science & Environment",
+      "url": "https://www.bbc.co.uk/news/articles/cn4r8zlv8edo?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-06-30T11:20:44.000Z"
     },
     {
       "title": "Climate crisis: UN chief lays out solutions blueprint for clean energy transition",
@@ -172,15 +172,6 @@
       "publishedAt": "2025-07-29T18:25:35.000Z"
     },
     {
-      "title": "Innovative projects explore ways to deal with extreme heat",
-      "whatHappened": "Low-cost personal cooling and emissions-free air conditioning among ideas studied with MIT’s Climate Project seed funding.",
-      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
-      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
-      "source": "MIT Earth & Atmospheric Sciences",
-      "url": "https://news.mit.edu/2026/innovative-projects-explore-ways-to-deal-with-extreme-heat-0608",
-      "publishedAt": "2026-06-08T20:45:00.000Z"
-    },
-    {
       "title": "Tiny Forest Coming to Carleton",
       "whatHappened": "Sustainability Carleton is thrilled to announce that we are partnering with local environmental organization EnviroCentre to establish a tiny forest at Carleton!",
       "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
@@ -188,6 +179,15 @@
       "source": "Carleton Sustainability",
       "url": "https://carleton.ca/sustainability/2025/tiny-forest-coming-to-carleton/",
       "publishedAt": "2025-07-29T18:38:05.000Z"
+    },
+    {
+      "title": "Climate School Alumni Aim for Sustainability Goals in the 2026 World Cup and Beyond",
+      "whatHappened": "As the 2026 FIFA World Cup plays out in North America, M.A.",
+      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
+      "keyWord": "sustainability: using resources in a way that can last over time",
+      "source": "Columbia Climate School",
+      "url": "https://news.climate.columbia.edu/2026/06/29/climate-school-alumni-aim-for-sustainability-goals-in-the-2026-world-cup-and-beyond/",
+      "publishedAt": "2026-06-29T18:32:34.000Z"
     },
     {
       "title": "Environment professor honoured with Distinguished Teacher Award",
@@ -226,13 +226,13 @@
       "publishedAt": "2026-06-08T12:00:00.000Z"
     },
     {
-      "title": "Climate Attribution Conference Explores Science, Law and Accountability",
-      "whatHappened": "Speakers explored how climate attribution research is shaping lawsuits, policy and public health.",
+      "title": "Warming streams are pushing young salmon beyond their limits: new research",
+      "whatHappened": "Researchers at UBC find that young salmon face greater heat risks than previously measured—and that younger fish and older fish cope with warming water very differently.",
       "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
       "keyWord": "research: careful study used to discover new knowledge",
-      "source": "Columbia Climate School",
-      "url": "https://news.climate.columbia.edu/2026/06/25/climate-attribution-conference-explores-science-law-and-accountability/",
-      "publishedAt": "2026-06-25T20:13:42.000Z"
+      "source": "UBC News",
+      "url": "https://news.ubc.ca/2026/06/warm-streams-effects-young-salmon/",
+      "publishedAt": "2026-06-29T15:55:00.000Z"
     },
     {
       "title": "Greater international co-operation is needed to achieve the UN’s global forest goals",
@@ -244,22 +244,22 @@
       "publishedAt": "2026-06-25T20:03:41.000Z"
     },
     {
-      "title": "Inside the ‘concrete battery’: Berkeley researcher exposes lethal heat in Florida prisons",
-      "whatHappened": "A study by Professor Stefano Schiavon found that temperatures inside a Miami-area prison routinely reach dangerous levels for extended periods.",
+      "title": "Interwoven",
+      "whatHappened": "How Indigenous knowledge and science can work together to communicate about climate.",
       "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
-      "keyWord": "research: careful study used to discover new knowledge",
-      "source": "Berkeley News",
-      "url": "https://ced.berkeley.edu/news/stefano-schiavon-concrete-battery-lethal-heat-florida-prisons",
-      "publishedAt": "2026-06-23T16:49:57.000Z"
+      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
+      "source": "University of Wisconsin News",
+      "url": "https://news.wisc.edu/interwoven/",
+      "publishedAt": "2026-06-17T15:09:51.000Z"
     },
     {
-      "title": "Can a walk through downtown Vancouver change how we think about climate change?",
-      "whatHappened": "UBC researchers are exploring new ways to engage people on climate change through Urban Future Walks, an experience that highlights real-world sustainability solutions in Vancouver through...",
+      "title": "New imaging system sees through murky waters",
+      "whatHappened": "The “Sonar-MASt3R” combines sonar and visual data to create real-time 3D maps, even in cloudy water.",
       "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
-      "keyWord": "sustainability: using resources in a way that can last over time",
-      "source": "UBC News",
-      "url": "https://news.ubc.ca/2026/06/downtown-vancouver-walk-climate-change/",
-      "publishedAt": "2026-06-23T14:55:00.000Z"
+      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
+      "source": "MIT Earth & Atmospheric Sciences",
+      "url": "https://news.mit.edu/2026/new-imaging-system-sees-through-murky-waters-0611",
+      "publishedAt": "2026-06-11T04:00:00.000Z"
     }
   ]
 }
