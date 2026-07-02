@@ -1,13 +1,13 @@
 {
-  "boardDate": "2026-07-01",
-  "generatedAt": "2026-07-01T13:52:23.541Z",
+  "boardDate": "2026-07-02",
+  "generatedAt": "2026-07-02T13:18:39.577Z",
   "sourceCount": 26,
   "weather": [
     {
       "city": "Ottawa",
-      "temperatureC": 25,
-      "maxC": 34,
-      "minC": 20,
+      "temperatureC": 26,
+      "maxC": 31,
+      "minC": 21,
       "summary": "Clear skies"
     }
   ],
@@ -31,7 +31,16 @@
       "publishedAt": "2026-06-30T11:20:44.000Z"
     },
     {
-      "title": "England's warmest June on record down to record-breaking heatwave",
+      "title": "Scientists fear seabird die-off as El Niño looms: ‘We don’t know how bad this will get’",
+      "whatHappened": "Many seabirds are starving to death as a marine heat wave lingers off California and fish seek deeper, cooler waters Within minutes of walking on a...",
+      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
+      "keyWord": "heat wave: a long period of unusually hot weather",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/us-news/2026/jul/01/el-nino-birds-california",
+      "publishedAt": "2026-07-01T19:37:09.000Z"
+    },
+    {
+      "title": "England's warmest June on record following historic heatwave",
       "whatHappened": "England saw its warmest June since records began in 1865 and the second warmest for the whole of the UK according to data just released by...",
       "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
       "keyWord": "heat wave: a long period of unusually hot weather",
@@ -56,15 +65,6 @@
       "source": "BBC Science & Environment",
       "url": "https://www.bbc.co.uk/news/articles/cm2j8kd0dk4o?at_medium=RSS&at_campaign=rss",
       "publishedAt": "2026-07-01T10:45:49.000Z"
-    },
-    {
-      "title": "Specieswatch: How heatwaves play havoc with bees’ fertility",
-      "whatHappened": "Study reveals extreme heat causes sharp drop with knock-on effect for pollination of food crops in following years We know heatwaves have serious health consequences for...",
-      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
-      "keyWord": "heat wave: a long period of unusually hot weather",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/environment/2026/jul/01/specieswatch-heatwave-bees-fertility-pollination-crops",
-      "publishedAt": "2026-07-01T05:00:26.000Z"
     }
   ],
   "climate": [
@@ -76,15 +76,6 @@
       "source": "UN Climate",
       "url": "https://news.un.org/feed/view/en/story/2026/06/1167802",
       "publishedAt": "2026-06-24T12:00:00.000Z"
-    },
-    {
-      "title": "Five Americans die every hour from toxic vehicle emissions, study finds",
-      "whatHappened": "Research suggests 41,800 premature US deaths in 2024 were attributable to road pollution Roughly five Americans die every hour due to exposure to toxic road vehicle...",
-      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
-      "keyWord": "emissions: gases released into the air",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/us-news/2026/jun/29/deaths-vehicle-emissions-pollution",
-      "publishedAt": "2026-06-29T10:00:42.000Z"
     },
     {
       "title": "Climate crisis: UN chief lays out solutions blueprint for clean energy transition",
@@ -114,6 +105,15 @@
       "publishedAt": "2026-07-01T12:00:37.000Z"
     },
     {
+      "title": "World News in Brief: Risk of atrocities in Sudan, UN programme prevents climate displacement, more civilians killed in Ukraine",
+      "whatHappened": "Drone attacks by advancing rebel fighters who are besieging El Obeid,&nbsp;Sudan, continue to result in civilian casualties, putting around half a million civilians at grave risk...",
+      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
+      "keyWord": "climate: the usual pattern of weather over a long period of time",
+      "source": "UN Climate",
+      "url": "https://news.un.org/feed/view/en/story/2026/07/1167856",
+      "publishedAt": "2026-07-01T12:00:00.000Z"
+    },
+    {
       "title": "Trump to attend opening of Roosevelt library amid overturning conservation efforts",
       "whatHappened": "Theodore Roosevelt protected swathes of land, while Trump has lifted protections from more than 86m acres Donald Trump will attend a ribbon cutting for the new...",
       "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
@@ -125,13 +125,13 @@
   ],
   "weatherTech": [
     {
-      "title": "Range anxiety",
-      "whatHappened": "The storm developed quickly over west central Illinois on April 17th, first as a single high-intensity system called a supercell, and then later that evening transforming...",
-      "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
-      "keyWord": "weather technology: tools that help people measure, study, or predict weather and climate",
-      "source": "The Verge",
-      "url": "https://www.theverge.com/cs/features/938196/rivian-r2-ev-factory-supply-chain",
-      "publishedAt": "2026-07-01T11:07:35.000Z"
+      "title": "Rivian raises EV sales forecast as Q2 production ramps up",
+      "whatHappened": "The company now expects to ship a few thousand more vehicles by the end of 2026 than it previously expected, after launching its R2 SUV last...",
+      "whyItMatters": "Weather technology shows how science tools can predict conditions faster and help people prepare earlier.",
+      "keyWord": "forecast: a prediction about future weather conditions",
+      "source": "TechCrunch",
+      "url": "https://techcrunch.com/2026/07/02/rivian-thinks-it-will-sell-more-evs-than-expected-this-year/",
+      "publishedAt": "2026-07-02T12:30:00.000Z"
     },
     {
       "title": "Flooding hits Ghana's capital killing 13 people - with another storm forecast",
@@ -235,7 +235,7 @@
       "publishedAt": "2026-07-01T09:00:00.000Z"
     },
     {
-      "title": "Europe’s heat wave caused roads to buckle. What’s in store for U.S.?",
+      "title": "Europe’s heat wave caused roads to buckle. What’s in store for the US?",
       "whatHappened": "Europe’s heat wave showed just how much infrastructure is at risk from extreme temperatures.",
       "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
       "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
@@ -253,13 +253,13 @@
       "publishedAt": "2026-06-30T17:00:00.000Z"
     },
     {
-      "title": "Scientists find ozone depletion began decades before discovery of ozone hole",
-      "whatHappened": "Using modern tools, they also determined that carbon tetrachloride, used as a dry-cleaning and degreasing agent as early as the 1930s, was at the root of...",
+      "title": "June 30 campus cooling update",
+      "whatHappened": "From: Robert Cramer, Vice Chancellor for Finance and Administration To the campus community, Latest information about campus cooling issues Find the latest updates and frequently asked...",
       "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
       "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
-      "source": "MIT Climate & Sustainability",
-      "url": "https://news.mit.edu/2026/scientists-find-ozone-depletion-began-decades-before-ozone-hole-discovery-0629",
-      "publishedAt": "2026-06-29T19:00:00.000Z"
+      "source": "University of Wisconsin News",
+      "url": "https://news.wisc.edu/june-30-campus-cooling-update/",
+      "publishedAt": "2026-06-30T15:00:53.000Z"
     }
   ]
 }
