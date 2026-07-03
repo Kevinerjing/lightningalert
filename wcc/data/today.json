@@ -1,17 +1,26 @@
 {
-  "boardDate": "2026-07-02",
-  "generatedAt": "2026-07-02T13:18:39.577Z",
+  "boardDate": "2026-07-03",
+  "generatedAt": "2026-07-03T13:20:39.989Z",
   "sourceCount": 26,
   "weather": [
     {
       "city": "Ottawa",
-      "temperatureC": 26,
+      "temperatureC": 25,
       "maxC": 31,
       "minC": 21,
       "summary": "Clear skies"
     }
   ],
   "extremeWeather": [
+    {
+      "title": "France records 2,025 excess deaths at peak of heatwave as Europe braces for more extreme weather",
+      "whatHappened": "Forecasters are warning of further extreme temperatures on the continent in the next few days.",
+      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
+      "keyWord": "heat wave: a long period of unusually hot weather",
+      "source": "BBC Science & Environment",
+      "url": "https://www.bbc.co.uk/news/articles/c3ry307rxqro?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-07-03T10:23:32.000Z"
+    },
     {
       "title": "Amid crushing European heatwave, things are about to get hotter for transport systems",
       "whatHappened": "As European transport officials scramble to deal with melting train tracks and buckling roads amid a crushing heatwave, a UN report released Tuesday warns of more...",
@@ -22,13 +31,22 @@
       "publishedAt": "2026-06-30T12:00:00.000Z"
     },
     {
-      "title": "Flooding hits Ghana's capital killing 13 people - with another storm forecast",
-      "whatHappened": "People have been urged to relocate to high ground or stay indoors as more rain is expected to come.",
+      "title": "El Niño forecast to intensify, increasing likelihood of extreme weather",
+      "whatHappened": "More blistering heatwaves and other weather extremes are becoming increasingly likely across the world now and in coming months, linked to strengthening El Niño conditions in...",
       "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
-      "keyWord": "flood: water covering land that is usually dry",
+      "keyWord": "heat wave: a long period of unusually hot weather",
+      "source": "UN Climate",
+      "url": "https://news.un.org/feed/view/en/story/2026/07/1167870",
+      "publishedAt": "2026-07-03T12:00:00.000Z"
+    },
+    {
+      "title": "Could a heatwave hit Taylor Swift's wedding?",
+      "whatHappened": "Simon King reports on the dangerous heat threatening North America.",
+      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
+      "keyWord": "heat wave: a long period of unusually hot weather",
       "source": "BBC Science & Environment",
-      "url": "https://www.bbc.co.uk/news/articles/cn4r8zlv8edo?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-06-30T11:20:44.000Z"
+      "url": "https://www.bbc.co.uk/news/videos/c75ykqwgwl5o?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-07-02T17:00:53.000Z"
     },
     {
       "title": "Scientists fear seabird die-off as El Niño looms: ‘We don’t know how bad this will get’",
@@ -47,24 +65,6 @@
       "source": "BBC Science & Environment",
       "url": "https://www.bbc.co.uk/weather/articles/cjdg98g8lg8o?at_medium=RSS&at_campaign=rss",
       "publishedAt": "2026-07-01T13:49:42.000Z"
-    },
-    {
-      "title": "New Orleans residents on warning to abandon sinking city: ‘Nobody wants to leave home’",
-      "whatHappened": "After a recent study found New Orleans is at a ‘point of no return’ amid the climate crisis, some locals say they will ‘only leave if...",
-      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
-      "keyWord": "flood: water covering land that is usually dry",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/us-news/2026/jul/01/new-orleans-relocation-reactions-climate",
-      "publishedAt": "2026-07-01T12:00:37.000Z"
-    },
-    {
-      "title": "Dangerous heatwave to hit US ahead of holiday weekend",
-      "whatHappened": "North America will bake in extreme temperatures amid celebrations for the United States' 250th birthday.",
-      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
-      "keyWord": "heat wave: a long period of unusually hot weather",
-      "source": "BBC Science & Environment",
-      "url": "https://www.bbc.co.uk/news/articles/cm2j8kd0dk4o?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-07-01T10:45:49.000Z"
     }
   ],
   "climate": [
@@ -78,22 +78,22 @@
       "publishedAt": "2026-06-24T12:00:00.000Z"
     },
     {
-      "title": "Climate crisis: UN chief lays out solutions blueprint for clean energy transition",
-      "whatHappened": "As a deadly heatwave continued to grip Europe on Tuesday, UN Secretary-General António Guterres issued an impassioned appeal for more ambitious global action on climate change...",
-      "whyItMatters": "Climate and environment stories connect science to real issues like safety, health, and extreme weather.",
-      "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "UN Climate",
-      "url": "https://news.un.org/feed/view/en/story/2026/06/1167785",
-      "publishedAt": "2026-06-23T12:00:00.000Z"
-    },
-    {
-      "title": "Powering resilience: How Indonesia is building a more secure energy future",
-      "whatHappened": "As countries grapple with energy price shocks, supply disruptions and the growing impacts of climate change, energy security has become a pressing concern.&nbsp;",
+      "title": "‘Scavenger’ dolphins increasingly rely on trawlers for food in overfished Adriatic, say scientists",
+      "whatHappened": "In one area 76% of fishing boats were followed, with baby dolphins learning the technique from their parents Bottlenose dolphins in the Adriatic are increasingly following...",
       "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
       "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "UN Climate",
-      "url": "https://news.un.org/feed/view/en/story/2026/06/1167784",
-      "publishedAt": "2026-06-22T12:00:00.000Z"
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/environment/2026/jul/03/dolphins-scavenging-food-trawlers-adriatic-study",
+      "publishedAt": "2026-07-03T04:00:18.000Z"
+    },
+    {
+      "title": "As seas rise, American history could be washed away",
+      "whatHappened": "In Jamestown, Virginia, one of the most important places in American history is in a race against time from rising waters Sean Romo stops digging the...",
+      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
+      "keyWord": "climate: the usual pattern of weather over a long period of time",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/environment/2026/jul/02/sea-level-rise-jamestown-virginia",
+      "publishedAt": "2026-07-02T18:00:06.000Z"
     },
     {
       "title": "New Orleans residents on warning to abandon sinking city: ‘Nobody wants to leave home’",
@@ -125,31 +125,22 @@
   ],
   "weatherTech": [
     {
-      "title": "Rivian raises EV sales forecast as Q2 production ramps up",
-      "whatHappened": "The company now expects to ship a few thousand more vehicles by the end of 2026 than it previously expected, after launching its R2 SUV last...",
+      "title": "El Niño forecast to intensify, increasing likelihood of extreme weather",
+      "whatHappened": "More blistering heatwaves and other weather extremes are becoming increasingly likely across the world now and in coming months, linked to strengthening El Niño conditions in...",
       "whyItMatters": "Weather technology shows how science tools can predict conditions faster and help people prepare earlier.",
       "keyWord": "forecast: a prediction about future weather conditions",
-      "source": "TechCrunch",
-      "url": "https://techcrunch.com/2026/07/02/rivian-thinks-it-will-sell-more-evs-than-expected-this-year/",
-      "publishedAt": "2026-07-02T12:30:00.000Z"
-    },
-    {
-      "title": "Flooding hits Ghana's capital killing 13 people - with another storm forecast",
-      "whatHappened": "People have been urged to relocate to high ground or stay indoors as more rain is expected to come.",
-      "whyItMatters": "Weather technology shows how science tools can predict conditions faster and help people prepare earlier.",
-      "keyWord": "forecast: a prediction about future weather conditions",
-      "source": "BBC Science & Environment",
-      "url": "https://www.bbc.co.uk/news/articles/cn4r8zlv8edo?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-06-30T11:20:44.000Z"
-    },
-    {
-      "title": "Climate crisis: UN chief lays out solutions blueprint for clean energy transition",
-      "whatHappened": "As a deadly heatwave continued to grip Europe on Tuesday, UN Secretary-General António Guterres issued an impassioned appeal for more ambitious global action on climate change...",
-      "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
-      "keyWord": "weather technology: tools that help people measure, study, or predict weather and climate",
       "source": "UN Climate",
-      "url": "https://news.un.org/feed/view/en/story/2026/06/1167785",
-      "publishedAt": "2026-06-23T12:00:00.000Z"
+      "url": "https://news.un.org/feed/view/en/story/2026/07/1167870",
+      "publishedAt": "2026-07-03T12:00:00.000Z"
+    },
+    {
+      "title": "Private space pilots are flying orbital missions for the US Space Force",
+      "whatHappened": "True Anomaly and Rocket Lab are performing Top Gun-style satellite fly-bys for the U.S.",
+      "whyItMatters": "Weather technology shows how science tools can predict conditions faster and help people prepare earlier.",
+      "keyWord": "satellite: an object in space that collects information and sends it back to Earth",
+      "source": "TechCrunch",
+      "url": "https://techcrunch.com/2026/07/02/private-space-pilots-are-flying-orbital-missions-for-the-us-space-force/",
+      "publishedAt": "2026-07-02T23:01:06.000Z"
     }
   ],
   "universityNews": [
@@ -181,6 +172,15 @@
       "publishedAt": "2025-07-29T18:38:05.000Z"
     },
     {
+      "title": "Extreme Heat Is Here: What Columbia Climate School Experts Want You to Know",
+      "whatHappened": "As a dangerous early-summer heat wave covers swaths of the globe, Columbia Climate School experts discuss the impacts of extreme heat.",
+      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
+      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
+      "source": "Columbia Climate School",
+      "url": "https://news.climate.columbia.edu/2026/07/02/extreme-heat-is-here-what-columbia-climate-school-experts-want-you-to-know/",
+      "publishedAt": "2026-07-02T16:26:59.000Z"
+    },
+    {
       "title": "Climate School Alumni Aim for Sustainability Goals in the 2026 World Cup and Beyond",
       "whatHappened": "As the 2026 FIFA World Cup plays out in North America, M.A.",
       "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
@@ -197,15 +197,6 @@
       "source": "Waterloo Environment",
       "url": "https://uwaterloo.ca/environment/news/environment-professor-honoured-distinguished-teacher-award",
       "publishedAt": "2026-06-29T12:00:00.000Z"
-    },
-    {
-      "title": "Carbon Dioxide and Water Played Key Roles in Historic Mount Etna Eruptions",
-      "whatHappened": "Understanding these dynamics can help geologists assess the risk of future eruptions.",
-      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
-      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
-      "source": "Columbia Climate School",
-      "url": "https://news.climate.columbia.edu/2026/06/18/carbon-dioxide-and-water-played-key-roles-in-historic-mount-etna-eruptions/",
-      "publishedAt": "2026-06-18T16:45:46.000Z"
     },
     {
       "title": "Expanding and deepening climate reporting through local messengers",
@@ -226,24 +217,6 @@
       "publishedAt": "2026-06-08T12:00:00.000Z"
     },
     {
-      "title": "Could the clean energy revolution be powered by wastewater?",
-      "whatHappened": "“As chemical engineers, we have to think of how to make [things] from waste,” said doctoral student Qudus Rafiu.",
-      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
-      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
-      "source": "Northeastern Global News",
-      "url": "https://news.northeastern.edu/2026/07/01/wastewater-recovery-clean-energy-research/",
-      "publishedAt": "2026-07-01T09:00:00.000Z"
-    },
-    {
-      "title": "Europe’s heat wave caused roads to buckle. What’s in store for the US?",
-      "whatHappened": "Europe’s heat wave showed just how much infrastructure is at risk from extreme temperatures.",
-      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
-      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
-      "source": "Northeastern Global News",
-      "url": "https://news.northeastern.edu/2026/06/30/europe-heat-wave-infrastructure-risk/",
-      "publishedAt": "2026-06-30T22:32:50.000Z"
-    },
-    {
       "title": "MIT researchers advance toward greater bandwidth, more energy-efficient communications",
       "whatHappened": "The FUTUR-IC research program integrates electronics and photonics in microchip systems.",
       "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
@@ -260,6 +233,24 @@
       "source": "University of Wisconsin News",
       "url": "https://news.wisc.edu/june-30-campus-cooling-update/",
       "publishedAt": "2026-06-30T15:00:53.000Z"
+    },
+    {
+      "title": "Scientists find ozone depletion began decades before discovery of ozone hole",
+      "whatHappened": "Using modern tools, they also determined that carbon tetrachloride, used as a dry-cleaning and degreasing agent as early as the 1930s, was at the root of...",
+      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
+      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
+      "source": "MIT Climate & Sustainability",
+      "url": "https://news.mit.edu/2026/scientists-find-ozone-depletion-began-decades-before-ozone-hole-discovery-0629",
+      "publishedAt": "2026-06-29T19:00:00.000Z"
+    },
+    {
+      "title": "Warming streams are pushing young salmon beyond their limits: new research",
+      "whatHappened": "Researchers at UBC find that young salmon face greater heat risks than previously measured—and that younger fish and older fish cope with warming water very differently.",
+      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
+      "keyWord": "research: careful study used to discover new knowledge",
+      "source": "UBC News",
+      "url": "https://news.ubc.ca/2026/06/warm-streams-effects-young-salmon/",
+      "publishedAt": "2026-06-29T15:55:00.000Z"
     }
   ]
 }
