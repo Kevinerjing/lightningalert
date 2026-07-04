@@ -1,13 +1,13 @@
 {
-  "boardDate": "2026-07-03",
-  "generatedAt": "2026-07-03T13:20:39.989Z",
+  "boardDate": "2026-07-04",
+  "generatedAt": "2026-07-04T12:45:25.281Z",
   "sourceCount": 26,
   "weather": [
     {
       "city": "Ottawa",
-      "temperatureC": 25,
-      "maxC": 31,
-      "minC": 21,
+      "temperatureC": 22,
+      "maxC": 27,
+      "minC": 20,
       "summary": "Clear skies"
     }
   ],
@@ -31,6 +31,24 @@
       "publishedAt": "2026-06-30T12:00:00.000Z"
     },
     {
+      "title": "UK temperatures forecast to exceed 30C as another heatwave imminent",
+      "whatHappened": "Another heatwave is on its way and set to last significantly longer as Stav Danaos explains.",
+      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
+      "keyWord": "heat wave: a long period of unusually hot weather",
+      "source": "BBC Science & Environment",
+      "url": "https://www.bbc.co.uk/weather/articles/c621j44jwe1o?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-07-04T00:23:47.000Z"
+    },
+    {
+      "title": "Record-breaking temps in US as 4th July holiday begins",
+      "whatHappened": "Record-breaking heatwave hits US as Fourth of July holiday weekend gets underway.",
+      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
+      "keyWord": "heat wave: a long period of unusually hot weather",
+      "source": "BBC Science & Environment",
+      "url": "https://www.bbc.co.uk/news/videos/cx2v1e9dpn9o?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-07-03T17:10:24.000Z"
+    },
+    {
       "title": "El Niño forecast to intensify, increasing likelihood of extreme weather",
       "whatHappened": "More blistering heatwaves and other weather extremes are becoming increasingly likely across the world now and in coming months, linked to strengthening El Niño conditions in...",
       "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
@@ -40,15 +58,6 @@
       "publishedAt": "2026-07-03T12:00:00.000Z"
     },
     {
-      "title": "Could a heatwave hit Taylor Swift's wedding?",
-      "whatHappened": "Simon King reports on the dangerous heat threatening North America.",
-      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
-      "keyWord": "heat wave: a long period of unusually hot weather",
-      "source": "BBC Science & Environment",
-      "url": "https://www.bbc.co.uk/news/videos/c75ykqwgwl5o?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-07-02T17:00:53.000Z"
-    },
-    {
       "title": "Scientists fear seabird die-off as El Niño looms: ‘We don’t know how bad this will get’",
       "whatHappened": "Many seabirds are starving to death as a marine heat wave lingers off California and fish seek deeper, cooler waters Within minutes of walking on a...",
       "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
@@ -56,18 +65,18 @@
       "source": "The Guardian Environment",
       "url": "https://www.theguardian.com/us-news/2026/jul/01/el-nino-birds-california",
       "publishedAt": "2026-07-01T19:37:09.000Z"
-    },
-    {
-      "title": "England's warmest June on record following historic heatwave",
-      "whatHappened": "England saw its warmest June since records began in 1865 and the second warmest for the whole of the UK according to data just released by...",
-      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
-      "keyWord": "heat wave: a long period of unusually hot weather",
-      "source": "BBC Science & Environment",
-      "url": "https://www.bbc.co.uk/weather/articles/cjdg98g8lg8o?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-07-01T13:49:42.000Z"
     }
   ],
   "climate": [
+    {
+      "title": "Birdsong data from Merlin ID app to help global biodiversity project",
+      "whatHappened": "Cornell Lab for Ornithology plans data linkup between app and population monitoring on eBird platform The Merlin bird ID app will allow users to feed real-time...",
+      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
+      "keyWord": "climate: the usual pattern of weather over a long period of time",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/environment/2026/jul/04/merlin-app-birdsong-identification-ebird-biodiversity-conservation",
+      "publishedAt": "2026-07-04T11:00:13.000Z"
+    },
     {
       "title": "UN chief: Targeting methane is a climate battle ‘we can win’",
       "whatHappened": "Amid efforts to cool global warming, the battle hinges on targeting such super-pollutants as methane, which emits one third of the world’s greenhouse gases and “is...",
@@ -78,13 +87,31 @@
       "publishedAt": "2026-06-24T12:00:00.000Z"
     },
     {
-      "title": "‘Scavenger’ dolphins increasingly rely on trawlers for food in overfished Adriatic, say scientists",
-      "whatHappened": "In one area 76% of fishing boats were followed, with baby dolphins learning the technique from their parents Bottlenose dolphins in the Adriatic are increasingly following...",
+      "title": "Scientist dubbed The Bogfather is restoring peatland to fight climate change",
+      "whatHappened": "A childhood fascination with bogs led one Welsh scientist to try and help save the planet.",
       "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
       "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/environment/2026/jul/03/dolphins-scavenging-food-trawlers-adriatic-study",
-      "publishedAt": "2026-07-03T04:00:18.000Z"
+      "source": "BBC Science & Environment",
+      "url": "https://www.bbc.co.uk/news/articles/cy498d400pro?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-07-04T06:21:35.000Z"
+    },
+    {
+      "title": "Turbines turning from wind to sustainable products",
+      "whatHappened": "Thousands of tonnes of non-recyclable wind turbine blades are coming to the end of their lives.",
+      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
+      "keyWord": "climate: the usual pattern of weather over a long period of time",
+      "source": "BBC Science & Environment",
+      "url": "https://www.bbc.co.uk/news/articles/cewqzrkvwvqo?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-07-04T05:06:44.000Z"
+    },
+    {
+      "title": "'Hotter and hotter and hotter' - Europe's new climate in seven charts",
+      "whatHappened": "Temperature records were smashed in June - and scientists warn this is a sign of things to come.",
+      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
+      "keyWord": "climate: the usual pattern of weather over a long period of time",
+      "source": "BBC Science & Environment",
+      "url": "https://www.bbc.co.uk/news/articles/c8e2j0j87reo?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-07-04T00:57:05.000Z"
     },
     {
       "title": "As seas rise, American history could be washed away",
@@ -94,36 +121,36 @@
       "source": "The Guardian Environment",
       "url": "https://www.theguardian.com/environment/2026/jul/02/sea-level-rise-jamestown-virginia",
       "publishedAt": "2026-07-02T18:00:06.000Z"
-    },
-    {
-      "title": "New Orleans residents on warning to abandon sinking city: ‘Nobody wants to leave home’",
-      "whatHappened": "After a recent study found New Orleans is at a ‘point of no return’ amid the climate crisis, some locals say they will ‘only leave if...",
-      "whyItMatters": "Climate and environment stories connect science to real issues like safety, health, and extreme weather.",
-      "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/us-news/2026/jul/01/new-orleans-relocation-reactions-climate",
-      "publishedAt": "2026-07-01T12:00:37.000Z"
-    },
-    {
-      "title": "World News in Brief: Risk of atrocities in Sudan, UN programme prevents climate displacement, more civilians killed in Ukraine",
-      "whatHappened": "Drone attacks by advancing rebel fighters who are besieging El Obeid,&nbsp;Sudan, continue to result in civilian casualties, putting around half a million civilians at grave risk...",
-      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
-      "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "UN Climate",
-      "url": "https://news.un.org/feed/view/en/story/2026/07/1167856",
-      "publishedAt": "2026-07-01T12:00:00.000Z"
-    },
-    {
-      "title": "Trump to attend opening of Roosevelt library amid overturning conservation efforts",
-      "whatHappened": "Theodore Roosevelt protected swathes of land, while Trump has lifted protections from more than 86m acres Donald Trump will attend a ribbon cutting for the new...",
-      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
-      "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/us-news/2026/jul/01/trump-roosevelt-library-opening",
-      "publishedAt": "2026-07-01T11:30:34.000Z"
     }
   ],
   "weatherTech": [
+    {
+      "title": "Birdsong data from Merlin ID app to help global biodiversity project",
+      "whatHappened": "Cornell Lab for Ornithology plans data linkup between app and population monitoring on eBird platform The Merlin bird ID app will allow users to feed real-time...",
+      "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
+      "keyWord": "weather technology: tools that help people measure, study, or predict weather and climate",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/environment/2026/jul/04/merlin-app-birdsong-identification-ebird-biodiversity-conservation",
+      "publishedAt": "2026-07-04T11:00:13.000Z"
+    },
+    {
+      "title": "Turbines turning from wind to sustainable products",
+      "whatHappened": "Thousands of tonnes of non-recyclable wind turbine blades are coming to the end of their lives.",
+      "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
+      "keyWord": "weather technology: tools that help people measure, study, or predict weather and climate",
+      "source": "BBC Science & Environment",
+      "url": "https://www.bbc.co.uk/news/articles/cewqzrkvwvqo?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-07-04T05:06:44.000Z"
+    },
+    {
+      "title": "UK temperatures forecast to exceed 30C as another heatwave imminent",
+      "whatHappened": "Another heatwave is on its way and set to last significantly longer as Stav Danaos explains.",
+      "whyItMatters": "Weather technology shows how science tools can predict conditions faster and help people prepare earlier.",
+      "keyWord": "forecast: a prediction about future weather conditions",
+      "source": "BBC Science & Environment",
+      "url": "https://www.bbc.co.uk/weather/articles/c621j44jwe1o?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-07-04T00:23:47.000Z"
+    },
     {
       "title": "El Niño forecast to intensify, increasing likelihood of extreme weather",
       "whatHappened": "More blistering heatwaves and other weather extremes are becoming increasingly likely across the world now and in coming months, linked to strengthening El Niño conditions in...",
