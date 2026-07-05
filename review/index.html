@@ -6,8 +6,18 @@
 <title>Grade 10 Science - Chemical Reactions Review</title>
 <style>
   :root{--ink:#1f2937;--muted:#6b7280;--line:#e5e7eb;--soft:#f9fafb;--ok:#065f46;--warn:#92400e;}
-  *{box-sizing:border-box} body{margin:0;font-family:Arial,Helvetica,sans-serif;color:var(--ink);background:white;line-height:1.55}
-  .page{max-width:1080px;margin:0 auto;padding:34px 22px 60px}
+  *{box-sizing:border-box} html{scroll-behavior:smooth} body{margin:0;font-family:Arial,Helvetica,sans-serif;color:var(--ink);background:white;line-height:1.55}
+  .layout{display:grid;grid-template-columns:240px minmax(0,1fr);align-items:start;max-width:1320px;margin:0 auto}
+  .sidebar{position:sticky;top:0;height:100vh;border-right:1px solid var(--line);padding:26px 18px;background:#fff}
+  .sidebar h2{font-size:13px;text-transform:uppercase;letter-spacing:0;color:var(--muted);border:0;margin:0 0 12px;padding:0}
+  .chapter-nav{display:flex;flex-direction:column;gap:6px;margin-bottom:22px}
+  .chapter-nav a,.chapter-nav span{display:block;border-radius:8px;padding:9px 10px;text-decoration:none;color:var(--ink);font-size:14px}
+  .chapter-nav a.active{background:#eef2ff;border:1px solid #c7d2fe;font-weight:700}
+  .chapter-nav span{color:#9ca3af;border:1px dashed var(--line)}
+  .section-nav{display:flex;flex-direction:column;gap:4px}
+  .section-nav a{color:#4b5563;text-decoration:none;font-size:13px;padding:5px 2px}
+  .section-nav a:hover{color:var(--ink);text-decoration:underline}
+  .page{max-width:1080px;margin:0 auto;padding:34px 22px 60px;width:100%}
   header{border-bottom:2px solid var(--ink);padding-bottom:18px;margin-bottom:24px}
   h1{font-size:30px;margin:0 0 8px} h2{font-size:22px;margin:34px 0 12px;border-bottom:1px solid var(--line);padding-bottom:6px}
   h3{font-size:17px;margin:20px 0 8px} p{margin:8px 0}.sub{color:var(--muted);font-size:15px}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
@@ -18,18 +28,39 @@
   .mistake{border-left:4px solid #9ca3af;padding-left:10px;margin:8px 0}.answer{color:var(--ok);font-weight:700}.why{color:#374151}.small{font-size:13px;color:var(--muted)}
   ol{padding-left:22px} li{margin:6px 0}.exam{break-inside:avoid}.q{margin:12px 0;padding-bottom:10px;border-bottom:1px dashed var(--line)}
   details{border:1px solid var(--line);border-radius:10px;padding:10px 12px;margin:10px 0;background:#fff} summary{cursor:pointer;font-weight:700}
-  @media (max-width:760px){.grid{grid-template-columns:1fr} h1{font-size:24px}.page{padding:22px 14px}}
-  @media print{body{font-size:12px}.page{max-width:none;padding:18px} details{break-inside:avoid} summary{list-style:none}.no-print{display:none}}
+  @media (max-width:900px){.layout{display:block}.sidebar{position:static;height:auto;border-right:0;border-bottom:1px solid var(--line);padding:16px 14px}.chapter-nav{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));margin-bottom:12px}.section-nav{display:none}.grid{grid-template-columns:1fr} h1{font-size:24px}.page{padding:22px 14px}}
+  @media print{body{font-size:12px}.layout{display:block;max-width:none}.sidebar{display:none}.page{max-width:none;padding:18px} details{break-inside:avoid} summary{list-style:none}.no-print{display:none}}
 </style>
 </head>
 <body>
-<div class="page">
+<div class="layout">
+<aside class="sidebar no-print">
+  <h2>Grade 10 Science</h2>
+  <nav class="chapter-nav" aria-label="Chapter navigation">
+    <a class="active" href="#chapter-2">Chapter 2: Chemical Reactions</a>
+    <span>Chapter 3: Coming Soon</span>
+    <span>Chapter 4: Coming Soon</span>
+    <span>Chapter 5: Coming Soon</span>
+  </nav>
+  <nav class="section-nav" aria-label="Chapter 2 sections">
+    <a href="#core-concepts">Core Concepts</a>
+    <a href="#balancing">Balancing Equations</a>
+    <a href="#reaction-types">Reaction Types</a>
+    <a href="#combustion">Combustion</a>
+    <a href="#formula-writing">Formula Writing</a>
+    <a href="#practice-1">Practice Test 1</a>
+    <a href="#practice-2">Practice Test 2</a>
+    <a href="#homework-risk">Homework High-Risk Points</a>
+    <a href="#exam-strategy">Quick Strategy</a>
+  </nav>
+</aside>
+<main class="page" id="chapter-2">
 <header>
-  <h1>Grade 10 Science: Chemical Reactions</h1>
+  <h1>Chapter 2: Chemical Reactions</h1>
   <p class="sub">Clean one-page review | Conservation of mass | Balancing equations | Reaction types | Two mistake-focused practice tests</p>
 </header>
 
-<section>
+<section id="core-concepts">
   <h2>1. Core Concepts</h2>
   <div class="grid">
     <div class="card">
@@ -52,7 +83,7 @@
   </div>
 </section>
 
-<section>
+<section id="balancing">
   <h2>2. Balancing Chemical Equations</h2>
   <div class="card soft">
     <p><b>Golden rule:</b> Change coefficients only. Never change subscripts.</p>
@@ -70,7 +101,7 @@
   </table>
 </section>
 
-<section>
+<section id="reaction-types">
   <h2>3. Reaction Types</h2>
   <table>
     <tr><th>Type</th><th>Pattern</th><th>Example</th><th>How to recognize it</th></tr>
@@ -82,7 +113,7 @@
   </table>
 </section>
 
-<section>
+<section id="combustion">
   <h2>4. Complete vs. Incomplete Combustion</h2>
   <div class="grid">
     <div class="card">
@@ -101,7 +132,7 @@
   </div>
 </section>
 
-<section>
+<section id="common-mistakes">
   <h2>5. High-Frequency Mistakes</h2>
   <ol>
     <li>Changing <b>subscripts</b> instead of coefficients.</li>
@@ -114,7 +145,7 @@
 </section>
 
 
-<section>
+<section id="workflow">
   <h2>6. Complete Workflow: From English Description to Final Equation</h2>
   <div class="card soft">
     <p><b>Use this full workflow every time:</b></p>
@@ -131,7 +162,7 @@
   <div class="mistake"><b>Big idea:</b> Many Grade 10 students think they are bad at balancing, but the real mistake often happens earlier: they write the wrong chemical formula before balancing.</div>
 </section>
 
-<section>
+<section id="formula-writing">
   <h2>7. Writing Chemical Formulas Cheat Sheet</h2>
   <div class="grid">
     <div class="card">
@@ -199,7 +230,7 @@
   </ol>
 </section>
 
-<section class="exam">
+<section class="exam" id="practice-1">
   <h2>Practice Test 1: Easy-to-Miss Questions</h2>
   <p class="small">Try these first without looking at the answers.</p>
   <ol>
@@ -232,7 +263,7 @@
   </details>
 </section>
 
-<section class="exam">
+<section class="exam" id="practice-2">
   <h2>Practice Test 2: More Tricky Mixed Questions</h2>
   <ol>
     <li class="q">Balance: <span class="eq">__N₂O₅ → __N₂O₄ + __O₂</span></li>
@@ -264,7 +295,7 @@
   </details>
 </section>
 
-<section>
+<section id="homework-risk">
   <h2>Homework-Specific High-Risk Points</h2>
   <p class="sub">These are the parts of Class 2 Homework that are most likely to cost marks even when the student understands the basic idea.</p>
 
@@ -332,7 +363,7 @@
   <p><span class="eq">(aq)</span> means dissolved in water; <span class="eq">(l)</span> means pure liquid. As it reacts, bubbles of oxygen gas should appear. The reaction is complete when bubbling stops.</p>
 </section>
 
-<section>
+<section id="exam-strategy">
   <h2>Quick Exam Strategy</h2>
   <ol>
     <li>First write the correct chemical formulas.</li>
@@ -343,6 +374,7 @@
   </ol>
 </section>
 
+</main>
 </div>
 </body>
 </html>
