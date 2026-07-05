@@ -1,0 +1,395 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Grade 10 Science - Chapter 2: Chemical Reactions</title>
+<style>
+  :root{--ink:#1f2937;--muted:#6b7280;--line:#e5e7eb;--soft:#f9fafb;--ok:#065f46;--warn:#92400e;}
+  *{box-sizing:border-box} html{scroll-behavior:smooth} body{margin:0;font-family:Arial,Helvetica,sans-serif;color:var(--ink);background:white;line-height:1.55}
+  .layout{display:grid;grid-template-columns:240px minmax(0,1fr);align-items:start;max-width:1320px;margin:0 auto}
+  .sidebar{position:sticky;top:0;height:100vh;border-right:1px solid var(--line);padding:26px 18px;background:#fff}
+  .sidebar h2{font-size:13px;text-transform:uppercase;letter-spacing:0;color:var(--muted);border:0;margin:0 0 12px;padding:0}
+  .chapter-nav{display:flex;flex-direction:column;gap:6px;margin-bottom:22px}
+  .chapter-nav a,.chapter-nav span{display:block;border-radius:8px;padding:9px 10px;text-decoration:none;color:var(--ink);font-size:14px}
+  .chapter-nav a.active{background:#eef2ff;border:1px solid #c7d2fe;font-weight:700}
+  .chapter-nav span{color:#9ca3af;border:1px dashed var(--line)}
+  .section-nav{display:flex;flex-direction:column;gap:4px}
+  .section-nav a{color:#4b5563;text-decoration:none;font-size:13px;padding:5px 2px}
+  .section-nav a:hover{color:var(--ink);text-decoration:underline}
+  .page{max-width:1080px;margin:0 auto;padding:34px 22px 60px;width:100%}
+  .chapter{scroll-margin-top:18px}
+  header{border-bottom:2px solid var(--ink);padding-bottom:18px;margin-bottom:24px}
+  h1{font-size:30px;margin:0 0 8px} h2{font-size:22px;margin:34px 0 12px;border-bottom:1px solid var(--line);padding-bottom:6px}
+  h3{font-size:17px;margin:20px 0 8px} p{margin:8px 0}.sub{color:var(--muted);font-size:15px}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+  .card{border:1px solid var(--line);border-radius:12px;padding:15px;background:white}.soft{background:var(--soft)}
+  table{width:100%;border-collapse:collapse;margin:10px 0 14px;font-size:14px} th,td{border:1px solid var(--line);padding:8px;vertical-align:top} th{background:#f3f4f6;text-align:left}
+  code,.eq{font-family:Consolas,monospace;background:#f3f4f6;padding:2px 5px;border-radius:5px}.eq{display:inline-block;margin:3px 0}
+  .tag{display:inline-block;border:1px solid var(--line);border-radius:999px;padding:2px 8px;font-size:12px;color:var(--muted);margin-right:5px}
+  .mistake{border-left:4px solid #9ca3af;padding-left:10px;margin:8px 0}.answer{color:var(--ok);font-weight:700}.why{color:#374151}.small{font-size:13px;color:var(--muted)}
+  ol{padding-left:22px} li{margin:6px 0}.exam{break-inside:avoid}.q{margin:12px 0;padding-bottom:10px;border-bottom:1px dashed var(--line)}
+  details{border:1px solid var(--line);border-radius:10px;padding:10px 12px;margin:10px 0;background:#fff} summary{cursor:pointer;font-weight:700}
+  .figure{margin:12px 0 14px;border:1px solid var(--line);border-radius:8px;padding:8px;background:#fff;break-inside:avoid}
+  .figure img{display:block;width:100%;height:auto;border-radius:4px}
+  .figure figcaption{font-size:13px;color:var(--muted);margin-top:7px}
+  @media (max-width:900px){.layout{display:block}.sidebar{position:static;height:auto;border-right:0;border-bottom:1px solid var(--line);padding:16px 14px}.chapter-nav{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));margin-bottom:12px}.section-nav{display:none}.grid{grid-template-columns:1fr} h1{font-size:24px}.page{padding:22px 14px}}
+  @media print{body{font-size:12px}.layout{display:block;max-width:none}.sidebar{display:none}.page{max-width:none;padding:18px} details{break-inside:avoid} summary{list-style:none}.no-print{display:none}}
+
+  .toc-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:18px}
+  .toc-card{border:1px solid var(--line);border-radius:8px;padding:15px;text-decoration:none;color:var(--ink);background:#fff}
+  .toc-card:hover{border-color:#9ca3af;background:#f9fafb}
+  .toc-card h2{border:0;margin:0 0 8px;padding:0;font-size:18px}
+  .toc-card p{color:var(--muted);font-size:14px;margin:0 0 10px}
+  .toc-card ul{margin:0;padding-left:18px;font-size:14px;color:#374151}
+  @media (max-width:900px){.toc-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="layout">
+<aside class="sidebar no-print">
+  <h2>Grade 10 Science</h2>
+  <nav class="chapter-nav" aria-label="Chapter navigation">
+    <a href="index.html">Review Home</a>
+    <a class="active" href="chapter2.html">Chapter 2: Chemical Reactions</a>
+    <a href="chapter3.html">Chapter 3: Acids, Bases, and pH</a>
+    <a href="chapter4.html">Chapter 4: Systems of Living Things</a>
+    <span>Chapter 5: Coming Soon</span>
+  </nav>
+  <nav class="section-nav" aria-label="Page sections">
+    <a href="#core-concepts">Core Concepts</a>
+    <a href="#balancing">Balancing Equations</a>
+    <a href="#reaction-types">Reaction Types</a>
+    <a href="#combustion">Combustion</a>
+    <a href="#formula-writing">Formula Writing</a>
+    <a href="#practice-1">Practice Test 1</a>
+    <a href="#practice-2">Practice Test 2</a>
+    <a href="#homework-risk">Homework High-Risk Points</a>
+    <a href="#exam-strategy">Quick Strategy</a>
+  </nav>
+</aside>
+<main class="page">
+<article class="chapter" id="chapter-2">
+<header>
+  <h1>Chapter 2: Chemical Reactions</h1>
+  <p class="sub">Clean one-page review | Conservation of mass | Balancing equations | Reaction types | Two mistake-focused practice tests</p>
+</header>
+
+<section id="core-concepts">
+  <h2>1. Core Concepts</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>Law of Conservation of Mass</h3>
+      <p>The total mass of the reactants equals the total mass of the products. Atoms are not created or destroyed; they are rearranged.</p>
+      <p class="eq">CH₄ + 2O₂ → CO₂ + 2H₂O</p>
+      <div class="mistake"><b>Common mistake:</b> Balancing does not create new atoms. It only makes the number of each atom equal on both sides.</div>
+    </div>
+    <div class="card">
+      <h3>State Symbols</h3>
+      <table>
+        <tr><th>Symbol</th><th>Meaning</th></tr>
+        <tr><td>(s)</td><td>solid</td></tr>
+        <tr><td>(l)</td><td>liquid / molten</td></tr>
+        <tr><td>(g)</td><td>gas</td></tr>
+        <tr><td>(aq)</td><td>aqueous: dissolved in water</td></tr>
+      </table>
+      <div class="mistake"><b>Common mistake:</b> <span class="eq">NaCl(aq)</span> is not liquid salt. It means salt dissolved in water.</div>
+    </div>
+  </div>
+</section>
+
+<section id="balancing">
+  <h2>2. Balancing Chemical Equations</h2>
+  <div class="card soft">
+    <p><b>Golden rule:</b> Change coefficients only. Never change subscripts.</p>
+    <p class="eq">Fe + O₂ → Fe₂O₃</p>
+    <p>Balanced:</p>
+    <p class="eq">4Fe + 3O₂ → 2Fe₂O₃</p>
+  </div>
+  <table>
+    <tr><th>Rule</th><th>Why it matters</th></tr>
+    <tr><td>Only add coefficients</td><td>Changing subscripts changes the substance.</td></tr>
+    <tr><td>Balance non-H and non-O first</td><td>Hydrogen and oxygen often appear in many places, so they are usually easier to finish last.</td></tr>
+    <tr><td>Treat unchanged polyatomic ions as one unit</td><td>Example: keep <span class="eq">SO₄</span> together if it appears unchanged on both sides.</td></tr>
+    <tr><td>Use simplest whole-number coefficients</td><td>Do not leave fractions or reducible coefficients.</td></tr>
+    <tr><td>If impossible, check formulas</td><td>The skeleton equation may be written incorrectly.</td></tr>
+  </table>
+</section>
+
+<section id="reaction-types">
+  <h2>3. Reaction Types</h2>
+  <table>
+    <tr><th>Type</th><th>Pattern</th><th>Example</th><th>How to recognize it</th></tr>
+    <tr><td>Synthesis</td><td>A + B → AB</td><td>3H₂ + N₂ → 2NH₃</td><td>Several reactants form one product.</td></tr>
+    <tr><td>Decomposition</td><td>AB → A + B</td><td>2H₂O → 2H₂ + O₂</td><td>One reactant breaks into several products.</td></tr>
+    <tr><td>Combustion</td><td>fuel + O₂ → oxides + energy</td><td>CH₄ + 2O₂ → CO₂ + 2H₂O</td><td>Oxygen is a reactant; hydrocarbons usually produce CO₂ and H₂O.</td></tr>
+    <tr><td>Single Displacement</td><td>A + BC → AC + B</td><td>Cu + 2AgNO₃ → Cu(NO₃)₂ + 2Ag</td><td>One element replaces another element in a compound.</td></tr>
+    <tr><td>Double Displacement</td><td>AB + CD → AD + CB</td><td>AgNO₃ + NaCl → NaNO₃ + AgCl</td><td>Two compounds exchange ions; often forms a precipitate, water, or gas.</td></tr>
+  </table>
+</section>
+
+<section id="combustion">
+  <h2>4. Complete vs. Incomplete Combustion</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>Complete Combustion</h3>
+      <p>Occurs when there is enough oxygen.</p>
+      <p>Hydrocarbon products: <span class="eq">CO₂ + H₂O + energy</span></p>
+      <p>Flame: usually blue, less smoke.</p>
+    </div>
+    <div class="card">
+      <h3>Incomplete Combustion</h3>
+      <p>Occurs when oxygen is limited.</p>
+      <p>Possible products: <span class="eq">CO₂, CO, H₂O, C(s), energy</span></p>
+      <p>Flame: yellow/orange and smokier.</p>
+      <div class="mistake"><b>Important:</b> Carbon monoxide, <span class="eq">CO</span>, is colourless, odourless, tasteless, and dangerous.</div>
+    </div>
+  </div>
+</section>
+
+<section id="common-mistakes">
+  <h2>5. High-Frequency Mistakes</h2>
+  <ol>
+    <li>Changing <b>subscripts</b> instead of coefficients.</li>
+    <li>Forgetting that some elements are diatomic: <span class="eq">H₂, N₂, O₂, F₂, Cl₂, Br₂, I₂</span>.</li>
+    <li>Thinking <span class="eq">(aq)</span> means liquid. It means dissolved in water.</li>
+    <li>Breaking polyatomic ions when they should be treated as a unit.</li>
+    <li>Writing wrong ionic formulas before balancing, such as using <span class="eq">AgCrO₄</span> instead of <span class="eq">Ag₂CrO₄</span>.</li>
+    <li>Calling every reaction with oxygen “combustion.” Oxygen may appear in other reaction types too.</li>
+  </ol>
+</section>
+
+
+<section id="workflow">
+  <h2>6. Complete Workflow: From English Description to Final Equation</h2>
+  <div class="card soft">
+    <p><b>Use this full workflow every time:</b></p>
+    <p class="eq">English sentence → word equation → skeleton equation → balanced equation → reaction type</p>
+  </div>
+  <table>
+    <tr><th>Step</th><th>What to do</th><th>Example</th></tr>
+    <tr><td>1. Read the sentence</td><td>Find the reactants and products.</td><td><i>Magnesium reacts with oxygen to form magnesium oxide.</i></td></tr>
+    <tr><td>2. Write a word equation</td><td>Use words first before formulas.</td><td>magnesium + oxygen → magnesium oxide</td></tr>
+    <tr><td>3. Write correct formulas</td><td>Use symbols, charges, crisscrossing, and diatomic elements.</td><td>Mg + O₂ → MgO</td></tr>
+    <tr><td>4. Balance</td><td>Add coefficients only. Never change subscripts.</td><td>2Mg + O₂ → 2MgO</td></tr>
+    <tr><td>5. Classify</td><td>Look at the pattern.</td><td>Synthesis</td></tr>
+  </table>
+  <div class="mistake"><b>Big idea:</b> Many Grade 10 students think they are bad at balancing, but the real mistake often happens earlier: they write the wrong chemical formula before balancing.</div>
+</section>
+
+<section id="formula-writing">
+  <h2>7. Writing Chemical Formulas Cheat Sheet</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>A. Diatomic Elements</h3>
+      <p>When these elements appear alone, write them as two atoms:</p>
+      <p class="eq">H₂, O₂, N₂, F₂, Cl₂, Br₂, I₂</p>
+      <div class="mistake"><b>Common trap:</b> oxygen gas is <span class="eq">O₂</span>, but oxide inside a compound is usually <span class="eq">O²⁻</span>. Example: magnesium oxide is <span class="eq">MgO</span>, not <span class="eq">MgO₂</span>.</div>
+    </div>
+    <div class="card">
+      <h3>B. Roman Numerals</h3>
+      <p>Roman numerals tell the metal charge.</p>
+      <table>
+        <tr><th>Name</th><th>Charge</th><th>Example formula</th></tr>
+        <tr><td>iron(II)</td><td>Fe²⁺</td><td>FeO</td></tr>
+        <tr><td>iron(III)</td><td>Fe³⁺</td><td>Fe₂O₃</td></tr>
+        <tr><td>copper(I)</td><td>Cu⁺</td><td>CuCl</td></tr>
+        <tr><td>copper(II)</td><td>Cu²⁺</td><td>CuCl₂</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <h3>Common Ions to Memorize</h3>
+  <table>
+    <tr><th>Ion name</th><th>Formula</th><th>Charge</th><th>Memory tip</th></tr>
+    <tr><td>sodium</td><td>Na</td><td>+1</td><td>Group 1 metals are +1.</td></tr>
+    <tr><td>potassium</td><td>K</td><td>+1</td><td>Group 1 metals are +1.</td></tr>
+    <tr><td>silver</td><td>Ag</td><td>+1</td><td>Very common in precipitate questions.</td></tr>
+    <tr><td>magnesium</td><td>Mg</td><td>+2</td><td>Group 2 metals are +2.</td></tr>
+    <tr><td>calcium</td><td>Ca</td><td>+2</td><td>Group 2 metals are +2.</td></tr>
+    <tr><td>zinc</td><td>Zn</td><td>+2</td><td>Usually +2.</td></tr>
+    <tr><td>aluminum</td><td>Al</td><td>+3</td><td>Usually +3.</td></tr>
+    <tr><td>chloride</td><td>Cl</td><td>−1</td><td>From chlorine.</td></tr>
+    <tr><td>bromide</td><td>Br</td><td>−1</td><td>From bromine.</td></tr>
+    <tr><td>iodide</td><td>I</td><td>−1</td><td>From iodine.</td></tr>
+    <tr><td>oxide</td><td>O</td><td>−2</td><td>Not O₂ inside ionic compounds.</td></tr>
+    <tr><td>sulfide</td><td>S</td><td>−2</td><td>Not sulfate.</td></tr>
+    <tr><td>hydroxide</td><td>OH</td><td>−1</td><td>Often forms water in neutralization.</td></tr>
+    <tr><td>nitrate</td><td>NO₃</td><td>−1</td><td>Silver nitrate = AgNO₃.</td></tr>
+    <tr><td>carbonate</td><td>CO₃</td><td>−2</td><td>Use brackets if more than one.</td></tr>
+    <tr><td>sulfate</td><td>SO₄</td><td>−2</td><td>Different from sulfide.</td></tr>
+    <tr><td>phosphate</td><td>PO₄</td><td>−3</td><td>Sodium phosphate = Na₃PO₄.</td></tr>
+    <tr><td>ammonium</td><td>NH₄</td><td>+1</td><td>A positive polyatomic ion.</td></tr>
+  </table>
+
+  <h3>Formula-Writing Method: Charge + Crisscross</h3>
+  <table>
+    <tr><th>English name</th><th>Charges</th><th>Crisscross result</th><th>Final formula</th></tr>
+    <tr><td>magnesium oxide</td><td>Mg²⁺ and O²⁻</td><td>Mg₂O₂</td><td>MgO</td></tr>
+    <tr><td>aluminum chloride</td><td>Al³⁺ and Cl⁻</td><td>AlCl₃</td><td>AlCl₃</td></tr>
+    <tr><td>calcium nitrate</td><td>Ca²⁺ and NO₃⁻</td><td>Ca(NO₃)₂</td><td>Ca(NO₃)₂</td></tr>
+    <tr><td>silver chromate</td><td>Ag⁺ and CrO₄²⁻</td><td>Ag₂CrO₄</td><td>Ag₂CrO₄</td></tr>
+    <tr><td>iron(III) oxide</td><td>Fe³⁺ and O²⁻</td><td>Fe₂O₃</td><td>Fe₂O₃</td></tr>
+  </table>
+
+  <h3>Ontario Grade 10 Chemistry: Most Common Lost Marks</h3>
+  <ol>
+    <li>Writing <span class="eq">O</span> instead of <span class="eq">O₂</span> when oxygen appears alone.</li>
+    <li>Changing subscripts to balance, such as changing <span class="eq">H₂O</span> into <span class="eq">H₂O₂</span>.</li>
+    <li>Forgetting brackets for polyatomic ions: <span class="eq">Ca(NO₃)₂</span>, not <span class="eq">CaNO₃₂</span>.</li>
+    <li>Mixing up similar ions: sulfide <span class="eq">S²⁻</span>, sulfate <span class="eq">SO₄²⁻</span>, sulfite <span class="eq">SO₃²⁻</span>.</li>
+    <li>Ignoring Roman numerals: iron(II) and iron(III) make different compounds.</li>
+    <li>Writing products before checking reaction type patterns.</li>
+    <li>Forgetting that complete combustion of hydrocarbons produces <span class="eq">CO₂</span> and <span class="eq">H₂O</span>.</li>
+    <li>Balancing before checking whether the skeleton equation is chemically correct.</li>
+  </ol>
+</section>
+
+<section class="exam" id="practice-1">
+  <h2>Practice Test 1: Easy-to-Miss Questions</h2>
+  <p class="small">Try these first without looking at the answers.</p>
+  <ol>
+    <li class="q">Balance: <span class="eq">__K₂O → __K + __O₂</span></li>
+    <li class="q">Balance: <span class="eq">__AlCl₃ + __Na₂CO₃ → __Al₂(CO₃)₃ + __NaCl</span></li>
+    <li class="q">Write and balance: magnesium reacts with oxygen.</li>
+    <li class="q">Write and balance the complete combustion of propane, <span class="eq">C₃H₈</span>.</li>
+    <li class="q">Predict products and balance: <span class="eq">Fe + Pb(NO₃)₂ →</span></li>
+    <li class="q">Predict products and balance: <span class="eq">Cl₂ + NaI →</span></li>
+    <li class="q">Classify: <span class="eq">2H₂O → 2H₂ + O₂</span></li>
+    <li class="q">Classify: <span class="eq">AgNO₃ + NaCl → NaNO₃ + AgCl</span></li>
+    <li class="q">What does <span class="eq">CuSO₄(aq)</span> mean?</li>
+    <li class="q">Explain why <span class="eq">Fe + O₃ → Fe₂O₃</span> is not the normal skeleton equation for iron reacting with oxygen.</li>
+  </ol>
+
+  <details>
+    <summary>Answers and analysis: Test 1</summary>
+    <ol>
+      <li><span class="answer">2K₂O → 4K + O₂</span><br><span class="why">Oxygen is diatomic as O₂, so two K₂O units are needed.</span></li>
+      <li><span class="answer">2AlCl₃ + 3Na₂CO₃ → Al₂(CO₃)₃ + 6NaCl</span><br><span class="why">Treat CO₃ as a unit. Then balance Al, CO₃, Na, and Cl.</span></li>
+      <li><span class="answer">2Mg + O₂ → 2MgO</span><br><span class="why">Oxygen is O₂, not O.</span></li>
+      <li><span class="answer">C₃H₈ + 5O₂ → 3CO₂ + 4H₂O</span><br><span class="why">Balance C first, H second, O last.</span></li>
+      <li><span class="answer">Fe + Pb(NO₃)₂ → Fe(NO₃)₂ + Pb</span><br><span class="why">Single displacement. Use the common charge Fe²⁺ unless otherwise stated.</span></li>
+      <li><span class="answer">Cl₂ + 2NaI → 2NaCl + I₂</span><br><span class="why">A nonmetal replaces another nonmetal. Iodine is diatomic.</span></li>
+      <li><span class="answer">Decomposition</span><br><span class="why">One reactant breaks into multiple products.</span></li>
+      <li><span class="answer">Double displacement</span><br><span class="why">The ions exchange partners; AgCl is a precipitate.</span></li>
+      <li><span class="answer">Copper(II) sulfate dissolved in water.</span><br><span class="why">Aqueous means dissolved in water.</span></li>
+      <li><span class="answer">Oxygen gas is normally O₂, not O₃.</span><br><span class="why">O₃ is ozone, a different substance. Do not change chemical formulas just to balance.</span></li>
+    </ol>
+  </details>
+</section>
+
+<section class="exam" id="practice-2">
+  <h2>Practice Test 2: More Tricky Mixed Questions</h2>
+  <ol>
+    <li class="q">Balance: <span class="eq">__N₂O₅ → __N₂O₄ + __O₂</span></li>
+    <li class="q">Write and balance: methane burns completely in oxygen.</li>
+    <li class="q">Write and balance: zinc metal reacts with silver nitrate solution to produce zinc nitrate and silver metal.</li>
+    <li class="q">Predict products and balance: <span class="eq">Li + H₂O →</span></li>
+    <li class="q">Predict products and balance: <span class="eq">CaBr₂ + KOH →</span></li>
+    <li class="q">Write and balance: silver nitrate + sodium phosphate → silver phosphate precipitate + sodium nitrate.</li>
+    <li class="q">Classify: <span class="eq">P₄ + 5O₂ → P₄O₁₀</span></li>
+    <li class="q">Classify: <span class="eq">K₂O + H₂O → 2KOH</span></li>
+    <li class="q">Which is more dangerous in incomplete combustion: CO or CO₂? Why?</li>
+    <li class="q">A student writes <span class="eq">AgNO₃ + KCrO₄ → AgCrO₄ + KNO₃</span>. What is the formula mistake?</li>
+  </ol>
+
+  <details>
+    <summary>Answers and analysis: Test 2</summary>
+    <ol>
+      <li><span class="answer">2N₂O₅ → 2N₂O₄ + O₂</span><br><span class="why">Nitrogen is already balanced when both nitrogen compounds have coefficient 2. Oxygen becomes 10 on each side.</span></li>
+      <li><span class="answer">CH₄ + 2O₂ → CO₂ + 2H₂O</span><br><span class="why">Complete combustion of a hydrocarbon forms CO₂ and H₂O.</span></li>
+      <li><span class="answer">Zn + 2AgNO₃ → Zn(NO₃)₂ + 2Ag</span><br><span class="why">Zinc forms Zn²⁺, so zinc nitrate is Zn(NO₃)₂.</span></li>
+      <li><span class="answer">2Li + 2H₂O → 2LiOH + H₂</span><br><span class="why">Metal + water often forms a metal hydroxide and hydrogen gas.</span></li>
+      <li><span class="answer">CaBr₂ + 2KOH → Ca(OH)₂ + 2KBr</span><br><span class="why">Double displacement. Calcium is 2+, hydroxide is 1−, so Ca(OH)₂.</span></li>
+      <li><span class="answer">3AgNO₃ + Na₃PO₄ → Ag₃PO₄ + 3NaNO₃</span><br><span class="why">Phosphate is PO₄³⁻, silver is Ag⁺, so silver phosphate is Ag₃PO₄.</span></li>
+      <li><span class="answer">Combustion</span><br><span class="why">Phosphorus reacts with oxygen and releases energy.</span></li>
+      <li><span class="answer">Synthesis</span><br><span class="why">Two reactants combine to form one product.</span></li>
+      <li><span class="answer">CO is more dangerous.</span><br><span class="why">Carbon monoxide reduces the blood’s ability to carry oxygen and is hard to detect because it is colourless and odourless.</span></li>
+      <li><span class="answer">Silver chromate should be Ag₂CrO₄, not AgCrO₄.</span><br><span class="why">Ag is +1 and CrO₄ is −2, so two Ag⁺ ions are needed.</span></li>
+    </ol>
+  </details>
+</section>
+
+<section id="homework-risk">
+  <h2>Homework-Specific High-Risk Points</h2>
+  <p class="sub">These are the parts of Class 2 Homework that are most likely to cost marks even when the student understands the basic idea.</p>
+
+  <div class="grid">
+    <div class="card">
+      <h3>1. Dissolved vs. Precipitate</h3>
+      <p>For <span class="eq">AgNO₃(aq) + NaCl(aq) → AgCl(s) + NaNO₃(aq)</span>:</p>
+      <p><b>Reactants:</b> <span class="eq">AgNO₃(aq)</span> and <span class="eq">NaCl(aq)</span></p>
+      <p><b>Products:</b> <span class="eq">AgCl(s)</span> and <span class="eq">NaNO₃(aq)</span></p>
+      <p><b>Dissolved compounds:</b> silver nitrate, sodium chloride, sodium nitrate.</p>
+      <p><b>Precipitate:</b> silver chloride.</p>
+      <div class="mistake"><b>Trap:</b> <span class="eq">(aq)</span> means dissolved in water; <span class="eq">(s)</span> is the solid precipitate.</div>
+    </div>
+
+    <div class="card">
+      <h3>2. Conservation of Mass Calculation</h3>
+      <p>Propane + container = <span class="eq">61.8 g</span>; container only = <span class="eq">50.0 g</span>.</p>
+      <p>So propane mass = <span class="eq">61.8 - 50.0 = 11.8 g</span>.</p>
+      <p>Products + container = <span class="eq">104.8 g</span>, so products mass = <span class="eq">104.8 - 50.0 = 54.8 g</span>.</p>
+      <p>Oxygen consumed = products - propane = <span class="answer">54.8 - 11.8 = 43.0 g O₂</span>.</p>
+      <div class="mistake"><b>Trap:</b> subtract the container first, or subtract it consistently. Do not use 104.8 g as product mass.</div>
+    </div>
+  </div>
+
+  <h3>Hard Balancing Answers Worth Checking</h3>
+  <table>
+    <tr><th>Homework item</th><th>Balanced equation</th><th>Main trap</th></tr>
+    <tr><td>2a</td><td><span class="eq">2Al + 3CuCl₂ → 2AlCl₃ + 3Cu</span></td><td>Copper(II) chloride is CuCl₂.</td></tr>
+    <tr><td>2c</td><td><span class="eq">SiO₂ + 4HF → SiF₄ + 2H₂O</span></td><td>Balance F/H together after Si and O.</td></tr>
+    <tr><td>2d</td><td><span class="eq">4P + 5O₂ + 6H₂O → 4H₃PO₄</span></td><td>The product is usually treated as phosphoric acid, H₃PO₄.</td></tr>
+    <tr><td>2e</td><td><span class="eq">4NH₃ + 6NO → 5N₂ + 6H₂O</span></td><td>Nitrogen appears in two reactants.</td></tr>
+    <tr><td>2f</td><td><span class="eq">2AgNO₃ + K₂CrO₄ → Ag₂CrO₄ + 2KNO₃</span></td><td>Silver chromate is Ag₂CrO₄, not AgCrO₄.</td></tr>
+    <tr><td>3g</td><td><span class="eq">SiCl₄ + 4H₂O → H₄SiO₄ + 4HCl</span></td><td>Four chlorines make four HCl.</td></tr>
+    <tr><td>3i</td><td><span class="eq">2H₃PO₄ → H₄P₂O₇ + H₂O</span></td><td>Count P first, then H/O.</td></tr>
+    <tr><td>3j</td><td><span class="eq">C₁₀H₁₆ + 8Cl₂ → 10C + 16HCl</span></td><td>Chlorine is diatomic.</td></tr>
+    <tr><td>3l</td><td><span class="eq">4Si₂H₃ + 17O₂ → 8SiO₂ + 6H₂O₃</span></td><td>Unusual product H₂O₃; balance the formula as given.</td></tr>
+    <tr><td>3q</td><td><span class="eq">4FeS₂ + 11O₂ → 2Fe₂O₃ + 8SO₂</span></td><td>Fe and S both force even coefficients.</td></tr>
+    <tr><td>3t</td><td><span class="eq">2Fe + 3H₂SO₄ → 3H₂ + Fe₂(SO₄)₃</span></td><td>Iron(III) sulfate contains two Fe and three sulfate groups.</td></tr>
+    <tr><td>3u</td><td><span class="eq">Al₄C₃ + 12H₂O → 3CH₄ + 4Al(OH)₃</span></td><td>Balance Al and C first.</td></tr>
+  </table>
+
+  <h3>Question 4 and 5: Classification + Equations</h3>
+  <table>
+    <tr><th>Item</th><th>Type</th><th>Balanced equation</th></tr>
+    <tr><td>4a</td><td>Synthesis</td><td><span class="eq">2NH₃ + H₂SO₄ → (NH₄)₂SO₄</span></td></tr>
+    <tr><td>4b</td><td>Single displacement</td><td><span class="eq">2Fe + 3CuSO₄ → Fe₂(SO₄)₃ + 3Cu</span></td></tr>
+    <tr><td>4c</td><td>Double displacement</td><td><span class="eq">K₂CO₃ + BaCl₂ → 2KCl + BaCO₃</span></td></tr>
+    <tr><td>4d</td><td>Decomposition</td><td><span class="eq">Al₂(SO₄)₃ → Al₂O₃ + 3SO₃</span></td></tr>
+    <tr><td>4e</td><td>Combustion</td><td><span class="eq">2C₂H₆ + 7O₂ → 4CO₂ + 6H₂O</span></td></tr>
+  </table>
+
+  <h3>Complete Combustion With Non-Hydrocarbons</h3>
+  <p>For ordinary hydrocarbons, complete combustion gives <span class="eq">CO₂ + H₂O</span>. If the fuel also contains nitrogen, the homework expects nitrogen-containing products too.</p>
+  <table>
+    <tr><th>Fuel</th><th>Balanced complete combustion</th></tr>
+    <tr><td>Pentane, C₅H₁₂</td><td><span class="eq">C₅H₁₂ + 8O₂ → 5CO₂ + 6H₂O</span></td></tr>
+    <tr><td>Diethyl ether, C₄H₁₀O</td><td><span class="eq">C₄H₁₀O + 6O₂ → 4CO₂ + 5H₂O</span></td></tr>
+    <tr><td>Urea, CH₄N₂O</td><td><span class="eq">2CH₄N₂O + 3O₂ → 2CO₂ + 4H₂O + 2N₂</span></td></tr>
+    <tr><td>Benzene, C₆H₆</td><td><span class="eq">2C₆H₆ + 15O₂ → 12CO₂ + 6H₂O</span></td></tr>
+    <tr><td>Propanol, C₃H₇OH</td><td><span class="eq">2C₃H₇OH + 9O₂ → 6CO₂ + 8H₂O</span></td></tr>
+  </table>
+
+  <h3>Hydrogen Peroxide</h3>
+  <p><span class="answer">2H₂O₂(aq) → 2H₂O(l) + O₂(g)</span>; classification: <b>decomposition</b>.</p>
+  <p><span class="eq">(aq)</span> means dissolved in water; <span class="eq">(l)</span> means pure liquid. As it reacts, bubbles of oxygen gas should appear. The reaction is complete when bubbling stops.</p>
+</section>
+
+<section id="exam-strategy">
+  <h2>Quick Exam Strategy</h2>
+  <ol>
+    <li>First write the correct chemical formulas.</li>
+    <li>Then balance using coefficients only.</li>
+    <li>Check every atom on both sides.</li>
+    <li>Reduce coefficients to the simplest whole numbers.</li>
+    <li>Classify by pattern, not by guessing from the name.</li>
+  </ol>
+</section>
+
+</article>
+</main>
+</div>
+</body>
+</html>

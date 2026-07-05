@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Grade 10 Science - Chapter 3: Acids, Bases, and pH</title>
+<style>
+  :root{--ink:#1f2937;--muted:#6b7280;--line:#e5e7eb;--soft:#f9fafb;--ok:#065f46;--warn:#92400e;}
+  *{box-sizing:border-box} html{scroll-behavior:smooth} body{margin:0;font-family:Arial,Helvetica,sans-serif;color:var(--ink);background:white;line-height:1.55}
+  .layout{display:grid;grid-template-columns:240px minmax(0,1fr);align-items:start;max-width:1320px;margin:0 auto}
+  .sidebar{position:sticky;top:0;height:100vh;border-right:1px solid var(--line);padding:26px 18px;background:#fff}
+  .sidebar h2{font-size:13px;text-transform:uppercase;letter-spacing:0;color:var(--muted);border:0;margin:0 0 12px;padding:0}
+  .chapter-nav{display:flex;flex-direction:column;gap:6px;margin-bottom:22px}
+  .chapter-nav a,.chapter-nav span{display:block;border-radius:8px;padding:9px 10px;text-decoration:none;color:var(--ink);font-size:14px}
+  .chapter-nav a.active{background:#eef2ff;border:1px solid #c7d2fe;font-weight:700}
+  .chapter-nav span{color:#9ca3af;border:1px dashed var(--line)}
+  .section-nav{display:flex;flex-direction:column;gap:4px}
+  .section-nav a{color:#4b5563;text-decoration:none;font-size:13px;padding:5px 2px}
+  .section-nav a:hover{color:var(--ink);text-decoration:underline}
+  .page{max-width:1080px;margin:0 auto;padding:34px 22px 60px;width:100%}
+  .chapter{scroll-margin-top:18px}
+  header{border-bottom:2px solid var(--ink);padding-bottom:18px;margin-bottom:24px}
+  h1{font-size:30px;margin:0 0 8px} h2{font-size:22px;margin:34px 0 12px;border-bottom:1px solid var(--line);padding-bottom:6px}
+  h3{font-size:17px;margin:20px 0 8px} p{margin:8px 0}.sub{color:var(--muted);font-size:15px}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+  .card{border:1px solid var(--line);border-radius:12px;padding:15px;background:white}.soft{background:var(--soft)}
+  table{width:100%;border-collapse:collapse;margin:10px 0 14px;font-size:14px} th,td{border:1px solid var(--line);padding:8px;vertical-align:top} th{background:#f3f4f6;text-align:left}
+  code,.eq{font-family:Consolas,monospace;background:#f3f4f6;padding:2px 5px;border-radius:5px}.eq{display:inline-block;margin:3px 0}
+  .tag{display:inline-block;border:1px solid var(--line);border-radius:999px;padding:2px 8px;font-size:12px;color:var(--muted);margin-right:5px}
+  .mistake{border-left:4px solid #9ca3af;padding-left:10px;margin:8px 0}.answer{color:var(--ok);font-weight:700}.why{color:#374151}.small{font-size:13px;color:var(--muted)}
+  ol{padding-left:22px} li{margin:6px 0}.exam{break-inside:avoid}.q{margin:12px 0;padding-bottom:10px;border-bottom:1px dashed var(--line)}
+  details{border:1px solid var(--line);border-radius:10px;padding:10px 12px;margin:10px 0;background:#fff} summary{cursor:pointer;font-weight:700}
+  .figure{margin:12px 0 14px;border:1px solid var(--line);border-radius:8px;padding:8px;background:#fff;break-inside:avoid}
+  .figure img{display:block;width:100%;height:auto;border-radius:4px}
+  .figure figcaption{font-size:13px;color:var(--muted);margin-top:7px}
+  @media (max-width:900px){.layout{display:block}.sidebar{position:static;height:auto;border-right:0;border-bottom:1px solid var(--line);padding:16px 14px}.chapter-nav{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));margin-bottom:12px}.section-nav{display:none}.grid{grid-template-columns:1fr} h1{font-size:24px}.page{padding:22px 14px}}
+  @media print{body{font-size:12px}.layout{display:block;max-width:none}.sidebar{display:none}.page{max-width:none;padding:18px} details{break-inside:avoid} summary{list-style:none}.no-print{display:none}}
+
+  .toc-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:18px}
+  .toc-card{border:1px solid var(--line);border-radius:8px;padding:15px;text-decoration:none;color:var(--ink);background:#fff}
+  .toc-card:hover{border-color:#9ca3af;background:#f9fafb}
+  .toc-card h2{border:0;margin:0 0 8px;padding:0;font-size:18px}
+  .toc-card p{color:var(--muted);font-size:14px;margin:0 0 10px}
+  .toc-card ul{margin:0;padding-left:18px;font-size:14px;color:#374151}
+  @media (max-width:900px){.toc-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="layout">
+<aside class="sidebar no-print">
+  <h2>Grade 10 Science</h2>
+  <nav class="chapter-nav" aria-label="Chapter navigation">
+    <a href="index.html">Review Home</a>
+    <a href="chapter2.html">Chapter 2: Chemical Reactions</a>
+    <a class="active" href="chapter3.html">Chapter 3: Acids, Bases, and pH</a>
+    <a href="chapter4.html">Chapter 4: Systems of Living Things</a>
+    <span>Chapter 5: Coming Soon</span>
+  </nav>
+  <nav class="section-nav" aria-label="Page sections">
+    <a href="#chapter-3-core">Core Concepts</a>
+    <a href="#chapter-3-risk">Homework High-Risk Points</a>
+  </nav>
+</aside>
+<main class="page">
+<article class="chapter" id="chapter-3">
+<header>
+  <h1>Chapter 3: Acids, Bases, and pH</h1>
+  <p class="sub">Arrhenius acids and bases | Neutralization | Indicators | pH scale | Acid deposition | Homework traps</p>
+</header>
+
+<section id="chapter-3-core">
+  <h2>1. Core Concepts</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>Arrhenius Acids and Bases</h3>
+      <p><b>Acid:</b> produces <span class="eq">H⁺</span> in water. Example: <span class="eq">HCl + H₂O → H₃O⁺ + Cl⁻</span>.</p>
+      <p><b>Base:</b> produces <span class="eq">OH⁻</span> in water. Example: <span class="eq">NaOH → Na⁺ + OH⁻</span>.</p>
+      <div class="mistake"><b>Trap:</b> a compound can be basic without ending in OH, such as hydrogen carbonate, because it can produce <span class="eq">OH⁻</span> in water.</div>
+    </div>
+    <div class="card">
+      <h3>Acid and Base Properties</h3>
+      <table>
+        <tr><th>Acids</th><th>Bases</th></tr>
+        <tr><td>Sour; blue litmus turns red</td><td>Bitter; red litmus turns blue</td></tr>
+        <tr><td>React with metals to form <span class="eq">H₂</span></td><td>Often found in cleaners and antacids</td></tr>
+        <tr><td>React with carbonates to form <span class="eq">CO₂</span></td><td>Neutralize acids</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <h3>Names to Memorize</h3>
+  <table>
+    <tr><th>Formula</th><th>Name</th><th>Type</th></tr>
+    <tr><td><span class="eq">HCl(aq)</span></td><td>hydrochloric acid</td><td>acid</td></tr>
+    <tr><td><span class="eq">HBr(aq)</span></td><td>hydrobromic acid</td><td>acid</td></tr>
+    <tr><td><span class="eq">HI(aq)</span></td><td>hydroiodic acid</td><td>acid</td></tr>
+    <tr><td><span class="eq">HNO₃(aq)</span></td><td>nitric acid</td><td>acid</td></tr>
+    <tr><td><span class="eq">H₂SO₄(aq)</span></td><td>sulfuric acid</td><td>acid</td></tr>
+    <tr><td><span class="eq">H₃PO₄(aq)</span></td><td>phosphoric acid</td><td>acid</td></tr>
+    <tr><td><span class="eq">NaOH, KOH, LiOH</span></td><td>metal hydroxides</td><td>base</td></tr>
+    <tr><td><span class="eq">KHCO₃, Ca(HCO₃)₂</span></td><td>hydrogen carbonates</td><td>base</td></tr>
+  </table>
+</section>
+
+<section>
+  <h2>2. Neutralization and Acid Reactions</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>Neutralization</h3>
+      <p>Acid + base → ionic salt + water.</p>
+      <p class="eq">HCl(aq) + LiOH(aq) → LiCl(aq) + H₂O(l)</p>
+      <div class="mistake"><b>Method:</b> combine <span class="eq">H⁺</span> and <span class="eq">OH⁻</span> into water, then pair the remaining ions to make the salt.</div>
+    </div>
+    <div class="card">
+      <h3>Acids with Carbonates</h3>
+      <p>Acid + carbonate → salt + carbon dioxide + water.</p>
+      <p class="eq">H₂SO₄ + CaCO₃ → CaSO₄ + CO₂ + H₂O</p>
+      <div class="mistake"><b>Trap:</b> carbonate questions often ask for an observation: bubbles of <span class="eq">CO₂</span>.</div>
+    </div>
+  </div>
+
+  <h3>Neutralization Practice Answers</h3>
+  <table>
+    <tr><th>Reaction</th><th>Balanced equation</th></tr>
+    <tr><td>HI + NaOH</td><td><span class="eq">HI + NaOH → NaI + H₂O</span></td></tr>
+    <tr><td>HBr + Ba(OH)₂</td><td><span class="eq">2HBr + Ba(OH)₂ → BaBr₂ + 2H₂O</span></td></tr>
+    <tr><td>H₃PO₄ + Ca(OH)₂</td><td><span class="eq">2H₃PO₄ + 3Ca(OH)₂ → Ca₃(PO₄)₂ + 6H₂O</span></td></tr>
+    <tr><td>HNO₃ + Al(OH)₃</td><td><span class="eq">3HNO₃ + Al(OH)₃ → Al(NO₃)₃ + 3H₂O</span></td></tr>
+    <tr><td>HCl + Mg(OH)₂</td><td><span class="eq">2HCl + Mg(OH)₂ → MgCl₂ + 2H₂O</span></td></tr>
+  </table>
+</section>
+
+<section>
+  <h2>3. Indicators and pH</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>Indicators</h3>
+      <table>
+        <tr><th>Indicator</th><th>Acid</th><th>Base</th></tr>
+        <tr><td>Phenolphthalein</td><td>colourless</td><td>pink</td></tr>
+        <tr><td>Litmus</td><td>red</td><td>blue</td></tr>
+        <tr><td>Bromothymol blue</td><td>yellow</td><td>blue</td></tr>
+      </table>
+    </div>
+    <div class="card">
+      <h3>pH Scale</h3>
+      <p><span class="eq">pH &lt; 7</span> acidic; <span class="eq">pH = 7</span> neutral; <span class="eq">pH &gt; 7</span> basic.</p>
+      <p>The pH scale is logarithmic: a difference of 1 pH unit means a 10 times change.</p>
+      <p><b>Example:</b> pH 2.3 to 6.7 is <span class="eq">10⁴⋅⁴ ≈ 25,000</span> times less acidic, so it became about <span class="answer">25,000 times more basic</span>.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>4. Acid Deposition and Applications</h2>
+  <table>
+    <tr><th>Topic</th><th>What to remember</th></tr>
+    <tr><td>Natural rain</td><td>About pH 5.6 because dissolved <span class="eq">CO₂</span> forms carbonic acid.</td></tr>
+    <tr><td>Acid deposition</td><td>Below pH 5.6; caused by sulfur oxides and nitrogen oxides from fossil fuels.</td></tr>
+    <tr><td>Effects</td><td>Damages plants, leaches soil minerals, harms aquatic life, and damages buildings.</td></tr>
+    <tr><td>Pool pH</td><td>Good range is about 7.2-7.8. If pH is 8.2, water is basic, cloudy, and chlorine works less well; add acid such as HCl to lower pH.</td></tr>
+  </table>
+</section>
+
+<section id="chapter-3-risk">
+  <h2>Homework-Specific High-Risk Points</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>Q1-Q2: Acid, Base, or Neutral</h3>
+      <p><b>Acids:</b> <span class="eq">HNO₃</span>, <span class="eq">H₂SO₄</span>, <span class="eq">HI</span>, <span class="eq">H₃PO₄</span>, <span class="eq">HBr</span>.</p>
+      <p><b>Bases:</b> <span class="eq">KOH</span>, <span class="eq">Ba(OH)₂</span>, <span class="eq">LiOH</span>, <span class="eq">KHCO₃</span>, <span class="eq">Ca(HCO₃)₂</span>, <span class="eq">Fe(OH)₃</span>.</p>
+      <p><b>Neutral:</b> <span class="eq">KNO₃</span>.</p>
+    </div>
+    <div class="card">
+      <h3>Q5: Universal Indicator Bottles</h3>
+      <figure class="figure">
+        <img src="assets/ch3_indicator_bottles.png" alt="Three indicator bottles labelled A, B, and C with pH colour chart" />
+        <figcaption>Use the colour chart: A is yellow, B is blue, and C is peach.</figcaption>
+      </figure>
+      <p>A is yellow, B is blue, C is peach.</p>
+      <p><b>Ammonia:</b> B, because blue indicates a base.</p>
+      <p><b>Vinegar:</b> A, because yellow indicates an acid near pH 6-8 on the provided chart.</p>
+      <p><b>Third bottle:</b> C is not uniquely known; it is acidic, but many acidic cleaning fluids could give peach.</p>
+      <div class="mistake"><b>Safety:</b> do not pour an unknown cleaning fluid down the drain just from indicator colour.</div>
+    </div>
+  </div>
+
+  <h3>Other Homework Answers and Explanations</h3>
+  <table>
+    <tr><th>Item</th><th>High-risk answer</th></tr>
+    <tr><td>Q3</td><td>Stomach acid can erode tooth enamel, so repeated vomiting exposes teeth to acid.</td></tr>
+    <tr><td>Q4</td><td>Lemon juice is acidic, so phenolphthalein becomes colourless instead of pink.</td></tr>
+    <tr><td>Q6 HCl</td><td>Blue litmus turns red; reacts with Mg to form bubbles of <span class="eq">H₂</span>; conducts electricity.</td></tr>
+    <tr><td>Q6 NaCl</td><td>Blue litmus stays blue; no reaction with Mg; conducts electricity because it is ionic in water.</td></tr>
+    <tr><td>Q6 sugar water</td><td>Blue litmus stays blue; no Mg reaction; poor/non-conductor because sugar does not form ions.</td></tr>
+    <tr><td>Q9</td><td>Lemon water is acidic and neutralizes basic amines, reducing fishy odour.</td></tr>
+    <tr><td>Q10</td><td>Acid + calcium carbonate releases <span class="eq">CO₂</span>; <span class="eq">H₂SO₄ + CaCO₃ → CaSO₄ + CO₂ + H₂O</span>. This weakens coral/shell structures.</td></tr>
+    <tr><td>Q12</td><td>Limestone neutralizes acid because it contains <span class="eq">CaCO₃</span>; the limestone lake likely has higher pH and healthier aquatic life than the granite lake.</td></tr>
+  </table>
+</section>
+</article>
+</main>
+</div>
+</body>
+</html>
