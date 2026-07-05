@@ -56,9 +56,19 @@
         "note": "Comes right before gas test prep and atomic theory work."
       },
       {
+        "date": "April 7, 2026",
+        "label": "Atomic structure practice quiz and Chemistry article evaluation",
+        "note": "Students will write the practice quiz and complete the Chemistry article evaluation on the same day."
+      },
+      {
         "date": "April 13, 2026",
         "label": "Chemistry unit test",
-        "note": "Scheduled just before the Space unit starts on April 14, 2026."
+        "note": "Older course calendar note listed April 13, but the latest family update says the Chemistry unit test will be written on Wednesday April 15, 2026."
+      },
+      {
+        "date": "April 15, 2026",
+        "label": "Chemistry unit test",
+        "note": "Teacher update: the Chemistry unit test is on Wednesday April 15, 2026. A review package should arrive one week before the test."
       },
       {
         "date": "May 4, 2026",
@@ -88,6 +98,123 @@
     ]
   },
   "upcomingSupport": [
+    {
+      "when": "Tuesday, April 7, 2026",
+      "topic": "Practice quiz",
+      "type": "Assessment",
+      "summary": "This atomic structure practice quiz uses the periodic table. Kevin needs to find protons, electrons, and neutrons, know element symbols, and explain the difference between atomic mass and mass number.",
+      "beforeClass": [
+        "Use the periodic table to find the atomic number and element symbol quickly.",
+        "Remember that in a neutral atom, protons = electrons.",
+        "Remember that neutrons = mass number - protons.",
+        "Know that mass number is for one atom or isotope, but atomic mass is the weighted average shown on the periodic table.",
+        "Be ready to draw or check Bohr-Rutherford diagrams for elements 1 to 20."
+      ],
+      "keywords": [
+        "atomic number",
+        "element symbol",
+        "mass number",
+        "atomic mass",
+        "protons",
+        "neutrons",
+        "electrons",
+        "neutral atom",
+        "Bohr-Rutherford"
+      ],
+      "quickQuestions": [
+        "If the atomic number is 17, how many protons does the atom have?",
+        "If a neutral atom has 12 protons, how many electrons does it have?",
+        "How do you calculate neutrons from the mass number?",
+        "What is the difference between atomic mass and mass number?",
+        "Why is atomic mass often a decimal?"
+      ],
+      "resources": [
+        {
+          "label": "11.0 Atomic Structure slide",
+          "url": "/uploads/slide-quizzes%2Fatomic-structure-11-0.pdf"
+        },
+        {
+          "label": "11.2 Atomic Structure Practice",
+          "url": "/uploads/slide-quizzes%2Fatomic-structure-practice-11-2.pdf"
+        },
+        {
+          "label": "Kevin Apps: Atom Explorer",
+          "url": "https://www.kevin-apps.com/atom"
+        },
+        {
+          "label": "Open slide quizzes",
+          "url": "quizzes.html"
+        }
+      ],
+      "teacherQuestions": [
+        "Find the number of protons, electrons, and neutrons in an atom.",
+        "State the correct element symbol.",
+        "Explain the difference between atomic mass and mass number.",
+        "Use the periodic table to find both atomic mass and mass number information."
+      ],
+      "flexibleThinkingExamples": [
+        "Atomic number tells you protons, not neutrons.",
+        "Mass number is a whole number for one atom; atomic mass is the average decimal on the periodic table.",
+        "If the atom is neutral, electrons must match protons.",
+        "When the teacher gives an isotope like calcium-40, the 40 is the mass number."
+      ]
+    },
+    {
+      "when": "Tuesday, April 7, 2026",
+      "topic": "Chemistry Article Evaluation",
+      "type": "Assessment",
+      "summary": "Kevin will read a chemistry article and answer questions using the periodic table. He needs periodic table patterns, APA-style source citation, and the main chemistry ideas from this unit so far.",
+      "beforeClass": [
+        "Review periodic table patterns such as metals vs non-metals, groups, periods, and common trends.",
+        "Review how to cite sources in APA style format.",
+        "Be ready to use chemistry ideas from this unit so far when explaining an article answer.",
+        "Expect to use the periodic table while reading and answering the article questions."
+      ],
+      "keywords": [
+        "Chemistry article",
+        "periodic table patterns",
+        "APA citation",
+        "source",
+        "article evidence",
+        "chemistry unit review"
+      ],
+      "quickQuestions": [
+        "How are groups and periods different on the periodic table?",
+        "What chemistry vocabulary from this unit can you use in an article response?",
+        "What details usually belong in a basic APA source citation?",
+        "How can the periodic table help when reading a chemistry article?"
+      ],
+      "resources": [
+        {
+          "label": "1.0 Citing your Sources Lesson 2025",
+          "url": "../resources/science/citing-your-sources-lesson-2025.pdf"
+        },
+        {
+          "label": "7.0 The Periodic Table slide",
+          "url": "/uploads/slide-quizzes%2Fthe-periodic-table.pdf"
+        },
+        {
+          "label": "7.2 Periodic Table patterns",
+          "url": "../resources/science/periodic-table-patterns-7-2.pdf"
+        },
+        {
+          "label": "Possible practice article (inference): CK-12 section 6.3",
+          "url": "https://www.ck12.org/book/ck-12-physical-science-for-middle-school/section/6.3/"
+        }
+      ],
+      "teacherQuestions": [
+        "Use the periodic table to support your understanding of the article.",
+        "Explain the periodic table patterns that connect to the article.",
+        "Cite your source in APA style.",
+        "Use chemistry ideas from this unit so far when answering the article questions."
+      ],
+      "flexibleThinkingExamples": [
+        "The CK-12 article is a possible practice article, not a confirmed exact test article.",
+        "A good article answer should use evidence from the reading and chemistry vocabulary from class.",
+        "Kevin should practice short APA citations before Tuesday so he does not lose easy marks.",
+        "This evaluation may combine reading comprehension with periodic table knowledge."
+      ]
+    },
     {
       "when": "Wednesday, April 1, 2026",
       "topic": "Why is H = 1.008?",
@@ -342,7 +469,8 @@
       "teacherNotes": [
         "March 23, 2026 and later Chemistry posts are part of the next test range.",
         "Use recent Google Classroom materials as the main review source.",
-        "Atomic Structure is a priority review area because a quiz is expected next week."
+        "Atomic Structure is a priority review area because a practice quiz is scheduled for Tuesday April 7, 2026.",
+        "The Chemistry Article Evaluation on Tuesday April 7, 2026 will also need periodic table patterns, APA source citation, and chemistry knowledge from this unit so far."
       ],
       "resources": [
         "Mar 23 - Periodic Table Patterns",
@@ -350,14 +478,18 @@
         "Mar 27 - Atomic Theory",
         "Apr 1 - Atomic Structure",
         "Apr 1 - The Planetary Model",
-        "11.2 Atomic Structure Practice"
+        "11.2 Atomic Structure Practice",
+        "1.0 Citing your Sources Lesson 2025",
+        "Possible practice article (inference): CK-12 section 6.3"
       ],
       "quizEasy": [],
       "quizMedium": [],
       "quizHard": [],
       "feynmanChecklist": [
         "I can explain the main periodic table patterns.",
-        "I can describe the key idea of atomic theory in simple words."
+        "I can describe the key idea of atomic theory in simple words.",
+        "I can explain the difference between atomic mass and mass number.",
+        "I can explain what to include in a short APA source citation."
       ],
       "applications": []
     }

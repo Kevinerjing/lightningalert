@@ -2,6 +2,7 @@ import argparse
 import json
 import os
 from pathlib import Path
+import queue
 import shutil
 import subprocess
 import sys
@@ -102,14 +103,33 @@ def forward_rtl_433_stderr(process: subprocess.Popen) -> None:
         print(f"rtl_433: {line}")
 
 
-def print_sensor_summary(data: dict) -> None:
+def forward_rtl_433_stdout(process: subprocess.Popen, output_queue: "queue.Queue[str]") -> None:
+    if process.stdout is None:
+        return
+
+    for raw_line in process.stdout:
+        output_queue.put(raw_line)
+
+
+def filter_label(model_filter: Optional[str]) -> str:
+    return model_filter if model_filter else "ALL MODELS"
+
+
+def matches_model_filter(model: Optional[str], model_filter: Optional[str]) -> bool:
+    if not model_filter:
+        return True
+    return model == model_filter
+
+
+def print_sensor_summary(data: dict, model_filter: Optional[str]) -> None:
+    model = data.get("model", "unknown model")
     temperature = data.get("temperature_C")
     humidity = data.get("humidity")
     distance = data.get("storm_dist")
     strike_count = data.get("strike_count")
     timestamp = data.get("time", "unknown time")
 
-    summary_parts = [f"Acurite-6045M @ {timestamp}"]
+    summary_parts = [f"{model} @ {timestamp}"]
     if temperature is not None:
         summary_parts.append(f"temperature: {temperature} C")
     if humidity is not None:
@@ -122,19 +142,41 @@ def print_sensor_summary(data: dict) -> None:
     print(" | ".join(summary_parts))
 
 
-def publish_sensor_stream():
+def publish_sensor_stream(model_filter: Optional[str]):
     rtl_433_path = require_rtl_433()
     client = build_mqtt_client()
     process = start_rtl_433_stream(rtl_433_path)
     last_strike_count: Optional[int] = None
+    last_decoded_at = time.time()
+    last_wait_log_at = time.time()
+    output_queue: "queue.Queue[str]" = queue.Queue()
     stderr_thread = threading.Thread(target=forward_rtl_433_stderr, args=(process,), daemon=True)
+    stdout_thread = threading.Thread(
+        target=forward_rtl_433_stdout,
+        args=(process, output_queue),
+        daemon=True
+    )
     stderr_thread.start()
+    stdout_thread.start()
 
-    print(f"Listening to rtl_433 with model filter: {MODEL_FILTER}")
+    print(f"Listening to rtl_433 with model filter: {filter_label(model_filter)}")
     print(f"Publishing to MQTT topic: {TOPIC}")
 
     try:
-        for raw_line in process.stdout:
+        while True:
+            if process.poll() is not None and output_queue.empty():
+                break
+
+            now = time.time()
+            if now - last_wait_log_at >= 15 and now - last_decoded_at >= 15:
+                print("No decoded messages yet... still listening.")
+                last_wait_log_at = now
+
+            try:
+                raw_line = output_queue.get(timeout=1)
+            except queue.Empty:
+                continue
+
             line = raw_line.strip()
             if not line:
                 continue
@@ -145,14 +187,16 @@ def publish_sensor_stream():
                 print(f"Parse error: {error}: {line}")
                 continue
 
+            last_decoded_at = time.time()
+            last_wait_log_at = last_decoded_at
             print(data)
             model = data.get("model")
             strike_count = data.get("strike_count")
 
-            if model == MODEL_FILTER:
-                print_sensor_summary(data)
+            if matches_model_filter(model, model_filter):
+                print_sensor_summary(data, model_filter)
 
-            if model == MODEL_FILTER and strike_count != last_strike_count:
+            if matches_model_filter(model, model_filter) and strike_count != last_strike_count:
                 payload = json.dumps(data)
                 print(f"Publishing new strike: {payload}")
                 client.publish(TOPIC, payload, qos=1, retain=True)
@@ -160,6 +204,7 @@ def publish_sensor_stream():
     finally:
         if process.poll() is None:
             process.terminate()
+        stdout_thread.join(timeout=1)
         stderr_thread.join(timeout=1)
         client.loop_stop()
         client.disconnect()
@@ -197,6 +242,11 @@ def parse_args():
         action="store_true",
         help="Publish one simulated lightning payload to MQTT without using rtl_433."
     )
+    parser.add_argument(
+        "--all",
+        action="store_true",
+        help="Listen for and print all rtl_433 models instead of filtering to one model."
+    )
     return parser.parse_args()
 
 
@@ -206,7 +256,8 @@ if __name__ == "__main__":
         if args.test or TEST_MODE:
             publish_test_message()
         else:
-            publish_sensor_stream()
+            effective_filter = None if args.all else MODEL_FILTER
+            publish_sensor_stream(effective_filter)
     except KeyboardInterrupt:
         print("Stopped by user.")
         sys.exit(0)

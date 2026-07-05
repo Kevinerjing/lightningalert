@@ -39,6 +39,7 @@ const SECTION_TITLES = {
 };
 
 const statements = [];
+const knownUploadIds = new Set();
 
 await fs.mkdir(outputDir, { recursive: true });
 
@@ -120,6 +121,7 @@ function seedUploads(uploadAnalysis) {
   const items = Array.isArray(uploadAnalysis?.items) ? uploadAnalysis.items : [];
   for (const item of items) {
     const id = stableId("upload", item.relativePath);
+    knownUploadIds.add(id);
     insert("uploads", {
       id,
       source_mode: "local",
@@ -404,7 +406,8 @@ function inferUploadId(item) {
   }
 
   const normalizedPath = matched.replace(/^(\.\.\/)+/, "");
-  return stableId("upload", normalizedPath);
+  const uploadId = stableId("upload", normalizedPath);
+  return knownUploadIds.has(uploadId) ? uploadId : null;
 }
 
 function normalizeSubjectSlug(subject) {

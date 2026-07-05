@@ -5,6 +5,7 @@
       "title": "Physical & Chemical Changes of Matter quiz",
       "referenceSlide": "6.0k Physical & Chemical Changes of Matter",
       "summary": "This quiz follows the slide details about physical changes, changes of state, dissolving, and the exact clues that confirm a chemical change.",
+      "sourceUrl": "/uploads/slide-quizzes%2Fphysical-chemical-changes-of-matter.pdf",
       "splitIndex": 4,
       "questions": [
         {
@@ -50,6 +51,7 @@
       "title": "The Periodic Table quiz",
       "referenceSlide": "7.0 The Periodic Table (with YouTube link)",
       "summary": "This quiz checks the history, periodic law, and arrangement details that appear directly on the periodic table slide.",
+      "sourceUrl": "/uploads/slide-quizzes%2Fthe-periodic-table.pdf",
       "splitIndex": 4,
       "questions": [
         {
@@ -99,6 +101,7 @@
       "title": "Coding for Science quiz",
       "referenceSlide": "1.0k Coding for Science (Classroom)",
       "summary": "This quiz covers the micro:bit vocabulary, selection logic, pins, and conductivity testing details that the teacher can pull straight from the coding slide.",
+      "sourceUrl": "/uploads/slide-quizzes%2Fcoding-for-science.pdf",
       "splitIndex": 4,
       "questions": [
         {
@@ -144,6 +147,7 @@
       "title": "Atomic Theory quiz",
       "referenceSlide": "10.0 Atomic Theory",
       "summary": "This quiz focuses on the order of atomic models, the particle discoveries, and the exact experiment details that often become teacher quiz questions.",
+      "sourceUrl": "/uploads/slide-quizzes%2Fatomic-theory.pdf",
       "splitIndex": 5,
       "questions": [
         {
@@ -193,6 +197,7 @@
       "title": "The Gas Tests quiz",
       "referenceSlide": "9.0 The Gas Tests",
       "summary": "This quiz checks the exact gas properties, splint tests, and lab reminders from the gas tests slide.",
+      "sourceUrl": "/uploads/slide-quizzes%2Fthe-gas-tests.pdf",
       "splitIndex": 4,
       "questions": [
         {
@@ -325,6 +330,156 @@
         {
           "prompt": "If you change only the neutrons in a Bohr-Rutherford diagram, what kind of atom change are you showing?",
           "answer": "You are showing an isotope."
+        }
+      ]
+    },
+    {
+      "subject": "Science",
+      "title": "Atomic Structure quiz",
+      "referenceSlide": "11.0 Atomic Structure",
+      "summary": "This quiz follows the teacher slide details about subatomic particles, atomic number, mass number, isotopes, atomic mass, and the reminder formulas for neutral atoms.",
+      "sourceUrl": "/uploads/slide-quizzes%2Fatomic-structure-11-0.pdf",
+      "splitIndex": 5,
+      "questions": [
+        {
+          "prompt": "Which particle has a positive charge and where is it found?",
+          "answer": "The proton has a positive charge and it is found in the nucleus."
+        },
+        {
+          "prompt": "Which particle has an insignificant mass and where is it located?",
+          "answer": "The electron has insignificant mass and it orbits the nucleus."
+        },
+        {
+          "prompt": "What is the atomic number of an element?",
+          "answer": "The atomic number is the number of protons in the nucleus of an atom."
+        },
+        {
+          "prompt": "Where do you find the atomic number on the periodic table according to the slide?",
+          "answer": "It is given in the top left-hand corner of the periodic table."
+        },
+        {
+          "prompt": "What is mass number?",
+          "answer": "Mass number is the total number of protons and neutrons in the nucleus of an atom."
+        },
+        {
+          "prompt": "Why is mass number not the same as the decimal number on the periodic table?",
+          "answer": "Because the decimal number is atomic mass, which is a weighted average of isotopes, while mass number is the total of protons and neutrons for one atom."
+        },
+        {
+          "prompt": "What are isotopes?",
+          "answer": "Isotopes are atoms of the same element that have the same number of protons but different numbers of neutrons."
+        },
+        {
+          "prompt": "What does the slide say the atomic mass on the periodic table represents?",
+          "answer": "It represents a weighted average based on isotope masses and their percent abundance in nature."
+        },
+        {
+          "prompt": "In a neutral atom, how is the number of electrons related to the number of protons?",
+          "answer": "In a neutral atom, the number of electrons equals the number of protons."
+        },
+        {
+          "prompt": "How do you find the number of neutrons?",
+          "answer": "Number of neutrons = mass number - number of protons."
+        }
+      ]
+    },
+    {
+      "subject": "Science",
+      "title": "Atomic Structure Practice quiz",
+      "referenceSlide": "11.2 Atomic Structure Practice",
+      "summary": "This quiz mirrors the worksheet style: particle identification, neutral atoms, atomic number, mass number, isotopes, and filling in proton-electron-neutron tables.",
+      "sourceUrl": "/uploads/slide-quizzes%2Fatomic-structure-practice-11-2.pdf",
+      "splitIndex": 5,
+      "questions": [
+        {
+          "prompt": "What is the overall charge of an atom?",
+          "answer": "The overall charge of an atom is neutral."
+        },
+        {
+          "prompt": "The atomic number tells you the number of what particle in an atom?",
+          "answer": "It tells you the number of protons."
+        },
+        {
+          "prompt": "In a neutral atom, what second particle number does the atomic number also tell you?",
+          "answer": "It also tells you the number of electrons."
+        },
+        {
+          "prompt": "No two elements will have the same what?",
+          "answer": "No two elements will have the same atomic number."
+        },
+        {
+          "prompt": "Which term means the total number of protons and neutrons in the nucleus?",
+          "answer": "Mass number."
+        },
+        {
+          "prompt": "The average atomic mass is a weighted what of all the isotopes of an atom?",
+          "answer": "A weighted average."
+        },
+        {
+          "prompt": "To determine the number of neutrons, what do you subtract from what?",
+          "answer": "Subtract the number of protons from the mass number."
+        },
+        {
+          "prompt": "How many electrons are in a neutral atom with atomic number 20?",
+          "answer": "20 electrons."
+        },
+        {
+          "prompt": "How many neutrons are in an atom with atomic number 3 and mass number 7?",
+          "answer": "4 neutrons."
+        },
+        {
+          "prompt": "When you complete the particle table, what rule helps you fill in electrons for neutral atoms?",
+          "answer": "In a neutral atom, electrons equal protons."
+        }
+      ]
+    },
+    {
+      "subject": "Science",
+      "title": "The Planetary Model quiz",
+      "referenceSlide": "13.0 The Planetary Model",
+      "summary": "This quiz checks the limitations of the nuclear model, the Bohr planetary model, fixed energy levels, line spectra, and the slide's named limitation of the planetary model.",
+      "sourceUrl": "/uploads/slide-quizzes%2Fthe-planetary-model-13-0.pdf",
+      "splitIndex": 5,
+      "questions": [
+        {
+          "prompt": "What key problem with the nuclear model is stated at the start of the slide?",
+          "answer": "The nuclear model could not explain where the electrons were located."
+        },
+        {
+          "prompt": "Why did scientists think the old nuclear model would make atoms unstable?",
+          "answer": "They thought an electron moving around a central body should continuously release radiation, lose energy, and crash into the nucleus."
+        },
+        {
+          "prompt": "What observation showed that this prediction about electrons crashing into the nucleus must be wrong?",
+          "answer": "Atoms do not collapse, so the model had to be incorrect."
+        },
+        {
+          "prompt": "What comparison is used to describe the planetary model?",
+          "answer": "Electrons orbit the nucleus like planets orbit the Sun."
+        },
+        {
+          "prompt": "How does electron energy change as the electron gets farther from the nucleus?",
+          "answer": "The farther the electron is from the nucleus, the greater its energy."
+        },
+        {
+          "prompt": "Can electrons exist between orbits in the planetary model?",
+          "answer": "No, electrons cannot be between orbits."
+        },
+        {
+          "prompt": "What happens when electrons jump from higher to lower orbits?",
+          "answer": "They release energy in the form of light."
+        },
+        {
+          "prompt": "What does the slide say about how many electrons an orbit can hold?",
+          "answer": "Each orbit can hold a maximum number of electrons."
+        },
+        {
+          "prompt": "What evidence idea appears between the nuclear-model limitation and the planetary-model slides?",
+          "answer": "Line spectra or emission spectra."
+        },
+        {
+          "prompt": "What limitation of the planetary model is given on the last slide?",
+          "answer": "It could not explain the line spectra for atoms that have two or more electrons."
         }
       ]
     }

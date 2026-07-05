@@ -4,7 +4,8 @@ This small Python bridge listens to `rtl_433` JSON output from the lightning sen
 
 ## Files
 
-- `bridge.py`: main runtime script
+- `bridge.py`: enhanced bridge with `--test`, `--all`, and extra diagnostics for Windows troubleshooting
+- `bridge_minimal.py`: minimal Pi-style bridge that stays close to the original working script
 - `requirements.txt`: Python dependency list
 
 ## Default behavior
@@ -27,6 +28,12 @@ python -m pip install -r lightning_mqtt_bridge/requirements.txt
 
 ```powershell
 python lightning_mqtt_bridge/bridge.py
+```
+
+If you want the closest version to the original Pi script, run:
+
+```powershell
+python lightning_mqtt_bridge/bridge_minimal.py
 ```
 
 ## Test mode

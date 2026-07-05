@@ -1,607 +1,194 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Electrostatics Review - Unit Test Prep</title>
-  <style>
-    :root {
-      --bg: #f5efe6;
-      --paper: rgba(255, 251, 245, 0.92);
-      --card: #fffdfa;
-      --ink: #1d2933;
-      --muted: #5d6b74;
-      --line: #dccfbe;
-      --accent: #1f6f8b;
-      --accent-2: #c5543c;
-      --good: #176d49;
-      --warm: #9a6500;
-      --shadow: 0 18px 40px rgba(68, 50, 28, 0.12);
-      --radius: 24px;
-      --radius-sm: 18px;
-    }
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      font-family: "Segoe UI", Arial, sans-serif;
-      color: var(--ink);
-      background:
-        radial-gradient(circle at top left, rgba(31, 111, 139, 0.16), transparent 28%),
-        radial-gradient(circle at top right, rgba(197, 84, 60, 0.12), transparent 24%),
-        linear-gradient(180deg, #f7f2ea 0%, #f3ede4 48%, #f8f4ed 100%);
-    }
-    .page {
-      max-width: 1320px;
-      margin: 0 auto;
-      padding: 24px;
-    }
-    .hero, .panel, .card {
-      background: var(--paper);
-      border: 1px solid rgba(220, 207, 190, 0.92);
-      box-shadow: var(--shadow);
-      backdrop-filter: blur(8px);
-    }
-    .hero {
-      position: relative;
-      overflow: hidden;
-      border-radius: 30px;
-      padding: 30px;
-      margin-bottom: 22px;
-      background: linear-gradient(135deg, rgba(31, 111, 139, 0.96), rgba(48, 88, 126, 0.94));
-      color: white;
-    }
-    .hero::after {
-      content: "";
-      position: absolute;
-      right: -60px;
-      bottom: -80px;
-      width: 280px;
-      height: 280px;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.08);
-    }
-    .hero h1 {
-      margin: 0 0 12px;
-      font-size: clamp(30px, 4vw, 50px);
-      line-height: 1.04;
-      position: relative;
-      z-index: 1;
-    }
-    .hero p {
-      margin: 0;
-      max-width: 920px;
-      line-height: 1.7;
-      color: rgba(255, 255, 255, 0.94);
-      position: relative;
-      z-index: 1;
-    }
-    .hero-links, .badge-row, .grid, .two-col, .mini-grid {
-      display: grid;
-      gap: 14px;
-    }
-    .badge-row {
-      margin-top: 18px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      position: relative;
-      z-index: 1;
-    }
-    .badge, .pill-link {
-      display: inline-flex;
-      align-items: center;
-      padding: 9px 12px;
-      border-radius: 999px;
-      font-size: 13px;
-      font-weight: 700;
-    }
-    .badge {
-      background: rgba(255, 255, 255, 0.12);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-    }
-    .pill-link {
-      text-decoration: none;
-      color: white;
-      background: rgba(255, 255, 255, 0.14);
-      border: 1px solid rgba(255, 255, 255, 0.24);
-    }
-    .layout {
-      display: grid;
-      grid-template-columns: 320px 1fr;
-      gap: 22px;
-      align-items: start;
-    }
-    .panel {
-      border-radius: var(--radius);
-      padding: 18px;
-      position: sticky;
-      top: 18px;
-    }
-    .panel h2, .card h2, .card h3 {
-      margin: 0 0 12px;
-    }
-    .panel p, .card p, .card li, .card td, .card th {
-      line-height: 1.7;
-    }
-    .panel p, .tip, .muted {
-      color: var(--muted);
-    }
-    .nav-list, .checklist, .pdf-list, .formula-list {
-      display: grid;
-      gap: 10px;
-    }
-    .nav-link, .pdf-link {
-      display: block;
-      padding: 12px 14px;
-      border-radius: 14px;
-      background: var(--card);
-      border: 1px solid var(--line);
-      color: var(--ink);
-      text-decoration: none;
-      font-weight: 600;
-    }
-    .nav-link:hover, .pdf-link:hover, .pill-link:hover {
-      filter: brightness(1.03);
-    }
-    .content {
-      display: grid;
-      gap: 18px;
-    }
-    .card {
-      border-radius: var(--radius);
-      padding: 22px;
-    }
-    .eyebrow {
-      display: inline-block;
-      margin-bottom: 8px;
-      font-size: 12px;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--accent);
-      font-weight: 800;
-    }
-    .mini-grid {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-    .two-col {
-      grid-template-columns: 1.15fr 0.85fr;
-      align-items: start;
-    }
-    .box {
-      border: 1px solid var(--line);
-      background: var(--card);
-      border-radius: var(--radius-sm);
-      padding: 18px;
-    }
-    .box h3 {
-      margin: 0 0 10px;
-      font-size: 18px;
-    }
-    ul.clean {
-      margin: 0;
-      padding-left: 20px;
-    }
-    .check {
-      border-left: 4px solid var(--accent);
-      padding: 10px 12px;
-      border-radius: 12px;
-      background: #f6fbfc;
-    }
-    .formula {
-      padding: 12px 14px;
-      border-radius: 14px;
-      background: #fff8ea;
-      border: 1px dashed rgba(154, 101, 0, 0.45);
-    }
-    .callout-good, .callout-warn {
-      padding: 14px 16px;
-      border-radius: 16px;
-      border: 1px solid var(--line);
-    }
-    .callout-good {
-      background: #edf9f2;
-      color: var(--good);
-    }
-    .callout-warn {
-      background: #fff3ef;
-      color: #9e4333;
-    }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      overflow: hidden;
-      border-radius: 16px;
-      border: 1px solid var(--line);
-      background: white;
-    }
-    th, td {
-      padding: 12px 14px;
-      text-align: left;
-      vertical-align: top;
-      border-bottom: 1px solid var(--line);
-      border-right: 1px solid var(--line);
-    }
-    th:last-child, td:last-child { border-right: none; }
-    tr:last-child td { border-bottom: none; }
-    th {
-      background: #eef6f7;
-      color: var(--accent);
-      font-size: 14px;
-    }
-    .accent { color: var(--accent-2); font-weight: 700; }
-    .anchor {
-      scroll-margin-top: 24px;
-    }
-    .diagram {
-      width: 100%;
-      display: block;
-      border: 1px solid var(--line);
-      border-radius: 16px;
-      background: white;
-      margin-top: 14px;
-    }
-    @media (max-width: 980px) {
-      .layout, .two-col, .mini-grid { grid-template-columns: 1fr; }
-      .panel { position: static; }
-    }
-  </style>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Grade 10 Science - Chemical Reactions Review</title>
+<style>
+  :root{--ink:#1f2937;--muted:#6b7280;--line:#e5e7eb;--soft:#f9fafb;--ok:#065f46;--warn:#92400e;}
+  *{box-sizing:border-box} body{margin:0;font-family:Arial,Helvetica,sans-serif;color:var(--ink);background:white;line-height:1.55}
+  .page{max-width:1080px;margin:0 auto;padding:34px 22px 60px}
+  header{border-bottom:2px solid var(--ink);padding-bottom:18px;margin-bottom:24px}
+  h1{font-size:30px;margin:0 0 8px} h2{font-size:22px;margin:34px 0 12px;border-bottom:1px solid var(--line);padding-bottom:6px}
+  h3{font-size:17px;margin:20px 0 8px} p{margin:8px 0}.sub{color:var(--muted);font-size:15px}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+  .card{border:1px solid var(--line);border-radius:12px;padding:15px;background:white}.soft{background:var(--soft)}
+  table{width:100%;border-collapse:collapse;margin:10px 0 14px;font-size:14px} th,td{border:1px solid var(--line);padding:8px;vertical-align:top} th{background:#f3f4f6;text-align:left}
+  code,.eq{font-family:Consolas,monospace;background:#f3f4f6;padding:2px 5px;border-radius:5px}.eq{display:inline-block;margin:3px 0}
+  .tag{display:inline-block;border:1px solid var(--line);border-radius:999px;padding:2px 8px;font-size:12px;color:var(--muted);margin-right:5px}
+  .mistake{border-left:4px solid #9ca3af;padding-left:10px;margin:8px 0}.answer{color:var(--ok);font-weight:700}.why{color:#374151}.small{font-size:13px;color:var(--muted)}
+  ol{padding-left:22px} li{margin:6px 0}.exam{break-inside:avoid}.q{margin:12px 0;padding-bottom:10px;border-bottom:1px dashed var(--line)}
+  details{border:1px solid var(--line);border-radius:10px;padding:10px 12px;margin:10px 0;background:#fff} summary{cursor:pointer;font-weight:700}
+  @media (max-width:760px){.grid{grid-template-columns:1fr} h1{font-size:24px}.page{padding:22px 14px}}
+  @media print{body{font-size:12px}.page{max-width:none;padding:18px} details{break-inside:avoid} summary{list-style:none}.no-print{display:none}}
+</style>
 </head>
 <body>
-  <div class="page">
-    <section class="hero">
-      <h1>Electrostatics Unit Test Review</h1>
-      <p>
-        This page is built from your updated review PDFs and aimed at one goal:
-        help you predict the teacher-style unit test and push for a <strong>Level 4+</strong>.
-        It focuses on the ideas students confuse most often, uses comparison tables, and connects electrostatics to real life.
-      </p>
-      <div class="badge-row">
-        <span class="badge">Target: 4+</span>
-        <span class="badge">Key skill: explain with electron movement</span>
-        <span class="badge">Most testable: friction, contact, induction, grounding</span>
-        <a class="pill-link" href="electroscope-history.html">Open Electroscope History</a>
-        <a class="pill-link" href="mistakes.html">Open Common Mistakes</a>
-        <a class="pill-link" href="quiz.html">Open Final Exam Practice</a>
-      </div>
-    </section>
+<div class="page">
+<header>
+  <h1>Grade 10 Science: Chemical Reactions</h1>
+  <p class="sub">Clean one-page review | Conservation of mass | Balancing equations | Reaction types | Two mistake-focused practice tests</p>
+</header>
 
-    <div class="layout">
-      <aside class="panel">
-        <h2>Study Map</h2>
-        <p>Best order for fast improvement: charge basics, law of charges, electron movement, charging methods, electrostatic series, then real-life safety questions.</p>
-        <div class="nav-list">
-          <a class="nav-link" href="#must-know">Must-Know Ideas</a>
-          <a class="nav-link" href="#compare">Confusing Concepts Table</a>
-          <a class="nav-link" href="#examples">Real-Life Examples</a>
-          <a class="nav-link" href="#short-answer">Short Answer Formula</a>
-          <a class="nav-link" href="electroscope-history.html">Electroscope History</a>
-          <a class="nav-link" href="mistakes.html">Teacher Trap Questions</a>
-          <a class="nav-link" href="#pdfs">Teacher PDFs</a>
-          <a class="nav-link" href="quiz.html">Final Exam Practice</a>
-        </div>
-
-        <div class="box" style="margin-top:16px;">
-          <h3>4+ Checklist</h3>
-          <div class="checklist">
-            <div class="check">I can state the <strong>law of electric charges</strong>.</div>
-            <div class="check">I remember that <strong>only electrons move</strong>.</div>
-            <div class="check">I can tell <strong>friction</strong>, <strong>contact</strong>, and <strong>induction</strong> apart.</div>
-            <div class="check">I can explain why a neutral object can still be <strong>attracted</strong>.</div>
-            <div class="check">I can use the <strong>electrostatic series</strong> to predict who gains or loses electrons.</div>
-            <div class="check">I can answer safety examples like the <strong>gasoline truck chain</strong>.</div>
-          </div>
-        </div>
-      </aside>
-
-      <main class="content">
-        <section class="card anchor" id="must-know">
-          <span class="eyebrow">Core Review</span>
-          <h2>Must-Know Ideas From This Unit</h2>
-          <div class="two-col">
-            <div class="box">
-              <h3>Big Ideas</h3>
-              <ul class="clean">
-                <li><strong>Static electricity</strong> is charge that builds up on the surface of an object.</li>
-                <li><strong>Electrons move</strong>; protons stay in the nucleus. This is one of the most important test ideas.</li>
-                <li><strong>Like charges repel</strong> and <strong>opposite charges attract</strong>.</li>
-                <li>A neutral object has the same number of protons and electrons.</li>
-                <li>An object becomes <strong>negative</strong> when it gains electrons.</li>
-                <li>An object becomes <strong>positive</strong> when it loses electrons.</li>
-                <li><strong>Conductors</strong> let electrons move easily. <strong>Insulators</strong> do not.</li>
-                <li><strong>Induction</strong> can cause a temporary separation of charge without touching.</li>
-                <li><strong>Grounding</strong> lets extra electrons move to Earth or from Earth to remove charge buildup.</li>
-              </ul>
-            </div>
-            <div class="box">
-              <h3>Most Likely Teacher Questions</h3>
-              <ul class="clean">
-                <li>Why does a charged balloon stick to a wall?</li>
-                <li>Why can a charged rod attract a neutral pith ball?</li>
-                <li>Which way do electrons move during charging by contact?</li>
-                <li>How do you read the electrostatic series?</li>
-                <li>Why is static electricity sometimes dangerous?</li>
-                <li>Why does a person get a shock after walking on carpet?</li>
-                <li>Why would a gasoline truck drag a grounding chain?</li>
-              </ul>
-            </div>
-          </div>
-          <div class="callout-good" style="margin-top:16px;">
-            Strong test answers usually include these words: <strong>electrons</strong>, <strong>attract</strong>, <strong>repel</strong>, <strong>neutral</strong>, <strong>temporary charge separation</strong>, <strong>contact</strong>, <strong>induction</strong>, and <strong>grounding</strong>.
-          </div>
-        </section>
-
-        <section class="card anchor" id="compare">
-          <span class="eyebrow">Comparison Tables</span>
-          <h2>Concepts Students Mix Up</h2>
-          <div class="box">
-            <h3>High-Value Comparison Table</h3>
-            <table>
-              <thead>
-                <tr>
-                  <th>Concept</th>
-                  <th>What It Means</th>
-                  <th>What Moves?</th>
-                  <th>Easy Test Clue</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td><strong>Neutral</strong></td>
-                  <td>Equal numbers of protons and electrons</td>
-                  <td>No extra net charge</td>
-                  <td>Neutral does <span class="accent">not</span> mean “no charges at all”</td>
-                </tr>
-                <tr>
-                  <td><strong>Positive object</strong></td>
-                  <td>Has lost electrons</td>
-                  <td>Electrons moved away</td>
-                  <td>Positive means electron shortage</td>
-                </tr>
-                <tr>
-                  <td><strong>Negative object</strong></td>
-                  <td>Has gained electrons</td>
-                  <td>Electrons moved onto it</td>
-                  <td>Negative means extra electrons</td>
-                </tr>
-                <tr>
-                  <td><strong>Conductor</strong></td>
-                  <td>Electrons move easily through it</td>
-                  <td>Electrons can spread out</td>
-                  <td>Usually metals</td>
-                </tr>
-                <tr>
-                  <td><strong>Insulator</strong></td>
-                  <td>Electrons do not move easily</td>
-                  <td>Very little electron movement</td>
-                  <td>Rubber, plastic, many fabrics</td>
-                </tr>
-                <tr>
-                  <td><strong>Charging by friction</strong></td>
-                  <td>Rubbing transfers electrons between materials</td>
-                  <td>Electrons move from one object to the other</td>
-                  <td>Balloon on hair, shoes on carpet</td>
-                </tr>
-                <tr>
-                  <td><strong>Charging by contact / conduction</strong></td>
-                  <td>A charged object touches another object</td>
-                  <td>Electrons move during contact</td>
-                  <td>Touching is required</td>
-                </tr>
-                <tr>
-                  <td><strong>Charging by induction</strong></td>
-                  <td>A nearby charge causes charges to rearrange without touching</td>
-                  <td>Electrons shift position</td>
-                  <td>No touching, often temporary</td>
-                </tr>
-                <tr>
-                  <td><strong>Grounding</strong></td>
-                  <td>Charge flows to or from Earth</td>
-                  <td>Extra electrons leave or enter</td>
-                  <td>Used for safety</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-
-          <div class="mini-grid" style="margin-top:16px;">
-            <div class="box">
-              <h3>Attract vs Repel</h3>
-              <table>
-                <thead>
-                  <tr>
-                    <th>Situation</th>
-                    <th>Result</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>Positive + negative</td>
-                    <td>Attract</td>
-                  </tr>
-                  <tr>
-                    <td>Positive + positive</td>
-                    <td>Repel</td>
-                  </tr>
-                  <tr>
-                    <td>Negative + negative</td>
-                    <td>Repel</td>
-                  </tr>
-                  <tr>
-                    <td>Charged + neutral</td>
-                    <td>Often attract because of induction</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <div class="box">
-              <h3>Temporary vs Permanent Charge</h3>
-              <table>
-                <thead>
-                  <tr>
-                    <th>Type</th>
-                    <th>What Happens</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>Induced temporary charge</td>
-                    <td>Charges separate only while the charged object is nearby</td>
-                  </tr>
-                  <tr>
-                    <td>Net charge after friction/contact</td>
-                    <td>The object actually gains or loses electrons</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-
-          <div class="callout-warn" style="margin-top:16px;">
-            Common mistake: saying a positive rod gives positive charges to another object. In this unit, the safe answer is usually: <strong>electrons move</strong>, not positive charges.
-          </div>
-        </section>
-
-        <section class="card">
-          <span class="eyebrow">Electrostatic Series</span>
-          <h2>How To Read The Electrostatic Series</h2>
-          <div class="two-col">
-            <div class="box">
-              <h3>Reading Rule</h3>
-              <ul class="clean">
-                <li>The material with the <strong>stronger attraction for electrons</strong> pulls electrons from the other material.</li>
-                <li>The material that <strong>gains electrons</strong> becomes <strong>negative</strong>.</li>
-                <li>The material that <strong>loses electrons</strong> becomes <strong>positive</strong>.</li>
-                <li>The farther apart two materials are on the series, the stronger the charging effect is often expected to be.</li>
-              </ul>
-            </div>
-            <div class="box">
-              <h3>Example</h3>
-              <p>
-                If vinyl attracts electrons more strongly than silk, then electrons move
-                <strong>from silk to vinyl</strong>. Vinyl becomes <strong>negative</strong>.
-                Silk becomes <strong>positive</strong>. Because the charges are opposite,
-                the two materials will <strong>attract</strong>.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        <section class="card anchor" id="examples">
-          <span class="eyebrow">Real Life</span>
-          <h2>Real-Life Examples You Can Use In Short Answers</h2>
-          <div class="mini-grid">
-            <div class="box">
-              <h3>Balloon Sticking to a Wall</h3>
-              <p>Rubbing the balloon on hair gives the balloon extra electrons, so it becomes negative. When it comes near the wall, electrons in the wall are pushed slightly away. The near side of the wall becomes relatively positive, so the balloon is attracted.</p>
-            </div>
-            <div class="box">
-              <h3>Shock After Walking on Carpet</h3>
-              <p>Friction moves electrons between your shoes, the carpet, and your body. When you touch a metal doorknob, the charge discharges quickly through one point, which is why you feel a small shock.</p>
-            </div>
-            <div class="box">
-              <h3>Dust on a TV or Computer Screen</h3>
-              <p>A charged screen can attract neutral dust particles by induction. The charges in the dust shift slightly, and the dust is pulled toward the screen.</p>
-            </div>
-            <div class="box">
-              <h3>Water Bending Toward a Charged Rod</h3>
-              <p>Water molecules have uneven charge distribution. A charged rod makes the charges in the water line up more, so the stream is attracted and bends.</p>
-            </div>
-            <div class="box">
-              <h3>Why Hair Stands Up</h3>
-              <p>When hairs get the same charge, they repel each other. That is why they spread apart and stand up after static charging.</p>
-            </div>
-            <div class="box">
-              <h3>Gasoline Truck Grounding Chain</h3>
-              <p>A fuel truck can build up static charge while moving and while fuel flows. The grounding chain lets extra charge move safely to Earth so a spark does not form. This matters because a spark near gasoline vapour could start a fire or explosion.</p>
-            </div>
-          </div>
-        </section>
-
-        <section class="card anchor" id="short-answer">
-          <span class="eyebrow">Writing Help</span>
-          <h2>Short Answer Formula That Sounds Like a Strong Science Answer</h2>
-          <div class="formula-list">
-            <div class="formula"><strong>Formula 1:</strong> name the charge + explain electron movement + state the result</div>
-            <div class="formula"><strong>Formula 2:</strong> identify the charging method + say whether touching happens + explain why attraction or repulsion occurs</div>
-            <div class="formula"><strong>Formula 3:</strong> use the electrostatic series + say who gains electrons + say who becomes positive/negative</div>
-          </div>
-          <div class="two-col" style="margin-top:16px;">
-            <div class="box">
-              <h3>Model Answer: Balloon and Wall</h3>
-              <p>A balloon rubbed on hair gains electrons and becomes negatively charged. When it comes near a neutral wall, the electrons in the wall shift slightly away, so the near surface becomes relatively positive. Because opposite charges attract, the balloon sticks to the wall.</p>
-            </div>
-            <div class="box">
-              <h3>Model Answer: Gas Truck Chain</h3>
-              <p>The chain grounds the truck. Extra electrons can move to Earth, which prevents a buildup of static charge. This reduces the chance of a spark, and that is important because gasoline vapour is flammable.</p>
-              <svg class="diagram" viewBox="0 0 520 250" xmlns="http://www.w3.org/2000/svg" aria-label="Gas truck with negative charge and grounding chain">
-                <rect width="520" height="250" fill="#ffffff"/>
-                <rect x="0" y="205" width="520" height="45" fill="#e9dfcf"/>
-                <text x="430" y="232" font-size="18" fill="#7c6649" font-family="Arial">Ground</text>
-
-                <rect x="90" y="95" width="200" height="65" rx="18" fill="#d9e6f3" stroke="#4c6a85" stroke-width="3"/>
-                <rect x="295" y="115" width="85" height="45" rx="8" fill="#d9e6f3" stroke="#4c6a85" stroke-width="3"/>
-                <rect x="310" y="92" width="42" height="28" rx="6" fill="#d9e6f3" stroke="#4c6a85" stroke-width="3"/>
-                <circle cx="155" cy="184" r="24" fill="#333"/>
-                <circle cx="330" cy="184" r="24" fill="#333"/>
-                <circle cx="155" cy="184" r="10" fill="#bbb"/>
-                <circle cx="330" cy="184" r="10" fill="#bbb"/>
-                <line x1="95" y1="160" x2="372" y2="160" stroke="#4c6a85" stroke-width="4"/>
-                <line x1="90" y1="160" x2="65" y2="185" stroke="#4c6a85" stroke-width="4"/>
-                <line x1="380" y1="160" x2="410" y2="160" stroke="#4c6a85" stroke-width="4"/>
-
-                <text x="132" y="125" font-size="24" fill="#4569b3" font-family="Arial">-</text>
-                <text x="175" y="128" font-size="24" fill="#4569b3" font-family="Arial">-</text>
-                <text x="218" y="124" font-size="24" fill="#4569b3" font-family="Arial">-</text>
-                <text x="310" y="145" font-size="24" fill="#4569b3" font-family="Arial">-</text>
-                <text x="345" y="145" font-size="24" fill="#4569b3" font-family="Arial">-</text>
-
-                <line x1="345" y1="183" x2="360" y2="214" stroke="#888" stroke-width="4" stroke-dasharray="6 5"/>
-                <line x1="360" y1="214" x2="374" y2="205" stroke="#888" stroke-width="4" stroke-dasharray="6 5"/>
-                <text x="318" y="198" font-size="15" fill="#666" font-family="Arial">grounding chain</text>
-
-                <line x1="408" y1="70" x2="408" y2="115" stroke="#4569b3" stroke-width="3"/>
-                <polygon points="408,130 401,116 415,116" fill="#4569b3"/>
-                <line x1="430" y1="95" x2="430" y2="140" stroke="#4569b3" stroke-width="3"/>
-                <polygon points="430,155 423,141 437,141" fill="#4569b3"/>
-                <line x1="452" y1="120" x2="452" y2="165" stroke="#4569b3" stroke-width="3"/>
-                <polygon points="452,180 445,166 459,166" fill="#4569b3"/>
-                <text x="394" y="58" font-size="16" fill="#4569b3" font-family="Arial">electrons moving to Earth</text>
-              </svg>
-            </div>
-          </div>
-        </section>
-
-        <section class="card">
-          <span class="eyebrow">Prediction Help</span>
-          <h2>What Your Teacher Is Most Likely To Test</h2>
-          <ul class="clean">
-            <li>Definition questions: static electricity, conductor, insulator, grounding, induction.</li>
-            <li>Charge questions: neutral, net positive, net negative, and whether electrons are added or removed.</li>
-            <li>Diagram reasoning: what happens when a charged rod comes near a neutral object.</li>
-            <li>Comparison questions: friction vs contact vs induction.</li>
-            <li>Application questions: balloon and wall, carpet shock, fuel truck chain, dust attraction.</li>
-            <li>Electrostatic series questions: who attracts electrons more strongly, who becomes positive, who becomes negative.</li>
-          </ul>
-          <p class="tip" style="margin-top:14px;">If you want only the hardest and most confusing teacher-style questions, open <a href="mistakes.html" style="color: var(--accent); font-weight: 700;">mistakes.html</a>.</p>
-        </section>
-
-        <section class="card anchor" id="pdfs">
-          <span class="eyebrow">Teacher Materials</span>
-          <h2>PDFs In Your Review Folder</h2>
-          <div class="pdf-list">
-            <a class="pdf-link" href="1.0k%20What%20is%20static%20electricity.pdf" target="_blank" rel="noopener noreferrer">1.0k What is static electricity.pdf</a>
-            <a class="pdf-link" href="1.1k%20Activity-Charge%20It.pdf" target="_blank" rel="noopener noreferrer">1.1k Activity-Charge It.pdf</a>
-            <a class="pdf-link" href="1.2%20Static%20Charge%20Detective.pdf" target="_blank" rel="noopener noreferrer">1.2 Static Charge Detective.pdf</a>
-            <a class="pdf-link" href="1.3%20Charged%20and%20Neutral%20Atoms%20%28w.s.%29.pdf" target="_blank" rel="noopener noreferrer">1.3 Charged and Neutral Atoms (w.s.).pdf</a>
-            <a class="pdf-link" href="2.0%20Charging%20by%20Contact%20and%20Induction%20%28note%29.pdf" target="_blank" rel="noopener noreferrer">2.0 Charging by Contact and Induction (note).pdf</a>
-            <a class="pdf-link" href="2.3%20Charging%20by%20Conduction%20%26%20Induction%20Practice.pdf" target="_blank" rel="noopener noreferrer">2.3 Charging by Conduction &amp; Induction Practice.pdf</a>
-            <a class="pdf-link" href="2.3k%20Exploring%20Static%20Electricity.pdf" target="_blank" rel="noopener noreferrer">2.3k Exploring Static Electricity.pdf</a>
-            <a class="pdf-link" href="2.4%20Electrostatics%20Review%20Questions.pdf" target="_blank" rel="noopener noreferrer">2.4 Electrostatics Review Questions.pdf</a>
-          </div>
-          <p class="tip" style="margin-top:14px;">Use this page for fast review, then do the mock exams in <a href="quiz.html" style="color: var(--accent); font-weight: 700;">quiz.html</a> to test whether you can explain ideas in teacher-style wording.</p>
-        </section>
-      </main>
+<section>
+  <h2>1. Core Concepts</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>Law of Conservation of Mass</h3>
+      <p>The total mass of the reactants equals the total mass of the products. Atoms are not created or destroyed; they are rearranged.</p>
+      <p class="eq">CH₄ + 2O₂ → CO₂ + 2H₂O</p>
+      <div class="mistake"><b>Common mistake:</b> Balancing does not create new atoms. It only makes the number of each atom equal on both sides.</div>
+    </div>
+    <div class="card">
+      <h3>State Symbols</h3>
+      <table>
+        <tr><th>Symbol</th><th>Meaning</th></tr>
+        <tr><td>(s)</td><td>solid</td></tr>
+        <tr><td>(l)</td><td>liquid / molten</td></tr>
+        <tr><td>(g)</td><td>gas</td></tr>
+        <tr><td>(aq)</td><td>aqueous: dissolved in water</td></tr>
+      </table>
+      <div class="mistake"><b>Common mistake:</b> <span class="eq">NaCl(aq)</span> is not liquid salt. It means salt dissolved in water.</div>
     </div>
   </div>
+</section>
+
+<section>
+  <h2>2. Balancing Chemical Equations</h2>
+  <div class="card soft">
+    <p><b>Golden rule:</b> Change coefficients only. Never change subscripts.</p>
+    <p class="eq">Fe + O₂ → Fe₂O₃</p>
+    <p>Balanced:</p>
+    <p class="eq">4Fe + 3O₂ → 2Fe₂O₃</p>
+  </div>
+  <table>
+    <tr><th>Rule</th><th>Why it matters</th></tr>
+    <tr><td>Only add coefficients</td><td>Changing subscripts changes the substance.</td></tr>
+    <tr><td>Balance non-H and non-O first</td><td>Hydrogen and oxygen often appear in many places, so they are usually easier to finish last.</td></tr>
+    <tr><td>Treat unchanged polyatomic ions as one unit</td><td>Example: keep <span class="eq">SO₄</span> together if it appears unchanged on both sides.</td></tr>
+    <tr><td>Use simplest whole-number coefficients</td><td>Do not leave fractions or reducible coefficients.</td></tr>
+    <tr><td>If impossible, check formulas</td><td>The skeleton equation may be written incorrectly.</td></tr>
+  </table>
+</section>
+
+<section>
+  <h2>3. Reaction Types</h2>
+  <table>
+    <tr><th>Type</th><th>Pattern</th><th>Example</th><th>How to recognize it</th></tr>
+    <tr><td>Synthesis</td><td>A + B → AB</td><td>3H₂ + N₂ → 2NH₃</td><td>Several reactants form one product.</td></tr>
+    <tr><td>Decomposition</td><td>AB → A + B</td><td>2H₂O → 2H₂ + O₂</td><td>One reactant breaks into several products.</td></tr>
+    <tr><td>Combustion</td><td>fuel + O₂ → oxides + energy</td><td>CH₄ + 2O₂ → CO₂ + 2H₂O</td><td>Oxygen is a reactant; hydrocarbons usually produce CO₂ and H₂O.</td></tr>
+    <tr><td>Single Displacement</td><td>A + BC → AC + B</td><td>Cu + 2AgNO₃ → Cu(NO₃)₂ + 2Ag</td><td>One element replaces another element in a compound.</td></tr>
+    <tr><td>Double Displacement</td><td>AB + CD → AD + CB</td><td>AgNO₃ + NaCl → NaNO₃ + AgCl</td><td>Two compounds exchange ions; often forms a precipitate, water, or gas.</td></tr>
+  </table>
+</section>
+
+<section>
+  <h2>4. Complete vs. Incomplete Combustion</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>Complete Combustion</h3>
+      <p>Occurs when there is enough oxygen.</p>
+      <p>Hydrocarbon products: <span class="eq">CO₂ + H₂O + energy</span></p>
+      <p>Flame: usually blue, less smoke.</p>
+    </div>
+    <div class="card">
+      <h3>Incomplete Combustion</h3>
+      <p>Occurs when oxygen is limited.</p>
+      <p>Possible products: <span class="eq">CO₂, CO, H₂O, C(s), energy</span></p>
+      <p>Flame: yellow/orange and smokier.</p>
+      <div class="mistake"><b>Important:</b> Carbon monoxide, <span class="eq">CO</span>, is colourless, odourless, tasteless, and dangerous.</div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>5. High-Frequency Mistakes</h2>
+  <ol>
+    <li>Changing <b>subscripts</b> instead of coefficients.</li>
+    <li>Forgetting that some elements are diatomic: <span class="eq">H₂, N₂, O₂, F₂, Cl₂, Br₂, I₂</span>.</li>
+    <li>Thinking <span class="eq">(aq)</span> means liquid. It means dissolved in water.</li>
+    <li>Breaking polyatomic ions when they should be treated as a unit.</li>
+    <li>Writing wrong ionic formulas before balancing, such as using <span class="eq">AgCrO₄</span> instead of <span class="eq">Ag₂CrO₄</span>.</li>
+    <li>Calling every reaction with oxygen “combustion.” Oxygen may appear in other reaction types too.</li>
+  </ol>
+</section>
+
+<section class="exam">
+  <h2>Practice Test 1: Easy-to-Miss Questions</h2>
+  <p class="small">Try these first without looking at the answers.</p>
+  <ol>
+    <li class="q">Balance: <span class="eq">__K₂O → __K + __O₂</span></li>
+    <li class="q">Balance: <span class="eq">__AlCl₃ + __Na₂CO₃ → __Al₂(CO₃)₃ + __NaCl</span></li>
+    <li class="q">Write and balance: magnesium reacts with oxygen.</li>
+    <li class="q">Write and balance the complete combustion of propane, <span class="eq">C₃H₈</span>.</li>
+    <li class="q">Predict products and balance: <span class="eq">Fe + Pb(NO₃)₂ →</span></li>
+    <li class="q">Predict products and balance: <span class="eq">Cl₂ + NaI →</span></li>
+    <li class="q">Classify: <span class="eq">2H₂O → 2H₂ + O₂</span></li>
+    <li class="q">Classify: <span class="eq">AgNO₃ + NaCl → NaNO₃ + AgCl</span></li>
+    <li class="q">What does <span class="eq">CuSO₄(aq)</span> mean?</li>
+    <li class="q">Explain why <span class="eq">Fe + O₃ → Fe₂O₃</span> is not the normal skeleton equation for iron reacting with oxygen.</li>
+  </ol>
+
+  <details>
+    <summary>Answers and analysis: Test 1</summary>
+    <ol>
+      <li><span class="answer">2K₂O → 4K + O₂</span><br><span class="why">Oxygen is diatomic as O₂, so two K₂O units are needed.</span></li>
+      <li><span class="answer">2AlCl₃ + 3Na₂CO₃ → Al₂(CO₃)₃ + 6NaCl</span><br><span class="why">Treat CO₃ as a unit. Then balance Al, CO₃, Na, and Cl.</span></li>
+      <li><span class="answer">2Mg + O₂ → 2MgO</span><br><span class="why">Oxygen is O₂, not O.</span></li>
+      <li><span class="answer">C₃H₈ + 5O₂ → 3CO₂ + 4H₂O</span><br><span class="why">Balance C first, H second, O last.</span></li>
+      <li><span class="answer">Fe + Pb(NO₃)₂ → Fe(NO₃)₂ + Pb</span><br><span class="why">Single displacement. Use the common charge Fe²⁺ unless otherwise stated.</span></li>
+      <li><span class="answer">Cl₂ + 2NaI → 2NaCl + I₂</span><br><span class="why">A nonmetal replaces another nonmetal. Iodine is diatomic.</span></li>
+      <li><span class="answer">Decomposition</span><br><span class="why">One reactant breaks into multiple products.</span></li>
+      <li><span class="answer">Double displacement</span><br><span class="why">The ions exchange partners; AgCl is a precipitate.</span></li>
+      <li><span class="answer">Copper(II) sulfate dissolved in water.</span><br><span class="why">Aqueous means dissolved in water.</span></li>
+      <li><span class="answer">Oxygen gas is normally O₂, not O₃.</span><br><span class="why">O₃ is ozone, a different substance. Do not change chemical formulas just to balance.</span></li>
+    </ol>
+  </details>
+</section>
+
+<section class="exam">
+  <h2>Practice Test 2: More Tricky Mixed Questions</h2>
+  <ol>
+    <li class="q">Balance: <span class="eq">__N₂O₅ → __N₂O₄ + __O₂</span></li>
+    <li class="q">Write and balance: methane burns completely in oxygen.</li>
+    <li class="q">Write and balance: zinc metal reacts with silver nitrate solution to produce zinc nitrate and silver metal.</li>
+    <li class="q">Predict products and balance: <span class="eq">Li + H₂O →</span></li>
+    <li class="q">Predict products and balance: <span class="eq">CaBr₂ + KOH →</span></li>
+    <li class="q">Write and balance: silver nitrate + sodium phosphate → silver phosphate precipitate + sodium nitrate.</li>
+    <li class="q">Classify: <span class="eq">P₄ + 5O₂ → P₄O₁₀</span></li>
+    <li class="q">Classify: <span class="eq">K₂O + H₂O → 2KOH</span></li>
+    <li class="q">Which is more dangerous in incomplete combustion: CO or CO₂? Why?</li>
+    <li class="q">A student writes <span class="eq">AgNO₃ + KCrO₄ → AgCrO₄ + KNO₃</span>. What is the formula mistake?</li>
+  </ol>
+
+  <details>
+    <summary>Answers and analysis: Test 2</summary>
+    <ol>
+      <li><span class="answer">2N₂O₅ → 2N₂O₄ + O₂</span><br><span class="why">Nitrogen is already balanced when both nitrogen compounds have coefficient 2. Oxygen becomes 10 on each side.</span></li>
+      <li><span class="answer">CH₄ + 2O₂ → CO₂ + 2H₂O</span><br><span class="why">Complete combustion of a hydrocarbon forms CO₂ and H₂O.</span></li>
+      <li><span class="answer">Zn + 2AgNO₃ → Zn(NO₃)₂ + 2Ag</span><br><span class="why">Zinc forms Zn²⁺, so zinc nitrate is Zn(NO₃)₂.</span></li>
+      <li><span class="answer">2Li + 2H₂O → 2LiOH + H₂</span><br><span class="why">Metal + water often forms a metal hydroxide and hydrogen gas.</span></li>
+      <li><span class="answer">CaBr₂ + 2KOH → Ca(OH)₂ + 2KBr</span><br><span class="why">Double displacement. Calcium is 2+, hydroxide is 1−, so Ca(OH)₂.</span></li>
+      <li><span class="answer">3AgNO₃ + Na₃PO₄ → Ag₃PO₄ + 3NaNO₃</span><br><span class="why">Phosphate is PO₄³⁻, silver is Ag⁺, so silver phosphate is Ag₃PO₄.</span></li>
+      <li><span class="answer">Combustion</span><br><span class="why">Phosphorus reacts with oxygen and releases energy.</span></li>
+      <li><span class="answer">Synthesis</span><br><span class="why">Two reactants combine to form one product.</span></li>
+      <li><span class="answer">CO is more dangerous.</span><br><span class="why">Carbon monoxide reduces the blood’s ability to carry oxygen and is hard to detect because it is colourless and odourless.</span></li>
+      <li><span class="answer">Silver chromate should be Ag₂CrO₄, not AgCrO₄.</span><br><span class="why">Ag is +1 and CrO₄ is −2, so two Ag⁺ ions are needed.</span></li>
+    </ol>
+  </details>
+</section>
+
+<section>
+  <h2>Quick Exam Strategy</h2>
+  <ol>
+    <li>First write the correct chemical formulas.</li>
+    <li>Then balance using coefficients only.</li>
+    <li>Check every atom on both sides.</li>
+    <li>Reduce coefficients to the simplest whole numbers.</li>
+    <li>Classify by pattern, not by guessing from the name.</li>
+  </ol>
+</section>
+
+</div>
 </body>
 </html>

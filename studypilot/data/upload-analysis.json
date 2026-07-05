@@ -1,13 +1,33 @@
 {
-  "generatedAt": "2026-03-28T20:57:02.395927-04:00",
+  "generatedAt": "2026-07-05T09:15:02.555497-04:00",
   "root": "C:\\Users\\guanh\\workspace\\lightningalert\\studypilot\\uploads",
-  "totalFiles": 7,
+  "totalFiles": 9,
   "categories": {
-    "docs": 6,
+    "docs": 8,
     "mistakes": 0,
     "timetable": 1
   },
   "items": [
+    {
+      "relativePath": "uploads/docs/10-0-Atomic-Theory-2026-03-29T15-10-38-800Z.pdf",
+      "category": "docs",
+      "fileName": "10-0-Atomic-Theory-2026-03-29T15-10-38-800Z.pdf",
+      "extension": ".pdf",
+      "mimeType": "application/pdf",
+      "sizeBytes": 630130,
+      "modifiedAt": "2026-03-29T11:10:38.803635-04:00",
+      "summary": "PDF with 16 page(s). Preview: Atomic Theory MODELS OF THE ATOM"
+    },
+    {
+      "relativePath": "uploads/docs/10-2-Atomic-Model-Summary-2026-03-29T14-07-23-845Z.pdf",
+      "category": "docs",
+      "fileName": "10-2-Atomic-Model-Summary-2026-03-29T14-07-23-845Z.pdf",
+      "extension": ".pdf",
+      "mimeType": "application/pdf",
+      "sizeBytes": 46952,
+      "modifiedAt": "2026-03-29T10:07:23.846414-04:00",
+      "summary": "PDF with 2 page(s). Preview: Name: ______________________________ Date: ______________________ Page # ______ A TOMIC M ODEL S UMMARY M ODEL K EY P OINTS L IMITATIONS E VIDENCE F OR C HANGE Billiard Ball Plum Pudding Revised Nuclear Model Planetary M"
+    },
     {
       "relativePath": "uploads/docs/10.0 Atomic Theory.pdf",
       "category": "docs",
