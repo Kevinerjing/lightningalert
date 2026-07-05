@@ -18,6 +18,7 @@
   .section-nav a{color:#4b5563;text-decoration:none;font-size:13px;padding:5px 2px}
   .section-nav a:hover{color:var(--ink);text-decoration:underline}
   .page{max-width:1080px;margin:0 auto;padding:34px 22px 60px;width:100%}
+  .chapter{scroll-margin-top:18px}.chapter + .chapter{border-top:3px solid var(--ink);margin-top:46px;padding-top:10px}
   header{border-bottom:2px solid var(--ink);padding-bottom:18px;margin-bottom:24px}
   h1{font-size:30px;margin:0 0 8px} h2{font-size:22px;margin:34px 0 12px;border-bottom:1px solid var(--line);padding-bottom:6px}
   h3{font-size:17px;margin:20px 0 8px} p{margin:8px 0}.sub{color:var(--muted);font-size:15px}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
@@ -28,6 +29,9 @@
   .mistake{border-left:4px solid #9ca3af;padding-left:10px;margin:8px 0}.answer{color:var(--ok);font-weight:700}.why{color:#374151}.small{font-size:13px;color:var(--muted)}
   ol{padding-left:22px} li{margin:6px 0}.exam{break-inside:avoid}.q{margin:12px 0;padding-bottom:10px;border-bottom:1px dashed var(--line)}
   details{border:1px solid var(--line);border-radius:10px;padding:10px 12px;margin:10px 0;background:#fff} summary{cursor:pointer;font-weight:700}
+  .figure{margin:12px 0 14px;border:1px solid var(--line);border-radius:8px;padding:8px;background:#fff;break-inside:avoid}
+  .figure img{display:block;width:100%;height:auto;border-radius:4px}
+  .figure figcaption{font-size:13px;color:var(--muted);margin-top:7px}
   @media (max-width:900px){.layout{display:block}.sidebar{position:static;height:auto;border-right:0;border-bottom:1px solid var(--line);padding:16px 14px}.chapter-nav{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));margin-bottom:12px}.section-nav{display:none}.grid{grid-template-columns:1fr} h1{font-size:24px}.page{padding:22px 14px}}
   @media print{body{font-size:12px}.layout{display:block;max-width:none}.sidebar{display:none}.page{max-width:none;padding:18px} details{break-inside:avoid} summary{list-style:none}.no-print{display:none}}
 </style>
@@ -38,23 +42,21 @@
   <h2>Grade 10 Science</h2>
   <nav class="chapter-nav" aria-label="Chapter navigation">
     <a class="active" href="#chapter-2">Chapter 2: Chemical Reactions</a>
-    <span>Chapter 3: Coming Soon</span>
-    <span>Chapter 4: Coming Soon</span>
+    <a href="#chapter-3">Chapter 3: Acids, Bases, and pH</a>
+    <a href="#chapter-4">Chapter 4: Systems of Living Things</a>
     <span>Chapter 5: Coming Soon</span>
   </nav>
-  <nav class="section-nav" aria-label="Chapter 2 sections">
-    <a href="#core-concepts">Core Concepts</a>
-    <a href="#balancing">Balancing Equations</a>
-    <a href="#reaction-types">Reaction Types</a>
-    <a href="#combustion">Combustion</a>
-    <a href="#formula-writing">Formula Writing</a>
-    <a href="#practice-1">Practice Test 1</a>
-    <a href="#practice-2">Practice Test 2</a>
-    <a href="#homework-risk">Homework High-Risk Points</a>
+  <nav class="section-nav" aria-label="Review sections">
+    <a href="#homework-risk">Ch. 2 Homework Risk</a>
+    <a href="#chapter-3-core">Ch. 3 Core Ideas</a>
+    <a href="#chapter-3-risk">Ch. 3 Homework Risk</a>
+    <a href="#chapter-4-core">Ch. 4 Core Ideas</a>
+    <a href="#chapter-4-risk">Ch. 4 Homework Risk</a>
     <a href="#exam-strategy">Quick Strategy</a>
   </nav>
 </aside>
-<main class="page" id="chapter-2">
+<main class="page">
+<article class="chapter" id="chapter-2">
 <header>
   <h1>Chapter 2: Chemical Reactions</h1>
   <p class="sub">Clean one-page review | Conservation of mass | Balancing equations | Reaction types | Two mistake-focused practice tests</p>
@@ -373,6 +375,303 @@
     <li>Classify by pattern, not by guessing from the name.</li>
   </ol>
 </section>
+
+</article>
+
+<article class="chapter" id="chapter-3">
+<header>
+  <h1>Chapter 3: Acids, Bases, and pH</h1>
+  <p class="sub">Arrhenius acids and bases | Neutralization | Indicators | pH scale | Acid deposition | Homework traps</p>
+</header>
+
+<section id="chapter-3-core">
+  <h2>1. Core Concepts</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>Arrhenius Acids and Bases</h3>
+      <p><b>Acid:</b> produces <span class="eq">H⁺</span> in water. Example: <span class="eq">HCl + H₂O → H₃O⁺ + Cl⁻</span>.</p>
+      <p><b>Base:</b> produces <span class="eq">OH⁻</span> in water. Example: <span class="eq">NaOH → Na⁺ + OH⁻</span>.</p>
+      <div class="mistake"><b>Trap:</b> a compound can be basic without ending in OH, such as hydrogen carbonate, because it can produce <span class="eq">OH⁻</span> in water.</div>
+    </div>
+    <div class="card">
+      <h3>Acid and Base Properties</h3>
+      <table>
+        <tr><th>Acids</th><th>Bases</th></tr>
+        <tr><td>Sour; blue litmus turns red</td><td>Bitter; red litmus turns blue</td></tr>
+        <tr><td>React with metals to form <span class="eq">H₂</span></td><td>Often found in cleaners and antacids</td></tr>
+        <tr><td>React with carbonates to form <span class="eq">CO₂</span></td><td>Neutralize acids</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <h3>Names to Memorize</h3>
+  <table>
+    <tr><th>Formula</th><th>Name</th><th>Type</th></tr>
+    <tr><td><span class="eq">HCl(aq)</span></td><td>hydrochloric acid</td><td>acid</td></tr>
+    <tr><td><span class="eq">HBr(aq)</span></td><td>hydrobromic acid</td><td>acid</td></tr>
+    <tr><td><span class="eq">HI(aq)</span></td><td>hydroiodic acid</td><td>acid</td></tr>
+    <tr><td><span class="eq">HNO₃(aq)</span></td><td>nitric acid</td><td>acid</td></tr>
+    <tr><td><span class="eq">H₂SO₄(aq)</span></td><td>sulfuric acid</td><td>acid</td></tr>
+    <tr><td><span class="eq">H₃PO₄(aq)</span></td><td>phosphoric acid</td><td>acid</td></tr>
+    <tr><td><span class="eq">NaOH, KOH, LiOH</span></td><td>metal hydroxides</td><td>base</td></tr>
+    <tr><td><span class="eq">KHCO₃, Ca(HCO₃)₂</span></td><td>hydrogen carbonates</td><td>base</td></tr>
+  </table>
+</section>
+
+<section>
+  <h2>2. Neutralization and Acid Reactions</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>Neutralization</h3>
+      <p>Acid + base → ionic salt + water.</p>
+      <p class="eq">HCl(aq) + LiOH(aq) → LiCl(aq) + H₂O(l)</p>
+      <div class="mistake"><b>Method:</b> combine <span class="eq">H⁺</span> and <span class="eq">OH⁻</span> into water, then pair the remaining ions to make the salt.</div>
+    </div>
+    <div class="card">
+      <h3>Acids with Carbonates</h3>
+      <p>Acid + carbonate → salt + carbon dioxide + water.</p>
+      <p class="eq">H₂SO₄ + CaCO₃ → CaSO₄ + CO₂ + H₂O</p>
+      <div class="mistake"><b>Trap:</b> carbonate questions often ask for an observation: bubbles of <span class="eq">CO₂</span>.</div>
+    </div>
+  </div>
+
+  <h3>Neutralization Practice Answers</h3>
+  <table>
+    <tr><th>Reaction</th><th>Balanced equation</th></tr>
+    <tr><td>HI + NaOH</td><td><span class="eq">HI + NaOH → NaI + H₂O</span></td></tr>
+    <tr><td>HBr + Ba(OH)₂</td><td><span class="eq">2HBr + Ba(OH)₂ → BaBr₂ + 2H₂O</span></td></tr>
+    <tr><td>H₃PO₄ + Ca(OH)₂</td><td><span class="eq">2H₃PO₄ + 3Ca(OH)₂ → Ca₃(PO₄)₂ + 6H₂O</span></td></tr>
+    <tr><td>HNO₃ + Al(OH)₃</td><td><span class="eq">3HNO₃ + Al(OH)₃ → Al(NO₃)₃ + 3H₂O</span></td></tr>
+    <tr><td>HCl + Mg(OH)₂</td><td><span class="eq">2HCl + Mg(OH)₂ → MgCl₂ + 2H₂O</span></td></tr>
+  </table>
+</section>
+
+<section>
+  <h2>3. Indicators and pH</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>Indicators</h3>
+      <table>
+        <tr><th>Indicator</th><th>Acid</th><th>Base</th></tr>
+        <tr><td>Phenolphthalein</td><td>colourless</td><td>pink</td></tr>
+        <tr><td>Litmus</td><td>red</td><td>blue</td></tr>
+        <tr><td>Bromothymol blue</td><td>yellow</td><td>blue</td></tr>
+      </table>
+    </div>
+    <div class="card">
+      <h3>pH Scale</h3>
+      <p><span class="eq">pH &lt; 7</span> acidic; <span class="eq">pH = 7</span> neutral; <span class="eq">pH &gt; 7</span> basic.</p>
+      <p>The pH scale is logarithmic: a difference of 1 pH unit means a 10 times change.</p>
+      <p><b>Example:</b> pH 2.3 to 6.7 is <span class="eq">10⁴⋅⁴ ≈ 25,000</span> times less acidic, so it became about <span class="answer">25,000 times more basic</span>.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>4. Acid Deposition and Applications</h2>
+  <table>
+    <tr><th>Topic</th><th>What to remember</th></tr>
+    <tr><td>Natural rain</td><td>About pH 5.6 because dissolved <span class="eq">CO₂</span> forms carbonic acid.</td></tr>
+    <tr><td>Acid deposition</td><td>Below pH 5.6; caused by sulfur oxides and nitrogen oxides from fossil fuels.</td></tr>
+    <tr><td>Effects</td><td>Damages plants, leaches soil minerals, harms aquatic life, and damages buildings.</td></tr>
+    <tr><td>Pool pH</td><td>Good range is about 7.2-7.8. If pH is 8.2, water is basic, cloudy, and chlorine works less well; add acid such as HCl to lower pH.</td></tr>
+  </table>
+</section>
+
+<section id="chapter-3-risk">
+  <h2>Homework-Specific High-Risk Points</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>Q1-Q2: Acid, Base, or Neutral</h3>
+      <p><b>Acids:</b> <span class="eq">HNO₃</span>, <span class="eq">H₂SO₄</span>, <span class="eq">HI</span>, <span class="eq">H₃PO₄</span>, <span class="eq">HBr</span>.</p>
+      <p><b>Bases:</b> <span class="eq">KOH</span>, <span class="eq">Ba(OH)₂</span>, <span class="eq">LiOH</span>, <span class="eq">KHCO₃</span>, <span class="eq">Ca(HCO₃)₂</span>, <span class="eq">Fe(OH)₃</span>.</p>
+      <p><b>Neutral:</b> <span class="eq">KNO₃</span>.</p>
+    </div>
+    <div class="card">
+      <h3>Q5: Universal Indicator Bottles</h3>
+      <figure class="figure">
+        <img src="assets/ch3_indicator_bottles.png" alt="Three indicator bottles labelled A, B, and C with pH colour chart" />
+        <figcaption>Use the colour chart: A is yellow, B is blue, and C is peach.</figcaption>
+      </figure>
+      <p>A is yellow, B is blue, C is peach.</p>
+      <p><b>Ammonia:</b> B, because blue indicates a base.</p>
+      <p><b>Vinegar:</b> A, because yellow indicates an acid near pH 6-8 on the provided chart.</p>
+      <p><b>Third bottle:</b> C is not uniquely known; it is acidic, but many acidic cleaning fluids could give peach.</p>
+      <div class="mistake"><b>Safety:</b> do not pour an unknown cleaning fluid down the drain just from indicator colour.</div>
+    </div>
+  </div>
+
+  <h3>Other Homework Answers and Explanations</h3>
+  <table>
+    <tr><th>Item</th><th>High-risk answer</th></tr>
+    <tr><td>Q3</td><td>Stomach acid can erode tooth enamel, so repeated vomiting exposes teeth to acid.</td></tr>
+    <tr><td>Q4</td><td>Lemon juice is acidic, so phenolphthalein becomes colourless instead of pink.</td></tr>
+    <tr><td>Q6 HCl</td><td>Blue litmus turns red; reacts with Mg to form bubbles of <span class="eq">H₂</span>; conducts electricity.</td></tr>
+    <tr><td>Q6 NaCl</td><td>Blue litmus stays blue; no reaction with Mg; conducts electricity because it is ionic in water.</td></tr>
+    <tr><td>Q6 sugar water</td><td>Blue litmus stays blue; no Mg reaction; poor/non-conductor because sugar does not form ions.</td></tr>
+    <tr><td>Q9</td><td>Lemon water is acidic and neutralizes basic amines, reducing fishy odour.</td></tr>
+    <tr><td>Q10</td><td>Acid + calcium carbonate releases <span class="eq">CO₂</span>; <span class="eq">H₂SO₄ + CaCO₃ → CaSO₄ + CO₂ + H₂O</span>. This weakens coral/shell structures.</td></tr>
+    <tr><td>Q12</td><td>Limestone neutralizes acid because it contains <span class="eq">CaCO₃</span>; the limestone lake likely has higher pH and healthier aquatic life than the granite lake.</td></tr>
+  </table>
+</section>
+</article>
+
+<article class="chapter" id="chapter-4">
+<header>
+  <h1>Chapter 4: Systems of Living Things</h1>
+  <p class="sub">Cell theory | Plant and animal cells | Cell cycle | Cancer | Stem cells | Tissues | Homework diagrams</p>
+</header>
+
+<section id="chapter-4-core">
+  <h2>1. Cell Theory and Cell Types</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>Cell Theory</h3>
+      <ol>
+        <li>All living things are made of one or more cells.</li>
+        <li>The cell is the simplest unit that carries out life processes.</li>
+        <li>All cells come from pre-existing cells.</li>
+      </ol>
+    </div>
+    <div class="card">
+      <h3>Prokaryote vs. Eukaryote</h3>
+      <table>
+        <tr><th>Prokaryote</th><th>Eukaryote</th></tr>
+        <tr><td>No nucleus</td><td>Has nucleus</td></tr>
+        <tr><td>No membrane-bound organelles</td><td>Has membrane-bound organelles</td></tr>
+        <tr><td>Bacteria and archaea</td><td>Plants, animals, fungi, protists</td></tr>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>2. Organelles</h2>
+  <table>
+    <tr><th>Organelle</th><th>Function</th></tr>
+    <tr><td>Nucleus</td><td>Stores DNA and controls cell activities.</td></tr>
+    <tr><td>Nuclear membrane</td><td>Controls what enters and exits the nucleus.</td></tr>
+    <tr><td>Cytoplasm</td><td>Gel-like material that suspends organelles.</td></tr>
+    <tr><td>Ribosomes</td><td>Make proteins.</td></tr>
+    <tr><td>Endoplasmic reticulum</td><td>Transports materials, especially proteins.</td></tr>
+    <tr><td>Golgi body</td><td>Processes and packages materials for transport/removal.</td></tr>
+    <tr><td>Vesicles</td><td>Small sacs that transport materials.</td></tr>
+    <tr><td>Vacuole</td><td>Stores water and nutrients; large in plant cells.</td></tr>
+    <tr><td>Mitochondria</td><td>Release usable energy through cellular respiration.</td></tr>
+    <tr><td>Cell membrane</td><td>Semi-permeable boundary controlling entry and exit.</td></tr>
+    <tr><td>Cell wall</td><td>Rigid plant-cell support made of cellulose.</td></tr>
+    <tr><td>Chloroplast</td><td>Contains chlorophyll and performs photosynthesis.</td></tr>
+  </table>
+  <div class="mistake"><b>Trap:</b> plant cells still need mitochondria because photosynthesis stores energy in glucose, but mitochondria release usable energy from glucose.</div>
+</section>
+
+<section>
+  <h2>3. Cell Division and Cell Cycle</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>Why Cells Divide</h3>
+      <ol>
+        <li>Reproduction</li>
+        <li>Growth</li>
+        <li>Repair</li>
+      </ol>
+      <p>Cells divide instead of just getting bigger because large cells have lower surface area relative to volume, making diffusion and osmosis less efficient.</p>
+    </div>
+    <div class="card">
+      <h3>Cell Cycle Order</h3>
+      <p class="eq">Interphase → Prophase → Metaphase → Anaphase → Telophase → Cytokinesis</p>
+      <table>
+        <tr><th>Stage</th><th>Key clue</th></tr>
+        <tr><td>Interphase</td><td>Cell grows and copies DNA.</td></tr>
+        <tr><td>Prophase</td><td>Nuclear membrane dissolves; chromosomes become visible.</td></tr>
+        <tr><td>Metaphase</td><td>Chromosomes line up in the middle.</td></tr>
+        <tr><td>Anaphase</td><td>Sister chromatids separate.</td></tr>
+        <tr><td>Telophase</td><td>Nuclear membranes reform.</td></tr>
+        <tr><td>Cytokinesis</td><td>Cell splits into two daughter cells.</td></tr>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>4. Cancer, Stem Cells, and Tissues</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>Cancer</h3>
+      <p>Cancer is uncontrolled cell growth and division caused by DNA mutations. It may start as a tumour and can spread by metastasis.</p>
+      <p>Prevention and early detection: avoid smoking, use sun protection, maintain healthy habits, know family history, get screened.</p>
+    </div>
+    <div class="card">
+      <h3>Stem Cells</h3>
+      <p><b>Embryonic stem cells:</b> can become any cell type.</p>
+      <p><b>Adult stem cells:</b> found in the body and usually become a limited range of cell types.</p>
+    </div>
+  </div>
+  <h3>Tissue Types</h3>
+  <table>
+    <tr><th>Tissue</th><th>Structure / clue</th><th>Function</th></tr>
+    <tr><td>Epithelial</td><td>Thin sheets covering surfaces and lining organs</td><td>Protection; reduces water loss</td></tr>
+    <tr><td>Connective</td><td>Cells in matrix; examples include bone, blood, fat</td><td>Support, protection, connection, transport</td></tr>
+    <tr><td>Muscle</td><td>Cells with actin and myosin that contract</td><td>Movement</td></tr>
+    <tr><td>Nerve</td><td>Neurons and supporting cells</td><td>Transmit electrical signals</td></tr>
+  </table>
+</section>
+
+<section id="chapter-4-risk">
+  <h2>Homework-Specific High-Risk Points</h2>
+  <h3>Q5-Q8: Cell Cycle Diagram Questions</h3>
+  <figure class="figure">
+    <img src="assets/ch4_mitosis_diagrams.png" alt="Four mitosis diagrams from the homework" />
+    <figcaption>Q6 pictures from left to right: metaphase, anaphase, telophase/cytokinesis, prophase.</figcaption>
+  </figure>
+  <figure class="figure">
+    <img src="assets/ch4_mitosis_slide.png" alt="Microscope slide showing plant cells in different mitosis stages" />
+    <figcaption>Q7/Q8 slide: look for chromosomes and the rigid cell walls to identify mitosis stages and plant tissue.</figcaption>
+  </figure>
+  <table>
+    <tr><th>Description / diagram clue</th><th>Answer</th></tr>
+    <tr><td>New cell wall begins to form</td><td>Cytokinesis, especially in plant cells</td></tr>
+    <tr><td>Nuclear membrane dissolves</td><td>Prophase</td></tr>
+    <tr><td>Daughter chromosomes begin to separate</td><td>Anaphase</td></tr>
+    <tr><td>Cell has pinched into two cells</td><td>Cytokinesis complete</td></tr>
+    <tr><td>Cell grows and copies DNA</td><td>Interphase</td></tr>
+    <tr><td>Chromosomes aligned in the middle</td><td>Metaphase</td></tr>
+    <tr><td>Q6 pictures from left to right</td><td>Metaphase, Anaphase, Telophase/Cytokinesis, Prophase</td></tr>
+    <tr><td>Q7 sample type</td><td>Likely plant tissue because the cells have rigid, box-like cell walls.</td></tr>
+  </table>
+
+  <h3>Q9-Q13: Written Response Traps</h3>
+  <table>
+    <tr><th>Item</th><th>High-risk answer</th></tr>
+    <tr><td>Antibiotic blocks bacterial DNA copying</td><td>Bacteria cannot reproduce, so the infection stops spreading.</td></tr>
+    <tr><td>Bacteria vs human cells</td><td>Bacteria are prokaryotic; human cells are eukaryotic with nuclei and membrane-bound organelles.</td></tr>
+    <tr><td>Cancer vs normal cells</td><td>Cancer cells ignore normal checkpoints, divide uncontrollably, and may form tumours or spread.</td></tr>
+    <tr><td>Early cancer can be overlooked</td><td>Early tumours may be small, localized, and have few symptoms; screening helps catch them earlier.</td></tr>
+    <tr><td>Embryonic vs adult stem cells</td><td>Embryonic stem cells can differentiate into almost any cell; adult stem cells have more limited differentiation.</td></tr>
+    <tr><td>Blood as connective tissue</td><td>Blood has cells suspended in plasma and connects body systems by transporting gases, nutrients, wastes, and signals.</td></tr>
+  </table>
+
+  <h3>Q14: Organelle Diagram Check</h3>
+  <figure class="figure">
+    <img src="assets/ch4_organelle_diagram.png" alt="Plant and animal cell organelle diagram labelled A through J" />
+    <figcaption>Use this diagram with the table below; arrows can be easy to misread, so check the target organelle carefully.</figcaption>
+  </figure>
+  <table>
+    <tr><th>Label</th><th>Likely organelle</th><th>Function</th></tr>
+    <tr><td>A</td><td>Cell membrane</td><td>Controls what enters and exits the cell.</td></tr>
+    <tr><td>B</td><td>Cell wall</td><td>Rigid plant-cell support and protection.</td></tr>
+    <tr><td>C</td><td>Cytoplasm</td><td>Suspends organelles and provides water/nutrients.</td></tr>
+    <tr><td>D</td><td>Vacuole</td><td>Stores water and nutrients; large in plant cells.</td></tr>
+    <tr><td>E</td><td>Nucleus</td><td>Stores DNA and controls cell activities.</td></tr>
+    <tr><td>F</td><td>Chloroplast</td><td>Performs photosynthesis.</td></tr>
+    <tr><td>G</td><td>Vesicle</td><td>Small sac for transporting materials.</td></tr>
+    <tr><td>H</td><td>Mitochondrion</td><td>Releases usable energy through cellular respiration.</td></tr>
+    <tr><td>I</td><td>Endoplasmic reticulum</td><td>Transports materials around the cell.</td></tr>
+    <tr><td>J</td><td>Golgi body</td><td>Processes and packages materials.</td></tr>
+  </table>
+  <div class="mistake"><b>Diagram caution:</b> Q14 labels are based on the arrows in the homework image; if the teacher's original slide has a labelled version, use it as the final authority.</div>
+</section>
+</article>
 
 </main>
 </div>
