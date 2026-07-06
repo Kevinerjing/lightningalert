@@ -114,6 +114,26 @@
     <tr><td>Use simplest whole-number coefficients</td><td>Do not leave fractions or reducible coefficients.</td></tr>
     <tr><td>If impossible, check formulas</td><td>The skeleton equation may be written incorrectly.</td></tr>
   </table>
+
+  <div class="card">
+    <h3>Algebra Method for Hard Balancing</h3>
+    <p>When guessing feels messy, give each coefficient a letter and write one equation for each element.</p>
+    <p class="eq">aSi<sub>2</sub>H<sub>3</sub> + bO<sub>2</sub> &rarr; cSiO<sub>2</sub> + dH<sub>2</sub>O<sub>3</sub></p>
+    <table>
+      <tr><th>Element</th><th>Atom balance equation</th><th>Reason</th></tr>
+      <tr><td>Silicon</td><td><span class="eq">2a = c</span></td><td>Each Si<sub>2</sub>H<sub>3</sub> has 2 Si atoms; each SiO<sub>2</sub> has 1.</td></tr>
+      <tr><td>Hydrogen</td><td><span class="eq">3a = 2d</span></td><td>Each Si<sub>2</sub>H<sub>3</sub> has 3 H atoms; each H<sub>2</sub>O<sub>3</sub> has 2.</td></tr>
+      <tr><td>Oxygen</td><td><span class="eq">2b = 2c + 3d</span></td><td>Oxygen is on both products, so count both product formulas.</td></tr>
+    </table>
+    <ol>
+      <li>From <span class="eq">3a = 2d</span>, <span class="eq">a</span> must be even. Use the smallest even value: <span class="eq">a = 2</span>.</li>
+      <li>Then <span class="eq">c = 2a = 4</span> and <span class="eq">d = 3</span>.</li>
+      <li>Oxygen gives <span class="eq">2b = 2(4) + 3(3) = 17</span>, so <span class="eq">b = 17/2</span>.</li>
+      <li>Multiply every coefficient by 2 to remove the fraction.</li>
+    </ol>
+    <p><b>Final:</b> <span class="answer">4Si<sub>2</sub>H<sub>3</sub> + 17O<sub>2</sub> &rarr; 8SiO<sub>2</sub> + 6H<sub>2</sub>O<sub>3</sub></span></p>
+    <div class="mistake"><b>Why this works:</b> the letters force each atom count to match. After solving, reduce or multiply coefficients so the final equation uses the simplest whole numbers.</div>
+  </div>
 </section>
 
 <section id="reaction-types">
