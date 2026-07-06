@@ -1,34 +1,34 @@
 {
-  "boardDate": "2026-07-05",
-  "generatedAt": "2026-07-05T12:49:21.411Z",
+  "boardDate": "2026-07-06",
+  "generatedAt": "2026-07-06T14:42:45.240Z",
   "sourceCount": 26,
   "weather": [
     {
       "city": "Ottawa",
-      "temperatureC": 19,
-      "maxC": 26,
-      "minC": 13,
-      "summary": "Clear skies"
+      "temperatureC": 24,
+      "maxC": 28,
+      "minC": 15,
+      "summary": "Cloudy"
     }
   ],
   "extremeWeather": [
     {
-      "title": "Evacuations in Guam as super typhoon Bavi approaches",
-      "whatHappened": "The storm is forecast to bring winds in excess of 160mph and waves nearly 11m high when it makes landfall on Monday.",
+      "title": "Wildfire in southern France forces evacuation of 10,000 people",
+      "whatHappened": "Tour de France organisers ban spectators from stage three as a wildfire hits the Pyrénées-Orientales region.",
+      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
+      "keyWord": "extreme weather: unusual and dangerous weather like floods, storms, or heat waves",
+      "source": "BBC Science & Environment",
+      "url": "https://www.bbc.co.uk/news/articles/crlwweye9glo?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-07-06T13:08:23.000Z"
+    },
+    {
+      "title": "Super Typhoon Bavi makes landfall on US Pacific islands with huge wind gusts",
+      "whatHappened": "The storm, with winds of nearly 290km/h (180mph) and gusts of 350km/h, is lashing the island of Rota.",
       "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
       "keyWord": "extreme weather: unusual and dangerous weather like floods, storms, or heat waves",
       "source": "BBC Science & Environment",
       "url": "https://www.bbc.co.uk/news/articles/cr7xpgx50jxo?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-07-05T09:26:56.000Z"
-    },
-    {
-      "title": "France records 2,025 excess deaths at peak of heatwave as Europe braces for more extreme weather",
-      "whatHappened": "Forecasters are warning of further extreme temperatures on the continent in the next few days.",
-      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
-      "keyWord": "heat wave: a long period of unusually hot weather",
-      "source": "BBC Science & Environment",
-      "url": "https://www.bbc.co.uk/news/articles/c3ry307rxqro?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-07-03T10:23:32.000Z"
+      "publishedAt": "2026-07-06T00:20:20.000Z"
     },
     {
       "title": "Amid crushing European heatwave, things are about to get hotter for transport systems",
@@ -40,13 +40,13 @@
       "publishedAt": "2026-06-30T12:00:00.000Z"
     },
     {
-      "title": "British swallowtail split from European cousins much earlier than thought, study finds",
-      "whatHappened": "Finding that Norfolk butterfly has been distinct subspecies for 200,000 years could transform conservation approach The endangered swallowtail butterfly Papilio machaon britannicus , which is only...",
+      "title": "At least 25 people die in US as record heatwave scorches swaths of country",
+      "whatHappened": "More than 20 states reported temperatures above 100F as heat dome sits over eastern US during holiday weekend At least two dozen people have died amid...",
       "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
-      "keyWord": "flood: water covering land that is usually dry",
+      "keyWord": "heat wave: a long period of unusually hot weather",
       "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/environment/2026/jul/05/british-swallowtail-butterfly-distinct-subspecies-study-conservation",
-      "publishedAt": "2026-07-05T11:00:25.000Z"
+      "url": "https://www.theguardian.com/us-news/2026/jul/05/heatwave-deaths-weather",
+      "publishedAt": "2026-07-05T18:49:28.000Z"
     },
     {
       "title": "New heatwave likely to peak at 34C with week-long health alert issued",
@@ -69,6 +69,15 @@
   ],
   "climate": [
     {
+      "title": "‘Why take those jobs away?’: the unionized workers decrying Trump’s war on wind",
+      "whatHappened": "Workers proud of their efforts to grow renewable energy say US president pursuing ‘personal vendetta’ at their expense Donald Trump has blamed everything – from “national...",
+      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
+      "keyWord": "renewable energy: energy from sources that can be used again, like sun or wind",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/environment/2026/jul/06/workers-unions-trump-wind-energy",
+      "publishedAt": "2026-07-06T11:00:01.000Z"
+    },
+    {
       "title": "UN chief: Targeting methane is a climate battle ‘we can win’",
       "whatHappened": "Amid efforts to cool global warming, the battle hinges on targeting such super-pollutants as methane, which emits one third of the world’s greenhouse gases and “is...",
       "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
@@ -78,69 +87,69 @@
       "publishedAt": "2026-06-24T12:00:00.000Z"
     },
     {
-      "title": "British swallowtail split from European cousins much earlier than thought, study finds",
-      "whatHappened": "Finding that Norfolk butterfly has been distinct subspecies for 200,000 years could transform conservation approach The endangered swallowtail butterfly Papilio machaon britannicus , which is only...",
+      "title": "GB News co-owner ‘cashing in on climate chaos’ after leap in fossil fuel investments, critics say",
+      "whatHappened": "Exclusive: Campaigners argue news channel’s attacks on climate action ‘work in financial interests’ of Sir Paul Marshall The hedge fund run by the co-owner of GB...",
+      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
+      "keyWord": "climate: the usual pattern of weather over a long period of time",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/environment/2026/jul/06/gb-news-co-owner-cashing-in-on-climate-chaos-after-leap-in-fossil-fuel-investments-critics-say",
+      "publishedAt": "2026-07-06T14:00:05.000Z"
+    },
+    {
+      "title": "Air pollution may cause childhood obesity by disrupting impulse control, study finds",
+      "whatHappened": "Babies exposed to higher levels of neurotoxin more likely to have difficulty controlling impulses later, research shows Exposure to common air pollution may cause childhood obesity...",
+      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
+      "keyWord": "climate: the usual pattern of weather over a long period of time",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/us-news/2026/jul/06/air-pollution-childhood-obesity-study",
+      "publishedAt": "2026-07-06T11:00:02.000Z"
+    },
+    {
+      "title": "Super Typhoon Bavi makes landfall on US Pacific islands with huge wind gusts",
+      "whatHappened": "The storm, with winds of nearly 290km/h (180mph) and gusts of 350km/h, is lashing the island of Rota.",
+      "whyItMatters": "Climate and environment stories connect science to real issues like safety, health, and extreme weather.",
+      "keyWord": "climate: the usual pattern of weather over a long period of time",
+      "source": "BBC Science & Environment",
+      "url": "https://www.bbc.co.uk/news/articles/cr7xpgx50jxo?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-07-06T00:20:20.000Z"
+    },
+    {
+      "title": "At least 25 people die in US as record heatwave scorches swaths of country",
+      "whatHappened": "More than 20 states reported temperatures above 100F as heat dome sits over eastern US during holiday weekend At least two dozen people have died amid...",
       "whyItMatters": "Climate and environment stories connect science to real issues like safety, health, and extreme weather.",
       "keyWord": "climate: the usual pattern of weather over a long period of time",
       "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/environment/2026/jul/05/british-swallowtail-butterfly-distinct-subspecies-study-conservation",
-      "publishedAt": "2026-07-05T11:00:25.000Z"
-    },
-    {
-      "title": "Scientist dubbed The Bogfather is restoring peatland to fight climate change",
-      "whatHappened": "A childhood fascination with bogs led one Welsh scientist to try and help save the planet.",
-      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
-      "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "BBC Science & Environment",
-      "url": "https://www.bbc.co.uk/news/articles/cy498d400pro?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-07-04T06:21:35.000Z"
-    },
-    {
-      "title": "Turbines turning from wind to sustainable products",
-      "whatHappened": "Thousands of tonnes of non-recyclable wind turbine blades are coming to the end of their lives.",
-      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
-      "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "BBC Science & Environment",
-      "url": "https://www.bbc.co.uk/news/articles/cewqzrkvwvqo?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-07-04T05:06:44.000Z"
-    },
-    {
-      "title": "'Hotter and hotter and hotter' - Europe's new climate in seven charts",
-      "whatHappened": "Temperature records were smashed in June - and scientists warn this is a sign of things to come.",
-      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
-      "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "BBC Science & Environment",
-      "url": "https://www.bbc.co.uk/news/articles/c8e2j0j87reo?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-07-04T00:57:05.000Z"
-    },
-    {
-      "title": "As seas rise, American history could be washed away",
-      "whatHappened": "In Jamestown, Virginia, one of the most important places in American history is in a race against time from rising waters Sean Romo stops digging the...",
-      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
-      "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/environment/2026/jul/02/sea-level-rise-jamestown-virginia",
-      "publishedAt": "2026-07-02T18:00:06.000Z"
+      "url": "https://www.theguardian.com/us-news/2026/jul/05/heatwave-deaths-weather",
+      "publishedAt": "2026-07-05T18:49:28.000Z"
     }
   ],
   "weatherTech": [
     {
-      "title": "Evacuations in Guam as super typhoon Bavi approaches",
-      "whatHappened": "The storm is forecast to bring winds in excess of 160mph and waves nearly 11m high when it makes landfall on Monday.",
-      "whyItMatters": "Weather technology shows how science tools can predict conditions faster and help people prepare earlier.",
-      "keyWord": "forecast: a prediction about future weather conditions",
-      "source": "BBC Science & Environment",
-      "url": "https://www.bbc.co.uk/news/articles/cr7xpgx50jxo?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-07-05T09:26:56.000Z"
+      "title": "‘Why take those jobs away?’: the unionized workers decrying Trump’s war on wind",
+      "whatHappened": "Workers proud of their efforts to grow renewable energy say US president pursuing ‘personal vendetta’ at their expense Donald Trump has blamed everything – from “national...",
+      "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
+      "keyWord": "weather technology: tools that help people measure, study, or predict weather and climate",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/environment/2026/jul/06/workers-unions-trump-wind-energy",
+      "publishedAt": "2026-07-06T11:00:01.000Z"
     },
     {
-      "title": "NASA launched an emergency mission to stop the Swift Observatory from crashing to Earth",
-      "whatHappened": "The Swift Observatory was launched in 2004, but recent solar storms have pushed its orbit lower, and it's in danger of burning up in Earth's atmosphere...",
+      "title": "Nintendo will stop selling the original Switch in Europe next year",
+      "whatHappened": "Nintendo is making a new version of the Switch 2 with a replaceable battery in Europe - but its predecessor has a very different future.",
       "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
-      "keyWord": "solar: related to energy from sunlight",
+      "keyWord": "battery: a device that stores energy for later use",
       "source": "The Verge",
-      "url": "https://www.theverge.com/science/961459/nasa-emergency-save-swift-observatory-katalyst-space-technologies",
-      "publishedAt": "2026-07-04T19:06:27.000Z"
+      "url": "https://www.theverge.com/games/961632/nintendo-switch-europe-discontinued",
+      "publishedAt": "2026-07-06T14:15:48.000Z"
+    },
+    {
+      "title": "Super Typhoon Bavi makes landfall on US Pacific islands with huge wind gusts",
+      "whatHappened": "The storm, with winds of nearly 290km/h (180mph) and gusts of 350km/h, is lashing the island of Rota.",
+      "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
+      "keyWord": "weather technology: tools that help people measure, study, or predict weather and climate",
+      "source": "BBC Science & Environment",
+      "url": "https://www.bbc.co.uk/news/articles/cr7xpgx50jxo?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-07-06T00:20:20.000Z"
     },
     {
       "title": "Turbines turning from wind to sustainable products",
