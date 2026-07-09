@@ -1,14 +1,14 @@
 {
-  "boardDate": "2026-07-08",
-  "generatedAt": "2026-07-08T13:08:33.664Z",
+  "boardDate": "2026-07-09",
+  "generatedAt": "2026-07-09T14:06:27.702Z",
   "sourceCount": 26,
   "weather": [
     {
       "city": "Ottawa",
-      "temperatureC": 24,
-      "maxC": 31,
-      "minC": 18,
-      "summary": "Clear skies"
+      "temperatureC": 23,
+      "maxC": 25,
+      "minC": 20,
+      "summary": "Cloudy"
     }
   ],
   "extremeWeather": [
@@ -22,22 +22,22 @@
       "publishedAt": "2026-06-30T12:00:00.000Z"
     },
     {
-      "title": "UK waters hit with extreme heatwave as global sea temperatures reach record levels",
-      "whatHappened": "Experts warn that some marine species are at risk of ‘mass mortality events’ in ever-warming oceans UK waters are being hit with an “extreme” marine heatwave,...",
+      "title": "Pets can suffer heatstroke even when resting, UK vets warn",
+      "whatHappened": "Most cases used to be seen after exertion or being left in cars, but extreme heat has widened risk Extreme temperatures are causing heatstroke in pets...",
       "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
       "keyWord": "heat wave: a long period of unusually hot weather",
       "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/environment/2026/jul/08/uk-waters-extreme-heatwave-global-sea-temperatures-record-climate-crisis",
-      "publishedAt": "2026-07-08T11:13:33.000Z"
+      "url": "https://www.theguardian.com/environment/2026/jul/09/extreme-temperatures-heatstroke-pets-uk-vets",
+      "publishedAt": "2026-07-09T12:34:40.000Z"
     },
     {
-      "title": "'The water just came so fast': Typhoon triggers floods and rare tornadoes in China",
-      "whatHappened": "Villagers whose families have been stranded told the BBC they are struggling to get food and help.",
+      "title": "UK heatwave spreads north and west as further heat health alerts issued",
+      "whatHappened": "This year's third heatwave is one of the longest lasting heatwaves since the infamous year of 1976.",
       "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
-      "keyWord": "flood: water covering land that is usually dry",
+      "keyWord": "heat wave: a long period of unusually hot weather",
       "source": "BBC Science & Environment",
-      "url": "https://www.bbc.co.uk/news/articles/c79ygnv9e93o?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-07-08T00:49:07.000Z"
+      "url": "https://www.bbc.co.uk/weather/articles/ce3e443e1yko?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-07-09T10:54:20.000Z"
     },
     {
       "title": "'Extreme' marine heatwave expected for parts of UK",
@@ -46,16 +46,7 @@
       "keyWord": "heat wave: a long period of unusually hot weather",
       "source": "BBC Science & Environment",
       "url": "https://www.bbc.co.uk/news/articles/ckg888vpz4do?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-07-07T23:45:07.000Z"
-    },
-    {
-      "title": "Will this heatwave feel as hot and sticky as the last one?",
-      "whatHappened": "The UK's next heatwave is here, but will it feel as hot and sticky as the last one?",
-      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
-      "keyWord": "heat wave: a long period of unusually hot weather",
-      "source": "BBC Science & Environment",
-      "url": "https://www.bbc.co.uk/news/videos/c2lyyqzvl28o?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-07-06T18:08:23.000Z"
+      "publishedAt": "2026-07-08T14:47:11.000Z"
     },
     {
       "title": "At least 25 people die in US as record heatwave scorches swaths of country",
@@ -65,6 +56,15 @@
       "source": "The Guardian Environment",
       "url": "https://www.theguardian.com/us-news/2026/jul/05/heatwave-deaths-weather",
       "publishedAt": "2026-07-05T18:49:28.000Z"
+    },
+    {
+      "title": "El Niño forecast to intensify, increasing likelihood of extreme weather",
+      "whatHappened": "More blistering heatwaves and other weather extremes are becoming increasingly likely across the world now and in coming months, linked to strengthening El Niño conditions in...",
+      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
+      "keyWord": "heat wave: a long period of unusually hot weather",
+      "source": "UN Climate",
+      "url": "https://news.un.org/feed/view/en/story/2026/07/1167870",
+      "publishedAt": "2026-07-03T12:00:00.000Z"
     }
   ],
   "climate": [
@@ -78,15 +78,6 @@
       "publishedAt": "2026-07-08T10:00:27.000Z"
     },
     {
-      "title": "UK waters hit with extreme heatwave as global sea temperatures reach record levels",
-      "whatHappened": "Experts warn that some marine species are at risk of ‘mass mortality events’ in ever-warming oceans UK waters are being hit with an “extreme” marine heatwave,...",
-      "whyItMatters": "Climate and environment stories connect science to real issues like safety, health, and extreme weather.",
-      "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/environment/2026/jul/08/uk-waters-extreme-heatwave-global-sea-temperatures-record-climate-crisis",
-      "publishedAt": "2026-07-08T11:13:33.000Z"
-    },
-    {
       "title": "‘Why take those jobs away?’: the unionized workers decrying Trump’s war on wind",
       "whatHappened": "Workers proud of their efforts to grow renewable energy say US president pursuing ‘personal vendetta’ at their expense Donald Trump has blamed everything – from “national...",
       "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
@@ -94,6 +85,24 @@
       "source": "The Guardian Environment",
       "url": "https://www.theguardian.com/environment/2026/jul/06/workers-unions-trump-wind-energy",
       "publishedAt": "2026-07-06T11:00:01.000Z"
+    },
+    {
+      "title": "Viral squeaky frog now at risk of extinction",
+      "whatHappened": "A squeaky frog that became an internet sensation is added to a global list of species at risk of extinction.",
+      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
+      "keyWord": "climate: the usual pattern of weather over a long period of time",
+      "source": "BBC Science & Environment",
+      "url": "https://www.bbc.co.uk/news/articles/cq819y09g2lo?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-07-09T13:08:00.000Z"
+    },
+    {
+      "title": "How beachgoers are turning snaps into science",
+      "whatHappened": "Scientists hope to learn more about the impact of climate change on coasts through people's photos.",
+      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
+      "keyWord": "climate: the usual pattern of weather over a long period of time",
+      "source": "BBC Science & Environment",
+      "url": "https://www.bbc.co.uk/news/articles/cn59n10qnqzo?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-07-09T05:06:11.000Z"
     },
     {
       "title": "Jackdaw owner says gas field will 'not materially influence' climate change",
@@ -112,15 +121,6 @@
       "source": "The Guardian Environment",
       "url": "https://www.theguardian.com/us-news/2026/jul/07/lake-powell-water-crisis",
       "publishedAt": "2026-07-07T20:05:17.000Z"
-    },
-    {
-      "title": "Washington records world’s worst air quality for a city after 850,000 Fourth of July fireworks",
-      "whatHappened": "Hourly concentrations of particulate matter rose to 6.7 times their pre-fireworks levels, according to an analysis Washington DC residents breathed in “unhealthy” air for hours after...",
-      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
-      "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/us-news/2026/jul/07/washington-air-quality-fireworks-independence-day",
-      "publishedAt": "2026-07-07T15:00:04.000Z"
     }
   ],
   "weatherTech": [
@@ -134,22 +134,13 @@
       "publishedAt": "2026-07-06T11:00:01.000Z"
     },
     {
-      "title": "First look: Fi Ultra Starlink pet tracker",
-      "whatHappened": "Fi Ultra is the first Starlink-enabled pet tracker you can buy.",
+      "title": "SpaceX is on track for record-setting Starlink deployments",
+      "whatHappened": "SpaceX is currently ahead of last year's record-setting pace for Starlink satellite deployments.",
       "whyItMatters": "Weather technology shows how science tools can predict conditions faster and help people prepare earlier.",
       "keyWord": "satellite: an object in space that collects information and sends it back to Earth",
       "source": "The Verge",
-      "url": "https://www.theverge.com/tech/962224/fi-ultra-dog-tracker-starlink-t-satellite-specs-price-release-date",
-      "publishedAt": "2026-07-08T13:01:05.000Z"
-    },
-    {
-      "title": "The robotaxi law that could ban Tesla",
-      "whatHappened": "For more than a decade, one question has loomed over the race to build autonomous vehicles: Are cameras alone enough to safely replace human drivers, or...",
-      "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
-      "keyWord": "weather technology: tools that help people measure, study, or predict weather and climate",
-      "source": "The Verge",
-      "url": "https://www.theverge.com/transportation/962309/new-jersey-robotaxi-bill-lidar-tesla",
-      "publishedAt": "2026-07-07T19:11:56.000Z"
+      "url": "https://www.theverge.com/news/963196/spacex-is-on-track-for-record-setting-starlink-deployments",
+      "publishedAt": "2026-07-09T11:52:48.000Z"
     },
     {
       "title": "El Niño forecast to intensify, increasing likelihood of extreme weather",
@@ -253,15 +244,6 @@
       "publishedAt": "2026-06-30T17:00:00.000Z"
     },
     {
-      "title": "June 30 campus cooling update",
-      "whatHappened": "From: Robert Cramer, Vice Chancellor for Finance and Administration To the campus community, Latest information about campus cooling issues Find the latest updates and frequently asked...",
-      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
-      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
-      "source": "University of Wisconsin News",
-      "url": "https://news.wisc.edu/june-30-campus-cooling-update/",
-      "publishedAt": "2026-06-30T15:00:53.000Z"
-    },
-    {
       "title": "Warming streams are pushing young salmon beyond their limits: new research",
       "whatHappened": "Researchers at UBC find that young salmon face greater heat risks than previously measured—and that younger fish and older fish cope with warming water very differently.",
       "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
@@ -269,6 +251,15 @@
       "source": "UBC News",
       "url": "https://news.ubc.ca/2026/06/warm-streams-effects-young-salmon/",
       "publishedAt": "2026-06-29T15:55:00.000Z"
+    },
+    {
+      "title": "A made-in-BC heat pump with global impact",
+      "whatHappened": "Pushing the economy forward: A UBC Okanagan graduate built Vitalis, a Kelowna clean refrigeration company, that is now positioned for export growth.",
+      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
+      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
+      "source": "UBC News",
+      "url": "https://news.ubc.ca/2026/06/a-made-in-bc-heat-pump-with-global-impact/",
+      "publishedAt": "2026-06-26T15:25:00.000Z"
     }
   ]
 }
