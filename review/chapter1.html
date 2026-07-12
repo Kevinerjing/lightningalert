@@ -3,37 +3,31 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Grade 10 Science - Chapter 1: Chemistry Foundations</title>
+<title>Grade 10 Science - Chapter 1 Review</title>
 <style>
-  :root{--ink:#1f2937;--muted:#6b7280;--line:#e5e7eb;--soft:#f9fafb;--ok:#065f46;--warn:#92400e;}
-  *{box-sizing:border-box} html{scroll-behavior:smooth} body{margin:0;font-family:Arial,Helvetica,sans-serif;color:var(--ink);background:white;line-height:1.55}
-  .layout{display:grid;grid-template-columns:240px minmax(0,1fr);align-items:start;max-width:1320px;margin:0 auto}
+  :root{--ink:#1f2937;--muted:#6b7280;--line:#e5e7eb;--soft:#f9fafb;--ok:#065f46;}
+  *{box-sizing:border-box} html{scroll-behavior:smooth}
+  body{margin:0;font-family:Arial,Helvetica,sans-serif;color:var(--ink);background:#fff;line-height:1.55}
+  .layout{display:grid;grid-template-columns:240px minmax(0,1fr);max-width:1320px;margin:0 auto;align-items:start}
   .sidebar{position:sticky;top:0;height:100vh;border-right:1px solid var(--line);padding:26px 18px;background:#fff}
-  .sidebar h2{font-size:13px;text-transform:uppercase;letter-spacing:0;color:var(--muted);border:0;margin:0 0 12px;padding:0}
-  .chapter-nav{display:flex;flex-direction:column;gap:6px;margin-bottom:22px}
+  .sidebar h2{font-size:13px;text-transform:uppercase;color:var(--muted);margin:0 0 12px}
+  .chapter-nav,.section-nav{display:flex;flex-direction:column;gap:6px;margin-bottom:22px}
   .chapter-nav a,.chapter-nav span{display:block;border-radius:8px;padding:9px 10px;text-decoration:none;color:var(--ink);font-size:14px}
-  .chapter-nav a.active{background:#eef2ff;border:1px solid #c7d2fe;font-weight:700}
-  .chapter-nav span{color:#9ca3af;border:1px dashed var(--line)}
-  .section-nav{display:flex;flex-direction:column;gap:4px}
-  .section-nav a{color:#4b5563;text-decoration:none;font-size:13px;padding:5px 2px}
-  .section-nav a:hover{color:var(--ink);text-decoration:underline}
+  .chapter-nav a.active{background:#eef2ff;border:1px solid #c7d2fe;font-weight:700}.chapter-nav span{color:#9ca3af;border:1px dashed var(--line)}
+  .section-nav a{color:#4b5563;text-decoration:none;font-size:13px;padding:5px 2px}.section-nav a:hover{text-decoration:underline;color:var(--ink)}
   .page{max-width:1080px;margin:0 auto;padding:34px 22px 60px;width:100%}
-  .chapter{scroll-margin-top:18px}
   header{border-bottom:2px solid var(--ink);padding-bottom:18px;margin-bottom:24px}
   h1{font-size:30px;margin:0 0 8px} h2{font-size:22px;margin:34px 0 12px;border-bottom:1px solid var(--line);padding-bottom:6px}
-  h3{font-size:17px;margin:20px 0 8px} p{margin:8px 0}.sub{color:var(--muted);font-size:15px}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
-  .card{border:1px solid var(--line);border-radius:12px;padding:15px;background:white}.soft{background:var(--soft)}
+  h3{font-size:17px;margin:20px 0 8px} p{margin:8px 0}.sub,.small{color:var(--muted)}.small{font-size:13px}
+  .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.card{border:1px solid var(--line);border-radius:8px;padding:15px;background:#fff}.soft{background:var(--soft)}
   table{width:100%;border-collapse:collapse;margin:10px 0 14px;font-size:14px} th,td{border:1px solid var(--line);padding:8px;vertical-align:top} th{background:#f3f4f6;text-align:left}
-  code,.eq{font-family:Consolas,monospace;background:#f3f4f6;padding:2px 5px;border-radius:5px}.eq{display:inline-block;margin:3px 0}
-  .tag{display:inline-block;border:1px solid var(--line);border-radius:999px;padding:2px 8px;font-size:12px;color:var(--muted);margin-right:5px}
-  .mistake{border-left:4px solid #9ca3af;padding-left:10px;margin:8px 0}.answer{color:var(--ok);font-weight:700}.why{color:#374151}.small{font-size:13px;color:var(--muted)}
-  ol{padding-left:22px} li{margin:6px 0}.exam{break-inside:avoid}.q{margin:12px 0;padding-bottom:10px;border-bottom:1px dashed var(--line)}
-  details{border:1px solid var(--line);border-radius:10px;padding:10px 12px;margin:10px 0;background:#fff} summary{cursor:pointer;font-weight:700}
-  .figure{margin:12px 0 14px;border:1px solid var(--line);border-radius:8px;padding:8px;background:#fff;break-inside:avoid}
-  .figure img{display:block;width:100%;height:auto;border-radius:4px}
-  .figure figcaption{font-size:13px;color:var(--muted);margin-top:7px}
-  @media (max-width:900px){.layout{display:block}.sidebar{position:static;height:auto;border-right:0;border-bottom:1px solid var(--line);padding:16px 14px}.chapter-nav{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));margin-bottom:12px}.section-nav{display:none}.grid{grid-template-columns:1fr} h1{font-size:24px}.page{padding:22px 14px}}
-  @media print{body{font-size:12px}.layout{display:block;max-width:none}.sidebar{display:none}.page{max-width:none;padding:18px} details{break-inside:avoid} summary{list-style:none}.no-print{display:none}}
+  .eq{font-family:Consolas,monospace;background:#f3f4f6;padding:2px 5px;border-radius:5px;display:inline-block;margin:2px 0}
+  .mistake{border-left:4px solid #9ca3af;padding-left:10px;margin:8px 0}.answer{color:var(--ok);font-weight:700}.why{color:#374151}
+  ol{padding-left:22px} li{margin:6px 0}.q{margin:12px 0;padding-bottom:10px;border-bottom:1px dashed var(--line)}
+  details{border:1px solid var(--line);border-radius:8px;padding:10px 12px;margin:10px 0;background:#fff} summary{cursor:pointer;font-weight:700}
+  .figure{margin:12px 0 14px;border:1px solid var(--line);border-radius:8px;padding:8px;background:#fff}.figure img{display:block;width:100%;height:auto;border-radius:4px}.figure figcaption{font-size:13px;color:var(--muted);margin-top:7px}
+  @media (max-width:900px){.layout{display:block}.sidebar{position:static;height:auto;border-right:0;border-bottom:1px solid var(--line);padding:16px 14px}.chapter-nav{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}.section-nav{display:none}.grid{grid-template-columns:1fr}h1{font-size:24px}.page{padding:22px 14px}}
+  @media print{body{font-size:12px}.layout{display:block;max-width:none}.sidebar,.no-print{display:none}.page{max-width:none;padding:18px}details{break-inside:avoid}summary{list-style:none}}
 </style>
 </head>
 <body>
@@ -49,297 +43,237 @@
     <span>Chapter 5: Coming Soon</span>
   </nav>
   <nav class="section-nav" aria-label="Page sections">
-    <a href="#chapter-1-core">Core Concepts</a>
-    <a href="#chapter-1-naming">Naming and Formulas</a>
-    <a href="#chapter-1-practice-1">Practice Test 1</a>
-    <a href="#chapter-1-practice-2">Practice Test 2</a>
-    <a href="#chapter-1-fixes">Corrected Homework Fixes</a>
+    <a href="#sources">Source Files</a>
+    <a href="#atoms">Atoms and Ions</a>
+    <a href="#diagrams">Bohr and Lewis</a>
+    <a href="#ionic">Ionic Compounds</a>
+    <a href="#covalent">Covalent Compounds</a>
+    <a href="#homework">Homework Repair</a>
+    <a href="#practice">Practice</a>
   </nav>
 </aside>
 <main class="page">
-<article class="chapter" id="chapter-1">
+<article>
 <header>
   <h1>Chapter 1: Chemistry Foundations</h1>
-  <p class="sub">Atomic structure | Bohr and Lewis diagrams | Ions and isotopes | Ionic/covalent compounds | Nomenclature | Corrected homework fixes</p>
+  <p class="sub">Class 1 lesson remake: matter, atomic structure, Bohr-Rutherford diagrams, Lewis dots, ionic compounds, polyatomic ions, covalent naming, and homework fixes.</p>
+  <p class="small no-print"><a href="G10%20Science%20-%20Class%201%20Lesson.pdf" target="_blank" rel="noopener">Open lesson PDF</a> | <a href="Class01_G10_Science_Homework.pdf" target="_blank" rel="noopener">Open homework PDF</a> | <a href="Corrected-G10-Science-Class-01-Homework-Kevin-Jing.pdf" target="_blank" rel="noopener">Open corrected homework</a></p>
 </header>
 
-<section id="chapter-1-core">
-  <h2>1. Core Concepts</h2>
+<section id="sources">
+  <h2>1. What This Page Covers</h2>
   <div class="grid">
     <div class="card">
-      <h3>Physical vs. Chemical</h3>
-      <p><b>Physical property:</b> observed without changing the substance, such as colour, density, solubility, or melting point.</p>
-      <p><b>Chemical property:</b> observed when a new substance forms, such as flammability, corrosion, or rusting.</p>
-      <p>Evidence of chemical change can include new colour, precipitate, heat/light, bubbles/gas, or a change that is difficult to reverse.</p>
+      <h3>Lesson Targets</h3>
+      <ol>
+        <li>Classify physical and chemical properties.</li>
+        <li>Count protons, neutrons, and electrons for atoms and ions.</li>
+        <li>Draw Bohr-Rutherford and Lewis dot diagrams.</li>
+        <li>Name and write ionic formulas, including multivalent metals and polyatomic ions.</li>
+        <li>Name and write covalent formulas using prefixes.</li>
+      </ol>
     </div>
     <div class="card">
-      <h3>Atomic Structure</h3>
-      <table>
-        <tr><th>Particle</th><th>Charge</th><th>Location</th></tr>
-        <tr><td>Proton</td><td>+1</td><td>Nucleus</td></tr>
-        <tr><td>Neutron</td><td>0</td><td>Nucleus</td></tr>
-        <tr><td>Electron</td><td>-1</td><td>Outside nucleus</td></tr>
-      </table>
-      <p><span class="eq">mass number = protons + neutrons</span></p>
+      <h3>Fast Test Strategy</h3>
+      <ol>
+        <li>Decide whether the compound is ionic or covalent first.</li>
+        <li>For ionic compounds, use charges and simplify ratios.</li>
+        <li>For covalent molecules, use prefixes and do not simplify formulas.</li>
+        <li>For ions, change electrons only; protons stay fixed.</li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<section id="atoms">
+  <h2>2. Atoms, Ions, and Isotopes</h2>
+  <table>
+    <tr><th>Particle</th><th>Charge</th><th>Relative mass</th><th>Location</th></tr>
+    <tr><td>Proton</td><td>+1</td><td>1</td><td>Nucleus</td></tr>
+    <tr><td>Neutron</td><td>0</td><td>1</td><td>Nucleus</td></tr>
+    <tr><td>Electron</td><td>-1</td><td>about 1/2000</td><td>Outside nucleus</td></tr>
+  </table>
+  <div class="grid">
+    <div class="card">
+      <h3>Counting Rules</h3>
       <p><span class="eq">atomic number = protons</span></p>
+      <p><span class="eq">mass number = protons + neutrons</span></p>
+      <p><span class="eq">neutrons = mass number - atomic number</span></p>
+      <p>Neutral atoms have equal numbers of protons and electrons.</p>
+    </div>
+    <div class="card">
+      <h3>Terms That Get Mixed Up</h3>
+      <table>
+        <tr><th>Term</th><th>Meaning</th><th>Trap</th></tr>
+        <tr><td>Isotope</td><td>Same element, different number of neutrons.</td><td>Mass changes, not identity.</td></tr>
+        <tr><td>Ion</td><td>Atom or group with a charge.</td><td>Atoms become ions by gaining or losing electrons, not protons.</td></tr>
+        <tr><td>Cation</td><td>Positive ion.</td><td>Usually formed by losing electrons.</td></tr>
+        <tr><td>Anion</td><td>Negative ion.</td><td>Usually formed by gaining electrons.</td></tr>
+      </table>
     </div>
   </div>
-
-  <h3>Terms That Were Easy to Mix Up</h3>
-  <table>
-    <tr><th>Term</th><th>Meaning</th><th>Trap</th></tr>
-    <tr><td>Isotope</td><td>Same element, different number of neutrons.</td><td>Mass changes; charge does not have to change.</td></tr>
-    <tr><td>Ion</td><td>Atom or group with different number of electrons.</td><td>Atoms become ions by gaining/losing electrons, not protons.</td></tr>
-    <tr><td>Cation</td><td>Positive ion.</td><td>Usually formed by losing electrons.</td></tr>
-    <tr><td>Anion</td><td>Negative ion.</td><td>Usually formed by gaining electrons.</td></tr>
-  </table>
+  <div class="mistake"><b>Example:</b> <span class="eq">F<sup>-</sup></span> has 9 protons and 10 electrons. Fluorine gained one electron.</div>
 </section>
 
-<section>
-  <h2>2. Bohr and Lewis Diagrams</h2>
+<section id="diagrams">
+  <h2>3. Bohr-Rutherford and Lewis Diagrams</h2>
   <div class="grid">
     <div class="card">
-      <h3>Bohr-Rutherford</h3>
+      <h3>Bohr-Rutherford Steps</h3>
       <ol>
-        <li>Find protons from atomic number.</li>
-        <li>Find neutrons from mass number - protons.</li>
-        <li>Find electrons from charge.</li>
-        <li>Fill shells: 2, 8, 8, 18.</li>
+        <li>Find protons from the atomic number.</li>
+        <li>Find neutrons from mass number minus protons.</li>
+        <li>Find electrons from the charge.</li>
+        <li>Fill shells in order: 2, 8, 8, then 18.</li>
       </ol>
-      <div class="mistake"><b>Trap:</b> ions change electrons only. The number of protons stays fixed.</div>
     </div>
     <div class="card">
-      <h3>Lewis Dot Diagrams</h3>
-      <p>Dots represent valence electrons. Place single dots around the symbol before pairing them.</p>
-      <p>For ions, show the final valence shell after electrons are lost or gained.</p>
-      <div class="mistake"><b>Trap:</b> <span class="eq">Li⁺</span> has lost its one valence electron, so do not draw a valence dot on Li⁺.</div>
+      <h3>Lewis Dot Steps</h3>
+      <ol>
+        <li>Write the element symbol.</li>
+        <li>Use the group number to find valence electrons.</li>
+        <li>For groups 13-18, subtract 10.</li>
+        <li>Place single dots on four sides before pairing.</li>
+      </ol>
     </div>
   </div>
-</section>
-
-<section id="chapter-1-naming">
-  <h2>3. Naming and Writing Formulas</h2>
   <table>
-    <tr><th>Compound type</th><th>How to recognize</th><th>How to name/write</th></tr>
-    <tr><td>Ionic</td><td>metal + nonmetal, or contains a polyatomic ion</td><td>Use charges and crisscross. Name metal first, then nonmetal ending in -ide or polyatomic name.</td></tr>
-    <tr><td>Multivalent ionic</td><td>transition metal with more than one charge</td><td>Use Roman numerals, such as iron(III) oxide.</td></tr>
-    <tr><td>Polyatomic ionic</td><td>contains ions like <span class="eq">NO₃⁻</span>, <span class="eq">PO₄³⁻</span>, <span class="eq">OH⁻</span></td><td>Keep the polyatomic ion together and use brackets if more than one is needed.</td></tr>
-    <tr><td>Covalent</td><td>nonmetal + nonmetal</td><td>Use prefixes: mono, di, tri, tetra, penta, hexa, hepta, octa, nona, deca. Do not simplify molecular formulas.</td></tr>
+    <tr><th>Example</th><th>Expected thinking</th></tr>
+    <tr><td>Bromine</td><td>Group 17, so 7 valence electrons.</td></tr>
+    <tr><td>Oxygen</td><td>Group 16, so 6 valence electrons.</td></tr>
+    <tr><td><span class="eq">Li<sup>+</sup></span></td><td>Lithium has lost its one valence electron, so no valence dot.</td></tr>
+    <tr><td><span class="eq">O<sup>2-</sup></span></td><td>Oxygen gained 2 electrons and has a full octet.</td></tr>
   </table>
-  <div class="mistake"><b>Big homework trap:</b> decide ionic vs. covalent before naming. Do not name an ionic compound with covalent prefixes, and do not name a covalent molecule with ionic charge rules.</div>
 </section>
 
-<section class="exam" id="chapter-1-practice-1">
-  <h2>Practice Test 1: Easy-to-Miss Questions</h2>
-  <p class="small">Try these first without looking at the answers.</p>
-  <ol>
-    <li class="q">For chlorine-35, find protons, neutrons, and electrons in a neutral atom.</li>
-    <li class="q">For <span class="eq">Mg²⁺</span>, how many electrons does it have?</li>
-    <li class="q">What is the difference between an isotope and an ion?</li>
-    <li class="q">Draw or describe the Lewis dot diagram for bromine.</li>
-    <li class="q">Should <span class="eq">Li⁺</span> have a Lewis dot? Explain.</li>
-    <li class="q">Classify as ionic or covalent: <span class="eq">Al₂O₃</span>, <span class="eq">SO₂</span>, <span class="eq">CaF₂</span>, <span class="eq">N₂O</span>.</li>
-    <li class="q">Why is hydrogen peroxide written <span class="eq">H₂O₂</span>, not <span class="eq">HO</span>?</li>
-    <li class="q">Name <span class="eq">SnCl₄</span>.</li>
-    <li class="q">Write the formula for calcium chloride.</li>
-    <li class="q">Write the formula for lithium nitride.</li>
-  </ol>
-
-  <details>
-    <summary>Answers and analysis: Test 1</summary>
-    <ol>
-      <li><span class="answer">17 protons, 18 neutrons, 17 electrons.</span><br><span class="why">Atomic number of chlorine is 17; 35 - 17 = 18.</span></li>
-      <li><span class="answer">10 electrons.</span><br><span class="why">Neutral Mg has 12 electrons; Mg²⁺ has lost 2.</span></li>
-      <li><span class="answer">Isotopes differ in neutrons; ions differ in electrons and charge.</span></li>
-      <li><span class="answer">Bromine has 7 valence electrons.</span></li>
-      <li><span class="answer">No valence dot.</span><br><span class="why">Li⁺ lost its only valence electron.</span></li>
-      <li><span class="answer">Al₂O₃ ionic; SO₂ covalent; CaF₂ ionic; N₂O covalent.</span></li>
-      <li><span class="answer">It is a molecular compound; the formula shows the actual number of atoms in the molecule and is not simplified like an ionic ratio.</span></li>
-      <li><span class="answer">Tin(IV) chloride.</span></li>
-      <li><span class="answer">CaCl₂.</span></li>
-      <li><span class="answer">Li₃N.</span></li>
-    </ol>
-  </details>
-</section>
-
-<section class="exam" id="chapter-1-practice-2">
-  <h2>Practice Test 2: More Tricky Mixed Questions</h2>
-  <ol>
-    <li class="q">An unknown element X forms <span class="eq">XCl₂</span>. Predict its formula with oxygen.</li>
-    <li class="q">Name <span class="eq">Fe₂O₃</span>, <span class="eq">Cu₃P</span>, and <span class="eq">KMnO₄</span>.</li>
-    <li class="q">Name <span class="eq">N₂O₄</span>, <span class="eq">PCl₃</span>, and <span class="eq">SF₆</span>.</li>
-    <li class="q">Write formulas for aluminum phosphate, magnesium sulfide, and iron(II) bromide.</li>
-    <li class="q">Write formulas for cobalt(III) oxide, lead(II) nitride, and beryllium hydroxide.</li>
-    <li class="q">Explain why <span class="eq">Al₂O₃</span> is ionic, not covalent.</li>
-    <li class="q">Explain why <span class="eq">SO₂</span> is sulfur dioxide, not sulfur oxide.</li>
-    <li class="q">What is wrong with naming <span class="eq">CuF₂</span> as copper fluoride?</li>
-    <li class="q">What is wrong with writing magnesium sulfide as <span class="eq">MgS₂</span>?</li>
-    <li class="q">What is wrong with writing copper(II) oxide as <span class="eq">Cu₂O₂</span>?</li>
-  </ol>
-
-  <details>
-    <summary>Answers and analysis: Test 2</summary>
-    <ol>
-      <li><span class="answer">XO.</span><br><span class="why">XCl₂ suggests X is 2+; oxygen is 2-, so the ratio is 1:1.</span></li>
-      <li><span class="answer">Iron(III) oxide; copper(I) phosphide; potassium permanganate.</span></li>
-      <li><span class="answer">Dinitrogen tetroxide; phosphorus trichloride; sulfur hexafluoride.</span></li>
-      <li><span class="answer">AlPO₄; MgS; FeBr₂.</span></li>
-      <li><span class="answer">Co₂O₃; Pb₃N₂; Be(OH)₂.</span></li>
-      <li><span class="answer">Aluminum is a metal and oxygen is a nonmetal, so it is ionic.</span></li>
-      <li><span class="answer">SO₂ is covalent, so prefixes are needed; two oxygens means dioxide.</span></li>
-      <li><span class="answer">Copper is multivalent; CuF₂ contains Cu²⁺, so it is copper(II) fluoride.</span></li>
-      <li><span class="answer">Mg²⁺ and S²⁻ simplify to a 1:1 ratio, so the formula is MgS.</span></li>
-      <li><span class="answer">Ionic formulas must be simplified; Cu²⁺ and O²⁻ make CuO.</span></li>
-    </ol>
-  </details>
-</section>
-
-<section id="chapter-1-fixes">
-  <h2>Corrected Homework Fixes</h2>
-  <p class="sub">The corrected homework shows the biggest lost marks on Q9 and Q10: naming formulas and writing formulas. These are the repairs to study first.</p>
+<section id="ionic">
+  <h2>4. Ionic Compounds</h2>
   <div class="grid">
     <div class="card">
-      <h3>What Went Wrong Most Often</h3>
+      <h3>Properties</h3>
+      <p>Ionic compounds are formed by electrostatic attraction between a cation and an anion, usually a metal and a nonmetal.</p>
       <ol>
-        <li>Classifying metal + nonmetal compounds as covalent.</li>
-        <li>Using prefixes on ionic compounds, such as writing aluminum trioxide.</li>
-        <li>Forgetting Roman numerals for multivalent metals.</li>
-        <li>Forgetting polyatomic ion names, especially chromate, permanganate, chlorate, acetate, and hydroxide.</li>
-        <li>Not simplifying ionic formulas, such as <span class="eq">Cu₂O₂</span> instead of <span class="eq">CuO</span>.</li>
+        <li>High melting and boiling points.</li>
+        <li>Generally soluble in polar solvents.</li>
+        <li>Do not conduct electricity as solids.</li>
+        <li>Conduct electricity when molten or dissolved in water.</li>
+        <li>Usually brittle.</li>
       </ol>
     </div>
     <div class="card">
-      <h3>Mini Repair Method</h3>
+      <h3>Formula Method</h3>
       <ol>
-        <li>Ask: metal present? If yes, usually ionic.</li>
-        <li>If ionic, use charges and crisscross, then simplify.</li>
-        <li>If the metal is multivalent, calculate charge and add Roman numeral.</li>
-        <li>If covalent, use prefixes and do not simplify the formula.</li>
+        <li>Write the metal first and nonmetal/polyatomic ion second.</li>
+        <li>Write charges.</li>
+        <li>Crisscross charges into subscripts.</li>
+        <li>Simplify to the lowest whole-number ratio.</li>
       </ol>
+      <p><span class="eq">Ca<sup>2+</sup> + Cl<sup>-</sup> &rarr; CaCl<sub>2</sub></span></p>
     </div>
   </div>
-
-  <h3>Error Pattern → What to Study → Next Check</h3>
   <table>
-    <tr><th>Error pattern from the marked homework</th><th>What knowledge to review</th><th>How to check next time</th></tr>
-    <tr>
-      <td>Marked <span class="eq">Al₂O₃</span>, <span class="eq">CoN</span>, or aluminum phosphate as covalent.</td>
-      <td><b>Ionic vs. covalent classification:</b> metal + nonmetal is ionic; nonmetal + nonmetal is covalent.</td>
-      <td>Circle the first element. If it is a metal, use ionic charge rules instead of prefixes.</td>
-    </tr>
-    <tr>
-      <td>Used names like aluminum trioxide or potassium chlorine trioxide.</td>
-      <td><b>Ionic naming:</b> ionic compounds do not use mono/di/tri prefixes. Polyatomic ions keep their special names.</td>
-      <td>Ask: is this ionic? If yes, remove prefixes and check for a polyatomic ion name.</td>
-    </tr>
-    <tr>
-      <td>Wrote copper fluoride, manganese oxide, tin sulfide, or cobalt nitride without Roman numerals.</td>
-      <td><b>Multivalent metals:</b> transition metals often need Roman numerals to show charge.</td>
-      <td>Use the anion charge to calculate the metal charge, then write copper(I), copper(II), iron(III), etc.</td>
-    </tr>
-    <tr>
-      <td>Wrote formulas like <span class="eq">MgS₂</span>, <span class="eq">Fe₂Br₂</span>, <span class="eq">Cu₂O₂</span>, or <span class="eq">AlP₃</span>.</td>
-      <td><b>Crisscross and simplify:</b> ionic formulas are lowest whole-number ratios.</td>
-      <td>After crisscrossing, divide subscripts by any common factor. If both charges are the same size, the formula is 1:1.</td>
-    </tr>
-    <tr>
-      <td>Confused chromate, permanganate, chlorate, acetate, and hydroxide.</td>
-      <td><b>Polyatomic ions:</b> memorize formula, charge, and name as one unit.</td>
-      <td>Put brackets around the ion mentally: <span class="eq">(CrO₄)²⁻</span>, <span class="eq">(MnO₄)⁻</span>, <span class="eq">(ClO₃)⁻</span>, <span class="eq">(OH)⁻</span>.</td>
-    </tr>
-    <tr>
-      <td>Tried to simplify covalent formulas or missed covalent prefixes.</td>
-      <td><b>Covalent naming and formulas:</b> prefixes give actual atom counts and are not simplified.</td>
-      <td>For nonmetal + nonmetal, translate prefixes directly: di = 2, tetra = 4, hepta = 7.</td>
-    </tr>
+    <tr><th>Type</th><th>Rule</th><th>Example</th></tr>
+    <tr><td>Single-charge ionic</td><td>Metal name + nonmetal ending in -ide.</td><td><span class="eq">BeO</span> = beryllium oxide.</td></tr>
+    <tr><td>Multivalent metal</td><td>Use Roman numerals to show metal charge.</td><td><span class="eq">Fe<sub>2</sub>O<sub>3</sub></span> = iron(III) oxide.</td></tr>
+    <tr><td>Polyatomic ion</td><td>Keep the polyatomic ion as one unit; use brackets if more than one is needed.</td><td><span class="eq">Fe(NO<sub>3</sub>)<sub>3</sub></span> = iron(III) nitrate.</td></tr>
   </table>
+  <h3>Common Polyatomic Ions</h3>
+  <table>
+    <tr><th>Ion</th><th>Formula</th><th>Charge</th></tr>
+    <tr><td>Hydroxide</td><td><span class="eq">OH</span></td><td>-1</td></tr>
+    <tr><td>Nitrate</td><td><span class="eq">NO<sub>3</sub></span></td><td>-1</td></tr>
+    <tr><td>Chlorate</td><td><span class="eq">ClO<sub>3</sub></span></td><td>-1</td></tr>
+    <tr><td>Acetate</td><td><span class="eq">C<sub>2</sub>H<sub>3</sub>O<sub>2</sub></span></td><td>-1</td></tr>
+    <tr><td>Carbonate</td><td><span class="eq">CO<sub>3</sub></span></td><td>-2</td></tr>
+    <tr><td>Chromate</td><td><span class="eq">CrO<sub>4</sub></span></td><td>-2</td></tr>
+    <tr><td>Sulfate</td><td><span class="eq">SO<sub>4</sub></span></td><td>-2</td></tr>
+    <tr><td>Phosphate</td><td><span class="eq">PO<sub>4</sub></span></td><td>-3</td></tr>
+    <tr><td>Ammonium</td><td><span class="eq">NH<sub>4</sub></span></td><td>+1</td></tr>
+  </table>
+</section>
 
-  <div class="card soft">
-    <h3>Recommended Homework Pre-Check</h3>
-    <p>After finishing homework, take clear photos of each page and upload them to an AI tool for a pre-check before submitting.</p>
-    <ol>
-      <li>Ask it to check only for likely errors, not to rewrite the whole assignment.</li>
-      <li>Use a prompt like: <span class="eq">Check my chemistry homework for mistakes. For each possible error, tell me the question number, what rule I should review, and give a hint before the final answer.</span></li>
-      <li>Pay special attention to classification, Roman numerals, polyatomic ions, and simplified ionic formulas.</li>
-      <li>Do the correction yourself after reading the feedback, so the submitted work still reflects your own understanding.</li>
-    </ol>
-    <div class="mistake"><b>Important:</b> AI pre-check is for catching mistakes and finding what to review. It should not replace showing your work or learning the rule.</div>
-  </div>
+<section id="covalent">
+  <h2>5. Covalent Compounds</h2>
+  <p>Covalent compounds form between nonmetals. They usually have lower melting and boiling points than ionic compounds, low water solubility, and poor electrical conductivity.</p>
+  <table>
+    <tr><th>Number</th><th>Prefix</th><th>Example</th></tr>
+    <tr><td>1</td><td>mono</td><td>carbon monoxide, <span class="eq">CO</span></td></tr>
+    <tr><td>2</td><td>di</td><td>sulfur dioxide, <span class="eq">SO<sub>2</sub></span></td></tr>
+    <tr><td>3</td><td>tri</td><td>phosphorus trichloride, <span class="eq">PCl<sub>3</sub></span></td></tr>
+    <tr><td>4</td><td>tetra</td><td>dinitrogen tetroxide, <span class="eq">N<sub>2</sub>O<sub>4</sub></span></td></tr>
+    <tr><td>5-10</td><td>penta, hexa, hepta, octa, nona, deca</td><td>sulfur hexafluoride, <span class="eq">SF<sub>6</sub></span></td></tr>
+  </table>
+  <div class="mistake"><b>Important:</b> covalent formulas are not simplified. Hydrogen peroxide is <span class="eq">H<sub>2</sub>O<sub>2</sub></span>, not <span class="eq">HO</span>, because the formula shows the actual molecule.</div>
+  <p><b>Diatomic molecules to memorize:</b> <span class="eq">H<sub>2</sub>, O<sub>2</sub>, F<sub>2</sub>, Br<sub>2</sub>, I<sub>2</sub>, N<sub>2</sub>, Cl<sub>2</sub></span>; also <span class="eq">P<sub>4</sub></span> and <span class="eq">S<sub>8</sub></span>.</p>
+</section>
 
-  <h3>Worked Fix: Aluminum Phosphate</h3>
-  <div class="card soft">
-    <p>The marked homework shows aluminum phosphate was treated like a covalent compound and written incorrectly. The correct formula is <span class="answer">AlPO₄</span>.</p>
-    <table>
-      <tr><th>Step</th><th>Thinking</th><th>Result</th></tr>
-      <tr><td>1. Classify</td><td>Aluminum is a metal. Phosphate is a polyatomic ion. Metal + polyatomic ion means ionic.</td><td>Use charge/crisscross rules, not prefixes.</td></tr>
-      <tr><td>2. Find charges</td><td>Aluminum forms <span class="eq">Al³⁺</span>. Phosphate is <span class="eq">PO₄³⁻</span>.</td><td><span class="eq">Al³⁺</span> and <span class="eq">PO₄³⁻</span></td></tr>
-      <tr><td>3. Crisscross</td><td>The 3 from aluminum goes to phosphate, and the 3 from phosphate goes to aluminum.</td><td><span class="eq">Al₃(PO₄)₃</span></td></tr>
-      <tr><td>4. Simplify</td><td>Both subscripts are 3, so divide by 3. Ionic formulas must be in the lowest ratio.</td><td><span class="eq">AlPO₄</span></td></tr>
-    </table>
-    <div class="mistake"><b>Key idea:</b> Do not split phosphate into P and O when writing the formula. <span class="eq">PO₄³⁻</span> travels as one unit.</div>
-  </div>
-
-  <h3>Teacher-Marked Tables</h3>
+<section id="homework">
+  <h2>6. Homework Repair: Biggest Mark Losses</h2>
+  <p class="sub">The corrected homework showed the most important repair area: Q9 formula-to-name and Q10 name-to-formula.</p>
   <div class="grid">
     <figure class="figure">
-      <img src="assets/ch1_corrected_q9_table.png" alt="Teacher-marked Question 9 naming table with several corrections" />
-      <figcaption>Q9 scored 8/20. The main issue was naming ionic and covalent compounds with the wrong rule set.</figcaption>
+      <img src="assets/ch1_corrected_q9_table.png" alt="Teacher-marked Question 9 naming table" />
+      <figcaption>Q9: naming ionic and covalent compounds with the correct rule set.</figcaption>
     </figure>
     <figure class="figure">
-      <img src="assets/ch1_corrected_q10_table.png" alt="Teacher-marked Question 10 formula table with several corrections" />
-      <figcaption>Q10 scored 9/20. The main issue was incorrect charge crisscrossing and not simplifying ionic formulas.</figcaption>
+      <img src="assets/ch1_corrected_q10_table.png" alt="Teacher-marked Question 10 formula table" />
+      <figcaption>Q10: writing formulas with charges, brackets, and simplified ionic ratios.</figcaption>
     </figure>
   </div>
-
-  <h3>Q9 Corrected Answers: Formula to Name</h3>
   <table>
-    <tr><th>Formula</th><th>Type</th><th>Correct name</th><th>How to solve</th></tr>
-    <tr><td><span class="eq">CaF₂</span></td><td>Ionic</td><td>calcium fluoride</td><td>Metal + nonmetal → ionic. Name Ca first, then change fluorine to fluoride. No prefixes.</td></tr>
-    <tr><td><span class="eq">N₂O</span></td><td>Covalent</td><td>dinitrogen monoxide</td><td>Nonmetal + nonmetal → covalent. Use prefixes: N₂ = dinitrogen, O = monoxide.</td></tr>
-    <tr><td><span class="eq">Al₂O₃</span></td><td>Ionic</td><td>aluminum oxide</td><td>Al is a metal and O is a nonmetal. Name metal first, then oxygen becomes oxide.</td></tr>
-    <tr><td><span class="eq">SO₂</span></td><td>Covalent</td><td>sulfur dioxide</td><td>Nonmetal + nonmetal. First element has no mono; O₂ becomes dioxide.</td></tr>
-    <tr><td><span class="eq">Ca₃P₂</span></td><td>Ionic</td><td>calcium phosphide</td><td>Ca is metal, P is nonmetal. Name calcium first; phosphorus becomes phosphide.</td></tr>
-    <tr><td><span class="eq">PbCl₂</span></td><td>Ionic</td><td>lead(II) chloride</td><td>Cl is 1-. Two Cl make -2, so Pb is +2. Use Roman numeral II.</td></tr>
-    <tr><td><span class="eq">Fe₂O₃</span></td><td>Ionic</td><td>iron(III) oxide</td><td>O is 2-. Three O give -6; two Fe must total +6, so each Fe is +3.</td></tr>
-    <tr><td><span class="eq">SnS</span></td><td>Ionic</td><td>tin(II) sulfide</td><td>S is 2-. One Sn balances it with +2, so write tin(II).</td></tr>
-    <tr><td><span class="eq">Cu₃P₂</span></td><td>Ionic</td><td>copper(II) phosphide</td><td>P is 3-. Two P give -6; three Cu total +6, so each Cu is +2.</td></tr>
-    <tr><td><span class="eq">CaCrO₄</span></td><td>Ionic</td><td>calcium chromate</td><td>Recognize <span class="eq">CrO₄²⁻</span> as chromate. Ca is always +2, so no Roman numeral.</td></tr>
-    <tr><td><span class="eq">CuF₂</span></td><td>Ionic</td><td>copper(II) fluoride</td><td>F is 1-. Two F give -2, so Cu is +2. Use Roman numeral II.</td></tr>
-    <tr><td><span class="eq">N₂O₄</span></td><td>Covalent</td><td>dinitrogen tetroxide</td><td>Use prefixes: N₂ = dinitrogen, O₄ = tetroxide. Drop the a in tetraoxide.</td></tr>
-    <tr><td><span class="eq">Cu₃P</span></td><td>Ionic</td><td>copper(I) phosphide</td><td>P is 3-. Three Cu total +3, so each Cu is +1.</td></tr>
-    <tr><td><span class="eq">PCl₃</span></td><td>Covalent</td><td>phosphorus trichloride</td><td>Nonmetal + nonmetal. Cl₃ means trichloride.</td></tr>
-    <tr><td><span class="eq">MnO</span></td><td>Ionic</td><td>manganese(II) oxide</td><td>O is 2-. One Mn must be +2, so write manganese(II).</td></tr>
-    <tr><td><span class="eq">KMnO₄</span></td><td>Ionic</td><td>potassium permanganate</td><td>Recognize <span class="eq">MnO₄⁻</span> as permanganate. K is +1.</td></tr>
-    <tr><td><span class="eq">CaS</span></td><td>Ionic</td><td>calcium sulfide</td><td>Ca is metal, S is nonmetal. Sulfur becomes sulfide.</td></tr>
-    <tr><td><span class="eq">CoN</span></td><td>Ionic</td><td>cobalt(III) nitride</td><td>N is 3-. One Co must be +3, so write cobalt(III).</td></tr>
-    <tr><td><span class="eq">SF₆</span></td><td>Covalent</td><td>sulfur hexafluoride</td><td>Nonmetal + nonmetal. F₆ means hexafluoride.</td></tr>
-    <tr><td><span class="eq">KClO₃</span></td><td>Ionic</td><td>potassium chlorate</td><td>Recognize <span class="eq">ClO₃⁻</span> as chlorate. K is +1.</td></tr>
+    <tr><th>Error pattern</th><th>What to review</th><th>Next check</th></tr>
+    <tr><td>Called metal + nonmetal compounds covalent.</td><td>Ionic vs. covalent classification.</td><td>Circle the first element. If it is a metal, use ionic rules.</td></tr>
+    <tr><td>Used prefixes on ionic compounds.</td><td>Ionic names do not use mono/di/tri.</td><td>Use charges and Roman numerals instead.</td></tr>
+    <tr><td>Forgot Roman numerals for Cu, Fe, Sn, Pb, Co, Mn.</td><td>Multivalent metal charges.</td><td>Use the anion charge to calculate the metal charge.</td></tr>
+    <tr><td>Wrote formulas like <span class="eq">Cu<sub>2</sub>O<sub>2</sub></span>.</td><td>Simplify ionic formulas.</td><td>Divide by the common factor after crisscrossing.</td></tr>
+    <tr><td>Split up polyatomic ions.</td><td>Polyatomic ions travel as a unit.</td><td>Put brackets around the ion mentally.</td></tr>
   </table>
+</section>
 
-  <h3>Q10 Corrected Answers: Name to Formula</h3>
-  <table>
-    <tr><th>Name</th><th>Type</th><th>Correct formula</th><th>How to solve</th></tr>
-    <tr><td>Calcium chloride</td><td>Ionic</td><td><span class="eq">CaCl₂</span></td><td>Ca²⁺ and Cl⁻. Crisscross charges to get CaCl₂.</td></tr>
-    <tr><td>Aluminum phosphate</td><td>Ionic</td><td><span class="eq">AlPO₄</span></td><td>Al³⁺ and PO₄³⁻. Charges are equal, so the ratio simplifies to 1:1.</td></tr>
-    <tr><td>Magnesium sulfide</td><td>Ionic</td><td><span class="eq">MgS</span></td><td>Mg²⁺ and S²⁻. Same charge size means 1:1 after simplifying.</td></tr>
-    <tr><td>Lithium nitride</td><td>Ionic</td><td><span class="eq">Li₃N</span></td><td>Li⁺ and N³⁻. Three Li⁺ ions are needed to balance one N³⁻.</td></tr>
-    <tr><td>Diphosphorus tetrasulfide</td><td>Covalent</td><td><span class="eq">P₂S₄</span></td><td>Use prefixes directly: di = 2, tetra = 4. Do not simplify covalent formulas.</td></tr>
-    <tr><td>Iron(II) bromide</td><td>Ionic</td><td><span class="eq">FeBr₂</span></td><td>Roman numeral II gives Fe²⁺; Br is Br⁻. Two Br⁻ balance one Fe²⁺.</td></tr>
-    <tr><td>Manganese(IV) oxide</td><td>Ionic</td><td><span class="eq">MnO₂</span></td><td>Roman numeral IV gives Mn⁴⁺; O is O²⁻. Crisscross gives Mn₂O₄, then simplify to MnO₂.</td></tr>
-    <tr><td>Phosphorus pentafluoride</td><td>Covalent</td><td><span class="eq">PF₅</span></td><td>No prefix on phosphorus means 1 P; penta means 5 F.</td></tr>
-    <tr><td>Copper(I) sulfide</td><td>Ionic</td><td><span class="eq">Cu₂S</span></td><td>Copper(I) is Cu⁺; sulfide is S²⁻. Two Cu⁺ ions balance one S²⁻.</td></tr>
-    <tr><td>Iron(III) nitride</td><td>Ionic</td><td><span class="eq">FeN</span></td><td>Fe³⁺ and N³⁻ have equal opposite charges, so the ratio is 1:1.</td></tr>
-    <tr><td>Copper(II) oxide</td><td>Ionic</td><td><span class="eq">CuO</span></td><td>Cu²⁺ and O²⁻ have equal opposite charges, so simplify to CuO.</td></tr>
-    <tr><td>Silver acetate</td><td>Ionic</td><td><span class="eq">AgC₂H₃O₂</span></td><td>Silver is Ag⁺; acetate is C₂H₃O₂⁻. Equal charges mean 1:1.</td></tr>
-    <tr><td>Cobalt(III) oxide</td><td>Ionic</td><td><span class="eq">Co₂O₃</span></td><td>Cobalt(III) is Co³⁺; oxide is O²⁻. Crisscross to Co₂O₃.</td></tr>
-    <tr><td>Lead(II) nitride</td><td>Ionic</td><td><span class="eq">Pb₃N₂</span></td><td>Lead(II) is Pb²⁺; nitride is N³⁻. Crisscross to Pb₃N₂.</td></tr>
-    <tr><td>Aluminum sulfide</td><td>Ionic</td><td><span class="eq">Al₂S₃</span></td><td>Al³⁺ and S²⁻. Crisscross to Al₂S₃.</td></tr>
-    <tr><td>Carbon tetrachloride</td><td>Covalent</td><td><span class="eq">CCl₄</span></td><td>No prefix on carbon means 1 C; tetra means 4 Cl.</td></tr>
-    <tr><td>Beryllium hydroxide</td><td>Ionic</td><td><span class="eq">Be(OH)₂</span></td><td>Be²⁺ and OH⁻. Two hydroxides are needed, so use brackets: Be(OH)₂.</td></tr>
-    <tr><td>Sodium phosphide</td><td>Ionic</td><td><span class="eq">Na₃P</span></td><td>Na⁺ and P³⁻. Three Na⁺ ions balance one P³⁻.</td></tr>
-    <tr><td>Nitrogen dioxide</td><td>Covalent</td><td><span class="eq">NO₂</span></td><td>No prefix on nitrogen means 1 N; di means 2 O.</td></tr>
-    <tr><td>Iodine heptafluoride</td><td>Covalent</td><td><span class="eq">IF₇</span></td><td>No prefix on iodine means 1 I; hepta means 7 F.</td></tr>
-  </table>
+<section id="practice">
+  <h2>7. Practice Tests</h2>
+  <div class="grid">
+    <div class="card">
+      <h3>Test 1: Core Skills</h3>
+      <ol>
+        <li class="q">For chlorine-35, find protons, neutrons, and electrons.</li>
+        <li class="q">For <span class="eq">Mg<sup>2+</sup></span>, how many electrons are present?</li>
+        <li class="q">Compare ion vs. isotope.</li>
+        <li class="q">Draw or describe Lewis dots for bromine, oxygen, and <span class="eq">Li<sup>+</sup></span>.</li>
+        <li class="q">Classify: <span class="eq">Al<sub>2</sub>O<sub>3</sub></span>, <span class="eq">SO<sub>2</sub></span>, <span class="eq">CaF<sub>2</sub></span>, <span class="eq">N<sub>2</sub>O</span>.</li>
+        <li class="q">Name <span class="eq">SnCl<sub>4</sub></span>.</li>
+      </ol>
+      <details><summary>Answers</summary>
+        <ol>
+          <li>17 protons, 18 neutrons, 17 electrons.</li>
+          <li>10 electrons.</li>
+          <li>Isotopes differ in neutrons; ions differ in electrons and charge.</li>
+          <li>Br has 7 valence electrons; O has 6; <span class="eq">Li<sup>+</sup></span> has no valence dot.</li>
+          <li>Ionic, covalent, ionic, covalent.</li>
+          <li>Tin(IV) chloride.</li>
+        </ol>
+      </details>
+    </div>
+    <div class="card">
+      <h3>Test 2: Naming and Formulas</h3>
+      <ol>
+        <li class="q">Write formulas: calcium chloride, aluminum phosphate, magnesium sulfide.</li>
+        <li class="q">Name: <span class="eq">Fe<sub>2</sub>O<sub>3</sub></span>, <span class="eq">Cu<sub>3</sub>P</span>, <span class="eq">KMnO<sub>4</sub></span>.</li>
+        <li class="q">Write formulas: cobalt(III) oxide, lead(II) nitride, beryllium hydroxide.</li>
+        <li class="q">Name: <span class="eq">N<sub>2</sub>O<sub>4</sub></span>, <span class="eq">PCl<sub>3</sub></span>, <span class="eq">SF<sub>6</sub></span>.</li>
+        <li class="q">Why is <span class="eq">AlPO<sub>4</sub></span> not <span class="eq">Al<sub>3</sub>(PO<sub>4</sub>)<sub>3</sub></span>?</li>
+      </ol>
+      <details><summary>Answers</summary>
+        <ol>
+          <li><span class="eq">CaCl<sub>2</sub></span>, <span class="eq">AlPO<sub>4</sub></span>, <span class="eq">MgS</span>.</li>
+          <li>Iron(III) oxide; copper(I) phosphide; potassium permanganate.</li>
+          <li><span class="eq">Co<sub>2</sub>O<sub>3</sub></span>, <span class="eq">Pb<sub>3</sub>N<sub>2</sub></span>, <span class="eq">Be(OH)<sub>2</sub></span>.</li>
+          <li>Dinitrogen tetroxide; phosphorus trichloride; sulfur hexafluoride.</li>
+          <li>Ionic formulas must be simplified; <span class="eq">Al<sup>3+</sup></span> and <span class="eq">PO<sub>4</sub><sup>3-</sup></span> make a 1:1 ratio.</li>
+        </ol>
+      </details>
+    </div>
+  </div>
 </section>
 </article>
 </main>
