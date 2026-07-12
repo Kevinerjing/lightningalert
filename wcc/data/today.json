@@ -1,35 +1,17 @@
 {
-  "boardDate": "2026-07-11",
-  "generatedAt": "2026-07-11T12:30:59.253Z",
+  "boardDate": "2026-07-12",
+  "generatedAt": "2026-07-12T12:28:38.461Z",
   "sourceCount": 26,
   "weather": [
     {
       "city": "Ottawa",
-      "temperatureC": 19,
-      "maxC": 26,
-      "minC": 15,
+      "temperatureC": 18,
+      "maxC": 28,
+      "minC": 14,
       "summary": "Clear skies"
     }
   ],
   "extremeWeather": [
-    {
-      "title": "China braced for second typhoon in a week as Bavi approaches landfall",
-      "whatHappened": "Hundreds of thousands of people are evacuated from eastern Zhejiang province, with the city of Wenzhou close to the path of the storm.",
-      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
-      "keyWord": "extreme weather: unusual and dangerous weather like floods, storms, or heat waves",
-      "source": "BBC Science & Environment",
-      "url": "https://www.bbc.co.uk/news/articles/cdxd3wkp2rzo?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-07-11T12:06:47.000Z"
-    },
-    {
-      "title": "East Asia braces for destructive typhoon as landslides kill 15 in Philippines",
-      "whatHappened": "Heading for Taiwan and south-eastern China, the 1,000 km-wide Bavi is forecast to be one of the strongest storms in decades.",
-      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
-      "keyWord": "extreme weather: unusual and dangerous weather like floods, storms, or heat waves",
-      "source": "BBC Science & Environment",
-      "url": "https://www.bbc.co.uk/news/articles/c04y6wr03gxo?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-07-10T13:53:11.000Z"
-    },
     {
       "title": "Amid crushing European heatwave, things are about to get hotter for transport systems",
       "whatHappened": "As European transport officials scramble to deal with melting train tracks and buckling roads amid a crushing heatwave, a UN report released Tuesday warns of more...",
@@ -40,6 +22,24 @@
       "publishedAt": "2026-06-30T12:00:00.000Z"
     },
     {
+      "title": "China evacuates nearly two million people as powerful typhoon makes landfall",
+      "whatHappened": "Schools, work and outdoor activities have been suspended in Zhejiang province and many transport services cancelled.",
+      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
+      "keyWord": "extreme weather: unusual and dangerous weather like floods, storms, or heat waves",
+      "source": "BBC Science & Environment",
+      "url": "https://www.bbc.co.uk/news/articles/cdxd3wkp2rzo?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-07-12T07:39:45.000Z"
+    },
+    {
+      "title": "‘Super’ El Niño could cause global food price shock lasting into 2028, analysts say",
+      "whatHappened": "Weather cycle threatens harvests worldwide, adding to inflation already fuelled by the Iran war Economists are warning that a “super” El Niño weather cycle this year...",
+      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
+      "keyWord": "extreme weather: unusual and dangerous weather like floods, storms, or heat waves",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/business/2026/jul/12/super-el-nino-severe-shock-global-food-prices-lasting-into-2028-economists-warn",
+      "publishedAt": "2026-07-12T07:00:11.000Z"
+    },
+    {
       "title": "Heatwave to stretch into second week despite cooler air for some this weekend",
       "whatHappened": "The sizzling heat continues into next week despite a drop in temperatures over the weekend.",
       "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
@@ -47,15 +47,6 @@
       "source": "BBC Science & Environment",
       "url": "https://www.bbc.co.uk/weather/articles/c621kp4y701o?at_medium=RSS&at_campaign=rss",
       "publishedAt": "2026-07-11T10:41:15.000Z"
-    },
-    {
-      "title": "Historic El Niño able to supercharge extreme weather looks increasingly likely – researchers",
-      "whatHappened": "Models show overwhelming chance that this year’s El Niño to rank among largest going back to 1950 El Niño is strengthening and the risks of a...",
-      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
-      "keyWord": "extreme weather: unusual and dangerous weather like floods, storms, or heat waves",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/us-news/2026/jul/09/el-nino-risks-extreme-weather",
-      "publishedAt": "2026-07-09T21:06:22.000Z"
     },
     {
       "title": "El Niño forecast to intensify, increasing likelihood of extreme weather",
@@ -78,31 +69,22 @@
       "publishedAt": "2026-07-10T13:00:20.000Z"
     },
     {
-      "title": "Datacentres drive up big tech’s carbon emissions to a third of those of France",
-      "whatHappened": "Microsoft, Amazon and Google say they still aim to achieve net zero output despite construction boom Microsoft, Amazon and Google’s collective carbon emissions have increased by...",
+      "title": "‘Huge wave’ of carbon storage projects causes alarm in small-town USA as oil firms eye billions in subsidies",
+      "whatHappened": "Dozens of projects are in development across US despite concerns over environmental and health risks The plan to bury carbon under remote Indiana farmland is supposed...",
       "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
-      "keyWord": "emissions: gases released into the air",
+      "keyWord": "climate: the usual pattern of weather over a long period of time",
       "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/us-news/2026/jul/11/microsoft-amazon-google-datacentre-carbon-emissions-france",
-      "publishedAt": "2026-07-11T11:00:49.000Z"
+      "url": "https://www.theguardian.com/us-news/2026/jul/12/carbon-sequestration-projects-oil-companies-subsidies",
+      "publishedAt": "2026-07-12T12:00:18.000Z"
     },
     {
-      "title": "‘Death sentence’: Trump’s EPA to open habitats of endangered species to logging and mining",
+      "title": "‘Death sentence’: Trump administration to open habitats of endangered species to logging and mining",
       "whatHappened": "Habitat destruction strongest driver of species loss, with legislation keeping 99% of listed species from going extinct The Trump administration repealed a crucial part of the...",
       "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
       "keyWord": "climate: the usual pattern of weather over a long period of time",
       "source": "The Guardian Environment",
       "url": "https://www.theguardian.com/us-news/2026/jul/10/epa-rollback-endangered-habitats-logging-mining",
       "publishedAt": "2026-07-10T22:23:14.000Z"
-    },
-    {
-      "title": "‘He’s forcing higher bills’: Trump spends billions to kill clean energy and keep coal alive",
-      "whatHappened": "Critics accuse president of ‘fattening the wallets of his cronies’ as working Americans face higher energy rates The Trump administration has directly spent $2.7bn of taxpayer...",
-      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
-      "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/us-news/2026/jul/10/bills-trump-clean-energy-coal",
-      "publishedAt": "2026-07-10T11:30:19.000Z"
     },
     {
       "title": "New dinosaur species as long as cricket pitch discovered in Thailand",
@@ -121,27 +103,18 @@
       "source": "The Guardian Environment",
       "url": "https://www.theguardian.com/us-news/2026/jul/10/trump-climate-report-matthew-wielicki",
       "publishedAt": "2026-07-10T21:01:00.000Z"
+    },
+    {
+      "title": "Peak heat in Europe just broke historic 1970s records",
+      "whatHappened": "This year marks the hottest June recorded for Western Europe and the second warmest globally, according to the latest report from a climate tracking service released...",
+      "whyItMatters": "Climate and environment stories connect science to real issues like safety, health, and extreme weather.",
+      "keyWord": "climate: the usual pattern of weather over a long period of time",
+      "source": "UN Climate",
+      "url": "https://news.un.org/feed/view/en/story/2026/07/1167911",
+      "publishedAt": "2026-07-09T12:00:00.000Z"
     }
   ],
   "weatherTech": [
-    {
-      "title": "‘He’s forcing higher bills’: Trump spends billions to kill clean energy and keep coal alive",
-      "whatHappened": "Critics accuse president of ‘fattening the wallets of his cronies’ as working Americans face higher energy rates The Trump administration has directly spent $2.7bn of taxpayer...",
-      "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
-      "keyWord": "weather technology: tools that help people measure, study, or predict weather and climate",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/us-news/2026/jul/10/bills-trump-clean-energy-coal",
-      "publishedAt": "2026-07-10T11:30:19.000Z"
-    },
-    {
-      "title": "East Asia braces for destructive typhoon as landslides kill 15 in Philippines",
-      "whatHappened": "Heading for Taiwan and south-eastern China, the 1,000 km-wide Bavi is forecast to be one of the strongest storms in decades.",
-      "whyItMatters": "Weather technology shows how science tools can predict conditions faster and help people prepare earlier.",
-      "keyWord": "forecast: a prediction about future weather conditions",
-      "source": "BBC Science & Environment",
-      "url": "https://www.bbc.co.uk/news/articles/c04y6wr03gxo?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-07-10T13:53:11.000Z"
-    },
     {
       "title": "El Niño forecast to intensify, increasing likelihood of extreme weather",
       "whatHappened": "More blistering heatwaves and other weather extremes are becoming increasingly likely across the world now and in coming months, linked to strengthening El Niño conditions in...",
