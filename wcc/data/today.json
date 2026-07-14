@@ -1,25 +1,25 @@
 {
-  "boardDate": "2026-07-13",
-  "generatedAt": "2026-07-13T13:40:23.417Z",
+  "boardDate": "2026-07-14",
+  "generatedAt": "2026-07-14T12:48:54.116Z",
   "sourceCount": 26,
   "weather": [
     {
       "city": "Ottawa",
-      "temperatureC": 23,
-      "maxC": 30,
-      "minC": 17,
+      "temperatureC": 27,
+      "maxC": 35,
+      "minC": 22,
       "summary": "Clear skies"
     }
   ],
   "extremeWeather": [
     {
-      "title": "Wildfire raging south of Paris could have been set deliberately, says minister",
-      "whatHappened": "It was the first time firefighting planes had been sent up from the normally drier and hotter south of the country to tackle fires in the...",
+      "title": "Hello from the outside: heat domes impeding radio and other signals in US midwest",
+      "whatHappened": "Higher temperatures can cause radio, TV and microwave signals to travel hundreds of miles farther, upsetting communications It was 3am in north-east Indiana ’s Huntington county...",
       "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
       "keyWord": "extreme weather: unusual and dangerous weather like floods, storms, or heat waves",
-      "source": "BBC Science & Environment",
-      "url": "https://www.bbc.co.uk/news/articles/clye4z168edo?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-07-13T10:29:17.000Z"
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/us-news/2026/jul/13/heat-dome-radio-signals-us-midwest",
+      "publishedAt": "2026-07-13T15:00:50.000Z"
     },
     {
       "title": "Flash flooding in Missouri leaves one person dead as 200 campers are rescued",
@@ -40,34 +40,43 @@
       "publishedAt": "2026-06-30T12:00:00.000Z"
     },
     {
-      "title": "Firefighting planes scrambled from south of France to tackle huge wildfire near Paris",
-      "whatHappened": "Officials say blaze in Fontainebleau forest is of ‘exceptional scale’, with 900 homes evacuated and road and rail links hit Europe live – latest updates French...",
+      "title": "Most UK media reports on June heatwave failed to mention climate crisis",
+      "whatHappened": "Exclusive: Analysis of nearly 2,500 articles finds almost three-quarters made no reference to global heating Most of the UK media stories about the record-breaking heatwave that...",
+      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
+      "keyWord": "heat wave: a long period of unusually hot weather",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/environment/2026/jul/14/most-coverage-june-heatwave-did-not-mention-climate-crisis",
+      "publishedAt": "2026-07-14T05:00:21.000Z"
+    },
+    {
+      "title": "Wildfire raging south of Paris could have been set deliberately, says minister",
+      "whatHappened": "The interior minister has said the fire near Paris could have been set deliberately and two people have been arrested.",
+      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
+      "keyWord": "extreme weather: unusual and dangerous weather like floods, storms, or heat waves",
+      "source": "BBC Science & Environment",
+      "url": "https://www.bbc.co.uk/news/articles/clye4z168edo?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-07-13T20:15:00.000Z"
+    },
+    {
+      "title": "‘As if a hurricane had passed’: Puerto Ricans at breaking point after weeks without water",
+      "whatHappened": "Shortages triggered by pipeline rupture drive up costs and deepen frustrations, as pressure grows on water utility Jonathan Collazo owns two restaurants in a bustling section...",
       "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
       "keyWord": "extreme weather: unusual and dangerous weather like floods, storms, or heat waves",
       "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/world/2026/jul/13/france-fires-wildfires-fointaineblue-forest-paris",
-      "publishedAt": "2026-07-13T12:30:18.000Z"
-    },
-    {
-      "title": "China evacuates nearly two million people as powerful typhoon makes landfall",
-      "whatHappened": "Schools, work and outdoor activities have been suspended in Zhejiang province and many transport services cancelled.",
-      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
-      "keyWord": "extreme weather: unusual and dangerous weather like floods, storms, or heat waves",
-      "source": "BBC Science & Environment",
-      "url": "https://www.bbc.co.uk/news/articles/cdxd3wkp2rzo?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-07-12T07:39:45.000Z"
-    },
-    {
-      "title": "Heatwave to stretch into second week despite cooler air for some this weekend",
-      "whatHappened": "The sizzling heat continues into next week despite a drop in temperatures over the weekend.",
-      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
-      "keyWord": "heat wave: a long period of unusually hot weather",
-      "source": "BBC Science & Environment",
-      "url": "https://www.bbc.co.uk/weather/articles/c621kp4y701o?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-07-11T10:41:15.000Z"
+      "url": "https://www.theguardian.com/us-news/2026/jul/13/puerto-rico-water-shortages",
+      "publishedAt": "2026-07-13T14:00:49.000Z"
     }
   ],
   "climate": [
+    {
+      "title": "Most UK media reports on June heatwave failed to mention climate crisis",
+      "whatHappened": "Exclusive: Analysis of nearly 2,500 articles finds almost three-quarters made no reference to global heating Most of the UK media stories about the record-breaking heatwave that...",
+      "whyItMatters": "Climate and environment stories connect science to real issues like safety, health, and extreme weather.",
+      "keyWord": "climate: the usual pattern of weather over a long period of time",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/environment/2026/jul/14/most-coverage-june-heatwave-did-not-mention-climate-crisis",
+      "publishedAt": "2026-07-14T05:00:21.000Z"
+    },
     {
       "title": "‘Huge wave’ of carbon storage projects causes alarm in small-town USA as oil firms eye billions in subsidies",
       "whatHappened": "Dozens of projects are in development across US despite concerns over environmental and health risks The plan to bury carbon under remote Indiana farmland is supposed...",
@@ -76,15 +85,6 @@
       "source": "The Guardian Environment",
       "url": "https://www.theguardian.com/us-news/2026/jul/12/carbon-sequestration-projects-oil-companies-subsidies",
       "publishedAt": "2026-07-12T12:00:18.000Z"
-    },
-    {
-      "title": "Firefighting planes scrambled from south of France to tackle huge wildfire near Paris",
-      "whatHappened": "Officials say blaze in Fontainebleau forest is of ‘exceptional scale’, with 900 homes evacuated and road and rail links hit Europe live – latest updates French...",
-      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
-      "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/world/2026/jul/13/france-fires-wildfires-fointaineblue-forest-paris",
-      "publishedAt": "2026-07-13T12:30:18.000Z"
     },
     {
       "title": "New dinosaur species as long as cricket pitch discovered in Thailand",
@@ -124,6 +124,24 @@
     }
   ],
   "weatherTech": [
+    {
+      "title": "The first sunlight reflecting space mirror has been cleared for launch",
+      "whatHappened": "Reflect Orbital has been given the green light to launch its first space mirror that aims to redirect sunlight down to Earth at night.",
+      "whyItMatters": "Weather technology shows how science tools can predict conditions faster and help people prepare earlier.",
+      "keyWord": "satellite: an object in space that collects information and sends it back to Earth",
+      "source": "The Verge",
+      "url": "https://www.theverge.com/science/965263/reflect-orbital-space-mirror-launch-fcc-clearance",
+      "publishedAt": "2026-07-14T11:16:44.000Z"
+    },
+    {
+      "title": "Hello from the outside: heat domes impeding radio and other signals in US midwest",
+      "whatHappened": "Higher temperatures can cause radio, TV and microwave signals to travel hundreds of miles farther, upsetting communications It was 3am in north-east Indiana ’s Huntington county...",
+      "whyItMatters": "Weather technology shows how science tools can predict conditions faster and help people prepare earlier.",
+      "keyWord": "forecast: a prediction about future weather conditions",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/us-news/2026/jul/13/heat-dome-radio-signals-us-midwest",
+      "publishedAt": "2026-07-13T15:00:50.000Z"
+    },
     {
       "title": "El Niño forecast to intensify, increasing likelihood of extreme weather",
       "whatHappened": "More blistering heatwaves and other weather extremes are becoming increasingly likely across the world now and in coming months, linked to strengthening El Niño conditions in...",
