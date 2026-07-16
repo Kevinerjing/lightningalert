@@ -1,14 +1,14 @@
 {
-  "boardDate": "2026-07-15",
-  "generatedAt": "2026-07-15T12:53:20.275Z",
+  "boardDate": "2026-07-16",
+  "generatedAt": "2026-07-16T13:02:31.405Z",
   "sourceCount": 26,
   "weather": [
     {
       "city": "Ottawa",
-      "temperatureC": 22,
-      "maxC": 29,
-      "minC": 20,
-      "summary": "Cloudy"
+      "temperatureC": 23,
+      "maxC": 26,
+      "minC": 17,
+      "summary": "Clear skies"
     }
   ],
   "extremeWeather": [
@@ -31,13 +31,13 @@
       "publishedAt": "2026-06-30T12:00:00.000Z"
     },
     {
-      "title": "UK heatwave delivers exceptional sunshine and persistent 30C temperatures",
-      "whatHappened": "The current heatwave has been hot, dry and exceptionally sunny with some locations seeing double the number of sunshine hours usually recorded at this point in...",
+      "title": "Extreme weather in the UK is the 'new normal'",
+      "whatHappened": "Sarah Keith-Lucas details five things you need to know about how the UK climate has changed.",
       "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
-      "keyWord": "heat wave: a long period of unusually hot weather",
+      "keyWord": "extreme weather: unusual and dangerous weather like floods, storms, or heat waves",
       "source": "BBC Science & Environment",
-      "url": "https://www.bbc.co.uk/weather/articles/cr474wzyl73o?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-07-15T08:06:00.000Z"
+      "url": "https://www.bbc.co.uk/news/videos/cp8e1jm1delo?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-07-16T12:02:49.000Z"
     },
     {
       "title": "Scots urged to 'stay vigilant' as wildfire risk very high",
@@ -46,16 +46,16 @@
       "keyWord": "extreme weather: unusual and dangerous weather like floods, storms, or heat waves",
       "source": "BBC Science & Environment",
       "url": "https://www.bbc.co.uk/news/articles/c33y3815p77o?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-07-15T05:19:39.000Z"
+      "publishedAt": "2026-07-15T15:34:38.000Z"
     },
     {
-      "title": "Millions in Canada swelter as heatwave continues to move east",
-      "whatHappened": "High temperatures are expected to continue for Canada, as well as for parts of the US Midwest and Northeast, into Wednesday.",
+      "title": "UK heatwave delivers exceptional sunshine and persistent 30C temperatures",
+      "whatHappened": "The current heatwave has been hot, dry and exceptionally sunny with some locations seeing double the number of sunshine hours usually recorded at this point in...",
       "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
       "keyWord": "heat wave: a long period of unusually hot weather",
       "source": "BBC Science & Environment",
-      "url": "https://www.bbc.co.uk/news/articles/c5yzyep6z63o?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-07-14T21:39:06.000Z"
+      "url": "https://www.bbc.co.uk/weather/articles/cr474wzyl73o?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-07-15T08:06:00.000Z"
     },
     {
       "title": "‘As if a hurricane had passed’: Puerto Ricans at breaking point after weeks without water",
@@ -68,6 +68,24 @@
     }
   ],
   "climate": [
+    {
+      "title": "Extreme weather in the UK is the 'new normal'",
+      "whatHappened": "Sarah Keith-Lucas details five things you need to know about how the UK climate has changed.",
+      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
+      "keyWord": "climate: the usual pattern of weather over a long period of time",
+      "source": "BBC Science & Environment",
+      "url": "https://www.bbc.co.uk/news/videos/cp8e1jm1delo?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-07-16T12:02:49.000Z"
+    },
+    {
+      "title": "New monkey species with orange lips found 'hiding' in DR Congo forest",
+      "whatHappened": "Scientists describe \"amazing feeling\" to look into the face of an animal that so few people knew existed.",
+      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
+      "keyWord": "climate: the usual pattern of weather over a long period of time",
+      "source": "BBC Science & Environment",
+      "url": "https://www.bbc.co.uk/news/articles/c15y5wgj4x8o?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-07-15T23:02:49.000Z"
+    },
     {
       "title": "Surviving extreme heat increasingly boils down to this: access to air conditioning | Mark Wolfe",
       "whatHappened": "The next great climate divide will be between countries that have the resources to adapt and those that don’t This summer, much of the media’s attention...",
@@ -96,42 +114,24 @@
       "publishedAt": "2026-07-15T10:00:53.000Z"
     },
     {
-      "title": "California faces highest shark numbers in years as great whites head north",
-      "whatHappened": "El Niño climate phenomenon heating waters off Mexico but incidents with humans remain a rarity California is set to see one of its sharkiest summers in...",
-      "whyItMatters": "Climate and environment stories connect science to real issues like safety, health, and extreme weather.",
-      "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/environment/2026/jul/14/california-sharks-el-nino",
-      "publishedAt": "2026-07-14T14:00:27.000Z"
-    },
-    {
-      "title": "Peak heat in Europe just broke historic 1970s records",
-      "whatHappened": "This year marks the hottest June recorded for Western Europe and the second warmest globally, according to the latest report from a climate tracking service released...",
-      "whyItMatters": "Climate and environment stories connect science to real issues like safety, health, and extreme weather.",
-      "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "UN Climate",
-      "url": "https://news.un.org/feed/view/en/story/2026/07/1167911",
-      "publishedAt": "2026-07-09T12:00:00.000Z"
-    },
-    {
-      "title": "Southwest Pacific’s last tropical glacier could vanish within months",
-      "whatHappened": "The Southwest Pacific is facing mounting climate risks as its vast ocean expanse becomes hotter, more acidic and more dangerous for coastal communities, the World Meteorological...",
+      "title": "'I looked into the river and saw all these dead fish'",
+      "whatHappened": "There have been 50,000 fish killed in Northern Ireland because of water pollution since 2020.",
       "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
       "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "UN Climate",
-      "url": "https://news.un.org/feed/view/en/story/2026/07/1167889",
-      "publishedAt": "2026-07-07T12:00:00.000Z"
+      "source": "BBC Science & Environment",
+      "url": "https://www.bbc.co.uk/news/articles/cgev4yg9d13o?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-07-14T23:01:40.000Z"
     }
   ],
   "weatherTech": [
     {
-      "title": "The Motorola Edge 70 Max is all about power",
-      "whatHappened": "Motorola has launched the Edge 70 Max, its latest flagship phone that's designed for power intensive tasks like streaming video and mobile gaming.",
+      "title": "Phone maker OnePlus says it won’t release new phones in the US and Europe",
+      "whatHappened": "OnePlus could also wind down its operations in India by 2027.",
       "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
-      "keyWord": "battery: a device that stores energy for later use",
-      "source": "The Verge",
-      "url": "https://www.theverge.com/tech/965884/motorola-edge-70-max-qi2-wireless-price-availability",
-      "publishedAt": "2026-07-15T12:18:22.000Z"
+      "keyWord": "weather technology: tools that help people measure, study, or predict weather and climate",
+      "source": "TechCrunch",
+      "url": "https://techcrunch.com/2026/07/16/phone-maker-oneplus-reportedly-plans-to-wind-down-us-and-europe-operations/",
+      "publishedAt": "2026-07-16T09:00:00.000Z"
     },
     {
       "title": "Hello from the outside: heat domes impeding radio and other signals in US midwest",
@@ -163,6 +163,15 @@
       "publishedAt": "2025-07-29T18:25:35.000Z"
     },
     {
+      "title": "New Environmental Performance Index Highlights Sustainability Gains and the Challenges Ahead",
+      "whatHappened": "The 2026 EPI, produced by Yale and Columbia Climate School, finds that Europe leads in environmental performance but few countries are on track for net-zero by...",
+      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
+      "keyWord": "sustainability: using resources in a way that can last over time",
+      "source": "Columbia Climate School",
+      "url": "https://news.climate.columbia.edu/2026/07/15/new-environmental-performance-index-highlights-sustainability-gains-and-the-challenges-ahead/",
+      "publishedAt": "2026-07-15T14:47:16.000Z"
+    },
+    {
       "title": "Hydrogen: clean fuel of the future — if we can find a cheap and clean way to ship it",
       "whatHappened": "A team led by MIT Energy Initiative researchers developed the HyCAT tool, enabling decision-makers to explore the cost and carbon emissions of their options for shipping...",
       "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
@@ -181,22 +190,22 @@
       "publishedAt": "2025-07-29T18:38:05.000Z"
     },
     {
-      "title": "Climate Models Show El Niño Is Rapidly Strengthening",
-      "whatHappened": "The World Meteorological Organization says a strong El Niño could drive extreme weather in many regions.",
+      "title": "For energy systems that power a reliable grid, the future is all about location",
+      "whatHappened": "MIT researchers find that where new energy projects are built could be key to avoiding blackouts in a future with hotter weather and other challenges.",
       "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
-      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
-      "source": "Columbia Climate School",
-      "url": "https://news.climate.columbia.edu/2026/07/07/climate-models-show-el-nino-is-rapidly-strengthening/",
-      "publishedAt": "2026-07-07T15:29:28.000Z"
+      "keyWord": "research: careful study used to discover new knowledge",
+      "source": "MIT Climate & Sustainability",
+      "url": "https://news.mit.edu/2026/energy-systems-reliable-grid-future-is-about-location-0716",
+      "publishedAt": "2026-07-16T09:00:00.000Z"
     },
     {
-      "title": "Extreme Heat Is Here: What Columbia Climate School Experts Want You to Know",
-      "whatHappened": "As a dangerous early-summer heat wave covers swaths of the globe, Columbia Climate School experts discuss the impacts of extreme heat.",
+      "title": "Puerto Rico’s Energy Future: Is Gas the Only Option?",
+      "whatHappened": "Some experts and advocates say the government’s push for liquefied natural gas is standing in the way of renewable energy goals.",
       "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
       "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
       "source": "Columbia Climate School",
-      "url": "https://news.climate.columbia.edu/2026/07/02/extreme-heat-is-here-what-columbia-climate-school-experts-want-you-to-know/",
-      "publishedAt": "2026-07-02T16:26:59.000Z"
+      "url": "https://news.climate.columbia.edu/2026/07/15/puerto-ricos-energy-future-is-gas-the-only-option/",
+      "publishedAt": "2026-07-15T16:23:32.000Z"
     },
     {
       "title": "Environment professor honoured with Distinguished Teacher Award",
@@ -226,15 +235,6 @@
       "publishedAt": "2026-07-14T17:03:48.000Z"
     },
     {
-      "title": "MIT-led project opens first climate shelter in Bangladesh",
-      "whatHappened": "The Jameel Observatory-CREWSnet project opens a solar-powered “adaptation fortress” in Satkhira, a region facing severe and growing climate threats.",
-      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
-      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
-      "source": "MIT Climate & Sustainability",
-      "url": "https://news.mit.edu/2026/mit-led-project-opens-first-climate-shelter-bangladesh-0709",
-      "publishedAt": "2026-07-09T18:00:00.000Z"
-    },
-    {
       "title": "New flapping robot swims and flies like a diving bird",
       "whatHappened": "MIT engineers’ design could lead to a new class of aerial-aquatic vehicles for ocean exploration.",
       "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
@@ -244,13 +244,13 @@
       "publishedAt": "2026-07-09T18:00:00.000Z"
     },
     {
-      "title": "What happens when environmental change outpaces life’s ability to adapt?",
-      "whatHappened": "A new model links Earth’s mass extinctions to mismatches between rates of environmental change and biological adaptation.",
+      "title": "How data centers can better manage energy use",
+      "whatHappened": "A new study suggests flexibility in the timing of electricity consumption could lower consumer costs.",
       "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
       "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
       "source": "MIT Earth & Atmospheric Sciences",
-      "url": "https://news.mit.edu/2026/when-environmental-change-outpaces-life-ability-to-adapt-0624",
-      "publishedAt": "2026-06-24T15:00:00.000Z"
+      "url": "https://news.mit.edu/2026/how-data-centers-can-better-manage-energy-use-0626",
+      "publishedAt": "2026-06-26T15:00:00.000Z"
     }
   ]
 }
