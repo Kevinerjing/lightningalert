@@ -1,17 +1,26 @@
 {
-  "boardDate": "2026-07-17",
-  "generatedAt": "2026-07-17T12:43:54.013Z",
+  "boardDate": "2026-07-18",
+  "generatedAt": "2026-07-18T12:29:01.916Z",
   "sourceCount": 26,
   "weather": [
     {
       "city": "Ottawa",
-      "temperatureC": 17,
-      "maxC": 25,
-      "minC": 14,
-      "summary": "Clear skies"
+      "temperatureC": 16,
+      "maxC": 24,
+      "minC": 16,
+      "summary": "Heavy rain"
     }
   ],
   "extremeWeather": [
+    {
+      "title": "Trump threatens new Canada tariffs over fires sending 'filthy' air into US cities",
+      "whatHappened": "Canadian leader Mark Carney says both the US and Canada have an equal responsibility to fight climate change, which experts say are worsening wildfire conditions.",
+      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
+      "keyWord": "extreme weather: unusual and dangerous weather like floods, storms, or heat waves",
+      "source": "BBC Science & Environment",
+      "url": "https://www.bbc.co.uk/news/articles/cwyq93j34lgo?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-07-18T01:29:47.000Z"
+    },
     {
       "title": "Climate change driving more rains that lead to deadly flash floods, experts say",
       "whatHappened": "Over the last month, states across the country have experienced record rainfall and flash flooding Climate change is driving increasingly common bouts of heavy rain in...",
@@ -22,31 +31,31 @@
       "publishedAt": "2026-07-17T10:00:04.000Z"
     },
     {
-      "title": "Watch: Flood waters surge in Texas after huge rainstorms",
-      "whatHappened": "The deluge prompted evacuations and water rescues in the same region where 25 children and two counsellors at Camp Mystic died in flooding in 2025.",
-      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
-      "keyWord": "flood: water covering land that is usually dry",
-      "source": "BBC Science & Environment",
-      "url": "https://www.bbc.co.uk/news/videos/cyvlp93r2dyo?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-07-16T16:45:55.000Z"
-    },
-    {
-      "title": "Hello from the outside: heat domes impeding radio and other signals in US midwest",
-      "whatHappened": "Higher temperatures can cause radio, TV and microwave signals to travel hundreds of miles farther, upsetting communications It was 3am in north-east Indiana ’s Huntington county...",
-      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
-      "keyWord": "extreme weather: unusual and dangerous weather like floods, storms, or heat waves",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/us-news/2026/jul/13/heat-dome-radio-signals-us-midwest",
-      "publishedAt": "2026-07-13T15:00:50.000Z"
-    },
-    {
-      "title": "Longest dry spell in 30 years for parts of England as heatwave hits two-week mark",
-      "whatHappened": "All UK nations have experienced recent heatwave conditions but in southern England, the heatwave has now continued for 14 days",
+      "title": "Second half of summer to bring chances for rain but heatwave threat persists",
+      "whatHappened": "Forecasts suggest the weather could turn more changeable during late July and August but the risk of heatwaves remains.",
       "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
       "keyWord": "heat wave: a long period of unusually hot weather",
       "source": "BBC Science & Environment",
-      "url": "https://www.bbc.co.uk/weather/articles/ckg4gqlye02o?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-07-17T11:58:03.000Z"
+      "url": "https://www.bbc.co.uk/weather/articles/c07rex9p7x2o?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-07-18T01:05:29.000Z"
+    },
+    {
+      "title": "More Canadian wildfire smoke shrouds US midwest, mid-Atlantic and north-east",
+      "whatHappened": "109 million people face another day of poor air quality as smoke from blazes in Ontario drifts over the US Sign up for the Breaking News...",
+      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
+      "keyWord": "extreme weather: unusual and dangerous weather like floods, storms, or heat waves",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/us-news/2026/jul/17/canada-wildfire-smoke-midwest-mid-atlantic-north-east",
+      "publishedAt": "2026-07-17T20:31:59.000Z"
+    },
+    {
+      "title": "UK heatwave hits two-week mark",
+      "whatHappened": "It is the longest dry spell in 30 years for parts of England as the UK heatwave reaches 14 days.",
+      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
+      "keyWord": "heat wave: a long period of unusually hot weather",
+      "source": "BBC Science & Environment",
+      "url": "https://www.bbc.co.uk/news/videos/cly9zk1wrw9o?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-07-17T15:18:17.000Z"
     },
     {
       "title": "‘Heat deaths are not inevitable’: WHO pushes Europe to heat‑proof its hospitals",
@@ -56,26 +65,35 @@
       "source": "UN Climate",
       "url": "https://news.un.org/feed/view/en/story/2026/07/1167955",
       "publishedAt": "2026-07-16T12:00:00.000Z"
-    },
-    {
-      "title": "El Niño forecast to intensify, increasing likelihood of extreme weather",
-      "whatHappened": "More blistering heatwaves and other weather extremes are becoming increasingly likely across the world now and in coming months, linked to strengthening El Niño conditions in...",
-      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
-      "keyWord": "heat wave: a long period of unusually hot weather",
-      "source": "UN Climate",
-      "url": "https://news.un.org/feed/view/en/story/2026/07/1167870",
-      "publishedAt": "2026-07-03T12:00:00.000Z"
     }
   ],
   "climate": [
     {
-      "title": "Too hot to fly: the airports at risk from climate change",
-      "whatHappened": "Simon King looks at the threats posed to airline operations by hotter weather and rising sea levels.",
+      "title": "EU proposes slowing down cuts to carbon emissions for businesses",
+      "whatHappened": "Under the proposals, the EU plans to relax its emissions trading system to give companies more time to reduce their carbon output.",
+      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
+      "keyWord": "emissions: gases released into the air",
+      "source": "BBC Science & Environment",
+      "url": "https://www.bbc.co.uk/news/articles/ckgv0zd497zo?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-07-17T18:34:04.000Z"
+    },
+    {
+      "title": "Poultry sector growth plan risks UK national security, campaigners warn",
+      "whatHappened": "Government’s food security push is said to rely on animal feed imports with vulnerability to supply chain shocks The government’s planned poultry sector growth plan is...",
+      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
+      "keyWord": "climate: the usual pattern of weather over a long period of time",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/environment/2026/jul/18/poultry-sector-growth-plan-uk-national-food-security-supply-chain",
+      "publishedAt": "2026-07-18T10:00:01.000Z"
+    },
+    {
+      "title": "Trump threatens new Canada tariffs over fires sending 'filthy' air into US cities",
+      "whatHappened": "Canadian leader Mark Carney says both the US and Canada have an equal responsibility to fight climate change, which experts say are worsening wildfire conditions.",
       "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
       "keyWord": "climate: the usual pattern of weather over a long period of time",
       "source": "BBC Science & Environment",
-      "url": "https://www.bbc.co.uk/news/videos/cly5vw5xdz8o?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-07-17T11:31:17.000Z"
+      "url": "https://www.bbc.co.uk/news/articles/cwyq93j34lgo?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-07-18T01:29:47.000Z"
     },
     {
       "title": "Climate change driving more rains that lead to deadly flash floods, experts say",
@@ -85,24 +103,6 @@
       "source": "The Guardian Environment",
       "url": "https://www.theguardian.com/us-news/2026/jul/17/climate-change-rains-flash-floods",
       "publishedAt": "2026-07-17T10:00:04.000Z"
-    },
-    {
-      "title": "‘We are waiting with bated breath’: experts alarmed as BoM says gathering El Niño could be strongest on record",
-      "whatHappened": "Most Australian capital cities have at least 80% chance of unusually warm and dry spring as climatologists watch developing system with increasing alarm Follow our Australia...",
-      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
-      "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/environment/2026/jul/17/record-el-nino-forecast-2027-hottest-year-on-record-bom-says",
-      "publishedAt": "2026-07-16T23:56:52.000Z"
-    },
-    {
-      "title": "Watch: What we know about newly discovered monkey species",
-      "whatHappened": "New monkey species hailed as 'amazing discovery' by conservationist.",
-      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
-      "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "BBC Science & Environment",
-      "url": "https://www.bbc.co.uk/news/videos/cx25glwll79o?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-07-16T14:50:05.000Z"
     },
     {
       "title": "Surviving extreme heat increasingly boils down to this: access to air conditioning | Mark Wolfe",
@@ -125,22 +125,13 @@
   ],
   "weatherTech": [
     {
-      "title": "Kalshi says it caught Trump’s teleprompter operator insider trading",
-      "whatHappened": "Kalshi users betting on what President Donald Trump would say during his speeches were reportedly up against tough competition: the president's teleprompter operator.",
+      "title": "Vertu wants executives to pay $6,880 for an AI agent — here’s how it actually performs",
+      "whatHappened": "From AI workflows to battery life and security, here's what it's really like to live with Vertu's luxury foldable every day.",
       "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
-      "keyWord": "weather technology: tools that help people measure, study, or predict weather and climate",
-      "source": "The Verge",
-      "url": "https://www.theverge.com/news/966676/trump-teleprompter-operator-kalshi-bets-mention-markets-investigation",
-      "publishedAt": "2026-07-16T18:43:14.000Z"
-    },
-    {
-      "title": "Hello from the outside: heat domes impeding radio and other signals in US midwest",
-      "whatHappened": "Higher temperatures can cause radio, TV and microwave signals to travel hundreds of miles farther, upsetting communications It was 3am in north-east Indiana ’s Huntington county...",
-      "whyItMatters": "Weather technology shows how science tools can predict conditions faster and help people prepare earlier.",
-      "keyWord": "forecast: a prediction about future weather conditions",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/us-news/2026/jul/13/heat-dome-radio-signals-us-midwest",
-      "publishedAt": "2026-07-13T15:00:50.000Z"
+      "keyWord": "battery: a device that stores energy for later use",
+      "source": "TechCrunch",
+      "url": "https://techcrunch.com/2026/07/17/vertu-wants-executives-to-pay-6880-for-an-ai-agent-heres-how-it-actually-performs/",
+      "publishedAt": "2026-07-17T22:55:09.000Z"
     },
     {
       "title": "El Niño forecast to intensify, increasing likelihood of extreme weather",
@@ -232,16 +223,7 @@
       "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
       "source": "uOttawa News",
       "url": "https://www.uottawa.ca/en/news-all/microwave-photonics-lighting-way-more-energy-efficient-hardware-artificial-intelligence",
-      "publishedAt": "2026-07-17T12:43:52.246Z"
-    },
-    {
-      "title": "Northeastern professor pushes computers to solve ‘unsolvable’ problems",
-      "whatHappened": "A groundbreaking method by a Northeastern researcher will help computers solve optimization problems used to minimize costs and energy.",
-      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
-      "keyWord": "research: careful study used to discover new knowledge",
-      "source": "Northeastern Global News",
-      "url": "https://news.northeastern.edu/2026/07/17/optimization-problem-ising-model/",
-      "publishedAt": "2026-07-17T10:00:00.000Z"
+      "publishedAt": "2026-07-18T12:29:00.380Z"
     },
     {
       "title": "UW–Madison monitoring air quality",
@@ -260,6 +242,15 @@
       "source": "Berkeley News",
       "url": "https://news.berkeley.edu/2026/07/14/from-hbcus-to-the-bay-mentoring-the-next-generation-of-scientists/",
       "publishedAt": "2026-07-14T17:03:48.000Z"
+    },
+    {
+      "title": "New flapping robot swims and flies like a diving bird",
+      "whatHappened": "MIT engineers’ design could lead to a new class of aerial-aquatic vehicles for ocean exploration.",
+      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
+      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
+      "source": "MIT Earth & Atmospheric Sciences",
+      "url": "https://news.mit.edu/2026/new-flapping-robot-swims-and-flies-like-diving-bird-0709",
+      "publishedAt": "2026-07-09T18:00:00.000Z"
     }
   ]
 }
