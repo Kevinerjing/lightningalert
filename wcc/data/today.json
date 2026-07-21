@@ -1,17 +1,26 @@
 {
-  "boardDate": "2026-07-20",
-  "generatedAt": "2026-07-20T13:27:30.135Z",
+  "boardDate": "2026-07-21",
+  "generatedAt": "2026-07-21T12:56:34.949Z",
   "sourceCount": 26,
   "weather": [
     {
       "city": "Ottawa",
-      "temperatureC": 19,
+      "temperatureC": 21,
       "maxC": 25,
-      "minC": 14,
-      "summary": "Clear skies"
+      "minC": 17,
+      "summary": "Cloudy"
     }
   ],
   "extremeWeather": [
+    {
+      "title": "Tropical Storm Bertha heads for land as Hurricane Fausto forms in eastern Pacific",
+      "whatHappened": "Bertha could bring heavy rain on US Gulf coast, with its center located 110 miles south of Panama City, Florida Tropical Storm Bertha formed Monday evening...",
+      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
+      "keyWord": "extreme weather: unusual and dangerous weather like floods, storms, or heat waves",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/us-news/2026/jul/20/bertha-tropical-depression-us-gulf-coast",
+      "publishedAt": "2026-07-21T02:05:29.000Z"
+    },
     {
       "title": "Majority of US voters link extreme weather to climate crisis, study finds",
       "whatHappened": "Top Democrat says findings show public ‘way ahead of the politicians’ as Trump dismisses global heating as ‘hoax’ Amid a summer of dangerous heat , drought...",
@@ -22,22 +31,22 @@
       "publishedAt": "2026-07-19T11:00:26.000Z"
     },
     {
-      "title": "Flash flood warnings strike north-east US amid wildfire smoke from Canada",
-      "whatHappened": "Poor air quality from wildfires continues to plague New York City as several neighborhoods hit by thunderstorms Saturday is delivering a double dose of dangerous weather...",
+      "title": "Parts of the UK move closer to drought",
+      "whatHappened": "Eight areas across England are now in prolonged dry weather – the stage before drought.",
       "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
-      "keyWord": "flood: water covering land that is usually dry",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/us-news/2026/jul/18/flash-flood-weather-north-east-us",
-      "publishedAt": "2026-07-18T19:11:13.000Z"
+      "keyWord": "drought: a long time with very little rain",
+      "source": "BBC Science & Environment",
+      "url": "https://www.bbc.co.uk/weather/articles/cjwx0xv571eo?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-07-21T12:10:08.000Z"
     },
     {
-      "title": "Trump threatens new Canada tariffs over fires sending 'filthy' air into US cities",
-      "whatHappened": "Canadian leader Mark Carney says both the US and Canada have an equal responsibility to fight climate change, which experts say are worsening wildfire conditions.",
+      "title": "Tropical Storm Bertha threatens US Gulf coast",
+      "whatHappened": "Storm surges up to 4ft are possible along parts of the Louisiana and Mississippi coasts, officials say.",
       "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
       "keyWord": "extreme weather: unusual and dangerous weather like floods, storms, or heat waves",
       "source": "BBC Science & Environment",
-      "url": "https://www.bbc.co.uk/news/articles/cwyq93j34lgo?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-07-18T17:29:50.000Z"
+      "url": "https://www.bbc.co.uk/news/articles/cqjxzzdrl4lo?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-07-21T02:42:44.000Z"
     },
     {
       "title": "Five family members found dead after flash flood in Utah canyon, police say",
@@ -47,15 +56,6 @@
       "source": "The Guardian Environment",
       "url": "https://www.theguardian.com/us-news/2026/jul/19/utah-flash-flood-deaths-family",
       "publishedAt": "2026-07-19T22:24:04.000Z"
-    },
-    {
-      "title": "More Canadian wildfire smoke shrouds US midwest, mid-Atlantic and north-east",
-      "whatHappened": "109 million people face another day of poor air quality as smoke from blazes in Ontario drifts over the US Sign up for the Breaking News...",
-      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
-      "keyWord": "extreme weather: unusual and dangerous weather like floods, storms, or heat waves",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/us-news/2026/jul/17/canada-wildfire-smoke-midwest-mid-atlantic-north-east",
-      "publishedAt": "2026-07-17T20:31:59.000Z"
     },
     {
       "title": "‘Heat deaths are not inevitable’: WHO pushes Europe to heat‑proof its hospitals",
@@ -87,6 +87,33 @@
       "publishedAt": "2026-07-20T08:20:07.000Z"
     },
     {
+      "title": "Tropical Storm Bertha heads for land as Hurricane Fausto forms in eastern Pacific",
+      "whatHappened": "Bertha could bring heavy rain on US Gulf coast, with its center located 110 miles south of Panama City, Florida Tropical Storm Bertha formed Monday evening...",
+      "whyItMatters": "Climate and environment stories connect science to real issues like safety, health, and extreme weather.",
+      "keyWord": "climate: the usual pattern of weather over a long period of time",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/us-news/2026/jul/20/bertha-tropical-depression-us-gulf-coast",
+      "publishedAt": "2026-07-21T02:05:29.000Z"
+    },
+    {
+      "title": "‘A public health emergency waiting to occur’: how US industry groups spent years fighting who gets to measure toxic air",
+      "whatHappened": "Air polluters try to ensure toxic emissions happen far from monitors – but the people who live nearby still feel it Kimbrelle Kyereh lives just a...",
+      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
+      "keyWord": "emissions: gases released into the air",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/environment/2026/jul/20/louisiana-toxic-air-floodlight",
+      "publishedAt": "2026-07-20T14:00:43.000Z"
+    },
+    {
+      "title": "Moon Day focuses growing concerns around space junk",
+      "whatHappened": "Amid surging lunar exploration, the UN on Monday urged governments to ensure that humanity's return to the Moon does not come at the expense of planet...",
+      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
+      "keyWord": "climate: the usual pattern of weather over a long period of time",
+      "source": "UN Climate",
+      "url": "https://news.un.org/feed/view/en/story/2026/07/1167976",
+      "publishedAt": "2026-07-20T12:00:00.000Z"
+    },
+    {
       "title": "Majority of US voters link extreme weather to climate crisis, study finds",
       "whatHappened": "Top Democrat says findings show public ‘way ahead of the politicians’ as Trump dismisses global heating as ‘hoax’ Amid a summer of dangerous heat , drought...",
       "whyItMatters": "Climate and environment stories connect science to real issues like safety, health, and extreme weather.",
@@ -94,33 +121,6 @@
       "source": "The Guardian Environment",
       "url": "https://www.theguardian.com/environment/2026/jul/19/climate-crisis-us-voters-study",
       "publishedAt": "2026-07-19T11:00:26.000Z"
-    },
-    {
-      "title": "How Trump and his administration have mired the US in multiple crises",
-      "whatHappened": "From manufactured election insecurity to an outbreak of ‘explosive’ diarrhea, Americans are bearing the brunt of harmful policies Between widespread cuts to vital government agencies, various...",
-      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
-      "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/us-news/2026/jul/19/how-trump-and-his-administration-have-mired-the-us-in-multiple-crises",
-      "publishedAt": "2026-07-19T11:00:25.000Z"
-    },
-    {
-      "title": "Trump threatens new Canada tariffs over fires sending 'filthy' air into US cities",
-      "whatHappened": "Canadian leader Mark Carney says both the US and Canada have an equal responsibility to fight climate change, which experts say are worsening wildfire conditions.",
-      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
-      "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "BBC Science & Environment",
-      "url": "https://www.bbc.co.uk/news/articles/cwyq93j34lgo?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-07-18T17:29:50.000Z"
-    },
-    {
-      "title": "Peak heat in Europe just broke historic 1970s records",
-      "whatHappened": "This year marks the hottest June recorded for Western Europe and the second warmest globally, according to the latest report from a climate tracking service released...",
-      "whyItMatters": "Climate and environment stories connect science to real issues like safety, health, and extreme weather.",
-      "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "UN Climate",
-      "url": "https://news.un.org/feed/view/en/story/2026/07/1167911",
-      "publishedAt": "2026-07-09T12:00:00.000Z"
     }
   ],
   "weatherTech": [
@@ -134,6 +134,33 @@
       "publishedAt": "2026-07-20T08:20:07.000Z"
     },
     {
+      "title": "Gritt exits stealth with $34 million for robots to build solar plants—then, everything else",
+      "whatHappened": "Gritt is coming out of stealth with $34 million and plan to automate the hardest tasks on construction sites.",
+      "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
+      "keyWord": "solar: related to energy from sunlight",
+      "source": "TechCrunch",
+      "url": "https://techcrunch.com/2026/07/21/gritt-exits-stealth-with-34-million-for-robots-to-build-solar-plants-then-everything-else/",
+      "publishedAt": "2026-07-21T10:00:00.000Z"
+    },
+    {
+      "title": "Tropical Storm Bertha heads for land as Hurricane Fausto forms in eastern Pacific",
+      "whatHappened": "Bertha could bring heavy rain on US Gulf coast, with its center located 110 miles south of Panama City, Florida Tropical Storm Bertha formed Monday evening...",
+      "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
+      "keyWord": "weather technology: tools that help people measure, study, or predict weather and climate",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/us-news/2026/jul/20/bertha-tropical-depression-us-gulf-coast",
+      "publishedAt": "2026-07-21T02:05:29.000Z"
+    },
+    {
+      "title": "‘A public health emergency waiting to occur’: how US industry groups spent years fighting who gets to measure toxic air",
+      "whatHappened": "Air polluters try to ensure toxic emissions happen far from monitors – but the people who live nearby still feel it Kimbrelle Kyereh lives just a...",
+      "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
+      "keyWord": "weather technology: tools that help people measure, study, or predict weather and climate",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/environment/2026/jul/20/louisiana-toxic-air-floodlight",
+      "publishedAt": "2026-07-20T14:00:43.000Z"
+    },
+    {
       "title": "On a Colorado farm, solar panels bring shade for plants, power – and cash: in pictures",
       "whatHappened": "More than 3,000 solar panels power Jack’s Solar Garden, cool the land and help it turn a profit The Guardian receives support for visual climate coverage...",
       "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
@@ -141,15 +168,6 @@
       "source": "The Guardian Environment",
       "url": "https://www.theguardian.com/environment/gallery/2026/jul/20/colorado-farming-solar-panels-in-pictures",
       "publishedAt": "2026-07-20T12:00:40.000Z"
-    },
-    {
-      "title": "Birdfy’s solar-powered smart feeder is down to one of its best prices",
-      "whatHappened": "Birdfy has kicked off a midyear sale, taking up to 40 percent off a range of its smart bird feeders.",
-      "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
-      "keyWord": "solar: related to energy from sunlight",
-      "source": "The Verge",
-      "url": "https://www.theverge.com/gadgets/967336/birdfy-feeder-ai-powered-smart-bird-feeder-with-camera-deal-sale",
-      "publishedAt": "2026-07-17T18:04:52.000Z"
     },
     {
       "title": "El Niño forecast to intensify, increasing likelihood of extreme weather",
@@ -199,6 +217,24 @@
       "publishedAt": "2025-07-29T18:38:05.000Z"
     },
     {
+      "title": "Environment PhD candidate wins prestigious Weston Family Award for Northern Research",
+      "whatHappened": "Tue, 21 Jul 2026 12:00:00 +0000 Stephanie Saal, a PhD candidate in the Department of Geography and Environmental Management, is researching how snowpack impacts key ecological...",
+      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
+      "keyWord": "research: careful study used to discover new knowledge",
+      "source": "Waterloo Environment",
+      "url": "https://uwaterloo.ca/environment/news/environment-phd-candidate-wins-prestigious-weston-family",
+      "publishedAt": "2026-07-21T12:00:00.000Z"
+    },
+    {
+      "title": "This project aims to rescue Oakland’s namesake tree species",
+      "whatHappened": "As climate change threatens Oakland's namesake tree, Northeastern has launched a transplant program to safeguard the city’s urban forest.",
+      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
+      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
+      "source": "Northeastern Global News",
+      "url": "https://news.northeastern.edu/2026/07/20/coastal-live-oak-oakland/",
+      "publishedAt": "2026-07-20T21:07:55.000Z"
+    },
+    {
       "title": "For energy systems that power a reliable grid, the future is all about location",
       "whatHappened": "MIT researchers find that where new energy projects are built could be key to avoiding blackouts in a future with hotter weather and other challenges.",
       "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
@@ -226,22 +262,22 @@
       "publishedAt": "2026-06-29T12:00:00.000Z"
     },
     {
-      "title": "Environment professor recognized for her outstanding research contributions",
-      "whatHappened": "Mon, 08 Jun 2026 12:00:00 +0000 The Canadian Geophysical Union has recognized Dr.",
-      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
-      "keyWord": "research: careful study used to discover new knowledge",
-      "source": "Waterloo Environment",
-      "url": "https://uwaterloo.ca/environment/news/environment-professor-recognized-her-outstanding-research",
-      "publishedAt": "2026-06-08T12:00:00.000Z"
-    },
-    {
-      "title": "Microwave photonics: Lighting the way to more energy-efficient hardware for artificial intelligence",
-      "whatHappened": "Microwave photonics: Lighting the way to more energy-efficient hardware for artificial intelligence",
+      "title": "White hydrogen in the Canadian Shield: A promising sustainable energy resource",
+      "whatHappened": "White hydrogen in the Canadian Shield: A promising sustainable energy resource",
       "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
       "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
       "source": "uOttawa News",
-      "url": "https://www.uottawa.ca/en/news-all/microwave-photonics-lighting-way-more-energy-efficient-hardware-artificial-intelligence",
-      "publishedAt": "2026-07-20T13:27:27.950Z"
+      "url": "https://www.uottawa.ca/en/news-all/white-hydrogen-canadian-shield-promising-sustainable-energy-resource",
+      "publishedAt": "2026-07-21T12:56:28.366Z"
+    },
+    {
+      "title": "July 20 campus cooling update",
+      "whatHappened": "Based on current information, repairs to the broken chilled water line are expected to be completed before students return for the fall semester.",
+      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
+      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
+      "source": "University of Wisconsin News",
+      "url": "https://news.wisc.edu/july-20-campus-cooling-update/",
+      "publishedAt": "2026-07-20T16:32:20.000Z"
     },
     {
       "title": "UW–Madison monitoring air quality",
@@ -251,24 +287,6 @@
       "source": "University of Wisconsin News",
       "url": "https://news.wisc.edu/uw-madison-monitoring-air-quality/",
       "publishedAt": "2026-07-18T17:00:00.000Z"
-    },
-    {
-      "title": "From HBCUs to the Bay, mentoring the next generation of scientists",
-      "whatHappened": "This summer, seven fellows in the HBCU-Berkeley Environmental Scholars for Change program are pursuing projects with Berkeley mentors while learning about potential research careers.",
-      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
-      "keyWord": "research: careful study used to discover new knowledge",
-      "source": "Berkeley News",
-      "url": "https://news.berkeley.edu/2026/07/14/from-hbcus-to-the-bay-mentoring-the-next-generation-of-scientists/",
-      "publishedAt": "2026-07-14T17:03:48.000Z"
-    },
-    {
-      "title": "New flapping robot swims and flies like a diving bird",
-      "whatHappened": "MIT engineers’ design could lead to a new class of aerial-aquatic vehicles for ocean exploration.",
-      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
-      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
-      "source": "MIT Earth & Atmospheric Sciences",
-      "url": "https://news.mit.edu/2026/new-flapping-robot-swims-and-flies-like-diving-bird-0709",
-      "publishedAt": "2026-07-09T18:00:00.000Z"
     }
   ]
 }
