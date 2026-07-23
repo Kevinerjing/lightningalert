@@ -1,17 +1,26 @@
 {
-  "boardDate": "2026-07-22",
-  "generatedAt": "2026-07-22T13:03:03.293Z",
+  "boardDate": "2026-07-23",
+  "generatedAt": "2026-07-23T13:04:26.448Z",
   "sourceCount": 26,
   "weather": [
     {
       "city": "Ottawa",
       "temperatureC": 16,
-      "maxC": 20,
-      "minC": 14,
-      "summary": "Clear skies"
+      "maxC": 25,
+      "minC": 10,
+      "summary": "Cloudy"
     }
   ],
   "extremeWeather": [
+    {
+      "title": "Tropical storm Bertha makes landfall in Louisiana with 45mph winds",
+      "whatHappened": "In Kentucky and West Virginia, rescuers freed trapped residents as states face catastrophic floods and damage Tropical storm Bertha made ‌landfall in ‌St Bernard parish, on...",
+      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
+      "keyWord": "flood: water covering land that is usually dry",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/us-news/2026/jul/22/tornadoes-flooding-kentucky-west-virginia",
+      "publishedAt": "2026-07-22T19:31:11.000Z"
+    },
     {
       "title": "Tropical Storm Bertha heads for land as Hurricane Fausto forms in eastern Pacific",
       "whatHappened": "Bertha could bring heavy rain on US Gulf coast, with its center located 110 miles south of Panama City, Florida Tropical Storm Bertha formed on Monday...",
@@ -22,22 +31,13 @@
       "publishedAt": "2026-07-21T02:05:29.000Z"
     },
     {
-      "title": "Parts of the UK move closer to drought",
-      "whatHappened": "Eight areas across England are now in prolonged dry weather – the stage before drought.",
+      "title": "River levels approach all-time low as drought announcement looms",
+      "whatHappened": "An announcement is expected from NRW as some river levels are reported to be nearing all-time lows.",
       "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
       "keyWord": "drought: a long time with very little rain",
       "source": "BBC Science & Environment",
-      "url": "https://www.bbc.co.uk/weather/articles/cjwx0xv571eo?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-07-21T13:46:05.000Z"
-    },
-    {
-      "title": "Five family members found dead after flash flood in Utah canyon, police say",
-      "whatHappened": "Victims were Provo’s fire captain, his wife and their three sons, who were hiking in Bicknell amid heavy rains Five family members who had set out...",
-      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
-      "keyWord": "flood: water covering land that is usually dry",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/us-news/2026/jul/19/utah-flash-flood-deaths-family",
-      "publishedAt": "2026-07-19T22:24:04.000Z"
+      "url": "https://www.bbc.co.uk/news/articles/c80n5rvx917o?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-07-23T08:52:36.000Z"
     },
     {
       "title": "‘Heat deaths are not inevitable’: WHO pushes Europe to heat‑proof its hospitals",
@@ -69,7 +69,25 @@
       "publishedAt": "2026-07-20T12:00:40.000Z"
     },
     {
-      "title": "UK's largest wind farm to be rebuilt with fewer, larger turbines",
+      "title": "Poorest children in England 40% more likely to be hospitalised for lung infections",
+      "whatHappened": "Exclusive: Analysis of NHS England data reveals stark impact of air pollution in deprived areas Children living in the poorest areas across England are 40% more...",
+      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
+      "keyWord": "climate: the usual pattern of weather over a long period of time",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/society/2026/jul/23/alarm-hospital-lung-admissions-children-england-poorest",
+      "publishedAt": "2026-07-23T12:14:27.000Z"
+    },
+    {
+      "title": "Security Council LIVE: Can critical minerals fuel peace and prosperity instead of conflict?",
+      "whatHappened": "The Security Council met Wednesday in New York to debate critical minerals — the lithium, cobalt and copper powering the clean energy transition.",
+      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
+      "keyWord": "climate: the usual pattern of weather over a long period of time",
+      "source": "UN Climate",
+      "url": "https://news.un.org/feed/view/en/story/2026/07/1167995",
+      "publishedAt": "2026-07-22T12:00:00.000Z"
+    },
+    {
+      "title": "UK's largest onshore wind farm to be rebuilt with fewer, larger turbines",
       "whatHappened": "Whitelee Windfarm has been producing electricity for about 20 years on a stretch of moorland near Eaglesham but is reaching the end of its life.",
       "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
       "keyWord": "climate: the usual pattern of weather over a long period of time",
@@ -94,36 +112,9 @@
       "source": "The Guardian Environment",
       "url": "https://www.theguardian.com/us-news/2026/jul/20/bertha-tropical-depression-us-gulf-coast",
       "publishedAt": "2026-07-21T02:05:29.000Z"
-    },
-    {
-      "title": "‘A public health emergency waiting to occur’: how US industry groups spent years fighting who gets to measure toxic air",
-      "whatHappened": "Air polluters try to ensure toxic emissions happen far from monitors – but the people who live nearby still feel it Kimbrelle Kyereh lives just a...",
-      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
-      "keyWord": "emissions: gases released into the air",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/environment/2026/jul/20/louisiana-toxic-air-floodlight",
-      "publishedAt": "2026-07-20T14:00:43.000Z"
-    },
-    {
-      "title": "Moon Day focuses growing concerns around space junk",
-      "whatHappened": "Amid surging lunar exploration, the UN on Monday urged governments to ensure that humanity's return to the Moon does not come at the expense of planet...",
-      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
-      "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "UN Climate",
-      "url": "https://news.un.org/feed/view/en/story/2026/07/1167976",
-      "publishedAt": "2026-07-20T12:00:00.000Z"
     }
   ],
   "weatherTech": [
-    {
-      "title": "Samsung Unpacked 2026: all the news from the July foldable launch",
-      "whatHappened": "Samsung is set to reveal a new slate of foldables at this summer’s Galaxy Unpacked, which kicks off at 9AM ET / 6AM PT from London.",
-      "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
-      "keyWord": "battery: a device that stores energy for later use",
-      "source": "The Verge",
-      "url": "https://www.theverge.com/tech/967942/samsung-galaxy-unpacked-july-2026-news",
-      "publishedAt": "2026-07-22T12:32:30.000Z"
-    },
     {
       "title": "Fate of massive 20m-high space radar in ministers' hands",
       "whatHappened": "The MoD wants to put 27 giant radar dishes in Pembrokeshire, which campaigners have strongly opposed.",
@@ -134,7 +125,16 @@
       "publishedAt": "2026-07-22T12:04:20.000Z"
     },
     {
-      "title": "UK's largest wind farm to be rebuilt with fewer, larger turbines",
+      "title": "Security Council LIVE: Can critical minerals fuel peace and prosperity instead of conflict?",
+      "whatHappened": "The Security Council met Wednesday in New York to debate critical minerals — the lithium, cobalt and copper powering the clean energy transition.",
+      "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
+      "keyWord": "weather technology: tools that help people measure, study, or predict weather and climate",
+      "source": "UN Climate",
+      "url": "https://news.un.org/feed/view/en/story/2026/07/1167995",
+      "publishedAt": "2026-07-22T12:00:00.000Z"
+    },
+    {
+      "title": "UK's largest onshore wind farm to be rebuilt with fewer, larger turbines",
       "whatHappened": "Whitelee Windfarm has been producing electricity for about 20 years on a stretch of moorland near Eaglesham but is reaching the end of its life.",
       "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
       "keyWord": "weather technology: tools that help people measure, study, or predict weather and climate",
@@ -253,31 +253,31 @@
       "publishedAt": "2026-06-29T12:00:00.000Z"
     },
     {
-      "title": "July 20 campus cooling update",
-      "whatHappened": "Based on current information, repairs to the broken chilled water line are expected to be completed before students return for the fall semester.",
-      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
-      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
-      "source": "University of Wisconsin News",
-      "url": "https://news.wisc.edu/july-20-campus-cooling-update/",
-      "publishedAt": "2026-07-20T16:32:20.000Z"
-    },
-    {
-      "title": "UW–Madison monitoring air quality",
-      "whatHappened": "Wildfire smoke from Minnesota and Ontario continues to drift across Wisconsin",
-      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
-      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
-      "source": "University of Wisconsin News",
-      "url": "https://news.wisc.edu/uw-madison-monitoring-air-quality/",
-      "publishedAt": "2026-07-18T17:00:00.000Z"
-    },
-    {
-      "title": "From HBCUs to the Bay, mentoring the next generation of scientists",
-      "whatHappened": "This summer, seven fellows in the HBCU-Berkeley Environmental Scholars for Change program are pursuing projects with Berkeley mentors while learning about potential research careers.",
+      "title": "Predicting where wildfire smoke will go next",
+      "whatHappened": "A collaboration between UW–Madison researchers and Argonne National Laboratory is advancing new methods to improve air quality forecasting— and provide earlier warnings to the public.",
       "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
       "keyWord": "research: careful study used to discover new knowledge",
+      "source": "University of Wisconsin News",
+      "url": "https://cai.wisc.edu/2026/07/22/predicting-where-wildfire-smoke-will-go-next/",
+      "publishedAt": "2026-07-22T21:22:13.000Z"
+    },
+    {
+      "title": "From the grassroots to the Capitol: Can the Possibility Lab harness people power in California?",
+      "whatHappened": "With an unconventional vision, vast energy and tenacious optimism, UC Berkeley’s Possibility Lab is creating a new model for bringing people and policymakers together.",
+      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
+      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
       "source": "Berkeley News",
-      "url": "https://news.berkeley.edu/2026/07/14/from-hbcus-to-the-bay-mentoring-the-next-generation-of-scientists/",
-      "publishedAt": "2026-07-14T17:03:48.000Z"
+      "url": "https://news.berkeley.edu/2026/07/22/from-the-grassroots-to-the-capitol-can-the-possibility-lab-harness-people-power-in-california/",
+      "publishedAt": "2026-07-22T21:03:48.000Z"
+    },
+    {
+      "title": "5 projects at UW–Madison aimed at transforming science and energy with AI receive DOE Genesis Mission funding",
+      "whatHappened": "The projects, spanning fusion to critical minerals, are among those awarded for accelerating breakthroughs using a new platform that combines AI, quantum systems, supercomputing and advanced...",
+      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
+      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
+      "source": "University of Wisconsin News",
+      "url": "https://news.wisc.edu/5-projects-at-uwmadison-aimed-at-transforming-science-and-energy-with-ai-receive-doe-genesis-mission-funding/",
+      "publishedAt": "2026-07-22T18:15:31.000Z"
     }
   ]
 }
