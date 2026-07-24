@@ -1,17 +1,35 @@
 {
-  "boardDate": "2026-07-23",
-  "generatedAt": "2026-07-23T13:04:26.448Z",
+  "boardDate": "2026-07-24",
+  "generatedAt": "2026-07-24T13:01:03.281Z",
   "sourceCount": 26,
   "weather": [
     {
       "city": "Ottawa",
-      "temperatureC": 16,
-      "maxC": 25,
-      "minC": 10,
-      "summary": "Cloudy"
+      "temperatureC": 19,
+      "maxC": 27,
+      "minC": 13,
+      "summary": "Clear skies"
     }
   ],
   "extremeWeather": [
+    {
+      "title": "France evacuates Cap Ferret peninsula as Spanish wildfires merge near Madrid – Europe live",
+      "whatHappened": "French evacuees using hundreds of mobilised boats or the only road linking the area with the mainland as evacuation also ordered in areas near Spanish capital...",
+      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
+      "keyWord": "extreme weather: unusual and dangerous weather like floods, storms, or heat waves",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/world/live/2026/jul/24/france-spain-wildfires-cap-ferret-europe-latest-news-updates",
+      "publishedAt": "2026-07-24T12:46:49.000Z"
+    },
+    {
+      "title": "Wildfires and record dry conditions trigger drought in parts of Wales",
+      "whatHappened": "Wales has seen about 5% of the average rainfall for July, after a series of back-to-back heatwaves.",
+      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
+      "keyWord": "heat wave: a long period of unusually hot weather",
+      "source": "BBC Science & Environment",
+      "url": "https://www.bbc.co.uk/news/articles/c80n5rvx917o?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-07-23T14:00:51.000Z"
+    },
     {
       "title": "Tropical storm Bertha makes landfall in Louisiana with 45mph winds",
       "whatHappened": "In Kentucky and West Virginia, rescuers freed trapped residents as states face catastrophic floods and damage Tropical storm Bertha made ‌landfall in ‌St Bernard parish, on...",
@@ -31,51 +49,51 @@
       "publishedAt": "2026-07-21T02:05:29.000Z"
     },
     {
-      "title": "River levels approach all-time low as drought announcement looms",
-      "whatHappened": "An announcement is expected from NRW as some river levels are reported to be nearing all-time lows.",
+      "title": "Tens of thousands evacuated from French tourist spot and near Madrid as wildfires spread",
+      "whatHappened": "The fire has raged in the region for several days with officials now ordering the evacuation of the entire Cap Ferret peninsula.",
       "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
-      "keyWord": "drought: a long time with very little rain",
+      "keyWord": "extreme weather: unusual and dangerous weather like floods, storms, or heat waves",
       "source": "BBC Science & Environment",
-      "url": "https://www.bbc.co.uk/news/articles/c80n5rvx917o?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-07-23T08:52:36.000Z"
+      "url": "https://www.bbc.co.uk/news/articles/cdx82rl5g0do?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-07-24T11:50:17.000Z"
     },
     {
-      "title": "‘Heat deaths are not inevitable’: WHO pushes Europe to heat‑proof its hospitals",
-      "whatHappened": "As Europe battles a deadly record-breaking heatwave, the World Health Organization (WHO) issued new guidance on Thursday to help countries face scorching temperatures now and in...",
+      "title": "Scientists decry Trump’s ‘blame game’ after he claims Canada ‘poisoning’ US air",
+      "whatHappened": "Trump told Mark Carney ‘you got to stop these fires from coming in’ as experts say wildfires symptom of climate crisis Scientists have reacted with incredulity...",
       "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
-      "keyWord": "heat wave: a long period of unusually hot weather",
-      "source": "UN Climate",
-      "url": "https://news.un.org/feed/view/en/story/2026/07/1167955",
-      "publishedAt": "2026-07-16T12:00:00.000Z"
-    },
-    {
-      "title": "El Niño forecast to intensify, increasing likelihood of extreme weather",
-      "whatHappened": "More blistering heatwaves and other weather extremes are becoming increasingly likely across the world now and in coming months, linked to strengthening El Niño conditions in...",
-      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
-      "keyWord": "heat wave: a long period of unusually hot weather",
-      "source": "UN Climate",
-      "url": "https://news.un.org/feed/view/en/story/2026/07/1167870",
-      "publishedAt": "2026-07-03T12:00:00.000Z"
+      "keyWord": "extreme weather: unusual and dangerous weather like floods, storms, or heat waves",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/us-news/2026/jul/24/trump-canada-wildfires-smoke-scientists",
+      "publishedAt": "2026-07-24T10:00:10.000Z"
     }
   ],
   "climate": [
     {
-      "title": "On a Colorado farm, solar panels bring shade for plants, power – and cash: in pictures",
-      "whatHappened": "More than 3,000 solar panels power Jack’s Solar Garden, cool the land and help it turn a profit The Guardian receives support for visual climate coverage...",
+      "title": "France evacuates Cap Ferret peninsula as Spanish wildfires merge near Madrid – Europe live",
+      "whatHappened": "French evacuees using hundreds of mobilised boats or the only road linking the area with the mainland as evacuation also ordered in areas near Spanish capital...",
       "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
       "keyWord": "climate: the usual pattern of weather over a long period of time",
       "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/environment/gallery/2026/jul/20/colorado-farming-solar-panels-in-pictures",
-      "publishedAt": "2026-07-20T12:00:40.000Z"
+      "url": "https://www.theguardian.com/world/live/2026/jul/24/france-spain-wildfires-cap-ferret-europe-latest-news-updates",
+      "publishedAt": "2026-07-24T12:46:49.000Z"
     },
     {
-      "title": "Poorest children in England 40% more likely to be hospitalised for lung infections",
-      "whatHappened": "Exclusive: Analysis of NHS England data reveals stark impact of air pollution in deprived areas Children living in the poorest areas across England are 40% more...",
+      "title": "Scientists decry Trump’s ‘blame game’ after he claims Canada ‘poisoning’ US air",
+      "whatHappened": "Trump told Mark Carney ‘you got to stop these fires from coming in’ as experts say wildfires symptom of climate crisis Scientists have reacted with incredulity...",
       "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
       "keyWord": "climate: the usual pattern of weather over a long period of time",
       "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/society/2026/jul/23/alarm-hospital-lung-admissions-children-england-poorest",
-      "publishedAt": "2026-07-23T12:14:27.000Z"
+      "url": "https://www.theguardian.com/us-news/2026/jul/24/trump-canada-wildfires-smoke-scientists",
+      "publishedAt": "2026-07-24T10:00:10.000Z"
+    },
+    {
+      "title": "Trump says nearly 200 firms have signed pledge to protect Americans from costs arising from datacenters",
+      "whatHappened": "‘Ratepayer Protection Pledge’ president has touted is non-binding as people continue to struggle with rising bills Donald Trump has announced that about 200 entities have signed...",
+      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
+      "keyWord": "climate: the usual pattern of weather over a long period of time",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/us-news/2026/jul/23/trump-datacenter-costs-big-tech",
+      "publishedAt": "2026-07-23T19:56:50.000Z"
     },
     {
       "title": "Security Council LIVE: Can critical minerals fuel peace and prosperity instead of conflict?",
@@ -85,15 +103,6 @@
       "source": "UN Climate",
       "url": "https://news.un.org/feed/view/en/story/2026/07/1167995",
       "publishedAt": "2026-07-22T12:00:00.000Z"
-    },
-    {
-      "title": "UK's largest onshore wind farm to be rebuilt with fewer, larger turbines",
-      "whatHappened": "Whitelee Windfarm has been producing electricity for about 20 years on a stretch of moorland near Eaglesham but is reaching the end of its life.",
-      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
-      "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "BBC Science & Environment",
-      "url": "https://www.bbc.co.uk/news/articles/cvgl9vp4vqvo?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-07-22T09:28:47.000Z"
     },
     {
       "title": "Tick bites are on the rise in the US and UK. Here’s how to protect yourself",
@@ -116,13 +125,13 @@
   ],
   "weatherTech": [
     {
-      "title": "Fate of massive 20m-high space radar in ministers' hands",
-      "whatHappened": "The MoD wants to put 27 giant radar dishes in Pembrokeshire, which campaigners have strongly opposed.",
+      "title": "France evacuates Cap Ferret peninsula as Spanish wildfires merge near Madrid – Europe live",
+      "whatHappened": "French evacuees using hundreds of mobilised boats or the only road linking the area with the mainland as evacuation also ordered in areas near Spanish capital...",
       "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
       "keyWord": "weather technology: tools that help people measure, study, or predict weather and climate",
-      "source": "BBC Science & Environment",
-      "url": "https://www.bbc.co.uk/news/articles/cn0nxe1g3xxo?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-07-22T12:04:20.000Z"
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/world/live/2026/jul/24/france-spain-wildfires-cap-ferret-europe-latest-news-updates",
+      "publishedAt": "2026-07-24T12:46:49.000Z"
     },
     {
       "title": "Security Council LIVE: Can critical minerals fuel peace and prosperity instead of conflict?",
@@ -134,15 +143,6 @@
       "publishedAt": "2026-07-22T12:00:00.000Z"
     },
     {
-      "title": "UK's largest onshore wind farm to be rebuilt with fewer, larger turbines",
-      "whatHappened": "Whitelee Windfarm has been producing electricity for about 20 years on a stretch of moorland near Eaglesham but is reaching the end of its life.",
-      "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
-      "keyWord": "weather technology: tools that help people measure, study, or predict weather and climate",
-      "source": "BBC Science & Environment",
-      "url": "https://www.bbc.co.uk/news/articles/cvgl9vp4vqvo?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-07-22T09:28:47.000Z"
-    },
-    {
       "title": "Tropical Storm Bertha heads for land as Hurricane Fausto forms in eastern Pacific",
       "whatHappened": "Bertha could bring heavy rain on US Gulf coast, with its center located 110 miles south of Panama City, Florida Tropical Storm Bertha formed on Monday...",
       "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
@@ -150,24 +150,6 @@
       "source": "The Guardian Environment",
       "url": "https://www.theguardian.com/us-news/2026/jul/20/bertha-tropical-depression-us-gulf-coast",
       "publishedAt": "2026-07-21T02:05:29.000Z"
-    },
-    {
-      "title": "‘A public health emergency waiting to occur’: how US industry groups spent years fighting who gets to measure toxic air",
-      "whatHappened": "Air polluters try to ensure toxic emissions happen far from monitors – but the people who live nearby still feel it Kimbrelle Kyereh lives just a...",
-      "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
-      "keyWord": "weather technology: tools that help people measure, study, or predict weather and climate",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/environment/2026/jul/20/louisiana-toxic-air-floodlight",
-      "publishedAt": "2026-07-20T14:00:43.000Z"
-    },
-    {
-      "title": "On a Colorado farm, solar panels bring shade for plants, power – and cash: in pictures",
-      "whatHappened": "More than 3,000 solar panels power Jack’s Solar Garden, cool the land and help it turn a profit The Guardian receives support for visual climate coverage...",
-      "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
-      "keyWord": "solar: related to energy from sunlight",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/environment/gallery/2026/jul/20/colorado-farming-solar-panels-in-pictures",
-      "publishedAt": "2026-07-20T12:00:40.000Z"
     }
   ],
   "universityNews": [
@@ -226,15 +208,6 @@
       "publishedAt": "2026-07-21T12:00:00.000Z"
     },
     {
-      "title": "This project aims to rescue Oakland’s namesake tree species",
-      "whatHappened": "As climate change threatens Oakland's namesake tree, Northeastern has launched a transplant program to safeguard the city’s urban forest.",
-      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
-      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
-      "source": "Northeastern Global News",
-      "url": "https://news.northeastern.edu/2026/07/20/coastal-live-oak-oakland/",
-      "publishedAt": "2026-07-20T21:07:55.000Z"
-    },
-    {
       "title": "For energy systems that power a reliable grid, the future is all about location",
       "whatHappened": "MIT researchers find that where new energy projects are built could be key to avoiding blackouts in a future with hotter weather and other challenges.",
       "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
@@ -278,6 +251,15 @@
       "source": "University of Wisconsin News",
       "url": "https://news.wisc.edu/5-projects-at-uwmadison-aimed-at-transforming-science-and-energy-with-ai-receive-doe-genesis-mission-funding/",
       "publishedAt": "2026-07-22T18:15:31.000Z"
+    },
+    {
+      "title": "From HBCUs to the Bay, mentoring the next generation of scientists",
+      "whatHappened": "This summer, seven fellows in the HBCU-Berkeley Environmental Scholars for Change program are pursuing projects with Berkeley mentors while learning about potential research careers.",
+      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
+      "keyWord": "research: careful study used to discover new knowledge",
+      "source": "Berkeley News",
+      "url": "https://news.berkeley.edu/2026/07/14/from-hbcus-to-the-bay-mentoring-the-next-generation-of-scientists/",
+      "publishedAt": "2026-07-14T17:03:48.000Z"
     }
   ]
 }
