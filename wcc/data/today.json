@@ -1,35 +1,17 @@
 {
-  "boardDate": "2026-07-24",
-  "generatedAt": "2026-07-24T13:01:03.281Z",
+  "boardDate": "2026-07-26",
+  "generatedAt": "2026-07-26T12:39:55.831Z",
   "sourceCount": 26,
   "weather": [
     {
       "city": "Ottawa",
-      "temperatureC": 19,
-      "maxC": 27,
-      "minC": 13,
+      "temperatureC": 21,
+      "maxC": 29,
+      "minC": 17,
       "summary": "Clear skies"
     }
   ],
   "extremeWeather": [
-    {
-      "title": "France evacuates Cap Ferret peninsula as Spanish wildfires merge near Madrid – Europe live",
-      "whatHappened": "French evacuees using hundreds of mobilised boats or the only road linking the area with the mainland as evacuation also ordered in areas near Spanish capital...",
-      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
-      "keyWord": "extreme weather: unusual and dangerous weather like floods, storms, or heat waves",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/world/live/2026/jul/24/france-spain-wildfires-cap-ferret-europe-latest-news-updates",
-      "publishedAt": "2026-07-24T12:46:49.000Z"
-    },
-    {
-      "title": "Wildfires and record dry conditions trigger drought in parts of Wales",
-      "whatHappened": "Wales has seen about 5% of the average rainfall for July, after a series of back-to-back heatwaves.",
-      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
-      "keyWord": "heat wave: a long period of unusually hot weather",
-      "source": "BBC Science & Environment",
-      "url": "https://www.bbc.co.uk/news/articles/c80n5rvx917o?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-07-23T14:00:51.000Z"
-    },
     {
       "title": "Tropical storm Bertha makes landfall in Louisiana with 45mph winds",
       "whatHappened": "In Kentucky and West Virginia, rescuers freed trapped residents as states face catastrophic floods and damage Tropical storm Bertha made ‌landfall in ‌St Bernard parish, on...",
@@ -40,22 +22,22 @@
       "publishedAt": "2026-07-22T19:31:11.000Z"
     },
     {
-      "title": "Tropical Storm Bertha heads for land as Hurricane Fausto forms in eastern Pacific",
-      "whatHappened": "Bertha could bring heavy rain on US Gulf coast, with its center located 110 miles south of Panama City, Florida Tropical Storm Bertha formed on Monday...",
+      "title": "Scorching US heatwave to hit 70 million people with third ‘heat dome’ in month",
+      "whatHappened": "Temperatures of 95-105F (35-40C) are expected, spanning Gulf of Mexico coast to the Great Plains and the midwest About 70 million people in the US are...",
       "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
-      "keyWord": "extreme weather: unusual and dangerous weather like floods, storms, or heat waves",
+      "keyWord": "heat wave: a long period of unusually hot weather",
       "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/us-news/2026/jul/20/bertha-tropical-depression-us-gulf-coast",
-      "publishedAt": "2026-07-21T02:05:29.000Z"
+      "url": "https://www.theguardian.com/us-news/2026/jul/25/scorching-us-heat-wave",
+      "publishedAt": "2026-07-25T18:34:53.000Z"
     },
     {
-      "title": "Tens of thousands evacuated from French tourist spot and near Madrid as wildfires spread",
-      "whatHappened": "The fire has raged in the region for several days with officials now ordering the evacuation of the entire Cap Ferret peninsula.",
+      "title": "It's the cocktail taking young drinkers by storm - but the packaging is 'unrecyclable'",
+      "whatHappened": "BuzzBallz cannot be recycled because the metal lid and plastic body are attached, say experts.",
       "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
       "keyWord": "extreme weather: unusual and dangerous weather like floods, storms, or heat waves",
       "source": "BBC Science & Environment",
-      "url": "https://www.bbc.co.uk/news/articles/cdx82rl5g0do?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-07-24T11:50:17.000Z"
+      "url": "https://www.bbc.co.uk/news/articles/cr490335z1eo?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-07-25T06:14:54.000Z"
     },
     {
       "title": "Scientists decry Trump’s ‘blame game’ after he claims Canada ‘poisoning’ US air",
@@ -65,17 +47,26 @@
       "source": "The Guardian Environment",
       "url": "https://www.theguardian.com/us-news/2026/jul/24/trump-canada-wildfires-smoke-scientists",
       "publishedAt": "2026-07-24T10:00:10.000Z"
+    },
+    {
+      "title": "‘Heat deaths are not inevitable’: WHO pushes Europe to heat‑proof its hospitals",
+      "whatHappened": "As Europe battles a deadly record-breaking heatwave, the World Health Organization (WHO) issued new guidance on Thursday to help countries face scorching temperatures now and in...",
+      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
+      "keyWord": "heat wave: a long period of unusually hot weather",
+      "source": "UN Climate",
+      "url": "https://news.un.org/feed/view/en/story/2026/07/1167955",
+      "publishedAt": "2026-07-16T12:00:00.000Z"
     }
   ],
   "climate": [
     {
-      "title": "France evacuates Cap Ferret peninsula as Spanish wildfires merge near Madrid – Europe live",
-      "whatHappened": "French evacuees using hundreds of mobilised boats or the only road linking the area with the mainland as evacuation also ordered in areas near Spanish capital...",
+      "title": "‘Scandalous, irrational and irresponsible’: French beekeepers’ fury at lifting of pesticides ban",
+      "whatHappened": "Allowing use of two neonicotinoids to combat crop-ruining disease will kill bees and reduce harvests, union says Beekeepers and environmentalists in France have reacted furiously after...",
       "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
       "keyWord": "climate: the usual pattern of weather over a long period of time",
       "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/world/live/2026/jul/24/france-spain-wildfires-cap-ferret-europe-latest-news-updates",
-      "publishedAt": "2026-07-24T12:46:49.000Z"
+      "url": "https://www.theguardian.com/world/2026/jul/26/french-beekeepers-fury-lifting-of-pesticides-ban",
+      "publishedAt": "2026-07-26T05:00:03.000Z"
     },
     {
       "title": "Scientists decry Trump’s ‘blame game’ after he claims Canada ‘poisoning’ US air",
@@ -114,24 +105,24 @@
       "publishedAt": "2026-07-21T16:00:50.000Z"
     },
     {
-      "title": "Tropical Storm Bertha heads for land as Hurricane Fausto forms in eastern Pacific",
-      "whatHappened": "Bertha could bring heavy rain on US Gulf coast, with its center located 110 miles south of Panama City, Florida Tropical Storm Bertha formed on Monday...",
-      "whyItMatters": "Climate and environment stories connect science to real issues like safety, health, and extreme weather.",
+      "title": "Moon Day focuses growing concerns around space junk",
+      "whatHappened": "Amid surging lunar exploration, the UN on Monday urged governments to ensure that humanity's return to the Moon does not come at the expense of planet...",
+      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
       "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/us-news/2026/jul/20/bertha-tropical-depression-us-gulf-coast",
-      "publishedAt": "2026-07-21T02:05:29.000Z"
+      "source": "UN Climate",
+      "url": "https://news.un.org/feed/view/en/story/2026/07/1167976",
+      "publishedAt": "2026-07-20T12:00:00.000Z"
     }
   ],
   "weatherTech": [
     {
-      "title": "France evacuates Cap Ferret peninsula as Spanish wildfires merge near Madrid – Europe live",
-      "whatHappened": "French evacuees using hundreds of mobilised boats or the only road linking the area with the mainland as evacuation also ordered in areas near Spanish capital...",
+      "title": "Kalshi demands Netflix take down trailer for ‘Prediction Games’ documentary",
+      "whatHappened": "Kalshi claims the trailer is “defamatory” and contains “both fabricated documents and false and misleading statements.”",
       "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
       "keyWord": "weather technology: tools that help people measure, study, or predict weather and climate",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/world/live/2026/jul/24/france-spain-wildfires-cap-ferret-europe-latest-news-updates",
-      "publishedAt": "2026-07-24T12:46:49.000Z"
+      "source": "TechCrunch",
+      "url": "https://techcrunch.com/2026/07/25/kalshi-demands-netflix-take-down-trailer-for-prediction-games-documentary/",
+      "publishedAt": "2026-07-25T16:46:46.000Z"
     },
     {
       "title": "Security Council LIVE: Can critical minerals fuel peace and prosperity instead of conflict?",
@@ -141,15 +132,6 @@
       "source": "UN Climate",
       "url": "https://news.un.org/feed/view/en/story/2026/07/1167995",
       "publishedAt": "2026-07-22T12:00:00.000Z"
-    },
-    {
-      "title": "Tropical Storm Bertha heads for land as Hurricane Fausto forms in eastern Pacific",
-      "whatHappened": "Bertha could bring heavy rain on US Gulf coast, with its center located 110 miles south of Panama City, Florida Tropical Storm Bertha formed on Monday...",
-      "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
-      "keyWord": "weather technology: tools that help people measure, study, or predict weather and climate",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/us-news/2026/jul/20/bertha-tropical-depression-us-gulf-coast",
-      "publishedAt": "2026-07-21T02:05:29.000Z"
     }
   ],
   "universityNews": [
@@ -253,13 +235,13 @@
       "publishedAt": "2026-07-22T18:15:31.000Z"
     },
     {
-      "title": "From HBCUs to the Bay, mentoring the next generation of scientists",
-      "whatHappened": "This summer, seven fellows in the HBCU-Berkeley Environmental Scholars for Change program are pursuing projects with Berkeley mentors while learning about potential research careers.",
+      "title": "New flapping robot swims and flies like a diving bird",
+      "whatHappened": "MIT engineers’ design could lead to a new class of aerial-aquatic vehicles for ocean exploration.",
       "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
-      "keyWord": "research: careful study used to discover new knowledge",
-      "source": "Berkeley News",
-      "url": "https://news.berkeley.edu/2026/07/14/from-hbcus-to-the-bay-mentoring-the-next-generation-of-scientists/",
-      "publishedAt": "2026-07-14T17:03:48.000Z"
+      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
+      "source": "MIT Earth & Atmospheric Sciences",
+      "url": "https://news.mit.edu/2026/new-flapping-robot-swims-and-flies-like-diving-bird-0709",
+      "publishedAt": "2026-07-09T18:00:00.000Z"
     }
   ]
 }
