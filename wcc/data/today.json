@@ -1,25 +1,61 @@
 {
-  "boardDate": "2026-07-26",
-  "generatedAt": "2026-07-26T12:39:55.831Z",
+  "boardDate": "2026-07-27",
+  "generatedAt": "2026-07-27T13:54:59.462Z",
   "sourceCount": 26,
   "weather": [
     {
       "city": "Ottawa",
-      "temperatureC": 21,
+      "temperatureC": 24,
       "maxC": 29,
-      "minC": 17,
+      "minC": 18,
       "summary": "Clear skies"
     }
   ],
   "extremeWeather": [
     {
-      "title": "Tropical storm Bertha makes landfall in Louisiana with 45mph winds",
-      "whatHappened": "In Kentucky and West Virginia, rescuers freed trapped residents as states face catastrophic floods and damage Tropical storm Bertha made ‌landfall in ‌St Bernard parish, on...",
+      "title": "Europe live: French firefighters warn it could take ‘weeks or months’ to extinguish wildfires",
+      "whatHappened": "Firefighters in France and Spain face another day battling wildfires, as another heatwave set to hit this week Pedro Sánchez says Spain is suffering effects of...",
       "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
-      "keyWord": "flood: water covering land that is usually dry",
+      "keyWord": "heat wave: a long period of unusually hot weather",
       "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/us-news/2026/jul/22/tornadoes-flooding-kentucky-west-virginia",
-      "publishedAt": "2026-07-22T19:31:11.000Z"
+      "url": "https://www.theguardian.com/world/live/2026/jul/27/europe-wildfires-france-spain-emmanuel-macron-crisis-meeting-pedro-sanchez-castillon-latest-news-updates",
+      "publishedAt": "2026-07-27T13:26:42.000Z"
+    },
+    {
+      "title": "‘It came out of real frustration’: the 90s activist network that set fires to save a burning planet",
+      "whatHappened": "Matthew Wolfe’s Fires in the Night examines Earth Liberation Front, a US eco-anarchist movement, and its legacy of radical environmentalism Are echoes of 1990s radical environmentalism...",
+      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
+      "keyWord": "extreme weather: unusual and dangerous weather like floods, storms, or heat waves",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/us-news/2026/jul/27/fires-in-the-night-earth-liberation-front-environment",
+      "publishedAt": "2026-07-27T12:00:09.000Z"
+    },
+    {
+      "title": "How 'fire-generated thunderstorms' make wildfires more deadly",
+      "whatHappened": "Certain types of severe wildfire can create pyrocumulonimbus - something that Nasa calls the \"fire-breathing dragon of clouds\".",
+      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
+      "keyWord": "extreme weather: unusual and dangerous weather like floods, storms, or heat waves",
+      "source": "BBC Science & Environment",
+      "url": "https://www.bbc.co.uk/news/articles/c2350xnl4j5o?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-07-27T11:11:07.000Z"
+    },
+    {
+      "title": "Macron calls crisis meeting as wildfires threaten Bordeaux and heatwave looms",
+      "whatHappened": "Blazes are about 15km from Bordeaux, but the city's mayor says there are no plans to evacuate.",
+      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
+      "keyWord": "heat wave: a long period of unusually hot weather",
+      "source": "BBC Science & Environment",
+      "url": "https://www.bbc.co.uk/news/articles/c2350zlyy1yo?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-07-27T02:04:10.000Z"
+    },
+    {
+      "title": "‘Extraordinarily hot’: US heatwave stretches on with millions still under warnings",
+      "whatHappened": "Southern and central states from California to Mississippi face heat indexes above 100F amid another heat dome At least 40 million people were under extreme heat...",
+      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
+      "keyWord": "heat wave: a long period of unusually hot weather",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/us-news/2026/jul/26/us-heat-wave-dome-weather",
+      "publishedAt": "2026-07-27T00:04:47.000Z"
     },
     {
       "title": "Scorching US heatwave to hit 70 million people with third ‘heat dome’ in month",
@@ -29,44 +65,26 @@
       "source": "The Guardian Environment",
       "url": "https://www.theguardian.com/us-news/2026/jul/25/scorching-us-heat-wave",
       "publishedAt": "2026-07-25T18:34:53.000Z"
-    },
-    {
-      "title": "It's the cocktail taking young drinkers by storm - but the packaging is 'unrecyclable'",
-      "whatHappened": "BuzzBallz cannot be recycled because the metal lid and plastic body are attached, say experts.",
-      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
-      "keyWord": "extreme weather: unusual and dangerous weather like floods, storms, or heat waves",
-      "source": "BBC Science & Environment",
-      "url": "https://www.bbc.co.uk/news/articles/cr490335z1eo?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-07-25T06:14:54.000Z"
-    },
-    {
-      "title": "Scientists decry Trump’s ‘blame game’ after he claims Canada ‘poisoning’ US air",
-      "whatHappened": "Trump told Mark Carney ‘you got to stop these fires from coming in’ as experts say wildfires symptom of climate crisis Scientists have reacted with incredulity...",
-      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
-      "keyWord": "extreme weather: unusual and dangerous weather like floods, storms, or heat waves",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/us-news/2026/jul/24/trump-canada-wildfires-smoke-scientists",
-      "publishedAt": "2026-07-24T10:00:10.000Z"
-    },
-    {
-      "title": "‘Heat deaths are not inevitable’: WHO pushes Europe to heat‑proof its hospitals",
-      "whatHappened": "As Europe battles a deadly record-breaking heatwave, the World Health Organization (WHO) issued new guidance on Thursday to help countries face scorching temperatures now and in...",
-      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
-      "keyWord": "heat wave: a long period of unusually hot weather",
-      "source": "UN Climate",
-      "url": "https://news.un.org/feed/view/en/story/2026/07/1167955",
-      "publishedAt": "2026-07-16T12:00:00.000Z"
     }
   ],
   "climate": [
     {
-      "title": "‘Scandalous, irrational and irresponsible’: French beekeepers’ fury at lifting of pesticides ban",
-      "whatHappened": "Allowing use of two neonicotinoids to combat crop-ruining disease will kill bees and reduce harvests, union says Beekeepers and environmentalists in France have reacted furiously after...",
+      "title": "Europe live: French firefighters warn it could take ‘weeks or months’ to extinguish wildfires",
+      "whatHappened": "Firefighters in France and Spain face another day battling wildfires, as another heatwave set to hit this week Pedro Sánchez says Spain is suffering effects of...",
+      "whyItMatters": "Climate and environment stories connect science to real issues like safety, health, and extreme weather.",
+      "keyWord": "climate: the usual pattern of weather over a long period of time",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/world/live/2026/jul/27/europe-wildfires-france-spain-emmanuel-macron-crisis-meeting-pedro-sanchez-castillon-latest-news-updates",
+      "publishedAt": "2026-07-27T13:26:42.000Z"
+    },
+    {
+      "title": "US environmental groups urge EPA to reject new Pfas to cool datacenters",
+      "whatHappened": "Coalition says Chemours downplayed health and climate risks in bid to fast-track the compound’s use A coalition of 17 environmental groups is demanding the Environmental Protection...",
       "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
       "keyWord": "climate: the usual pattern of weather over a long period of time",
       "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/world/2026/jul/26/french-beekeepers-fury-lifting-of-pesticides-ban",
-      "publishedAt": "2026-07-26T05:00:03.000Z"
+      "url": "https://www.theguardian.com/us-news/2026/jul/27/pfas-datacenter-cooling-epa",
+      "publishedAt": "2026-07-27T12:00:09.000Z"
     },
     {
       "title": "Scientists decry Trump’s ‘blame game’ after he claims Canada ‘poisoning’ US air",
@@ -96,15 +114,6 @@
       "publishedAt": "2026-07-22T12:00:00.000Z"
     },
     {
-      "title": "Tick bites are on the rise in the US and UK. Here’s how to protect yourself",
-      "whatHappened": "Experts share tips to avoid the blood-sucking pests that can transmit Lyme disease and other illnesses on to humans I won’t go into gory detail about...",
-      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
-      "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/wellness/2026/jul/21/tick-bites-how-to-protect-yourself",
-      "publishedAt": "2026-07-21T16:00:50.000Z"
-    },
-    {
       "title": "Moon Day focuses growing concerns around space junk",
       "whatHappened": "Amid surging lunar exploration, the UN on Monday urged governments to ensure that humanity's return to the Moon does not come at the expense of planet...",
       "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
@@ -115,15 +124,6 @@
     }
   ],
   "weatherTech": [
-    {
-      "title": "Kalshi demands Netflix take down trailer for ‘Prediction Games’ documentary",
-      "whatHappened": "Kalshi claims the trailer is “defamatory” and contains “both fabricated documents and false and misleading statements.”",
-      "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
-      "keyWord": "weather technology: tools that help people measure, study, or predict weather and climate",
-      "source": "TechCrunch",
-      "url": "https://techcrunch.com/2026/07/25/kalshi-demands-netflix-take-down-trailer-for-prediction-games-documentary/",
-      "publishedAt": "2026-07-25T16:46:46.000Z"
-    },
     {
       "title": "Security Council LIVE: Can critical minerals fuel peace and prosperity instead of conflict?",
       "whatHappened": "The Security Council met Wednesday in New York to debate critical minerals — the lithium, cobalt and copper powering the clean energy transition.",
