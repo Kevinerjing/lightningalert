@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>A Century of Canadian History Through Photographs</title>
+<link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+<main class="documentary">
+  <section class="heroFrame" id="frame" aria-live="polite">
+    <div class="filmPhoto">
+      <img id="photo" src="" alt="" />
+      <div class="grain" aria-hidden="true"></div>
+    </div>
+    <div class="storyPanel">
+      <div class="slate">
+        <span id="unit"></span>
+        <span id="date"></span>
+      </div>
+      <h1 id="title"></h1>
+      <div class="copy" id="copy"></div>
+      <p class="lens" id="lens"></p>
+      <div class="sourceLine">
+        <span id="source"></span>
+        <strong id="tag"></strong>
+      </div>
+    </div>
+  </section>
+
+  <section class="controlDeck" aria-label="Presentation controls">
+    <button type="button" id="prev" aria-label="Previous slide" title="Previous slide">&lsaquo;</button>
+    <div class="meter">
+      <span id="counter"></span>
+      <i id="meterFill"></i>
+    </div>
+    <button type="button" id="next" aria-label="Next slide" title="Next slide">&rsaquo;</button>
+  </section>
+
+  <nav class="timelineStrip" id="timelineStrip" aria-label="Slide timeline"></nav>
+  <div class="yearRail" id="yearRail" aria-label="Context years"></div>
+</main>
+<script src="./slides.js"></script>
+</body>
+</html>
