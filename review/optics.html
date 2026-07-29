@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Convex Lens Candle and Screen Lab</title>
+<style>
+  :root{
+    --bg:#f6f8fc;
+    --panel:#ffffff;
+    --text:#172033;
+    --muted:#667085;
+    --blue:#2563eb;
+    --orange:#f59e0b;
+    --red:#dc2626;
+    --green:#16a34a;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0;
+    font-family:Inter,Arial,sans-serif;
+    color:var(--text);
+    background:linear-gradient(180deg,#eef4ff 0%,#f8fafc 48%,#f6f8fc 100%);
+  }
+  .wrap{max-width:1200px;margin:0 auto;padding:26px 18px 42px}
+  h1{margin:0 0 8px;font-size:clamp(28px,4vw,44px)}
+  .sub{color:var(--muted);line-height:1.6;margin-bottom:18px}
+  .grid{display:grid;grid-template-columns:330px 1fr;gap:18px}
+  .card{
+    background:rgba(255,255,255,.97);
+    border:1px solid #dde4ee;
+    border-radius:18px;
+    box-shadow:0 10px 30px rgba(31,51,84,.08)
+  }
+  .controls{padding:20px}
+  .stage{padding:14px;overflow:hidden}
+  label{display:block;font-weight:700;margin:14px 0 7px}
+  input[type=range]{width:100%}
+  .value{
+    display:inline-block;
+    min-width:88px;
+    text-align:center;
+    margin-left:8px;
+    padding:5px 9px;
+    border-radius:999px;
+    background:#edf3ff;
+    color:#1747a6;
+    font-weight:700
+  }
+  button{
+    border:0;border-radius:12px;padding:10px 12px;margin:6px 5px 0 0;
+    cursor:pointer;background:#e8eef8;color:#20304a;font-weight:700
+  }
+  button.primary{background:var(--blue);color:#fff}
+  .note{
+    margin-top:12px;padding:11px 13px;border-radius:12px;
+    background:#ecfdf5;color:#166534;font-weight:700;line-height:1.5
+  }
+  .result{
+    margin-top:16px;padding:14px;border-radius:14px;
+    border:1px solid #e2e8f0;background:#f8fafc;line-height:1.65
+  }
+  .result strong{color:#0f3f96}
+  .sharp{color:#15803d;font-weight:800}
+  .blur{color:#b45309;font-weight:800}
+  .none{color:#b91c1c;font-weight:800}
+  .tip{
+    margin-top:16px;padding:14px 16px;border-left:5px solid var(--blue);
+    background:#eef4ff;border-radius:10px;line-height:1.65
+  }
+  svg{
+    width:100%;height:auto;min-height:540px;display:block;
+    user-select:none;touch-action:none
+  }
+  .legend{
+    display:flex;gap:14px;flex-wrap:wrap;color:var(--muted);
+    font-size:14px;margin:8px 2px 0
+  }
+  .dot{display:inline-block;width:11px;height:11px;border-radius:50%;margin-right:5px}
+  .small{font-size:13px;color:var(--muted);line-height:1.5}
+  @media(max-width:850px){
+    .grid{grid-template-columns:1fr}
+    svg{min-height:430px}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Convex Lens: Candle and Screen Lab</h1>
+  <div class="sub">
+    Drag the candle and the cardboard screen. The screen shows a sharp image only when it is placed at the correct image distance.
+  </div>
+
+  <div class="grid">
+    <section class="card controls">
+      <label>Focal Length F <span class="value" id="fVal"></span></label>
+      <input id="focal" type="range" min="50" max="120" value="80" step="5">
+
+      <label>Candle Distance <span class="value" id="candleVal"></span></label>
+      <input id="candleDistance" type="range" min="45" max="340" value="190" step="1">
+
+      <label>Screen Distance <span class="value" id="screenVal"></span></label>
+      <input id="screenDistance" type="range" min="45" max="360" value="138" step="1">
+
+      <div class="note">
+        Drag the candle on the left.<br>
+        Drag the cardboard screen on the right.
+      </div>
+
+      <div>
+        <button class="primary" onclick="setObject2F()">Candle at 2F</button>
+        <button onclick="focusScreen()">Move Screen to Focus</button>
+        <button onclick="setBetweenF2F()">Candle Between F and 2F</button>
+      </div>
+
+      <div class="result" id="result"></div>
+
+      <div class="tip">
+        <b>Experiment rule:</b><br>
+        Move the screen until the projected image becomes sharp.  
+        When the candle is at 2F, the sharp image appears at 2F and is the same size.
+      </div>
+      <p class="small">
+        This simulation uses the thin-lens equation. The screen image becomes blurrier as the screen moves away from the correct image position.
+      </p>
+    </section>
+
+    <section class="card stage">
+      <svg id="scene" viewBox="0 0 920 580" aria-label="Interactive candle lens and cardboard screen experiment">
+        <g id="drawing"></g>
+      </svg>
+      <div class="legend">
+        <span><span class="dot" style="background:#f59e0b"></span>Light rays</span>
+        <span><span class="dot" style="background:#2563eb"></span>Convex lens</span>
+        <span><span class="dot" style="background:#dc2626"></span>Projected image</span>
+        <span><span class="dot" style="background:#8b5cf6"></span>Cardboard screen</span>
+      </div>
+    </section>
+  </div>
+</div>
+
+<script>
+const focal = document.getElementById('focal');
+const candleDistance = document.getElementById('candleDistance');
+const screenDistance = document.getElementById('screenDistance');
+const drawing = document.getElementById('drawing');
+const result = document.getElementById('result');
+const scene = document.getElementById('scene');
+
+let dragMode = null;
+
+function setObject2F(){
+  candleDistance.value = 2 * Number(focal.value);
+  focusScreen();
+}
+function setBetweenF2F(){
+  candleDistance.value = Math.round(1.5 * Number(focal.value));
+  focusScreen();
+}
+function focusScreen(){
+  const f = Number(focal.value);
+  const d = Number(candleDistance.value);
+  if(d <= f) return update();
+  const di = (f*d)/(d-f);
+  screenDistance.value = Math.max(45, Math.min(360, Math.round(di)));
+  update();
+}
+
+function line(x1,y1,x2,y2,stroke,width=2,dash='',opacity=1){
+  return `<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}"
+    stroke="${stroke}" stroke-width="${width}" opacity="${opacity}"
+    ${dash?`stroke-dasharray="${dash}"`:''}/>`;
+}
+function text(x,y,t,anchor='middle',size=14,fill='#334155',weight='600'){
+  return `<text x="${x}" y="${y}" text-anchor="${anchor}"
+    font-size="${size}" fill="${fill}" font-weight="${weight}">${t}</text>`;
+}
+function clientToSvgX(clientX){
+  const pt = scene.createSVGPoint();
+  pt.x = clientX; pt.y = 0;
+  return pt.matrixTransform(scene.getScreenCTM().inverse()).x;
+}
+
+scene.addEventListener('pointerdown', e=>{
+  const candle = e.target.closest('#candleGroup');
+  const screen = e.target.closest('#screenGroup');
+  if(candle) dragMode = 'candle';
+  if(screen) dragMode = 'screen';
+  if(dragMode){
+    scene.setPointerCapture(e.pointerId);
+  }
+});
+scene.addEventListener('pointermove', e=>{
+  if(!dragMode) return;
+  const lensX = 455;
+  const x = clientToSvgX(e.clientX);
+  if(dragMode === 'candle'){
+    const clamped = Math.max(80, Math.min(lensX-45, x));
+    candleDistance.value = Math.round(lensX - clamped);
+  }else{
+    const clamped = Math.max(lensX+45, Math.min(865, x));
+    screenDistance.value = Math.round(clamped - lensX);
+  }
+  update();
+});
+scene.addEventListener('pointerup', e=>{
+  dragMode = null;
+  try{scene.releasePointerCapture(e.pointerId)}catch{}
+});
+scene.addEventListener('pointercancel', ()=>dragMode=null);
+
+function update(){
+  const f = Number(focal.value);
+  const d_o = Number(candleDistance.value);
+  const d_s = Number(screenDistance.value);
+
+  document.getElementById('fVal').textContent = f + ' units';
+  document.getElementById('candleVal').textContent = d_o + ' units';
+  document.getElementById('screenVal').textContent = d_s + ' units';
+
+  const lensX = 455;
+  const axisY = 325;
+  const candleX = lensX - d_o;
+  const screenX = lensX + d_s;
+  const flameTop = axisY - 112;
+  const candleTop = axisY - 80;
+
+  let html = '';
+  html += line(35,axisY,885,axisY,'#64748b',2);
+  html += text(880,axisY-10,'principal axis','end',13,'#64748b','500');
+
+  [[lensX-2*f,'2F'],[lensX-f,'F'],[lensX+f,'F'],[lensX+2*f,'2F']].forEach(([x,label])=>{
+    html += line(x,axisY-10,x,axisY+10,'#64748b',2);
+    html += text(x,axisY+29,label);
+  });
+
+  // Lens
+  html += `<path d="M ${lensX} 120 Q ${lensX-30} 325 ${lensX} 520 Q ${lensX+30} 325 ${lensX} 120 Z"
+    fill="#dbeafe" stroke="#2563eb" stroke-width="4" opacity=".92"/>`;
+  html += text(lensX,102,'Convex lens','middle',15,'#1747a6','700');
+
+  // Candle draggable group
+  html += `<g id="candleGroup" style="cursor:grab">`;
+  html += `<rect x="${candleX-25}" y="${flameTop-35}" width="50" height="155" fill="transparent"/>`;
+  html += `<rect x="${candleX-12}" y="${candleTop}" width="24" height="80" rx="4" fill="#f8fafc" stroke="#475569" stroke-width="2"/>`;
+  html += `<path d="M ${candleX} ${flameTop+18}
+    C ${candleX-15} ${flameTop+5}, ${candleX-10} ${flameTop-15}, ${candleX} ${flameTop-27}
+    C ${candleX+12} ${flameTop-10}, ${candleX+15} ${flameTop+5}, ${candleX} ${flameTop+18} Z"
+    fill="#f59e0b" stroke="#d97706" stroke-width="2"/>`;
+  html += line(candleX,candleTop,candleX,flameTop+18,'#374151',2);
+  html += text(candleX,axisY+53,'Candle','middle',15,'#92400e','700');
+  html += text(candleX,flameTop-42,'Drag me','middle',13,'#92400e','700');
+  html += `</g>`;
+
+  // Screen draggable group
+  html += `<g id="screenGroup" style="cursor:grab">`;
+  html += `<rect x="${screenX-28}" y="135" width="56" height="390" fill="transparent"/>`;
+  html += `<rect x="${screenX-11}" y="150" width="22" height="340" rx="3"
+    fill="#ede9fe" stroke="#7c3aed" stroke-width="3"/>`;
+  html += line(screenX,490,screenX-30,525,'#7c3aed',4);
+  html += line(screenX,490,screenX+30,525,'#7c3aed',4);
+  html += text(screenX,128,'Cardboard screen','middle',15,'#6d28d9','700');
+  html += text(screenX,548,'Drag me','middle',13,'#6d28d9','700');
+  html += `</g>`;
+
+  if(d_o <= f){
+    // No real image
+    html += line(candleX,flameTop,lensX,flameTop,'#f59e0b',3);
+    html += line(lensX,flameTop,875,flameTop+(875-lensX)*(flameTop-axisY)/f,'#f59e0b',3);
+    html += line(candleX,flameTop,lensX,axisY,'#f59e0b',3);
+    html += line(lensX,axisY,875,axisY,'#f59e0b',3);
+
+    result.innerHTML = `<strong>Candle inside F:</strong><br>
+      The lens forms a virtual image. The cardboard screen cannot capture a real image.<br>
+      <span class="none">No projected image on the screen.</span>`;
+    drawing.innerHTML = html;
+    return;
+  }
+
+  const d_i = (f*d_o)/(d_o-f);
+  const m = -d_i/d_o;
+  const imageHeight = Math.min(145, Math.max(20, Math.abs(m)*112));
+  const idealX = lensX + d_i;
+  const error = Math.abs(d_s - d_i);
+
+  // rays
+  html += line(candleX,flameTop,lensX,flameTop,'#f59e0b',3);
+  const slope1 = (axisY-flameTop)/f;
+  html += line(lensX,flameTop,885,flameTop+slope1*(885-lensX),'#f59e0b',3);
+
+  const slope2 = (axisY-flameTop)/(lensX-candleX);
+  html += line(candleX,flameTop,885,axisY+slope2*(885-lensX),'#f59e0b',3);
+
+  // ideal image marker
+  html += line(idealX,axisY-8,idealX,axisY+8,'#dc2626',2,'5 4',0.8);
+  html += text(idealX,axisY+48,'Ideal image position','middle',12,'#b91c1c','600');
+
+  // projected image on screen
+  let sharpnessText, cls, opacity, blurRadius;
+  if(error <= 4){
+    sharpnessText = 'Sharp image';
+    cls = 'sharp';
+    opacity = 1;
+    blurRadius = 0;
+  }else if(error <= 20){
+    sharpnessText = 'Slightly blurred image';
+    cls = 'blur';
+    opacity = 0.72;
+    blurRadius = 2;
+  }else{
+    sharpnessText = 'Very blurred image';
+    cls = 'blur';
+    opacity = 0.38;
+    blurRadius = 5;
+  }
+
+  const imgTop = axisY + imageHeight;
+  html += `<g opacity="${opacity}" style="filter:blur(${blurRadius}px)">`;
+  html += line(screenX,axisY,screenX,imgTop,'#dc2626',6);
+  html += `<path d="M ${screenX} ${imgTop}
+    C ${screenX-13} ${imgTop+8}, ${screenX-10} ${imgTop+28}, ${screenX} ${imgTop+38}
+    C ${screenX+11} ${imgTop+24}, ${screenX+12} ${imgTop+8}, ${screenX} ${imgTop} Z"
+    fill="#f97316" stroke="#dc2626" stroke-width="2"/>`;
+  html += `</g>`;
+
+  const sizeDesc = Math.abs(Math.abs(m)-1)<0.05 ? 'same size' : Math.abs(m)>1 ? 'larger' : 'smaller';
+
+  result.innerHTML = `<strong>Calculated image position:</strong> ${d_i.toFixed(1)} units from the lens<br>
+    Screen position: ${d_s.toFixed(1)} units from the lens<br>
+    Magnification: ${m.toFixed(2)}<br>
+    Image: inverted, ${sizeDesc}, real<br>
+    <span class="${cls}">${sharpnessText}</span>`;
+
+  drawing.innerHTML = html;
+}
+
+[focal,candleDistance,screenDistance].forEach(el=>el.addEventListener('input',update));
+update();
+</script>
+</body>
+</html>
