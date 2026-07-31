@@ -1,81 +1,99 @@
 {
-  "boardDate": "2026-07-30",
-  "generatedAt": "2026-07-30T13:08:08.355Z",
+  "boardDate": "2026-07-31",
+  "generatedAt": "2026-07-31T13:15:57.170Z",
   "sourceCount": 26,
   "weather": [
     {
       "city": "Ottawa",
-      "temperatureC": 22,
-      "maxC": 26,
-      "minC": 19,
+      "temperatureC": 19,
+      "maxC": 28,
+      "minC": 15,
       "summary": "Mostly clear"
     }
   ],
   "extremeWeather": [
     {
-      "title": "Can a heatwave cause trees to fall?",
-      "whatHappened": "Don't sit under a tree during a heatwave - here's why.",
-      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
-      "keyWord": "heat wave: a long period of unusually hot weather",
-      "source": "BBC Science & Environment",
-      "url": "https://www.bbc.co.uk/news/videos/clyqle52l9po?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-07-29T15:53:42.000Z"
-    },
-    {
-      "title": "More than half of England in drought, Environment Agency declares",
-      "whatHappened": "The drought declarations follow an exceptionally hot and dry period, which has hit rivers, crops and nature.",
-      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
-      "keyWord": "drought: a long time with very little rain",
-      "source": "BBC Science & Environment",
-      "url": "https://www.bbc.co.uk/news/articles/ckg35n7yny3o?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-07-29T14:37:30.000Z"
-    },
-    {
       "title": "Hosepipe bans in force as drought declared - is your area affected?",
-      "whatHappened": "More than eight million households have been placed under hosepipe bans - which has raised questions about how effectively water resources are being managed.",
+      "whatHappened": "More than 20 million households have been placed under hosepipe bans due to higher demand and low rainfall.",
       "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
       "keyWord": "drought: a long time with very little rain",
       "source": "BBC Science & Environment",
       "url": "https://www.bbc.co.uk/news/articles/crk661074ejo?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-07-29T13:03:18.000Z"
+      "publishedAt": "2026-07-30T14:50:42.000Z"
     },
     {
-      "title": "‘It came out of real frustration’: the 90s activist network that set fires to save a burning planet",
-      "whatHappened": "Matthew Wolfe’s Fires in the Night examines Earth Liberation Front, a US eco-anarchist movement, and its legacy of radical environmentalism Are echoes of 1990s radical environmentalism...",
+      "title": "Dashcam captures tornado toppling power lines onto car",
+      "whatHappened": "Video obtained by the BBC provides a firsthand look at the powerful storm system that ripped through parts of eastern Wisconsin on 27 July.",
+      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
+      "keyWord": "extreme weather: unusual and dangerous weather like floods, storms, or heat waves",
+      "source": "BBC Science & Environment",
+      "url": "https://www.bbc.co.uk/news/videos/cj631p14gpjo?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-07-30T13:44:23.000Z"
+    },
+    {
+      "title": "Wildfire near Sizewell nuclear plant causes ‘total devastation’ to Suffolk landscape",
+      "whatHappened": "More than 100 firefighters remain at scene after Dunwich Heath blaze spread across 150 hectares and forced evacuations A wildfire near Britain’s biggest nuclear power station...",
       "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
       "keyWord": "extreme weather: unusual and dangerous weather like floods, storms, or heat waves",
       "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/us-news/2026/jul/27/fires-in-the-night-earth-liberation-front-environment",
-      "publishedAt": "2026-07-27T12:00:09.000Z"
+      "url": "https://www.theguardian.com/uk-news/2026/jul/31/suffolk-wildfire-sizewell-nuclear-plant-dunwich-heath",
+      "publishedAt": "2026-07-31T12:23:57.000Z"
     },
     {
-      "title": "‘Extraordinarily hot’: US heatwave stretches on with millions still under warnings",
-      "whatHappened": "Southern and central states from California to Mississippi face heat indexes above 100F amid another heat dome At least 40 million people were under extreme heat...",
+      "title": "Drought conditions may worsen before improving as little rain in sight",
+      "whatHappened": "Conditions in the most parched areas of the United Kingdom could worsen before they improve, according to the latest forecasts.",
       "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
-      "keyWord": "heat wave: a long period of unusually hot weather",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/us-news/2026/jul/26/us-heat-wave-dome-weather",
-      "publishedAt": "2026-07-27T00:04:47.000Z"
+      "keyWord": "drought: a long time with very little rain",
+      "source": "BBC Science & Environment",
+      "url": "https://www.bbc.co.uk/weather/articles/cn5nk90ndl0o?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-07-31T01:28:46.000Z"
     },
     {
-      "title": "Scorching US heatwave to hit 70 million people with third ‘heat dome’ in month",
-      "whatHappened": "Temperatures of 95-105F (35-40C) are expected, spanning Gulf of Mexico coast to the Great Plains and the midwest About 70 million people in the US are...",
+      "title": "Danube's record low levels force shutdown of Hungary's only nuclear plant",
+      "whatHappened": "Romania, Bulgaria and Serbia are also grappling with the effects of a series of prolonged heatwaves and low rainfall.",
       "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
       "keyWord": "heat wave: a long period of unusually hot weather",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/us-news/2026/jul/25/scorching-us-heat-wave",
-      "publishedAt": "2026-07-25T18:34:53.000Z"
+      "source": "BBC Science & Environment",
+      "url": "https://www.bbc.co.uk/news/articles/cn0nqv05g0do?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-07-30T17:55:24.000Z"
+    },
+    {
+      "title": "Drought declared across whole of Wales as conditions 'deteriorate'",
+      "whatHappened": "Wales is on course for its driest July on record in almost 190 years.",
+      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
+      "keyWord": "drought: a long time with very little rain",
+      "source": "BBC Science & Environment",
+      "url": "https://www.bbc.co.uk/news/articles/c8jn1v37znvo?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-07-30T14:15:09.000Z"
     }
   ],
   "climate": [
     {
-      "title": "More than half of England in drought, Environment Agency declares",
-      "whatHappened": "The drought declarations follow an exceptionally hot and dry period, which has hit rivers, crops and nature.",
+      "title": "Huge great white spotted traveling up US and Canada as shark sightings surge",
+      "whatHappened": "Contender, largest tagged male great white, heading north as overheating oceans alter range of several shark species The largest tagged male great white shark in the...",
+      "whyItMatters": "Climate and environment stories connect science to real issues like safety, health, and extreme weather.",
+      "keyWord": "climate: the usual pattern of weather over a long period of time",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/us-news/2026/jul/31/great-white-shark-us-canada-coasts",
+      "publishedAt": "2026-07-31T12:00:14.000Z"
+    },
+    {
+      "title": "Where to see the biggest solar eclipse since 1999",
+      "whatHappened": "The UK's biggest solar eclipse since 1999 arrives on 12 August.",
       "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
       "keyWord": "climate: the usual pattern of weather over a long period of time",
       "source": "BBC Science & Environment",
-      "url": "https://www.bbc.co.uk/news/articles/ckg35n7yny3o?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-07-29T14:37:30.000Z"
+      "url": "https://www.bbc.co.uk/news/articles/cjrvn0wez48o?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-07-31T05:09:42.000Z"
+    },
+    {
+      "title": "Wildfires: Prevention is the best defence, UN says",
+      "whatHappened": "The wildfires burning across Europe and North America highlight the urgent need for action now – as climate change, land-use pressures and human activity make severe...",
+      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
+      "keyWord": "climate: the usual pattern of weather over a long period of time",
+      "source": "UN Climate",
+      "url": "https://news.un.org/feed/view/en/story/2026/07/1168054",
+      "publishedAt": "2026-07-30T12:00:00.000Z"
     },
     {
       "title": "Climate alarm ‘blaring from every direction’",
@@ -96,15 +114,6 @@
       "publishedAt": "2026-07-27T12:00:09.000Z"
     },
     {
-      "title": "Scientists decry Trump’s ‘blame game’ after he claims Canada ‘poisoning’ US air",
-      "whatHappened": "Trump told Mark Carney ‘you got to stop these fires from coming in’ as experts say wildfires symptom of climate crisis Scientists have reacted with incredulity...",
-      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
-      "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/us-news/2026/jul/24/trump-canada-wildfires-smoke-scientists",
-      "publishedAt": "2026-07-24T10:00:10.000Z"
-    },
-    {
       "title": "Security Council LIVE: Can critical minerals fuel peace and prosperity instead of conflict?",
       "whatHappened": "The Security Council met Wednesday in New York to debate critical minerals — the lithium, cobalt and copper powering the clean energy transition.",
       "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
@@ -112,26 +121,17 @@
       "source": "UN Climate",
       "url": "https://news.un.org/feed/view/en/story/2026/07/1167995",
       "publishedAt": "2026-07-22T12:00:00.000Z"
-    },
-    {
-      "title": "Moon Day focuses growing concerns around space junk",
-      "whatHappened": "Amid surging lunar exploration, the UN on Monday urged governments to ensure that humanity's return to the Moon does not come at the expense of planet...",
-      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
-      "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "UN Climate",
-      "url": "https://news.un.org/feed/view/en/story/2026/07/1167976",
-      "publishedAt": "2026-07-20T12:00:00.000Z"
     }
   ],
   "weatherTech": [
     {
-      "title": "SwitchBot makes a better fan",
-      "whatHappened": "I was already a big fan of SwitchBot's big circulator fan I recently reviewed, and now we're getting the SwitchBot Battery Circulator Fan 2 Pro.",
+      "title": "Where to see the biggest solar eclipse since 1999",
+      "whatHappened": "The UK's biggest solar eclipse since 1999 arrives on 12 August.",
       "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
-      "keyWord": "battery: a device that stores energy for later use",
-      "source": "The Verge",
-      "url": "https://www.theverge.com/tech/972986/switchbot-makes-a-better-fan",
-      "publishedAt": "2026-07-30T10:30:55.000Z"
+      "keyWord": "solar: related to energy from sunlight",
+      "source": "BBC Science & Environment",
+      "url": "https://www.bbc.co.uk/news/articles/cjrvn0wez48o?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-07-31T05:09:42.000Z"
     },
     {
       "title": "Security Council LIVE: Can critical minerals fuel peace and prosperity instead of conflict?",
@@ -154,6 +154,15 @@
       "publishedAt": "2025-07-29T18:25:35.000Z"
     },
     {
+      "title": "Pacific Ocean Pattern Helps Explain Diverging Wildfire Trends in U.S. and Australia",
+      "whatHappened": "Two of the world’s most fire-prone regions have followed strikingly different wildfire trajectories despite both experiencing a warming climate.",
+      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
+      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
+      "source": "Columbia Climate School",
+      "url": "https://news.climate.columbia.edu/2026/07/30/pacific-ocean-pattern-helps-explain-diverging-wildfire-trends-in-u-s-and-australia/",
+      "publishedAt": "2026-07-30T14:12:19.000Z"
+    },
+    {
       "title": "Hydrogen: clean fuel of the future — if we can find a cheap and clean way to ship it",
       "whatHappened": "A team led by MIT Energy Initiative researchers developed the HyCAT tool, enabling decision-makers to explore the cost and carbon emissions of their options for shipping...",
       "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
@@ -172,6 +181,15 @@
       "publishedAt": "2025-07-29T18:38:05.000Z"
     },
     {
+      "title": "PhD scholar receives prestigious P.E.O. Scholar Award to advance tourism research",
+      "whatHappened": "Thu, 30 Jul 2026 12:00:00 +0000 Congratulations to Samantha Bray, a PhD student in Geography and Environmental Management, for winning the P.E.O.",
+      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
+      "keyWord": "research: careful study used to discover new knowledge",
+      "source": "Waterloo Environment",
+      "url": "https://uwaterloo.ca/environment/news/phd-scholar-receives-prestigious-peo-scholar-award-advance",
+      "publishedAt": "2026-07-30T12:00:00.000Z"
+    },
+    {
       "title": "Climate change increases wildfire risks in Yosemite and other national parks",
       "whatHappened": "The new UC Berkeley-led study could help park managers reduce wildfire risks by proactively harnessing natural fire to decrease understory fuels.",
       "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
@@ -179,15 +197,6 @@
       "source": "Berkeley News",
       "url": "https://nature.berkeley.edu/news/climate-change-increases-wildfire-risks-yosemite-and-other-national-parks",
       "publishedAt": "2026-07-29T16:52:08.000Z"
-    },
-    {
-      "title": "What NYC Got Right During the Wildfire Smoke Emergency, According to an Expert",
-      "whatHappened": "Atmospheric chemist V.",
-      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
-      "keyWord": "atmospheric: related to the air and layers around Earth",
-      "source": "Columbia Climate School",
-      "url": "https://news.climate.columbia.edu/2026/07/21/what-nyc-got-right-during-the-wildfire-smoke-emergency-according-to-an-expert/",
-      "publishedAt": "2026-07-21T17:22:02.000Z"
     },
     {
       "title": "Environment PhD candidate wins prestigious Weston Family Award for Northern Research",
@@ -208,49 +217,40 @@
       "publishedAt": "2026-07-16T09:00:00.000Z"
     },
     {
-      "title": "Environment professor honoured with Distinguished Teacher Award",
-      "whatHappened": "Mon, 29 Jun 2026 12:00:00 +0000 Dr.",
+      "title": "Testing the waters: Conservation students learn by doing",
+      "whatHappened": "UW graduate students dip their toes into ecology management as part of the Nelson Institute’s professional program course.",
       "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
       "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
-      "source": "Waterloo Environment",
-      "url": "https://uwaterloo.ca/environment/news/environment-professor-honoured-distinguished-teacher-award",
-      "publishedAt": "2026-06-29T12:00:00.000Z"
+      "source": "University of Wisconsin News",
+      "url": "https://news.wisc.edu/testing-the-waters-conservation-students-learn-by-doing/",
+      "publishedAt": "2026-07-30T22:32:11.000Z"
     },
     {
-      "title": "Coffee refill? Go for it, says American Heart Association, with note of caution.",
-      "whatHappened": "Co-author of new guidance explains how many cups a day are safe — possibly even good for you — and why energy drinks are different",
+      "title": "Bay Area residents can move away to find more affordable homes. Beware the downside.",
+      "whatHappened": "New research from the California Policy Lab finds home ownership in other states often comes with lower incomes, lower school quality and more climate risk.",
       "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
-      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
-      "source": "Harvard Gazette",
-      "url": "https://news.harvard.edu/gazette/story/2026/07/coffee-refill-go-for-it-says-american-heart-association-with-note-of-caution/",
-      "publishedAt": "2026-07-29T19:50:26.000Z"
-    },
-    {
-      "title": "How climate change is redrawing the malaria map in Africa",
-      "whatHappened": "A UC Berkeley-led study finds that rising temperatures could increase the malaria risk in southern and East Africa while reducing it where it is most rampant...",
-      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
-      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
+      "keyWord": "research: careful study used to discover new knowledge",
       "source": "Berkeley News",
-      "url": "https://nature.berkeley.edu/news/climate-change-redrawing-malaria-map-africa",
-      "publishedAt": "2026-07-29T17:35:52.000Z"
+      "url": "https://capolicylab.org/news/new-report-finds-bay-area-residents-who-leave-are-more-likely-to-become-homeowners/",
+      "publishedAt": "2026-07-30T22:07:14.000Z"
     },
     {
-      "title": "From Kindergarten to College, New York Is Rethinking Climate Education",
-      "whatHappened": "New York State has joined a growing movement to make climate education a required part of K-12 learning, following years of student demand and widespread support...",
+      "title": "This co-op helped an underwater robotics startup map the seafloor",
+      "whatHappened": "Shalini Agrawal, a robotics student at Northeastern, developed software for an autonomous submersible to take pictures of the ocean floor.",
+      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
+      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
+      "source": "Northeastern Global News",
+      "url": "https://news.northeastern.edu/2026/07/30/underwater-robotics-seafloor-mapping/",
+      "publishedAt": "2026-07-30T19:08:58.000Z"
+    },
+    {
+      "title": "From Marie Tharp to Seabed 2030: Marine Geophysicist Vicki Ferrini on Mapping the Ocean Floor",
+      "whatHappened": "In honor of Tharp's birthday, Ferrini discusses the geologist's pioneering work and how it paved the way for her own collaborative efforts to map the ocean...",
       "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
       "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
       "source": "Columbia Climate School",
-      "url": "https://news.climate.columbia.edu/2026/07/29/from-kindergarten-to-college-new-york-is-rethinking-climate-education/",
-      "publishedAt": "2026-07-29T17:27:02.000Z"
-    },
-    {
-      "title": "The best medicine may be free",
-      "whatHappened": "Forest therapy guide explains what a daily dose of nature does for the body",
-      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
-      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
-      "source": "Harvard Gazette",
-      "url": "https://news.harvard.edu/gazette/story/2026/07/the-best-medicine-may-be-free/",
-      "publishedAt": "2026-07-28T17:49:15.000Z"
+      "url": "https://news.climate.columbia.edu/2026/07/30/from-marie-tharp-to-seabed-2030-marine-geophysicist-vicki-ferrini-on-mapping-the-ocean-floor/",
+      "publishedAt": "2026-07-30T16:28:27.000Z"
     }
   ]
 }
