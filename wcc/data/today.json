@@ -1,14 +1,14 @@
 {
-  "boardDate": "2026-07-31",
-  "generatedAt": "2026-07-31T13:15:57.170Z",
+  "boardDate": "2026-08-01",
+  "generatedAt": "2026-08-01T12:34:00.391Z",
   "sourceCount": 26,
   "weather": [
     {
       "city": "Ottawa",
-      "temperatureC": 19,
-      "maxC": 28,
-      "minC": 15,
-      "summary": "Mostly clear"
+      "temperatureC": 22,
+      "maxC": 29,
+      "minC": 18,
+      "summary": "Cloudy"
     }
   ],
   "extremeWeather": [
@@ -22,22 +22,31 @@
       "publishedAt": "2026-07-30T14:50:42.000Z"
     },
     {
-      "title": "Dashcam captures tornado toppling power lines onto car",
-      "whatHappened": "Video obtained by the BBC provides a firsthand look at the powerful storm system that ripped through parts of eastern Wisconsin on 27 July.",
-      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
-      "keyWord": "extreme weather: unusual and dangerous weather like floods, storms, or heat waves",
-      "source": "BBC Science & Environment",
-      "url": "https://www.bbc.co.uk/news/videos/cj631p14gpjo?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-07-30T13:44:23.000Z"
-    },
-    {
-      "title": "Wildfire near Sizewell nuclear plant causes ‘total devastation’ to Suffolk landscape",
-      "whatHappened": "More than 100 firefighters remain at scene after Dunwich Heath blaze spread across 150 hectares and forced evacuations A wildfire near Britain’s biggest nuclear power station...",
+      "title": "Democrats’ ‘climate hushing’ prompts activists to turn up the volume",
+      "whatHappened": "Nationwide actions seek to counter view that talking about climate crisis distracts from affordability messaging This summer, torrential rains have washed away Texas neighborhoods, dangerous heat...",
       "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
       "keyWord": "extreme weather: unusual and dangerous weather like floods, storms, or heat waves",
       "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/uk-news/2026/jul/31/suffolk-wildfire-sizewell-nuclear-plant-dunwich-heath",
-      "publishedAt": "2026-07-31T12:23:57.000Z"
+      "url": "https://www.theguardian.com/us-news/2026/aug/01/democrats-climate-policy-hushing",
+      "publishedAt": "2026-08-01T12:00:53.000Z"
+    },
+    {
+      "title": "Strong El Niño ahead, UN weather agency warns",
+      "whatHappened": "As much of the world faces grapples with above normal temperatures and major rainfall changes, the UN Meteorological Organization (WMO) warned on Friday that El Niño,...",
+      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
+      "keyWord": "extreme weather: unusual and dangerous weather like floods, storms, or heat waves",
+      "source": "UN Climate",
+      "url": "https://news.un.org/feed/view/en/story/2026/07/1168059",
+      "publishedAt": "2026-07-31T12:00:00.000Z"
+    },
+    {
+      "title": "Wildfire smoke poses hidden health threat",
+      "whatHappened": "Wildfires are often associated with the destruction they leave behind, but the smoke they produce can pose a&nbsp;serious health threat far beyond the fire zone, the&nbsp;World...",
+      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
+      "keyWord": "extreme weather: unusual and dangerous weather like floods, storms, or heat waves",
+      "source": "UN Climate",
+      "url": "https://news.un.org/feed/view/en/story/2026/07/1168060",
+      "publishedAt": "2026-07-31T12:00:00.000Z"
     },
     {
       "title": "Drought conditions may worsen before improving as little rain in sight",
@@ -56,26 +65,35 @@
       "source": "BBC Science & Environment",
       "url": "https://www.bbc.co.uk/news/articles/cn0nqv05g0do?at_medium=RSS&at_campaign=rss",
       "publishedAt": "2026-07-30T17:55:24.000Z"
-    },
-    {
-      "title": "Drought declared across whole of Wales as conditions 'deteriorate'",
-      "whatHappened": "Wales is on course for its driest July on record in almost 190 years.",
-      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
-      "keyWord": "drought: a long time with very little rain",
-      "source": "BBC Science & Environment",
-      "url": "https://www.bbc.co.uk/news/articles/c8jn1v37znvo?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-07-30T14:15:09.000Z"
     }
   ],
   "climate": [
     {
-      "title": "Huge great white spotted traveling up US and Canada as shark sightings surge",
+      "title": "Democrats’ ‘climate hushing’ prompts activists to turn up the volume",
+      "whatHappened": "Nationwide actions seek to counter view that talking about climate crisis distracts from affordability messaging This summer, torrential rains have washed away Texas neighborhoods, dangerous heat...",
+      "whyItMatters": "Climate and environment stories connect science to real issues like safety, health, and extreme weather.",
+      "keyWord": "climate: the usual pattern of weather over a long period of time",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/us-news/2026/aug/01/democrats-climate-policy-hushing",
+      "publishedAt": "2026-08-01T12:00:53.000Z"
+    },
+    {
+      "title": "Huge great white spotted traveling off US and Canada as shark sightings surge",
       "whatHappened": "Contender, largest tagged male great white, heading north as overheating oceans alter range of several shark species The largest tagged male great white shark in the...",
       "whyItMatters": "Climate and environment stories connect science to real issues like safety, health, and extreme weather.",
       "keyWord": "climate: the usual pattern of weather over a long period of time",
       "source": "The Guardian Environment",
       "url": "https://www.theguardian.com/us-news/2026/jul/31/great-white-shark-us-canada-coasts",
       "publishedAt": "2026-07-31T12:00:14.000Z"
+    },
+    {
+      "title": "Strong El Niño ahead, UN weather agency warns",
+      "whatHappened": "As much of the world faces grapples with above normal temperatures and major rainfall changes, the UN Meteorological Organization (WMO) warned on Friday that El Niño,...",
+      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
+      "keyWord": "climate: the usual pattern of weather over a long period of time",
+      "source": "UN Climate",
+      "url": "https://news.un.org/feed/view/en/story/2026/07/1168059",
+      "publishedAt": "2026-07-31T12:00:00.000Z"
     },
     {
       "title": "Where to see the biggest solar eclipse since 1999",
@@ -87,6 +105,15 @@
       "publishedAt": "2026-07-31T05:09:42.000Z"
     },
     {
+      "title": "The climate pattern putting millions at risk: El Niño explained",
+      "whatHappened": "El Niño is putting millions of lives at risk in eastern and southern Africa but the UN is ensuring that communities are better prepared to deal...",
+      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
+      "keyWord": "climate: the usual pattern of weather over a long period of time",
+      "source": "UN Climate",
+      "url": "https://news.un.org/feed/view/en/story/2026/07/1168056",
+      "publishedAt": "2026-07-30T12:00:00.000Z"
+    },
+    {
       "title": "Wildfires: Prevention is the best defence, UN says",
       "whatHappened": "The wildfires burning across Europe and North America highlight the urgent need for action now – as climate change, land-use pressures and human activity make severe...",
       "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
@@ -94,36 +121,18 @@
       "source": "UN Climate",
       "url": "https://news.un.org/feed/view/en/story/2026/07/1168054",
       "publishedAt": "2026-07-30T12:00:00.000Z"
-    },
-    {
-      "title": "Climate alarm ‘blaring from every direction’",
-      "whatHappened": "Climate-driven disasters are reaching “nightmare proportions” due to humanity’s “addiction” to fossil fuels, a top UN official warned on Tuesday.",
-      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
-      "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "UN Climate",
-      "url": "https://news.un.org/feed/view/en/story/2026/07/1168042",
-      "publishedAt": "2026-07-28T12:00:00.000Z"
-    },
-    {
-      "title": "US environmental groups urge EPA to reject new Pfas to cool datacenters",
-      "whatHappened": "Coalition says Chemours downplayed health and climate risks in bid to fast-track the compound’s use A coalition of 17 environmental groups is demanding the Environmental Protection...",
-      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
-      "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/us-news/2026/jul/27/pfas-datacenter-cooling-epa",
-      "publishedAt": "2026-07-27T12:00:09.000Z"
-    },
-    {
-      "title": "Security Council LIVE: Can critical minerals fuel peace and prosperity instead of conflict?",
-      "whatHappened": "The Security Council met Wednesday in New York to debate critical minerals — the lithium, cobalt and copper powering the clean energy transition.",
-      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
-      "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "UN Climate",
-      "url": "https://news.un.org/feed/view/en/story/2026/07/1167995",
-      "publishedAt": "2026-07-22T12:00:00.000Z"
     }
   ],
   "weatherTech": [
+    {
+      "title": "Google Earth’s AI deepfake tool only lasted one day",
+      "whatHappened": "Google has shut down Google Earth feature it launched Thursday that allowed users to edit satellite images with text prompts using AI.",
+      "whyItMatters": "Weather technology shows how science tools can predict conditions faster and help people prepare earlier.",
+      "keyWord": "satellite: an object in space that collects information and sends it back to Earth",
+      "source": "The Verge",
+      "url": "https://www.theverge.com/tech/973943/google-earth-ai-image-generation-deepfake-tool",
+      "publishedAt": "2026-07-31T19:13:29.000Z"
+    },
     {
       "title": "Where to see the biggest solar eclipse since 1999",
       "whatHappened": "The UK's biggest solar eclipse since 1999 arrives on 12 August.",
@@ -217,6 +226,15 @@
       "publishedAt": "2026-07-16T09:00:00.000Z"
     },
     {
+      "title": "Interactive: The Heezen–Tharp World Ocean Floor Map",
+      "whatHappened": "Explore Marie Tharp's groundbreaking 1977 World Ocean Floor map and discover how it transformed our understanding of the Earth.",
+      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
+      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
+      "source": "Columbia Climate School",
+      "url": "https://news.climate.columbia.edu/2026/07/31/interactive-tharp-world-ocean-floor-map/",
+      "publishedAt": "2026-07-31T16:23:57.000Z"
+    },
+    {
       "title": "Testing the waters: Conservation students learn by doing",
       "whatHappened": "UW graduate students dip their toes into ecology management as part of the Nelson Institute’s professional program course.",
       "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
@@ -242,15 +260,6 @@
       "source": "Northeastern Global News",
       "url": "https://news.northeastern.edu/2026/07/30/underwater-robotics-seafloor-mapping/",
       "publishedAt": "2026-07-30T19:08:58.000Z"
-    },
-    {
-      "title": "From Marie Tharp to Seabed 2030: Marine Geophysicist Vicki Ferrini on Mapping the Ocean Floor",
-      "whatHappened": "In honor of Tharp's birthday, Ferrini discusses the geologist's pioneering work and how it paved the way for her own collaborative efforts to map the ocean...",
-      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
-      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
-      "source": "Columbia Climate School",
-      "url": "https://news.climate.columbia.edu/2026/07/30/from-marie-tharp-to-seabed-2030-marine-geophysicist-vicki-ferrini-on-mapping-the-ocean-floor/",
-      "publishedAt": "2026-07-30T16:28:27.000Z"
     }
   ]
 }
