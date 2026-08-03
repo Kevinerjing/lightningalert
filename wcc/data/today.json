@@ -1,17 +1,26 @@
 {
-  "boardDate": "2026-08-02",
-  "generatedAt": "2026-08-02T12:35:31.212Z",
+  "boardDate": "2026-08-03",
+  "generatedAt": "2026-08-03T13:58:02.506Z",
   "sourceCount": 26,
   "weather": [
     {
       "city": "Ottawa",
-      "temperatureC": 21,
-      "maxC": 24,
-      "minC": 20,
+      "temperatureC": 19,
+      "maxC": 22,
+      "minC": 17,
       "summary": "Cloudy"
     }
   ],
   "extremeWeather": [
+    {
+      "title": "Eastern Washington fires destroy 600 structures and force 60,000 to evacuate",
+      "whatHappened": "Wildfires in and around Spokane have stretched ability of federal and local agencies to fight blazes Wildfires in eastern Washington state forced the evacuation of 60,000...",
+      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
+      "keyWord": "extreme weather: unusual and dangerous weather like floods, storms, or heat waves",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/us-news/2026/aug/02/eastern-washington-wildfires",
+      "publishedAt": "2026-08-02T23:33:08.000Z"
+    },
     {
       "title": "Heatwave scorching western US ups risk of hazardous fire conditions",
       "whatHappened": "In Oregon and Washington, low humidity and powerful winds have put officials on alert for wildfire spread A heatwave scorching the western US region has elevated...",
@@ -20,15 +29,6 @@
       "source": "The Guardian Environment",
       "url": "https://www.theguardian.com/us-news/2026/aug/01/heatwave-us-west-hazardous-fire-conditions",
       "publishedAt": "2026-08-01T23:39:52.000Z"
-    },
-    {
-      "title": "‘We cannot magic up more water’: the supply problems putting housing targets in England at risk",
-      "whatHappened": "Council leaders say crumbling infrastructure and lack of water are jeopardising government’s plans for new homes The government’s housebuilding agenda is hitting the stark reality of...",
-      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
-      "keyWord": "drought: a long time with very little rain",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/environment/2026/aug/02/we-cannot-magic-up-more-water-the-supply-problems-putting-housing-targets-in-england-at-risk",
-      "publishedAt": "2026-08-02T06:00:14.000Z"
     },
     {
       "title": "Democrats’ ‘climate hushing’ prompts activists to turn up the volume",
@@ -78,13 +78,13 @@
       "publishedAt": "2026-08-01T12:00:53.000Z"
     },
     {
-      "title": "‘We cannot magic up more water’: the supply problems putting housing targets in England at risk",
-      "whatHappened": "Council leaders say crumbling infrastructure and lack of water are jeopardising government’s plans for new homes The government’s housebuilding agenda is hitting the stark reality of...",
+      "title": "Suspected mass bird flu deaths found in second state as Murray Watt warns ‘this is the beginning’",
+      "whatHappened": "Environment minister says Australia has ‘long and difficult journey’ and says more mass mortality events likely Get our breaking news email , free app or daily...",
       "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
       "keyWord": "climate: the usual pattern of weather over a long period of time",
       "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/environment/2026/aug/02/we-cannot-magic-up-more-water-the-supply-problems-putting-housing-targets-in-england-at-risk",
-      "publishedAt": "2026-08-02T06:00:14.000Z"
+      "url": "https://www.theguardian.com/world/2026/aug/03/suspected-mass-bird-flu-deaths-found-in-second-state-as-murray-watt-warns-this-is-the-beginning",
+      "publishedAt": "2026-08-03T10:27:17.000Z"
     },
     {
       "title": "Huge great white spotted traveling off US and Canada as shark sightings surge",
@@ -124,6 +124,15 @@
     }
   ],
   "weatherTech": [
+    {
+      "title": "Fender’s CEO seems to think your bandmates are just analog AI",
+      "whatHappened": "Fender CEO Edward \"Bud\" Cole gave an interview to T3 in May celebrating the 75th anniversary of the Telecaster with comments on AI and music that...",
+      "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
+      "keyWord": "weather technology: tools that help people measure, study, or predict weather and climate",
+      "source": "The Verge",
+      "url": "https://www.theverge.com/ai-artificial-intelligence/974265/fender-ceo-bud-cole-ai-music",
+      "publishedAt": "2026-08-03T09:23:36.000Z"
+    },
     {
       "title": "Heatwave scorching western US ups risk of hazardous fire conditions",
       "whatHappened": "In Oregon and Washington, low humidity and powerful winds have put officials on alert for wildfire spread A heatwave scorching the western US region has elevated...",
