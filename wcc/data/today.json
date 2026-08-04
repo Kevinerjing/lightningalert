@@ -1,17 +1,26 @@
 {
-  "boardDate": "2026-08-03",
-  "generatedAt": "2026-08-03T13:58:02.506Z",
+  "boardDate": "2026-08-04",
+  "generatedAt": "2026-08-04T13:16:25.548Z",
   "sourceCount": 26,
   "weather": [
     {
       "city": "Ottawa",
       "temperatureC": 19,
-      "maxC": 22,
-      "minC": 17,
-      "summary": "Cloudy"
+      "maxC": 26,
+      "minC": 14,
+      "summary": "Clear skies"
     }
   ],
   "extremeWeather": [
+    {
+      "title": "We launched a war on nature. Now we are in a climate warzone | Rebecca Solnit",
+      "whatHappened": "Summer is not what it once was.",
+      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
+      "keyWord": "flood: water covering land that is usually dry",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/commentisfree/2026/aug/04/summer-heat-climate-war-zone",
+      "publishedAt": "2026-08-04T10:00:47.000Z"
+    },
     {
       "title": "Eastern Washington fires destroy 600 structures and force 60,000 to evacuate",
       "whatHappened": "Wildfires in and around Spokane have stretched ability of federal and local agencies to fight blazes Wildfires in eastern Washington state forced the evacuation of 60,000...",
@@ -31,6 +40,24 @@
       "publishedAt": "2026-08-01T23:39:52.000Z"
     },
     {
+      "title": "Crews building Trump border wall in drought-hit New Mexico ordered to stop drilling wells",
+      "whatHappened": "Residents and farmers say contractors have tapped border aquifers that threaten water supply for those nearby Construction crews building a border wall in New Mexico were...",
+      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
+      "keyWord": "drought: a long time with very little rain",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/us-news/2026/aug/03/trump-border-wall-new-mexico-wells",
+      "publishedAt": "2026-08-04T01:25:42.000Z"
+    },
+    {
+      "title": "Rhine falls to record low levels as drought strains Europe's rivers",
+      "whatHappened": "Low water levels in the Rhine, Danube and Po have curtailed the transport of goods and reduced electricity output.",
+      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
+      "keyWord": "drought: a long time with very little rain",
+      "source": "BBC Science & Environment",
+      "url": "https://www.bbc.co.uk/news/articles/c78gn8zvrx4o?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-08-03T16:27:43.000Z"
+    },
+    {
       "title": "Democrats’ ‘climate hushing’ prompts activists to turn up the volume",
       "whatHappened": "Nationwide actions seek to counter view that talking about climate crisis distracts from affordability messaging This summer, torrential rains have washed away Texas neighborhoods, dangerous heat...",
       "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
@@ -38,37 +65,19 @@
       "source": "The Guardian Environment",
       "url": "https://www.theguardian.com/us-news/2026/aug/01/democrats-climate-policy-hushing",
       "publishedAt": "2026-08-01T12:00:53.000Z"
-    },
-    {
-      "title": "Strong El Niño ahead, UN weather agency warns",
-      "whatHappened": "As much of the world faces grapples with above normal temperatures and major rainfall changes, the UN Meteorological Organization (WMO) warned on Friday that El Niño,...",
-      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
-      "keyWord": "extreme weather: unusual and dangerous weather like floods, storms, or heat waves",
-      "source": "UN Climate",
-      "url": "https://news.un.org/feed/view/en/story/2026/07/1168059",
-      "publishedAt": "2026-07-31T12:00:00.000Z"
-    },
-    {
-      "title": "Wildfire smoke poses hidden health threat",
-      "whatHappened": "Wildfires are often associated with the destruction they leave behind, but the smoke they produce can pose a&nbsp;serious health threat far beyond the fire zone, the&nbsp;World...",
-      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
-      "keyWord": "extreme weather: unusual and dangerous weather like floods, storms, or heat waves",
-      "source": "UN Climate",
-      "url": "https://news.un.org/feed/view/en/story/2026/07/1168060",
-      "publishedAt": "2026-07-31T12:00:00.000Z"
-    },
-    {
-      "title": "Drought conditions may worsen before improving as little rain in sight",
-      "whatHappened": "Conditions in the most parched areas of the United Kingdom could worsen before they improve, according to the latest forecasts.",
-      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
-      "keyWord": "drought: a long time with very little rain",
-      "source": "BBC Science & Environment",
-      "url": "https://www.bbc.co.uk/weather/articles/cn5nk90ndl0o?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-07-31T01:28:46.000Z"
     }
   ],
   "climate": [
     {
+      "title": "We launched a war on nature. Now we are in a climate warzone | Rebecca Solnit",
+      "whatHappened": "Summer is not what it once was.",
+      "whyItMatters": "Climate and environment stories connect science to real issues like safety, health, and extreme weather.",
+      "keyWord": "climate: the usual pattern of weather over a long period of time",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/commentisfree/2026/aug/04/summer-heat-climate-war-zone",
+      "publishedAt": "2026-08-04T10:00:47.000Z"
+    },
+    {
       "title": "Democrats’ ‘climate hushing’ prompts activists to turn up the volume",
       "whatHappened": "Nationwide actions seek to counter view that talking about climate crisis distracts from affordability messaging This summer, torrential rains have washed away Texas neighborhoods, dangerous heat...",
       "whyItMatters": "Climate and environment stories connect science to real issues like safety, health, and extreme weather.",
@@ -76,33 +85,6 @@
       "source": "The Guardian Environment",
       "url": "https://www.theguardian.com/us-news/2026/aug/01/democrats-climate-policy-hushing",
       "publishedAt": "2026-08-01T12:00:53.000Z"
-    },
-    {
-      "title": "Suspected mass bird flu deaths found in second state as Murray Watt warns ‘this is the beginning’",
-      "whatHappened": "Environment minister says Australia has ‘long and difficult journey’ and says more mass mortality events likely Get our breaking news email , free app or daily...",
-      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
-      "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/world/2026/aug/03/suspected-mass-bird-flu-deaths-found-in-second-state-as-murray-watt-warns-this-is-the-beginning",
-      "publishedAt": "2026-08-03T10:27:17.000Z"
-    },
-    {
-      "title": "Huge great white spotted traveling off US and Canada as shark sightings surge",
-      "whatHappened": "Contender, largest tagged male great white, heading north as overheating oceans alter range of several shark species The largest tagged male great white shark in the...",
-      "whyItMatters": "Climate and environment stories connect science to real issues like safety, health, and extreme weather.",
-      "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/us-news/2026/jul/31/great-white-shark-us-canada-coasts",
-      "publishedAt": "2026-07-31T12:00:14.000Z"
-    },
-    {
-      "title": "Strong El Niño ahead, UN weather agency warns",
-      "whatHappened": "As much of the world faces grapples with above normal temperatures and major rainfall changes, the UN Meteorological Organization (WMO) warned on Friday that El Niño,...",
-      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
-      "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "UN Climate",
-      "url": "https://news.un.org/feed/view/en/story/2026/07/1168059",
-      "publishedAt": "2026-07-31T12:00:00.000Z"
     },
     {
       "title": "Where to see the biggest solar eclipse since 1999",
@@ -111,7 +93,16 @@
       "keyWord": "climate: the usual pattern of weather over a long period of time",
       "source": "BBC Science & Environment",
       "url": "https://www.bbc.co.uk/news/articles/cjrvn0wez48o?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-07-31T05:09:42.000Z"
+      "publishedAt": "2026-08-04T12:19:55.000Z"
+    },
+    {
+      "title": "Strong El Niño ahead, UN weather agency warns",
+      "whatHappened": "As much of the world faces grapples with above normal temperatures and major rainfall changes, the UN Meteorological Organization (WMO) warned on Friday that El Niño,...",
+      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
+      "keyWord": "climate: the usual pattern of weather over a long period of time",
+      "source": "UN Climate",
+      "url": "https://news.un.org/feed/view/en/story/2026/07/1168059",
+      "publishedAt": "2026-07-31T12:00:00.000Z"
     },
     {
       "title": "The climate pattern putting millions at risk: El Niño explained",
@@ -121,17 +112,35 @@
       "source": "UN Climate",
       "url": "https://news.un.org/feed/view/en/story/2026/07/1168056",
       "publishedAt": "2026-07-30T12:00:00.000Z"
+    },
+    {
+      "title": "Wildfires: Prevention is the best defence, UN says",
+      "whatHappened": "The wildfires burning across Europe and North America highlight the urgent need for action now – as climate change, land-use pressures and human activity make severe...",
+      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
+      "keyWord": "climate: the usual pattern of weather over a long period of time",
+      "source": "UN Climate",
+      "url": "https://news.un.org/feed/view/en/story/2026/07/1168054",
+      "publishedAt": "2026-07-30T12:00:00.000Z"
     }
   ],
   "weatherTech": [
     {
-      "title": "Fender’s CEO seems to think your bandmates are just analog AI",
-      "whatHappened": "Fender CEO Edward \"Bud\" Cole gave an interview to T3 in May celebrating the 75th anniversary of the Telecaster with comments on AI and music that...",
+      "title": "Where to see the biggest solar eclipse since 1999",
+      "whatHappened": "The UK's biggest solar eclipse since 1999 arrives on 12 August.",
       "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
-      "keyWord": "weather technology: tools that help people measure, study, or predict weather and climate",
-      "source": "The Verge",
-      "url": "https://www.theverge.com/ai-artificial-intelligence/974265/fender-ceo-bud-cole-ai-music",
-      "publishedAt": "2026-08-03T09:23:36.000Z"
+      "keyWord": "solar: related to energy from sunlight",
+      "source": "BBC Science & Environment",
+      "url": "https://www.bbc.co.uk/news/articles/cjrvn0wez48o?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-08-04T12:19:55.000Z"
+    },
+    {
+      "title": "What will happen when a SpaceX rocket collides with the Moon?",
+      "whatHappened": "Our satellite has endured countless blows over millions of years - and astronomers think this one could be a useful accident.",
+      "whyItMatters": "Weather technology shows how science tools can predict conditions faster and help people prepare earlier.",
+      "keyWord": "satellite: an object in space that collects information and sends it back to Earth",
+      "source": "BBC Science & Environment",
+      "url": "https://www.bbc.co.uk/news/articles/cx25yn22l97o?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-08-04T09:13:37.000Z"
     },
     {
       "title": "Heatwave scorching western US ups risk of hazardous fire conditions",
@@ -141,15 +150,6 @@
       "source": "The Guardian Environment",
       "url": "https://www.theguardian.com/us-news/2026/aug/01/heatwave-us-west-hazardous-fire-conditions",
       "publishedAt": "2026-08-01T23:39:52.000Z"
-    },
-    {
-      "title": "Where to see the biggest solar eclipse since 1999",
-      "whatHappened": "The UK's biggest solar eclipse since 1999 arrives on 12 August.",
-      "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
-      "keyWord": "solar: related to energy from sunlight",
-      "source": "BBC Science & Environment",
-      "url": "https://www.bbc.co.uk/news/articles/cjrvn0wez48o?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-07-31T05:09:42.000Z"
     },
     {
       "title": "Security Council LIVE: Can critical minerals fuel peace and prosperity instead of conflict?",
@@ -208,15 +208,6 @@
       "publishedAt": "2026-07-30T12:00:00.000Z"
     },
     {
-      "title": "Climate change increases wildfire risks in Yosemite and other national parks",
-      "whatHappened": "The new UC Berkeley-led study could help park managers reduce wildfire risks by proactively harnessing natural fire to decrease understory fuels.",
-      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
-      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
-      "source": "Berkeley News",
-      "url": "https://nature.berkeley.edu/news/climate-change-increases-wildfire-risks-yosemite-and-other-national-parks",
-      "publishedAt": "2026-07-29T16:52:08.000Z"
-    },
-    {
       "title": "Environment PhD candidate wins prestigious Weston Family Award for Northern Research",
       "whatHappened": "Tue, 21 Jul 2026 12:00:00 +0000 Stephanie Saal, a PhD candidate in the Department of Geography and Environmental Management, is researching how snowpack impacts key ecological...",
       "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
@@ -235,6 +226,24 @@
       "publishedAt": "2026-07-16T09:00:00.000Z"
     },
     {
+      "title": "Shim, Russell reappointed to dean roles",
+      "whatHappened": "The deans of the School of Human Ecology and the Division of Continuing Studies recently completed a dean review.",
+      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
+      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
+      "source": "University of Wisconsin News",
+      "url": "https://news.wisc.edu/shim-russell-reappointed-to-dean-roles/",
+      "publishedAt": "2026-08-03T20:28:46.000Z"
+    },
+    {
+      "title": "August 3 campus cooling update",
+      "whatHappened": "This message is being translated into multiple languages.",
+      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
+      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
+      "source": "University of Wisconsin News",
+      "url": "https://news.wisc.edu/august-3-campus-cooling-update/",
+      "publishedAt": "2026-08-03T16:56:42.000Z"
+    },
+    {
       "title": "Interactive: The Heezen–Tharp World Ocean Floor Map",
       "whatHappened": "Explore Marie Tharp's groundbreaking 1977 World Ocean Floor map and discover how it transformed our understanding of the Earth.",
       "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
@@ -242,15 +251,6 @@
       "source": "Columbia Climate School",
       "url": "https://news.climate.columbia.edu/2026/07/31/interactive-tharp-world-ocean-floor-map/",
       "publishedAt": "2026-07-31T16:23:57.000Z"
-    },
-    {
-      "title": "Testing the waters: Conservation students learn by doing",
-      "whatHappened": "UW graduate students dip their toes into ecology management as part of the Nelson Institute’s professional program course.",
-      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
-      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
-      "source": "University of Wisconsin News",
-      "url": "https://news.wisc.edu/testing-the-waters-conservation-students-learn-by-doing/",
-      "publishedAt": "2026-07-30T22:32:11.000Z"
     },
     {
       "title": "Bay Area residents can move away to find more affordable homes. Beware the downside.",
@@ -262,13 +262,13 @@
       "publishedAt": "2026-07-30T22:07:14.000Z"
     },
     {
-      "title": "This co-op helped an underwater robotics startup map the seafloor",
-      "whatHappened": "Shalini Agrawal, a robotics student at Northeastern, developed software for an autonomous submersible to take pictures of the ocean floor.",
+      "title": "Coffee refill? Go for it, says American Heart Association, with note of caution.",
+      "whatHappened": "Co-author of new guidance explains how many cups a day are safe — possibly even good for you — and why energy drinks are different",
       "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
       "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
-      "source": "Northeastern Global News",
-      "url": "https://news.northeastern.edu/2026/07/30/underwater-robotics-seafloor-mapping/",
-      "publishedAt": "2026-07-30T19:08:58.000Z"
+      "source": "Harvard Gazette",
+      "url": "https://news.harvard.edu/gazette/story/2026/07/coffee-refill-go-for-it-says-american-heart-association-with-note-of-caution/",
+      "publishedAt": "2026-07-29T19:50:26.000Z"
     }
   ]
 }
