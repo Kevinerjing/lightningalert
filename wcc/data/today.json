@@ -1,17 +1,44 @@
 {
-  "boardDate": "2026-08-09",
-  "generatedAt": "2026-08-09T11:57:13.648Z",
+  "boardDate": "2026-08-10",
+  "generatedAt": "2026-08-10T12:09:41.552Z",
   "sourceCount": 26,
   "weather": [
     {
       "city": "Ottawa",
-      "temperatureC": 21,
-      "maxC": 26,
-      "minC": 20,
-      "summary": "Clear skies"
+      "temperatureC": 20,
+      "maxC": 27,
+      "minC": 19,
+      "summary": "Cloudy"
     }
   ],
   "extremeWeather": [
+    {
+      "title": "‘Unprecedented, dangerous territory’: US north-west reckons with a summer of historic wildfires",
+      "whatHappened": "Extreme conditions in Washington and Oregon have fueled fast-moving fires, leaving the region draped in toxic plumes – and the danger isn’t over Piles of twisted...",
+      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
+      "keyWord": "extreme weather: unusual and dangerous weather like floods, storms, or heat waves",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/us-news/2026/aug/10/us-wildfires-pacific-north-west",
+      "publishedAt": "2026-08-10T11:00:44.000Z"
+    },
+    {
+      "title": "China evacuates one million from homes as massive storm arrives",
+      "whatHappened": "Typhoon Dolphin has made landfall, bringing strong winds and heavy rain across eastern China including Shanghai.",
+      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
+      "keyWord": "extreme weather: unusual and dangerous weather like floods, storms, or heat waves",
+      "source": "BBC Science & Environment",
+      "url": "https://www.bbc.co.uk/news/articles/cx2rgzyplg2o?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-08-10T07:23:54.000Z"
+    },
+    {
+      "title": "How clean air clubs are protecting Americans from wildfire smoke",
+      "whatHappened": "Mutual aid groups that started giving out PPEs during Covid are now loaning air purifiers and distributing masks to fume-addled communities Miquette Thompson’s home in rural...",
+      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
+      "keyWord": "extreme weather: unusual and dangerous weather like floods, storms, or heat waves",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/us-news/2026/aug/09/us-wildfire-smoke-clean-air-clubs",
+      "publishedAt": "2026-08-09T15:00:20.000Z"
+    },
     {
       "title": "Typhoon Dolphin batters Japan's Okinawa before bearing down on China",
       "whatHappened": "The storm has cut power to at least 44,000 buildings and injured five people on the Japanese island.",
@@ -20,15 +47,6 @@
       "source": "BBC Science & Environment",
       "url": "https://www.bbc.co.uk/news/articles/cvglp2zlvrlo?at_medium=RSS&at_campaign=rss",
       "publishedAt": "2026-08-08T15:15:17.000Z"
-    },
-    {
-      "title": "Hosepipe bans in force as drought declared - is your area affected?",
-      "whatHappened": "More than 20 million households have been placed under hosepipe bans due to higher demand and low rainfall.",
-      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
-      "keyWord": "drought: a long time with very little rain",
-      "source": "BBC Science & Environment",
-      "url": "https://www.bbc.co.uk/news/articles/crk661074ejo?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-08-07T17:50:13.000Z"
     },
     {
       "title": "Accused arsonist studied how to maximize Washington wildfire’s harm, police say",
@@ -40,31 +58,13 @@
       "publishedAt": "2026-08-06T21:24:02.000Z"
     },
     {
-      "title": "We need a wartime mindset to fight the threat of wildfires | Seth Klein",
-      "whatHappened": "While many leaders compare the wildfire crisis to the second world war, governments fail to adopt the real lessons of pre-emptive wartime action As France and...",
-      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
-      "keyWord": "extreme weather: unusual and dangerous weather like floods, storms, or heat waves",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/commentisfree/2026/aug/06/wildfires-europe-world-war-two",
-      "publishedAt": "2026-08-06T10:00:44.000Z"
-    },
-    {
-      "title": "‘Super El Niño’ could bring wet winter and flooding to western US, climate scientists warn",
-      "whatHappened": "Weather system tied to warming sea surface expected to intensify in fall and winter, persisting until early spring 2027 El Niño , a recurring climate phenomenon...",
-      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
-      "keyWord": "flood: water covering land that is usually dry",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/us-news/2026/aug/08/super-el-nino-winter-flooding",
-      "publishedAt": "2026-08-08T19:21:14.000Z"
-    },
-    {
-      "title": "Wildfire damage could take hundreds of years to recover from, experts say",
-      "whatHappened": "Habitats belonging to snakes and rare moths have been destroyed after the wildfires this summer.",
+      "title": "Lorry turns over as typhoon hits China",
+      "whatHappened": "Video shows a lorry being blown over after heavy rain and winds continued to batter Wenzhou, a city in China's eastern Zhejiang province.",
       "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
       "keyWord": "extreme weather: unusual and dangerous weather like floods, storms, or heat waves",
       "source": "BBC Science & Environment",
-      "url": "https://www.bbc.co.uk/news/articles/c0qvp00x707o?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-08-07T05:15:56.000Z"
+      "url": "https://www.bbc.co.uk/news/videos/cgmklm40k9go?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-08-10T10:13:18.000Z"
     }
   ],
   "climate": [
@@ -78,31 +78,13 @@
       "publishedAt": "2026-08-08T19:21:14.000Z"
     },
     {
-      "title": "Trump administration to pay German firm $1.22bn to cut offshore wind leases",
-      "whatHappened": "Agreement with RWE is fifth deal Trump team has made with energy companies, offering payouts to give up projects The German energy company RWE has reached...",
-      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
-      "keyWord": "renewable energy: energy from sources that can be used again, like sun or wind",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/us-news/2026/aug/06/rwe-deal-wind-leases",
-      "publishedAt": "2026-08-06T18:20:49.000Z"
-    },
-    {
-      "title": "Trump administration to pay German firm $1.2bn to halt US wind projects",
-      "whatHappened": "The RWE payout is the latest in a string of deals cancelling wind energy projects, a power source long derided by Trump.",
-      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
-      "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "BBC Science & Environment",
-      "url": "https://www.bbc.co.uk/news/articles/c1e1vg0gjl5o?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-08-07T13:32:41.000Z"
-    },
-    {
-      "title": "Winner of Florida python hunting contest nabs 96 snakes: ‘I was on a mission’",
-      "whatHappened": "Burmese pythons are an invasive species in the Everglades, and the challenge is part of initiative to remove them The winner of this year’s annual Florida...",
+      "title": "Octopus Energy: use less electricity during solar eclipse",
+      "whatHappened": "Firm urges customers to avoid running washing machines and dishwashers between 6pm and 8pm on Wednesday Where in the UK will get the best view of...",
       "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
       "keyWord": "climate: the usual pattern of weather over a long period of time",
       "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/us-news/2026/aug/05/florida-python-hunting-contest-winner-2026",
-      "publishedAt": "2026-08-05T23:50:36.000Z"
+      "url": "https://www.theguardian.com/business/2026/aug/10/octopus-energy-electricity-solar-eclipse-washing-machines-dishwashers",
+      "publishedAt": "2026-08-10T11:54:18.000Z"
     },
     {
       "title": "Most of sun to be eclipsed across island of Ireland",
@@ -121,17 +103,44 @@
       "source": "BBC Science & Environment",
       "url": "https://www.bbc.co.uk/news/articles/c9q94lxqrzzo?at_medium=RSS&at_campaign=rss",
       "publishedAt": "2026-08-08T19:00:22.000Z"
+    },
+    {
+      "title": "Food prices edged up in July amid heatwaves and energy price hikes",
+      "whatHappened": "The cost of key foods edged up last month as searing heatwaves and ongoing geopolitical uncertainty impacted energy prices around the world.",
+      "whyItMatters": "Climate and environment stories connect science to real issues like safety, health, and extreme weather.",
+      "keyWord": "climate: the usual pattern of weather over a long period of time",
+      "source": "UN Climate",
+      "url": "https://news.un.org/feed/view/en/story/2026/08/1168096",
+      "publishedAt": "2026-08-07T12:00:00.000Z"
+    },
+    {
+      "title": "Trump faces calls for windfall tax on big oil’s profits from Iran war",
+      "whatHappened": "US president’s complaint industry ‘making too much money’ comes after his policies boosted corporations Donald Trump’s statement that oil companies have made “too much money” from...",
+      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
+      "keyWord": "climate: the usual pattern of weather over a long period of time",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/us-news/2026/aug/07/trump-windfall-tax-big-oil-iran-war",
+      "publishedAt": "2026-08-07T09:00:13.000Z"
     }
   ],
   "weatherTech": [
     {
-      "title": "Trump administration to pay German firm $1.22bn to cut offshore wind leases",
-      "whatHappened": "Agreement with RWE is fifth deal Trump team has made with energy companies, offering payouts to give up projects The German energy company RWE has reached...",
+      "title": "Space mirrors could ruin astronomy — and your eyes",
+      "whatHappened": "Solar energy, at any time of day or night - that's the dream of space mirror projects.",
+      "whyItMatters": "Weather technology shows how science tools can predict conditions faster and help people prepare earlier.",
+      "keyWord": "satellite: an object in space that collects information and sends it back to Earth",
+      "source": "The Verge",
+      "url": "https://www.theverge.com/science/976977/space-mirror-reflect-orbital-fcc-solar-eye-damage",
+      "publishedAt": "2026-08-07T19:26:39.000Z"
+    },
+    {
+      "title": "Octopus Energy: use less electricity during solar eclipse",
+      "whatHappened": "Firm urges customers to avoid running washing machines and dishwashers between 6pm and 8pm on Wednesday Where in the UK will get the best view of...",
       "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
-      "keyWord": "weather technology: tools that help people measure, study, or predict weather and climate",
+      "keyWord": "solar: related to energy from sunlight",
       "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/us-news/2026/aug/06/rwe-deal-wind-leases",
-      "publishedAt": "2026-08-06T18:20:49.000Z"
+      "url": "https://www.theguardian.com/business/2026/aug/10/octopus-energy-electricity-solar-eclipse-washing-machines-dishwashers",
+      "publishedAt": "2026-08-10T11:54:18.000Z"
     },
     {
       "title": "Most of sun to be eclipsed across island of Ireland",
@@ -150,24 +159,6 @@
       "source": "The Guardian Environment",
       "url": "https://www.theguardian.com/us-news/2026/aug/08/super-el-nino-winter-flooding",
       "publishedAt": "2026-08-08T19:21:14.000Z"
-    },
-    {
-      "title": "Nitecore’s latest power bank is the lightest and most compact yet",
-      "whatHappened": "There's two things you should know about me, your intrepid reviewer: I hate the feature creep associated with modern power banks, and I love shaving grams...",
-      "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
-      "keyWord": "battery: a device that stores energy for later use",
-      "source": "The Verge",
-      "url": "https://www.theverge.com/tech/976506/nitecore-nb10000-gen4-review-adventure-battery",
-      "publishedAt": "2026-08-08T07:17:24.000Z"
-    },
-    {
-      "title": "Trump administration to pay German firm $1.2bn to halt US wind projects",
-      "whatHappened": "The RWE payout is the latest in a string of deals cancelling wind energy projects, a power source long derided by Trump.",
-      "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
-      "keyWord": "weather technology: tools that help people measure, study, or predict weather and climate",
-      "source": "BBC Science & Environment",
-      "url": "https://www.bbc.co.uk/news/articles/c1e1vg0gjl5o?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-08-07T13:32:41.000Z"
     }
   ],
   "universityNews": [
@@ -197,15 +188,6 @@
       "source": "Columbia Climate School",
       "url": "https://news.climate.columbia.edu/2026/08/07/climate-finance-student-guy-ningabo-believes-better-impact-finance-can-transform-renewable-energy-in-africa/",
       "publishedAt": "2026-08-07T14:36:36.000Z"
-    },
-    {
-      "title": "Hydrogen: clean fuel of the future — if we can find a cheap and clean way to ship it",
-      "whatHappened": "A team led by MIT Energy Initiative researchers developed the HyCAT tool, enabling decision-makers to explore the cost and carbon emissions of their options for shipping...",
-      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
-      "keyWord": "research: careful study used to discover new knowledge",
-      "source": "MIT Climate & Sustainability",
-      "url": "https://news.mit.edu/2026/hydrogen-clean-fuel-of-the-future-if-we-can-ship-it-0707",
-      "publishedAt": "2026-07-07T15:10:00.000Z"
     },
     {
       "title": "Tiny Forest Coming to Carleton",
@@ -260,6 +242,15 @@
       "source": "University of Wisconsin News",
       "url": "https://news.wisc.edu/august-3-campus-cooling-update/",
       "publishedAt": "2026-08-03T16:56:42.000Z"
+    },
+    {
+      "title": "Building energy security through more sustainable batteries",
+      "whatHappened": "PhD student Hugh Smith works to develop sodium-ion batteries, whose components are more abundant and accessible than those of conventional lithium-ion technology.",
+      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
+      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
+      "source": "MIT Climate & Sustainability",
+      "url": "https://news.mit.edu/2026/building-energy-security-through-more-sustainable-batteries-hugh-smith-0731",
+      "publishedAt": "2026-07-31T04:00:00.000Z"
     },
     {
       "title": "New flapping robot swims and flies like a diving bird",
