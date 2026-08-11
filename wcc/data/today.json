@@ -1,17 +1,26 @@
 {
-  "boardDate": "2026-08-10",
-  "generatedAt": "2026-08-10T12:09:41.552Z",
+  "boardDate": "2026-08-11",
+  "generatedAt": "2026-08-11T12:11:36.761Z",
   "sourceCount": 26,
   "weather": [
     {
       "city": "Ottawa",
-      "temperatureC": 20,
-      "maxC": 27,
-      "minC": 19,
-      "summary": "Cloudy"
+      "temperatureC": 18,
+      "maxC": 25,
+      "minC": 16,
+      "summary": "Clear skies"
     }
   ],
   "extremeWeather": [
+    {
+      "title": "‘Extreme heat’ warning issued for parts of England on Thursday as temperatures could reach 38C – latest news",
+      "whatHappened": "Met Office says this warning will likely cause ‘adverse’ health effects with travel and power generation also possibly affected The Guardian’s environment editor, Fiona Harvey ,...",
+      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
+      "keyWord": "drought: a long time with very little rain",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/environment/live/2026/aug/11/uk-europe-france-heatwave-climate-crisis-drought-amber-health-alert-latest-updates-news",
+      "publishedAt": "2026-08-11T12:02:13.000Z"
+    },
     {
       "title": "‘Unprecedented, dangerous territory’: US north-west reckons with a summer of historic wildfires",
       "whatHappened": "Extreme conditions in Washington and Oregon have fueled fast-moving fires, leaving the region draped in toxic plumes – and the danger isn’t over Piles of twisted...",
@@ -22,87 +31,78 @@
       "publishedAt": "2026-08-10T11:00:44.000Z"
     },
     {
-      "title": "China evacuates one million from homes as massive storm arrives",
-      "whatHappened": "Typhoon Dolphin has made landfall, bringing strong winds and heavy rain across eastern China including Shanghai.",
+      "title": "Drought, water rationing and dry rivers: our water crisis is here | Peter Gleick",
+      "whatHappened": "It doesn’t have to be this way.",
       "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
-      "keyWord": "extreme weather: unusual and dangerous weather like floods, storms, or heat waves",
-      "source": "BBC Science & Environment",
-      "url": "https://www.bbc.co.uk/news/articles/cx2rgzyplg2o?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-08-10T07:23:54.000Z"
-    },
-    {
-      "title": "How clean air clubs are protecting Americans from wildfire smoke",
-      "whatHappened": "Mutual aid groups that started giving out PPEs during Covid are now loaning air purifiers and distributing masks to fume-addled communities Miquette Thompson’s home in rural...",
-      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
-      "keyWord": "extreme weather: unusual and dangerous weather like floods, storms, or heat waves",
+      "keyWord": "drought: a long time with very little rain",
       "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/us-news/2026/aug/09/us-wildfire-smoke-clean-air-clubs",
-      "publishedAt": "2026-08-09T15:00:20.000Z"
+      "url": "https://www.theguardian.com/commentisfree/2026/aug/11/drought-water-climate-crisis",
+      "publishedAt": "2026-08-11T11:00:01.000Z"
     },
     {
-      "title": "Typhoon Dolphin batters Japan's Okinawa before bearing down on China",
-      "whatHappened": "The storm has cut power to at least 44,000 buildings and injured five people on the Japanese island.",
+      "title": "Disabled in a heatwave: 'We're talking about survival'",
+      "whatHappened": "Disabled campaigners say the official advice for staying safe in a heatwave can put them in more danger.",
+      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
+      "keyWord": "heat wave: a long period of unusually hot weather",
+      "source": "BBC Science & Environment",
+      "url": "https://www.bbc.co.uk/news/articles/cd6923j2wnpo?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-08-11T00:18:49.000Z"
+    },
+    {
+      "title": "'We've had a lot of close calls': Canada wildfire evacuees wonder if they still have homes",
+      "whatHappened": "More than 12,000 people have been forced to evacuate and some homes have been lost after a wildfire tore through Canada's picturesque Okanagan region.",
       "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
       "keyWord": "extreme weather: unusual and dangerous weather like floods, storms, or heat waves",
       "source": "BBC Science & Environment",
-      "url": "https://www.bbc.co.uk/news/articles/cvglp2zlvrlo?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-08-08T15:15:17.000Z"
+      "url": "https://www.bbc.co.uk/news/articles/cx2lwv032j9o?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-08-10T19:17:11.000Z"
     },
     {
-      "title": "Accused arsonist studied how to maximize Washington wildfire’s harm, police say",
-      "whatHappened": "Court documents allege Aaron Farinacci, who faces slew of arson charges, set 25 fires in Spokane area over past year The 37-year-old man accused of sparking...",
-      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
-      "keyWord": "extreme weather: unusual and dangerous weather like floods, storms, or heat waves",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/us-news/2026/aug/06/washington-state-wildfires",
-      "publishedAt": "2026-08-06T21:24:02.000Z"
-    },
-    {
-      "title": "Lorry turns over as typhoon hits China",
-      "whatHappened": "Video shows a lorry being blown over after heavy rain and winds continued to batter Wenzhou, a city in China's eastern Zhejiang province.",
+      "title": "'That fire came so fast': Wildfire rages in British Columbia",
+      "whatHappened": "Officials in British Columbia are still trying to determine how many homes were lost to the fire, which remains out of control as of Monday.",
       "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
       "keyWord": "extreme weather: unusual and dangerous weather like floods, storms, or heat waves",
       "source": "BBC Science & Environment",
-      "url": "https://www.bbc.co.uk/news/videos/cgmklm40k9go?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-08-10T10:13:18.000Z"
+      "url": "https://www.bbc.co.uk/news/videos/cx2d4gg57eqo?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-08-10T17:29:05.000Z"
     }
   ],
   "climate": [
     {
-      "title": "‘Super El Niño’ could bring wet winter and flooding to western US, climate scientists warn",
-      "whatHappened": "Weather system tied to warming sea surface expected to intensify in fall and winter, persisting until early spring 2027 El Niño , a recurring climate phenomenon...",
+      "title": "‘Extreme heat’ warning issued for parts of England on Thursday as temperatures could reach 38C – latest news",
+      "whatHappened": "Met Office says this warning will likely cause ‘adverse’ health effects with travel and power generation also possibly affected The Guardian’s environment editor, Fiona Harvey ,...",
       "whyItMatters": "Climate and environment stories connect science to real issues like safety, health, and extreme weather.",
       "keyWord": "climate: the usual pattern of weather over a long period of time",
       "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/us-news/2026/aug/08/super-el-nino-winter-flooding",
-      "publishedAt": "2026-08-08T19:21:14.000Z"
+      "url": "https://www.theguardian.com/environment/live/2026/aug/11/uk-europe-france-heatwave-climate-crisis-drought-amber-health-alert-latest-updates-news",
+      "publishedAt": "2026-08-11T12:02:13.000Z"
     },
     {
-      "title": "Octopus Energy: use less electricity during solar eclipse",
-      "whatHappened": "Firm urges customers to avoid running washing machines and dishwashers between 6pm and 8pm on Wednesday Where in the UK will get the best view of...",
+      "title": "When and where to see the solar eclipse in Scotland",
+      "whatHappened": "Up to 95% of the Sun will slowly disappear behind the Moon in the most dramatic eclipse visible from the UK since August 1999.",
+      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
+      "keyWord": "climate: the usual pattern of weather over a long period of time",
+      "source": "BBC Science & Environment",
+      "url": "https://www.bbc.co.uk/news/articles/cwyrk522pxro?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-08-11T11:17:16.000Z"
+    },
+    {
+      "title": "July was hottest month ever recorded in US as heatwaves scorched country",
+      "whatHappened": "Scientists have made clear that the elevated heat in the US was being amplified by the human-caused climate crisis July was the hottest month ever recorded...",
+      "whyItMatters": "Climate and environment stories connect science to real issues like safety, health, and extreme weather.",
+      "keyWord": "climate: the usual pattern of weather over a long period of time",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/us-news/2026/aug/10/july-hottest-month-ever-recorded-heatwaves",
+      "publishedAt": "2026-08-10T18:49:51.000Z"
+    },
+    {
+      "title": "Can Florida’s ‘coastal corridor’ project safeguard wildlife and boost economy?",
+      "whatHappened": "Conservationists have created a ‘coastal corridor’ of ocean-based projects designed to preserve and nourish vulnerable marine life From disappearing manatees to bleached coral reefs , gender-changing...",
       "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
       "keyWord": "climate: the usual pattern of weather over a long period of time",
       "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/business/2026/aug/10/octopus-energy-electricity-solar-eclipse-washing-machines-dishwashers",
-      "publishedAt": "2026-08-10T11:54:18.000Z"
-    },
-    {
-      "title": "Most of sun to be eclipsed across island of Ireland",
-      "whatHappened": "Skywatchers are set to witness two major celestial events next week, with a deep partial solar eclipse followed by the peak of the Perseid meteor shower.",
-      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
-      "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "BBC Science & Environment",
-      "url": "https://www.bbc.co.uk/news/articles/c39epmz7ex4o?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-08-09T05:19:17.000Z"
-    },
-    {
-      "title": "Australia is the planet's extinction hotspot, but one animal offers a glimmer of hope",
-      "whatHappened": "The country is home to some of the world's most unique species - but it is losing them at an alarming rate.",
-      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
-      "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "BBC Science & Environment",
-      "url": "https://www.bbc.co.uk/news/articles/c9q94lxqrzzo?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-08-08T19:00:22.000Z"
+      "url": "https://www.theguardian.com/us-news/2026/aug/10/florida-coastal-corridor-marine-life",
+      "publishedAt": "2026-08-10T12:00:44.000Z"
     },
     {
       "title": "Food prices edged up in July amid heatwaves and energy price hikes",
@@ -114,51 +114,24 @@
       "publishedAt": "2026-08-07T12:00:00.000Z"
     },
     {
-      "title": "Trump faces calls for windfall tax on big oil’s profits from Iran war",
-      "whatHappened": "US president’s complaint industry ‘making too much money’ comes after his policies boosted corporations Donald Trump’s statement that oil companies have made “too much money” from...",
+      "title": "Africans bear the brunt of biodiversity loss",
+      "whatHappened": "For millions across Africa and the developing world, the biodiversity crisis is not an abstract problem – it’s the soil that no longer yields bountiful harvests...",
       "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
       "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/us-news/2026/aug/07/trump-windfall-tax-big-oil-iran-war",
-      "publishedAt": "2026-08-07T09:00:13.000Z"
+      "source": "UN Climate",
+      "url": "https://news.un.org/feed/view/en/story/2026/08/1168078",
+      "publishedAt": "2026-08-04T12:00:00.000Z"
     }
   ],
   "weatherTech": [
     {
-      "title": "Space mirrors could ruin astronomy — and your eyes",
-      "whatHappened": "Solar energy, at any time of day or night - that's the dream of space mirror projects.",
-      "whyItMatters": "Weather technology shows how science tools can predict conditions faster and help people prepare earlier.",
-      "keyWord": "satellite: an object in space that collects information and sends it back to Earth",
-      "source": "The Verge",
-      "url": "https://www.theverge.com/science/976977/space-mirror-reflect-orbital-fcc-solar-eye-damage",
-      "publishedAt": "2026-08-07T19:26:39.000Z"
-    },
-    {
-      "title": "Octopus Energy: use less electricity during solar eclipse",
-      "whatHappened": "Firm urges customers to avoid running washing machines and dishwashers between 6pm and 8pm on Wednesday Where in the UK will get the best view of...",
-      "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
-      "keyWord": "solar: related to energy from sunlight",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/business/2026/aug/10/octopus-energy-electricity-solar-eclipse-washing-machines-dishwashers",
-      "publishedAt": "2026-08-10T11:54:18.000Z"
-    },
-    {
-      "title": "Most of sun to be eclipsed across island of Ireland",
-      "whatHappened": "Skywatchers are set to witness two major celestial events next week, with a deep partial solar eclipse followed by the peak of the Perseid meteor shower.",
+      "title": "When and where to see the solar eclipse in Scotland",
+      "whatHappened": "Up to 95% of the Sun will slowly disappear behind the Moon in the most dramatic eclipse visible from the UK since August 1999.",
       "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
       "keyWord": "solar: related to energy from sunlight",
       "source": "BBC Science & Environment",
-      "url": "https://www.bbc.co.uk/news/articles/c39epmz7ex4o?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-08-09T05:19:17.000Z"
-    },
-    {
-      "title": "‘Super El Niño’ could bring wet winter and flooding to western US, climate scientists warn",
-      "whatHappened": "Weather system tied to warming sea surface expected to intensify in fall and winter, persisting until early spring 2027 El Niño , a recurring climate phenomenon...",
-      "whyItMatters": "Weather technology shows how science tools can predict conditions faster and help people prepare earlier.",
-      "keyWord": "weather technology: tools that help people measure, study, or predict weather and climate",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/us-news/2026/aug/08/super-el-nino-winter-flooding",
-      "publishedAt": "2026-08-08T19:21:14.000Z"
+      "url": "https://www.bbc.co.uk/news/articles/cwyrk522pxro?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-08-11T11:17:16.000Z"
     }
   ],
   "universityNews": [
