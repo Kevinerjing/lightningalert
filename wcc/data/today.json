@@ -1,34 +1,43 @@
 {
-  "boardDate": "2026-08-11",
-  "generatedAt": "2026-08-11T12:11:36.761Z",
+  "boardDate": "2026-08-12",
+  "generatedAt": "2026-08-12T12:25:07.807Z",
   "sourceCount": 26,
   "weather": [
     {
       "city": "Ottawa",
       "temperatureC": 18,
-      "maxC": 25,
-      "minC": 16,
-      "summary": "Clear skies"
+      "maxC": 26,
+      "minC": 15,
+      "summary": "Mostly clear"
     }
   ],
   "extremeWeather": [
     {
-      "title": "‘Extreme heat’ warning issued for parts of England on Thursday as temperatures could reach 38C – latest news",
-      "whatHappened": "Met Office says this warning will likely cause ‘adverse’ health effects with travel and power generation also possibly affected The Guardian’s environment editor, Fiona Harvey ,...",
+      "title": "Watch: Severe storms overturn vehicle and trigger flooding in Ohio",
+      "whatHappened": "Residents are being urged to prepare for additional severe storms in the coming days, as officials also report at least one fatality.",
+      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
+      "keyWord": "flood: water covering land that is usually dry",
+      "source": "BBC Science & Environment",
+      "url": "https://www.bbc.co.uk/news/videos/cy451xqkdz5o?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-08-11T20:56:08.000Z"
+    },
+    {
+      "title": "World marks second warmest July on record",
+      "whatHappened": "As multiple regions contend with unbearable heat, drought, wildfires and other extreme weather, the World Meteorological Organization (WMO) on Tuesday underlined the crucial need for stronger...",
+      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
+      "keyWord": "drought: a long time with very little rain",
+      "source": "UN Climate",
+      "url": "https://news.un.org/feed/view/en/story/2026/08/1168115",
+      "publishedAt": "2026-08-11T12:00:00.000Z"
+    },
+    {
+      "title": "Heat, algae and AI: proposed datacenter could damage Everglades, experts warn",
+      "whatHappened": "Plans for hyperscale datacenter in Palm Beach county prompt concerns over water and electricity demands About 16 miles (26km) south-west of Donald Trump ’s Mar-a-Largo estate,...",
       "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
       "keyWord": "drought: a long time with very little rain",
       "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/environment/live/2026/aug/11/uk-europe-france-heatwave-climate-crisis-drought-amber-health-alert-latest-updates-news",
-      "publishedAt": "2026-08-11T12:02:13.000Z"
-    },
-    {
-      "title": "‘Unprecedented, dangerous territory’: US north-west reckons with a summer of historic wildfires",
-      "whatHappened": "Extreme conditions in Washington and Oregon have fueled fast-moving fires, leaving the region draped in toxic plumes – and the danger isn’t over Piles of twisted...",
-      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
-      "keyWord": "extreme weather: unusual and dangerous weather like floods, storms, or heat waves",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/us-news/2026/aug/10/us-wildfires-pacific-north-west",
-      "publishedAt": "2026-08-10T11:00:44.000Z"
+      "url": "https://www.theguardian.com/us-news/2026/aug/12/datacenter-everglades-risk",
+      "publishedAt": "2026-08-12T11:30:27.000Z"
     },
     {
       "title": "Drought, water rationing and dry rivers: our water crisis is here | Peter Gleick",
@@ -40,98 +49,107 @@
       "publishedAt": "2026-08-11T11:00:01.000Z"
     },
     {
-      "title": "Disabled in a heatwave: 'We're talking about survival'",
-      "whatHappened": "Disabled campaigners say the official advice for staying safe in a heatwave can put them in more danger.",
-      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
-      "keyWord": "heat wave: a long period of unusually hot weather",
-      "source": "BBC Science & Environment",
-      "url": "https://www.bbc.co.uk/news/articles/cd6923j2wnpo?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-08-11T00:18:49.000Z"
-    },
-    {
-      "title": "'We've had a lot of close calls': Canada wildfire evacuees wonder if they still have homes",
-      "whatHappened": "More than 12,000 people have been forced to evacuate and some homes have been lost after a wildfire tore through Canada's picturesque Okanagan region.",
+      "title": "Strong El Niño ahead, UN weather agency warns",
+      "whatHappened": "As much of the world faces grapples with above normal temperatures and major rainfall changes, the UN Meteorological Organization (WMO) warned on Friday that El Niño,...",
       "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
       "keyWord": "extreme weather: unusual and dangerous weather like floods, storms, or heat waves",
-      "source": "BBC Science & Environment",
-      "url": "https://www.bbc.co.uk/news/articles/cx2lwv032j9o?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-08-10T19:17:11.000Z"
-    },
-    {
-      "title": "'That fire came so fast': Wildfire rages in British Columbia",
-      "whatHappened": "Officials in British Columbia are still trying to determine how many homes were lost to the fire, which remains out of control as of Monday.",
-      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
-      "keyWord": "extreme weather: unusual and dangerous weather like floods, storms, or heat waves",
-      "source": "BBC Science & Environment",
-      "url": "https://www.bbc.co.uk/news/videos/cx2d4gg57eqo?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-08-10T17:29:05.000Z"
+      "source": "UN Climate",
+      "url": "https://news.un.org/feed/view/en/story/2026/07/1168059",
+      "publishedAt": "2026-07-31T12:00:00.000Z"
     }
   ],
   "climate": [
     {
-      "title": "‘Extreme heat’ warning issued for parts of England on Thursday as temperatures could reach 38C – latest news",
-      "whatHappened": "Met Office says this warning will likely cause ‘adverse’ health effects with travel and power generation also possibly affected The Guardian’s environment editor, Fiona Harvey ,...",
-      "whyItMatters": "Climate and environment stories connect science to real issues like safety, health, and extreme weather.",
+      "title": "Generations of fish 'wiped out' after pollution incident",
+      "whatHappened": "The Department of Environment said 5km of the Kilkeel River in the Mournes area was impacted.",
+      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
       "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/environment/live/2026/aug/11/uk-europe-france-heatwave-climate-crisis-drought-amber-health-alert-latest-updates-news",
-      "publishedAt": "2026-08-11T12:02:13.000Z"
+      "source": "BBC Science & Environment",
+      "url": "https://www.bbc.co.uk/news/articles/cqlxp5lp9ndo?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-08-12T11:50:02.000Z"
     },
     {
-      "title": "When and where to see the solar eclipse in Scotland",
+      "title": "What time and where to see the solar eclipse in Scotland",
       "whatHappened": "Up to 95% of the Sun will slowly disappear behind the Moon in the most dramatic eclipse visible from the UK since August 1999.",
       "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
       "keyWord": "climate: the usual pattern of weather over a long period of time",
       "source": "BBC Science & Environment",
       "url": "https://www.bbc.co.uk/news/articles/cwyrk522pxro?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-08-11T11:17:16.000Z"
+      "publishedAt": "2026-08-12T10:01:43.000Z"
     },
     {
-      "title": "July was hottest month ever recorded in US as heatwaves scorched country",
-      "whatHappened": "Scientists have made clear that the elevated heat in the US was being amplified by the human-caused climate crisis July was the hottest month ever recorded...",
-      "whyItMatters": "Climate and environment stories connect science to real issues like safety, health, and extreme weather.",
-      "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/us-news/2026/aug/10/july-hottest-month-ever-recorded-heatwaves",
-      "publishedAt": "2026-08-10T18:49:51.000Z"
-    },
-    {
-      "title": "Can Florida’s ‘coastal corridor’ project safeguard wildlife and boost economy?",
-      "whatHappened": "Conservationists have created a ‘coastal corridor’ of ocean-based projects designed to preserve and nourish vulnerable marine life From disappearing manatees to bleached coral reefs , gender-changing...",
+      "title": "Drone footage shows rare bird’s-eye view of stingrays off New York coast",
+      "whatHappened": "With wing spans up to 3ft, the shy cownose ray species typically arrive in Long Island waters in the warmer months Drone footage of dozens of...",
       "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
       "keyWord": "climate: the usual pattern of weather over a long period of time",
       "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/us-news/2026/aug/10/florida-coastal-corridor-marine-life",
-      "publishedAt": "2026-08-10T12:00:44.000Z"
+      "url": "https://www.theguardian.com/us-news/2026/aug/12/new-york-stingrays-drone-footage",
+      "publishedAt": "2026-08-12T10:00:27.000Z"
     },
     {
-      "title": "Food prices edged up in July amid heatwaves and energy price hikes",
-      "whatHappened": "The cost of key foods edged up last month as searing heatwaves and ongoing geopolitical uncertainty impacted energy prices around the world.",
-      "whyItMatters": "Climate and environment stories connect science to real issues like safety, health, and extreme weather.",
-      "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "UN Climate",
-      "url": "https://news.un.org/feed/view/en/story/2026/08/1168096",
-      "publishedAt": "2026-08-07T12:00:00.000Z"
-    },
-    {
-      "title": "Africans bear the brunt of biodiversity loss",
-      "whatHappened": "For millions across Africa and the developing world, the biodiversity crisis is not an abstract problem – it’s the soil that no longer yields bountiful harvests...",
+      "title": "Best places to see partial solar eclipse across England",
+      "whatHappened": "Some parts of England could see up to 96 per cent of the moon covering the sun on 12 August.",
       "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
       "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "UN Climate",
-      "url": "https://news.un.org/feed/view/en/story/2026/08/1168078",
-      "publishedAt": "2026-08-04T12:00:00.000Z"
+      "source": "BBC Science & Environment",
+      "url": "https://www.bbc.co.uk/news/articles/cdx7kzv5e3qo?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-08-12T08:28:13.000Z"
+    },
+    {
+      "title": "Solar eclipse and the island of Ireland: The weather forecast and all you need to know",
+      "whatHappened": "Skywatchers are set to witness two major celestial events next week, with a deep partial solar eclipse followed by the peak of the Perseid meteor shower.",
+      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
+      "keyWord": "climate: the usual pattern of weather over a long period of time",
+      "source": "BBC Science & Environment",
+      "url": "https://www.bbc.co.uk/news/articles/c39epmz7ex4o?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-08-12T07:35:18.000Z"
+    },
+    {
+      "title": "Solar eclipse glasses 'sold out everywhere' as people look for alternatives",
+      "whatHappened": "Eclipse glasses can offer protection from harmful rays of sunlight but most high street stores have sold out.",
+      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
+      "keyWord": "climate: the usual pattern of weather over a long period of time",
+      "source": "BBC Science & Environment",
+      "url": "https://www.bbc.co.uk/news/articles/c2lqwyxj024o?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-08-11T17:58:11.000Z"
     }
   ],
   "weatherTech": [
     {
-      "title": "When and where to see the solar eclipse in Scotland",
+      "title": "Solar eclipse and the island of Ireland: The weather forecast and all you need to know",
+      "whatHappened": "Skywatchers are set to witness two major celestial events next week, with a deep partial solar eclipse followed by the peak of the Perseid meteor shower.",
+      "whyItMatters": "Weather technology shows how science tools can predict conditions faster and help people prepare earlier.",
+      "keyWord": "forecast: a prediction about future weather conditions",
+      "source": "BBC Science & Environment",
+      "url": "https://www.bbc.co.uk/news/articles/c39epmz7ex4o?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-08-12T07:35:18.000Z"
+    },
+    {
+      "title": "What time and where to see the solar eclipse in Scotland",
       "whatHappened": "Up to 95% of the Sun will slowly disappear behind the Moon in the most dramatic eclipse visible from the UK since August 1999.",
       "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
       "keyWord": "solar: related to energy from sunlight",
       "source": "BBC Science & Environment",
       "url": "https://www.bbc.co.uk/news/articles/cwyrk522pxro?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-08-11T11:17:16.000Z"
+      "publishedAt": "2026-08-12T10:01:43.000Z"
+    },
+    {
+      "title": "Best places to see partial solar eclipse across England",
+      "whatHappened": "Some parts of England could see up to 96 per cent of the moon covering the sun on 12 August.",
+      "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
+      "keyWord": "solar: related to energy from sunlight",
+      "source": "BBC Science & Environment",
+      "url": "https://www.bbc.co.uk/news/articles/cdx7kzv5e3qo?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-08-12T08:28:13.000Z"
+    },
+    {
+      "title": "Solar eclipse glasses 'sold out everywhere' as people look for alternatives",
+      "whatHappened": "Eclipse glasses can offer protection from harmful rays of sunlight but most high street stores have sold out.",
+      "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
+      "keyWord": "solar: related to energy from sunlight",
+      "source": "BBC Science & Environment",
+      "url": "https://www.bbc.co.uk/news/articles/c2lqwyxj024o?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-08-11T17:58:11.000Z"
     }
   ],
   "universityNews": [
@@ -199,24 +217,6 @@
       "publishedAt": "2026-07-16T09:00:00.000Z"
     },
     {
-      "title": "Shim, Russell reappointed to dean roles",
-      "whatHappened": "The deans of the School of Human Ecology and the Division of Continuing Studies recently completed a dean review.",
-      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
-      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
-      "source": "University of Wisconsin News",
-      "url": "https://news.wisc.edu/shim-russell-reappointed-to-dean-roles/",
-      "publishedAt": "2026-08-03T20:28:46.000Z"
-    },
-    {
-      "title": "August 3 campus cooling update",
-      "whatHappened": "To the campus community, Thank you again for your continued flexibility throughout the last several weeks of work to repair and restore the chilled water system...",
-      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
-      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
-      "source": "University of Wisconsin News",
-      "url": "https://news.wisc.edu/august-3-campus-cooling-update/",
-      "publishedAt": "2026-08-03T16:56:42.000Z"
-    },
-    {
       "title": "Building energy security through more sustainable batteries",
       "whatHappened": "PhD student Hugh Smith works to develop sodium-ion batteries, whose components are more abundant and accessible than those of conventional lithium-ion technology.",
       "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
@@ -242,6 +242,15 @@
       "source": "MIT Earth & Atmospheric Sciences",
       "url": "https://news.mit.edu/2026/scientists-find-ozone-depletion-began-decades-before-ozone-hole-discovery-0629",
       "publishedAt": "2026-06-29T19:00:00.000Z"
+    },
+    {
+      "title": "Insect submariners survive the depths without imploding",
+      "whatHappened": "UBC researchers discovered a remarkable adaptation that challenges a long-standing explanation for why insects never colonized the open ocean.",
+      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
+      "keyWord": "research: careful study used to discover new knowledge",
+      "source": "UBC News",
+      "url": "https://news.ubc.ca/2026/07/insect-submariners-survive-the-depths-without-imploding/",
+      "publishedAt": "2026-07-23T18:00:00.000Z"
     }
   ]
 }
