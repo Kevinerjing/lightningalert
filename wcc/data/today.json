@@ -1,25 +1,25 @@
 {
-  "boardDate": "2026-08-12",
-  "generatedAt": "2026-08-12T12:25:07.807Z",
+  "boardDate": "2026-08-13",
+  "generatedAt": "2026-08-13T12:11:36.741Z",
   "sourceCount": 26,
   "weather": [
     {
       "city": "Ottawa",
-      "temperatureC": 18,
-      "maxC": 26,
-      "minC": 15,
+      "temperatureC": 17,
+      "maxC": 24,
+      "minC": 14,
       "summary": "Mostly clear"
     }
   ],
   "extremeWeather": [
     {
-      "title": "Watch: Severe storms overturn vehicle and trigger flooding in Ohio",
-      "whatHappened": "Residents are being urged to prepare for additional severe storms in the coming days, as officials also report at least one fatality.",
+      "title": "Powerful storms in US midwest leave three dead and 800,000 without power",
+      "whatHappened": "Winds of more than 80mph, severe flooding and tornadoes swept through Indiana, Ohio, Illinois and Kentucky Powerful storms swept across ⁠the midwest on Tuesday, leaving three...",
       "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
       "keyWord": "flood: water covering land that is usually dry",
-      "source": "BBC Science & Environment",
-      "url": "https://www.bbc.co.uk/news/videos/cy451xqkdz5o?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-08-11T20:56:08.000Z"
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/us-news/2026/aug/12/midwest-storms-deaths-wind-power-outages-flooding",
+      "publishedAt": "2026-08-12T13:11:21.000Z"
     },
     {
       "title": "World marks second warmest July on record",
@@ -31,22 +31,31 @@
       "publishedAt": "2026-08-11T12:00:00.000Z"
     },
     {
-      "title": "Heat, algae and AI: proposed datacenter could damage Everglades, experts warn",
-      "whatHappened": "Plans for hyperscale datacenter in Palm Beach county prompt concerns over water and electricity demands About 16 miles (26km) south-west of Donald Trump ’s Mar-a-Largo estate,...",
+      "title": "Severe storms cut power supply to 540,000 homes in US midwest",
+      "whatHappened": "Indiana faced most outages at 267,000, about 8% of its customers, with severe thunderstorms and wind ahead Power supply was cut on Thursday ⁠to about 540,000...",
+      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
+      "keyWord": "extreme weather: unusual and dangerous weather like floods, storms, or heat waves",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/us-news/2026/aug/13/power-outages-midwest-indiana-storms",
+      "publishedAt": "2026-08-13T11:49:29.000Z"
+    },
+    {
+      "title": "Europe heatwave live: Temperatures of 40C expected in Spain; rare warning for ‘extreme heat’ expanded across England",
+      "whatHappened": "A former UK government scientific adviser warned amid the ‘shattering’ heat that worse is still to come Met Office has just offered an update on temperatures...",
+      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
+      "keyWord": "heat wave: a long period of unusually hot weather",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/environment/live/2026/aug/13/europe-heatwave-france-spain-italy-uk-degrees-temperature-record-summer-drought-latest-news-updates",
+      "publishedAt": "2026-08-13T11:35:01.000Z"
+    },
+    {
+      "title": "A huge AI datacenter is planned near Mar-a-Lago. The Everglades could pay the price",
+      "whatHappened": "Plans for hyperscale datacenter in Palm Beach county prompt concerns over water and electricity demands About 16 miles (26km) west of the Mar-a-Lago estate on President...",
       "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
       "keyWord": "drought: a long time with very little rain",
       "source": "The Guardian Environment",
       "url": "https://www.theguardian.com/us-news/2026/aug/12/datacenter-everglades-risk",
-      "publishedAt": "2026-08-12T11:30:27.000Z"
-    },
-    {
-      "title": "Drought, water rationing and dry rivers: our water crisis is here | Peter Gleick",
-      "whatHappened": "It doesn’t have to be this way.",
-      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
-      "keyWord": "drought: a long time with very little rain",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/commentisfree/2026/aug/11/drought-water-climate-crisis",
-      "publishedAt": "2026-08-11T11:00:01.000Z"
+      "publishedAt": "2026-08-12T16:22:54.000Z"
     },
     {
       "title": "Strong El Niño ahead, UN weather agency warns",
@@ -66,90 +75,90 @@
       "keyWord": "climate: the usual pattern of weather over a long period of time",
       "source": "BBC Science & Environment",
       "url": "https://www.bbc.co.uk/news/articles/cqlxp5lp9ndo?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-08-12T11:50:02.000Z"
+      "publishedAt": "2026-08-12T15:21:34.000Z"
     },
     {
-      "title": "What time and where to see the solar eclipse in Scotland",
-      "whatHappened": "Up to 95% of the Sun will slowly disappear behind the Moon in the most dramatic eclipse visible from the UK since August 1999.",
-      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
-      "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "BBC Science & Environment",
-      "url": "https://www.bbc.co.uk/news/articles/cwyrk522pxro?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-08-12T10:01:43.000Z"
-    },
-    {
-      "title": "Drone footage shows rare bird’s-eye view of stingrays off New York coast",
-      "whatHappened": "With wing spans up to 3ft, the shy cownose ray species typically arrive in Long Island waters in the warmer months Drone footage of dozens of...",
-      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
+      "title": "Severe storms cut power supply to 540,000 homes in US midwest",
+      "whatHappened": "Indiana faced most outages at 267,000, about 8% of its customers, with severe thunderstorms and wind ahead Power supply was cut on Thursday ⁠to about 540,000...",
+      "whyItMatters": "Climate and environment stories connect science to real issues like safety, health, and extreme weather.",
       "keyWord": "climate: the usual pattern of weather over a long period of time",
       "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/us-news/2026/aug/12/new-york-stingrays-drone-footage",
-      "publishedAt": "2026-08-12T10:00:27.000Z"
+      "url": "https://www.theguardian.com/us-news/2026/aug/13/power-outages-midwest-indiana-storms",
+      "publishedAt": "2026-08-13T11:49:29.000Z"
     },
     {
-      "title": "Best places to see partial solar eclipse across England",
-      "whatHappened": "Some parts of England could see up to 96 per cent of the moon covering the sun on 12 August.",
+      "title": "Cloudy skies lead to mixed fortunes for Scotland's eclipse hunters",
+      "whatHappened": "Scotland's best chance of seeing a solar eclipse in 27 years left some disappointed, though there were moments of magic.",
       "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
       "keyWord": "climate: the usual pattern of weather over a long period of time",
       "source": "BBC Science & Environment",
-      "url": "https://www.bbc.co.uk/news/articles/cdx7kzv5e3qo?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-08-12T08:28:13.000Z"
+      "url": "https://www.bbc.co.uk/news/articles/c5y49e2z8yno?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-08-13T05:40:24.000Z"
     },
     {
-      "title": "Solar eclipse and the island of Ireland: The weather forecast and all you need to know",
-      "whatHappened": "Skywatchers are set to witness two major celestial events next week, with a deep partial solar eclipse followed by the peak of the Perseid meteor shower.",
+      "title": "Vultures are disappearing in Nigeria - but the 'Vulture King' is fighting to reverse the trend",
+      "whatHappened": "Some see them as sinister or hunt them for ritual use but these birds play a vital role in nature's cycle.",
       "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
       "keyWord": "climate: the usual pattern of weather over a long period of time",
       "source": "BBC Science & Environment",
-      "url": "https://www.bbc.co.uk/news/articles/c39epmz7ex4o?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-08-12T07:35:18.000Z"
+      "url": "https://www.bbc.co.uk/news/articles/cx256pp33l3o?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-08-12T23:19:28.000Z"
     },
     {
-      "title": "Solar eclipse glasses 'sold out everywhere' as people look for alternatives",
-      "whatHappened": "Eclipse glasses can offer protection from harmful rays of sunlight but most high street stores have sold out.",
+      "title": "Once-in-a-generation solar eclipse wows millions in UK and Europe",
+      "whatHappened": "More than 95% of the Sun was covered by the Moon in Cornwall, while parts of Spain experienced the magic of a total eclipse.",
       "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
       "keyWord": "climate: the usual pattern of weather over a long period of time",
       "source": "BBC Science & Environment",
-      "url": "https://www.bbc.co.uk/news/articles/c2lqwyxj024o?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-08-11T17:58:11.000Z"
+      "url": "https://www.bbc.co.uk/news/articles/ckgdp4923rdo?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-08-12T21:53:45.000Z"
+    },
+    {
+      "title": "Trump administration pulls support for annual Arctic environmental report",
+      "whatHappened": "Move by National Oceanic and Atmospheric Administration is latest government rollback of climate science activity The Trump administration has pulled its support for an annual report...",
+      "whyItMatters": "Climate and environment stories connect science to real issues like safety, health, and extreme weather.",
+      "keyWord": "climate: the usual pattern of weather over a long period of time",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/us-news/2026/aug/12/trump-administration-arctic-environmental-report",
+      "publishedAt": "2026-08-12T18:17:51.000Z"
     }
   ],
   "weatherTech": [
     {
-      "title": "Solar eclipse and the island of Ireland: The weather forecast and all you need to know",
-      "whatHappened": "Skywatchers are set to witness two major celestial events next week, with a deep partial solar eclipse followed by the peak of the Perseid meteor shower.",
+      "title": "Severe storms cut power supply to 540,000 homes in US midwest",
+      "whatHappened": "Indiana faced most outages at 267,000, about 8% of its customers, with severe thunderstorms and wind ahead Power supply was cut on Thursday ⁠to about 540,000...",
+      "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
+      "keyWord": "weather technology: tools that help people measure, study, or predict weather and climate",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/us-news/2026/aug/13/power-outages-midwest-indiana-storms",
+      "publishedAt": "2026-08-13T11:49:29.000Z"
+    },
+    {
+      "title": "Cloudy skies lead to mixed fortunes for Scotland's eclipse hunters",
+      "whatHappened": "Scotland's best chance of seeing a solar eclipse in 27 years left some disappointed, though there were moments of magic.",
+      "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
+      "keyWord": "solar: related to energy from sunlight",
+      "source": "BBC Science & Environment",
+      "url": "https://www.bbc.co.uk/news/articles/c5y49e2z8yno?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-08-13T05:40:24.000Z"
+    },
+    {
+      "title": "Once-in-a-generation solar eclipse wows millions in UK and Europe",
+      "whatHappened": "More than 95% of the Sun was covered by the Moon in Cornwall, while parts of Spain experienced the magic of a total eclipse.",
+      "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
+      "keyWord": "solar: related to energy from sunlight",
+      "source": "BBC Science & Environment",
+      "url": "https://www.bbc.co.uk/news/articles/ckgdp4923rdo?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-08-12T21:53:45.000Z"
+    },
+    {
+      "title": "Northrop’s robot space mechanic is a new way to keep satellites at work longer",
+      "whatHappened": "The Mission Robotic Vehicle is making the first attempt to attach a new thruster to an aging satellite.",
       "whyItMatters": "Weather technology shows how science tools can predict conditions faster and help people prepare earlier.",
-      "keyWord": "forecast: a prediction about future weather conditions",
-      "source": "BBC Science & Environment",
-      "url": "https://www.bbc.co.uk/news/articles/c39epmz7ex4o?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-08-12T07:35:18.000Z"
-    },
-    {
-      "title": "What time and where to see the solar eclipse in Scotland",
-      "whatHappened": "Up to 95% of the Sun will slowly disappear behind the Moon in the most dramatic eclipse visible from the UK since August 1999.",
-      "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
-      "keyWord": "solar: related to energy from sunlight",
-      "source": "BBC Science & Environment",
-      "url": "https://www.bbc.co.uk/news/articles/cwyrk522pxro?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-08-12T10:01:43.000Z"
-    },
-    {
-      "title": "Best places to see partial solar eclipse across England",
-      "whatHappened": "Some parts of England could see up to 96 per cent of the moon covering the sun on 12 August.",
-      "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
-      "keyWord": "solar: related to energy from sunlight",
-      "source": "BBC Science & Environment",
-      "url": "https://www.bbc.co.uk/news/articles/cdx7kzv5e3qo?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-08-12T08:28:13.000Z"
-    },
-    {
-      "title": "Solar eclipse glasses 'sold out everywhere' as people look for alternatives",
-      "whatHappened": "Eclipse glasses can offer protection from harmful rays of sunlight but most high street stores have sold out.",
-      "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
-      "keyWord": "solar: related to energy from sunlight",
-      "source": "BBC Science & Environment",
-      "url": "https://www.bbc.co.uk/news/articles/c2lqwyxj024o?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-08-11T17:58:11.000Z"
+      "keyWord": "satellite: an object in space that collects information and sends it back to Earth",
+      "source": "TechCrunch",
+      "url": "https://techcrunch.com/2026/08/12/northrops-robot-space-mechanic-is-a-new-way-to-keep-satellites-at-work-longer/",
+      "publishedAt": "2026-08-12T20:53:41.000Z"
     }
   ],
   "universityNews": [
@@ -233,15 +242,6 @@
       "source": "MIT Earth & Atmospheric Sciences",
       "url": "https://news.mit.edu/2026/new-flapping-robot-swims-and-flies-like-diving-bird-0709",
       "publishedAt": "2026-07-09T18:00:00.000Z"
-    },
-    {
-      "title": "Scientists find ozone depletion began decades before discovery of ozone hole",
-      "whatHappened": "Using modern tools, they also determined that carbon tetrachloride, used as a dry-cleaning and degreasing agent as early as the 1930s, was at the root of...",
-      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
-      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
-      "source": "MIT Earth & Atmospheric Sciences",
-      "url": "https://news.mit.edu/2026/scientists-find-ozone-depletion-began-decades-before-ozone-hole-discovery-0629",
-      "publishedAt": "2026-06-29T19:00:00.000Z"
     },
     {
       "title": "Insect submariners survive the depths without imploding",
