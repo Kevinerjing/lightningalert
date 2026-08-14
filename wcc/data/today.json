@@ -1,26 +1,17 @@
 {
-  "boardDate": "2026-08-13",
-  "generatedAt": "2026-08-13T12:11:36.741Z",
+  "boardDate": "2026-08-14",
+  "generatedAt": "2026-08-14T12:10:33.404Z",
   "sourceCount": 26,
   "weather": [
     {
       "city": "Ottawa",
-      "temperatureC": 17,
+      "temperatureC": 15,
       "maxC": 24,
-      "minC": 14,
-      "summary": "Mostly clear"
+      "minC": 12,
+      "summary": "Clear skies"
     }
   ],
   "extremeWeather": [
-    {
-      "title": "Powerful storms in US midwest leave three dead and 800,000 without power",
-      "whatHappened": "Winds of more than 80mph, severe flooding and tornadoes swept through Indiana, Ohio, Illinois and Kentucky Powerful storms swept across ⁠the midwest on Tuesday, leaving three...",
-      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
-      "keyWord": "flood: water covering land that is usually dry",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/us-news/2026/aug/12/midwest-storms-deaths-wind-power-outages-flooding",
-      "publishedAt": "2026-08-12T13:11:21.000Z"
-    },
     {
       "title": "World marks second warmest July on record",
       "whatHappened": "As multiple regions contend with unbearable heat, drought, wildfires and other extreme weather, the World Meteorological Organization (WMO) on Tuesday underlined the crucial need for stronger...",
@@ -38,15 +29,6 @@
       "source": "The Guardian Environment",
       "url": "https://www.theguardian.com/us-news/2026/aug/13/power-outages-midwest-indiana-storms",
       "publishedAt": "2026-08-13T11:49:29.000Z"
-    },
-    {
-      "title": "Europe heatwave live: Temperatures of 40C expected in Spain; rare warning for ‘extreme heat’ expanded across England",
-      "whatHappened": "A former UK government scientific adviser warned amid the ‘shattering’ heat that worse is still to come Met Office has just offered an update on temperatures...",
-      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
-      "keyWord": "heat wave: a long period of unusually hot weather",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/environment/live/2026/aug/13/europe-heatwave-france-spain-italy-uk-degrees-temperature-record-summer-drought-latest-news-updates",
-      "publishedAt": "2026-08-13T11:35:01.000Z"
     },
     {
       "title": "A huge AI datacenter is planned near Mar-a-Lago. The Everglades could pay the price",
@@ -69,13 +51,22 @@
   ],
   "climate": [
     {
-      "title": "Generations of fish 'wiped out' after pollution incident",
-      "whatHappened": "The Department of Environment said 5km of the Kilkeel River in the Mournes area was impacted.",
+      "title": "Fossils show huge carbon emissions harm forests, not ‘green the planet’",
+      "whatHappened": "Study of 56m-year-old leaves counters claims from Trump administration members of ‘benefits’ of fossil fuel pollution Adding huge quantities of carbon dioxide into the atmosphere is...",
+      "whyItMatters": "Climate and environment stories connect science to real issues like safety, health, and extreme weather.",
+      "keyWord": "emissions: gases released into the air",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/us-news/2026/aug/13/forests-carbon-dioxide-emissions",
+      "publishedAt": "2026-08-13T18:00:04.000Z"
+    },
+    {
+      "title": "Indian solar mission's new findings throw light on enduring Sun mysteries",
+      "whatHappened": "Why is the Sun's corona millions of degrees hotter than its surface?",
       "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
       "keyWord": "climate: the usual pattern of weather over a long period of time",
       "source": "BBC Science & Environment",
-      "url": "https://www.bbc.co.uk/news/articles/cqlxp5lp9ndo?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-08-12T15:21:34.000Z"
+      "url": "https://www.bbc.co.uk/news/articles/c934wqpd74xo?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-08-14T02:13:27.000Z"
     },
     {
       "title": "Severe storms cut power supply to 540,000 homes in US midwest",
@@ -112,18 +103,18 @@
       "source": "BBC Science & Environment",
       "url": "https://www.bbc.co.uk/news/articles/ckgdp4923rdo?at_medium=RSS&at_campaign=rss",
       "publishedAt": "2026-08-12T21:53:45.000Z"
-    },
-    {
-      "title": "Trump administration pulls support for annual Arctic environmental report",
-      "whatHappened": "Move by National Oceanic and Atmospheric Administration is latest government rollback of climate science activity The Trump administration has pulled its support for an annual report...",
-      "whyItMatters": "Climate and environment stories connect science to real issues like safety, health, and extreme weather.",
-      "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/us-news/2026/aug/12/trump-administration-arctic-environmental-report",
-      "publishedAt": "2026-08-12T18:17:51.000Z"
     }
   ],
   "weatherTech": [
+    {
+      "title": "Indian solar mission's new findings throw light on enduring Sun mysteries",
+      "whatHappened": "Why is the Sun's corona millions of degrees hotter than its surface?",
+      "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
+      "keyWord": "solar: related to energy from sunlight",
+      "source": "BBC Science & Environment",
+      "url": "https://www.bbc.co.uk/news/articles/c934wqpd74xo?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-08-14T02:13:27.000Z"
+    },
     {
       "title": "Severe storms cut power supply to 540,000 homes in US midwest",
       "whatHappened": "Indiana faced most outages at 267,000, about 8% of its customers, with severe thunderstorms and wind ahead Power supply was cut on Thursday ⁠to about 540,000...",
@@ -150,15 +141,6 @@
       "source": "BBC Science & Environment",
       "url": "https://www.bbc.co.uk/news/articles/ckgdp4923rdo?at_medium=RSS&at_campaign=rss",
       "publishedAt": "2026-08-12T21:53:45.000Z"
-    },
-    {
-      "title": "Northrop’s robot space mechanic is a new way to keep satellites at work longer",
-      "whatHappened": "The Mission Robotic Vehicle is making the first attempt to attach a new thruster to an aging satellite.",
-      "whyItMatters": "Weather technology shows how science tools can predict conditions faster and help people prepare earlier.",
-      "keyWord": "satellite: an object in space that collects information and sends it back to Earth",
-      "source": "TechCrunch",
-      "url": "https://techcrunch.com/2026/08/12/northrops-robot-space-mechanic-is-a-new-way-to-keep-satellites-at-work-longer/",
-      "publishedAt": "2026-08-12T20:53:41.000Z"
     }
   ],
   "universityNews": [
@@ -179,6 +161,15 @@
       "source": "Carleton Sustainability",
       "url": "https://carleton.ca/sustainability/2025/carleton-recognised-as-only-university-in-canada-to-achieve-bronze-tier-in-net-zero-challenge/",
       "publishedAt": "2025-07-29T18:25:35.000Z"
+    },
+    {
+      "title": "Can ‘digital twins’ help California manage its growing flood risk?",
+      "whatHappened": "UC Berkeley researchers are creating virtual simulations of the Lower Pajaro River Valley to better integrate ecology, climate change and social equity into flood management.",
+      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
+      "keyWord": "research: careful study used to discover new knowledge",
+      "source": "Berkeley News",
+      "url": "https://news.berkeley.edu/2026/08/13/can-digital-twins-help-california-manage-its-growing-flood-risk/",
+      "publishedAt": "2026-08-13T19:01:34.000Z"
     },
     {
       "title": "Climate Finance Student Guy Ningabo Believes Better Impact Finance Can Transform Renewable Energy in Africa",
@@ -224,6 +215,15 @@
       "source": "MIT Climate & Sustainability",
       "url": "https://news.mit.edu/2026/energy-systems-reliable-grid-future-is-about-location-0716",
       "publishedAt": "2026-07-16T09:00:00.000Z"
+    },
+    {
+      "title": "Ukraine is taking the war deep into Russia. Is it working?",
+      "whatHappened": "Ukraine’s strategic shift toward direct attacks on Russia’s beleaguered energy sector may be tipping the scales in the four-year-old war.",
+      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
+      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
+      "source": "Northeastern Global News",
+      "url": "https://news.northeastern.edu/2026/08/13/russia-ukraine-drone-strikes/",
+      "publishedAt": "2026-08-13T17:37:34.000Z"
     },
     {
       "title": "Building energy security through more sustainable batteries",
