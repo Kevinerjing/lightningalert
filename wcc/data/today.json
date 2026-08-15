@@ -1,12 +1,12 @@
 {
-  "boardDate": "2026-08-14",
-  "generatedAt": "2026-08-14T12:10:33.404Z",
+  "boardDate": "2026-08-15",
+  "generatedAt": "2026-08-15T11:47:24.466Z",
   "sourceCount": 26,
   "weather": [
     {
       "city": "Ottawa",
-      "temperatureC": 15,
-      "maxC": 24,
+      "temperatureC": 13,
+      "maxC": 23,
       "minC": 12,
       "summary": "Clear skies"
     }
@@ -29,15 +29,6 @@
       "source": "The Guardian Environment",
       "url": "https://www.theguardian.com/us-news/2026/aug/13/power-outages-midwest-indiana-storms",
       "publishedAt": "2026-08-13T11:49:29.000Z"
-    },
-    {
-      "title": "A huge AI datacenter is planned near Mar-a-Lago. The Everglades could pay the price",
-      "whatHappened": "Plans for hyperscale datacenter in Palm Beach county prompt concerns over water and electricity demands About 16 miles (26km) west of the Mar-a-Lago estate on President...",
-      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
-      "keyWord": "drought: a long time with very little rain",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/us-news/2026/aug/12/datacenter-everglades-risk",
-      "publishedAt": "2026-08-12T16:22:54.000Z"
     },
     {
       "title": "Strong El Niño ahead, UN weather agency warns",
@@ -107,6 +98,33 @@
   ],
   "weatherTech": [
     {
+      "title": "UK’s biggest EV battery gigafactory shelves expansion as Jaguar Land Rover talks stall",
+      "whatHappened": "Chinese-owned AESC has pushed back plans in sign of slowing transition from petrol and diesel to electric cars Andy Burnham moves to cut new EV sales...",
+      "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
+      "keyWord": "battery: a device that stores energy for later use",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/business/2026/aug/15/uk-ev-battery-gigafactory-aesc-jaguar-land-rover-nissan",
+      "publishedAt": "2026-08-15T11:00:54.000Z"
+    },
+    {
+      "title": "‘Devastating’: bulldozers plough through Big Bend national park as Trump’s border work pushes ahead",
+      "whatHappened": "Heavy machinery seen operating in famous Santa Elena Canyon amid outcry over new wall infrastructure in beloved Texas park Bulldozers have begun plowing up ground at...",
+      "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
+      "keyWord": "weather technology: tools that help people measure, study, or predict weather and climate",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/us-news/2026/aug/14/bulldozers-big-bend-national-park-trump",
+      "publishedAt": "2026-08-14T19:27:08.000Z"
+    },
+    {
+      "title": "Google’s best new camera feature is only for the Pixel 11 series",
+      "whatHappened": "Arguably the coolest new photo feature for the Pixel 11 lineup is Google's new Camera Looks, which process image data differently at the sensor level to...",
+      "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
+      "keyWord": "weather technology: tools that help people measure, study, or predict weather and climate",
+      "source": "The Verge",
+      "url": "https://www.theverge.com/tech/980467/google-pixel-11-camera-looks-older-phones",
+      "publishedAt": "2026-08-14T17:35:22.000Z"
+    },
+    {
       "title": "Indian solar mission's new findings throw light on enduring Sun mysteries",
       "whatHappened": "Why is the Sun's corona millions of degrees hotter than its surface?",
       "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
@@ -132,15 +150,6 @@
       "source": "BBC Science & Environment",
       "url": "https://www.bbc.co.uk/news/articles/c5y49e2z8yno?at_medium=RSS&at_campaign=rss",
       "publishedAt": "2026-08-13T05:40:24.000Z"
-    },
-    {
-      "title": "Once-in-a-generation solar eclipse wows millions in UK and Europe",
-      "whatHappened": "More than 95% of the Sun was covered by the Moon in Cornwall, while parts of Spain experienced the magic of a total eclipse.",
-      "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
-      "keyWord": "solar: related to energy from sunlight",
-      "source": "BBC Science & Environment",
-      "url": "https://www.bbc.co.uk/news/articles/ckgdp4923rdo?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-08-12T21:53:45.000Z"
     }
   ],
   "universityNews": [
@@ -217,6 +226,15 @@
       "publishedAt": "2026-07-16T09:00:00.000Z"
     },
     {
+      "title": "Professor Emeritus Chiang Chung Mei, pioneering scholar of ocean wave dynamics and fluid mechanics, dies at 91",
+      "whatHappened": "A towering figure in theoretical hydrodynamics is remembered for his intellectual rigor, generosity, and lifelong devotion to his students.",
+      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
+      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
+      "source": "MIT Earth & Atmospheric Sciences",
+      "url": "https://news.mit.edu/2026/chiang-chung-mei-dies-0814",
+      "publishedAt": "2026-08-14T20:55:00.000Z"
+    },
+    {
       "title": "Ukraine is taking the war deep into Russia. Is it working?",
       "whatHappened": "Ukraine’s strategic shift toward direct attacks on Russia’s beleaguered energy sector may be tipping the scales in the four-year-old war.",
       "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
@@ -242,15 +260,6 @@
       "source": "MIT Earth & Atmospheric Sciences",
       "url": "https://news.mit.edu/2026/new-flapping-robot-swims-and-flies-like-diving-bird-0709",
       "publishedAt": "2026-07-09T18:00:00.000Z"
-    },
-    {
-      "title": "Insect submariners survive the depths without imploding",
-      "whatHappened": "UBC researchers discovered a remarkable adaptation that challenges a long-standing explanation for why insects never colonized the open ocean.",
-      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
-      "keyWord": "research: careful study used to discover new knowledge",
-      "source": "UBC News",
-      "url": "https://news.ubc.ca/2026/07/insect-submariners-survive-the-depths-without-imploding/",
-      "publishedAt": "2026-07-23T18:00:00.000Z"
     }
   ]
 }
