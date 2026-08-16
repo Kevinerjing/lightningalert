@@ -1,17 +1,35 @@
 {
-  "boardDate": "2026-08-15",
-  "generatedAt": "2026-08-15T11:47:24.466Z",
+  "boardDate": "2026-08-16",
+  "generatedAt": "2026-08-16T11:47:53.238Z",
   "sourceCount": 26,
   "weather": [
     {
       "city": "Ottawa",
-      "temperatureC": 13,
-      "maxC": 23,
+      "temperatureC": 14,
+      "maxC": 24,
       "minC": 12,
-      "summary": "Clear skies"
+      "summary": "Mostly clear"
     }
   ],
   "extremeWeather": [
+    {
+      "title": "At least five people dead in Indiana amid worst flooding in over 30 years, officials say",
+      "whatHappened": "National Weather Service reports that more than 11in of rain fell over a two-day period in some areas At least five people are dead after devastating...",
+      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
+      "keyWord": "flood: water covering land that is usually dry",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/us-news/2026/aug/15/indiana-flooding-deaths",
+      "publishedAt": "2026-08-15T23:56:33.000Z"
+    },
+    {
+      "title": "Hurricane Lala lashes Hawaii with strong winds and torrential rain",
+      "whatHappened": "If the storm makes landfall, it will be Hawaii's first direct hit by a hurricane in 34 years.",
+      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
+      "keyWord": "extreme weather: unusual and dangerous weather like floods, storms, or heat waves",
+      "source": "BBC Science & Environment",
+      "url": "https://www.bbc.co.uk/news/articles/crmrr7kjy9vo?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-08-16T08:49:32.000Z"
+    },
     {
       "title": "World marks second warmest July on record",
       "whatHappened": "As multiple regions contend with unbearable heat, drought, wildfires and other extreme weather, the World Meteorological Organization (WMO) on Tuesday underlined the crucial need for stronger...",
@@ -22,6 +40,15 @@
       "publishedAt": "2026-08-11T12:00:00.000Z"
     },
     {
+      "title": "Firefighters battle wildfire tearing through Belgian nature reserve",
+      "whatHappened": "The fire burning through the major park was described as the country's worst in recent years.",
+      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
+      "keyWord": "extreme weather: unusual and dangerous weather like floods, storms, or heat waves",
+      "source": "BBC Science & Environment",
+      "url": "https://www.bbc.co.uk/news/articles/cp8eex1nmpvo?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-08-15T17:47:42.000Z"
+    },
+    {
       "title": "Severe storms cut power supply to 540,000 homes in US midwest",
       "whatHappened": "Indiana faced most outages at 267,000, about 8% of its customers, with severe thunderstorms and wind ahead Power supply was cut on Thursday ⁠to about 540,000...",
       "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
@@ -29,15 +56,6 @@
       "source": "The Guardian Environment",
       "url": "https://www.theguardian.com/us-news/2026/aug/13/power-outages-midwest-indiana-storms",
       "publishedAt": "2026-08-13T11:49:29.000Z"
-    },
-    {
-      "title": "Strong El Niño ahead, UN weather agency warns",
-      "whatHappened": "As much of the world faces grapples with above normal temperatures and major rainfall changes, the UN Meteorological Organization (WMO) warned on Friday that El Niño,...",
-      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
-      "keyWord": "extreme weather: unusual and dangerous weather like floods, storms, or heat waves",
-      "source": "UN Climate",
-      "url": "https://news.un.org/feed/view/en/story/2026/07/1168059",
-      "publishedAt": "2026-07-31T12:00:00.000Z"
     }
   ],
   "climate": [
@@ -49,6 +67,15 @@
       "source": "The Guardian Environment",
       "url": "https://www.theguardian.com/us-news/2026/aug/13/forests-carbon-dioxide-emissions",
       "publishedAt": "2026-08-13T18:00:04.000Z"
+    },
+    {
+      "title": "Firefighters battle wildfire tearing through Belgian nature reserve",
+      "whatHappened": "The fire burning through the major park was described as the country's worst in recent years.",
+      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
+      "keyWord": "climate: the usual pattern of weather over a long period of time",
+      "source": "BBC Science & Environment",
+      "url": "https://www.bbc.co.uk/news/articles/cp8eex1nmpvo?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-08-15T17:47:42.000Z"
     },
     {
       "title": "Indian solar mission's new findings throw light on enduring Sun mysteries",
@@ -78,34 +105,16 @@
       "publishedAt": "2026-08-13T05:40:24.000Z"
     },
     {
-      "title": "Vultures are disappearing in Nigeria - but the 'Vulture King' is fighting to reverse the trend",
-      "whatHappened": "Some see them as sinister or hunt them for ritual use but these birds play a vital role in nature's cycle.",
-      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
+      "title": "Food prices edged up in July amid heatwaves and energy price hikes",
+      "whatHappened": "The cost of key foods edged up last month as searing heatwaves and ongoing geopolitical uncertainty impacted energy prices around the world.",
+      "whyItMatters": "Climate and environment stories connect science to real issues like safety, health, and extreme weather.",
       "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "BBC Science & Environment",
-      "url": "https://www.bbc.co.uk/news/articles/cx256pp33l3o?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-08-12T23:19:28.000Z"
-    },
-    {
-      "title": "Once-in-a-generation solar eclipse wows millions in UK and Europe",
-      "whatHappened": "More than 95% of the Sun was covered by the Moon in Cornwall, while parts of Spain experienced the magic of a total eclipse.",
-      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
-      "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "BBC Science & Environment",
-      "url": "https://www.bbc.co.uk/news/articles/ckgdp4923rdo?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-08-12T21:53:45.000Z"
+      "source": "UN Climate",
+      "url": "https://news.un.org/feed/view/en/story/2026/08/1168096",
+      "publishedAt": "2026-08-07T12:00:00.000Z"
     }
   ],
   "weatherTech": [
-    {
-      "title": "UK’s biggest EV battery gigafactory shelves expansion as Jaguar Land Rover talks stall",
-      "whatHappened": "Chinese-owned AESC has pushed back plans in sign of slowing transition from petrol and diesel to electric cars Andy Burnham moves to cut new EV sales...",
-      "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
-      "keyWord": "battery: a device that stores energy for later use",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/business/2026/aug/15/uk-ev-battery-gigafactory-aesc-jaguar-land-rover-nissan",
-      "publishedAt": "2026-08-15T11:00:54.000Z"
-    },
     {
       "title": "‘Devastating’: bulldozers plough through Big Bend national park as Trump’s border work pushes ahead",
       "whatHappened": "Heavy machinery seen operating in famous Santa Elena Canyon amid outcry over new wall infrastructure in beloved Texas park Bulldozers have begun plowing up ground at...",
@@ -114,15 +123,6 @@
       "source": "The Guardian Environment",
       "url": "https://www.theguardian.com/us-news/2026/aug/14/bulldozers-big-bend-national-park-trump",
       "publishedAt": "2026-08-14T19:27:08.000Z"
-    },
-    {
-      "title": "Google’s best new camera feature is only for the Pixel 11 series",
-      "whatHappened": "Arguably the coolest new photo feature for the Pixel 11 lineup is Google's new Camera Looks, which process image data differently at the sensor level to...",
-      "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
-      "keyWord": "weather technology: tools that help people measure, study, or predict weather and climate",
-      "source": "The Verge",
-      "url": "https://www.theverge.com/tech/980467/google-pixel-11-camera-looks-older-phones",
-      "publishedAt": "2026-08-14T17:35:22.000Z"
     },
     {
       "title": "Indian solar mission's new findings throw light on enduring Sun mysteries",
