@@ -1,17 +1,26 @@
 {
-  "boardDate": "2026-08-16",
-  "generatedAt": "2026-08-16T11:47:53.238Z",
+  "boardDate": "2026-08-17",
+  "generatedAt": "2026-08-17T11:51:41.867Z",
   "sourceCount": 26,
   "weather": [
     {
       "city": "Ottawa",
-      "temperatureC": 14,
-      "maxC": 24,
-      "minC": 12,
-      "summary": "Mostly clear"
+      "temperatureC": 20,
+      "maxC": 25,
+      "minC": 17,
+      "summary": "Partly cloudy"
     }
   ],
   "extremeWeather": [
+    {
+      "title": "Lala weakens to tropical storm as it lashes Hawaii with heavy wind and rain",
+      "whatHappened": "Hurricane Lala downgraded after skirting Big Island as one person dies and 183,000 still without power Hurricane Lala weakened to a tropical storm on Sunday after...",
+      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
+      "keyWord": "extreme weather: unusual and dangerous weather like floods, storms, or heat waves",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/world/2026/aug/16/hurricane-lala-hawaii-big-island-avoids-landfall",
+      "publishedAt": "2026-08-16T23:45:12.000Z"
+    },
     {
       "title": "At least five people dead in Indiana amid worst flooding in over 30 years, officials say",
       "whatHappened": "National Weather Service reports that more than 11in of rain fell over a two-day period in some areas At least five people are dead after devastating...",
@@ -20,15 +29,6 @@
       "source": "The Guardian Environment",
       "url": "https://www.theguardian.com/us-news/2026/aug/15/indiana-flooding-deaths",
       "publishedAt": "2026-08-15T23:56:33.000Z"
-    },
-    {
-      "title": "Hurricane Lala lashes Hawaii with strong winds and torrential rain",
-      "whatHappened": "If the storm makes landfall, it will be Hawaii's first direct hit by a hurricane in 34 years.",
-      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
-      "keyWord": "extreme weather: unusual and dangerous weather like floods, storms, or heat waves",
-      "source": "BBC Science & Environment",
-      "url": "https://www.bbc.co.uk/news/articles/crmrr7kjy9vo?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-08-16T08:49:32.000Z"
     },
     {
       "title": "World marks second warmest July on record",
@@ -40,22 +40,22 @@
       "publishedAt": "2026-08-11T12:00:00.000Z"
     },
     {
-      "title": "Firefighters battle wildfire tearing through Belgian nature reserve",
-      "whatHappened": "The fire burning through the major park was described as the country's worst in recent years.",
+      "title": "About 100 homes swept away after Hurricane Lala lashes Hawaii",
+      "whatHappened": "The state's governor says there \"amazingly\" does not seem to have been any loss of life besides a car crash.",
+      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
+      "keyWord": "extreme weather: unusual and dangerous weather like floods, storms, or heat waves",
+      "source": "BBC Science & Environment",
+      "url": "https://www.bbc.co.uk/news/articles/crmrr7kjy9vo?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-08-17T00:20:51.000Z"
+    },
+    {
+      "title": "Belgian wildfire doubles in size on third day tearing through nature reserve",
+      "whatHappened": "Hundreds of firefighters are trying to contain the flames consuming the major park.",
       "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
       "keyWord": "extreme weather: unusual and dangerous weather like floods, storms, or heat waves",
       "source": "BBC Science & Environment",
       "url": "https://www.bbc.co.uk/news/articles/cp8eex1nmpvo?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-08-15T17:47:42.000Z"
-    },
-    {
-      "title": "Severe storms cut power supply to 540,000 homes in US midwest",
-      "whatHappened": "Indiana faced most outages at 267,000, about 8% of its customers, with severe thunderstorms and wind ahead Power supply was cut on Thursday ⁠to about 540,000...",
-      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
-      "keyWord": "extreme weather: unusual and dangerous weather like floods, storms, or heat waves",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/us-news/2026/aug/13/power-outages-midwest-indiana-storms",
-      "publishedAt": "2026-08-13T11:49:29.000Z"
+      "publishedAt": "2026-08-16T20:01:51.000Z"
     }
   ],
   "climate": [
@@ -69,52 +69,61 @@
       "publishedAt": "2026-08-13T18:00:04.000Z"
     },
     {
-      "title": "Firefighters battle wildfire tearing through Belgian nature reserve",
-      "whatHappened": "The fire burning through the major park was described as the country's worst in recent years.",
+      "title": "Thom Yorke, Romy and Brian Eno among 200 musicians urging PM to reject new North Sea drilling",
+      "whatHappened": "Robert Smith, Olly Alexander and Paris Paloma also among signatories to letter saying exploitation of Rosebank and Jackdaw fields defies climate reality Business live – latest...",
+      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
+      "keyWord": "climate: the usual pattern of weather over a long period of time",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/business/2026/aug/17/massive-attack-paris-paloma-musicians-burnham-rosebank-north-sea-drilling",
+      "publishedAt": "2026-08-17T11:16:28.000Z"
+    },
+    {
+      "title": "‘Awed by nature’: fans mourn California’s beloved Jackie the bald eagle, whose legacy soars on",
+      "whatHappened": "Famous raptor helped livestream viewers in difficult moments, and inspired a conservation project at her lake home The bald eagle Jackie made her home on the...",
+      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
+      "keyWord": "climate: the usual pattern of weather over a long period of time",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/us-news/2026/aug/16/california-jackie-the-bald-eagle-legacy",
+      "publishedAt": "2026-08-16T14:00:27.000Z"
+    },
+    {
+      "title": "Lala weakens to tropical storm as it lashes Hawaii with heavy wind and rain",
+      "whatHappened": "Hurricane Lala downgraded after skirting Big Island as one person dies and 183,000 still without power Hurricane Lala weakened to a tropical storm on Sunday after...",
+      "whyItMatters": "Climate and environment stories connect science to real issues like safety, health, and extreme weather.",
+      "keyWord": "climate: the usual pattern of weather over a long period of time",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/world/2026/aug/16/hurricane-lala-hawaii-big-island-avoids-landfall",
+      "publishedAt": "2026-08-16T23:45:12.000Z"
+    },
+    {
+      "title": "Belgian wildfire doubles in size on third day tearing through nature reserve",
+      "whatHappened": "Hundreds of firefighters are trying to contain the flames consuming the major park.",
       "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
       "keyWord": "climate: the usual pattern of weather over a long period of time",
       "source": "BBC Science & Environment",
       "url": "https://www.bbc.co.uk/news/articles/cp8eex1nmpvo?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-08-15T17:47:42.000Z"
+      "publishedAt": "2026-08-16T20:01:51.000Z"
     },
     {
-      "title": "Indian solar mission's new findings throw light on enduring Sun mysteries",
-      "whatHappened": "Why is the Sun's corona millions of degrees hotter than its surface?",
+      "title": "Florida sets record for sea turtle nests but Trump move could stall recovery",
+      "whatHappened": "Loggerhead turtles abound this season but rollback of Endangered Species Act protections could threaten future Wildlife groups in Florida are celebrating record numbers of sea turtle...",
       "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
-      "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "BBC Science & Environment",
-      "url": "https://www.bbc.co.uk/news/articles/c934wqpd74xo?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-08-14T02:13:27.000Z"
-    },
-    {
-      "title": "Severe storms cut power supply to 540,000 homes in US midwest",
-      "whatHappened": "Indiana faced most outages at 267,000, about 8% of its customers, with severe thunderstorms and wind ahead Power supply was cut on Thursday ⁠to about 540,000...",
-      "whyItMatters": "Climate and environment stories connect science to real issues like safety, health, and extreme weather.",
       "keyWord": "climate: the usual pattern of weather over a long period of time",
       "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/us-news/2026/aug/13/power-outages-midwest-indiana-storms",
-      "publishedAt": "2026-08-13T11:49:29.000Z"
-    },
-    {
-      "title": "Cloudy skies lead to mixed fortunes for Scotland's eclipse hunters",
-      "whatHappened": "Scotland's best chance of seeing a solar eclipse in 27 years left some disappointed, though there were moments of magic.",
-      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
-      "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "BBC Science & Environment",
-      "url": "https://www.bbc.co.uk/news/articles/c5y49e2z8yno?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-08-13T05:40:24.000Z"
-    },
-    {
-      "title": "Food prices edged up in July amid heatwaves and energy price hikes",
-      "whatHappened": "The cost of key foods edged up last month as searing heatwaves and ongoing geopolitical uncertainty impacted energy prices around the world.",
-      "whyItMatters": "Climate and environment stories connect science to real issues like safety, health, and extreme weather.",
-      "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "UN Climate",
-      "url": "https://news.un.org/feed/view/en/story/2026/08/1168096",
-      "publishedAt": "2026-08-07T12:00:00.000Z"
+      "url": "https://www.theguardian.com/environment/2026/aug/16/florida-sea-turtle-nests-endangered-species",
+      "publishedAt": "2026-08-16T12:00:25.000Z"
     }
   ],
   "weatherTech": [
+    {
+      "title": "Lala weakens to tropical storm as it lashes Hawaii with heavy wind and rain",
+      "whatHappened": "Hurricane Lala downgraded after skirting Big Island as one person dies and 183,000 still without power Hurricane Lala weakened to a tropical storm on Sunday after...",
+      "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
+      "keyWord": "weather technology: tools that help people measure, study, or predict weather and climate",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/world/2026/aug/16/hurricane-lala-hawaii-big-island-avoids-landfall",
+      "publishedAt": "2026-08-16T23:45:12.000Z"
+    },
     {
       "title": "‘Devastating’: bulldozers plough through Big Bend national park as Trump’s border work pushes ahead",
       "whatHappened": "Heavy machinery seen operating in famous Santa Elena Canyon amid outcry over new wall infrastructure in beloved Texas park Bulldozers have begun plowing up ground at...",
@@ -132,24 +141,6 @@
       "source": "BBC Science & Environment",
       "url": "https://www.bbc.co.uk/news/articles/c934wqpd74xo?at_medium=RSS&at_campaign=rss",
       "publishedAt": "2026-08-14T02:13:27.000Z"
-    },
-    {
-      "title": "Severe storms cut power supply to 540,000 homes in US midwest",
-      "whatHappened": "Indiana faced most outages at 267,000, about 8% of its customers, with severe thunderstorms and wind ahead Power supply was cut on Thursday ⁠to about 540,000...",
-      "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
-      "keyWord": "weather technology: tools that help people measure, study, or predict weather and climate",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/us-news/2026/aug/13/power-outages-midwest-indiana-storms",
-      "publishedAt": "2026-08-13T11:49:29.000Z"
-    },
-    {
-      "title": "Cloudy skies lead to mixed fortunes for Scotland's eclipse hunters",
-      "whatHappened": "Scotland's best chance of seeing a solar eclipse in 27 years left some disappointed, though there were moments of magic.",
-      "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
-      "keyWord": "solar: related to energy from sunlight",
-      "source": "BBC Science & Environment",
-      "url": "https://www.bbc.co.uk/news/articles/c5y49e2z8yno?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-08-13T05:40:24.000Z"
     }
   ],
   "universityNews": [
