@@ -1,17 +1,26 @@
 {
-  "boardDate": "2026-08-17",
-  "generatedAt": "2026-08-17T11:51:41.867Z",
+  "boardDate": "2026-08-18",
+  "generatedAt": "2026-08-18T11:53:02.049Z",
   "sourceCount": 26,
   "weather": [
     {
       "city": "Ottawa",
-      "temperatureC": 20,
-      "maxC": 25,
-      "minC": 17,
-      "summary": "Partly cloudy"
+      "temperatureC": 14,
+      "maxC": 26,
+      "minC": 12,
+      "summary": "Cloudy"
     }
   ],
   "extremeWeather": [
+    {
+      "title": "Watch: Flash flood sweeps vehicle away in Hawaii after Hurricane Lala",
+      "whatHappened": "Tropical storm warnings remain for some of the state's islands, as the storm is due to progress west.",
+      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
+      "keyWord": "flood: water covering land that is usually dry",
+      "source": "BBC Science & Environment",
+      "url": "https://www.bbc.co.uk/news/videos/c2el0wd0w3go?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-08-17T15:35:47.000Z"
+    },
     {
       "title": "Lala weakens to tropical storm as it lashes Hawaii with heavy wind and rain",
       "whatHappened": "Hurricane Lala downgraded after skirting Big Island as one person dies and 183,000 still without power Hurricane Lala weakened to a tropical storm on Sunday after...",
@@ -31,6 +40,15 @@
       "publishedAt": "2026-08-15T23:56:33.000Z"
     },
     {
+      "title": "More hosepipe bans in force as drought declared - is your area affected?",
+      "whatHappened": "Nearly 30 million people have been placed under hosepipe bans due to higher demand and low rainfall.",
+      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
+      "keyWord": "drought: a long time with very little rain",
+      "source": "BBC Science & Environment",
+      "url": "https://www.bbc.co.uk/news/articles/crk661074ejo?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-08-17T15:27:01.000Z"
+    },
+    {
       "title": "World marks second warmest July on record",
       "whatHappened": "As multiple regions contend with unbearable heat, drought, wildfires and other extreme weather, the World Meteorological Organization (WMO) on Tuesday underlined the crucial need for stronger...",
       "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
@@ -40,42 +58,24 @@
       "publishedAt": "2026-08-11T12:00:00.000Z"
     },
     {
-      "title": "About 100 homes swept away after Hurricane Lala lashes Hawaii",
-      "whatHappened": "The state's governor says there \"amazingly\" does not seem to have been any loss of life besides a car crash.",
+      "title": "England’s ancient oak trees dying in extreme hot and dry weather",
+      "whatHappened": "Woodland Trust says trees struggling in drought stress, with older ‘survivors’ disproportionately affected England’s ancient oak trees are dying in the summer’s extreme heat and dry...",
       "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
-      "keyWord": "extreme weather: unusual and dangerous weather like floods, storms, or heat waves",
-      "source": "BBC Science & Environment",
-      "url": "https://www.bbc.co.uk/news/articles/crmrr7kjy9vo?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-08-17T00:20:51.000Z"
-    },
-    {
-      "title": "Belgian wildfire doubles in size on third day tearing through nature reserve",
-      "whatHappened": "Hundreds of firefighters are trying to contain the flames consuming the major park.",
-      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
-      "keyWord": "extreme weather: unusual and dangerous weather like floods, storms, or heat waves",
-      "source": "BBC Science & Environment",
-      "url": "https://www.bbc.co.uk/news/articles/cp8eex1nmpvo?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-08-16T20:01:51.000Z"
+      "keyWord": "heat wave: a long period of unusually hot weather",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/environment/2026/aug/18/england-ancient-oak-trees-dying-extreme-hot-dry-weather",
+      "publishedAt": "2026-08-18T11:00:43.000Z"
     }
   ],
   "climate": [
     {
-      "title": "Fossils show huge carbon emissions harm forests, not ‘green the planet’",
-      "whatHappened": "Study of 56m-year-old leaves counters claims from Trump administration members of ‘benefits’ of fossil fuel pollution Adding huge quantities of carbon dioxide into the atmosphere is...",
-      "whyItMatters": "Climate and environment stories connect science to real issues like safety, health, and extreme weather.",
-      "keyWord": "emissions: gases released into the air",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/us-news/2026/aug/13/forests-carbon-dioxide-emissions",
-      "publishedAt": "2026-08-13T18:00:04.000Z"
-    },
-    {
-      "title": "Thom Yorke, Romy and Brian Eno among 200 musicians urging PM to reject new North Sea drilling",
-      "whatHappened": "Robert Smith, Olly Alexander and Paris Paloma also among signatories to letter saying exploitation of Rosebank and Jackdaw fields defies climate reality Business live – latest...",
+      "title": "‘A new normal’: Miami faces worsening seaweed problem as piles of algae wash up on beaches",
+      "whatHappened": "Officials have had to remove thousands of tons of sargassum from Florida’s beaches amid the climate crisis Dealing with seaweed is the bulk of Chris Bumpus’s...",
       "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
       "keyWord": "climate: the usual pattern of weather over a long period of time",
       "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/business/2026/aug/17/massive-attack-paris-paloma-musicians-burnham-rosebank-north-sea-drilling",
-      "publishedAt": "2026-08-17T11:16:28.000Z"
+      "url": "https://www.theguardian.com/us-news/2026/aug/18/miami-sargassum-seaweed-problem-climate-crisis",
+      "publishedAt": "2026-08-18T11:30:44.000Z"
     },
     {
       "title": "‘Awed by nature’: fans mourn California’s beloved Jackie the bald eagle, whose legacy soars on",
@@ -85,6 +85,15 @@
       "source": "The Guardian Environment",
       "url": "https://www.theguardian.com/us-news/2026/aug/16/california-jackie-the-bald-eagle-legacy",
       "publishedAt": "2026-08-16T14:00:27.000Z"
+    },
+    {
+      "title": "England’s ancient oak trees dying in extreme hot and dry weather",
+      "whatHappened": "Woodland Trust says trees struggling in drought stress, with older ‘survivors’ disproportionately affected England’s ancient oak trees are dying in the summer’s extreme heat and dry...",
+      "whyItMatters": "Climate and environment stories connect science to real issues like safety, health, and extreme weather.",
+      "keyWord": "climate: the usual pattern of weather over a long period of time",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/environment/2026/aug/18/england-ancient-oak-trees-dying-extreme-hot-dry-weather",
+      "publishedAt": "2026-08-18T11:00:43.000Z"
     },
     {
       "title": "Lala weakens to tropical storm as it lashes Hawaii with heavy wind and rain",
@@ -116,6 +125,15 @@
   ],
   "weatherTech": [
     {
+      "title": "Elon Musk made flying even worse so Palantir could profit",
+      "whatHappened": "On August 6th, the Minneapolis Air Route Traffic Control Center lost radar and communications for around two hours.",
+      "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
+      "keyWord": "weather technology: tools that help people measure, study, or predict weather and climate",
+      "source": "The Verge",
+      "url": "https://www.theverge.com/transportation/981194/faa-air-traffic-elon-musk-peter-thiel-palantir",
+      "publishedAt": "2026-08-17T22:41:53.000Z"
+    },
+    {
       "title": "Lala weakens to tropical storm as it lashes Hawaii with heavy wind and rain",
       "whatHappened": "Hurricane Lala downgraded after skirting Big Island as one person dies and 183,000 still without power Hurricane Lala weakened to a tropical storm on Sunday after...",
       "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
@@ -123,15 +141,6 @@
       "source": "The Guardian Environment",
       "url": "https://www.theguardian.com/world/2026/aug/16/hurricane-lala-hawaii-big-island-avoids-landfall",
       "publishedAt": "2026-08-16T23:45:12.000Z"
-    },
-    {
-      "title": "‘Devastating’: bulldozers plough through Big Bend national park as Trump’s border work pushes ahead",
-      "whatHappened": "Heavy machinery seen operating in famous Santa Elena Canyon amid outcry over new wall infrastructure in beloved Texas park Bulldozers have begun plowing up ground at...",
-      "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
-      "keyWord": "weather technology: tools that help people measure, study, or predict weather and climate",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/us-news/2026/aug/14/bulldozers-big-bend-national-park-trump",
-      "publishedAt": "2026-08-14T19:27:08.000Z"
     },
     {
       "title": "Indian solar mission's new findings throw light on enduring Sun mysteries",
@@ -144,15 +153,6 @@
     }
   ],
   "universityNews": [
-    {
-      "title": "Yan Yao Joins Columbia Climate School and Columbia Engineering to Advance Next-Generation Energy Storage",
-      "whatHappened": "Yao's arrival advances the university's shared mission to develop innovative solutions at the intersection of energy, sustainability and the environment.",
-      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
-      "keyWord": "sustainability: using resources in a way that can last over time",
-      "source": "Columbia Climate School",
-      "url": "https://news.climate.columbia.edu/2026/08/06/yan-yao-joins-columbia-climate-school-and-columbia-engineering-to-advance-next-generation-energy-storage/",
-      "publishedAt": "2026-08-06T21:45:28.000Z"
-    },
     {
       "title": "Carleton Recognised as Only University in Canada to Achieve Bronze Tier in Net-Zero Challenge",
       "whatHappened": "Carleton University has been recognised as the only university in Canada to achieve the Bronze Tier in the Government of Canada’ Net-Zero Challenge, a significant milestone...",
@@ -172,15 +172,6 @@
       "publishedAt": "2026-08-13T19:01:34.000Z"
     },
     {
-      "title": "Climate Finance Student Guy Ningabo Believes Better Impact Finance Can Transform Renewable Energy in Africa",
-      "whatHappened": "Born and raised in Burundi, East Africa, Ningabo is one of three recipients of the prestigious Stanley Park Climate Finance Scholarship for the M.S.",
-      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
-      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
-      "source": "Columbia Climate School",
-      "url": "https://news.climate.columbia.edu/2026/08/07/climate-finance-student-guy-ningabo-believes-better-impact-finance-can-transform-renewable-energy-in-africa/",
-      "publishedAt": "2026-08-07T14:36:36.000Z"
-    },
-    {
       "title": "Tiny Forest Coming to Carleton",
       "whatHappened": "Sustainability Carleton is thrilled to announce that we are partnering with local environmental organization EnviroCentre to establish a tiny forest at Carleton!",
       "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
@@ -190,6 +181,33 @@
       "publishedAt": "2025-07-29T18:38:05.000Z"
     },
     {
+      "title": "Game plan for a warmer world",
+      "whatHappened": "Tue, 18 Aug 2026 12:00:00 +0000 The impacts of climate change are seen in natural and human systems, and the global sports sector is particularly vulnerable.",
+      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
+      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
+      "source": "Waterloo Environment",
+      "url": "https://uwaterloo.ca/environment/news/game-plan-warmer-world",
+      "publishedAt": "2026-08-18T12:00:00.000Z"
+    },
+    {
+      "title": "Climate School Students Analyze Extreme Heat Risk and Mitigation Efforts at the 2026 FIFA World Cup",
+      "whatHappened": "A Columbia Climate School student team examined extreme heat, poor air quality and emergency management at MetLife Stadium during the FIFA World Cup in New York/New...",
+      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
+      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
+      "source": "Columbia Climate School",
+      "url": "https://news.climate.columbia.edu/2026/08/17/climate-school-students-analyze-extreme-heat-risk-and-mitigation-efforts-at-the-2026-fifa-world-cup/",
+      "publishedAt": "2026-08-17T13:56:37.000Z"
+    },
+    {
+      "title": "You Asked: Is There a Community Prepared To Withstand a Wildfire?",
+      "whatHappened": "A Palisades resident lost her home.",
+      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
+      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
+      "source": "Columbia Climate School",
+      "url": "https://news.climate.columbia.edu/2026/08/14/you-asked-is-there-a-community-prepared-to-withstand-a-wildfire/",
+      "publishedAt": "2026-08-14T16:29:27.000Z"
+    },
+    {
       "title": "Environment researchers build capacity on climate change adaptations and partnerships in Mauritius",
       "whatHappened": "Fri, 07 Aug 2026 12:00:00 +0000 In July, a Faculty of Environment delegation led by Dean Bruce Frayne and Dr.",
       "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
@@ -197,15 +215,6 @@
       "source": "Waterloo Environment",
       "url": "https://uwaterloo.ca/environment/news/recover-builds-capacity-climate-change-adaptations",
       "publishedAt": "2026-08-07T12:00:00.000Z"
-    },
-    {
-      "title": "PhD scholar receives prestigious P.E.O. Scholar Award to advance tourism research",
-      "whatHappened": "Thu, 30 Jul 2026 12:00:00 +0000 Congratulations to Samantha Bray, a PhD student in Geography and Environmental Management, for winning the P.E.O.",
-      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
-      "keyWord": "research: careful study used to discover new knowledge",
-      "source": "Waterloo Environment",
-      "url": "https://uwaterloo.ca/environment/news/phd-scholar-receives-prestigious-peo-scholar-award-advance",
-      "publishedAt": "2026-07-30T12:00:00.000Z"
     },
     {
       "title": "For energy systems that power a reliable grid, the future is all about location",
@@ -226,15 +235,6 @@
       "publishedAt": "2026-08-14T20:55:00.000Z"
     },
     {
-      "title": "Ukraine is taking the war deep into Russia. Is it working?",
-      "whatHappened": "Ukraine’s strategic shift toward direct attacks on Russia’s beleaguered energy sector may be tipping the scales in the four-year-old war.",
-      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
-      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
-      "source": "Northeastern Global News",
-      "url": "https://news.northeastern.edu/2026/08/13/russia-ukraine-drone-strikes/",
-      "publishedAt": "2026-08-13T17:37:34.000Z"
-    },
-    {
       "title": "Building energy security through more sustainable batteries",
       "whatHappened": "PhD student Hugh Smith works to develop sodium-ion batteries, whose components are more abundant and accessible than those of conventional lithium-ion technology.",
       "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
@@ -251,6 +251,15 @@
       "source": "MIT Earth & Atmospheric Sciences",
       "url": "https://news.mit.edu/2026/new-flapping-robot-swims-and-flies-like-diving-bird-0709",
       "publishedAt": "2026-07-09T18:00:00.000Z"
+    },
+    {
+      "title": "Insect submariners survive the depths without imploding",
+      "whatHappened": "UBC researchers discovered a remarkable adaptation that challenges a long-standing explanation for why insects never colonized the open ocean.",
+      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
+      "keyWord": "research: careful study used to discover new knowledge",
+      "source": "UBC News",
+      "url": "https://news.ubc.ca/2026/07/insect-submariners-survive-the-depths-without-imploding/",
+      "publishedAt": "2026-07-23T18:00:00.000Z"
     }
   ]
 }
