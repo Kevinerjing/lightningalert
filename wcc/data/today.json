@@ -1,13 +1,13 @@
 {
-  "boardDate": "2026-08-18",
-  "generatedAt": "2026-08-18T11:53:02.049Z",
+  "boardDate": "2026-08-19",
+  "generatedAt": "2026-08-19T11:53:45.931Z",
   "sourceCount": 26,
   "weather": [
     {
       "city": "Ottawa",
-      "temperatureC": 14,
-      "maxC": 26,
-      "minC": 12,
+      "temperatureC": 19,
+      "maxC": 23,
+      "minC": 17,
       "summary": "Cloudy"
     }
   ],
@@ -58,13 +58,13 @@
       "publishedAt": "2026-08-11T12:00:00.000Z"
     },
     {
-      "title": "England’s ancient oak trees dying in extreme hot and dry weather",
-      "whatHappened": "Woodland Trust says trees struggling in drought stress, with older ‘survivors’ disproportionately affected England’s ancient oak trees are dying in the summer’s extreme heat and dry...",
+      "title": "How soon will the drought be over?",
+      "whatHappened": "Rain has returned to parts of the UK this week but is it enough to end the drought some regions are facing?",
       "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
-      "keyWord": "heat wave: a long period of unusually hot weather",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/environment/2026/aug/18/england-ancient-oak-trees-dying-extreme-hot-dry-weather",
-      "publishedAt": "2026-08-18T11:00:43.000Z"
+      "keyWord": "drought: a long time with very little rain",
+      "source": "BBC Science & Environment",
+      "url": "https://www.bbc.co.uk/news/articles/c0kmlrkypjpo?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-08-18T12:26:05.000Z"
     }
   ],
   "climate": [
@@ -87,13 +87,13 @@
       "publishedAt": "2026-08-16T14:00:27.000Z"
     },
     {
-      "title": "England’s ancient oak trees dying in extreme hot and dry weather",
-      "whatHappened": "Woodland Trust says trees struggling in drought stress, with older ‘survivors’ disproportionately affected England’s ancient oak trees are dying in the summer’s extreme heat and dry...",
-      "whyItMatters": "Climate and environment stories connect science to real issues like safety, health, and extreme weather.",
+      "title": "Labour ‘could lose up to 50 seats’ to Greens if new drilling in North Sea approved",
+      "whatHappened": "Greens say analysis shows government failure to take bold climate action could lead to big gains for party at election UK politics live – latest updates...",
+      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
       "keyWord": "climate: the usual pattern of weather over a long period of time",
       "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/environment/2026/aug/18/england-ancient-oak-trees-dying-extreme-hot-dry-weather",
-      "publishedAt": "2026-08-18T11:00:43.000Z"
+      "url": "https://www.theguardian.com/politics/2026/aug/19/labour-could-lose-seats-greens-new-drilling-north-sea",
+      "publishedAt": "2026-08-19T09:28:36.000Z"
     },
     {
       "title": "Lala weakens to tropical storm as it lashes Hawaii with heavy wind and rain",
@@ -125,13 +125,22 @@
   ],
   "weatherTech": [
     {
-      "title": "Elon Musk made flying even worse so Palantir could profit",
-      "whatHappened": "On August 6th, the Minneapolis Air Route Traffic Control Center lost radar and communications for around two hours.",
-      "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
+      "title": "OpenAI lays out new security changes after its AI hacked Hugging Face",
+      "whatHappened": "OpenAI is announcing security updates following the July news that its AI broke out of a sandboxed environment and accidentally hacked Hugging Face, including improvements to...",
+      "whyItMatters": "Weather technology shows how science tools can predict conditions faster and help people prepare earlier.",
       "keyWord": "weather technology: tools that help people measure, study, or predict weather and climate",
       "source": "The Verge",
-      "url": "https://www.theverge.com/transportation/981194/faa-air-traffic-elon-musk-peter-thiel-palantir",
-      "publishedAt": "2026-08-17T22:41:53.000Z"
+      "url": "https://www.theverge.com/ai-artificial-intelligence/981640/openai-security-changes-ai-hugging-face-hack",
+      "publishedAt": "2026-08-18T19:28:30.000Z"
+    },
+    {
+      "title": "OpenAI institutes new safeguards after Hugging Face breach",
+      "whatHappened": "The new safeguards include more detailed monitoring of models during the development process, as well as greater emphasis on alignment and security during the post-training process.",
+      "whyItMatters": "Weather technology shows how science tools can predict conditions faster and help people prepare earlier.",
+      "keyWord": "weather technology: tools that help people measure, study, or predict weather and climate",
+      "source": "TechCrunch",
+      "url": "https://techcrunch.com/2026/08/18/openai-institutes-new-safeguards-after-hugging-face-breach/",
+      "publishedAt": "2026-08-18T18:00:00.000Z"
     },
     {
       "title": "Lala weakens to tropical storm as it lashes Hawaii with heavy wind and rain",
@@ -141,15 +150,6 @@
       "source": "The Guardian Environment",
       "url": "https://www.theguardian.com/world/2026/aug/16/hurricane-lala-hawaii-big-island-avoids-landfall",
       "publishedAt": "2026-08-16T23:45:12.000Z"
-    },
-    {
-      "title": "Indian solar mission's new findings throw light on enduring Sun mysteries",
-      "whatHappened": "Why is the Sun's corona millions of degrees hotter than its surface?",
-      "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
-      "keyWord": "solar: related to energy from sunlight",
-      "source": "BBC Science & Environment",
-      "url": "https://www.bbc.co.uk/news/articles/c934wqpd74xo?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-08-14T02:13:27.000Z"
     }
   ],
   "universityNews": [
