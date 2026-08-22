@@ -1,26 +1,17 @@
 {
-  "boardDate": "2026-08-21",
-  "generatedAt": "2026-08-21T11:54:46.154Z",
+  "boardDate": "2026-08-22",
+  "generatedAt": "2026-08-22T11:48:31.530Z",
   "sourceCount": 26,
   "weather": [
     {
       "city": "Ottawa",
-      "temperatureC": 12,
+      "temperatureC": 13,
       "maxC": 24,
-      "minC": 10,
-      "summary": "Clear skies"
+      "minC": 11,
+      "summary": "Mostly clear"
     }
   ],
   "extremeWeather": [
-    {
-      "title": "Firefighters sound alarm as US faces critical staffing shortage: ‘We don’t have enough people’",
-      "whatHappened": "Firefighters describe being pushed to limit by a brutal wildfire season, with key leadership roles going unfilled The US has faced a critical shortage of firefighters...",
-      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
-      "keyWord": "extreme weather: unusual and dangerous weather like floods, storms, or heat waves",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/us-news/2026/aug/19/us-firefighters-staffing-shortage",
-      "publishedAt": "2026-08-19T14:00:13.000Z"
-    },
     {
       "title": "World marks second warmest July on record",
       "whatHappened": "As multiple regions contend with unbearable heat, drought, wildfires and other extreme weather, the World Meteorological Organization (WMO) on Tuesday underlined the crucial need for stronger...",
@@ -31,6 +22,42 @@
       "publishedAt": "2026-08-11T12:00:00.000Z"
     },
     {
+      "title": "Welsh county becomes global hotspot for carbon emissions after wildfires",
+      "whatHappened": "The smell of burning from the Blaenavon wildfire was reported 30 miles away in Cardiff.",
+      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
+      "keyWord": "extreme weather: unusual and dangerous weather like floods, storms, or heat waves",
+      "source": "BBC Science & Environment",
+      "url": "https://www.bbc.co.uk/news/articles/cp9e9rg255vo?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-08-22T11:31:09.000Z"
+    },
+    {
+      "title": "‘Its pretty much a guarantee you’ll get stung’: jellyfish keep swimmers out of Delaware beaches",
+      "whatHappened": "Beach patrols report hundreds of stings a day as warmer waters and drought create favorable conditions for jellyfish An unusually high number of jellyfish are crowding...",
+      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
+      "keyWord": "drought: a long time with very little rain",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/us-news/2026/aug/22/jellyfish-sting-delaware-beaches",
+      "publishedAt": "2026-08-22T10:00:00.000Z"
+    },
+    {
+      "title": "Battery fires at recycling centres are costing UK £1bn a year, figures show",
+      "whatHappened": "Experts say fires caused by wrongly discarded lithium batteries, such as those in vapes, are putting lives at risk Fires at recycling centres caused by wrongly...",
+      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
+      "keyWord": "extreme weather: unusual and dangerous weather like floods, storms, or heat waves",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/environment/2026/aug/22/lithium-battery-fires-waste-recycling-centres-vapes-uk",
+      "publishedAt": "2026-08-22T06:00:57.000Z"
+    },
+    {
+      "title": "Tornadoes touch down in New York and Delaware",
+      "whatHappened": "Tornadoes swept through New York and Delaware as severe storms brought torrential rain to the Mid-Atlantic.",
+      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
+      "keyWord": "extreme weather: unusual and dangerous weather like floods, storms, or heat waves",
+      "source": "BBC Science & Environment",
+      "url": "https://www.bbc.co.uk/news/videos/cy07x9ne871o?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-08-21T14:35:50.000Z"
+    },
+    {
       "title": "Wildfire-hit residents remove Greenpeace mural of Burnham from scorched mountain",
       "whatHappened": "After wildfires the group painted an image bearing the words \"Our house is on fire, Andy\".",
       "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
@@ -38,36 +65,18 @@
       "source": "BBC Science & Environment",
       "url": "https://www.bbc.co.uk/news/articles/cn7n0yvpm7vo?at_medium=RSS&at_campaign=rss",
       "publishedAt": "2026-08-21T09:02:24.000Z"
-    },
-    {
-      "title": "Rain to stop in time for weekend as sun returns",
-      "whatHappened": "The heavy downpours that have caused flash flooding will ease during Friday with sunshine returning for the weekend.",
-      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
-      "keyWord": "flood: water covering land that is usually dry",
-      "source": "BBC Science & Environment",
-      "url": "https://www.bbc.co.uk/weather/articles/c2el98pkd3po?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-08-21T00:14:00.000Z"
-    },
-    {
-      "title": "Flash flooding risk as heavy rain hits UK",
-      "whatHappened": "Heavy showers and thunderstorms will continue to affect large parts of the UK.",
-      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
-      "keyWord": "flood: water covering land that is usually dry",
-      "source": "BBC Science & Environment",
-      "url": "https://www.bbc.co.uk/news/videos/c2lq4lwy0z0o?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-08-20T14:54:55.000Z"
-    },
-    {
-      "title": "Human remains again found at Lake Mead as water levels drop amid drought",
-      "whatHappened": "Discovery marks latest grim finding in lake as water levels in crucial reservoir outside Las Vegas continue to decline Human remains have once again been discovered...",
-      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
-      "keyWord": "drought: a long time with very little rain",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/us-news/2026/aug/19/lake-mead-human-remains",
-      "publishedAt": "2026-08-19T17:30:28.000Z"
     }
   ],
   "climate": [
+    {
+      "title": "Welsh county becomes global hotspot for carbon emissions after wildfires",
+      "whatHappened": "The smell of burning from the Blaenavon wildfire was reported 30 miles away in Cardiff.",
+      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
+      "keyWord": "emissions: gases released into the air",
+      "source": "BBC Science & Environment",
+      "url": "https://www.bbc.co.uk/news/articles/cp9e9rg255vo?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-08-22T11:31:09.000Z"
+    },
     {
       "title": "California becomes first US state to set efficiency rules for replacement tires",
       "whatHappened": "Regulations that would block sale of older tires praised by environmental groups amid rightwing backlash California has become the first state in the nation to mandate...",
@@ -87,16 +96,16 @@
       "publishedAt": "2026-08-19T12:00:00.000Z"
     },
     {
-      "title": "Proposed London datacentre will have annual carbon footprint of 27,000 flights to New York",
-      "whatHappened": "Exclusive: Planning documents show datacentre in North Ockendon would be incompatible with UK net zero targets A “hyperscale” datacentre in outer London would generate more than...",
+      "title": "‘Its pretty much a guarantee you’ll get stung’: jellyfish keep swimmers out of Delaware beaches",
+      "whatHappened": "Beach patrols report hundreds of stings a day as warmer waters and drought create favorable conditions for jellyfish An unusually high number of jellyfish are crowding...",
       "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
       "keyWord": "climate: the usual pattern of weather over a long period of time",
       "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/uk-news/2026/aug/21/proposed-london-datacentre-will-have-annual-carbon-footprint-of-27000-flights-to-new-york",
-      "publishedAt": "2026-08-21T10:00:31.000Z"
+      "url": "https://www.theguardian.com/us-news/2026/aug/22/jellyfish-sting-delaware-beaches",
+      "publishedAt": "2026-08-22T10:00:00.000Z"
     },
     {
-      "title": "California oil pipeline can continue to operate, judge rules",
+      "title": "Controversial California oil pipeline can continue to operate, judge rules",
       "whatHappened": "State sought to stop system off coast of Santa Barbara from resuming operations after Trump ordered its reopening An oil pipeline can continue to operate off...",
       "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
       "keyWord": "climate: the usual pattern of weather over a long period of time",
@@ -116,6 +125,33 @@
   ],
   "weatherTech": [
     {
+      "title": "Battery fires at recycling centres are costing UK £1bn a year, figures show",
+      "whatHappened": "Experts say fires caused by wrongly discarded lithium batteries, such as those in vapes, are putting lives at risk Fires at recycling centres caused by wrongly...",
+      "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
+      "keyWord": "battery: a device that stores energy for later use",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/environment/2026/aug/22/lithium-battery-fires-waste-recycling-centres-vapes-uk",
+      "publishedAt": "2026-08-22T06:00:57.000Z"
+    },
+    {
+      "title": "Japanese space tech startup Letara expands beyond satellite thrusters with $16M",
+      "whatHappened": "Japanese space startup Letara is betting its hybrid rocket technology can move beyond small satellite thrusters into a broader market for space, defense and security, after...",
+      "whyItMatters": "Weather technology shows how science tools can predict conditions faster and help people prepare earlier.",
+      "keyWord": "satellite: an object in space that collects information and sends it back to Earth",
+      "source": "TechCrunch",
+      "url": "https://techcrunch.com/2026/08/21/japanese-space-tech-startup-letara-expands-beyond-satellite-thrusters-with-16m/",
+      "publishedAt": "2026-08-22T01:03:06.000Z"
+    },
+    {
+      "title": "The $225 Pebble Time 2 is a refreshingly fun smartwatch",
+      "whatHappened": "The $225 Pebble Time 2 pairs quirky watch faces and apps with physical buttons, an e-paper display, weeks of battery life, and a playful hacker spirit.",
+      "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
+      "keyWord": "battery: a device that stores energy for later use",
+      "source": "TechCrunch",
+      "url": "https://techcrunch.com/2026/08/21/the-225-pebble-time-2-is-a-refreshingly-fun-smartwatch/",
+      "publishedAt": "2026-08-21T19:57:46.000Z"
+    },
+    {
       "title": "The clean energy transition needs land. Can it help restore it too?",
       "whatHappened": "What if the infrastructure needed to fight climate change could also help repair the land beneath it?",
       "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
@@ -134,15 +170,6 @@
       "source": "Carleton Sustainability",
       "url": "https://carleton.ca/sustainability/2025/carleton-recognised-as-only-university-in-canada-to-achieve-bronze-tier-in-net-zero-challenge/",
       "publishedAt": "2025-07-29T18:25:35.000Z"
-    },
-    {
-      "title": "Can ‘digital twins’ help California manage its growing flood risk?",
-      "whatHappened": "UC Berkeley researchers are creating virtual simulations of the Lower Pajaro River Valley to better integrate ecology, climate change and social equity into flood management.",
-      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
-      "keyWord": "research: careful study used to discover new knowledge",
-      "source": "Berkeley News",
-      "url": "https://news.berkeley.edu/2026/08/13/can-digital-twins-help-california-manage-its-growing-flood-risk/",
-      "publishedAt": "2026-08-13T19:01:34.000Z"
     },
     {
       "title": "Tiny Forest Coming to Carleton",
@@ -208,6 +235,24 @@
       "publishedAt": "2026-07-16T09:00:00.000Z"
     },
     {
+      "title": "A promising new weight loss and diabetes treatment helps burn fat while keeping muscle",
+      "whatHappened": "Unlike GLP-1s, which work by suppressing appetite and lowering energy intake, a molecular compound identified by UC Berkeley scientists helps cells burn extra energy with no...",
+      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
+      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
+      "source": "Berkeley News",
+      "url": "https://news.berkeley.edu/2026/08/21/a-promising-new-weight-loss-and-diabetes-treatment-helps-burn-fat-while-keeping-muscle/",
+      "publishedAt": "2026-08-21T18:11:44.000Z"
+    },
+    {
+      "title": "A co-op shrouded in mist and color in an Ecuadorian cloud forest",
+      "whatHappened": "Northeastern University co-op student, Adrian Baez, got back to nature counting thousands of tropical birds in an Ecuadorian cloud forest.",
+      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
+      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
+      "source": "Northeastern Global News",
+      "url": "https://news.northeastern.edu/2026/08/21/ecuadorian-cloud-forest-co-op/",
+      "publishedAt": "2026-08-21T15:51:38.000Z"
+    },
+    {
       "title": "California has an affordability crisis. The fix may be politically uncomfortable.",
       "whatHappened": "Astronomical housing prices.",
       "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
@@ -224,15 +269,6 @@
       "source": "MIT Earth & Atmospheric Sciences",
       "url": "https://news.mit.edu/2026/chiang-chung-mei-dies-0814",
       "publishedAt": "2026-08-14T20:55:00.000Z"
-    },
-    {
-      "title": "Building energy security through more sustainable batteries",
-      "whatHappened": "PhD student Hugh Smith works to develop sodium-ion batteries, whose components are more abundant and accessible than those of conventional lithium-ion technology.",
-      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
-      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
-      "source": "MIT Climate & Sustainability",
-      "url": "https://news.mit.edu/2026/building-energy-security-through-more-sustainable-batteries-hugh-smith-0731",
-      "publishedAt": "2026-07-31T04:00:00.000Z"
     }
   ]
 }
