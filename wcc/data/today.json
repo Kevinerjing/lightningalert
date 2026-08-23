@@ -1,14 +1,14 @@
 {
-  "boardDate": "2026-08-22",
-  "generatedAt": "2026-08-22T11:48:31.530Z",
+  "boardDate": "2026-08-23",
+  "generatedAt": "2026-08-23T11:48:24.551Z",
   "sourceCount": 26,
   "weather": [
     {
       "city": "Ottawa",
-      "temperatureC": 13,
-      "maxC": 24,
-      "minC": 11,
-      "summary": "Mostly clear"
+      "temperatureC": 20,
+      "maxC": 23,
+      "minC": 17,
+      "summary": "Cloudy"
     }
   ],
   "extremeWeather": [
@@ -22,6 +22,24 @@
       "publishedAt": "2026-08-11T12:00:00.000Z"
     },
     {
+      "title": "Pine-cone grenades and planet-baking carbon: the French fires 170 years in the making – a visual guide",
+      "whatHappened": "An 1857 decree to drain swamps and plant a monoculture, detritus from the trees and global heating combined to produce the conditions for the Gironde inferno...",
+      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
+      "keyWord": "extreme weather: unusual and dangerous weather like floods, storms, or heat waves",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/world/2026/aug/23/french-fires-150-years-in-the-making-visual-guide",
+      "publishedAt": "2026-08-23T11:00:32.000Z"
+    },
+    {
+      "title": "Against the wind: despite Trump’s attacks, unions are fighting for good US clean energy jobs",
+      "whatHappened": "Since Hurricane Sandy in 2012, a growing labor movement has addressed the climate crisis and economic inequality Ryan McElroen had spent years repairing the New York...",
+      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
+      "keyWord": "extreme weather: unusual and dangerous weather like floods, storms, or heat waves",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/us-news/2026/aug/23/wind-energy-unions-trump",
+      "publishedAt": "2026-08-23T10:00:30.000Z"
+    },
+    {
       "title": "Welsh county becomes global hotspot for carbon emissions after wildfires",
       "whatHappened": "The smell of burning from the Blaenavon wildfire was reported 30 miles away in Cardiff.",
       "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
@@ -31,22 +49,13 @@
       "publishedAt": "2026-08-22T11:31:09.000Z"
     },
     {
-      "title": "‘Its pretty much a guarantee you’ll get stung’: jellyfish keep swimmers out of Delaware beaches",
+      "title": "‘It’s pretty much a guarantee you’ll get stung’: jellyfish keep swimmers off Delaware beaches",
       "whatHappened": "Beach patrols report hundreds of stings a day as warmer waters and drought create favorable conditions for jellyfish An unusually high number of jellyfish are crowding...",
       "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
       "keyWord": "drought: a long time with very little rain",
       "source": "The Guardian Environment",
       "url": "https://www.theguardian.com/us-news/2026/aug/22/jellyfish-sting-delaware-beaches",
       "publishedAt": "2026-08-22T10:00:00.000Z"
-    },
-    {
-      "title": "Battery fires at recycling centres are costing UK £1bn a year, figures show",
-      "whatHappened": "Experts say fires caused by wrongly discarded lithium batteries, such as those in vapes, are putting lives at risk Fires at recycling centres caused by wrongly...",
-      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
-      "keyWord": "extreme weather: unusual and dangerous weather like floods, storms, or heat waves",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/environment/2026/aug/22/lithium-battery-fires-waste-recycling-centres-vapes-uk",
-      "publishedAt": "2026-08-22T06:00:57.000Z"
     },
     {
       "title": "Tornadoes touch down in New York and Delaware",
@@ -56,18 +65,18 @@
       "source": "BBC Science & Environment",
       "url": "https://www.bbc.co.uk/news/videos/cy07x9ne871o?at_medium=RSS&at_campaign=rss",
       "publishedAt": "2026-08-21T14:35:50.000Z"
-    },
-    {
-      "title": "Wildfire-hit residents remove Greenpeace mural of Burnham from scorched mountain",
-      "whatHappened": "After wildfires the group painted an image bearing the words \"Our house is on fire, Andy\".",
-      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
-      "keyWord": "extreme weather: unusual and dangerous weather like floods, storms, or heat waves",
-      "source": "BBC Science & Environment",
-      "url": "https://www.bbc.co.uk/news/articles/cn7n0yvpm7vo?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-08-21T09:02:24.000Z"
     }
   ],
   "climate": [
+    {
+      "title": "Against the wind: despite Trump’s attacks, unions are fighting for good US clean energy jobs",
+      "whatHappened": "Since Hurricane Sandy in 2012, a growing labor movement has addressed the climate crisis and economic inequality Ryan McElroen had spent years repairing the New York...",
+      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
+      "keyWord": "climate: the usual pattern of weather over a long period of time",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/us-news/2026/aug/23/wind-energy-unions-trump",
+      "publishedAt": "2026-08-23T10:00:30.000Z"
+    },
     {
       "title": "Welsh county becomes global hotspot for carbon emissions after wildfires",
       "whatHappened": "The smell of burning from the Blaenavon wildfire was reported 30 miles away in Cardiff.",
@@ -76,15 +85,6 @@
       "source": "BBC Science & Environment",
       "url": "https://www.bbc.co.uk/news/articles/cp9e9rg255vo?at_medium=RSS&at_campaign=rss",
       "publishedAt": "2026-08-22T11:31:09.000Z"
-    },
-    {
-      "title": "California becomes first US state to set efficiency rules for replacement tires",
-      "whatHappened": "Regulations that would block sale of older tires praised by environmental groups amid rightwing backlash California has become the first state in the nation to mandate...",
-      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
-      "keyWord": "emissions: gases released into the air",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/us-news/2026/aug/19/california-replacement-tires",
-      "publishedAt": "2026-08-19T23:48:06.000Z"
     },
     {
       "title": "The clean energy transition needs land. Can it help restore it too?",
@@ -96,60 +96,51 @@
       "publishedAt": "2026-08-19T12:00:00.000Z"
     },
     {
-      "title": "‘Its pretty much a guarantee you’ll get stung’: jellyfish keep swimmers out of Delaware beaches",
+      "title": "Stores are selling Halloween stuff in August. Time has lost all meaning | Dave Schilling",
+      "whatHappened": "Capitalism and the climate crisis are conspiring to destroy the concept of seasons.",
+      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
+      "keyWord": "climate: the usual pattern of weather over a long period of time",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/commentisfree/2026/aug/23/halloween-capitalism-climate-change",
+      "publishedAt": "2026-08-23T11:00:33.000Z"
+    },
+    {
+      "title": "Pine-cone grenades and planet-baking carbon: the French fires 170 years in the making – a visual guide",
+      "whatHappened": "An 1857 decree to drain swamps and plant a monoculture, detritus from the trees and global heating combined to produce the conditions for the Gironde inferno...",
+      "whyItMatters": "Climate and environment stories connect science to real issues like safety, health, and extreme weather.",
+      "keyWord": "climate: the usual pattern of weather over a long period of time",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/world/2026/aug/23/french-fires-150-years-in-the-making-visual-guide",
+      "publishedAt": "2026-08-23T11:00:32.000Z"
+    },
+    {
+      "title": "‘It’s pretty much a guarantee you’ll get stung’: jellyfish keep swimmers off Delaware beaches",
       "whatHappened": "Beach patrols report hundreds of stings a day as warmer waters and drought create favorable conditions for jellyfish An unusually high number of jellyfish are crowding...",
       "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
       "keyWord": "climate: the usual pattern of weather over a long period of time",
       "source": "The Guardian Environment",
       "url": "https://www.theguardian.com/us-news/2026/aug/22/jellyfish-sting-delaware-beaches",
       "publishedAt": "2026-08-22T10:00:00.000Z"
-    },
-    {
-      "title": "Controversial California oil pipeline can continue to operate, judge rules",
-      "whatHappened": "State sought to stop system off coast of Santa Barbara from resuming operations after Trump ordered its reopening An oil pipeline can continue to operate off...",
-      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
-      "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/us-news/2026/aug/20/california-oil-pipeline-trump-judge-ruling",
-      "publishedAt": "2026-08-21T00:13:47.000Z"
-    },
-    {
-      "title": "Destructive and delicious: how an invasive deer in Hawaii is being turned into dinner",
-      "whatHappened": "The overpopulation of axis deer has taken an environmental toll, but Maui Nui Venison sees it as a resource instead of a pest In 1868, the...",
-      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
-      "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/environment/2026/aug/20/axis-deer-hawaii",
-      "publishedAt": "2026-08-20T10:00:48.000Z"
     }
   ],
   "weatherTech": [
     {
-      "title": "Battery fires at recycling centres are costing UK £1bn a year, figures show",
-      "whatHappened": "Experts say fires caused by wrongly discarded lithium batteries, such as those in vapes, are putting lives at risk Fires at recycling centres caused by wrongly...",
+      "title": "Against the wind: despite Trump’s attacks, unions are fighting for good US clean energy jobs",
+      "whatHappened": "Since Hurricane Sandy in 2012, a growing labor movement has addressed the climate crisis and economic inequality Ryan McElroen had spent years repairing the New York...",
       "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
-      "keyWord": "battery: a device that stores energy for later use",
+      "keyWord": "weather technology: tools that help people measure, study, or predict weather and climate",
       "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/environment/2026/aug/22/lithium-battery-fires-waste-recycling-centres-vapes-uk",
-      "publishedAt": "2026-08-22T06:00:57.000Z"
+      "url": "https://www.theguardian.com/us-news/2026/aug/23/wind-energy-unions-trump",
+      "publishedAt": "2026-08-23T10:00:30.000Z"
     },
     {
-      "title": "Japanese space tech startup Letara expands beyond satellite thrusters with $16M",
-      "whatHappened": "Japanese space startup Letara is betting its hybrid rocket technology can move beyond small satellite thrusters into a broader market for space, defense and security, after...",
-      "whyItMatters": "Weather technology shows how science tools can predict conditions faster and help people prepare earlier.",
-      "keyWord": "satellite: an object in space that collects information and sends it back to Earth",
-      "source": "TechCrunch",
-      "url": "https://techcrunch.com/2026/08/21/japanese-space-tech-startup-letara-expands-beyond-satellite-thrusters-with-16m/",
-      "publishedAt": "2026-08-22T01:03:06.000Z"
-    },
-    {
-      "title": "The $225 Pebble Time 2 is a refreshingly fun smartwatch",
-      "whatHappened": "The $225 Pebble Time 2 pairs quirky watch faces and apps with physical buttons, an e-paper display, weeks of battery life, and a playful hacker spirit.",
+      "title": "US battery startups have found a lifeline in defense",
+      "whatHappened": "U.S.",
       "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
       "keyWord": "battery: a device that stores energy for later use",
       "source": "TechCrunch",
-      "url": "https://techcrunch.com/2026/08/21/the-225-pebble-time-2-is-a-refreshingly-fun-smartwatch/",
-      "publishedAt": "2026-08-21T19:57:46.000Z"
+      "url": "https://techcrunch.com/2026/08/22/us-battery-startups-have-found-a-lifeline-in-defense/",
+      "publishedAt": "2026-08-22T15:20:00.000Z"
     },
     {
       "title": "The clean energy transition needs land. Can it help restore it too?",
