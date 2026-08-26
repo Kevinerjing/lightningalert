@@ -1,43 +1,25 @@
 {
-  "boardDate": "2026-08-25",
-  "generatedAt": "2026-08-25T11:56:25.460Z",
+  "boardDate": "2026-08-26",
+  "generatedAt": "2026-08-26T11:58:00.939Z",
   "sourceCount": 26,
   "weather": [
     {
       "city": "Ottawa",
-      "temperatureC": 16,
-      "maxC": 20,
-      "minC": 15,
+      "temperatureC": 15,
+      "maxC": 25,
+      "minC": 13,
       "summary": "Clear skies"
     }
   ],
   "extremeWeather": [
     {
-      "title": "Fast-moving Hawk wildfire is about 27% contained in Reno, Nevada, officials say",
-      "whatHappened": "Tens of thousands are still under evacuation orders or warnings amid ‘human-caused’, wind-driven blaze The Hawk fire is about 27% contained, authorities said on Monday afternoon,...",
+      "title": "Fires still burn in charred landscape as focus turns to wildfire prevention",
+      "whatHappened": "The RSPB is considering measures it can take to improve resilience in the wake of a five-week long fire in the Cairngorms.",
       "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
       "keyWord": "extreme weather: unusual and dangerous weather like floods, storms, or heat waves",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/us-news/2026/aug/24/hawk-fire-reno-nevada-injuries-evacuations",
-      "publishedAt": "2026-08-25T01:28:27.000Z"
-    },
-    {
-      "title": "Devastation, doubt and blame: Hurricane Helene looms over North Carolina’s US Senate race",
-      "whatHappened": "The Democratic and the Republican candidate each blame the other for the bungled recovery effort after storm struck region Two years after North Carolina suffered the...",
-      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
-      "keyWord": "extreme weather: unusual and dangerous weather like floods, storms, or heat waves",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/us-news/ng-interactive/2026/aug/24/north-carolina-senate-race-hurricane-helene",
-      "publishedAt": "2026-08-24T10:00:30.000Z"
-    },
-    {
-      "title": "World marks second warmest July on record",
-      "whatHappened": "As multiple regions contend with unbearable heat, drought, wildfires and other extreme weather, the World Meteorological Organization (WMO) on Tuesday underlined the crucial need for stronger...",
-      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
-      "keyWord": "drought: a long time with very little rain",
-      "source": "UN Climate",
-      "url": "https://news.un.org/feed/view/en/story/2026/08/1168115",
-      "publishedAt": "2026-08-11T12:00:00.000Z"
+      "source": "BBC Science & Environment",
+      "url": "https://www.bbc.co.uk/news/articles/cvgye1999n8o?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-08-26T05:25:20.000Z"
     },
     {
       "title": "Tornado tears through French village, leaving dozens hurt and homes ravaged",
@@ -47,15 +29,6 @@
       "source": "BBC Science & Environment",
       "url": "https://www.bbc.co.uk/news/articles/c0m3npvpgdno?at_medium=RSS&at_campaign=rss",
       "publishedAt": "2026-08-25T08:52:17.000Z"
-    },
-    {
-      "title": "Welsh county becomes global hotspot for carbon emissions after wildfires",
-      "whatHappened": "The smell of burning from the Blaenavon wildfire was reported 30 miles away in Cardiff.",
-      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
-      "keyWord": "extreme weather: unusual and dangerous weather like floods, storms, or heat waves",
-      "source": "BBC Science & Environment",
-      "url": "https://www.bbc.co.uk/news/articles/cp9e9rg255vo?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-08-22T11:31:09.000Z"
     },
     {
       "title": "Protecting our ‘most vital infrastructure’: Pushing back on desertification",
@@ -69,13 +42,13 @@
   ],
   "climate": [
     {
-      "title": "Two planned datacentres will have higher UK carbon emissions than ExxonMobil, analysis finds",
-      "whatHappened": "Exclusive: Buckinghamshire and Bedfordshire sites predicted to emit 4.5m tonnes a year when fully running The carbon emissions from just two planned datacentres in England will...",
-      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
-      "keyWord": "emissions: gases released into the air",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/uk-news/2026/aug/25/planned-datacentres-carbon-emissions-uk-exxonmobil",
-      "publishedAt": "2026-08-25T11:04:56.000Z"
+      "title": "Japan’s ‘2050 Weather Forecast’ highlights extreme heat in the future",
+      "whatHappened": "As extreme heat becomes an increasingly visible reality across Japan, meteorologists, scientists, businesses and professional footballers are joining forces to encourage stronger climate action and raise...",
+      "whyItMatters": "Climate and environment stories connect science to real issues like safety, health, and extreme weather.",
+      "keyWord": "climate: the usual pattern of weather over a long period of time",
+      "source": "UN Climate",
+      "url": "https://news.un.org/feed/view/en/story/2026/08/1168197",
+      "publishedAt": "2026-08-25T12:00:00.000Z"
     },
     {
       "title": "Trump EPA aims to exempt datacenters from disclosing air pollution, advocates warn",
@@ -105,15 +78,6 @@
       "publishedAt": "2026-08-25T09:00:53.000Z"
     },
     {
-      "title": "Welsh county becomes global hotspot for carbon emissions after wildfires",
-      "whatHappened": "The smell of burning from the Blaenavon wildfire was reported 30 miles away in Cardiff.",
-      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
-      "keyWord": "emissions: gases released into the air",
-      "source": "BBC Science & Environment",
-      "url": "https://www.bbc.co.uk/news/articles/cp9e9rg255vo?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-08-22T11:31:09.000Z"
-    },
-    {
       "title": "The clean energy transition needs land. Can it help restore it too?",
       "whatHappened": "What if the infrastructure needed to fight climate change could also help repair the land beneath it?",
       "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
@@ -121,9 +85,36 @@
       "source": "UN Climate",
       "url": "https://news.un.org/feed/view/en/story/2026/08/1168172",
       "publishedAt": "2026-08-19T12:00:00.000Z"
+    },
+    {
+      "title": "‘National scandal’: extreme heat linked to 40,000 deaths in England between 1988 and 2025",
+      "whatHappened": "ONS data shows rising toll of climate crisis, with officials warning this summer on track to set further records More than 40,000 extra people died on...",
+      "whyItMatters": "Climate and environment stories connect science to real issues like safety, health, and extreme weather.",
+      "keyWord": "climate: the usual pattern of weather over a long period of time",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/environment/2026/aug/26/deaths-england-hottest-days-extreme-weather",
+      "publishedAt": "2026-08-26T10:55:34.000Z"
     }
   ],
   "weatherTech": [
+    {
+      "title": "Record-breaking heat dome expected to bring dangerous temperatures to US south-west",
+      "whatHappened": "As wildfires rage and intense heat builds across the region, daytime highs of 110-11F (43-46C) are forecast Surging temperatures are expected to broil more than 45...",
+      "whyItMatters": "Weather technology shows how science tools can predict conditions faster and help people prepare earlier.",
+      "keyWord": "forecast: a prediction about future weather conditions",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/us-news/2026/aug/25/us-weather-heat-dome-south-west",
+      "publishedAt": "2026-08-25T22:40:43.000Z"
+    },
+    {
+      "title": "Japan’s ‘2050 Weather Forecast’ highlights extreme heat in the future",
+      "whatHappened": "As extreme heat becomes an increasingly visible reality across Japan, meteorologists, scientists, businesses and professional footballers are joining forces to encourage stronger climate action and raise...",
+      "whyItMatters": "Weather technology shows how science tools can predict conditions faster and help people prepare earlier.",
+      "keyWord": "forecast: a prediction about future weather conditions",
+      "source": "UN Climate",
+      "url": "https://news.un.org/feed/view/en/story/2026/08/1168197",
+      "publishedAt": "2026-08-25T12:00:00.000Z"
+    },
     {
       "title": "‘Environmental violence’: inside the fight to save indigenous land from becoming a nuclear dumping ground",
       "whatHappened": "New documentary To Use a Mountain spotlights the pain and triumph of resisting government efforts to turn parts of rural US into disposal sites Nuclear energy...",
@@ -132,15 +123,6 @@
       "source": "The Guardian Environment",
       "url": "https://www.theguardian.com/film/2026/aug/25/to-use-a-mountain-documentary-interview",
       "publishedAt": "2026-08-25T09:00:53.000Z"
-    },
-    {
-      "title": "Fast-moving Hawk wildfire is about 27% contained in Reno, Nevada, officials say",
-      "whatHappened": "Tens of thousands are still under evacuation orders or warnings amid ‘human-caused’, wind-driven blaze The Hawk fire is about 27% contained, authorities said on Monday afternoon,...",
-      "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
-      "keyWord": "weather technology: tools that help people measure, study, or predict weather and climate",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/us-news/2026/aug/24/hawk-fire-reno-nevada-injuries-evacuations",
-      "publishedAt": "2026-08-25T01:28:27.000Z"
     },
     {
       "title": "The clean energy transition needs land. Can it help restore it too?",
@@ -217,13 +199,13 @@
       "publishedAt": "2026-08-07T12:00:00.000Z"
     },
     {
-      "title": "For energy systems that power a reliable grid, the future is all about location",
-      "whatHappened": "MIT researchers find that where new energy projects are built could be key to avoiding blackouts in a future with hotter weather and other challenges.",
+      "title": "$27M WARF investment fuels UW–Madison’s next frontiers in research",
+      "whatHappened": "The gift aims to accelerate four high-impact research initiatives at the university: quantum technologies, brain health, fusion energy and national security.",
       "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
       "keyWord": "research: careful study used to discover new knowledge",
-      "source": "MIT Earth & Atmospheric Sciences",
-      "url": "https://news.mit.edu/2026/energy-systems-reliable-grid-future-is-about-location-0716",
-      "publishedAt": "2026-07-16T09:00:00.000Z"
+      "source": "University of Wisconsin News",
+      "url": "https://news.wisc.edu/27m-warf-investment-fuels-uw-madisons-next-frontiers-in-research/",
+      "publishedAt": "2026-08-25T12:03:00.000Z"
     },
     {
       "title": "A promising new weight loss and diabetes treatment helps burn fat while keeping muscle",
