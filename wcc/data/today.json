@@ -1,25 +1,43 @@
 {
-  "boardDate": "2026-08-27",
-  "generatedAt": "2026-08-27T21:08:43.914Z",
+  "boardDate": "2026-08-28",
+  "generatedAt": "2026-08-28T21:29:12.885Z",
   "sourceCount": 26,
   "weather": [
     {
       "city": "Ottawa",
-      "temperatureC": 24,
-      "maxC": 25,
-      "minC": 15,
-      "summary": "Mostly clear"
+      "temperatureC": 20,
+      "maxC": 21,
+      "minC": 13,
+      "summary": "Clear skies"
     }
   ],
   "extremeWeather": [
     {
       "title": "'Our parents were crossing the border an hour before the flood hit'",
-      "whatHappened": "Authorities say more than 1,300 people are missing, including dozens of Americans and Canadians, as families await word on loved ones thought to be caught in...",
+      "whatHappened": "Authorities say nearly 2,000 people are missing, including more than 100 Americans and Canadians, as families await word on loved ones after the Nepal flash floods.",
       "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
       "keyWord": "flood: water covering land that is usually dry",
       "source": "BBC Science & Environment",
       "url": "https://www.bbc.co.uk/news/articles/cn5dzldq1pzo?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-08-27T20:29:02.000Z"
+      "publishedAt": "2026-08-28T17:59:31.000Z"
+    },
+    {
+      "title": "‘Immense impact’ of Nepal flood disaster highlighted as casualties mount",
+      "whatHappened": "The impact of the deadly flood in Nepal has been described as “immense” as the authorities there confirm that 538 bodies have been recovered from the...",
+      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
+      "keyWord": "flood: water covering land that is usually dry",
+      "source": "UN Climate",
+      "url": "https://news.un.org/feed/view/en/story/2026/08/1168221",
+      "publishedAt": "2026-08-28T12:00:00.000Z"
+    },
+    {
+      "title": "'The flood took everything': Nepal survivors describe horror of loved ones being swept away",
+      "whatHappened": "One woman says her father, mother, sister and sister's children were carried away before her eyes.",
+      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
+      "keyWord": "flood: water covering land that is usually dry",
+      "source": "BBC Science & Environment",
+      "url": "https://www.bbc.co.uk/news/articles/cd08z840p8lo?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-08-28T03:23:21.000Z"
     },
     {
       "title": "France relaxes strict cheese-making rules after prolonged drought",
@@ -29,15 +47,6 @@
       "source": "BBC Science & Environment",
       "url": "https://www.bbc.co.uk/news/articles/c980e36dd5do?at_medium=RSS&at_campaign=rss",
       "publishedAt": "2026-08-27T18:29:38.000Z"
-    },
-    {
-      "title": "Climate crisis could be destabilising mountain areas like Nepal, experts warn",
-      "whatHappened": "Unusual heat this year may have melted ice and thawed bonds that hold glaciers in place – leading to catastrophe Nepal-Tibet flash flood – latest updates...",
-      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
-      "keyWord": "flood: water covering land that is usually dry",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/world/2026/aug/27/climate-crisis-mountain-areas-glaciers-nepal-tibet",
-      "publishedAt": "2026-08-27T18:25:13.000Z"
     },
     {
       "title": "What caused the flooding in Nepal?",
@@ -56,18 +65,18 @@
       "source": "UN Climate",
       "url": "https://news.un.org/feed/view/en/story/2026/08/1168213",
       "publishedAt": "2026-08-27T12:00:00.000Z"
-    },
-    {
-      "title": "'The flood took everything': Nepal survivors describe horror of loved ones being swept away",
-      "whatHappened": "One woman says her father, mother, sister and sister's children were carried away before her eyes.",
-      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
-      "keyWord": "flood: water covering land that is usually dry",
-      "source": "BBC Science & Environment",
-      "url": "https://www.bbc.co.uk/news/articles/cd08z840p8lo?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-08-27T07:09:52.000Z"
     }
   ],
   "climate": [
+    {
+      "title": "Trump rollback of US forest protections could accelerate extinction of 400 endangered species",
+      "whatHappened": "Decision to rescind ‘roadless rule’ opens more than 45m acres of national forests to roads, drilling and logging More than 400 endangered animal and plant species...",
+      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
+      "keyWord": "climate: the usual pattern of weather over a long period of time",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/us-news/2026/aug/28/endangered-species-extinction-trump-forest-protections",
+      "publishedAt": "2026-08-28T12:00:58.000Z"
+    },
     {
       "title": "Japan’s ‘2050 Weather Forecast’ highlights extreme heat in the future",
       "whatHappened": "As extreme heat becomes an increasingly visible reality across Japan, meteorologists, scientists, businesses and professional footballers are joining forces to encourage stronger climate action and raise...",
@@ -87,13 +96,13 @@
       "publishedAt": "2026-08-19T12:00:00.000Z"
     },
     {
-      "title": "Climate crisis could be destabilising mountain areas like Nepal, experts warn",
-      "whatHappened": "Unusual heat this year may have melted ice and thawed bonds that hold glaciers in place – leading to catastrophe Nepal-Tibet flash flood – latest updates...",
-      "whyItMatters": "Climate and environment stories connect science to real issues like safety, health, and extreme weather.",
+      "title": "Louisiana gears up for first recreational alligator hunt in more than 50 years",
+      "whatHappened": "State to offer up to 5,000 trappers chance to snare reptiles whose numbers have risen to 3m from fewer than 100,000 The first recreational alligator hunt...",
+      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
       "keyWord": "climate: the usual pattern of weather over a long period of time",
       "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/world/2026/aug/27/climate-crisis-mountain-areas-glaciers-nepal-tibet",
-      "publishedAt": "2026-08-27T18:25:13.000Z"
+      "url": "https://www.theguardian.com/us-news/2026/aug/28/louisiana-alligator-hunt-recreational",
+      "publishedAt": "2026-08-28T15:16:46.000Z"
     },
     {
       "title": "El Niño climate patterns supercharged by burning of fossil fuels, study finds",
@@ -112,36 +121,9 @@
       "source": "The Guardian Environment",
       "url": "https://www.theguardian.com/us-news/ng-interactive/2026/aug/26/oregon-wildfire-smoke-deaths",
       "publishedAt": "2026-08-26T12:00:11.000Z"
-    },
-    {
-      "title": "‘132F’: meet the man calling out NYC’s infernally hot subway stations",
-      "whatHappened": "Jack Klein takes heat readings, gives fans to overheated passengers and lugs big jugs of water into the stations On a recent August day in the...",
-      "whyItMatters": "Climate and environment stories connect science to real issues like safety, health, and extreme weather.",
-      "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/us-news/2026/aug/26/new-york-subway-extreme-heat",
-      "publishedAt": "2026-08-26T10:00:41.000Z"
     }
   ],
   "weatherTech": [
-    {
-      "title": "Climate crisis could be destabilising mountain areas like Nepal, experts warn",
-      "whatHappened": "Unusual heat this year may have melted ice and thawed bonds that hold glaciers in place – leading to catastrophe Nepal-Tibet flash flood – latest updates...",
-      "whyItMatters": "Weather technology shows how science tools can predict conditions faster and help people prepare earlier.",
-      "keyWord": "satellite: an object in space that collects information and sends it back to Earth",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/world/2026/aug/27/climate-crisis-mountain-areas-glaciers-nepal-tibet",
-      "publishedAt": "2026-08-27T18:25:13.000Z"
-    },
-    {
-      "title": "Record-breaking heat dome expected to bring dangerous temperatures to US south-west",
-      "whatHappened": "As wildfires rage and intense heat builds across the region, daytime highs of 110-11F (43-46C) are forecast Surging temperatures are expected to broil more than 45...",
-      "whyItMatters": "Weather technology shows how science tools can predict conditions faster and help people prepare earlier.",
-      "keyWord": "forecast: a prediction about future weather conditions",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/us-news/2026/aug/25/us-weather-heat-dome-south-west",
-      "publishedAt": "2026-08-25T22:40:43.000Z"
-    },
     {
       "title": "Japan’s ‘2050 Weather Forecast’ highlights extreme heat in the future",
       "whatHappened": "As extreme heat becomes an increasingly visible reality across Japan, meteorologists, scientists, businesses and professional footballers are joining forces to encourage stronger climate action and raise...",
@@ -217,13 +199,13 @@
       "publishedAt": "2026-08-07T12:00:00.000Z"
     },
     {
-      "title": "Deadly flash flood on Nepal-Tibet border",
-      "whatHappened": "Deadly flash flood on Nepal-Tibet border",
+      "title": "University of Ottawa and Ni-Co Energy begin Kremer Research Program to refine critical minerals exploration targeting",
+      "whatHappened": "University of Ottawa and Ni-Co Energy begin Kremer Research Program to refine critical minerals exploration targeting",
       "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
-      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
+      "keyWord": "research: careful study used to discover new knowledge",
       "source": "uOttawa News",
-      "url": "https://www.uottawa.ca/en/news-all/uottawa-academic-expertise-deadly-flash-flood-nepal-tibet-border",
-      "publishedAt": "2026-08-27T21:06:44.064Z"
+      "url": "https://www.uottawa.ca/en/news-all/university-ottawa-co-energy-begin-kremer-research-program-refine-critical-minerals",
+      "publishedAt": "2026-08-28T21:28:29.395Z"
     },
     {
       "title": "Explainer - Blue-Sky flood in Nepal: No heavy rain. No earthquake. So, what happened?",
@@ -232,7 +214,25 @@
       "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
       "source": "uOttawa News",
       "url": "https://www.uottawa.ca/en/news-all/explainer-blue-sky-flood-nepal-no-heavy-rain-no-earthquake-what-happened",
-      "publishedAt": "2026-08-27T21:06:44.063Z"
+      "publishedAt": "2026-08-28T21:28:29.395Z"
+    },
+    {
+      "title": "Gage Coon: An Earth scientist exploring the power of microbes",
+      "whatHappened": "The PhD student’s research on how microorganisms digest compounds in their environment could enable advances in wastewater treatment.",
+      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
+      "keyWord": "research: careful study used to discover new knowledge",
+      "source": "MIT Climate & Sustainability",
+      "url": "https://news.mit.edu/2026/gage-coon-earth-scientist-exploring-power-microbes-0828",
+      "publishedAt": "2026-08-28T04:00:00.000Z"
+    },
+    {
+      "title": "Many causes for floods, many causes for their devastation",
+      "whatHappened": "Hydrologist Auroop Ganguly traced Wednesday’s devastating flood in Nepal and Tibet to a “combination of factors” both natural and man-made.",
+      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
+      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
+      "source": "Northeastern Global News",
+      "url": "https://news.northeastern.edu/2026/08/27/nepal-tibet-flood/",
+      "publishedAt": "2026-08-27T21:49:14.000Z"
     },
     {
       "title": "From ghost stories to climate entrepreneurship, 9 fascinating new classes at UC Berkeley",
@@ -251,24 +251,6 @@
       "source": "University of Wisconsin News",
       "url": "https://www.med.wisc.edu/news/study-linking-environmental-factors-adrd-awarded-nih-funding/",
       "publishedAt": "2026-08-26T17:32:08.000Z"
-    },
-    {
-      "title": "Human Ecology students help Harley-Davidson rev up the next generation of riders",
-      "whatHappened": "How can Harley-Davidson attract the next generation of brand loyalists?",
-      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
-      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
-      "source": "University of Wisconsin News",
-      "url": "https://humanecology.wisc.edu/human-ecology-students-help-harley-davidson-rev-up-the-next-generation-of-riders/",
-      "publishedAt": "2026-08-26T17:27:21.000Z"
-    },
-    {
-      "title": "A promising new weight loss and diabetes treatment helps burn fat while keeping muscle",
-      "whatHappened": "Unlike GLP-1s, which work by suppressing appetite and lowering energy intake, a molecular compound identified by UC Berkeley scientists helps cells burn extra energy with no...",
-      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
-      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
-      "source": "Berkeley News",
-      "url": "https://news.berkeley.edu/2026/08/21/a-promising-new-weight-loss-and-diabetes-treatment-helps-burn-fat-while-keeping-muscle/",
-      "publishedAt": "2026-08-21T18:11:44.000Z"
     }
   ]
 }
