@@ -1,14 +1,14 @@
 {
-  "boardDate": "2026-09-02",
-  "generatedAt": "2026-09-02T15:15:47.898Z",
+  "boardDate": "2026-09-03",
+  "generatedAt": "2026-09-03T15:08:53.905Z",
   "sourceCount": 26,
   "weather": [
     {
       "city": "Ottawa",
-      "temperatureC": 20,
-      "maxC": 25,
-      "minC": 16,
-      "summary": "Cloudy"
+      "temperatureC": 22,
+      "maxC": 24,
+      "minC": 18,
+      "summary": "Clear skies"
     }
   ],
   "extremeWeather": [
@@ -22,13 +22,13 @@
       "publishedAt": "2026-09-02T12:00:00.000Z"
     },
     {
-      "title": "More hosepipe bans in force as drought declared - is your area affected?",
-      "whatHappened": "About 30 million people have been placed under hosepipe bans due to higher demand and low rainfall.",
+      "title": "Toxic wildfire haze spreads across South East Asia as 'super' El Niño intensifies",
+      "whatHappened": "Millions of people have been exposed to the smog, with more than 12,000 children suffering respiratory issues.",
       "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
-      "keyWord": "drought: a long time with very little rain",
+      "keyWord": "extreme weather: unusual and dangerous weather like floods, storms, or heat waves",
       "source": "BBC Science & Environment",
-      "url": "https://www.bbc.co.uk/news/articles/crk661074ejo?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-09-01T13:37:06.000Z"
+      "url": "https://www.bbc.co.uk/news/articles/clyqw44w142o?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-09-03T11:35:52.000Z"
     },
     {
       "title": "Blackout risk rises as heatwave stresses largest US electric grids",
@@ -58,24 +58,24 @@
       "publishedAt": "2026-09-01T18:16:40.000Z"
     },
     {
-      "title": "US border patrol expected to aid Grand Canyon search for missing person",
-      "whatHappened": "Nearly 80 people have been rescued, and two people confirmed dead, after flood hit national park A US border patrol technical search team is expected to...",
+      "title": "‘Immense impact’ of Nepal flood disaster highlighted as casualties mount",
+      "whatHappened": "The impact of the deadly flood in Nepal has been described as “immense” as the authorities there confirm that 538 bodies have been recovered from the...",
       "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
       "keyWord": "flood: water covering land that is usually dry",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/us-news/2026/sep/01/border-patrol-missing-person-grand-canyon-flood",
-      "publishedAt": "2026-09-01T14:19:17.000Z"
+      "source": "UN Climate",
+      "url": "https://news.un.org/feed/view/en/story/2026/08/1168221",
+      "publishedAt": "2026-08-28T12:00:00.000Z"
     }
   ],
   "climate": [
     {
-      "title": "Nepal’s glacial collapse foreshadowed a future of climate disaster | Michael Mann",
-      "whatHappened": "The deluge capped a summer of extreme climate events, from deadly heatwaves to wildfires.",
-      "whyItMatters": "Climate and environment stories connect science to real issues like safety, health, and extreme weather.",
+      "title": "Invasive tropical mosquito found breeding in east London",
+      "whatHappened": "Climate crisis could increase incursions of Aedes aegypti, which can transmit Zika virus and dengue, experts say An invasive mosquito capable of transmitting tropical diseases has...",
+      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
       "keyWord": "climate: the usual pattern of weather over a long period of time",
       "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/commentisfree/2026/sep/01/nepal-flooding-climate-disaster",
-      "publishedAt": "2026-09-01T09:00:05.000Z"
+      "url": "https://www.theguardian.com/environment/2026/sep/03/invasive-tropical-mosquito-breeding-london",
+      "publishedAt": "2026-09-03T12:51:53.000Z"
     },
     {
       "title": "‘Fight for humanity’: Avoiding a climate catastrophe means acting now",
@@ -87,6 +87,33 @@
       "publishedAt": "2026-09-02T12:00:00.000Z"
     },
     {
+      "title": "The plastic waste overtaking New York – and the people trying to curb it",
+      "whatHappened": "From New York to Quebec, photographer Bryan Anselm spent months capturing spaces overrun with plastic and the actions individuals and groups are taking to reduce waste...",
+      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
+      "keyWord": "climate: the usual pattern of weather over a long period of time",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/environment/ng-interactive/2026/sep/03/plastic-waste-new-york-environment",
+      "publishedAt": "2026-09-03T12:30:37.000Z"
+    },
+    {
+      "title": "El Niño is surging. Months of extreme heat could follow",
+      "whatHappened": "Fuelled by exceptionally warm Pacific waters,&nbsp;the El Niño climate pattern is intensifying and has yet to peak.",
+      "whyItMatters": "Climate and environment stories connect science to real issues like safety, health, and extreme weather.",
+      "keyWord": "climate: the usual pattern of weather over a long period of time",
+      "source": "UN Climate",
+      "url": "https://news.un.org/feed/view/en/story/2026/09/1168265",
+      "publishedAt": "2026-09-03T12:00:00.000Z"
+    },
+    {
+      "title": "Temperature check: alarm as prediction markets lean into weather and climate bets",
+      "whatHappened": "Climate experts warn that US Kalshi and Polymarket users are ‘gamifying disasters’ as they bet on events like heatwaves and daily temperatures Online prediction markets, saturated...",
+      "whyItMatters": "Climate and environment stories connect science to real issues like safety, health, and extreme weather.",
+      "keyWord": "climate: the usual pattern of weather over a long period of time",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/us-news/2026/sep/02/weather-betting-kalshi-polymarket",
+      "publishedAt": "2026-09-02T15:00:28.000Z"
+    },
+    {
       "title": "Blackout risk rises as heatwave stresses largest US electric grids",
       "whatHappened": "US energy department warns of potential for outages in PJM Interconnection, serving 67 million from DC to Chicago The risk ⁠of power outages ⁠is expected to...",
       "whyItMatters": "Climate and environment stories connect science to real issues like safety, health, and extreme weather.",
@@ -94,39 +121,48 @@
       "source": "The Guardian Environment",
       "url": "https://www.theguardian.com/us-news/2026/sep/02/heatwave-power-outage-risk",
       "publishedAt": "2026-09-02T12:16:52.000Z"
-    },
-    {
-      "title": "Transforming toxic: a new vision for urban waterways takes shape in Brooklyn – in photos",
-      "whatHappened": "Designers are rethinking one of New York City’s most polluted sites with climate adaptation and community benefits The Guardian receives support for visual climate coverage from...",
-      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
-      "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/artanddesign/gallery/2026/sep/02/new-york-city-brooklyn-waterways-photos",
-      "publishedAt": "2026-09-02T12:00:23.000Z"
-    },
-    {
-      "title": "Judge strikes down New York law that forced climate polluters to pay damages",
-      "whatHappened": "State cannot enforce policy requiring oil firms to pay $75bn over 25 years for climate mitigation and adaptation A federal judge has struck down a landmark...",
-      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
-      "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/us-news/2026/sep/01/judge-strikes-new-york-law-climate-polluters-damage-pay",
-      "publishedAt": "2026-09-01T16:11:11.000Z"
-    },
-    {
-      "title": "Forest Service chief faces scrutiny over logging ties as Trump plans to scrap protections",
-      "whatHappened": "Rollback of ‘roadless rule’ expected to benefit companies US Forest Service chief, Tom Schultz, previously lobbied for Donald Trump this month announced plans to rescind a...",
-      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
-      "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/us-news/2026/sep/01/trump-roadless-rule-old-growth-forests",
-      "publishedAt": "2026-09-01T11:00:03.000Z"
     }
   ],
   "weatherTech": [
     {
+      "title": "Google’s latest AI weather model gives you no excuse to forget your umbrella",
+      "whatHappened": "Scientists at Google Deepmind and Google Research released a new artificial intelligence model for weather forecasting today that sees our changing atmosphere more clearly and predicts...",
+      "whyItMatters": "Weather technology shows how science tools can predict conditions faster and help people prepare earlier.",
+      "keyWord": "forecast: a prediction about future weather conditions",
+      "source": "TechCrunch",
+      "url": "https://techcrunch.com/2026/09/03/googles-latest-ai-weather-model-gives-you-no-excuse-to-forget-your-umbrella/",
+      "publishedAt": "2026-09-03T15:00:00.000Z"
+    },
+    {
+      "title": "Google says its AI weather model is getting better",
+      "whatHappened": "Google is rolling out an updated AI weather model that's supposed to be more accurate, especially when it comes to predicting rain and snowfall.",
+      "whyItMatters": "Weather technology shows how science tools can predict conditions faster and help people prepare earlier.",
+      "keyWord": "forecast: a prediction about future weather conditions",
+      "source": "The Verge",
+      "url": "https://www.theverge.com/tech/988921/weather-forecast-ai-model-google-satellite-update",
+      "publishedAt": "2026-09-03T14:41:03.000Z"
+    },
+    {
+      "title": "The plastic waste overtaking New York – and the people trying to curb it",
+      "whatHappened": "From New York to Quebec, photographer Bryan Anselm spent months capturing spaces overrun with plastic and the actions individuals and groups are taking to reduce waste...",
+      "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
+      "keyWord": "weather technology: tools that help people measure, study, or predict weather and climate",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/environment/ng-interactive/2026/sep/03/plastic-waste-new-york-environment",
+      "publishedAt": "2026-09-03T12:30:37.000Z"
+    },
+    {
+      "title": "Satellite images show how Canadian 'island' vanished before turning up 20 miles away",
+      "whatHappened": "BBC Verify has used satellite imagery to track the mysterious phenomenon, which has surprised people around the world.",
+      "whyItMatters": "Weather technology shows how science tools can predict conditions faster and help people prepare earlier.",
+      "keyWord": "satellite: an object in space that collects information and sends it back to Earth",
+      "source": "BBC Science & Environment",
+      "url": "https://www.bbc.co.uk/news/videos/cly4zxd7e7wo?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-09-03T07:57:23.000Z"
+    },
+    {
       "title": "Temperature check: alarm as prediction markets lean into weather and climate bets",
-      "whatHappened": "Climate experts warn US Kalshi and Polymarket users are ‘gamifying disasters’ as they bet on events like heatwaves and daily temperatures Online prediction markets, saturated by...",
+      "whatHappened": "Climate experts warn that US Kalshi and Polymarket users are ‘gamifying disasters’ as they bet on events like heatwaves and daily temperatures Online prediction markets, saturated...",
       "whyItMatters": "Weather technology shows how science tools can predict conditions faster and help people prepare earlier.",
       "keyWord": "forecast: a prediction about future weather conditions",
       "source": "The Guardian Environment",
@@ -190,6 +226,15 @@
       "publishedAt": "2026-08-07T12:00:00.000Z"
     },
     {
+      "title": "UC Berkeley research explores how people actually respond when earthquakes hit",
+      "whatHappened": "Engineers synchronized the motion of the Shake House, an earthquake simulator at the California Academy of Sciences, with a virtual reality environment to study how fear...",
+      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
+      "keyWord": "research: careful study used to discover new knowledge",
+      "source": "Berkeley News",
+      "url": "https://engineering.berkeley.edu/news/2026/09/understanding-earthquake-risk-perception/",
+      "publishedAt": "2026-09-02T19:29:40.000Z"
+    },
+    {
       "title": "Changes to California’s landscapes may influence Valley fever risk",
       "whatHappened": "Study links higher disease rates to certain agricultural and natural landscapes near California communities, raising concerns as drought and water regulations lead to more farmland being...",
       "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
@@ -224,15 +269,6 @@
       "source": "MIT Earth & Atmospheric Sciences",
       "url": "https://news.mit.edu/2026/study-peptides-can-form-well-defined-structures-harsh-venus-conditions-0831",
       "publishedAt": "2026-08-31T19:00:00.000Z"
-    },
-    {
-      "title": "From ghost stories to climate entrepreneurship, 9 fascinating new classes at UC Berkeley",
-      "whatHappened": "Learn about the span of new fall semester course offerings, including classes touching on cutting-edge research, modern ethical dilemmas and literary works across the centuries.",
-      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
-      "keyWord": "research: careful study used to discover new knowledge",
-      "source": "Berkeley News",
-      "url": "https://news.berkeley.edu/2026/08/26/from-ghost-stories-to-climate-entrepreneurship-9-fascinating-new-classes-at-uc-berkeley/",
-      "publishedAt": "2026-08-26T22:23:16.000Z"
     },
     {
       "title": "Professor Emeritus Chiang Chung Mei, pioneering scholar of ocean wave dynamics and fluid mechanics, dies at 91",
