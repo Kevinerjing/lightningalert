@@ -1,14 +1,14 @@
 {
-  "boardDate": "2026-09-03",
-  "generatedAt": "2026-09-03T15:08:53.905Z",
+  "boardDate": "2026-09-04",
+  "generatedAt": "2026-09-04T15:04:17.970Z",
   "sourceCount": 26,
   "weather": [
     {
       "city": "Ottawa",
-      "temperatureC": 22,
-      "maxC": 24,
-      "minC": 18,
-      "summary": "Clear skies"
+      "temperatureC": 21,
+      "maxC": 22,
+      "minC": 16,
+      "summary": "Mostly clear"
     }
   ],
   "extremeWeather": [
@@ -22,13 +22,13 @@
       "publishedAt": "2026-09-02T12:00:00.000Z"
     },
     {
-      "title": "Toxic wildfire haze spreads across South East Asia as 'super' El Niño intensifies",
-      "whatHappened": "Millions of people have been exposed to the smog, with more than 12,000 children suffering respiratory issues.",
+      "title": "Razed by wildfire, erased by USPS: Hawaiians fight to restore mail delivery",
+      "whatHappened": "Wildfire victims rebuilt their homes in Lahaina only to find USPS had ‘eliminated’ their addresses – while houses that didn’t burn receive mail as normal Two...",
       "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
       "keyWord": "extreme weather: unusual and dangerous weather like floods, storms, or heat waves",
-      "source": "BBC Science & Environment",
-      "url": "https://www.bbc.co.uk/news/articles/clyqw44w142o?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-09-03T11:35:52.000Z"
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/us-news/2026/sep/03/hawaii-lahaina-mail-delivery-usps",
+      "publishedAt": "2026-09-03T20:49:57.000Z"
     },
     {
       "title": "Blackout risk rises as heatwave stresses largest US electric grids",
@@ -38,15 +38,6 @@
       "source": "The Guardian Environment",
       "url": "https://www.theguardian.com/us-news/2026/sep/02/heatwave-power-outage-risk",
       "publishedAt": "2026-09-02T12:16:52.000Z"
-    },
-    {
-      "title": "Will your name be the next UK storm?",
-      "whatHappened": "The storm name list for the next year is out.",
-      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
-      "keyWord": "extreme weather: unusual and dangerous weather like floods, storms, or heat waves",
-      "source": "BBC Science & Environment",
-      "url": "https://www.bbc.co.uk/news/videos/ckgxzyrk7x7o?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-09-02T10:26:15.000Z"
     },
     {
       "title": "Hungry bears are wandering into US homes and shops in record numbers – video",
@@ -65,17 +56,26 @@
       "source": "UN Climate",
       "url": "https://news.un.org/feed/view/en/story/2026/08/1168221",
       "publishedAt": "2026-08-28T12:00:00.000Z"
+    },
+    {
+      "title": "Shock and devastation remain, a day after Himalayan flood disaster",
+      "whatHappened": "Amid reports that hundreds of people are still missing in Nepal and China after a floodwater surge slammed into towns and villages on Wednesday, aid teams...",
+      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
+      "keyWord": "flood: water covering land that is usually dry",
+      "source": "UN Climate",
+      "url": "https://news.un.org/feed/view/en/story/2026/08/1168213",
+      "publishedAt": "2026-08-27T12:00:00.000Z"
     }
   ],
   "climate": [
     {
-      "title": "Invasive tropical mosquito found breeding in east London",
-      "whatHappened": "Climate crisis could increase incursions of Aedes aegypti, which can transmit Zika virus and dengue, experts say An invasive mosquito capable of transmitting tropical diseases has...",
+      "title": "Renewable energy in NI reaches record level",
+      "whatHappened": "And for the first time renewable generation has consistently exceeded non-renewable generation since January.",
       "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
-      "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/environment/2026/sep/03/invasive-tropical-mosquito-breeding-london",
-      "publishedAt": "2026-09-03T12:51:53.000Z"
+      "keyWord": "renewable energy: energy from sources that can be used again, like sun or wind",
+      "source": "BBC Science & Environment",
+      "url": "https://www.bbc.co.uk/news/articles/ce3rql5rzx4o?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-09-04T05:11:45.000Z"
     },
     {
       "title": "‘Fight for humanity’: Avoiding a climate catastrophe means acting now",
@@ -85,6 +85,15 @@
       "source": "UN Climate",
       "url": "https://news.un.org/feed/view/en/story/2026/09/1168240",
       "publishedAt": "2026-09-02T12:00:00.000Z"
+    },
+    {
+      "title": "Jackdaw gasfield set to be approved by ministers this month, sources say",
+      "whatHappened": "Energy secretary could recommend new North Sea drilling next week, as ministers also consider approval for Rosebank oilfield UK politics live – latest updates Business live...",
+      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
+      "keyWord": "climate: the usual pattern of weather over a long period of time",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/environment/2026/sep/04/jackdaw-gasfield-set-to-be-approved-by-ministers-this-month-sources-say",
+      "publishedAt": "2026-09-04T07:55:07.000Z"
     },
     {
       "title": "The plastic waste overtaking New York – and the people trying to curb it",
@@ -112,35 +121,26 @@
       "source": "The Guardian Environment",
       "url": "https://www.theguardian.com/us-news/2026/sep/02/weather-betting-kalshi-polymarket",
       "publishedAt": "2026-09-02T15:00:28.000Z"
-    },
-    {
-      "title": "Blackout risk rises as heatwave stresses largest US electric grids",
-      "whatHappened": "US energy department warns of potential for outages in PJM Interconnection, serving 67 million from DC to Chicago The risk ⁠of power outages ⁠is expected to...",
-      "whyItMatters": "Climate and environment stories connect science to real issues like safety, health, and extreme weather.",
-      "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/us-news/2026/sep/02/heatwave-power-outage-risk",
-      "publishedAt": "2026-09-02T12:16:52.000Z"
     }
   ],
   "weatherTech": [
     {
-      "title": "Google’s latest AI weather model gives you no excuse to forget your umbrella",
-      "whatHappened": "Scientists at Google Deepmind and Google Research released a new artificial intelligence model for weather forecasting today that sees our changing atmosphere more clearly and predicts...",
-      "whyItMatters": "Weather technology shows how science tools can predict conditions faster and help people prepare earlier.",
-      "keyWord": "forecast: a prediction about future weather conditions",
-      "source": "TechCrunch",
-      "url": "https://techcrunch.com/2026/09/03/googles-latest-ai-weather-model-gives-you-no-excuse-to-forget-your-umbrella/",
-      "publishedAt": "2026-09-03T15:00:00.000Z"
+      "title": "Bluetti launches ‘e-generator’ to take on noisy, stinky, polluting gas generators",
+      "whatHappened": "Bluetti doesn't want you to call the Pioneer 5000 a solar generator (SoGen), even though that's what it is.",
+      "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
+      "keyWord": "solar: related to energy from sunlight",
+      "source": "The Verge",
+      "url": "https://www.theverge.com/tech/986123/bluetti-pioneer-5000-solar-generator",
+      "publishedAt": "2026-09-04T12:10:36.000Z"
     },
     {
-      "title": "Google says its AI weather model is getting better",
-      "whatHappened": "Google is rolling out an updated AI weather model that's supposed to be more accurate, especially when it comes to predicting rain and snowfall.",
-      "whyItMatters": "Weather technology shows how science tools can predict conditions faster and help people prepare earlier.",
-      "keyWord": "forecast: a prediction about future weather conditions",
-      "source": "The Verge",
-      "url": "https://www.theverge.com/tech/988921/weather-forecast-ai-model-google-satellite-update",
-      "publishedAt": "2026-09-03T14:41:03.000Z"
+      "title": "Renewable energy in NI reaches record level",
+      "whatHappened": "And for the first time renewable generation has consistently exceeded non-renewable generation since January.",
+      "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
+      "keyWord": "weather technology: tools that help people measure, study, or predict weather and climate",
+      "source": "BBC Science & Environment",
+      "url": "https://www.bbc.co.uk/news/articles/ce3rql5rzx4o?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-09-04T05:11:45.000Z"
     },
     {
       "title": "The plastic waste overtaking New York – and the people trying to curb it",
@@ -150,15 +150,6 @@
       "source": "The Guardian Environment",
       "url": "https://www.theguardian.com/environment/ng-interactive/2026/sep/03/plastic-waste-new-york-environment",
       "publishedAt": "2026-09-03T12:30:37.000Z"
-    },
-    {
-      "title": "Satellite images show how Canadian 'island' vanished before turning up 20 miles away",
-      "whatHappened": "BBC Verify has used satellite imagery to track the mysterious phenomenon, which has surprised people around the world.",
-      "whyItMatters": "Weather technology shows how science tools can predict conditions faster and help people prepare earlier.",
-      "keyWord": "satellite: an object in space that collects information and sends it back to Earth",
-      "source": "BBC Science & Environment",
-      "url": "https://www.bbc.co.uk/news/videos/cly4zxd7e7wo?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-09-03T07:57:23.000Z"
     },
     {
       "title": "Temperature check: alarm as prediction markets lean into weather and climate bets",
@@ -181,6 +172,15 @@
       "publishedAt": "2025-07-29T18:25:35.000Z"
     },
     {
+      "title": "Carleton Advances to Silver Tier in Canada’s Net-Zero Challenge",
+      "whatHappened": "Carleton University has advanced to the Silver participation tier in the federal Net-Zero Challenge, Environment and Climate Change Canada’s program for organisations with credible, science-based plans...",
+      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
+      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
+      "source": "Carleton Sustainability",
+      "url": "https://carleton.ca/sustainability/2026/carleton-advances-to-silver-tier-in-canadas-net-zero-challenge/",
+      "publishedAt": "2026-09-04T14:35:10.000Z"
+    },
+    {
       "title": "Harlem Week Climate Change Conference Centers Community Voices",
       "whatHappened": "Panelists highlighted environmental justice, local partnerships, New York’s climate laws and the need for equitable solutions that protect public health, reduce emissions and build a more...",
       "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
@@ -188,15 +188,6 @@
       "source": "Columbia Climate School",
       "url": "https://news.climate.columbia.edu/2026/08/24/harlem-week-climate-change-conference-centers-community-voices/",
       "publishedAt": "2026-08-24T19:53:36.000Z"
-    },
-    {
-      "title": "Tiny Forest Coming to Carleton",
-      "whatHappened": "Sustainability Carleton is thrilled to announce that we are partnering with local environmental organization EnviroCentre to establish a tiny forest at Carleton!",
-      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
-      "keyWord": "sustainability: using resources in a way that can last over time",
-      "source": "Carleton Sustainability",
-      "url": "https://carleton.ca/sustainability/2025/tiny-forest-coming-to-carleton/",
-      "publishedAt": "2025-07-29T18:38:05.000Z"
     },
     {
       "title": "Alex de Sherbinin Named Director of New Earth Institute Hub",
@@ -224,6 +215,24 @@
       "source": "Waterloo Environment",
       "url": "https://uwaterloo.ca/environment/news/recover-builds-capacity-climate-change-adaptations",
       "publishedAt": "2026-08-07T12:00:00.000Z"
+    },
+    {
+      "title": "Oakland campus abuzz with energy as largest-ever cohort arrives",
+      "whatHappened": "Students from across the U.S.",
+      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
+      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
+      "source": "Northeastern Global News",
+      "url": "https://news.northeastern.edu/2026/09/03/new-oakland-students-move-in-2026/",
+      "publishedAt": "2026-09-03T20:56:27.000Z"
+    },
+    {
+      "title": "Could exercise help you hear in a noisy room? Early results say yes",
+      "whatHappened": "Going for a run could be good for your hearing.",
+      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
+      "keyWord": "research: careful study used to discover new knowledge",
+      "source": "Northeastern Global News",
+      "url": "https://news.northeastern.edu/2026/09/03/exercise-and-brain-health-speech-perception/",
+      "publishedAt": "2026-09-03T18:03:09.000Z"
     },
     {
       "title": "UC Berkeley research explores how people actually respond when earthquakes hit",
@@ -260,24 +269,6 @@
       "source": "MIT Climate & Sustainability",
       "url": "https://news.mit.edu/2026/playing-against-climate-risk-0831",
       "publishedAt": "2026-08-31T19:00:00.000Z"
-    },
-    {
-      "title": "Study: Peptides can form well-defined structures in harsh, Venus-like conditions",
-      "whatHappened": "New research offers support for the possibility that complex biological molecules could exist in the highly acidic environment of Venus’s cloud layer.",
-      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
-      "keyWord": "research: careful study used to discover new knowledge",
-      "source": "MIT Earth & Atmospheric Sciences",
-      "url": "https://news.mit.edu/2026/study-peptides-can-form-well-defined-structures-harsh-venus-conditions-0831",
-      "publishedAt": "2026-08-31T19:00:00.000Z"
-    },
-    {
-      "title": "Professor Emeritus Chiang Chung Mei, pioneering scholar of ocean wave dynamics and fluid mechanics, dies at 91",
-      "whatHappened": "A towering figure in theoretical hydrodynamics is remembered for his intellectual rigor, generosity, and lifelong devotion to his students.",
-      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
-      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
-      "source": "MIT Earth & Atmospheric Sciences",
-      "url": "https://news.mit.edu/2026/chiang-chung-mei-dies-0814",
-      "publishedAt": "2026-08-14T20:55:00.000Z"
     }
   ]
 }
