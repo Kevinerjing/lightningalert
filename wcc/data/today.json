@@ -1,14 +1,14 @@
 {
-  "boardDate": "2026-09-04",
-  "generatedAt": "2026-09-04T15:04:17.970Z",
+  "boardDate": "2026-09-05",
+  "generatedAt": "2026-09-05T13:58:48.912Z",
   "sourceCount": 26,
   "weather": [
     {
       "city": "Ottawa",
-      "temperatureC": 21,
+      "temperatureC": 17,
       "maxC": 22,
-      "minC": 16,
-      "summary": "Mostly clear"
+      "minC": 14,
+      "summary": "Cloudy"
     }
   ],
   "extremeWeather": [
@@ -40,15 +40,6 @@
       "publishedAt": "2026-09-02T12:16:52.000Z"
     },
     {
-      "title": "Hungry bears are wandering into US homes and shops in record numbers – video",
-      "whatHappened": "Experts say more bears are wandering into humans' homes and shops in search of food, due to drought-driven food shortages across the US west Continue reading...",
-      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
-      "keyWord": "drought: a long time with very little rain",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/us-news/video/2026/sep/01/bears-wandering-west-colorado-homes-stores-food-shortage",
-      "publishedAt": "2026-09-01T18:16:40.000Z"
-    },
-    {
       "title": "‘Immense impact’ of Nepal flood disaster highlighted as casualties mount",
       "whatHappened": "The impact of the deadly flood in Nepal has been described as “immense” as the authorities there confirm that 538 bodies have been recovered from the...",
       "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
@@ -65,6 +56,15 @@
       "source": "UN Climate",
       "url": "https://news.un.org/feed/view/en/story/2026/08/1168213",
       "publishedAt": "2026-08-27T12:00:00.000Z"
+    },
+    {
+      "title": "Land models sprout as degradation threatens billions of livelihoods",
+      "whatHappened": "Promising efforts to restore degraded land are now in the spotlight at a time when 40 per cent of the world’s land currently faces degradation and...",
+      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
+      "keyWord": "drought: a long time with very little rain",
+      "source": "UN Climate",
+      "url": "https://news.un.org/feed/view/en/story/2026/08/1168212",
+      "publishedAt": "2026-08-26T12:00:00.000Z"
     }
   ],
   "climate": [
@@ -87,13 +87,22 @@
       "publishedAt": "2026-09-02T12:00:00.000Z"
     },
     {
-      "title": "Jackdaw gasfield set to be approved by ministers this month, sources say",
-      "whatHappened": "Energy secretary could recommend new North Sea drilling next week, as ministers also consider approval for Rosebank oilfield UK politics live – latest updates Business live...",
+      "title": "Trump signs order to remove endangered species protection for grey wolves",
+      "whatHappened": "The US president says the move will help ranchers, but conservationists say it could derail efforts to recover populations.",
+      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
+      "keyWord": "climate: the usual pattern of weather over a long period of time",
+      "source": "BBC Science & Environment",
+      "url": "https://www.bbc.co.uk/news/articles/c62k677d4lzo?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-09-05T09:12:48.000Z"
+    },
+    {
+      "title": "Trump order directs officials to consider stripping protections for gray wolves",
+      "whatHappened": "Interior department given three months to decide whether wolves can be removed from endangered species list Donald Trump signed an executive order on Friday directing the...",
       "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
       "keyWord": "climate: the usual pattern of weather over a long period of time",
       "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/environment/2026/sep/04/jackdaw-gasfield-set-to-be-approved-by-ministers-this-month-sources-say",
-      "publishedAt": "2026-09-04T07:55:07.000Z"
+      "url": "https://www.theguardian.com/us-news/2026/sep/04/trump-order-gray-wolves",
+      "publishedAt": "2026-09-05T00:50:41.000Z"
     },
     {
       "title": "The plastic waste overtaking New York – and the people trying to curb it",
@@ -112,26 +121,17 @@
       "source": "UN Climate",
       "url": "https://news.un.org/feed/view/en/story/2026/09/1168265",
       "publishedAt": "2026-09-03T12:00:00.000Z"
-    },
-    {
-      "title": "Temperature check: alarm as prediction markets lean into weather and climate bets",
-      "whatHappened": "Climate experts warn that US Kalshi and Polymarket users are ‘gamifying disasters’ as they bet on events like heatwaves and daily temperatures Online prediction markets, saturated...",
-      "whyItMatters": "Climate and environment stories connect science to real issues like safety, health, and extreme weather.",
-      "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/us-news/2026/sep/02/weather-betting-kalshi-polymarket",
-      "publishedAt": "2026-09-02T15:00:28.000Z"
     }
   ],
   "weatherTech": [
     {
-      "title": "Bluetti launches ‘e-generator’ to take on noisy, stinky, polluting gas generators",
-      "whatHappened": "Bluetti doesn't want you to call the Pioneer 5000 a solar generator (SoGen), even though that's what it is.",
+      "title": "Another swarm of OpenAI agents reached the open internet without the frontier lab’s knowledge",
+      "whatHappened": "It's the latest failure of OpenAI's internal monitoring and security systems.",
       "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
-      "keyWord": "solar: related to energy from sunlight",
-      "source": "The Verge",
-      "url": "https://www.theverge.com/tech/986123/bluetti-pioneer-5000-solar-generator",
-      "publishedAt": "2026-09-04T12:10:36.000Z"
+      "keyWord": "weather technology: tools that help people measure, study, or predict weather and climate",
+      "source": "TechCrunch",
+      "url": "https://techcrunch.com/2026/09/04/another-swarm-of-openai-agents-reached-the-open-internet-without-the-frontier-labs-knowledge/",
+      "publishedAt": "2026-09-04T16:21:11.000Z"
     },
     {
       "title": "Renewable energy in NI reaches record level",
@@ -190,6 +190,15 @@
       "publishedAt": "2026-08-24T19:53:36.000Z"
     },
     {
+      "title": "New digital tool shows where exactly California’s water goes — and how climate change might disrupt it",
+      "whatHappened": "The UC Berkeley-led COEQWAL project is helping communities explore how shifting the state’s water priorities could impact agriculture, cities and ecosystems.",
+      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
+      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
+      "source": "Berkeley News",
+      "url": "https://news.berkeley.edu/2026/09/04/new-digital-tool-shows-where-exactly-californias-water-goes-and-how-climate-change-might-disrupt-it/",
+      "publishedAt": "2026-09-04T17:56:37.000Z"
+    },
+    {
       "title": "Alex de Sherbinin Named Director of New Earth Institute Hub",
       "whatHappened": "The new initiative at Columbia Climate School is designed to strengthen university-wide collaboration on issues spanning climate, Earth, society and sustainability.",
       "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
@@ -226,15 +235,6 @@
       "publishedAt": "2026-09-03T20:56:27.000Z"
     },
     {
-      "title": "Could exercise help you hear in a noisy room? Early results say yes",
-      "whatHappened": "Going for a run could be good for your hearing.",
-      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
-      "keyWord": "research: careful study used to discover new knowledge",
-      "source": "Northeastern Global News",
-      "url": "https://news.northeastern.edu/2026/09/03/exercise-and-brain-health-speech-perception/",
-      "publishedAt": "2026-09-03T18:03:09.000Z"
-    },
-    {
       "title": "UC Berkeley research explores how people actually respond when earthquakes hit",
       "whatHappened": "Engineers synchronized the motion of the Shake House, an earthquake simulator at the California Academy of Sciences, with a virtual reality environment to study how fear...",
       "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
@@ -242,15 +242,6 @@
       "source": "Berkeley News",
       "url": "https://engineering.berkeley.edu/news/2026/09/understanding-earthquake-risk-perception/",
       "publishedAt": "2026-09-02T19:29:40.000Z"
-    },
-    {
-      "title": "Changes to California’s landscapes may influence Valley fever risk",
-      "whatHappened": "Study links higher disease rates to certain agricultural and natural landscapes near California communities, raising concerns as drought and water regulations lead to more farmland being...",
-      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
-      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
-      "source": "Berkeley News",
-      "url": "https://publichealth.berkeley.edu/articles/spotlight/research/changes-to-californias-landscapes-may-influence-valley-fever-risk",
-      "publishedAt": "2026-08-31T20:56:32.000Z"
     },
     {
       "title": "Translating economic growth into better lives",
@@ -268,6 +259,15 @@
       "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
       "source": "MIT Climate & Sustainability",
       "url": "https://news.mit.edu/2026/playing-against-climate-risk-0831",
+      "publishedAt": "2026-08-31T19:00:00.000Z"
+    },
+    {
+      "title": "Study: Peptides can form well-defined structures in harsh, Venus-like conditions",
+      "whatHappened": "New research offers support for the possibility that complex biological molecules could exist in the highly acidic environment of Venus’s cloud layer.",
+      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
+      "keyWord": "research: careful study used to discover new knowledge",
+      "source": "MIT Earth & Atmospheric Sciences",
+      "url": "https://news.mit.edu/2026/study-peptides-can-form-well-defined-structures-harsh-venus-conditions-0831",
       "publishedAt": "2026-08-31T19:00:00.000Z"
     }
   ]
