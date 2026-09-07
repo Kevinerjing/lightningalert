@@ -1,17 +1,26 @@
 {
-  "boardDate": "2026-09-06",
-  "generatedAt": "2026-09-06T14:21:57.318Z",
+  "boardDate": "2026-09-07",
+  "generatedAt": "2026-09-07T16:37:57.292Z",
   "sourceCount": 26,
   "weather": [
     {
       "city": "Ottawa",
-      "temperatureC": 18,
-      "maxC": 22,
+      "temperatureC": 24,
+      "maxC": 25,
       "minC": 13,
       "summary": "Clear skies"
     }
   ],
   "extremeWeather": [
+    {
+      "title": "The volunteers risking their lives to defuse Indonesia's wildfire 'carbon bombs'",
+      "whatHappened": "Peat fires in Borneo are releasing ancient stores of carbon - and sending a toxic smog across South East Asia.",
+      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
+      "keyWord": "extreme weather: unusual and dangerous weather like floods, storms, or heat waves",
+      "source": "BBC Science & Environment",
+      "url": "https://www.bbc.co.uk/news/articles/c1kx4lgy4z4o?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-09-06T23:13:29.000Z"
+    },
     {
       "title": "‘Fight for humanity’: Avoiding a climate catastrophe means acting now",
       "whatHappened": "Record heat waves, deadly flooding and extreme weather reflect an ever-warming planet poised to soon breach safe temperature limits, according to a UN report released on...",
@@ -20,6 +29,24 @@
       "source": "UN Climate",
       "url": "https://news.un.org/feed/view/en/story/2026/09/1168240",
       "publishedAt": "2026-09-02T12:00:00.000Z"
+    },
+    {
+      "title": "French winemakers forecast 30-year low harvest after severe drought and heat",
+      "whatHappened": "Estimates suggest drop in production with vineyards also concerned ‘smoke taint’ from wildfires may affect quality French vineyards hit by severe drought and heatwaves are expected...",
+      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
+      "keyWord": "heat wave: a long period of unusually hot weather",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/world/2026/sep/07/french-winemakers-forecast-30-year-low-harvest-after-severe-drought-and-heat",
+      "publishedAt": "2026-09-07T15:10:51.000Z"
+    },
+    {
+      "title": "We’re the mayors of Paris, Milan and Phoenix. The heat crisis has us all facing the same question | Emmanuel Grégoire, Giuseppe Sala and Kate Gallego",
+      "whatHappened": "Our three cities are learning from each other about how to protect residents.",
+      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
+      "keyWord": "heat wave: a long period of unusually hot weather",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/commentisfree/2026/sep/07/heat-climate-crisis-paris-milan-phoenix",
+      "publishedAt": "2026-09-07T08:00:28.000Z"
     },
     {
       "title": "Razed by wildfire, erased by USPS: Hawaiians fight to restore mail delivery",
@@ -38,26 +65,26 @@
       "source": "The Guardian Environment",
       "url": "https://www.theguardian.com/us-news/2026/sep/02/heatwave-power-outage-risk",
       "publishedAt": "2026-09-02T12:16:52.000Z"
-    },
-    {
-      "title": "‘Immense impact’ of Nepal flood disaster highlighted as casualties mount",
-      "whatHappened": "The impact of the deadly flood in Nepal has been described as “immense” as the authorities there confirm that 538 bodies have been recovered from the...",
-      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
-      "keyWord": "flood: water covering land that is usually dry",
-      "source": "UN Climate",
-      "url": "https://news.un.org/feed/view/en/story/2026/08/1168221",
-      "publishedAt": "2026-08-28T12:00:00.000Z"
     }
   ],
   "climate": [
     {
-      "title": "Renewable energy in NI reaches record level",
-      "whatHappened": "And for the first time renewable generation has consistently exceeded non-renewable generation since January.",
+      "title": "Coordinated action on clean air and climate change can net $15 for every dollar spent",
+      "whatHappened": "Tackling air pollution and climate change together can save millions of lives, reduce global warming and generate roughly $15 in economic benefits for every $1 spent,...",
+      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
+      "keyWord": "climate: the usual pattern of weather over a long period of time",
+      "source": "UN Climate",
+      "url": "https://news.un.org/feed/view/en/story/2026/09/1168283",
+      "publishedAt": "2026-09-07T12:00:00.000Z"
+    },
+    {
+      "title": "Public asked to have their say on proposed new renewable energy company",
+      "whatHappened": "The proposed plans aim to reduce the cost of energy in the long-term, but won't be able to set bills.",
       "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
       "keyWord": "renewable energy: energy from sources that can be used again, like sun or wind",
       "source": "BBC Science & Environment",
-      "url": "https://www.bbc.co.uk/news/articles/ce3rql5rzx4o?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-09-04T05:11:45.000Z"
+      "url": "https://www.bbc.co.uk/news/articles/c780n702pp4o?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-09-07T14:35:38.000Z"
     },
     {
       "title": "‘Fight for humanity’: Avoiding a climate catastrophe means acting now",
@@ -69,6 +96,24 @@
       "publishedAt": "2026-09-02T12:00:00.000Z"
     },
     {
+      "title": "We’re the mayors of Paris, Milan and Phoenix. The heat crisis has us all facing the same question | Emmanuel Grégoire, Giuseppe Sala and Kate Gallego",
+      "whatHappened": "Our three cities are learning from each other about how to protect residents.",
+      "whyItMatters": "Climate and environment stories connect science to real issues like safety, health, and extreme weather.",
+      "keyWord": "climate: the usual pattern of weather over a long period of time",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/commentisfree/2026/sep/07/heat-climate-crisis-paris-milan-phoenix",
+      "publishedAt": "2026-09-07T08:00:28.000Z"
+    },
+    {
+      "title": "The volunteers risking their lives to defuse Indonesia's wildfire 'carbon bombs'",
+      "whatHappened": "Peat fires in Borneo are releasing ancient stores of carbon - and sending a toxic smog across South East Asia.",
+      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
+      "keyWord": "climate: the usual pattern of weather over a long period of time",
+      "source": "BBC Science & Environment",
+      "url": "https://www.bbc.co.uk/news/articles/c1kx4lgy4z4o?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-09-06T23:13:29.000Z"
+    },
+    {
       "title": "Aviation faces hotter, stormier skies – and passengers might have to accept more disruption",
       "whatHappened": "Are people going to have to increasingly accept more delays and diversions as the effects of climate change intensify?",
       "whyItMatters": "Climate and environment stories connect science to real issues like safety, health, and extreme weather.",
@@ -76,53 +121,44 @@
       "source": "BBC Science & Environment",
       "url": "https://www.bbc.co.uk/news/articles/cm274p8m88lo?at_medium=RSS&at_campaign=rss",
       "publishedAt": "2026-09-05T23:20:00.000Z"
-    },
-    {
-      "title": "As wildfires spread north, UN agencies race to help Europe adapt",
-      "whatHappened": "As the climate warms, the threat of wildfires is spreading in Europe.",
-      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
-      "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "UN Climate",
-      "url": "https://news.un.org/feed/view/en/story/2026/09/1168273",
-      "publishedAt": "2026-09-05T12:00:00.000Z"
-    },
-    {
-      "title": "Central Park adapts to climate change while helping New York stay cool",
-      "whatHappened": "In the heart of Manhattan in New York City, the effects of climate change are becoming increasingly visible.",
-      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
-      "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "UN Climate",
-      "url": "https://news.un.org/feed/view/en/story/2026/09/1168277",
-      "publishedAt": "2026-09-05T12:00:00.000Z"
-    },
-    {
-      "title": "Trump signs order to remove endangered species protection for grey wolves",
-      "whatHappened": "The US president says the move will help ranchers, but conservationists say it could derail efforts to recover populations.",
-      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
-      "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "BBC Science & Environment",
-      "url": "https://www.bbc.co.uk/news/articles/c62k677d4lzo?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-09-05T09:12:48.000Z"
     }
   ],
   "weatherTech": [
     {
-      "title": "DIY plug-in solar gains momentum in the US",
-      "whatHappened": "This is The Stepback, a weekly newsletter breaking down one essential story from the tech world.",
-      "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
-      "keyWord": "solar: related to energy from sunlight",
-      "source": "The Verge",
-      "url": "https://www.theverge.com/column/990183/diy-plug-in-solar-us",
-      "publishedAt": "2026-09-06T12:13:19.000Z"
+      "title": "French winemakers forecast 30-year low harvest after severe drought and heat",
+      "whatHappened": "Estimates suggest drop in production with vineyards also concerned ‘smoke taint’ from wildfires may affect quality French vineyards hit by severe drought and heatwaves are expected...",
+      "whyItMatters": "Weather technology shows how science tools can predict conditions faster and help people prepare earlier.",
+      "keyWord": "forecast: a prediction about future weather conditions",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/world/2026/sep/07/french-winemakers-forecast-30-year-low-harvest-after-severe-drought-and-heat",
+      "publishedAt": "2026-09-07T15:10:51.000Z"
     },
     {
-      "title": "Renewable energy in NI reaches record level",
-      "whatHappened": "And for the first time renewable generation has consistently exceeded non-renewable generation since January.",
+      "title": "EcoFlow makes the miniature power station even smaller",
+      "whatHappened": "If you're in the market for a tiny power station that punches well above its size and weight then have a look at EcoFlow's new fourth-generation...",
+      "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
+      "keyWord": "battery: a device that stores energy for later use",
+      "source": "The Verge",
+      "url": "https://www.theverge.com/science/991033/ecoflow-makes-the-miniature-power-station-even-smaller",
+      "publishedAt": "2026-09-07T15:00:23.000Z"
+    },
+    {
+      "title": "Public asked to have their say on proposed new renewable energy company",
+      "whatHappened": "The proposed plans aim to reduce the cost of energy in the long-term, but won't be able to set bills.",
       "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
       "keyWord": "weather technology: tools that help people measure, study, or predict weather and climate",
       "source": "BBC Science & Environment",
-      "url": "https://www.bbc.co.uk/news/articles/ce3rql5rzx4o?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-09-04T05:11:45.000Z"
+      "url": "https://www.bbc.co.uk/news/articles/c780n702pp4o?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-09-07T14:35:38.000Z"
+    },
+    {
+      "title": "Turning cooler with wet and windy weather forecast for UK this week",
+      "whatHappened": "Weekend warmth gives way to rain and strong winds for many into the start of the new week.",
+      "whyItMatters": "Weather technology shows how science tools can predict conditions faster and help people prepare earlier.",
+      "keyWord": "forecast: a prediction about future weather conditions",
+      "source": "BBC Science & Environment",
+      "url": "https://www.bbc.co.uk/weather/articles/cvgynj49lzmo?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-09-07T03:09:04.000Z"
     },
     {
       "title": "The plastic waste overtaking New York – and the people trying to curb it",
@@ -208,15 +244,6 @@
       "publishedAt": "2026-08-07T12:00:00.000Z"
     },
     {
-      "title": "Oakland campus abuzz with energy as largest-ever cohort arrives",
-      "whatHappened": "Students from across the U.S.",
-      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
-      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
-      "source": "Northeastern Global News",
-      "url": "https://news.northeastern.edu/2026/09/03/new-oakland-students-move-in-2026/",
-      "publishedAt": "2026-09-03T20:56:27.000Z"
-    },
-    {
       "title": "UC Berkeley research explores how people actually respond when earthquakes hit",
       "whatHappened": "Engineers synchronized the motion of the Shake House, an earthquake simulator at the California Academy of Sciences, with a virtual reality environment to study how fear...",
       "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
@@ -251,6 +278,15 @@
       "source": "MIT Earth & Atmospheric Sciences",
       "url": "https://news.mit.edu/2026/study-peptides-can-form-well-defined-structures-harsh-venus-conditions-0831",
       "publishedAt": "2026-08-31T19:00:00.000Z"
+    },
+    {
+      "title": "Farewell black spruce? How climate change and pests are reshaping North America’s forests",
+      "whatHappened": "More than 80 per cent of North American forests could face greater threats from pests and diseases by mid-century, finds study led by UBC researchers.",
+      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
+      "keyWord": "research: careful study used to discover new knowledge",
+      "source": "UBC News",
+      "url": "https://news.ubc.ca/2026/09/how-climate-change-and-pests-are-reshaping-north-americas-forests/",
+      "publishedAt": "2026-09-02T14:00:00.000Z"
     }
   ]
 }
