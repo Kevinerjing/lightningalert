@@ -1,14 +1,14 @@
 {
-  "boardDate": "2026-09-07",
-  "generatedAt": "2026-09-07T16:37:57.292Z",
+  "boardDate": "2026-09-08",
+  "generatedAt": "2026-09-08T15:16:51.256Z",
   "sourceCount": 26,
   "weather": [
     {
       "city": "Ottawa",
-      "temperatureC": 24,
-      "maxC": 25,
-      "minC": 13,
-      "summary": "Clear skies"
+      "temperatureC": 19,
+      "maxC": 22,
+      "minC": 16,
+      "summary": "Cloudy"
     }
   ],
   "extremeWeather": [
@@ -31,15 +31,6 @@
       "publishedAt": "2026-09-02T12:00:00.000Z"
     },
     {
-      "title": "French winemakers forecast 30-year low harvest after severe drought and heat",
-      "whatHappened": "Estimates suggest drop in production with vineyards also concerned ‘smoke taint’ from wildfires may affect quality French vineyards hit by severe drought and heatwaves are expected...",
-      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
-      "keyWord": "heat wave: a long period of unusually hot weather",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/world/2026/sep/07/french-winemakers-forecast-30-year-low-harvest-after-severe-drought-and-heat",
-      "publishedAt": "2026-09-07T15:10:51.000Z"
-    },
-    {
       "title": "We’re the mayors of Paris, Milan and Phoenix. The heat crisis has us all facing the same question | Emmanuel Grégoire, Giuseppe Sala and Kate Gallego",
       "whatHappened": "Our three cities are learning from each other about how to protect residents.",
       "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
@@ -56,15 +47,6 @@
       "source": "The Guardian Environment",
       "url": "https://www.theguardian.com/us-news/2026/sep/03/hawaii-lahaina-mail-delivery-usps",
       "publishedAt": "2026-09-03T20:49:57.000Z"
-    },
-    {
-      "title": "Blackout risk rises as heatwave stresses largest US electric grids",
-      "whatHappened": "US energy department warns of potential for outages in PJM Interconnection, serving 67 million from DC to Chicago The risk ⁠of power outages ⁠is expected to...",
-      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
-      "keyWord": "heat wave: a long period of unusually hot weather",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/us-news/2026/sep/02/heatwave-power-outage-risk",
-      "publishedAt": "2026-09-02T12:16:52.000Z"
     }
   ],
   "climate": [
@@ -84,7 +66,7 @@
       "keyWord": "renewable energy: energy from sources that can be used again, like sun or wind",
       "source": "BBC Science & Environment",
       "url": "https://www.bbc.co.uk/news/articles/c780n702pp4o?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-09-07T14:35:38.000Z"
+      "publishedAt": "2026-09-07T18:02:43.000Z"
     },
     {
       "title": "‘Fight for humanity’: Avoiding a climate catastrophe means acting now",
@@ -96,6 +78,24 @@
       "publishedAt": "2026-09-02T12:00:00.000Z"
     },
     {
+      "title": "One in 12 golf clubs in England broke water extraction rules in past five years",
+      "whatHappened": "More than 140 clubs breached licences, with a third caught taking water illegally, analysis shows – but no fines issued More than 140 golf clubs in...",
+      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
+      "keyWord": "climate: the usual pattern of weather over a long period of time",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/environment/2026/sep/08/golf-clubs-water-extraction-licences-england",
+      "publishedAt": "2026-09-08T12:06:30.000Z"
+    },
+    {
+      "title": "US datacenters face further backlash over wastewater pollution",
+      "whatHappened": "From rare bacteria to ‘forever chemicals’, a series of cases of violations or alleged pollution has prompted alarm When officials in Wyoming conducted a routine test...",
+      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
+      "keyWord": "climate: the usual pattern of weather over a long period of time",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/us-news/2026/sep/08/us-datacenters-wastewater-pollution",
+      "publishedAt": "2026-09-08T11:47:13.000Z"
+    },
+    {
       "title": "We’re the mayors of Paris, Milan and Phoenix. The heat crisis has us all facing the same question | Emmanuel Grégoire, Giuseppe Sala and Kate Gallego",
       "whatHappened": "Our three cities are learning from each other about how to protect residents.",
       "whyItMatters": "Climate and environment stories connect science to real issues like safety, health, and extreme weather.",
@@ -103,44 +103,17 @@
       "source": "The Guardian Environment",
       "url": "https://www.theguardian.com/commentisfree/2026/sep/07/heat-climate-crisis-paris-milan-phoenix",
       "publishedAt": "2026-09-07T08:00:28.000Z"
-    },
-    {
-      "title": "The volunteers risking their lives to defuse Indonesia's wildfire 'carbon bombs'",
-      "whatHappened": "Peat fires in Borneo are releasing ancient stores of carbon - and sending a toxic smog across South East Asia.",
-      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
-      "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "BBC Science & Environment",
-      "url": "https://www.bbc.co.uk/news/articles/c1kx4lgy4z4o?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-09-06T23:13:29.000Z"
-    },
-    {
-      "title": "Aviation faces hotter, stormier skies – and passengers might have to accept more disruption",
-      "whatHappened": "Are people going to have to increasingly accept more delays and diversions as the effects of climate change intensify?",
-      "whyItMatters": "Climate and environment stories connect science to real issues like safety, health, and extreme weather.",
-      "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "BBC Science & Environment",
-      "url": "https://www.bbc.co.uk/news/articles/cm274p8m88lo?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-09-05T23:20:00.000Z"
     }
   ],
   "weatherTech": [
     {
-      "title": "French winemakers forecast 30-year low harvest after severe drought and heat",
-      "whatHappened": "Estimates suggest drop in production with vineyards also concerned ‘smoke taint’ from wildfires may affect quality French vineyards hit by severe drought and heatwaves are expected...",
-      "whyItMatters": "Weather technology shows how science tools can predict conditions faster and help people prepare earlier.",
-      "keyWord": "forecast: a prediction about future weather conditions",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/world/2026/sep/07/french-winemakers-forecast-30-year-low-harvest-after-severe-drought-and-heat",
-      "publishedAt": "2026-09-07T15:10:51.000Z"
-    },
-    {
-      "title": "EcoFlow makes the miniature power station even smaller",
-      "whatHappened": "If you're in the market for a tiny power station that punches well above its size and weight then have a look at EcoFlow's new fourth-generation...",
+      "title": "Gaps in evidence on vaccinating badgers against TB, researchers say",
+      "whatHappened": "Researchers want increased monitoring of the vaccination's impact on the disease and a review of the evidence.",
       "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
-      "keyWord": "battery: a device that stores energy for later use",
-      "source": "The Verge",
-      "url": "https://www.theverge.com/science/991033/ecoflow-makes-the-miniature-power-station-even-smaller",
-      "publishedAt": "2026-09-07T15:00:23.000Z"
+      "keyWord": "weather technology: tools that help people measure, study, or predict weather and climate",
+      "source": "BBC Science & Environment",
+      "url": "https://www.bbc.co.uk/news/articles/cddvzz1mjpvo?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-09-07T19:11:55.000Z"
     },
     {
       "title": "Public asked to have their say on proposed new renewable energy company",
@@ -149,7 +122,7 @@
       "keyWord": "weather technology: tools that help people measure, study, or predict weather and climate",
       "source": "BBC Science & Environment",
       "url": "https://www.bbc.co.uk/news/articles/c780n702pp4o?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-09-07T14:35:38.000Z"
+      "publishedAt": "2026-09-07T18:02:43.000Z"
     },
     {
       "title": "Turning cooler with wet and windy weather forecast for UK this week",
@@ -208,6 +181,15 @@
       "publishedAt": "2026-08-24T19:53:36.000Z"
     },
     {
+      "title": "Study predicts large disparities in access to food, water, and energy in 2050",
+      "whatHappened": "In some regions of the world, the poorest people may spend about 50 percent of their income on food, while the richest spend about 5 percent.",
+      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
+      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
+      "source": "MIT Climate & Sustainability",
+      "url": "https://news.mit.edu/2026/study-predicts-large-disparities-access-food-water-energy-2050-0908",
+      "publishedAt": "2026-09-08T04:00:00.000Z"
+    },
+    {
       "title": "New digital tool shows where exactly California’s water goes — and how climate change might disrupt it",
       "whatHappened": "The UC Berkeley-led COEQWAL project is helping communities explore how shifting the state’s water priorities could impact agriculture, cities and ecosystems.",
       "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
@@ -260,15 +242,6 @@
       "source": "MIT Climate & Sustainability",
       "url": "https://news.mit.edu/2026/translating-economic-growth-into-better-lives-lyonel-tanganco-0831",
       "publishedAt": "2026-08-31T20:40:00.000Z"
-    },
-    {
-      "title": "Playing against climate risk",
-      "whatHappened": "Climate scientist Sai Ravela is using games to help coastal communities find creative adaptations to climate change.",
-      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
-      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
-      "source": "MIT Climate & Sustainability",
-      "url": "https://news.mit.edu/2026/playing-against-climate-risk-0831",
-      "publishedAt": "2026-08-31T19:00:00.000Z"
     },
     {
       "title": "Study: Peptides can form well-defined structures in harsh, Venus-like conditions",
