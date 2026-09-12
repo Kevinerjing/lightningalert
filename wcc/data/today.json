@@ -1,26 +1,17 @@
 {
-  "boardDate": "2026-09-11",
-  "generatedAt": "2026-09-11T15:11:04.254Z",
+  "boardDate": "2026-09-12",
+  "generatedAt": "2026-09-12T14:19:02.184Z",
   "sourceCount": 26,
   "weather": [
     {
       "city": "Ottawa",
-      "temperatureC": 15,
-      "maxC": 19,
-      "minC": 8,
-      "summary": "Clear skies"
+      "temperatureC": 13,
+      "maxC": 23,
+      "minC": 9,
+      "summary": "Cloudy"
     }
   ],
   "extremeWeather": [
-    {
-      "title": "Watch: Downed trees and flooding as Hurricane Lowell batters western Hawaii",
-      "whatHappened": "The storm brought damaging winds and torrential rain to parts of the island on Monday and Tuesday, triggering concerns about flash flooding and mudslides.",
-      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
-      "keyWord": "flood: water covering land that is usually dry",
-      "source": "BBC Science & Environment",
-      "url": "https://www.bbc.co.uk/news/videos/c2079ne1xx6o?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-09-09T01:11:44.000Z"
-    },
     {
       "title": "Hurricane Lowell’s fierce winds and rains knocks out power on Hawaii’s Kauai",
       "whatHappened": "Center of storm passed west of the islands and was moving away but flooding and mudslides will continue to be a risk Damaging winds and heavy...",
@@ -38,6 +29,15 @@
       "source": "The Guardian Environment",
       "url": "https://www.theguardian.com/us-news/2026/sep/10/hawaii-hurricane-damage-el-nino",
       "publishedAt": "2026-09-10T14:00:37.000Z"
+    },
+    {
+      "title": "Heatwaves hit the Sunday roast: why the RHS says cauliflower is off the menu",
+      "whatHappened": "Charity urges gardeners in England to swap thirsty brassicas for drought-tolerant crops They are an integral part of the British Sunday roast – but cauliflowers are...",
+      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
+      "keyWord": "heat wave: a long period of unusually hot weather",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/environment/2026/sep/12/heatwaves-hit-sunday-roast-rhs-cauliflower-off-menu",
+      "publishedAt": "2026-09-12T11:00:32.000Z"
     },
     {
       "title": "New hurricane season record as 'historic' El Niño leaves Atlantic eerily quiet",
@@ -87,22 +87,13 @@
       "publishedAt": "2026-09-10T12:00:00.000Z"
     },
     {
-      "title": "How cleaning up the air is speeding up global warming - and revealing a bigger problem",
-      "whatHappened": "A curious online row over this summer's heatwaves points to a wider - and worrying - shift in climate science.",
+      "title": "Heatwaves hit the Sunday roast: why the RHS says cauliflower is off the menu",
+      "whatHappened": "Charity urges gardeners in England to swap thirsty brassicas for drought-tolerant crops They are an integral part of the British Sunday roast – but cauliflowers are...",
       "whyItMatters": "Climate and environment stories connect science to real issues like safety, health, and extreme weather.",
       "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "BBC Science & Environment",
-      "url": "https://www.bbc.co.uk/news/articles/c20917w25n4o?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-09-08T23:11:52.000Z"
-    },
-    {
-      "title": "UK chancellor urged to remove ‘hidden taxes’ from energy bills",
-      "whatHappened": "Businesses, charities and other groups sign letter calling for levies to be paid by the government More than 120 organisations including big businesses and charities have...",
-      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
-      "keyWord": "climate: the usual pattern of weather over a long period of time",
       "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/money/2026/sep/11/chancellor-remove-hidden-taxes-energy-bills",
-      "publishedAt": "2026-09-11T12:37:01.000Z"
+      "url": "https://www.theguardian.com/environment/2026/sep/12/heatwaves-hit-sunday-roast-rhs-cauliflower-off-menu",
+      "publishedAt": "2026-09-12T11:00:32.000Z"
     },
     {
       "title": "Sheen says he was snubbed by FM over pollution claims",
@@ -112,18 +103,18 @@
       "source": "BBC Science & Environment",
       "url": "https://www.bbc.co.uk/news/videos/cm2q8pp8epro?at_medium=RSS&at_campaign=rss",
       "publishedAt": "2026-09-11T10:29:19.000Z"
+    },
+    {
+      "title": "Species 'at risk of vanishing' from area of Wales' largest national park",
+      "whatHappened": "The National Trust warns species are on the brink of extinction in a valley of Eryri - Snowdonia - National Park.",
+      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
+      "keyWord": "climate: the usual pattern of weather over a long period of time",
+      "source": "BBC Science & Environment",
+      "url": "https://www.bbc.co.uk/news/articles/cvgy04v7rkjo?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-09-11T05:00:16.000Z"
     }
   ],
   "weatherTech": [
-    {
-      "title": "Ikea supersized its cheap Bluetooth speaker and added an optical input",
-      "whatHappened": "Ikea's new Badkruka wireless Bluetooth speaker is now available in the US for $59.99.",
-      "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
-      "keyWord": "battery: a device that stores energy for later use",
-      "source": "The Verge",
-      "url": "https://www.theverge.com/tech/993910/ikea-badkruka-wireless-bluetooth-speaker-optical-input",
-      "publishedAt": "2026-09-11T13:56:33.000Z"
-    },
     {
       "title": "Chemical industry backed laws in three US states to restrict use of air pollution data",
       "whatHappened": "As public air monitors disappear, federal rollbacks and state laws are making it harder than ever to know what’s in the air As the US’s network...",
