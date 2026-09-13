@@ -2,16 +2,16 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { handleRequest, classifyResult, parseReceipt } from './worker.mjs';
 
-const env = { JDOODLE_CLIENT_ID: 'test-id', JDOODLE_CLIENT_SECRET: 'test-secret', LAB_ACCESS_CODE: 'test-code',
+const env = { JDOODLE_CLIENT_ID: 'test-id', JDOODLE_CLIENT_SECRET: 'test-secret',
   RUN_LIMITER: { limit: async () => ({ success: true }) } };
 const body = { source: 'public class Cashier {}', subtotal: '20.00', cash: '30.00' };
-const request = (data = body, code = 'test-code', origin = 'https://lab.example') => new Request('https://lab.example/api/java/run', {
-  method: 'POST', headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${code}`, Origin: origin }, body: JSON.stringify(data)
+const request = (data = body, origin = 'https://lab.example') => new Request('https://lab.example/api/java/run', {
+  method: 'POST', headers: { 'Content-Type': 'application/json', Origin: origin }, body: JSON.stringify(data)
 });
 
 test('configuration status never exposes credentials', async () => {
   const result = await handleRequest(new Request('https://lab.example/api/java/status'), env);
-  assert.deepEqual(await result.json(), { ready: true, provider: 'JDoodle', accessCodeRequired: true });
+  assert.deepEqual(await result.json(), { ready: true, provider: 'JDoodle', accessCodeRequired: false });
 });
 test('main site preflight and error responses have restricted CORS headers', async () => {
   const origin = 'https://www.kevin-apps.com';
@@ -20,18 +20,17 @@ test('main site preflight and error responses have restricted CORS headers', asy
   }),env);
   assert.equal(preflight.status,204);
   assert.equal(preflight.headers.get('Access-Control-Allow-Origin'),origin);
-  const denied = await handleRequest(request(body,'wrong',origin),env);
-  assert.equal(denied.status,401);
+  const denied = await handleRequest(request(null,origin),env);
+  assert.equal(denied.status,400);
   assert.equal(denied.headers.get('Access-Control-Allow-Origin'),origin);
   const unknown = await handleRequest(new Request('https://lab.example/api/java/run', {method:'OPTIONS',headers:{Origin:'https://other.example'}}),env);
   assert.equal(unknown.status,403);
   assert.equal(unknown.headers.get('Access-Control-Allow-Origin'),null);
 });
-test('missing configuration, wrong access code, cross-origin and invalid input do not call provider', async () => {
+test('missing configuration, cross-origin and invalid input do not call provider', async () => {
   const never = () => { throw Error('Must not execute'); };
   assert.equal((await handleRequest(request(), {}, never)).status, 503);
-  assert.equal((await handleRequest(request(body, 'wrong'), env, never)).status, 401);
-  assert.equal((await handleRequest(request(body, 'test-code', 'https://other.example'), env, never)).status, 403);
+  assert.equal((await handleRequest(request(body, 'https://other.example'), env, never)).status, 403);
   for (const invalid of [null, {...body, cash: '-1'}, {...body, subtotal: '2\n3'}, {...body, source: 'a'.repeat(25000)}]) {
     assert.equal((await handleRequest(request(invalid), env, never)).status, 400);
   }

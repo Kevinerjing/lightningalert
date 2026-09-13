@@ -1,7 +1,7 @@
 const json = (body, status = 200) => Response.json(body, {
   status, headers: { 'Cache-Control': 'no-store', 'X-Content-Type-Options': 'nosniff' }
 });
-const ready = env => Boolean(env.JDOODLE_CLIENT_ID && env.JDOODLE_CLIENT_SECRET && env.LAB_ACCESS_CODE);
+const ready = env => Boolean(env.JDOODLE_CLIENT_ID && env.JDOODLE_CLIENT_SECRET);
 const siteOrigins = new Set(['https://www.kevin-apps.com', 'https://kevin-apps.com']);
 const allowedOrigin = request => {
   const origin = request.headers.get('Origin');
@@ -75,14 +75,11 @@ async function handleApi(request, env, executeFetch) {
   const url = new URL(request.url);
   if (!url.pathname.startsWith('/api/')) return env.ASSETS.fetch(request);
   if (url.pathname === '/api/java/status' && request.method === 'GET') {
-    return json({ ready: ready(env), provider: 'JDoodle', accessCodeRequired: true });
+    return json({ ready: ready(env), provider: 'JDoodle', accessCodeRequired: false });
   }
   if (url.pathname !== '/api/java/run') return json({ error: 'Not found.' }, 404);
   if (request.method !== 'POST') return json({ error: 'POST required.' }, 405);
   if (!ready(env)) return json({ error: 'Java execution is not configured yet.' }, 503);
-  if (request.headers.get('Authorization') !== `Bearer ${env.LAB_ACCESS_CODE}`) {
-    return json({ error: 'Enter the classroom access code.' }, 401);
-  }
   let body;
   try { body = await readBody(request); } catch { return json({ error: 'Send valid JSON under 24 KB.' }, 400); }
   const money = value => typeof value === 'string' && /^\d{1,6}(?:\.\d{1,2})?$/.test(value);

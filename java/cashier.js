@@ -31,13 +31,19 @@ public class Cashier {
         double change = 0;
 
         // Return the receipt to the checkout page.
-        System.out.printf(Locale.US, "TAX=%.2f%n", tax);
-        System.out.printf(Locale.US, "TOTAL=%.2f%n", total);
-        System.out.printf(Locale.US, "CHANGE=%.2f%n", change);
+        System.out.printf(Locale.US, "TAX=%.2f\\n", tax);
+        System.out.printf(Locale.US, "TOTAL=%.2f\\n", total);
+        System.out.printf(Locale.US, "CHANGE=%.2f\\n", change);
     }
 }
 `;
 const cases = { normal: ['20.00', '30.00'], exact: ['20.00', '22.60'], decimal: ['12.50', '20.00'] };
+const solution = starter
+  .replace('// TODO: Calculate tax and total.', '// Calculate Ontario HST and total.')
+  .replace('double tax = 0;', 'double tax = subtotal * TAX_RATE;')
+  .replace('double total = 0;', 'double total = subtotal + tax;')
+  .replace('// TODO: Calculate change.', '// Calculate change after payment.')
+  .replace('double change = 0;', 'double change = cashGiven - total;');
 let busy = false;
 let connected = false;
 let revision = 0;
@@ -65,6 +71,16 @@ $('example').onchange = () => {
   if (example) { [$('subtotal').value, $('cash').value] = example; invalidate(); }
 };
 $('reset').onclick = () => { if (confirm('Replace your draft with the starter code?')) { $('source').value = starter; save(); invalidate(); } };
+$('solution').onclick = () => {
+  $('solution-code').textContent = solution;
+  $('solution-dialog').showModal();
+};
+$('use-solution').onclick = () => {
+  if (!confirm('Replace your current draft with the solution?')) return;
+  $('source').value = solution;
+  save(); invalidate();
+  $('solution-dialog').close();
+};
 $('download').onclick = () => {
   const url = URL.createObjectURL(new Blob([$('source').value], { type: 'text/plain' }));
   const a = document.createElement('a'); a.href = url; a.download = 'Cashier.java'; a.click();
@@ -100,7 +116,6 @@ function showReceipt(receipt, input) {
 $('checkout-form').onsubmit = async event => {
   event.preventDefault();
   if (busy || !connected) return;
-  if (!$('access-code').value) { $('run-status').textContent = 'Enter the classroom access code.'; $('access-code').focus(); return; }
   const payload = { source: $('source').value, subtotal: $('subtotal').value, cash: $('cash').value };
   const runRevision = revision;
   busy = true; $('run').disabled = true; $('run').textContent = 'Running...';
@@ -111,7 +126,7 @@ $('checkout-form').onsubmit = async event => {
   const started = performance.now();
   try {
     const response = await fetch(new URL('run', api), { method: 'POST', headers: {
-      'Content-Type': 'application/json', Authorization: `Bearer ${$('access-code').value}`
+      'Content-Type': 'application/json'
     }, body: JSON.stringify(payload), signal: AbortSignal.timeout(30000) });
     const data = await response.json();
     $('exchange').textContent = JSON.stringify({ request: requestSummary, response: { httpStatus: response.status, ...data } }, null, 2);

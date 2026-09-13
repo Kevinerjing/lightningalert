@@ -8,14 +8,14 @@ Rate reference: https://www.ontario.ca/document/harmonized-sales-tax-hst
 The Worker serves `java/` at its own domain root and handles `/api/java/status`
 and `/api/java/run`. Existing quiz pages remain available there. The copies at
 `https://www.kevin-apps.com/java/cashier` and the apex domain use this Worker's
-API with explicit CORS allowlisting, including authenticated POST preflights.
+API with explicit CORS allowlisting, including JSON POST preflights.
 Other static copies can edit/download code and link to the hosted lab when
 execution is unavailable. Connection checks can be retried without reloading.
 
 ## Local setup
 
 Create `.dev.vars` beside `wrangler.toml`, using `.dev.vars.example` as the schema.
-Set `JDOODLE_CLIENT_ID`, `JDOODLE_CLIENT_SECRET`, and a classroom `LAB_ACCESS_CODE`.
+Set `JDOODLE_CLIENT_ID` and `JDOODLE_CLIENT_SECRET`.
 This file is Git-ignored and outside the public assets directory.
 
 From the repository root:
@@ -25,9 +25,9 @@ npx.cmd wrangler dev --config workers/java-lab/wrangler.toml --port 8794 --ip 12
 node --test workers/java-lab/worker.test.mjs
 ```
 
-Open http://127.0.0.1:8794/cashier.html. Enter the classroom code in the form.
+Open http://127.0.0.1:8794/cashier.html. No classroom code is required.
 The provider keys are never sent to the browser. Draft source stays in localStorage;
-the classroom code is not persisted. Running sends source and inputs to JDoodle.
+running sends source and inputs to JDoodle. Solution opens the complete answer without\nchanging the draft; Use solution replaces it only after confirmation.
 
 ## Deployment
 
@@ -36,11 +36,10 @@ npx.cmd wrangler login
 npx.cmd wrangler deploy --config workers/java-lab/wrangler.toml
 npx.cmd wrangler secret put JDOODLE_CLIENT_ID --config workers/java-lab/wrangler.toml
 npx.cmd wrangler secret put JDOODLE_CLIENT_SECRET --config workers/java-lab/wrangler.toml
-npx.cmd wrangler secret put LAB_ACCESS_CODE --config workers/java-lab/wrangler.toml
 ```
 
 Use the secret commands' interactive prompts, never command-line credential arguments.
-No custom domain or existing Worker routes are changed. Without all three secrets,
+No custom domain or existing Worker routes are changed. Without both provider secrets,
 the deployed endpoint fails closed and the Run button is disabled.
 
 ## Execution contract
@@ -60,7 +59,7 @@ are separate states. The starter rounds tax to cents before total and change, so
 the receipt balances even when tax initially contains half a cent. The grader uses
 integer cents. This is an educational double exercise, not a production financial engine.
 
-The classroom code gates shared quota. Cloudflare's per-IP limiter permits five
+Execution is public. Cloudflare's per-IP limiter permits five
 requests per minute per location, not a strict global daily budget. Students behind
 one school IP share this limit. JDoodle enforces the account's actual quota. Configure
 provider spending restrictions before moving beyond its free plan. No database,

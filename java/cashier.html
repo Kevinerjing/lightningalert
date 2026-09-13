@@ -9,7 +9,7 @@
 <nav class="mobile-tabs" aria-label="Lab views"><button aria-pressed="true" data-view="code">Code</button><button aria-pressed="false" data-view="checkout">Checkout</button></nav>
 <div class="lab-grid">
 <section class="editor-pane" aria-labelledby="file-title">
-<div class="toolbar"><h2 id="file-title">Cashier.java</h2><div><button id="download">Download</button><button id="reset">Reset</button></div></div>
+<div class="toolbar"><h2 id="file-title">Cashier.java</h2><div><button id="solution">Solution</button><button id="download">Download</button><button id="reset">Reset</button></div></div>
 <label class="sr-only" for="source">Java source code</label><textarea id="source" spellcheck="false" autocapitalize="off" autocomplete="off" maxlength="16000"></textarea>
 <div class="editor-status"><span>Java / standard input</span><span id="save-state" role="status">Draft</span></div>
 <details open class="assignment"><summary>Assignment</summary><p>Read the subtotal and cash given. Calculate Ontario HST at 13%, total, and change for a fully taxable purchase. Use descriptive names, logical sections, and consistent indentation. Round tax to cents before calculating total; the rounding statement is provided.</p><p>Output contract: one line each for <code>TAX=...</code>, <code>TOTAL=...</code>, and <code>CHANGE=...</code>. The starter includes these output statements.</p><p>Each run receives both inputs at once. This lab wraps a console program; it is not a Java HTTP server.</p></details>
@@ -18,11 +18,12 @@
 <h2 id="checkout-title">Checkout</h2>
 <form id="checkout-form"><label for="example">Test case</label><select id="example"><option value="normal">Normal payment</option><option value="exact">Exact payment</option><option value="decimal">Decimal subtotal</option><option value="custom">Custom</option></select>
 <div class="amounts"><div><label for="subtotal">Subtotal ($)</label><input id="subtotal" name="subtotal" type="number" min="0" max="999999.99" step="0.01" value="20.00" required></div><div><label for="cash">Cash given ($)</label><input id="cash" name="cash" type="number" min="0" max="999999.99" step="0.01" value="30.00" required></div></div>
-<label for="access-code">Classroom access code</label><input id="access-code" type="password" autocomplete="off" maxlength="200">
 <button id="run" class="primary" type="submit" disabled>Run checkout</button></form>
 <p id="run-status" role="status">No execution yet.</p>
 <div class="receipt" aria-label="Java output receipt"><div class="receipt-head">JAVA LAB / RECEIPT</div><dl><div><dt>Ontario HST (13%)</dt><dd id="tax-result">--</dd></div><div><dt>Total</dt><dd id="total-result">--</dd></div><div><dt>Change</dt><dd id="change-result">--</dd></div></dl><p id="receipt-state">Awaiting Java output</p></div>
 <div class="checks"><h3>Expected / actual</h3><div id="test-result">No test result.</div></div>
 </section></div>
 <section class="execution" aria-label="Execution details"><div class="execution-heading"><h2>Execution</h2><span id="execution-time"></span></div><div class="execution-grid"><div><h3>Console</h3><pre id="console" tabindex="0">No output.</pre></div><div><h3>Request / response</h3><pre id="exchange" tabindex="0">No request sent.</pre></div></div></section>
-</main><script type="module" src="cashier.js"></script></body></html>
+</main>
+<dialog id="solution-dialog" aria-labelledby="solution-title"><div class="toolbar"><h2 id="solution-title">Cashier.java / Solution</h2><form method="dialog"><button aria-label="Close solution">Close</button></form></div><pre id="solution-code" tabindex="0"></pre><button id="use-solution" class="primary">Use solution</button></dialog>
+<script type="module" src="cashier.js"></script></body></html>
