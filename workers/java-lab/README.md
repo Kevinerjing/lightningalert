@@ -6,8 +6,11 @@ The assignment assumes a fully taxable Ontario purchase with 13% HST.
 Rate reference: https://www.ontario.ca/document/harmonized-sales-tax-hst
 
 The Worker serves `java/` at its own domain root and handles `/api/java/status`
-and `/api/java/run`. Existing quiz pages remain available there. A static-only
-copy of the lab can edit/download code but reports execution as unavailable.
+and `/api/java/run`. Existing quiz pages remain available there. The copies at
+`https://www.kevin-apps.com/java/cashier` and the apex domain use this Worker's
+API with explicit CORS allowlisting, including authenticated POST preflights.
+Other static copies can edit/download code and link to the hosted lab when
+execution is unavailable. Connection checks can be retried without reloading.
 
 ## Local setup
 

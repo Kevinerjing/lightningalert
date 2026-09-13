@@ -2,6 +2,11 @@ const json = (body, status = 200) => Response.json(body, {
   status, headers: { 'Cache-Control': 'no-store', 'X-Content-Type-Options': 'nosniff' }
 });
 const ready = env => Boolean(env.JDOODLE_CLIENT_ID && env.JDOODLE_CLIENT_SECRET && env.LAB_ACCESS_CODE);
+const siteOrigins = new Set(['https://www.kevin-apps.com', 'https://kevin-apps.com']);
+const allowedOrigin = request => {
+  const origin = request.headers.get('Origin');
+  return !origin || origin === new URL(request.url).origin || siteOrigins.has(origin);
+};
 
 export function parseReceipt(output) {
   const values = {};
@@ -51,13 +56,29 @@ async function readBody(request) {
 export async function handleRequest(request, env, executeFetch = fetch) {
   const url = new URL(request.url);
   if (!url.pathname.startsWith('/api/')) return env.ASSETS.fetch(request);
+  if (!allowedOrigin(request)) return json({ error: 'Origin not allowed.' }, 403);
+  const response = request.method === 'OPTIONS'
+    ? new Response(null, { status: 204 })
+    : await handleApi(request, env, executeFetch);
+  const headers = new Headers(response.headers);
+  const origin = request.headers.get('Origin');
+  if (origin) {
+    headers.set('Access-Control-Allow-Origin', origin);
+    headers.set('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
+    headers.set('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+    headers.set('Vary', 'Origin');
+  }
+  return new Response(response.body, { status: response.status, headers });
+}
+
+async function handleApi(request, env, executeFetch) {
+  const url = new URL(request.url);
+  if (!url.pathname.startsWith('/api/')) return env.ASSETS.fetch(request);
   if (url.pathname === '/api/java/status' && request.method === 'GET') {
     return json({ ready: ready(env), provider: 'JDoodle', accessCodeRequired: true });
   }
   if (url.pathname !== '/api/java/run') return json({ error: 'Not found.' }, 404);
   if (request.method !== 'POST') return json({ error: 'POST required.' }, 405);
-  const origin = request.headers.get('Origin');
-  if (origin && origin !== url.origin) return json({ error: 'Origin not allowed.' }, 403);
   if (!ready(env)) return json({ error: 'Java execution is not configured yet.' }, 503);
   if (request.headers.get('Authorization') !== `Bearer ${env.LAB_ACCESS_CODE}`) {
     return json({ error: 'Enter the classroom access code.' }, 401);

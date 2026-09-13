@@ -1,5 +1,8 @@
 const $ = id => document.getElementById(id);
-const api = new URL('./api/java/', location.href);
+const primarySite = ['www.kevin-apps.com', 'kevin-apps.com'].includes(location.hostname);
+const api = primarySite
+  ? new URL('https://java-cashier-lab.jingkevin0408.workers.dev/api/java/')
+  : new URL('./api/java/', location.href);
 const draftKey = 'java-cashier-draft-v2';
 const starter = `import java.util.Scanner;
 import java.util.Locale;
@@ -129,10 +132,26 @@ $('checkout-form').onsubmit = async event => {
     busy = false; $('run').disabled = !connected; $('run').textContent = 'Run checkout';
   }
 };
-try {
-  const response = await fetch(new URL('status', api), { signal: AbortSignal.timeout(8000) });
-  if (!response.ok) throw new Error();
-  const status = await response.json(); connected = status.ready === true;
-  $('connection').textContent = connected ? 'JDoodle configured' : 'Java execution not configured';
-} catch { $('connection').textContent = 'Java execution service unavailable'; }
-$('run').disabled = !connected;
+async function checkConnection() {
+  $('reconnect').disabled = true;
+  $('connection').textContent = 'Checking execution service...';
+  connected = false;
+  $('run').disabled = true;
+  try {
+    const response = await fetch(new URL('status', api), { cache: 'no-store', signal: AbortSignal.timeout(8000) });
+    if (!response.ok || !response.headers.get('Content-Type')?.includes('application/json')) throw new Error();
+    const status = await response.json();
+    if (typeof status.ready !== 'boolean') throw new Error();
+    connected = status.ready;
+    $('connection').textContent = connected ? 'JDoodle configured' : 'Java execution not configured';
+  } catch {
+    $('connection').textContent = location.hostname === 'java-cashier-lab.jingkevin0408.workers.dev'
+      ? 'Could not connect to Java service. Retry connection.'
+      : 'Java service is not available on this address. Open the online lab.';
+  }
+  $('connection-help').hidden = connected;
+  $('reconnect').disabled = false;
+  $('run').disabled = !connected || busy;
+}
+$('reconnect').onclick = checkConnection;
+checkConnection();

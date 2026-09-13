@@ -13,6 +13,20 @@ test('configuration status never exposes credentials', async () => {
   const result = await handleRequest(new Request('https://lab.example/api/java/status'), env);
   assert.deepEqual(await result.json(), { ready: true, provider: 'JDoodle', accessCodeRequired: true });
 });
+test('main site preflight and error responses have restricted CORS headers', async () => {
+  const origin = 'https://www.kevin-apps.com';
+  const preflight = await handleRequest(new Request('https://lab.example/api/java/run', {
+    method:'OPTIONS',headers:{Origin:origin,'Access-Control-Request-Method':'POST','Access-Control-Request-Headers':'authorization,content-type'}
+  }),env);
+  assert.equal(preflight.status,204);
+  assert.equal(preflight.headers.get('Access-Control-Allow-Origin'),origin);
+  const denied = await handleRequest(request(body,'wrong',origin),env);
+  assert.equal(denied.status,401);
+  assert.equal(denied.headers.get('Access-Control-Allow-Origin'),origin);
+  const unknown = await handleRequest(new Request('https://lab.example/api/java/run', {method:'OPTIONS',headers:{Origin:'https://other.example'}}),env);
+  assert.equal(unknown.status,403);
+  assert.equal(unknown.headers.get('Access-Control-Allow-Origin'),null);
+});
 test('missing configuration, wrong access code, cross-origin and invalid input do not call provider', async () => {
   const never = () => { throw Error('Must not execute'); };
   assert.equal((await handleRequest(request(), {}, never)).status, 503);
