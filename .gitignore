@@ -3,6 +3,10 @@ node_modules/
 __pycache__/
 *.pyc
 .env
+workers/java-lab/.dev.vars
+workers/java-lab/.dev.vars.*
+!workers/java-lab/.dev.vars.example
+workers/java-lab/.wrangler/
 studypilot/local-secrets.json
 studypilot/uploads/
 studypilot/.playwright/

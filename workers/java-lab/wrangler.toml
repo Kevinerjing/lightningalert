@@ -1,0 +1,16 @@
+name = "java-cashier-lab"
+main = "worker.mjs"
+compatibility_date = "2026-03-29"
+
+[assets]
+directory = "../../java"
+binding = "ASSETS"
+run_worker_first = ["/api/*"]
+
+[vars]
+JAVA_VERSION_INDEX = "0"
+
+[[ratelimits]]
+name = "RUN_LIMITER"
+namespace_id = "14001"
+simple = { limit = 5, period = 60 }
