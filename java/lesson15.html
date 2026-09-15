@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>If Statements | Java 1.5</title>
+<link rel="stylesheet" href="style.css">
+<style>
+.lesson-nav{display:flex;flex-wrap:wrap;gap:10px 22px;margin:24px 0}
+.exercise{border-top:1px solid #cbd2d8;padding:26px 0;scroll-margin-top:20px}
+.exercise h2{margin-top:0}.exercise details{margin-top:20px}
+.exercise summary{cursor:pointer;color:#244ada;font-weight:700;padding:12px 0}
+.exercise summary:focus-visible{outline:3px solid #f39e30;outline-offset:3px}
+.sample{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.sample pre{margin:8px 0;white-space:pre-wrap}
+.solution-code{tab-size:4}.exercise table{border-collapse:collapse;width:100%;margin:18px 0}
+td,th{text-align:left;border-bottom:1px solid #cbd2d8;padding:10px}
+@media(max-width:600px){.sample{grid-template-columns:1fr}header>span{display:none}}
+@media print{details> *{display:block!important}.lesson-nav{display:none}}
+</style>
+</head>
+<body>
+<header><a href="./" class="brand">{ } <span>JAVA LAB</span></a><a href="./">All lessons</a></header>
+<main class="lesson-list">
+<p class="eyebrow">UNIT 1 / LESSON 1.5</p>
+<h1>If Statements</h1>
+<p>Five exercises using Scanner, if / else, comparisons and basic arithmetic. Try each question before opening its solution.</p>
+<p class="small">Run one solution at a time in <code>Main.java</code>. Enter multiple numbers with spaces or newlines, not commas. Sample output below shows the result; some programs also print a prompt.</p>
+<nav class="lesson-nav" aria-label="Exercises"><a href="#exercise-a">A · Marks</a><a href="#exercise-b">B · Parity</a><a href="#exercise-c">C · Lottery</a><a href="#exercise-d">D · Larger Number</a><a href="#exercise-e">E · Winner</a></nav>
+<section class="exercise" id="exercise-a">
+<p class="eyebrow">EXERCISE A</p><h2>Marks</h2>
+<p>Read a mark as a double and print its level: 4 for 80 or more, 3 for 70–79.999..., 2 for 60–69.999..., 1 for 50–59.999..., and 0 below 50.</p>
+<div class="sample"><div><strong>Sample input</strong><pre>67.5</pre></div><div><strong>Result</strong><pre>Level 2</pre></div></div>
+<details><summary>Show solution — Marks</summary>
+<p>Check the highest level first. In an else-if chain, only the first matching branch runs.</p>
+<pre class="solution-code" tabindex="0" aria-label="Marks Java solution"><code>import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+
+        double mark = input.nextDouble();
+
+        if (mark &gt;= 80) {
+            System.out.println(&quot;Level 4&quot;);
+        } else if (mark &gt;= 70) {
+            System.out.println(&quot;Level 3&quot;);
+        } else if (mark &gt;= 60) {
+            System.out.println(&quot;Level 2&quot;);
+        } else if (mark &gt;= 50) {
+            System.out.println(&quot;Level 1&quot;);
+        } else {
+            System.out.println(&quot;Level 0&quot;);
+        }
+    }
+}
+</code></pre>
+<p><a href="solutions/1.5/A/Main.java" download="Main.java">Download Main.java</a></p>
+</details></section>
+<section class="exercise" id="exercise-b">
+<p class="eyebrow">EXERCISE B</p><h2>Parity</h2>
+<p>Read an integer and print even or odd.</p>
+<div class="sample"><div><strong>Sample input</strong><pre>6</pre></div><div><strong>Result</strong><pre>even</pre></div></div>
+<details><summary>Show solution — Parity</summary>
+<p>The % operator gives the remainder. A remainder of zero when dividing by 2 means the number is even. This also works for zero and negative integers.</p>
+<pre class="solution-code" tabindex="0" aria-label="Parity Java solution"><code>import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+
+        int number = input.nextInt();
+
+        if (number % 2 == 0) {
+            System.out.println(&quot;even&quot;);
+        } else {
+            System.out.println(&quot;odd&quot;);
+        }
+    }
+}
+</code></pre>
+<p><a href="solutions/1.5/B/Main.java" download="Main.java">Download Main.java</a></p>
+</details></section>
+<section class="exercise" id="exercise-c">
+<p class="eyebrow">EXERCISE C</p><h2>Lottery</h2>
+<p>Read a five-digit lottery ticket number. 34567 wins $1,000,000. Other five-digit numbers lose; numbers outside 10000–99999 are invalid.</p>
+<div class="sample"><div><strong>Sample input</strong><pre>34567</pre></div><div><strong>Result</strong><pre>You have won $1,000,000</pre></div></div>
+<details><summary>Show solution — Lottery</summary>
+<p>Check the range before checking the winning number. || means OR. This beginner version assumes integer input: text and decimals are not handled by nextInt().</p>
+<pre class="solution-code" tabindex="0" aria-label="Lottery Java solution"><code>import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+
+        System.out.println(&quot;Enter a five-digit lottery ticket number:&quot;);
+        int number = input.nextInt();
+
+        if (number &lt; 10000 || number &gt; 99999) {
+            System.out.println(&quot;Your number is invalid&quot;);
+        } else if (number == 34567) {
+            System.out.println(&quot;You have won $1,000,000&quot;);
+        } else {
+            System.out.println(&quot;Better luck next time!&quot;);
+        }
+    }
+}
+</code></pre>
+<p><a href="solutions/1.5/C/Main.java" download="Main.java">Download Main.java</a></p>
+</details></section>
+<section class="exercise" id="exercise-d">
+<p class="eyebrow">EXERCISE D</p><h2>Larger Number</h2>
+<p>Read two integers. Use if-statements to display the larger number, or say that they are equal.</p>
+<div class="sample"><div><strong>Sample input</strong><pre>5 2</pre></div><div><strong>Result</strong><pre>5 is larger than 2</pre></div></div>
+<details><summary>Show solution — Larger Number</summary>
+<p>Check whether the first number is larger, then whether the second is larger. If neither condition is true, they are equal.</p>
+<pre class="solution-code" tabindex="0" aria-label="Larger Number Java solution"><code>import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+
+        int num1 = input.nextInt();
+        int num2 = input.nextInt();
+
+        if (num1 &gt; num2) {
+            System.out.println(num1 + &quot; is larger than &quot; + num2);
+        } else if (num2 &gt; num1) {
+            System.out.println(num2 + &quot; is larger than &quot; + num1);
+        } else {
+            System.out.println(&quot;The numbers are equal&quot;);
+        }
+    }
+}
+</code></pre>
+<p><a href="solutions/1.5/D/Main.java" download="Main.java">Download Main.java</a></p>
+</details></section>
+<section class="exercise" id="exercise-e">
+<p class="eyebrow">EXERCISE E</p><h2>Winner</h2>
+<p>Introduce your game and read three integers. If addition, subtraction, multiplication or division of the first two produces the third, show one winning combination. Check both orders for subtraction and division. Never divide by zero.</p>
+<div class="sample"><div><strong>Sample input</strong><pre>2 16 8</pre></div><div><strong>Result</strong><pre>16 / 2 = 8
+CONGRATULATIONS - YOU WON!!!</pre></div></div>
+<details><summary>Show solution — Winner</summary>
+<p>Use else if to show only one winning combination. For division, first check that the divisor is not zero, then that the remainder is zero, then that the quotient matches. &amp;&amp; stops checking as soon as a condition is false, so the order protects against division by zero.</p>
+<pre class="solution-code" tabindex="0" aria-label="Winner Java solution"><code>import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+
+        System.out.println(&quot;Welcome to my fancy new game!&quot;);
+        System.out.println(&quot;Enter any three integers:&quot;);
+        int num1 = input.nextInt();
+        int num2 = input.nextInt();
+        int num3 = input.nextInt();
+
+        if (num1 + num2 == num3) {
+            System.out.println(num1 + &quot; + &quot; + num2 + &quot; = &quot; + num3);
+            System.out.println(&quot;CONGRATULATIONS - YOU WON!!!&quot;);
+        } else if (num1 - num2 == num3) {
+            System.out.println(num1 + &quot; - &quot; + num2 + &quot; = &quot; + num3);
+            System.out.println(&quot;CONGRATULATIONS - YOU WON!!!&quot;);
+        } else if (num2 - num1 == num3) {
+            System.out.println(num2 + &quot; - &quot; + num1 + &quot; = &quot; + num3);
+            System.out.println(&quot;CONGRATULATIONS - YOU WON!!!&quot;);
+        } else if (num1 * num2 == num3) {
+            System.out.println(num1 + &quot; * &quot; + num2 + &quot; = &quot; + num3);
+            System.out.println(&quot;CONGRATULATIONS - YOU WON!!!&quot;);
+        } else if (num2 != 0 &amp;&amp; num1 % num2 == 0 &amp;&amp; num1 / num2 == num3) {
+            System.out.println(num1 + &quot; / &quot; + num2 + &quot; = &quot; + num3);
+            System.out.println(&quot;CONGRATULATIONS - YOU WON!!!&quot;);
+        } else if (num1 != 0 &amp;&amp; num2 % num1 == 0 &amp;&amp; num2 / num1 == num3) {
+            System.out.println(num2 + &quot; / &quot; + num1 + &quot; = &quot; + num3);
+            System.out.println(&quot;CONGRATULATIONS - YOU WON!!!&quot;);
+        } else {
+            System.out.println(&quot;Sorry, better luck next time.&quot;);
+        }
+    }
+}
+</code></pre>
+<p><a href="solutions/1.5/E/Main.java" download="Main.java">Download Main.java</a></p>
+</details></section>
+<section class="exercise"><h2>Check your program</h2>
+<p>Test more than the sample. These cases check boundaries, equality, negative numbers and division.</p>
+<table><thead><tr><th>Exercise</th><th>Input</th><th>Expected result</th></tr></thead><tbody>
+<tr><td>A</td><td>80 / 70 / 60 / 50 / 49.9 (separate runs)</td><td>Levels 4 / 3 / 2 / 1 / 0</td></tr>
+<tr><td>B</td><td>-4 / -3 / 0 (separate runs)</td><td>even / odd / even</td></tr>
+<tr><td>C</td><td>123 / 12345 / 100000 (separate runs)</td><td>invalid / better luck / invalid</td></tr>
+<tr><td>D</td><td>-4 -1; then 4 4</td><td>-1 is larger than -4; then equal</td></tr>
+<tr><td>E</td><td>7 2 3</td><td>Sorry, better luck next time. (7 / 2 is not exactly 3.)</td></tr>
+<tr><td>E</td><td>5 0 2; then 0 5 2</td><td>Sorry, better luck next time. No division-by-zero error.</td></tr>
+</tbody></table></section>
+<p><a href="./">← Back to all lessons</a></p>
+</main></body></html>
