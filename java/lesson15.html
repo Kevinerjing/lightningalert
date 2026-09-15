@@ -25,7 +25,92 @@ td,th{text-align:left;border-bottom:1px solid #cbd2d8;padding:10px}
 <h1>If Statements</h1>
 <p>Five exercises using Scanner, if / else, comparisons and basic arithmetic. Try each question before opening its solution.</p>
 <p class="small">Run one solution at a time in <code>Main.java</code>. Enter multiple numbers with spaces or newlines, not commas. Sample output below shows the result; some programs also print a prompt.</p>
-<nav class="lesson-nav" aria-label="Exercises"><a href="#exercise-a">A · Marks</a><a href="#exercise-b">B · Parity</a><a href="#exercise-c">C · Lottery</a><a href="#exercise-d">D · Larger Number</a><a href="#exercise-e">E · Winner</a></nav>
+<nav class="lesson-nav" aria-label="Lesson sections"><a href="#if-guide">if / else if / else</a><a href="#exercise-a">A · Marks</a><a href="#exercise-b">B · Parity</a><a href="#exercise-c">C · Lottery</a><a href="#exercise-d">D · Larger Number</a><a href="#exercise-e">E · Winner</a></nav>
+<section class="exercise" id="if-guide" aria-labelledby="if-guide-title">
+<p class="eyebrow">START HERE / HOW DECISIONS WORK</p>
+<h2 id="if-guide-title">if vs else if vs else</h2>
+<p>A <strong>condition</strong> is a question Java can answer with <code>true</code> or <code>false</code>, such as <code>mark &gt;= 80</code>. The statements inside <code>{ }</code> run only when that branch is selected.</p>
+<table><thead><tr><th>Keyword</th><th>Meaning</th><th>Rule</th></tr></thead><tbody>
+<tr><td><code>if (condition)</code></td><td>“Check this condition.”</td><td>Starts a decision. It can stand alone.</td></tr>
+<tr><td><code>else if (condition)</code></td><td>“Otherwise, check this next condition.”</td><td>Checked only if every earlier condition in this chain was false.</td></tr>
+<tr><td><code>else</code></td><td>“Otherwise, do this.”</td><td>No condition. Runs only if all conditions in this chain were false.</td></tr>
+</tbody></table>
+
+<h3>1. Separate if statements: check each one</h3>
+<p>Each new, independent <code>if</code> starts another decision. More than one block can run.</p>
+<pre tabindex="0"><code>int mark = 85;
+
+if (mark &gt;= 80) {
+    System.out.println("80 or more");
+}
+if (mark &gt;= 70) {
+    System.out.println("70 or more");
+}
+if (mark &gt;= 50) {
+    System.out.println("50 or more");
+}</code></pre>
+<p><strong>Output:</strong></p>
+<pre>80 or more
+70 or more
+50 or more</pre>
+<p>85 meets all three conditions, so all three messages print. A true condition does not stop the following independent <code>if</code> statements.</p>
+
+<h3>2. An if / else if / else chain: choose one branch</h3>
+<p>Use a chain when the program should select just one result, such as one grade level.</p>
+<pre tabindex="0"><code>int mark = 85;
+
+if (mark &gt;= 80) {
+    System.out.println("Level 4");
+} else if (mark &gt;= 70) {
+    System.out.println("Level 3");
+} else if (mark &gt;= 60) {
+    System.out.println("Level 2");
+} else if (mark &gt;= 50) {
+    System.out.println("Level 1");
+} else {
+    System.out.println("Level 0");
+}
+System.out.println("Finished");</code></pre>
+<p><strong>Output:</strong></p>
+<pre>Level 4
+Finished</pre>
+<p>The first condition is true, so Java prints <code>Level 4</code> and skips the remaining branches in this chain. <strong>The program does not end:</strong> it continues after the chain and prints <code>Finished</code>.</p>
+<table><thead><tr><th>If mark is…</th><th>What Java checks</th><th>Selected branch</th></tr></thead><tbody>
+<tr><td>85</td><td>85 &gt;= 80 is true; skip the rest.</td><td>Level 4</td></tr>
+<tr><td>75</td><td>75 &gt;= 80 is false; 75 &gt;= 70 is true; skip the rest.</td><td>Level 3</td></tr>
+<tr><td>45</td><td>All four conditions are false; use else.</td><td>Level 0</td></tr>
+</tbody></table>
+<p><strong>Why does Level 3 only check <code>mark &gt;= 70</code>?</strong> Java reaches that branch only after <code>mark &gt;= 80</code> was false. For an ordinary numeric mark, we already know it is below 80.</p>
+<p><strong>Order matters.</strong> If you put <code>mark &gt;= 50</code> first, a mark of 85 would match that branch and skip the higher levels. For this exercise, start with the highest cutoff.</p>
+
+<h3>3. else: the fallback, with no condition</h3>
+<pre tabindex="0"><code>int number = 6;
+
+if (number % 2 == 0) {
+    System.out.println("even");
+} else {
+    System.out.println("odd");
+}</code></pre>
+<p>If the condition is true, print <code>even</code>. Otherwise, print <code>odd</code>. Write <code>else {</code>, not <code>else (condition) {</code>. Use <code>else if</code> when you need another condition.</p>
+<p>You can have an <code>if</code> on its own, an <code>if / else</code>, or an <code>if</code> with several <code>else if</code> branches and an optional final <code>else</code>. A chain runs at most one branch; with a final <code>else</code>, it always selects one. Without <code>else</code>, it may select none.</p>
+
+<h3>4. Common mistake: which if does else belong to?</h3>
+<pre tabindex="0"><code>int mark = 85;
+
+if (mark &gt;= 80) {
+    System.out.println("Level 4");
+}
+if (mark &lt; 50) {
+    System.out.println("Level 0");
+} else {
+    System.out.println("50 or more");
+}</code></pre>
+<p><strong>Output:</strong></p><pre>Level 4
+50 or more</pre>
+<p>Here, <code>else</code> belongs to the second <code>if</code>. It does not mean “none of the if statements above were true.” The first <code>if</code> is a separate decision. Use braces consistently to make the grouping clear.</p>
+<p><strong>Remember:</strong> separate <code>if</code> statements can produce several results. An <code>if / else if / else</code> chain selects one result. Do not put a semicolon immediately after <code>if (condition)</code>; put the opening brace there.</p>
+</section>
+
 <section class="exercise" id="exercise-a">
 <p class="eyebrow">EXERCISE A</p><h2>Marks</h2>
 <p>Read a mark as a double and print its level: 4 for 80 or more, 3 for 70–79.999..., 2 for 60–69.999..., 1 for 50–59.999..., and 0 below 50.</p>
