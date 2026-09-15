@@ -1,25 +1,25 @@
 {
-  "boardDate": "2026-09-14",
-  "generatedAt": "2026-09-14T17:02:44.646Z",
+  "boardDate": "2026-09-15",
+  "generatedAt": "2026-09-15T15:41:19.184Z",
   "sourceCount": 26,
   "weather": [
     {
       "city": "Ottawa",
-      "temperatureC": 18,
+      "temperatureC": 15,
       "maxC": 18,
-      "minC": 10,
-      "summary": "Mostly clear"
+      "minC": 5,
+      "summary": "Cloudy"
     }
   ],
   "extremeWeather": [
     {
-      "title": "Hawaii has often dodged the path of hurricanes. Why did it see so many storms this summer?",
-      "whatHappened": "The island chain has tended to avoid the worst effects, but Hurricanes Lowell and Lala left a trail of damage this year Hurricane Lowell surged near...",
+      "title": "Texas governor threatens to penalize datacenters not obeying water laws",
+      "whatHappened": "Republican Greg Abbott says datacenters must help ‘protect’ drought-prone state and disclose water use Greg Abbott , the Texas governor, has directed state regulators to penalize...",
       "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
-      "keyWord": "extreme weather: unusual and dangerous weather like floods, storms, or heat waves",
+      "keyWord": "drought: a long time with very little rain",
       "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/us-news/2026/sep/10/hawaii-hurricane-damage-el-nino",
-      "publishedAt": "2026-09-10T14:00:37.000Z"
+      "url": "https://www.theguardian.com/us-news/2026/sep/14/greg-abbott-texas-datacenter-water-laws",
+      "publishedAt": "2026-09-14T22:57:15.000Z"
     },
     {
       "title": "Flash flooding interrupts half-marathon, submerges cars",
@@ -27,8 +27,8 @@
       "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
       "keyWord": "flood: water covering land that is usually dry",
       "source": "BBC Science & Environment",
-      "url": "https://www.bbc.co.uk/news/videos/cqdj48mpw8mro?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-09-14T16:53:26.000Z"
+      "url": "https://www.bbc.co.uk/news/articles/cx1l6rzj86vgo?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-09-14T15:01:28.000Z"
     },
     {
       "title": "Flood-ravaged Nepal calls for climate justice",
@@ -42,13 +42,31 @@
   ],
   "climate": [
     {
-      "title": "Trump’s EPA reportedly ⁠poised to axe carbon pollution rules for power plants",
-      "whatHappened": "Advocates and experts describe the Trump administration’s climate rollbacks as gifts to polluters at expense of planet The US Environmental Protection Agency (EPA) is ⁠poised to...",
+      "title": "World’s top 20 private equity firms produce more greenhouse gases a year than most countries, report finds",
+      "whatHappened": "Firms manage $7.3tn in assets and could afford to transition away from fossil fuels yet invest in natural gas and coal-fired plants to power datacenters The...",
       "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
-      "keyWord": "climate: the usual pattern of weather over a long period of time",
+      "keyWord": "emissions: gases released into the air",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/us-news/2026/sep/15/private-equity-firms-energy-assets-greenhouse-gas",
+      "publishedAt": "2026-09-15T12:42:59.000Z"
+    },
+    {
+      "title": "US scraps limits on emissions from coal and gas power plants",
+      "whatHappened": "The Environment Protection Agency says the move will save the country billions of dollars and reduce energy prices.",
+      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
+      "keyWord": "emissions: gases released into the air",
+      "source": "BBC Science & Environment",
+      "url": "https://www.bbc.co.uk/news/articles/cmly433ke05vo?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-09-14T22:04:14.000Z"
+    },
+    {
+      "title": "US ends limits on coal and gas plant emissions, removing key tool to battle climate crisis",
+      "whatHappened": "Trump’s EPA strips itself of regulation ability, gutting Clean Air Act in what experts say is a gift to planet polluters On the heels of the...",
+      "whyItMatters": "Climate and environment stories connect science to real issues like safety, health, and extreme weather.",
+      "keyWord": "emissions: gases released into the air",
       "source": "The Guardian Environment",
       "url": "https://www.theguardian.com/environment/2026/sep/14/trump-epa-repeal-pollution-standards-power-plants",
-      "publishedAt": "2026-09-14T14:34:59.000Z"
+      "publishedAt": "2026-09-14T21:17:19.000Z"
     },
     {
       "title": "Scientists find nine new sponge species in glimpse of Alaska’s deep-sea diversity",
@@ -76,24 +94,6 @@
       "source": "The Guardian Environment",
       "url": "https://www.theguardian.com/us-news/2026/sep/14/midterm-candidates-climate-datacenter-policies",
       "publishedAt": "2026-09-14T11:00:56.000Z"
-    },
-    {
-      "title": "UN climate chief warns political division is undermining fight against ‘economic security emergency’",
-      "whatHappened": "The head of the UN's climate body&nbsp;has warned that treating global warming as a partisan issue is dangerously out of step with reality, as he set...",
-      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
-      "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "UN Climate",
-      "url": "https://news.un.org/feed/view/en/story/2026/09/1168311",
-      "publishedAt": "2026-09-10T12:00:00.000Z"
-    },
-    {
-      "title": "Australia’s dependence on gas generation during evening energy peak falls by almost 70%",
-      "whatHappened": "Batteries now meet almost half of the grid’s dispatchable power needs during hours of highest demand Get our breaking news email , free app or daily...",
-      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
-      "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/australia-news/2026/sep/15/australias-dependence-on-gas-generation-during-evening-energy-peak-falls-by-almost-70",
-      "publishedAt": "2026-09-14T15:00:12.000Z"
     }
   ],
   "weatherTech": [
@@ -134,6 +134,15 @@
       "source": "Columbia Climate School",
       "url": "https://news.climate.columbia.edu/2026/08/24/harlem-week-climate-change-conference-centers-community-voices/",
       "publishedAt": "2026-08-24T19:53:36.000Z"
+    },
+    {
+      "title": "Marine bacteria team up to break down one of the ocean's toughest carbon-storing molecules",
+      "whatHappened": "Researchers reveal how communities of marine bacteria divide the task of degrading fucoidan, a key player in ocean carbon storage.",
+      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
+      "keyWord": "research: careful study used to discover new knowledge",
+      "source": "MIT Climate & Sustainability",
+      "url": "https://news.mit.edu/2026/marine-bacteria-team-up-to-break-down-carbon-storing-molecules-0914",
+      "publishedAt": "2026-09-14T20:30:00.000Z"
     },
     {
       "title": "AIM for Scale receives $10 million to bring AI-powered weather services to millions of farmers",
@@ -196,16 +205,7 @@
       "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
       "source": "uOttawa News",
       "url": "https://www.uottawa.ca/en/news-all/could-quantum-materials-make-ai-more-energy-efficient",
-      "publishedAt": "2026-09-14T17:01:00.673Z"
-    },
-    {
-      "title": "Translating economic growth into better lives",
-      "whatHappened": "Graduate student Lyonel Tanganco investigates how to improve public policy interventions and address challenges in nutrition, climate, and development.",
-      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
-      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
-      "source": "MIT Climate & Sustainability",
-      "url": "https://news.mit.edu/2026/translating-economic-growth-into-better-lives-lyonel-tanganco-0831",
-      "publishedAt": "2026-08-31T20:40:00.000Z"
+      "publishedAt": "2026-09-15T15:39:11.640Z"
     },
     {
       "title": "Study: Peptides can form well-defined structures in harsh, Venus-like conditions",
