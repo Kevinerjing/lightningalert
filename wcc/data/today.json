@@ -1,17 +1,26 @@
 {
-  "boardDate": "2026-09-15",
-  "generatedAt": "2026-09-15T15:41:19.184Z",
+  "boardDate": "2026-09-16",
+  "generatedAt": "2026-09-16T15:32:16.890Z",
   "sourceCount": 26,
   "weather": [
     {
       "city": "Ottawa",
-      "temperatureC": 15,
-      "maxC": 18,
-      "minC": 5,
+      "temperatureC": 21,
+      "maxC": 24,
+      "minC": 16,
       "summary": "Cloudy"
     }
   ],
   "extremeWeather": [
+    {
+      "title": "‘We’re near a breaking point:’ firefighters say US government is failing them amid intense wildfire season",
+      "whatHappened": "US grapples with federal firefighter shortage as crews say they’re spread thin and lack resources during unrelenting year of fire Firefighters battling enormous wildfires in the...",
+      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
+      "keyWord": "extreme weather: unusual and dangerous weather like floods, storms, or heat waves",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/us-news/2026/sep/16/wildfires-government-firefighter-shortage",
+      "publishedAt": "2026-09-16T10:00:16.000Z"
+    },
     {
       "title": "Texas governor threatens to penalize datacenters not obeying water laws",
       "whatHappened": "Republican Greg Abbott says datacenters must help ‘protect’ drought-prone state and disclose water use Greg Abbott , the Texas governor, has directed state regulators to penalize...",
@@ -20,15 +29,6 @@
       "source": "The Guardian Environment",
       "url": "https://www.theguardian.com/us-news/2026/sep/14/greg-abbott-texas-datacenter-water-laws",
       "publishedAt": "2026-09-14T22:57:15.000Z"
-    },
-    {
-      "title": "Flash flooding interrupts half-marathon, submerges cars",
-      "whatHappened": "Parts of New York, New Jersey and Connecticut were hit by flash flooding, leading to water rescues, stranded motorists and half-marathon runners battling the floodwaters.",
-      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
-      "keyWord": "flood: water covering land that is usually dry",
-      "source": "BBC Science & Environment",
-      "url": "https://www.bbc.co.uk/news/articles/cx1l6rzj86vgo?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-09-14T15:01:28.000Z"
     },
     {
       "title": "Flood-ravaged Nepal calls for climate justice",
@@ -41,6 +41,15 @@
     }
   ],
   "climate": [
+    {
+      "title": "Trump EPA’s arguments for letting power plants spew unlimited pollution ‘dead wrong’",
+      "whatHappened": "Claims that dismantling pollution rules will lower energy bills and have little climate impact are far from convincing In allowing US power plants to emit any...",
+      "whyItMatters": "Climate and environment stories connect science to real issues like safety, health, and extreme weather.",
+      "keyWord": "emissions: gases released into the air",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/environment/2026/sep/16/trump-epa-pollution-rollback",
+      "publishedAt": "2026-09-16T12:00:20.000Z"
+    },
     {
       "title": "World’s top 20 private equity firms produce more greenhouse gases a year than most countries, report finds",
       "whatHappened": "Firms manage $7.3tn in assets and could afford to transition away from fossil fuels yet invest in natural gas and coal-fired plants to power datacenters The...",
@@ -69,15 +78,6 @@
       "publishedAt": "2026-09-14T21:17:19.000Z"
     },
     {
-      "title": "Scientists find nine new sponge species in glimpse of Alaska’s deep-sea diversity",
-      "whatHappened": "But their habitat is threatened by bottom trawling in the region and Trump’s plan to expand seafloor mining Scientists have discovered nine new deep-sea sponge species...",
-      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
-      "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/us-news/2026/sep/14/deep-sea-sponges-discovery-mining-fishing",
-      "publishedAt": "2026-09-14T11:30:56.000Z"
-    },
-    {
       "title": "Coordinated action on clean air and climate change can net $15 for every dollar spent",
       "whatHappened": "Tackling air pollution and climate change together can save millions of lives, reduce global warming and generate roughly $15 in economic benefits for every $1 spent,...",
       "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
@@ -87,26 +87,16 @@
       "publishedAt": "2026-09-07T12:00:00.000Z"
     },
     {
-      "title": "Disaster insurance, datacenters, right to repair: meet the midterm candidates running on green policies",
-      "whatHappened": "Some of the everyday struggles animating voters have a climate link lurking in the background When Florida governor Ron DeSantis signed a law erasing the words...",
+      "title": "UN climate chief warns political division is undermining fight against ‘economic security emergency’",
+      "whatHappened": "The head of the UN's climate body&nbsp;has warned that treating global warming as a partisan issue is dangerously out of step with reality, as he set...",
       "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
       "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/us-news/2026/sep/14/midterm-candidates-climate-datacenter-policies",
-      "publishedAt": "2026-09-14T11:00:56.000Z"
+      "source": "UN Climate",
+      "url": "https://news.un.org/feed/view/en/story/2026/09/1168311",
+      "publishedAt": "2026-09-10T12:00:00.000Z"
     }
   ],
-  "weatherTech": [
-    {
-      "title": "Disaster insurance, datacenters, right to repair: meet the midterm candidates running on green policies",
-      "whatHappened": "Some of the everyday struggles animating voters have a climate link lurking in the background When Florida governor Ron DeSantis signed a law erasing the words...",
-      "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
-      "keyWord": "weather technology: tools that help people measure, study, or predict weather and climate",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/us-news/2026/sep/14/midterm-candidates-climate-datacenter-policies",
-      "publishedAt": "2026-09-14T11:00:56.000Z"
-    }
-  ],
+  "weatherTech": [],
   "universityNews": [
     {
       "title": "Carleton Recognised as Only University in Canada to Achieve Bronze Tier in Net-Zero Challenge",
@@ -127,13 +117,13 @@
       "publishedAt": "2026-09-04T14:35:10.000Z"
     },
     {
-      "title": "Harlem Week Climate Change Conference Centers Community Voices",
-      "whatHappened": "Panelists highlighted environmental justice, local partnerships, New York’s climate laws and the need for equitable solutions that protect public health, reduce emissions and build a more...",
+      "title": "A New Tool for Matching Water Solutions to Community Needs",
+      "whatHappened": "Sustainable development alum Dylan Dettloff used his Columbia Climate School Collaborative Research Grant to develop a Python-based decision tool to help rural and water-scarce communities identify...",
       "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
-      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
+      "keyWord": "research: careful study used to discover new knowledge",
       "source": "Columbia Climate School",
-      "url": "https://news.climate.columbia.edu/2026/08/24/harlem-week-climate-change-conference-centers-community-voices/",
-      "publishedAt": "2026-08-24T19:53:36.000Z"
+      "url": "https://news.climate.columbia.edu/2026/09/15/a-new-tool-for-matching-water-solutions-to-community-needs/",
+      "publishedAt": "2026-09-15T20:00:34.000Z"
     },
     {
       "title": "Marine bacteria team up to break down one of the ocean's toughest carbon-storing molecules",
@@ -172,15 +162,6 @@
       "publishedAt": "2026-09-04T17:56:37.000Z"
     },
     {
-      "title": "Alex de Sherbinin Named Director of New Earth Institute Hub",
-      "whatHappened": "The new initiative at Columbia Climate School is designed to strengthen university-wide collaboration on issues spanning climate, Earth, society and sustainability.",
-      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
-      "keyWord": "sustainability: using resources in a way that can last over time",
-      "source": "Columbia Climate School",
-      "url": "https://news.climate.columbia.edu/2026/08/26/alex-de-sherbinin-named-director-of-new-earth-institute-hub/",
-      "publishedAt": "2026-08-26T18:04:10.000Z"
-    },
-    {
       "title": "Game plan for a warmer world",
       "whatHappened": "Tue, 18 Aug 2026 12:00:00 +0000 The impacts of climate change are seen in natural and human systems, and the global sports sector is particularly vulnerable.",
       "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
@@ -205,7 +186,16 @@
       "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
       "source": "uOttawa News",
       "url": "https://www.uottawa.ca/en/news-all/could-quantum-materials-make-ai-more-energy-efficient",
-      "publishedAt": "2026-09-15T15:39:11.640Z"
+      "publishedAt": "2026-09-16T15:30:04.388Z"
+    },
+    {
+      "title": "Join Columbia Climate School at Climate Week 2026",
+      "whatHappened": "The Climate School is excited to again serve as Climate Group’s education partner and host a full lineup of events on and off campus throughout the...",
+      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
+      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
+      "source": "Columbia Climate School",
+      "url": "https://news.climate.columbia.edu/2026/09/15/join-columbia-climate-school-at-climate-week-2026/",
+      "publishedAt": "2026-09-15T15:52:58.000Z"
     },
     {
       "title": "Study: Peptides can form well-defined structures in harsh, Venus-like conditions",
