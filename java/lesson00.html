@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Before You Code | Java 00</title>
+<link rel="stylesheet" href="style.css">
+<style>
+.guide{max-width:1000px}.guide section{padding:26px 0;border-top:1px solid #cbd2d8;scroll-margin-top:20px}
+.guide h2{margin-top:0}.guide li{line-height:1.8;margin:7px 0}
+.guide nav{display:flex;flex-wrap:wrap;gap:12px 22px;margin:26px 0}
+.guide .callout{border-left:4px solid #17735b;background:#e8f2ed;padding:18px 22px;margin:22px 0;line-height:1.7}
+.guide blockquote{margin:20px 0;padding:2px 20px;border-left:3px solid #cbd2d8}
+.guide table{border-collapse:collapse;width:100%;margin:18px 0}
+.guide td,.guide th{text-align:left;vertical-align:top;border-bottom:1px solid #cbd2d8;padding:12px;overflow-wrap:anywhere}
+.guide pre{white-space:pre-wrap;overflow-wrap:anywhere;tab-size:4}
+.guide details{border-top:1px solid #cbd2d8;padding:22px 0}
+.guide summary{cursor:pointer;font-size:1.2rem;font-weight:700;color:#244ada}
+.guide summary:focus-visible{outline:3px solid #f39e30;outline-offset:4px}
+.guide .checklist{list-style:none;padding:0}.guide .checklist label{display:flex;gap:12px;align-items:baseline}
+.guide .checklist input{width:18px;height:18px;accent-color:#17735b;flex-shrink:0}
+@media(max-width:600px){.guide td,.guide th{padding:9px 6px;font-size:.9rem}.guide h1{font-size:2.2rem}}
+</style>
+</head>
+<body>
+<header><a href="./" class="brand">{ } <span>JAVA LAB</span></a><a href="./">All lessons</a></header>
+<main class="lesson-list guide">
+<p class="eyebrow">00 / START HERE</p>
+<h1>Before You Code</h1>
+<p>Understand the problem. Plan your steps. Build and test a little at a time.</p>
+<h2>How to start when you don’t know what to type</h2>
+<p>You read a coding question. Then you open an empty file.</p>
+<blockquote><p>“What do I type first? Do I need <code>int</code> or <code>double</code>? Where do the brackets go?”</p></blockquote>
+<p>That can feel overwhelming because you are trying to solve the problem and remember Java’s rules at the same time.</p>
+<p>Give yourself a smaller first task: explain what the program needs to do. You can use ordinary English, a few numbers, or a sketch.</p>
+<div class="callout"><strong>You do not need perfect Java syntax to begin thinking.</strong></div>
+<nav aria-label="Guide steps">
+<a href="#input-output">1. Input &amp; output</a><a href="#example">2. Try an example</a>
+<a href="#plan">3. Write a plan</a><a href="#tools">4. Choose tools</a>
+<a href="#build">5. Build a little</a><a href="#test">6. Test</a>
+<a href="#checklist">Starting checklist</a>
+</nav>
+
+<section id="input-output"><h2>1. Find the input and the output</h2>
+<p>Before writing code, complete these two sentences:</p>
+<ul><li><strong>The program receives…</strong></li><li><strong>The program must display…</strong></li></ul>
+<p>For example:</p>
+<blockquote><p>Ask the user for two integers and display the larger number. If they are equal, say so.</p></blockquote>
+<p>Your answers:</p><ul><li>The program receives two whole numbers.</li><li>The program displays the larger number, or a message saying they are equal.</li></ul>
+<p>You now know where the program starts and what it must achieve.</p></section>
+
+<section id="example"><h2>2. Solve a small example yourself</h2>
+<p>Pretend you are the computer.</p>
+<p>If the numbers are <strong>8 and 3</strong>, what should you display?<br><strong>8 is larger than 3.</strong></p>
+<p>Now ask: <strong>How did I decide that?</strong></p>
+<blockquote><p>“I compared the two numbers. Eight is greater than three.”</p></blockquote>
+<p>Try a different case:</p>
+<table><thead><tr><th>First number</th><th>Second number</th><th>Expected result</th></tr></thead><tbody>
+<tr><td>8</td><td>3</td><td>8 is larger than 3</td></tr>
+<tr><td>3</td><td>8</td><td>8 is larger than 3</td></tr>
+<tr><td>5</td><td>5</td><td>The numbers are equal</td></tr>
+<tr><td>-4</td><td>-1</td><td>-1 is larger than -4</td></tr>
+</tbody></table>
+<p>These examples help you discover the cases your program needs to handle.</p>
+<p>If you cannot solve an example yet, stay with the problem for a moment. Clarify the rule or ask for an explanation before trying to write Java.</p></section>
+
+<section id="plan"><h2>3. Write a plan in ordinary words</h2>
+<p>Describe the steps clearly enough that someone else could follow them.</p>
+<p>For the larger-number problem:</p>
+<ol><li>Read the first number.</li><li>Read the second number.</li>
+<li>If the first is greater, display the first as the larger number.</li>
+<li>Otherwise, if the second is greater, display the second as the larger number.</li>
+<li>Otherwise, say that the numbers are equal.</li></ol>
+<p>This is an <strong>algorithm</strong>: a set of steps for solving a problem.</p>
+<p>You can put your plan directly into your file as comments:</p>
+<pre tabindex="0"><code>// Read the first number.
+
+// Read the second number.
+
+// If the first number is greater,
+// display it as the larger number.
+
+// Otherwise, if the second number is greater,
+// display it as the larger number.
+
+// Otherwise, display "The numbers are equal".</code></pre>
+<p>Java ignores comments beginning with <code>//</code>. They are notes for you. They will not perform the steps until you add code.</p></section>
+
+<section id="tools"><h2>4. Choose the Java tools your plan needs</h2>
+<p>Now you have a reason to choose each tool.</p>
+<table><thead><tr><th>What your plan needs</th><th>Java tool</th></tr></thead><tbody>
+<tr><td>Store a whole number</td><td><code>int</code></td></tr>
+<tr><td>Store a number that may contain decimals</td><td><code>double</code></td></tr>
+<tr><td>Read an integer using a Scanner named input</td><td><code>input.nextInt()</code></td></tr>
+<tr><td>Read a decimal number</td><td><code>input.nextDouble()</code></td></tr>
+<tr><td>Compare which number is greater</td><td><code>&gt;</code></td></tr>
+<tr><td>Check whether two numbers are equal</td><td><code>==</code></td></tr>
+<tr><td>Choose between cases</td><td><code>if</code>, <code>else if</code>, <code>else</code></td></tr>
+<tr><td>Display a result</td><td><code>System.out.println()</code></td></tr>
+</tbody></table>
+<p>You do not have to memorize every Java feature before solving a problem. Look up the particular tool your next step needs.</p>
+<blockquote><p>“I need to read a whole number and save it.”</p></blockquote>
+<p>After setting up a Scanner named <code>input</code>, that becomes:</p>
+<pre tabindex="0"><code>int num1 = input.nextInt();</code></pre>
+<p>The idea came first. The Java statement expresses that idea.</p></section>
+
+<section id="build"><h2>5. Build one small working part</h2>
+<p>Do not wait until the entire program is written before running it.</p>
+<p>Start with a working class and <code>main</code> method. It is okay to use your class notes or a familiar starter template for this structure.</p>
+<p>Then build gradually:</p>
+<table><thead><tr><th>Small goal</th><th>How to check it</th></tr></thead><tbody>
+<tr><td>Read the first number</td><td>Print it back temporarily</td></tr>
+<tr><td>Read the second number</td><td>Print both numbers</td></tr>
+<tr><td>Handle the first number being larger</td><td>Try <code>8 3</code></td></tr>
+<tr><td>Handle the second number being larger</td><td>Try <code>3 8</code></td></tr>
+<tr><td>Handle equal numbers</td><td>Try <code>5 5</code></td></tr>
+</tbody></table>
+<p>Printing a value temporarily helps you check what your program actually stored. Remove extra checking messages when the program works and the assignment needs a particular output.</p>
+<p>Each successful run gives you a working starting point for the next change.</p></section>
+
+<section id="test"><h2>6. Compare the result with your prediction</h2>
+<p>Before pressing Run, ask:</p>
+<blockquote><p>“For this input, what exactly should appear?”</p></blockquote>
+<p>Then compare your prediction with the actual output.</p>
+<p>Test different kinds of cases:</p>
+<ul><li>A normal example.</li><li>A different branch.</li><li>Equal values, when relevant.</li>
+<li>Zero or negative numbers, when allowed.</li><li>Values exactly at a cutoff.</li></ul>
+<p>For the marks exercise, test <strong>80</strong> and <strong>79.9</strong>. They are close together, but they should produce different levels.</p>
+<p>One successful example is a useful start. It does not show that every case works.</p></section>
+
+<details id="troubleshooting"><summary>When something goes wrong</summary>
+<p>First identify what kind of help you need.</p>
+<table><thead><tr><th>What happens?</th><th>Your next move</th></tr></thead><tbody>
+<tr><td>You cannot explain how to get the answer</td><td>Work through a smaller example in ordinary words</td></tr>
+<tr><td>Java reports a compilation error</td><td>Read the first error; check that line and the line just before it</td></tr>
+<tr><td>The program starts but crashes</td><td>Read the error and inspect the input or operation that caused it</td></tr>
+<tr><td>The program runs but gives the wrong result</td><td>Trace the values and conditions one step at a time</td></tr>
+</tbody></table>
+<p>For a wrong result, ask:</p>
+<ol><li>What values are stored?</li><li>Is this condition true or false?</li><li>Which branch will run?</li><li>What will it print?</li></ol>
+<p>Change one thing you understand, then run again. Avoid changing several unrelated lines just to see whether the error disappears.</p>
+</details>
+
+<details id="hints"><summary>How to ask for a useful hint</summary>
+<p>Tell your teacher, a classmate, or an AI helper what you have already figured out and where you are stuck.</p>
+<blockquote><p>“I know I need two integers and three possible cases. Can you check my steps before I write the code?”</p></blockquote>
+<blockquote><p>“I want to read a decimal number. Which Scanner method should I look at?”</p></blockquote>
+<blockquote><p>“I expected Level 3, but got Level 4. Help me trace my conditions without rewriting my program.”</p></blockquote>
+<p>A useful hint should help you take the next step yourself.</p>
+</details>
+
+<section id="checklist"><h2>Your starting checklist</h2>
+<p>Before writing the solution, ask:</p>
+<ul class="checklist">
+<li><label><input type="checkbox">Can I identify the input and output?</label></li>
+<li><label><input type="checkbox">Can I solve one example myself?</label></li>
+<li><label><input type="checkbox">Can I explain my steps in words?</label></li>
+<li><label><input type="checkbox">What is the smallest part I can build and test now?</label></li>
+</ul>
+<p>You can return to your plan whenever you discover a missing case. Planning, coding and testing work together.</p>
+<div class="callout"><strong>Your first job is to make the next step clear.</strong> You do not need to see the entire finished program before you begin.</div>
+<p><a href="lesson15.html#exercise-d">Try the method: 1.5 — Larger Number →</a></p>
+</section>
+<p><a href="./">← Back to all lessons</a></p>
+</main>
+</body></html>
