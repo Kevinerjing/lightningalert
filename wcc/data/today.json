@@ -1,14 +1,14 @@
 {
-  "boardDate": "2026-09-16",
-  "generatedAt": "2026-09-16T15:32:16.890Z",
+  "boardDate": "2026-09-17",
+  "generatedAt": "2026-09-17T15:37:05.911Z",
   "sourceCount": 26,
   "weather": [
     {
       "city": "Ottawa",
-      "temperatureC": 21,
-      "maxC": 24,
-      "minC": 16,
-      "summary": "Cloudy"
+      "temperatureC": 19,
+      "maxC": 22,
+      "minC": 11,
+      "summary": "Partly cloudy"
     }
   ],
   "extremeWeather": [
@@ -20,15 +20,6 @@
       "source": "The Guardian Environment",
       "url": "https://www.theguardian.com/us-news/2026/sep/16/wildfires-government-firefighter-shortage",
       "publishedAt": "2026-09-16T10:00:16.000Z"
-    },
-    {
-      "title": "Texas governor threatens to penalize datacenters not obeying water laws",
-      "whatHappened": "Republican Greg Abbott says datacenters must help ‘protect’ drought-prone state and disclose water use Greg Abbott , the Texas governor, has directed state regulators to penalize...",
-      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
-      "keyWord": "drought: a long time with very little rain",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/us-news/2026/sep/14/greg-abbott-texas-datacenter-water-laws",
-      "publishedAt": "2026-09-14T22:57:15.000Z"
     },
     {
       "title": "Flood-ravaged Nepal calls for climate justice",
@@ -60,24 +51,6 @@
       "publishedAt": "2026-09-15T12:42:59.000Z"
     },
     {
-      "title": "US scraps limits on emissions from coal and gas power plants",
-      "whatHappened": "The Environment Protection Agency says the move will save the country billions of dollars and reduce energy prices.",
-      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
-      "keyWord": "emissions: gases released into the air",
-      "source": "BBC Science & Environment",
-      "url": "https://www.bbc.co.uk/news/articles/cmly433ke05vo?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-09-14T22:04:14.000Z"
-    },
-    {
-      "title": "US ends limits on coal and gas plant emissions, removing key tool to battle climate crisis",
-      "whatHappened": "Trump’s EPA strips itself of regulation ability, gutting Clean Air Act in what experts say is a gift to planet polluters On the heels of the...",
-      "whyItMatters": "Climate and environment stories connect science to real issues like safety, health, and extreme weather.",
-      "keyWord": "emissions: gases released into the air",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/environment/2026/sep/14/trump-epa-repeal-pollution-standards-power-plants",
-      "publishedAt": "2026-09-14T21:17:19.000Z"
-    },
-    {
       "title": "Coordinated action on clean air and climate change can net $15 for every dollar spent",
       "whatHappened": "Tackling air pollution and climate change together can save millions of lives, reduce global warming and generate roughly $15 in economic benefits for every $1 spent,...",
       "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
@@ -94,9 +67,37 @@
       "source": "UN Climate",
       "url": "https://news.un.org/feed/view/en/story/2026/09/1168311",
       "publishedAt": "2026-09-10T12:00:00.000Z"
+    },
+    {
+      "title": "Trump’s love of fossil fuels is about more than money | Moira Donegan",
+      "whatHappened": "The US decision to remove limits on coal and gas plant emissions is rooted in a perception of manliness in these industries You can impress a...",
+      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
+      "keyWord": "emissions: gases released into the air",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/commentisfree/2026/sep/17/trump-fossil-fuels-industry",
+      "publishedAt": "2026-09-17T10:00:45.000Z"
+    },
+    {
+      "title": "Third Heathrow runway should only go ahead if airlines pay for cleaner flying, say advisers",
+      "whatHappened": "The government's climate advisers say Heathrow's third runway cannot be approved under current climate policies.",
+      "whyItMatters": "Climate and environment stories connect science to real issues like safety, health, and extreme weather.",
+      "keyWord": "climate: the usual pattern of weather over a long period of time",
+      "source": "BBC Science & Environment",
+      "url": "https://www.bbc.co.uk/news/articles/c607lxnvn7r4o?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-09-16T00:05:51.000Z"
     }
   ],
-  "weatherTech": [],
+  "weatherTech": [
+    {
+      "title": "Bose’s next open earbuds have more bass, more volume, and more battery life",
+      "whatHappened": "Bose announced a new version of its Ultra Open Earbuds that helped kick off the industry trend of clip-on wireless earbuds nearly two-and-a-half years ago.",
+      "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
+      "keyWord": "battery: a device that stores energy for later use",
+      "source": "The Verge",
+      "url": "https://www.theverge.com/tech/996341/bose-ultra-open-earbuds-second-gen-wireless-sport",
+      "publishedAt": "2026-09-17T09:40:20.000Z"
+    }
+  ],
   "universityNews": [
     {
       "title": "Carleton Recognised as Only University in Canada to Achieve Bronze Tier in Net-Zero Challenge",
@@ -180,15 +181,6 @@
       "publishedAt": "2026-08-07T12:00:00.000Z"
     },
     {
-      "title": "Could quantum materials make AI more energy-efficient?",
-      "whatHappened": "Could quantum materials make AI more energy-efficient?",
-      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
-      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
-      "source": "uOttawa News",
-      "url": "https://www.uottawa.ca/en/news-all/could-quantum-materials-make-ai-more-energy-efficient",
-      "publishedAt": "2026-09-16T15:30:04.388Z"
-    },
-    {
       "title": "Join Columbia Climate School at Climate Week 2026",
       "whatHappened": "The Climate School is excited to again serve as Climate Group’s education partner and host a full lineup of events on and off campus throughout the...",
       "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
@@ -204,6 +196,15 @@
       "keyWord": "research: careful study used to discover new knowledge",
       "source": "MIT Earth & Atmospheric Sciences",
       "url": "https://news.mit.edu/2026/study-peptides-can-form-well-defined-structures-harsh-venus-conditions-0831",
+      "publishedAt": "2026-08-31T19:00:00.000Z"
+    },
+    {
+      "title": "Playing against climate risk",
+      "whatHappened": "Climate scientist Sai Ravela is using games to help coastal communities find creative adaptations to climate change.",
+      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
+      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
+      "source": "MIT Earth & Atmospheric Sciences",
+      "url": "https://news.mit.edu/2026/playing-against-climate-risk-0831",
       "publishedAt": "2026-08-31T19:00:00.000Z"
     }
   ]
