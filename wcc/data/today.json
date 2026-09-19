@@ -1,13 +1,13 @@
 {
-  "boardDate": "2026-09-18",
-  "generatedAt": "2026-09-18T15:06:27.856Z",
+  "boardDate": "2026-09-19",
+  "generatedAt": "2026-09-19T14:42:32.122Z",
   "sourceCount": 26,
   "weather": [
     {
       "city": "Ottawa",
-      "temperatureC": 16,
-      "maxC": 18,
-      "minC": 10,
+      "temperatureC": 11,
+      "maxC": 16,
+      "minC": 4,
       "summary": "Clear skies"
     }
   ],
@@ -42,24 +42,6 @@
   ],
   "climate": [
     {
-      "title": "Trump EPA’s arguments for letting power plants spew unlimited pollution ‘dead wrong’",
-      "whatHappened": "Claims that dismantling pollution rules will lower energy bills and have little climate impact are far from convincing In allowing US power plants to emit any...",
-      "whyItMatters": "Climate and environment stories connect science to real issues like safety, health, and extreme weather.",
-      "keyWord": "emissions: gases released into the air",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/environment/2026/sep/16/trump-epa-pollution-rollback",
-      "publishedAt": "2026-09-16T12:00:20.000Z"
-    },
-    {
-      "title": "Coordinated action on clean air and climate change can net $15 for every dollar spent",
-      "whatHappened": "Tackling air pollution and climate change together can save millions of lives, reduce global warming and generate roughly $15 in economic benefits for every $1 spent,...",
-      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
-      "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "UN Climate",
-      "url": "https://news.un.org/feed/view/en/story/2026/09/1168283",
-      "publishedAt": "2026-09-07T12:00:00.000Z"
-    },
-    {
       "title": "UN climate chief warns political division is undermining fight against ‘economic security emergency’",
       "whatHappened": "The head of the UN's climate body&nbsp;has warned that treating global warming as a partisan issue is dangerously out of step with reality, as he set...",
       "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
@@ -87,6 +69,15 @@
       "publishedAt": "2026-09-17T23:15:55.000Z"
     },
     {
+      "title": "Trump officials move to dismantle key protection for US endangered species",
+      "whatHappened": "Fish and Wildlife Service memo calls for change in what it means to ‘take’ an endangered species More than 1,600 critically imperiled species protected under the...",
+      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
+      "keyWord": "climate: the usual pattern of weather over a long period of time",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/us-news/2026/sep/17/endangered-species-trump-officials",
+      "publishedAt": "2026-09-17T21:28:15.000Z"
+    },
+    {
       "title": "Nepal to use new flood study to claim millions from UN climate disaster fund",
       "whatHappened": "A new study says climate change was a likely factor in the massive flood on the Nepal-Tibet border last month.",
       "whyItMatters": "Climate and environment stories connect science to real issues like safety, health, and extreme weather.",
@@ -94,6 +85,15 @@
       "source": "BBC Science & Environment",
       "url": "https://www.bbc.co.uk/news/articles/cmlyrzve5pwzo?at_medium=RSS&at_campaign=rss",
       "publishedAt": "2026-09-17T10:31:35.000Z"
+    },
+    {
+      "title": "‘The water comes up to our knees’: Climate hazards shut millions of children out of school in 2025",
+      "whatHappened": "When the creek beside Taudibura Garo's school in Papua New Guinea floods, the water doesn't stop at the gate.",
+      "whyItMatters": "Climate and environment stories connect science to real issues like safety, health, and extreme weather.",
+      "keyWord": "climate: the usual pattern of weather over a long period of time",
+      "source": "UN Climate",
+      "url": "https://news.un.org/feed/view/en/story/2026/09/1168306",
+      "publishedAt": "2026-09-09T12:00:00.000Z"
     }
   ],
   "weatherTech": [],
@@ -108,6 +108,15 @@
       "publishedAt": "2025-07-29T18:25:35.000Z"
     },
     {
+      "title": "This Stanley Park Fellow Is Studying Climate Finance To Help Guide Chile’s Energy Transition",
+      "whatHappened": "M.S.",
+      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
+      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
+      "source": "Columbia Climate School",
+      "url": "https://news.climate.columbia.edu/2026/09/18/this-stanley-park-fellow-is-studying-climate-finance-to-help-guide-chiles-energy-transition/",
+      "publishedAt": "2026-09-18T15:59:07.000Z"
+    },
+    {
       "title": "Carleton Advances to Silver Tier in Canada’s Net-Zero Challenge",
       "whatHappened": "Carleton University has advanced to the Silver participation tier in the federal Net-Zero Challenge, Environment and Climate Change Canada’s program for organisations with credible, science-based plans...",
       "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
@@ -115,6 +124,15 @@
       "source": "Carleton Sustainability",
       "url": "https://carleton.ca/sustainability/2026/carleton-advances-to-silver-tier-in-canadas-net-zero-challenge/",
       "publishedAt": "2026-09-04T14:35:10.000Z"
+    },
+    {
+      "title": "MIT researchers are mapping extreme weather risks — and building tools to act on them",
+      "whatHappened": "The Climate Grand Challenges “New World of Weather” project shows how modeling, planning tools, and infrastructure analysis are translating research into real-world resilience.",
+      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
+      "keyWord": "research: careful study used to discover new knowledge",
+      "source": "MIT Climate & Sustainability",
+      "url": "https://news.mit.edu/2026/mit-researchers-mapping-extreme-weather-risks-building-tools-to-act-0918",
+      "publishedAt": "2026-09-18T16:55:00.000Z"
     },
     {
       "title": "A New Tool for Matching Water Solutions to Community Needs",
@@ -144,24 +162,6 @@
       "publishedAt": "2026-09-10T18:26:13.000Z"
     },
     {
-      "title": "Study predicts large disparities in access to food, water, and energy in 2050",
-      "whatHappened": "In some regions of the world, the poorest people may spend about 50 percent of their income on food, while the richest spend about 5 percent.",
-      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
-      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
-      "source": "MIT Climate & Sustainability",
-      "url": "https://news.mit.edu/2026/study-predicts-large-disparities-access-food-water-energy-2050-0908",
-      "publishedAt": "2026-09-08T04:00:00.000Z"
-    },
-    {
-      "title": "New digital tool shows where exactly California’s water goes — and how climate change might disrupt it",
-      "whatHappened": "The UC Berkeley-led COEQWAL project is helping communities explore how shifting the state’s water priorities could impact agriculture, cities and ecosystems.",
-      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
-      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
-      "source": "Berkeley News",
-      "url": "https://news.berkeley.edu/2026/09/04/new-digital-tool-shows-where-exactly-californias-water-goes-and-how-climate-change-might-disrupt-it/",
-      "publishedAt": "2026-09-04T17:56:37.000Z"
-    },
-    {
       "title": "Game plan for a warmer world",
       "whatHappened": "Tue, 18 Aug 2026 12:00:00 +0000 The impacts of climate change are seen in natural and human systems, and the global sports sector is particularly vulnerable.",
       "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
@@ -180,15 +180,6 @@
       "publishedAt": "2026-08-07T12:00:00.000Z"
     },
     {
-      "title": "Mining is Essential. It Doesn’t Have to be Wasteful.",
-      "whatHappened": "Greeshma Gadikota is developing a wide range of new approaches for sustainably acquiring and refining the raw inputs that become hardware and energy.",
-      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
-      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
-      "source": "Columbia Climate School",
-      "url": "https://news.climate.columbia.edu/2026/09/17/mining-is-essential-it-doesnt-have-to-be-wasteful/",
-      "publishedAt": "2026-09-17T19:19:09.000Z"
-    },
-    {
       "title": "Highlights of 2026 global convocation ceremonies",
       "whatHappened": "Northeastern University welcomed the Class of 2030 with a high-energy Convocation celebrating the start of their Northeastern journey.",
       "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
@@ -196,6 +187,15 @@
       "source": "Northeastern Global News",
       "url": "https://news.northeastern.edu/2026/09/17/global-convocation-ceremonies-video/",
       "publishedAt": "2026-09-17T17:40:12.000Z"
+    },
+    {
+      "title": "Translating economic growth into better lives",
+      "whatHappened": "Graduate student Lyonel Tanganco investigates how to improve public policy interventions and address challenges in nutrition, climate, and development.",
+      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
+      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
+      "source": "MIT Earth & Atmospheric Sciences",
+      "url": "https://news.mit.edu/2026/translating-economic-growth-into-better-lives-lyonel-tanganco-0831",
+      "publishedAt": "2026-08-31T20:40:00.000Z"
     },
     {
       "title": "Study: Peptides can form well-defined structures in harsh, Venus-like conditions",
