@@ -15,9 +15,24 @@ const productFamilies = [
   { brand:'CCM', name:'Ribcor Trigger Unleashed Pro', kick:'Low', tiers:['elite'], prices:{Youth:239.99,Junior:309.99,Intermediate:409.99,Senior:439.99}, flexes:[20,30,40,50,55,65,70,75,80,85,95], url:'https://ca.ccmhockey.com/en/Sticks/Shop-All-Sticks/Ribcor-Sticks' },
   { brand:'Bauer', name:'Vapor Flylite', kick:'Low', tiers:['elite'], prices:{Youth:239.99,Junior:309.99,Intermediate:409.99,Senior:439.99}, flexes:[20,30,40,50,55,65,70,77,87], url:'https://ca.bauer.com/collections/hockey-sticks' },
   { brand:'Bauer', name:'Supreme Fuse', kick:'Mid', tiers:['elite'], prices:{Youth:239.99,Junior:309.99,Intermediate:409.99,Senior:439.99}, flexes:[30,40,50,55,65,70,77,87], url:'https://ca.bauer.com/collections/hockey-sticks' }
+  ,{ brand:'Warrior', name:'Alpha LX3', kick:'Hybrid', tiers:['developing','competitive'], prices:{Youth:119.99,Junior:179.99,Intermediate:239.99,Senior:249.99}, flexes:[20,30,40,50,55,63,70,75,85], url:'https://www.warrior.com/hockey/sticks/' }
+  ,{ brand:'Warrior', name:'Alpha LX3 Pro', kick:'Hybrid', tiers:['competitive','elite'], prices:{Youth:199.99,Junior:299.99,Intermediate:399.99,Senior:429.99}, flexes:[30,40,50,55,63,70,75,85], url:'https://www.warrior.com/hockey/sticks/' }
+  ,{ brand:'Warrior', name:'Covert QR6', kick:'Low', tiers:['developing','competitive'], prices:{Youth:119.99,Junior:179.99,Intermediate:239.99,Senior:249.99}, flexes:[20,30,40,50,55,63,70,75,85], url:'https://www.warrior.com/hockey/sticks/' }
+  ,{ brand:'Warrior', name:'Covert QR6 Pro', kick:'Low', tiers:['competitive','elite'], prices:{Youth:199.99,Junior:299.99,Intermediate:399.99,Senior:429.99}, flexes:[30,40,50,55,63,70,75,85], url:'https://www.warrior.com/hockey/sticks/' }
+  ,{ brand:'Warrior', name:'Novium 2', kick:'Mid', tiers:['developing','competitive'], prices:{Youth:119.99,Junior:179.99,Intermediate:239.99,Senior:249.99}, flexes:[30,40,50,55,63,70,75,85], url:'https://www.warrior.com/hockey/sticks/' }
+  ,{ brand:'Warrior', name:'Novium 2 Pro', kick:'Mid', tiers:['competitive','elite'], prices:{Youth:199.99,Junior:299.99,Intermediate:399.99,Senior:429.99}, flexes:[30,40,50,55,63,70,75,85], url:'https://www.warrior.com/hockey/sticks/' }
+  ,{ brand:'TRUE', name:'HZRDUS Smoke', kick:'Low', tiers:['competitive','elite'], prices:{Youth:129.99,Junior:199.99,Intermediate:339.99,Senior:369.99}, flexes:[20,30,40,50,55,65,75,85], url:'https://www.true-sports.com/en-ca/' }
+  ,{ brand:'TRUE', name:'HZRDUS 7X4', kick:'Low', tiers:['developing','competitive'], prices:{Youth:109.99,Junior:169.99,Intermediate:229.99,Senior:249.99}, flexes:[20,30,40,50,55,65,75,85], url:'https://www.true-sports.com/en-ca/' }
+  ,{ brand:'Sherwood', name:'CODE Photon 3', kick:'Hybrid', tiers:['recreational','developing'], prices:{Youth:89.99,Junior:119.99,Intermediate:139.99,Senior:149.99}, flexes:[20,30,40,50,55,65,75,85], url:'https://sherwoodhockey.com/collections/hockey-sticks' }
+  ,{ brand:'Sherwood', name:'CODE Photon 2', kick:'Hybrid', tiers:['developing','competitive'], prices:{Youth:109.99,Junior:159.99,Intermediate:199.99,Senior:219.99}, flexes:[20,30,40,50,55,65,75,85], url:'https://sherwoodhockey.com/collections/hockey-sticks' }
+  ,{ brand:'Sherwood', name:'CODE Photon 1', kick:'Hybrid', tiers:['competitive','elite'], prices:{Youth:159.99,Junior:229.99,Intermediate:299.99,Senior:329.99}, flexes:[30,40,50,55,65,75,85], url:'https://sherwoodhockey.com/collections/hockey-sticks' }
+  ,{ brand:'Sherwood', name:'CODE Photon Pro', kick:'Hybrid', tiers:['elite'], prices:{Youth:199.99,Junior:299.99,Intermediate:399.99,Senior:429.99}, flexes:[30,40,50,55,65,75,85], url:'https://sherwoodhockey.com/collections/hockey-sticks' }
+  ,{ brand:'Sherwood', name:'REKKER Morph 3', kick:'Low', tiers:['recreational','developing'], prices:{Youth:79.99,Junior:109.99,Intermediate:139.99,Senior:149.99}, flexes:[20,30,40,50,55,65,75,85], url:'https://sherwoodhockey.com/collections/hockey-sticks' }
+  ,{ brand:'Sherwood', name:'REKKER Morph 2', kick:'Low', tiers:['developing','competitive'], prices:{Youth:109.99,Junior:159.99,Intermediate:209.99,Senior:229.99}, flexes:[20,30,40,50,55,65,75,85], url:'https://sherwoodhockey.com/collections/hockey-sticks' }
+  ,{ brand:'Sherwood', name:'REKKER Morph 1', kick:'Low', tiers:['competitive','elite'], prices:{Youth:159.99,Junior:239.99,Intermediate:319.99,Senior:349.99}, flexes:[30,40,50,55,65,75,85], url:'https://sherwoodhockey.com/collections/hockey-sticks' }
 ];
 
-const state = { step: 1, results: [], fit: null };
+const state = { step: 1, results: [], fit: null, visibleCount: 5, sort: 'match' };
 const form = $('#fitForm');
 const kg = $('#weightKg');
 const lb = $('#weightLb');
@@ -124,7 +139,8 @@ function rankProducts(profile, fit) {
     if (product.name.includes('Ribcor') && fit.kick === 'Low') score += 5;
     if ((product.name.includes('Tacks') || product.name.includes('Supreme')) && fit.kick === 'Mid') score += 5;
     return {...product, price, score:Math.round(score), productTier, hasFlex, optionFlex};
-  }).filter(p => Number.isFinite(p.price)).sort((a,b) => b.score-a.score).slice(0,5);
+  }).filter(p => Number.isFinite(p.price)).sort((a,b) => b.score-a.score).slice(0,15)
+    .map((product,index) => ({...product, matchRank:index+1, matchRating:Math.max(4.1, round(5-index*.06,1))}));
 }
 
 function reasonFor(product, profile, fit) {
@@ -141,9 +157,12 @@ function badgeFor(product, index, profile) {
   return '<span class="badge">Strong alternative</span>';
 }
 function renderProducts(sort='match') {
+  state.sort = sort;
   let products = [...state.results];
+  if (sort === 'rating') products.sort((a,b)=>b.matchRating-a.matchRating || a.matchRank-b.matchRank);
   if (sort === 'price') products.sort((a,b)=>a.price-b.price);
   if (sort === 'level') products.sort((a,b)=>a.productTier-b.productTier || b.score-a.score);
+  products = products.slice(0,state.visibleCount);
   const profile = state.profile, fit = state.fit;
   $('#stickResults').innerHTML = products.map((p,index) => `
     <article class="stick-card">
@@ -152,15 +171,19 @@ function renderProducts(sort='match') {
         <div class="badges">${badgeFor(p,index,profile)}<span class="badge">${p.brand}</span></div>
         <h4>${p.name} ${fit.stickClass}</h4>
         <p>${reasonFor(p,profile,fit)}</p>
-        <div class="spec-row"><span>Level <b>${p.tiers.map(t=>t[0].toUpperCase()+t.slice(1)).join(' / ')}</b></span><span>Kick <b>${p.kick}</b></span><span>Available flex <b>${p.optionFlex}${p.hasFlex ? '' : '*'}</b></span><span>Curve <b>${fit.curve.split(' / ')[0]}</b></span><span>Match <b>${Math.min(100,Math.max(60,p.score))}%</b></span></div>
+        <div class="spec-row"><span>Level <b>${p.tiers.map(t=>t[0].toUpperCase()+t.slice(1)).join(' / ')}</b></span><span>Kick <b>${p.kick}</b></span><span>Available flex <b>${p.optionFlex}${p.hasFlex ? '' : '*'}</b></span><span>Curve <b>${fit.curve.split(' / ')[0]}</b></span><span>HockeyFit rating <b>${p.matchRating.toFixed(1)} / 5</b></span></div>
       </div>
       <div class="stick-buy"><small>REFERENCE CAD</small><strong>$${p.price.toFixed(2)}</strong><a href="${p.url}" target="_blank" rel="noopener">Check availability ↗</a></div>
     </article>`).join('');
+  const more = $('#showMoreButton');
+  const remaining = state.results.length-state.visibleCount;
+  more.hidden = remaining <= 0;
+  more.textContent = `Show 5 more${remaining > 0 ? ` (${remaining} remaining)` : ''}`;
 }
 function buildResults() {
   const p = collectProfile();
   const fit = calculateFit(p);
-  state.profile = p; state.fit = fit; state.results = rankProducts(p,fit);
+  state.profile = p; state.fit = fit; state.results = rankProducts(p,fit); state.visibleCount = 5; state.sort = 'match';
   const position = p.position === 'defense' ? 'defense' : 'forward';
   const shotNames = {wrist:'balanced-shot',snap:'quick-release',slap:'power-shot',onetimer:'one-timer'};
   $('#resultTitle').textContent = `${p.level[0].toUpperCase()+p.level.slice(1)} ${position} · ${shotNames[p.shot]} setup`;
@@ -188,6 +211,7 @@ $('#backButton').addEventListener('click', () => showStep(Math.max(1,state.step-
 $('#editButton').addEventListener('click', () => showStep(1));
 $('#restartButton').addEventListener('click', () => { form.reset(); kg.value=36; syncWeight('kg'); cm.value=157; syncHeight('cm'); showStep(1); });
 $('#sortResults').addEventListener('change', e => renderProducts(e.target.value));
+$('#showMoreButton').addEventListener('click', () => { state.visibleCount = Math.min(15,state.visibleCount+5); renderProducts(state.sort); });
 $('#photoButton').addEventListener('click', () => { const toast=$('#toast'); toast.classList.add('show'); setTimeout(()=>toast.classList.remove('show'),2400); $('#photoFit').scrollIntoView({behavior:'smooth'}); });
 $('#shareButton').addEventListener('click', async () => {
   const shareData = { title:'HockeyFit', text:'Find a better starting point for hockey stick length and flex with this free community tool.', url:window.location.href };

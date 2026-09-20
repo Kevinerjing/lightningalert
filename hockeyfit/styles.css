@@ -10,3 +10,4 @@
 @media(max-width:390px){h1{font-size:48px}.trust-row span:nth-child(2){display:none}.measure-pair{grid-template-columns:1fr 22px 1fr}.measure-pair input{padding:12px 8px}.measure-pair b{margin-right:7px}.option-grid.three{grid-template-columns:1fr 1fr}.fit-metrics strong{font-size:26px}.sort-select{max-width:110px}.sort-select select{max-width:110px}.stick-main h4{font-size:17px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
 .results-step+.form-actions{display:flex}
+.show-more-button{display:block;margin:18px auto 4px;border:1px solid #13b6a7;border-radius:10px;background:#edfffc;color:#087d75;font-size:11px;font-weight:800;padding:12px 22px}.show-more-button:hover{background:#dffaf7}.show-more-button[hidden]{display:none}

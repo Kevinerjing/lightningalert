@@ -187,11 +187,12 @@
           <div class="fit-note" id="fitNote"></div>
 
           <div class="rank-head">
-            <div><p class="section-kicker">Five matched options</p><h3>Your ranked sticks</h3></div>
-            <label class="sort-select">Sort <select id="sortResults"><option value="match">Best match</option><option value="price">Price: low to high</option><option value="level">Playing level</option></select></label>
+            <div><p class="section-kicker">Top 15 matched options</p><h3>Your ranked sticks</h3></div>
+            <label class="sort-select">Sort <select id="sortResults"><option value="match">Overall ranking</option><option value="rating">Rating: high to low</option><option value="price">Price: low to high</option><option value="level">Playing level</option></select></label>
           </div>
           <div id="stickResults" class="stick-results"></div>
-          <div class="price-note">Prices are reference Canadian MSRPs checked September 2026. Availability, flex/curve combinations and sale prices vary by retailer.</div>
+          <button type="button" class="show-more-button" id="showMoreButton">Show 5 more</button>
+          <div class="price-note">HockeyFit rating is a profile-fit score, not a retailer customer-review score. All 15 shortlisted options score above 4.0/5 for this profile. Prices are reference Canadian prices checked September 2026; availability, exact flex/curve combinations and sale prices vary by retailer.</div>
           <section class="store-fit-card" aria-labelledby="storeFitTitle">
             <div class="store-fit-intro">
               <span class="soon-badge">Coming soon</span>
@@ -214,7 +215,7 @@
             <details>
               <summary>How HockeyFit makes this recommendation</summary>
               <p>HockeyFit begins with the common weight-based flex guideline, then adjusts for a player's age, experience, competition level, preferred feel and shot type. Length starts in the chin-to-nose fitting zone while wearing skates, then considers position and puck-control preference. Products are ranked for fit first—not simply price.</p>
-              <p>Sources: <a href="https://ca.bauer.com/pages/flex-guide-stick" target="_blank" rel="noopener">Bauer Flex & Measurement Guide</a>, <a href="https://ca.bauer.com/collections/hockey-sticks" target="_blank" rel="noopener">Bauer stick families</a>, <a href="https://ca.ccmhockey.com/en/Sticks/Shop-All-Sticks" target="_blank" rel="noopener">CCM stick finder and product levels</a>, and <a href="https://www.hockeymonkey.com/learn/hockey-stick-sizing-buying-guide" target="_blank" rel="noopener">HockeyMonkey fitting guide</a>.</p>
+              <p>Sources: <a href="https://ca.bauer.com/pages/flex-guide-stick" target="_blank" rel="noopener">Bauer Flex & Measurement Guide</a>, <a href="https://ca.bauer.com/collections/hockey-sticks" target="_blank" rel="noopener">Bauer</a>, <a href="https://ca.ccmhockey.com/en/Sticks/Shop-All-Sticks" target="_blank" rel="noopener">CCM</a>, <a href="https://www.warrior.com/hockey/sticks/" target="_blank" rel="noopener">Warrior</a>, <a href="https://www.true-sports.com/en-ca/" target="_blank" rel="noopener">TRUE</a>, <a href="https://sherwoodhockey.com/collections/hockey-sticks" target="_blank" rel="noopener">Sherwood</a>, and the <a href="https://www.hockeymonkey.com/learn/hockey-stick-sizing-buying-guide" target="_blank" rel="noopener">HockeyMonkey fitting guide</a>.</p>
               <p class="disclaimer">This is a fitting guide, not a guarantee. Before cutting or buying, hold the exact stick in skates and confirm the lie, shaft length and ability to load it with a coach or experienced fitter.</p>
             </details>
           </div>
