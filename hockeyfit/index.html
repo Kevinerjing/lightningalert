@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#071426">
+  <meta name="description" content="HockeyFit recommends hockey stick length, flex, kick point, curve and five stick options based on your game.">
+  <title>HockeyFit — Find your stick</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#top" aria-label="HockeyFit home">
+      <span class="brand-mark" aria-hidden="true"><span></span></span>
+      <span>HOCKEY<span>FIT</span></span>
+    </a>
+    <button class="photo-button" type="button" id="photoButton" aria-describedby="photoHint">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7.5h3l1.4-2h7.2l1.4 2h3a2 2 0 0 1 2 2v8.5a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9.5a2 2 0 0 1 2-2Zm8 10a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z"/></svg>
+      Photo fit
+      <span>Soon</span>
+    </button>
+    <span class="sr-only" id="photoHint">Photo measurement is not available in this version.</span>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow"><span></span> Your game. Your fit.</p>
+        <h1>Find the stick that <em>fits your game.</em></h1>
+        <p>Answer a few questions. Get a personalized length, flex and five ranked stick picks—built from trusted hockey fitting guidance.</p>
+        <div class="trust-row" aria-label="Recommendation features">
+          <span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9.2 16.6-4.4-4.4 1.7-1.7 2.7 2.7 8.3-8.3 1.7 1.7-10 10Z"/></svg>Brand-neutral</span>
+          <span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 4 5v6c0 5.1 3.4 9.7 8 11 4.6-1.3 8-5.9 8-11V5l-8-3Zm0 4.2a3 3 0 1 1 0 6 3 3 0 0 1 0-6Zm0 11.6a7.2 7.2 0 0 1-4.5-3.1c1.2-1 2.8-1.5 4.5-1.5s3.3.5 4.5 1.5a7.2 7.2 0 0 1-4.5 3.1Z"/></svg>Player-specific</span>
+          <span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2v8h8L11 22v-8H3L13 2Z"/></svg>Instant results</span>
+        </div>
+      </div>
+      <div class="rink-art" aria-hidden="true">
+        <div class="rink-lines"></div>
+        <div class="puck"></div>
+        <div class="stick-art"><span></span></div>
+        <div class="stat stat-flex"><small>FLEX</small><strong id="heroFlex">40</strong></div>
+        <div class="stat stat-length"><small>LENGTH</small><strong id="heroLength">54<span>″</span></strong></div>
+      </div>
+    </section>
+
+    <section class="fit-shell" id="fit">
+      <div class="fit-header">
+        <div>
+          <p class="section-kicker">Stick Finder</p>
+          <h2>Build your player profile</h2>
+        </div>
+        <p class="time-pill"><span>●</span> About 60 seconds</p>
+      </div>
+
+      <ol class="steps" aria-label="Form progress">
+        <li class="active" data-step-dot="1"><span>1</span><b>Player</b></li>
+        <li data-step-dot="2"><span>2</span><b>Game</b></li>
+        <li data-step-dot="3"><span>3</span><b>Feel</b></li>
+        <li data-step-dot="4"><span>4</span><b>Results</b></li>
+      </ol>
+
+      <form id="fitForm" novalidate>
+        <section class="form-step active" data-step="1">
+          <div class="step-heading">
+            <span>01</span>
+            <div><h3>About the player</h3><p>Size is the starting point for length and flex.</p></div>
+          </div>
+
+          <div class="field-grid two">
+            <label class="field">
+              <span>Age</span>
+              <span class="input-wrap"><input id="age" name="age" type="number" inputmode="numeric" min="5" max="75" value="11" required><small>years</small></span>
+              <em class="error">Enter an age from 5 to 75.</em>
+            </label>
+            <label class="field">
+              <span>Hockey experience</span>
+              <span class="input-wrap"><input id="experience" name="experience" type="number" inputmode="numeric" min="0" max="60" value="4" required><small>years</small></span>
+              <em class="error">Enter 0 to 60 years.</em>
+            </label>
+          </div>
+
+          <fieldset class="measure-card">
+            <legend>Weight <span>Both units stay in sync</span></legend>
+            <div class="measure-pair">
+              <label><span>Kilograms</span><div><input id="weightKg" type="number" inputmode="decimal" min="18" max="180" step="0.1" value="36" required><b>kg</b></div></label>
+              <span class="equals">=</span>
+              <label><span>Pounds</span><div><input id="weightLb" type="number" inputmode="decimal" min="40" max="400" step="0.1" value="79.4" required><b>lb</b></div></label>
+            </div>
+            <em class="error" id="weightError">Enter a weight from 18–180 kg.</em>
+          </fieldset>
+
+          <fieldset class="measure-card">
+            <legend>Height <span>Both units stay in sync</span></legend>
+            <div class="measure-pair height-pair">
+              <label><span>Centimetres</span><div><input id="heightCm" type="number" inputmode="decimal" min="100" max="215" step="0.1" value="157" required><b>cm</b></div></label>
+              <span class="equals">=</span>
+              <label class="feet-label"><span>Feet & inches</span><div><input id="heightFt" aria-label="Height in feet" type="number" inputmode="numeric" min="3" max="7" value="5"><b>ft</b><input id="heightIn" aria-label="Additional height in inches" type="number" inputmode="decimal" min="0" max="11.9" step="0.1" value="1.8"><b>in</b></div></label>
+            </div>
+            <em class="error" id="heightError">Enter a height from 100–215 cm.</em>
+          </fieldset>
+
+          <div class="field-block">
+            <span class="field-label">Position</span>
+            <div class="option-grid three">
+              <label class="choice"><input type="radio" name="position" value="forward" checked><span><i>F</i><b>Forward</b><small>Quick play & release</small></span></label>
+              <label class="choice"><input type="radio" name="position" value="defense"><span><i>D</i><b>Defense</b><small>Reach & power</small></span></label>
+              <label class="choice disabled"><input type="radio" name="position" value="goalie" disabled><span><i>G</i><b>Goalie</b><small>Coming later</small></span></label>
+            </div>
+          </div>
+        </section>
+
+        <section class="form-step" data-step="2">
+          <div class="step-heading">
+            <span>02</span>
+            <div><h3>How you play</h3><p>Your level and shot style shape the stick profile.</p></div>
+          </div>
+          <div class="field-block">
+            <span class="field-label">Competition level</span>
+            <div class="option-grid two-wide">
+              <label class="choice line"><input type="radio" name="level" value="recreational"><span><i>01</i><b>Recreational</b><small>House league, casual play</small></span></label>
+              <label class="choice line"><input type="radio" name="level" value="developing"><span><i>02</i><b>Developing</b><small>Regular practices & games</small></span></label>
+              <label class="choice line"><input type="radio" name="level" value="competitive" checked><span><i>03</i><b>Competitive</b><small>Rep / travel hockey</small></span></label>
+              <label class="choice line"><input type="radio" name="level" value="elite"><span><i>04</i><b>Elite</b><small>AAA, academy, junior+</small></span></label>
+            </div>
+          </div>
+          <div class="field-block">
+            <span class="field-label">Favourite shot</span>
+            <div class="shot-grid">
+              <label><input type="radio" name="shot" value="wrist" checked><span><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M8 31 27 9m-8 21h11l4-5"/></svg><b>Wrist shot</b><small>Control + accuracy</small></span></label>
+              <label><input type="radio" name="shot" value="snap"><span><svg viewBox="0 0 40 40" aria-hidden="true"><path d="m8 29 20-19M19 29h11l4-5M8 10l5 5m-8 1h7"/></svg><b>Snap shot</b><small>Fastest release</small></span></label>
+              <label><input type="radio" name="shot" value="slap"><span><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M10 31 29 8M20 30h11l4-5M7 9l7 3"/></svg><b>Slap shot</b><small>Maximum power</small></span></label>
+              <label><input type="radio" name="shot" value="onetimer"><span><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M9 31 28 9M20 30h11l4-5M7 15h8m-4-4v8"/></svg><b>One-timer</b><small>Load + response</small></span></label>
+            </div>
+          </div>
+          <div class="field-block">
+            <span class="field-label">Shooting side</span>
+            <div class="segmented">
+              <label><input type="radio" name="hand" value="left" checked><span>Left shot</span></label>
+              <label><input type="radio" name="hand" value="right"><span>Right shot</span></label>
+              <label><input type="radio" name="hand" value="unsure"><span>Not sure</span></label>
+            </div>
+          </div>
+        </section>
+
+        <section class="form-step" data-step="3">
+          <div class="step-heading">
+            <span>03</span>
+            <div><h3>Choose your feel</h3><p>There is no single perfect flex—preference matters.</p></div>
+          </div>
+          <div class="field-block">
+            <span class="field-label">Preferred stick feel</span>
+            <div class="feel-options">
+              <label><input type="radio" name="feel" value="easy"><span><i>↯</i><span><b>Easy to load</b><small>Softer feel, faster release, youth-friendly</small></span></span></label>
+              <label><input type="radio" name="feel" value="balanced" checked><span><i>◆</i><span><b>Balanced</b><small>The most common starting point</small></span><em>Most players</em></span></label>
+              <label><input type="radio" name="feel" value="stiff"><span><i>▲</i><span><b>Firm & powerful</b><small>More resistance for strong shooters</small></span></span></label>
+            </div>
+          </div>
+          <div class="field-block">
+            <span class="field-label">Budget per stick <small>CAD, before tax</small></span>
+            <div class="segmented budget">
+              <label><input type="radio" name="budget" value="150"><span>Under $150</span></label>
+              <label><input type="radio" name="budget" value="250" checked><span>Under $250</span></label>
+              <label><input type="radio" name="budget" value="350"><span>Under $350</span></label>
+              <label><input type="radio" name="budget" value="999"><span>Any price</span></label>
+            </div>
+          </div>
+          <div class="info-card">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm1 15h-2v-6h2v6Zm0-8h-2V7h2v2Z"/></svg>
+            <div><b>Why budget matters</b><p>Higher-priced sticks are usually lighter and use more advanced carbon construction. They are not automatically a better fit—especially for a growing player.</p></div>
+          </div>
+        </section>
+
+        <section class="form-step results-step" data-step="4" aria-live="polite">
+          <div class="result-hero">
+            <div><p class="section-kicker">Your HockeyFit profile</p><h3 id="resultTitle">Competitive forward · quick-release setup</h3><p id="resultSummary">A balanced setup that is easy to load without giving up stability.</p></div>
+            <button type="button" class="edit-button" id="editButton">Edit profile</button>
+          </div>
+          <div class="fit-metrics">
+            <article><small>RECOMMENDED FLEX</small><strong id="resultFlex">40</strong><p id="flexRange">Try 35–40</p></article>
+            <article><small>SHAFT LENGTH</small><strong id="resultLength">54<span>″</span></strong><p id="lengthMetric">137 cm · on skates</p></article>
+            <article><small>STICK CLASS</small><strong id="resultClass">Junior</strong><p id="classDetail">Check 40 flex stock length</p></article>
+            <article><small>KICK + CURVE</small><strong id="resultKick">Hybrid</strong><p id="curveDetail">P29 / P92 starting point</p></article>
+          </div>
+          <div class="fit-note" id="fitNote"></div>
+
+          <div class="rank-head">
+            <div><p class="section-kicker">Five matched options</p><h3>Your ranked sticks</h3></div>
+            <label class="sort-select">Sort <select id="sortResults"><option value="match">Best match</option><option value="price">Price: low to high</option><option value="level">Playing level</option></select></label>
+          </div>
+          <div id="stickResults" class="stick-results"></div>
+          <div class="price-note">Prices are reference Canadian MSRPs checked September 2026. Availability, flex/curve combinations and sale prices vary by retailer.</div>
+          <section class="store-fit-card" aria-labelledby="storeFitTitle">
+            <div class="store-fit-intro">
+              <span class="soon-badge">Coming soon</span>
+              <p class="section-kicker">In-store verification</p>
+              <h3 id="storeFitTitle">Take HockeyFit to the shop</h3>
+              <p>Try the recommended stick in skates, follow two guided poses, then upload the photos for a future fit verdict.</p>
+            </div>
+            <ol class="pose-list">
+              <li><span>1</span><div><b>Standing fit</b><small>Full-body front view. Skates on, stick upright beside you.</small></div></li>
+              <li><span>2</span><div><b>Hockey stance</b><small>Side view. Hands set naturally with the blade flat on the floor.</small></div></li>
+              <li><span>3</span><div><b>Fit verdict</b><small>Too short · Good fit · Too long, plus blade-lie guidance.</small></div></li>
+            </ol>
+            <button type="button" class="upload-soon" disabled>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7.5h3l1.4-2h7.2l1.4 2h3a2 2 0 0 1 2 2v8.5a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9.5a2 2 0 0 1 2-2Zm8 10a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z"/></svg>
+              Upload two fit photos
+              <span>Coming soon</span>
+            </button>
+          </section>
+          <div class="source-box">
+            <details>
+              <summary>How HockeyFit makes this recommendation</summary>
+              <p>HockeyFit begins with the common weight-based flex guideline, then adjusts for a player's age, experience, competition level, preferred feel and shot type. Length starts in the chin-to-nose fitting zone while wearing skates, then considers position and puck-control preference. Products are ranked for fit first—not simply price.</p>
+              <p>Sources: <a href="https://ca.bauer.com/pages/flex-guide-stick" target="_blank" rel="noopener">Bauer Flex & Measurement Guide</a>, <a href="https://ca.bauer.com/collections/hockey-sticks" target="_blank" rel="noopener">Bauer stick families</a>, <a href="https://ca.ccmhockey.com/en/Sticks/Shop-All-Sticks" target="_blank" rel="noopener">CCM stick finder and product levels</a>, and <a href="https://www.hockeymonkey.com/learn/hockey-stick-sizing-buying-guide" target="_blank" rel="noopener">HockeyMonkey fitting guide</a>.</p>
+              <p class="disclaimer">This is a fitting guide, not a guarantee. Before cutting or buying, hold the exact stick in skates and confirm the lie, shaft length and ability to load it with a coach or experienced fitter.</p>
+            </details>
+          </div>
+          <button type="button" class="restart-button" id="restartButton">Start a new fit</button>
+        </section>
+
+        <div class="form-actions" id="formActions">
+          <button type="button" class="back-button" id="backButton" hidden>Back</button>
+          <button type="button" class="next-button" id="nextButton">Continue <span>→</span></button>
+        </div>
+      </form>
+    </section>
+
+    <section class="photo-preview" id="photoFit">
+      <div>
+        <p class="section-kicker">Next release</p>
+        <h2>Photo Fit</h2>
+        <p>Stand in your skates with your current stick. A future version will help compare the top of the shaft with your chin and nose, then flag “too short,” “in range,” or “too long.”</p>
+        <button type="button" disabled>Camera analysis coming soon</button>
+      </div>
+      <div class="phone-mock" aria-hidden="true"><div class="scan-line"></div><div class="player-shape"></div><div class="fit-zone">CHIN—NOSE FIT ZONE</div></div>
+    </section>
+
+    <section class="community-band" aria-labelledby="communityTitle">
+      <div>
+        <p class="section-kicker">Free community edition</p>
+        <h2 id="communityTitle">Built in Kanata for new hockey families.</h2>
+        <p>HockeyFit is a free community project by <b>Eric Jing, a Kanata U12 Rep hockey player</b>. It helps players and parents arrive at the shop with a starting point—and better questions to ask.</p>
+      </div>
+      <div class="community-points">
+        <span><b>No account</b><small>Start immediately</small></span>
+        <span><b>Private by design</b><small>Your answers stay on this device</small></span>
+        <span><b>Always free</b><small>For families and associations</small></span>
+      </div>
+      <button type="button" class="share-button" id="shareButton">Share HockeyFit <span>↗</span></button>
+    </section>
+  </main>
+
+  <footer><a class="brand" href="#top"><span class="brand-mark"><span></span></span><span>HOCKEY<span>FIT</span></span></a><p>A free community project created by Eric Jing.</p><small>Independent guide. Not affiliated with Bauer, CCM, or any hockey association.</small></footer>
+
+  <div class="toast" id="toast" role="status">Photo Fit is planned for the next version.</div>
+  <script src="app.js"></script>
+</body>
+</html>
