@@ -116,7 +116,7 @@ function calculateFit(p) {
   lengthIn = Math.max(30, Math.min(66, Math.round(lengthIn * 2) / 2));
   const kick = p.shot === 'snap' ? 'Low' : p.shot === 'slap' || p.shot === 'onetimer' ? 'Mid' : 'Hybrid';
   const curve = p.shot === 'slap' ? 'P88 / P40' : p.shot === 'snap' ? 'P28' : 'P29 / P92';
-  return { flex, flexRange:`${softer}–${flex === softer ? firmer : flex}`, stickClass, lengthIn, lengthCm:Math.round(lengthIn*2.54), kick, curve };
+  return { flex, flexRange:`${softer} to ${flex === softer ? firmer : flex}`, stickClass, lengthIn, lengthCm:Math.round(lengthIn*2.54), kick, curve };
 }
 
 const tierScore = {recreational:1,developing:2,competitive:3,elite:4};
@@ -185,9 +185,9 @@ function buildResults() {
   const fit = calculateFit(p);
   state.profile = p; state.fit = fit; state.results = rankProducts(p,fit); state.visibleCount = 5; state.sort = 'match';
   const position = p.position === 'defense' ? 'defense' : 'forward';
-  const shotNames = {wrist:'balanced-shot',snap:'quick-release',slap:'power-shot',onetimer:'one-timer'};
+  const shotNames = {wrist:'balanced shot',snap:'quick release',slap:'power shot',onetimer:'one timer'};
   $('#resultTitle').textContent = `${p.level[0].toUpperCase()+p.level.slice(1)} ${position} · ${shotNames[p.shot]} setup`;
-  $('#resultSummary').textContent = p.feel === 'easy' ? 'A softer-loading setup designed to help generate release with less force.' : p.feel === 'stiff' ? 'A firmer setup for a player who deliberately wants more resistance.' : 'A balanced setup that is easy to load without giving up stability.';
+  $('#resultSummary').textContent = p.feel === 'easy' ? 'A softer setup designed to help generate release with less force.' : p.feel === 'stiff' ? 'A firmer setup for a player who deliberately wants more resistance.' : 'A balanced setup that is easy to load without giving up stability.';
   $('#resultFlex').textContent = fit.flex;
   $('#flexRange').textContent = `Comparison range ${fit.flexRange}`;
   $('#resultLength').innerHTML = `${fit.lengthIn}<span>″</span>`;
@@ -199,110 +199,76 @@ function buildResults() {
   $('#heroFlex').textContent = fit.flex;
   $('#heroLength').innerHTML = `${fit.lengthIn}<span>″</span>`;
   const cutWarning = fit.lengthIn < (fit.stickClass === 'Junior' ? 54 : fit.stickClass === 'Intermediate' ? 57 : fit.stickClass === 'Senior' ? 60 : 48);
-  $('#fitNote').innerHTML = `<b>Fit check:</b> In skates, the top should usually land between the chin and nose. ${p.position === 'defense' ? 'Your result leans slightly longer for reach and defensive play.' : 'Your result stays near the middle of the range for control.'} ${cutWarning ? 'If the stock shaft needs cutting, it will feel stiffer than its printed flex—test before cutting.' : 'Avoid adding length unless the exact stock shaft is too short.'}`;
+  $('#fitNote').innerHTML = `<b>Fit check:</b> In skates, the top should usually land between the chin and nose. ${p.position === 'defense' ? 'Your result leans slightly longer for reach and defensive play.' : 'Your result stays near the middle of the range for control.'} ${cutWarning ? 'If the stock shaft needs cutting, it will feel stiffer than its printed flex. Test it before cutting.' : 'Avoid adding length unless the exact stock shaft is too short.'}`;
   $('#sortResults').value = 'match'; renderProducts();
 }
 
-const photoFitState = { standingImage:null, standingPoints:[], stanceReady:false };
-const pointLabels = ['Nose','Chin','Stick top'];
+const photoFitState = { stream:null, captured:false, stickTop:null };
 
-function readPhoto(file, onLoad) {
-  if (!file || !file.type.startsWith('image/')) return;
-  if (file.size > 15 * 1024 * 1024) {
-    const result = $('#photoFitResult');
-    result.hidden = false;
-    result.className = 'photo-fit-result warning';
-    result.innerHTML = '<b>Photo is too large.</b><p>Please choose an image smaller than 15 MB.</p>';
-    return;
+function assessGuidedStickFit(stickTopY,canvasHeight) {
+  if (!Number.isFinite(stickTopY) || !canvasHeight) return {status:'unclear',title:'Tap the top of the stick',detail:'One tap is needed so HockeyFit does not mistake a shelf or door frame for the stick.'};
+  const ratio = stickTopY/canvasHeight;
+  if (ratio < .145) return {status:'long',title:'The stick looks too long',detail:'The stick top is above the nose guide. Compare the next shorter stock length before cutting.'};
+  if (ratio > .215) return {status:'short',title:'The stick looks too short',detail:'The stick top is below the chin guide. Compare the next longer stock length.'};
+  return {status:'good',title:'The stick length looks good',detail:'The stick top falls inside the chin to nose guide while the player is standing in skates.'};
+}
+
+function stopFitCamera() {
+  if (photoFitState.stream) photoFitState.stream.getTracks().forEach(track => track.stop());
+  photoFitState.stream = null; $('#fitCameraVideo').srcObject = null;
+}
+
+function setCapturedMode(captured) {
+  photoFitState.captured = captured; photoFitState.stickTop = null;
+  $('#fitCameraVideo').hidden = captured; $('#fitCameraCanvas').hidden = !captured;
+  $('#fitCameraOverlay').hidden = captured; $('#stickTopHint').hidden = !captured;
+  $('#captureFitPhoto').hidden = captured; $('#retakeFitPhoto').hidden = !captured; $('#finishPhotoFit').hidden = !captured;
+  $('#finishPhotoFit').disabled = true;
+  $('#cameraInstruction').textContent = captured ? 'Tap the top of the stick' : 'Fit the player inside the guide';
+}
+
+async function openFitCamera() {
+  const modal = $('#cameraModal'), result = $('#photoFitResult');
+  result.hidden = true; modal.hidden = false; document.body.classList.add('camera-open'); setCapturedMode(false);
+  try {
+    if (!navigator.mediaDevices?.getUserMedia) throw new Error('unsupported');
+    photoFitState.stream = await navigator.mediaDevices.getUserMedia({audio:false,video:{facingMode:{ideal:'environment'},width:{ideal:1080},height:{ideal:1920}}});
+    const video = $('#fitCameraVideo'); video.srcObject = photoFitState.stream; await video.play();
+  } catch (error) {
+    stopFitCamera(); modal.hidden = true; document.body.classList.remove('camera-open');
+    result.hidden = false; result.className = 'photo-fit-result warning';
+    result.innerHTML = '<span class="photo-verdict">Camera unavailable</span><h4>Allow camera access</h4><p>Photo Fit needs camera permission and an HTTPS connection. On iPhone, open Safari Settings for this site and allow Camera, then try again.</p>';
   }
-  const reader = new FileReader();
-  reader.addEventListener('load', () => onLoad(reader.result));
-  reader.readAsDataURL(file);
 }
 
-function drawStandingPhoto() {
-  const canvas = $('#standingCanvas');
-  const image = photoFitState.standingImage;
-  if (!image) return;
-  const maxSide = 900;
-  const scale = Math.min(1,maxSide/Math.max(image.naturalWidth,image.naturalHeight));
-  canvas.width = Math.round(image.naturalWidth*scale);
-  canvas.height = Math.round(image.naturalHeight*scale);
-  const context = canvas.getContext('2d');
-  context.drawImage(image,0,0,canvas.width,canvas.height);
-  photoFitState.standingPoints.forEach((point,index) => {
-    context.beginPath(); context.arc(point.x,point.y,11,0,Math.PI*2);
-    context.fillStyle = '#1ee6d1'; context.fill();
-    context.lineWidth = 3; context.strokeStyle = '#071426'; context.stroke();
-    context.font = '700 18px Arial'; context.fillStyle = '#071426';
-    context.fillText(`${index+1}. ${pointLabels[index]}`,point.x+16,point.y-13);
-  });
-}
+function closeFitCamera() { stopFitCamera(); $('#cameraModal').hidden = true; document.body.classList.remove('camera-open'); const canvas=$('#fitCameraCanvas'); canvas.width=0; canvas.height=0; setCapturedMode(false); }
+function resetPhotoFit() { closeFitCamera(); $('#photoFitResult').hidden = true; const canvas=$('#fitCameraCanvas'); canvas.width=0; canvas.height=0; }
 
-function updatePhotoFitControls() {
-  const count = photoFitState.standingPoints.length;
-  const nextLabel = pointLabels[count];
-  $('#standingTapGuide').innerHTML = nextLabel ? `Now tap <b>${nextLabel.toLowerCase()}</b>.` : '<b>All three points marked.</b> Reset if a point is misplaced.';
-  const contact = selected('bladeContact');
-  $('#analyzePhotoFit').disabled = count !== 3 || !photoFitState.stanceReady || !contact;
-}
-
-function assessStandingFit(points,canvasHeight) {
-  if (points.length !== 3) return {status:'unclear',title:'Retake or reset the standing photo'};
-  const [nose,chin,stickTop] = points;
-  const tolerance = canvasHeight*.012;
-  if (chin.y <= nose.y) return {status:'unclear',title:'Check the landmark order',detail:'The chin point should appear below the nose point in an upright photo.'};
-  if (stickTop.y < nose.y-tolerance) return {status:'long',title:'The stick looks too long',detail:'The top is above the nose. Try the next shorter stock length or compare after a small cut—but do not cut before testing.'};
-  if (stickTop.y > chin.y+tolerance) return {status:'short',title:'The stick looks too short',detail:'The top is below the chin. Try the next longer stock length and confirm the player can still handle the puck comfortably.'};
-  return {status:'good',title:'Standing length looks good',detail:'The top lands in the chin-to-nose fitting zone while the player is upright in skates.'};
-}
-
-function assessBladeContact(contact) {
-  const results = {
-    flat:{status:'good',title:'Blade contact looks compatible',detail:'The blade appears to sit flat in the player’s normal stance. Confirm again on the ice or shooting pad.'},
-    toeUp:{status:'adjust',title:'The lie may be too high',detail:'Heel contact with the toe lifted can indicate a shaft that sits too upright. Compare a lower-lie option with a fitter.'},
-    heelUp:{status:'adjust',title:'The lie may be too low',detail:'Toe contact with the heel lifted can indicate a shaft that sits too flat. Compare a higher-lie option with a fitter.'},
-    unclear:{status:'unclear',title:'Blade contact is unclear',detail:'Retake the side photo lower and closer, with the whole blade and floor line visible.'}
-  };
-  return results[contact] || results.unclear;
-}
-
-function resetPhotoFit() {
-  photoFitState.standingImage = null; photoFitState.standingPoints = []; photoFitState.stanceReady = false;
-  $('#standingCanvasWrap').hidden = true; $('#stancePreview').hidden = true; $('#stancePreview').removeAttribute('src');
-  $('#bladeContact').disabled = true; $('#photoFitResult').hidden = true; $('#analyzePhotoFit').disabled = true;
-}
-
-$('#standingPhoto').addEventListener('change', event => readPhoto(event.target.files[0], source => {
-  const image = new Image();
-  image.addEventListener('load', () => {
-    photoFitState.standingImage = image; photoFitState.standingPoints = [];
-    $('#standingCanvasWrap').hidden = false; drawStandingPhoto(); updatePhotoFitControls();
-  });
-  image.src = source;
-}));
-
-$('#standingCanvas').addEventListener('click', event => {
-  if (!photoFitState.standingImage || photoFitState.standingPoints.length >= 3) return;
-  const canvas = event.currentTarget, rect = canvas.getBoundingClientRect();
-  photoFitState.standingPoints.push({x:(event.clientX-rect.left)*canvas.width/rect.width,y:(event.clientY-rect.top)*canvas.height/rect.height});
-  drawStandingPhoto(); updatePhotoFitControls();
+$('#openFitCamera').addEventListener('click',openFitCamera);
+$('#closeFitCamera').addEventListener('click',closeFitCamera);
+$('#captureFitPhoto').addEventListener('click', () => {
+  const video = $('#fitCameraVideo'), canvas = $('#fitCameraCanvas');
+  if (!video.videoWidth || !video.videoHeight) return;
+  canvas.width = video.videoWidth; canvas.height = video.videoHeight;
+  canvas.getContext('2d').drawImage(video,0,0,canvas.width,canvas.height);
+  stopFitCamera(); setCapturedMode(true);
 });
-
-$('#resetStandingPoints').addEventListener('click', () => { photoFitState.standingPoints = []; drawStandingPhoto(); updatePhotoFitControls(); });
-$('#stancePhoto').addEventListener('change', event => readPhoto(event.target.files[0], source => {
-  $('#stancePreview').src = source; $('#stancePreview').hidden = false;
-  photoFitState.stanceReady = true; $('#bladeContact').disabled = false; updatePhotoFitControls();
-}));
-$$('input[name="bladeContact"]').forEach(input => input.addEventListener('change',updatePhotoFitControls));
-$('#analyzePhotoFit').addEventListener('click', () => {
-  const length = assessStandingFit(photoFitState.standingPoints,$('#standingCanvas').height);
-  const blade = assessBladeContact(selected('bladeContact'));
-  const overall = length.status === 'good' && blade.status === 'good' ? 'Good photo fit' : length.status === 'unclear' || blade.status === 'unclear' ? 'More evidence needed' : 'Adjustment recommended';
-  const result = $('#photoFitResult');
-  result.hidden = false; result.className = `photo-fit-result ${overall === 'Good photo fit' ? 'good' : overall === 'More evidence needed' ? 'warning' : 'adjust'}`;
-  result.innerHTML = `<span class="photo-verdict">${overall}</span><h4>${length.title}</h4><p>${length.detail || ''}</p><h4>${blade.title}</h4><p>${blade.detail}</p><p class="flex-limit"><b>Flex not confirmed by photos:</b> start with the recommended ${state.fit ? state.fit.flex : ''} flex, then make sure the player can load it with normal technique before buying or cutting.</p>`;
+$('#retakeFitPhoto').addEventListener('click',openFitCamera);
+$('#fitCameraCanvas').addEventListener('click', event => {
+  if (!photoFitState.captured) return;
+  const canvas = event.currentTarget, rect = canvas.getBoundingClientRect();
+  photoFitState.stickTop = {x:(event.clientX-rect.left)*canvas.width/rect.width,y:(event.clientY-rect.top)*canvas.height/rect.height};
+  const context = canvas.getContext('2d');
+  context.beginPath(); context.arc(photoFitState.stickTop.x,photoFitState.stickTop.y,Math.max(10,canvas.width*.013),0,Math.PI*2);
+  context.fillStyle='#1ee6d1'; context.fill(); context.lineWidth=Math.max(3,canvas.width*.004); context.strokeStyle='#071426'; context.stroke();
+  $('#stickTopHint').textContent='Stick top marked'; $('#finishPhotoFit').disabled=false;
+});
+$('#finishPhotoFit').addEventListener('click', () => {
+  const canvas=$('#fitCameraCanvas'), fit=assessGuidedStickFit(photoFitState.stickTop?.y,canvas.height), result=$('#photoFitResult');
+  closeFitCamera(); result.hidden=false; result.className=`photo-fit-result ${fit.status==='good'?'good':'adjust'}`;
+  result.innerHTML=`<span class="photo-verdict">${fit.status==='good'?'Good photo fit':'Adjustment recommended'}</span><h4>${fit.title}</h4><p>${fit.detail}</p><p class="flex-limit"><b>Photo scope:</b> this checks standing length only. Confirm the recommended ${state.fit ? state.fit.flex : ''} flex by loading the exact stick before buying or cutting.</p>`;
   result.scrollIntoView({behavior:'smooth',block:'nearest'});
+  photoFitState.captured=false; photoFitState.stickTop=null;
 });
 
 $('#nextButton').addEventListener('click', () => {
@@ -324,5 +290,5 @@ $('#shareButton').addEventListener('click', async () => {
   } catch (error) { if (error.name !== 'AbortError') console.warn('Sharing was not available.', error); }
 });
 
-window.HockeyFit = { calculateFit, rankProducts, productFamilies, assessStandingFit, assessBladeContact };
+window.HockeyFit = { calculateFit, rankProducts, productFamilies, assessGuidedStickFit };
 showStep(1);

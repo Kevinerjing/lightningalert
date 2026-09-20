@@ -15,7 +15,7 @@ Open `index.html` directly or serve the repository root with any static HTTP ser
 
 ## Important limits
 
-HockeyFit is a fitting guide, not a substitute for testing the exact stick in skates. Prices are reference Canadian prices checked in September 2026 and may change. Goalie paddle sizing is intentionally excluded. Photo Fit beta checks standing length with three user-marked landmarks and guides a blade-contact observation; it does not claim to confirm flex from static photos. Selected photos remain in the browser and are not uploaded or stored.
+HockeyFit is a fitting guide, not a substitute for testing the exact stick in skates. Prices are reference Canadian prices checked in September 2026 and may change. Goalie paddle sizing is intentionally excluded. Photo Fit beta opens the device camera with a standing body guide and chin-to-nose zone. After capture, the user taps only the top of the stick to receive a standing-length result. It does not claim to confirm flex or blade lie from one static photo. The frame remains in temporary browser memory, is cleared after the result, and is never uploaded or permanently stored.
 
 ## Sources
 
