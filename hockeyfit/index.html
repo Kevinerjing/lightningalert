@@ -22,7 +22,7 @@
       Photo fit
       <span>Soon</span>
     </button>
-    <span class="sr-only" id="photoHint">Photo measurement is not available in this version.</span>
+    <span class="sr-only" id="photoHint">Photo Fit beta is available after completing the stick profile.</span>
   </header>
 
   <main id="top">
@@ -193,23 +193,47 @@
           <div id="stickResults" class="stick-results"></div>
           <button type="button" class="show-more-button" id="showMoreButton">Show 5 more</button>
           <div class="price-note">HockeyFit rating is a profile-fit score, not a retailer customer-review score. All 15 shortlisted options score above 4.0/5 for this profile. Prices are reference Canadian prices checked September 2026; availability, exact flex/curve combinations and sale prices vary by retailer.</div>
-          <section class="store-fit-card" aria-labelledby="storeFitTitle">
+          <section class="store-fit-card photo-fit-tool" id="photoFitTool" aria-labelledby="storeFitTitle">
             <div class="store-fit-intro">
-              <span class="soon-badge">Coming soon</span>
-              <p class="section-kicker">In-store verification</p>
-              <h3 id="storeFitTitle">Take HockeyFit to the shop</h3>
-              <p>Try the recommended stick in skates, follow two guided poses, then upload the photos for a future fit verdict.</p>
+              <span class="soon-badge beta-badge">Beta</span>
+              <p class="section-kicker">In-store photo check</p>
+              <h3 id="storeFitTitle">Check the stick before you buy</h3>
+              <p>Use two guided photos to check standing length and blade contact. Static photos cannot confirm flex.</p>
             </div>
             <ol class="pose-list">
-              <li><span>1</span><div><b>Standing fit</b><small>Full-body front view. Skates on, stick upright beside you.</small></div></li>
-              <li><span>2</span><div><b>Hockey stance</b><small>Side view. Hands set naturally with the blade flat on the floor.</small></div></li>
-              <li><span>3</span><div><b>Fit verdict</b><small>Too short · Good fit · Too long, plus blade-lie guidance.</small></div></li>
+              <li><span>1</span><div><b>Standing photo</b><small>Skates on, stand straight, stick upright with the blade pivot point on the floor.</small></div></li>
+              <li><span>2</span><div><b>Hockey-stance photo</b><small>Side view, normal hand position, knees bent and blade resting naturally.</small></div></li>
+              <li><span>3</span><div><b>Photo Fit verdict</b><small>Length result plus a blade-lie observation and in-store next step.</small></div></li>
             </ol>
-            <button type="button" class="upload-soon" disabled>
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7.5h3l1.4-2h7.2l1.4 2h3a2 2 0 0 1 2 2v8.5a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9.5a2 2 0 0 1 2-2Zm8 10a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z"/></svg>
-              Upload two fit photos
-              <span>Coming soon</span>
-            </button>
+
+            <div class="photo-fit-grid">
+              <article class="photo-upload-card">
+                <div class="photo-card-head"><span>01</span><div><b>Standing length</b><small>Full body and the complete stick must be visible.</small></div></div>
+                <label class="photo-file-button">Take or choose standing photo<input type="file" id="standingPhoto" accept="image/*" capture="environment"></label>
+                <div class="photo-canvas-wrap" id="standingCanvasWrap" hidden>
+                  <canvas id="standingCanvas" aria-label="Standing photo landmark tool"></canvas>
+                  <p id="standingTapGuide">Tap <b>nose</b>, then <b>chin</b>, then <b>top of stick</b>.</p>
+                  <button type="button" class="reset-points-button" id="resetStandingPoints">Reset points</button>
+                </div>
+              </article>
+
+              <article class="photo-upload-card">
+                <div class="photo-card-head"><span>02</span><div><b>Blade contact</b><small>Take the photo from the side at blade height.</small></div></div>
+                <label class="photo-file-button">Take or choose stance photo<input type="file" id="stancePhoto" accept="image/*" capture="environment"></label>
+                <img id="stancePreview" class="stance-preview" alt="Hockey stance preview" hidden>
+                <fieldset class="blade-contact" id="bladeContact" disabled>
+                  <legend>What touches the floor naturally?</legend>
+                  <label><input type="radio" name="bladeContact" value="flat"><span>Whole blade looks flat</span></label>
+                  <label><input type="radio" name="bladeContact" value="toeUp"><span>Heel down, toe lifted</span></label>
+                  <label><input type="radio" name="bladeContact" value="heelUp"><span>Toe down, heel lifted</span></label>
+                  <label><input type="radio" name="bladeContact" value="unclear"><span>Cannot tell from photo</span></label>
+                </fieldset>
+              </article>
+            </div>
+
+            <button type="button" class="analyze-fit-button" id="analyzePhotoFit" disabled>Analyze Photo Fit</button>
+            <div class="photo-fit-result" id="photoFitResult" role="status" hidden></div>
+            <p class="photo-privacy"><b>Private by design:</b> photos stay on this device and are not uploaded or stored. Parent/guardian supervision is recommended for children.</p>
           </section>
           <div class="source-box">
             <details>
@@ -229,12 +253,12 @@
       </form>
     </section>
 
-    <section class="photo-preview" id="photoFit">
+    <section class="photo-preview" id="photoFitIntro">
       <div>
-        <p class="section-kicker">Next release</p>
+        <p class="section-kicker">Available in beta</p>
         <h2>Photo Fit</h2>
-        <p>Stand in your skates with your current stick. A future version will help compare the top of the shaft with your chin and nose, then flag “too short,” “in range,” or “too long.”</p>
-        <button type="button" disabled>Camera analysis coming soon</button>
+        <p>Complete the stick profile, then add a standing photo and a hockey-stance photo. HockeyFit checks the chin-to-nose length zone and guides a blade-contact check without sending photos to a server.</p>
+        <button type="button" id="startPhotoFit">Start with my profile</button>
       </div>
       <div class="phone-mock" aria-hidden="true"><div class="scan-line"></div><div class="player-shape"></div><div class="fit-zone">CHIN—NOSE FIT ZONE</div></div>
     </section>
@@ -256,7 +280,7 @@
 
   <footer><a class="brand" href="#top"><span class="brand-mark"><span></span></span><span>HOCKEY<span>FIT</span></span></a><p>A free community project created by Eric Jing.</p><small>Independent guide. Not affiliated with Bauer, CCM, or any hockey association.</small></footer>
 
-  <div class="toast" id="toast" role="status">Photo Fit is planned for the next version.</div>
+  <div class="toast" id="toast" role="status">Complete your profile to use Photo Fit.</div>
   <script src="app.js"></script>
 </body>
 </html>
