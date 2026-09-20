@@ -198,3 +198,4 @@ $('#shareButton').addEventListener('click', async () => {
 });
 
 window.HockeyFit = { calculateFit, rankProducts, productFamilies };
+showStep(1);
