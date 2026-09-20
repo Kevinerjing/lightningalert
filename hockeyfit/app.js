@@ -178,7 +178,7 @@ function renderProducts(sort='match') {
   const more = $('#showMoreButton');
   const remaining = state.results.length-state.visibleCount;
   more.hidden = remaining <= 0;
-  more.textContent = `Show 5 more${remaining > 0 ? ` (${remaining} remaining)` : ''}`;
+  more.innerHTML = `Show 5 more <span>↓</span>${remaining > 0 ? ` <small>${remaining} remaining</small>` : ''}`;
 }
 function buildResults() {
   const p = collectProfile();
