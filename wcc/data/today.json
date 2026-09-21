@@ -1,34 +1,25 @@
 {
-  "boardDate": "2026-09-19",
-  "generatedAt": "2026-09-19T14:42:32.122Z",
+  "boardDate": "2026-09-21",
+  "generatedAt": "2026-09-21T17:10:16.531Z",
   "sourceCount": 26,
   "weather": [
     {
       "city": "Ottawa",
-      "temperatureC": 11,
-      "maxC": 16,
-      "minC": 4,
+      "temperatureC": 14,
+      "maxC": 15,
+      "minC": 8,
       "summary": "Clear skies"
     }
   ],
   "extremeWeather": [
     {
-      "title": "US wheat farmers navigate uncertainty amid drought and geopolitical chaos",
-      "whatHappened": "Some experts worry factors affecting wheat exports could push global food prices even higher than they are now Wheat prices are at their highest level in...",
+      "title": "Typhoon Dujuan tracking close to Tokyo triggers rare evacuation alert",
+      "whatHappened": "More than 1.9 million people are under evacuation orders as Typhoon Dujuan batters Japan.",
       "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
-      "keyWord": "drought: a long time with very little rain",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/business/2026/sep/18/wheat-farmers-drought-geopolitics",
-      "publishedAt": "2026-09-18T11:00:17.000Z"
-    },
-    {
-      "title": "Nepal to use new flood study to claim millions from UN climate disaster fund",
-      "whatHappened": "A new study says climate change was a likely factor in the massive flood on the Nepal-Tibet border last month.",
-      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
-      "keyWord": "flood: water covering land that is usually dry",
+      "keyWord": "extreme weather: unusual and dangerous weather like floods, storms, or heat waves",
       "source": "BBC Science & Environment",
-      "url": "https://www.bbc.co.uk/news/articles/cmlyrzve5pwzo?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-09-17T10:31:35.000Z"
+      "url": "https://www.bbc.co.uk/news/videos/ckjrxpqxx2v3o?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-09-21T14:05:29.000Z"
     },
     {
       "title": "Flood-ravaged Nepal calls for climate justice",
@@ -42,6 +33,24 @@
   ],
   "climate": [
     {
+      "title": "‘Planetary boundaries’ necessary for flourishing of life have been massively breached, scientists warn",
+      "whatHappened": "New report shows key indicators of Earth’s health are ‘outside the safe operating space’ as climate disaster looms The planetary life support systems relied upon by...",
+      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
+      "keyWord": "climate: the usual pattern of weather over a long period of time",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/environment/2026/sep/21/planetary-boundaries-breached-scientists-warn-climate-crisis",
+      "publishedAt": "2026-09-21T14:00:33.000Z"
+    },
+    {
+      "title": "Why climate action now comes down to speed, finance and cooperation",
+      "whatHappened": "Temporarily exceeding the 1.5°C global warming goal set in Paris is widely considered inevitable.",
+      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
+      "keyWord": "emissions: gases released into the air",
+      "source": "UN Climate",
+      "url": "https://news.un.org/feed/view/en/story/2026/09/1168382",
+      "publishedAt": "2026-09-21T12:00:00.000Z"
+    },
+    {
       "title": "UN climate chief warns political division is undermining fight against ‘economic security emergency’",
       "whatHappened": "The head of the UN's climate body&nbsp;has warned that treating global warming as a partisan issue is dangerously out of step with reality, as he set...",
       "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
@@ -51,6 +60,24 @@
       "publishedAt": "2026-09-10T12:00:00.000Z"
     },
     {
+      "title": "More than 150,000 underwater explosives used to deter seals at Tasmanian salmon farms since 2016",
+      "whatHappened": "Salmon companies operating in Tasmanian marine areas deployed almost 1,800 explosives in first half of 2026, government figures reveal Get our breaking news email , free...",
+      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
+      "keyWord": "climate: the usual pattern of weather over a long period of time",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/australia-news/2026/sep/22/underwater-explosives-used-to-deter-seals-at-tasmanian-salmon-farms-since-2016",
+      "publishedAt": "2026-09-21T15:00:37.000Z"
+    },
+    {
+      "title": "US environment agency let Bayer pick regulations for destructive weedkiller, documents show",
+      "whatHappened": "Environmental Protection Agency asked firm to choose rules it wanted for dicamba, then put the choices in a proposed federal rule The EPA allowed pesticide giant...",
+      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
+      "keyWord": "climate: the usual pattern of weather over a long period of time",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/us-news/2026/sep/20/epa-bayer-regulation-pesticide-dicamba",
+      "publishedAt": "2026-09-20T12:00:14.000Z"
+    },
+    {
       "title": "US veterans have greater levels of Pfas in their blood than civilians, new study finds",
       "whatHappened": "Soil and water around military bases show elevated levels of Pfas pollution due to chemicals used in firefighting foam Many US military veterans have much higher...",
       "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
@@ -58,42 +85,6 @@
       "source": "The Guardian Environment",
       "url": "https://www.theguardian.com/environment/2026/sep/18/pfas-veterans-blood-forever-chemicals",
       "publishedAt": "2026-09-18T14:00:19.000Z"
-    },
-    {
-      "title": "New wild cat species discovered - with only one known living member",
-      "whatHappened": "A spotted wildcat long mistaken for relatives has been identified as a new species in Bolivia.",
-      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
-      "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "BBC Science & Environment",
-      "url": "https://www.bbc.co.uk/news/articles/c6x2zgv9rr4ro?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-09-17T23:15:55.000Z"
-    },
-    {
-      "title": "Trump officials move to dismantle key protection for US endangered species",
-      "whatHappened": "Fish and Wildlife Service memo calls for change in what it means to ‘take’ an endangered species More than 1,600 critically imperiled species protected under the...",
-      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
-      "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/us-news/2026/sep/17/endangered-species-trump-officials",
-      "publishedAt": "2026-09-17T21:28:15.000Z"
-    },
-    {
-      "title": "Nepal to use new flood study to claim millions from UN climate disaster fund",
-      "whatHappened": "A new study says climate change was a likely factor in the massive flood on the Nepal-Tibet border last month.",
-      "whyItMatters": "Climate and environment stories connect science to real issues like safety, health, and extreme weather.",
-      "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "BBC Science & Environment",
-      "url": "https://www.bbc.co.uk/news/articles/cmlyrzve5pwzo?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-09-17T10:31:35.000Z"
-    },
-    {
-      "title": "‘The water comes up to our knees’: Climate hazards shut millions of children out of school in 2025",
-      "whatHappened": "When the creek beside Taudibura Garo's school in Papua New Guinea floods, the water doesn't stop at the gate.",
-      "whyItMatters": "Climate and environment stories connect science to real issues like safety, health, and extreme weather.",
-      "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "UN Climate",
-      "url": "https://news.un.org/feed/view/en/story/2026/09/1168306",
-      "publishedAt": "2026-09-09T12:00:00.000Z"
     }
   ],
   "weatherTech": [],
@@ -106,6 +97,15 @@
       "source": "Carleton Sustainability",
       "url": "https://carleton.ca/sustainability/2025/carleton-recognised-as-only-university-in-canada-to-achieve-bronze-tier-in-net-zero-challenge/",
       "publishedAt": "2025-07-29T18:25:35.000Z"
+    },
+    {
+      "title": "New Report: Ocean Carbon Removal Shows Promise, But Big Questions Remain",
+      "whatHappened": "Marine carbon dioxide removal could support climate action but faces major scientific, technical and governance challenges, according to a National Academies of Sciences, Engineering, and Medicine...",
+      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
+      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
+      "source": "Columbia Climate School",
+      "url": "https://news.climate.columbia.edu/2026/09/21/new-report-ocean-carbon-removal-shows-promise-but-big-questions-remain/",
+      "publishedAt": "2026-09-21T17:08:31.000Z"
     },
     {
       "title": "This Stanley Park Fellow Is Studying Climate Finance To Help Guide Chile’s Energy Transition",
@@ -133,15 +133,6 @@
       "source": "MIT Climate & Sustainability",
       "url": "https://news.mit.edu/2026/mit-researchers-mapping-extreme-weather-risks-building-tools-to-act-0918",
       "publishedAt": "2026-09-18T16:55:00.000Z"
-    },
-    {
-      "title": "A New Tool for Matching Water Solutions to Community Needs",
-      "whatHappened": "Sustainable development alum Dylan Dettloff used his Columbia Climate School Collaborative Research Grant to develop a Python-based decision tool to help rural and water-scarce communities identify...",
-      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
-      "keyWord": "research: careful study used to discover new knowledge",
-      "source": "Columbia Climate School",
-      "url": "https://news.climate.columbia.edu/2026/09/15/a-new-tool-for-matching-water-solutions-to-community-needs/",
-      "publishedAt": "2026-09-15T20:00:34.000Z"
     },
     {
       "title": "Marine bacteria team up to break down one of the ocean's toughest carbon-storing molecules",
