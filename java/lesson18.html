@@ -1,0 +1,207 @@
+<!doctype html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>For Loops | Java 1.8</title><link rel="stylesheet" href="style.css"><link rel="stylesheet" href="study.css"></head><body><header><a href="./" class="brand">{ } <span>JAVA LAB</span></a><a href="./">All lessons</a></header><main class="lesson-list study"><p class="eyebrow">UNIT 1 / LESSON 1.8</p><h1>For Loops</h1><p>Plan a repeated task, trace its counter, then build your solution one step at a time.</p><p class="small">Based on the five classroom files for 1.8. Start with <a href="lesson00.html">Before You Code</a> or review <a href="lesson17.html">1.7 While Loops</a>.</p><nav aria-label="Lesson sections"><a href="#plan">Plan first</a><a href="#trace">How for runs</a><a href="#patterns">Loop patterns</a><a href="#nested">Nested loops</a><a href="#classroom">Class examples</a><a href="#practice">Paper practice</a><a href="#exercises">Exercises 1–6</a><a href="#strings">String extras</a><a href="#checklist">Checklist</a></nav>
+<section id="plan"><h2>1. Think about the repetition before the syntax</h2><p class="callout">Kevin: first describe what happens <strong>once</strong>. Then decide where to start, when to stop and what changes. You can write these four ideas as comments before remembering the Java punctuation.</p><p>Example: print the numbers 1 through 4.</p><ol><li><strong>One action:</strong> print the current number.</li><li><strong>Start:</strong> 1.</li><li><strong>Keep going:</strong> while the number is at most 4.</li><li><strong>Change:</strong> add 1 after printing.</li></ol><pre tabindex="0"><code>for (int i = 1; i &lt;= 4; i++) {
+    System.out.println(i);
+}</code></pre><p>Read it as: “Start at 1; while i is at most 4, print it, then add 1.” A for loop is convenient when the repetitions are controlled by a counter. A while loop is often clearer when waiting for valid input. Both can express the same basic repetition; for is not inherently more powerful.</p></section>
+<section id="trace"><h2>2. Start once → check → body → update → check again</h2><pre tabindex="0"><code>for (initialization; condition; update) {
+    // repeated work
+}</code></pre><p>This is a syntax template: replace the three words with Java statements/expressions. The header contains <strong>two semicolons</strong>. There is no extra semicolon between the closing parenthesis and the opening brace.</p><div class="table-scroll"><table><thead><tr><th scope="col">i before check</th><th scope="col">i &lt;= 4</th><th scope="col">Body prints</th><th scope="col">Update</th></tr></thead><tbody><tr><td>1</td><td>true</td><td>1</td><td>i becomes 2</td></tr><tr><td>2</td><td>true</td><td>2</td><td>i becomes 3</td></tr><tr><td>3</td><td>true</td><td>3</td><td>i becomes 4</td></tr><tr><td>4</td><td>true</td><td>4</td><td>i becomes 5</td></tr><tr><td>5</td><td>false</td><td>Nothing</td><td>No update; exit</td></tr></tbody></table></div><p>Four prints, five condition checks. Initialization happens once. The update happens after each completed body execution, not before the first print.</p><p><strong>Scope:</strong> with <code>for (int i = ...)</code>, i only exists inside that loop. It reaches 5 for the last check, but you cannot print i after the loop. Declare it before the loop if you need it afterward.</p><pre tabindex="0"><code>int i;
+for (i = 1; i &lt;= 4; i++) {
+    System.out.println(i);
+}
+System.out.println(i); // 5</code></pre><details><summary>Compare with the while version</summary><pre tabindex="0"><code>int i = 1;
+while (i &lt;= 4) {
+    System.out.println(i);
+    i++;
+}</code></pre></details></section>
+<section id="patterns"><h2>3. Common patterns and stopping mistakes</h2><div class="table-scroll"><table><thead><tr><th scope="col">Header</th><th scope="col">Values used by the body</th></tr></thead><tbody><tr><td><code>for (int i = 0; i &lt; 5; i++)</code></td><td>0, 1, 2, 3, 4: five runs</td></tr><tr><td><code>for (int i = 1; i &lt;= 5; i++)</code></td><td>1, 2, 3, 4, 5: five runs</td></tr><tr><td><code>for (int i = 0; i &lt; 100; i += 2)</code></td><td>0, 2, …, 98: 50 runs</td></tr><tr><td><code>for (int i = 99; i &gt;= 0; i--)</code></td><td>99 down to 0: 100 runs</td></tr><tr><td><code>for (int i = 5; i &lt; 4; i++)</code></td><td>Zero runs: the first check is false</td></tr></tbody></table></div><p>Trace the first value, last valid value and first failing value. Do not assume that &lt; and &lt;= give the same number of runs.</p><p><strong>Wrong direction:</strong> starting j at 0 with <code>j &lt; 100</code> but using <code>j--</code> moves away from the intended exit. Java int eventually overflows, so do not call this literally endless; it is still a broken counting loop. Use the direction that moves toward your stopping value.</p><p>Keep the counter update in the header. Changing it again inside the body usually skips values. Short counters such as i and j are normal; descriptive names such as row and candidate can make a solution clearer.</p><pre tabindex="0"><code>for (int j = 99; j &gt;= 0; j--) {
+    System.out.print(j + &quot; &quot;);
+    if (j == 90) {
+        break;
+    }
+}</code></pre><p>This classroom pattern prints 99 down to 90, including 90: ten numbers. break exits immediately, before the next update. It exits the nearest loop, not the whole program.</p></section>
+<section id="nested"><h2>4. Nested loops: finish the inner loop for each outer value</h2><pre tabindex="0"><code>for (int row = 1; row &lt;= 3; row++) {
+    for (int column = 1; column &lt;= row; column++) {
+        System.out.print(column + &quot; &quot;);
+    }
+    System.out.println();
+}</code></pre><pre tabindex="0"><code>1
+1 2
+1 2 3</code></pre><p>The outer loop chooses the row. Each new row starts a fresh inner loop at column = 1. The newline belongs <strong>after the inner loop, inside the outer loop</strong>.</p><div class="table-scroll"><table><thead><tr><th scope="col">Outer row</th><th scope="col">Inner column values</th><th scope="col">Numbers printed</th></tr></thead><tbody><tr><td>1</td><td>1</td><td>1</td></tr><tr><td>2</td><td>1, 2</td><td>2</td></tr><tr><td>3</td><td>1, 2, 3</td><td>3</td></tr></tbody></table></div><p>The triangle prints 1 + 2 + 3 = 6 numbers. In the classroom example where both i and j go from 1 to 9, <code>println(i * j)</code> runs 9 × 9 = <strong>81 times</strong>. That prints 81 entries, not 81 distinct products.</p></section>
+<section id="classroom"><h2>5. Classroom examples: repetition, rows and factorials</h2><details><summary>Group work A: repeat a word five times</summary><pre tabindex="0"><code>String word = &quot;Awesome&quot;;
+int num = 5;
+for (int i = 0; i &lt; num; i++) {
+    System.out.print(word + &quot; &quot;);
+}</code></pre></details><details><summary>Group work B: print 1–100, ten per line</summary><pre tabindex="0"><code>for (int i = 1; i &lt;= 100; i++) {
+    System.out.print(i + &quot; &quot;);
+    if (i % 10 == 0) {
+        System.out.println();
+    }
+}</code></pre></details><h3>Factorial: keep a running product</h3><p>4! means 1 × 2 × 3 × 4 = 24. Initialize a product to <strong>1</strong>; starting at 0 would make every later product 0. A sum normally starts at 0.</p><div class="table-scroll"><table><thead><tr><th scope="col">i</th><th scope="col">Product before</th><th scope="col">Product after</th></tr></thead><tbody><tr><td>1</td><td>1</td><td>1</td></tr><tr><td>2</td><td>1</td><td>2</td></tr><tr><td>3</td><td>2</td><td>6</td></tr><tr><td>4</td><td>6</td><td>24</td></tr></tbody></table></div><p>The teacher’s example uses int and asks for a positive integer. The reference below limits input to 1–12 because 13! exceeds the int range. Mathematically 0! = 1, but this example follows the positive-input requirement.</p><details><summary>Show complete factorial example</summary><pre tabindex="0"><code>import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+
+        System.out.println(&quot;Enter an integer from 1 to 12:&quot;);
+        if (input.hasNextInt()) {
+            int number = input.nextInt();
+            if (number &gt;= 1 &amp;&amp; number &lt;= 12) {
+                int factorial = 1;
+                for (int i = 1; i &lt;= number; i++) {
+                    factorial = factorial * i;
+                }
+                System.out.println(number + &quot;! = &quot; + factorial);
+            } else {
+                System.out.println(&quot;Enter a value from 1 to 12.&quot;);
+            }
+        } else {
+            System.out.println(&quot;Invalid input.&quot;);
+        }
+
+        input.close();
+    }
+}</code></pre><p><a href="solutions/1.8/factorial/Main.java" download="Main.java">Download Main.java</a></p></details></section>
+<section id="practice"><h2>6. Short paper practice</h2><p>Try these on paper first. These are extra revision questions, not a prediction of the teacher’s exam.</p><h3>Part A · Explain</h3><p>What are the three parts of a for header? Which part runs only once? Can the body run zero times?</p><details><summary>Check Part A</summary><p>Initialization, condition, update. Initialization runs once. Yes: zero runs if the first condition check is false.</p></details><h3>Part B · Trace</h3><pre tabindex="0"><code>int total = 0;
+for (int i = 2; i &lt;= 8; i += 2) {
+    total += i;
+}
+System.out.println(total);</code></pre><details><summary>Check Part B</summary><p>i: 2, 4, 6, 8. total: 2, 6, 12, 20. Prints 20. The final failing check uses i = 10; i is out of scope after the loop.</p></details><h3>Part C · Write and debug</h3><p>Write a loop that prints 5 4 3 2 1. Then explain why the following code does not compile:</p><pre tabindex="0"><code>for (int i = 1; i &lt;= 3; i++);
+{
+    System.out.println(i);
+}</code></pre><details><summary>Check Part C</summary><pre tabindex="0"><code>for (int i = 5; i &gt;= 1; i--) {
+    System.out.print(i + &quot; &quot;);
+}</code></pre><p>The extra semicolon makes the loop body empty. The following block is separate, and i is out of scope there. Remove that semicolon.</p></details><p><strong>Notes check:</strong> with stopAt = 15 and i starting at 0, how often does a loop with i &lt; stopAt and i += 2 run?</p><details><summary>Check the supplementary notes</summary><p>Eight times: i = 0, 2, 4, 6, 8, 10, 12, 14. “Another example” prints eight times. The control variable is i.</p></details></section>
+<section id="exercises"><h2>Teacher exercises 1–6</h2><p>Each question has a plan, a complete beginner reference solution and checks. Try the plan before opening the solution. Save and run each download separately as <strong>Main.java</strong>.</p><p>The posted solutions cover exercises <strong>4 and 6</strong>. All solutions below are rewritten reference versions; the other answers are supplementary. Input validation builds on 1.6–1.7. For the positive-number questions, enter one answer per line.</p></section>
+<section id="exercise-1"><h2>1. Numbers 1–20</h2><p>Print 1 through 20 on one line, separated by spaces.</p><details><summary>Hint: plan before coding</summary><ol><li>Start at 1.</li><li>Print while the counter is at most 20.</li><li>Add 1 after each print.</li></ol></details><details><summary>Show reference solution</summary><pre tabindex="0"><code>public class Main {
+    public static void main(String[] args) {
+        for (int i = 1; i &lt;= 20; i++) {
+            System.out.print(i + &quot; &quot;);
+        }
+        System.out.println();
+    }
+}</code></pre><p>The final space is harmless for this classroom output.</p><p><a href="solutions/1.8/1/Main.java" download="Main.java">Download Main.java</a></p></details><details><summary>Inputs and expected results</summary><div class="table-scroll"><table><thead><tr><th scope="col">Input</th><th scope="col">Expected result</th></tr></thead><tbody><tr><td>No input</td><td>1 2 3 … 19 20; 20 numbers</td></tr></tbody></table></div></details></section>
+<section id="exercise-2"><h2>2. Multiples of five</h2><p>Print 5 through 200 in steps of 5, with commas and ten numbers per line.</p><details><summary>Hint: plan before coding</summary><ol><li>Count by fives.</li><li>Print the number followed by a comma, as in the teacher’s sample.</li><li>Each multiple of 50 finishes a group of ten numbers.</li></ol></details><details><summary>Show reference solution</summary><pre tabindex="0"><code>public class Main {
+    public static void main(String[] args) {
+        for (int number = 5; number &lt;= 200; number += 5) {
+            System.out.print(number + &quot;,&quot;);
+            if (number % 50 == 0) {
+                System.out.println();
+            }
+        }
+    }
+}</code></pre><p>number % 50 checks every tenth multiple of 5. The trailing comma matches the worksheet sample.</p><p><a href="solutions/1.8/2/Main.java" download="Main.java">Download Main.java</a></p></details><details><summary>Inputs and expected results</summary><div class="table-scroll"><table><thead><tr><th scope="col">Input</th><th scope="col">Expected result</th></tr></thead><tbody><tr><td>No input</td><td>40 numbers; 4 lines; first line ends 50, and last ends 200,</td></tr></tbody></table></div></details></section>
+<section id="exercise-3"><h2>3. Find every factor</h2><p>Read a positive integer and display its positive factors in increasing order.</p><details><summary>Hint: plan before coding</summary><ol><li>Validate the input.</li><li>Try each candidate from 1 through the number.</li><li>Print a candidate when the remainder is zero.</li></ol></details><details><summary>Show reference solution</summary><pre tabindex="0"><code>import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+
+        int num = 0;
+        while (num &lt;= 0) {
+            System.out.println(&quot;Enter a positive integer:&quot;);
+            while (!input.hasNextInt()) {
+                input.nextLine();
+                System.out.println(&quot;Please enter an integer:&quot;);
+            }
+            num = input.nextInt();
+            input.nextLine();
+        }
+        for (int candidate = 1; candidate &lt;= num; candidate++) {
+            if (num % candidate == 0) {
+                System.out.print(candidate + &quot; &quot;);
+            }
+            if (candidate == num) {
+                break;
+            }
+        }
+        System.out.println();
+
+        input.close();
+    }
+}</code></pre><p>The final break stops before the counter could overflow at the largest int. This simple trial method is intended for small practice inputs; very large numbers take many iterations.</p><p><a href="solutions/1.8/3/Main.java" download="Main.java">Download Main.java</a></p></details><details><summary>Inputs and expected results</summary><div class="table-scroll"><table><thead><tr><th scope="col">Input</th><th scope="col">Expected result</th></tr></thead><tbody><tr><td>24</td><td>1 2 3 4 6 8 12 24</td></tr><tr><td>1</td><td>1</td></tr><tr><td>13</td><td>1 13</td></tr><tr><td>hello, then 0, then 6 (separate lines)</td><td>Reject first two; print 1 2 3 6</td></tr></tbody></table></div></details></section>
+<section id="exercise-4"><h2>4. Is the number a palindrome?</h2><p>Read a positive integer, reverse its digits using a for loop, and compare with the original.</p><details><summary>Hint: plan before coding</summary><ol><li>Keep the original number unchanged.</li><li>Take the last digit with % 10.</li><li>Append it: reversed = reversed * 10 + digit.</li><li>Remove the digit with / 10. Repeat until no digits remain.</li></ol></details><details><summary>Show reference solution</summary><pre tabindex="0"><code>import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+
+        int num = 0;
+        while (num &lt;= 0) {
+            System.out.println(&quot;Enter a positive integer:&quot;);
+            while (!input.hasNextInt()) {
+                input.nextLine();
+                System.out.println(&quot;Please enter an integer:&quot;);
+            }
+            num = input.nextInt();
+            input.nextLine();
+        }
+        long reversed = 0;
+        for (int remaining = num; remaining &gt; 0; remaining /= 10) {
+            int digit = remaining % 10;
+            reversed = reversed * 10 + digit;
+        }
+        if (reversed == num) {
+            System.out.println(num + &quot; is a palindrome&quot;);
+        } else {
+            System.out.println(num + &quot; is not a palindrome&quot;);
+        }
+
+        input.close();
+    }
+}</code></pre><p>long is an integer type with a wider range than int. Only reversed needs it, because reversing a valid int can produce a value too large for int. The loop removes digits instead of multiplying a place-value counter, so that counter cannot overflow.</p><p><a href="solutions/1.8/4/Main.java" download="Main.java">Download Main.java</a></p></details><details><summary>Inputs and expected results</summary><div class="table-scroll"><table><thead><tr><th scope="col">Input</th><th scope="col">Expected result</th></tr></thead><tbody><tr><td>727</td><td>727 is a palindrome</td></tr><tr><td>2492</td><td>2492 is not a palindrome</td></tr><tr><td>9 / 99 / 919 (separate runs)</td><td>All are palindromes</td></tr><tr><td>10</td><td>10 is not a palindrome</td></tr><tr><td>2147483647</td><td>Not a palindrome; reversed value is 7463847412</td></tr></tbody></table></div></details><details><summary>Trace 727 one digit at a time</summary><div class="table-scroll"><table><thead><tr><th scope="col">remaining before</th><th scope="col">digit</th><th scope="col">reversed after</th><th scope="col">remaining after update</th></tr></thead><tbody><tr><td>727</td><td>7</td><td>7</td><td>72</td></tr><tr><td>72</td><td>2</td><td>72</td><td>7</td></tr><tr><td>7</td><td>7</td><td>727</td><td>0</td></tr></tbody></table></div></details><details><summary>Corrections to the posted solution</summary><p>The digit-counting version starts length at 1. Its condition must be <code>originalNum &gt;= 10</code>, not <code>&gt;= 9</code>. For 9, the printed condition counts an extra digit and reverses it to 90. The same issue affects numbers whose leading digit is 9.</p><p>The alternative with <code>i *= 10</code> can overflow int for long inputs. The reference solution above avoids a growing place-value counter. It also prints a message for both palindrome and non-palindrome cases.</p></details></section>
+<section id="exercise-5"><h2>5. Between two integers</h2><p>Read two integers and print both endpoints and every integer between them. The worksheet sample uses 6 and 13. This version also accepts descending input.</p><details><summary>Hint: plan before coding</summary><ol><li>Read and validate two integers (spaces or newlines are accepted).</li><li>If the first is smaller, count up. Otherwise count down.</li><li>Stop immediately after printing the second endpoint.</li></ol></details><details><summary>Show reference solution</summary><pre tabindex="0"><code>import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+
+        System.out.println(&quot;Enter two integers:&quot;);
+        while (!input.hasNextInt()) {
+            input.next();
+            System.out.println(&quot;Please enter an integer:&quot;);
+        }
+        int first = input.nextInt();
+        while (!input.hasNextInt()) {
+            input.next();
+            System.out.println(&quot;Please enter the second integer:&quot;);
+        }
+        int last = input.nextInt();
+        if (first &lt;= last) {
+            for (int i = first; i &lt;= last; i++) {
+                System.out.print(i + &quot; &quot;);
+                if (i == last) {
+                    break;
+                }
+            }
+        } else {
+            for (int i = first; i &gt;= last; i--) {
+                System.out.print(i + &quot; &quot;);
+                if (i == last) {
+                    break;
+                }
+            }
+        }
+        System.out.println();
+
+        input.close();
+    }
+}</code></pre><p>Here next() discards only one invalid token, so the two valid integers may be on the same line. The break also prevents an extra update past the int limits. Use nearby endpoints for manageable output.</p><p><a href="solutions/1.8/5/Main.java" download="Main.java">Download Main.java</a></p></details><details><summary>Inputs and expected results</summary><div class="table-scroll"><table><thead><tr><th scope="col">Input</th><th scope="col">Expected result</th></tr></thead><tbody><tr><td>6 13</td><td>6 7 8 9 10 11 12 13</td></tr><tr><td>3 1</td><td>3 2 1</td></tr><tr><td>4 4</td><td>4 (once)</td></tr><tr><td>-2 2</td><td>-2 -1 0 1 2</td></tr></tbody></table></div></details></section>
+<section id="exercise-6"><h2>6. A growing number triangle</h2><p>Print nine rows: row 1 contains 1, row 2 contains 1 2, and so on through row 9.</p><details><summary>Hint: plan before coding</summary><ol><li>Use the outer counter for rows 1–9.</li><li>For each row, count from 1 to that row number.</li><li>Print one newline after the inner loop finishes.</li></ol></details><details><summary>Show reference solution</summary><pre tabindex="0"><code>public class Main {
+    public static void main(String[] args) {
+        for (int row = 1; row &lt;= 9; row++) {
+            for (int number = 1; number &lt;= row; number++) {
+                System.out.print(number + &quot; &quot;);
+            }
+            System.out.println();
+        }
+    }
+}</code></pre><p>The inner loop starts again at 1 on every row. Putting println inside the inner loop would place every number on its own line.</p><p><a href="solutions/1.8/6/Main.java" download="Main.java">Download Main.java</a></p></details><details><summary>Inputs and expected results</summary><div class="table-scroll"><table><thead><tr><th scope="col">Input</th><th scope="col">Expected result</th></tr></thead><tbody><tr><td>No input</td><td>9 rows, 45 numbers total; last row is 1 2 3 4 5 6 7 8 9</td></tr></tbody></table></div></details></section>
+<section id="strings"><h2>7. String extras from the class code</h2><p>These examples are included in the teacher’s Class Code file. Review them after the core for-loop exercises.</p><div class="table-scroll"><table><thead><tr><th scope="col">Operation</th><th scope="col">Example</th><th scope="col">Result / meaning</th></tr></thead><tbody><tr><td>Concatenation</td><td><code>"Number " + 1</code></td><td>"Number 1"</td></tr><tr><td>Convert int to text</td><td><code>"" + 5</code></td><td>"5". Assigning an int directly to a String is a type mismatch, not an initialization problem.</td></tr><tr><td>Length</td><td><code>"Hello World".length()</code></td><td>11, including the space</td></tr><tr><td>Substring from an index</td><td><code>"Quick Brown Fox".substring(1)</code></td><td>"uick Brown Fox"</td></tr><tr><td>Substring range</td><td><code>"Quick Brown Fox".substring(0, 5)</code></td><td>"Quick": start included, end excluded</td></tr><tr><td>Text to integer</td><td><code>Integer.parseInt("10")</code></td><td>10</td></tr><tr><td>Text to decimal</td><td><code>Double.parseDouble("10")</code></td><td>10.0</td></tr></tbody></table></div><p>Indices start at 0. Invalid numeric text passed to parseInt/parseDouble throws NumberFormatException. The classroom examples use known valid strings.</p><details><summary>Trace a string loop</summary><pre tabindex="0"><code>String text = &quot;Cat&quot;;
+for (int i = 0; i &lt;= text.length(); i++) {
+    System.out.println(text.substring(i));
+}</code></pre><p>Prints Cat, at, t, then an empty line. substring(length) is valid and returns an empty string. Going beyond length would cause an error.</p></details><details><summary>Reading a full line after a number</summary><pre tabindex="0"><code>int number = input.nextInt(); // assume valid integer input
+input.nextLine(); // consume the remainder of this line
+String text = input.nextLine(); // read the next full line</code></pre><p>nextInt leaves the remainder of the line, including its newline; it does not leave a “null character.” Use one Scanner on System.in. An extra nextLine consumes that remainder before you ask for the next full line.</p></details><details><summary>break versus System.exit</summary><p><code>break;</code> exits the nearest enclosing loop. <code>System.exit(0);</code> terminates the running program normally; a nonzero status such as <code>System.exit(1);</code> conventionally signals a failure. Do not substitute System.exit when you only want to stop one loop.</p></details></section>
+<section id="checklist"><h2>8. Before you finish a handwritten answer</h2><ul class="checklist"><li><label><input type="checkbox">I can describe the repeated action in words.</label></li><li><label><input type="checkbox">My start, condition and update produce the intended first and last values.</label></li><li><label><input type="checkbox">My for header has two semicolons; there is no extra semicolon after it.</label></li><li><label><input type="checkbox">I do not accidentally update the counter twice.</label></li><li><label><input type="checkbox">My counter is declared where I need to use it.</label></li><li><label><input type="checkbox">My sum starts at 0; my product starts at 1.</label></li><li><label><input type="checkbox">For nested loops, I checked where the newline belongs.</label></li><li><label><input type="checkbox">I traced a normal case and a boundary case before looking at the answer.</label></li></ul></section>
+<section id="materials"><h2>Classroom sources</h2><p>Prepared from: <em>1.8 For Loops.pdf</em>, <em>Notes 1.10-RepetitionUsingFor.pdf</em>, <em>1.8 Class Code.pdf</em>, <em>1.8 Exercise For Loop .pdf</em> and <em>1.8 posted_SOLUTIONS.pdf</em>. The supplementary notes use the label 1.10; their topic belongs with this class’s 1.8 material.</p><p>This page provides study explanations and rewritten reference programs. Consult the teacher’s original files in your classroom materials for the original wording.</p><p><a href="lesson17.html">← 1.7 While Loops</a> · <a href="./">All lessons</a></p></section>
+</main></body></html>
