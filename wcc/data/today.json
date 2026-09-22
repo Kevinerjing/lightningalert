@@ -1,17 +1,26 @@
 {
-  "boardDate": "2026-09-21",
-  "generatedAt": "2026-09-21T17:10:16.531Z",
+  "boardDate": "2026-09-22",
+  "generatedAt": "2026-09-22T15:39:14.554Z",
   "sourceCount": 26,
   "weather": [
     {
       "city": "Ottawa",
-      "temperatureC": 14,
-      "maxC": 15,
-      "minC": 8,
+      "temperatureC": 13,
+      "maxC": 17,
+      "minC": 6,
       "summary": "Clear skies"
     }
   ],
   "extremeWeather": [
+    {
+      "title": "California braces for record El Niño storms as governor declares emergency",
+      "whatHappened": "Super El-Niño has already broken temperature records and is predicted to bring an extremely wet winter to the state ‘Jaw-dropping’ El Niño bursts through temperature record...",
+      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
+      "keyWord": "flood: water covering land that is usually dry",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/us-news/2026/sep/21/california-el-nino-storm-state-of-emergency",
+      "publishedAt": "2026-09-21T19:31:49.000Z"
+    },
     {
       "title": "Typhoon Dujuan tracking close to Tokyo triggers rare evacuation alert",
       "whatHappened": "More than 1.9 million people are under evacuation orders as Typhoon Dujuan batters Japan.",
@@ -22,13 +31,13 @@
       "publishedAt": "2026-09-21T14:05:29.000Z"
     },
     {
-      "title": "Flood-ravaged Nepal calls for climate justice",
-      "whatHappened": "Nepal’s call for financial compensation following recent deadly floods underlines the need to help countries that contribute the least to climate change – but are increasingly...",
+      "title": "World leaders address climate crisis before UN meet amid record-breaking El Niño",
+      "whatHappened": "Prime ministers of Australia and Iceland discuss effects on their countries even as some shy away in face of war and inflation World political leaders are...",
       "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
       "keyWord": "flood: water covering land that is usually dry",
-      "source": "UN Climate",
-      "url": "https://news.un.org/feed/view/en/story/2026/09/1168305",
-      "publishedAt": "2026-09-09T12:00:00.000Z"
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/environment/2026/sep/21/world-leaders-climate-crisis-el-nino",
+      "publishedAt": "2026-09-21T21:26:55.000Z"
     }
   ],
   "climate": [
@@ -60,34 +69,44 @@
       "publishedAt": "2026-09-10T12:00:00.000Z"
     },
     {
-      "title": "More than 150,000 underwater explosives used to deter seals at Tasmanian salmon farms since 2016",
-      "whatHappened": "Salmon companies operating in Tasmanian marine areas deployed almost 1,800 explosives in first half of 2026, government figures reveal Get our breaking news email , free...",
-      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
+      "title": "Spain battles climate change on several fronts",
+      "whatHappened": "A summer of wildfires and heatwaves underlines the threats to the country's economy.",
+      "whyItMatters": "Climate and environment stories connect science to real issues like safety, health, and extreme weather.",
       "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/australia-news/2026/sep/22/underwater-explosives-used-to-deter-seals-at-tasmanian-salmon-farms-since-2016",
-      "publishedAt": "2026-09-21T15:00:37.000Z"
+      "source": "BBC Science & Environment",
+      "url": "https://www.bbc.co.uk/news/articles/cwg59g3vz564o?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-09-22T09:11:48.000Z"
     },
     {
-      "title": "US environment agency let Bayer pick regulations for destructive weedkiller, documents show",
-      "whatHappened": "Environmental Protection Agency asked firm to choose rules it wanted for dicamba, then put the choices in a proposed federal rule The EPA allowed pesticide giant...",
-      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
+      "title": "World leaders address climate crisis before UN meet amid record-breaking El Niño",
+      "whatHappened": "Prime ministers of Australia and Iceland discuss effects on their countries even as some shy away in face of war and inflation World political leaders are...",
+      "whyItMatters": "Climate and environment stories connect science to real issues like safety, health, and extreme weather.",
       "keyWord": "climate: the usual pattern of weather over a long period of time",
       "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/us-news/2026/sep/20/epa-bayer-regulation-pesticide-dicamba",
-      "publishedAt": "2026-09-20T12:00:14.000Z"
+      "url": "https://www.theguardian.com/environment/2026/sep/21/world-leaders-climate-crisis-el-nino",
+      "publishedAt": "2026-09-21T21:26:55.000Z"
     },
     {
-      "title": "US veterans have greater levels of Pfas in their blood than civilians, new study finds",
-      "whatHappened": "Soil and water around military bases show elevated levels of Pfas pollution due to chemicals used in firefighting foam Many US military veterans have much higher...",
-      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
+      "title": "California braces for record El Niño storms as governor declares emergency",
+      "whatHappened": "Super El-Niño has already broken temperature records and is predicted to bring an extremely wet winter to the state ‘Jaw-dropping’ El Niño bursts through temperature record...",
+      "whyItMatters": "Climate and environment stories connect science to real issues like safety, health, and extreme weather.",
       "keyWord": "climate: the usual pattern of weather over a long period of time",
       "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/environment/2026/sep/18/pfas-veterans-blood-forever-chemicals",
-      "publishedAt": "2026-09-18T14:00:19.000Z"
+      "url": "https://www.theguardian.com/us-news/2026/sep/21/california-el-nino-storm-state-of-emergency",
+      "publishedAt": "2026-09-21T19:31:49.000Z"
     }
   ],
-  "weatherTech": [],
+  "weatherTech": [
+    {
+      "title": "These discreet hearing aid glasses now have better voice boosting and battery life",
+      "whatHappened": "EssilorLuxottica, the company that Meta partnered with for its Ray-Ban smart glasses, announced a new version of its Nuance Audio glasses that are designed to double...",
+      "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
+      "keyWord": "battery: a device that stores energy for later use",
+      "source": "The Verge",
+      "url": "https://www.theverge.com/tech/998243/essilorluxottica-nuance-audio-plus-otc-hearing-aid-glasses",
+      "publishedAt": "2026-09-21T17:46:27.000Z"
+    }
+  ],
   "universityNews": [
     {
       "title": "Carleton Recognised as Only University in Canada to Achieve Bronze Tier in Net-Zero Challenge",
@@ -171,13 +190,13 @@
       "publishedAt": "2026-08-07T12:00:00.000Z"
     },
     {
-      "title": "Highlights of 2026 global convocation ceremonies",
-      "whatHappened": "Northeastern University welcomed the Class of 2030 with a high-energy Convocation celebrating the start of their Northeastern journey.",
+      "title": "“Super” El Niño is expected to be the strongest on record",
+      "whatHappened": "A weather phenomenon called \"Super\" El Niño is expected to wallop the globe with weather extremes, from a mild winter to droughts and floods The post...",
       "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
       "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
       "source": "Northeastern Global News",
-      "url": "https://news.northeastern.edu/2026/09/17/global-convocation-ceremonies-video/",
-      "publishedAt": "2026-09-17T17:40:12.000Z"
+      "url": "https://news.northeastern.edu/2026/09/21/super-el-nino-forecast/",
+      "publishedAt": "2026-09-21T20:31:39.000Z"
     },
     {
       "title": "Translating economic growth into better lives",
