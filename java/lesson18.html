@@ -1,7 +1,51 @@
-<!doctype html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>For Loops | Java 1.8</title><link rel="stylesheet" href="style.css"><link rel="stylesheet" href="study.css"><link rel="stylesheet" href="codechef-practice.css"></head><body><header><a href="./" class="brand">{ } <span>JAVA LAB</span></a><a href="./">All lessons</a></header><main class="lesson-list study"><p class="eyebrow">UNIT 1 / LESSON 1.8</p><h1>For Loops</h1><p>Plan a repeated task, trace its counter, then build your solution one step at a time.</p><p class="small">Based on the five classroom files for 1.8. Start with <a href="lesson00.html">Before You Code</a> or review <a href="lesson17.html">1.7 While Loops</a>.</p><nav aria-label="Lesson sections"><a href="#plan">Plan first</a><a href="#trace">How for runs</a><a href="#patterns">Loop patterns</a><a href="#nested">Nested loops</a><a href="#classroom">Class examples</a><a href="#practice">Paper practice</a><a href="#exercises">Exercises 1–6</a><a href="#strings">String extras</a><a href="#checklist">Checklist</a><a href="#codechef-1-8">CodeChef practice</a></nav>
+<!doctype html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>For Loops | Java 1.8</title><link rel="stylesheet" href="style.css"><link rel="stylesheet" href="study.css"><link rel="stylesheet" href="codechef-practice.css"></head><body><header><a href="./" class="brand">{ } <span>JAVA LAB</span></a><a href="./">All lessons</a></header><main class="lesson-list study"><p class="eyebrow">UNIT 1 / LESSON 1.8</p><h1>For Loops</h1><p>Plan a repeated task, trace its counter, then build your solution one step at a time.</p><p class="small">Based on the five classroom files for 1.8. Start with <a href="lesson00.html">Before You Code</a> or review <a href="lesson17.html">1.7 While Loops</a>.</p><nav aria-label="Lesson sections"><a href="#plan">Plan first</a><a href="#candidate-filtering">Generate, check, act</a><a href="#trace">How for runs</a><a href="#patterns">Loop patterns</a><a href="#nested">Nested loops</a><a href="#classroom">Class examples</a><a href="#practice">Paper practice</a><a href="#exercises">Exercises 1–6</a><a href="#strings">String extras</a><a href="#checklist">Checklist</a><a href="#codechef-1-8">CodeChef practice</a></nav>
 <section id="plan"><h2>1. Think about the repetition before the syntax</h2><p class="callout">Kevin: first describe what happens <strong>once</strong>. Then decide where to start, when to stop and what changes. You can write these four ideas as comments before remembering the Java punctuation.</p><p>Example: print the numbers 1 through 4.</p><ol><li><strong>One action:</strong> print the current number.</li><li><strong>Start:</strong> 1.</li><li><strong>Keep going:</strong> while the number is at most 4.</li><li><strong>Change:</strong> add 1 after printing.</li></ol><pre tabindex="0"><code>for (int i = 1; i &lt;= 4; i++) {
     System.out.println(i);
 }</code></pre><p>Read it as: “Start at 1; while i is at most 4, print it, then add 1.” A for loop is convenient when the repetitions are controlled by a counter. A while loop is often clearer when waiting for valid input. Both can express the same basic repetition; for is not inherently more powerful.</p></section>
+
+<section id="candidate-filtering"><h2>A problem-solving pattern: generate → check → act</h2>
+<p class="callout">Kevin: before thinking about Java syntax, ask: <strong>“Which values will I try? Which ones do I want? What will I do with them?”</strong> Many number problems become manageable when you separate these decisions.</p>
+<h3>Example: find all the positive factors of 24</h3>
+<p>A factor divides 24 with no remainder. Work out a few candidates on paper first: 1 works, 2 works, 3 works, 4 works, 5 does not, and 6 works. You have already found the rule before writing any Java.</p>
+<ol><li><strong>Generate candidates:</strong> try every integer from 1 through 24, one at a time. You do not need to store a list.</li><li><strong>Check:</strong> does 24 divided by this candidate leave remainder 0?</li><li><strong>Act:</strong> if it does, print the candidate.</li></ol>
+<p>Write the plan in everyday language first:</p>
+<pre tabindex="0"><code>For each number from 1 through 24:
+    If it divides 24 exactly:
+        Print it</code></pre>
+<p>Then translate one part at a time into Java. This snippet belongs inside main:</p>
+<pre tabindex="0"><code>for (int candidate = 1; candidate &lt;= 24; candidate++) {
+    if (24 % candidate == 0) {
+        System.out.print(candidate + " ");
+    }
+}</code></pre>
+<p>Output: <code>1 2 3 4 6 8 12 24</code></p>
+<div class="table-scroll"><table><thead><tr><th scope="col">Part</th><th scope="col">Job</th></tr></thead><tbody>
+<tr><td><code>for</code></td><td>Visits each candidate, including numbers that will fail the check.</td></tr>
+<tr><td><code>24 % candidate</code></td><td>Calculates the remainder. % does not filter anything by itself.</td></tr>
+<tr><td><code>if (... == 0)</code></td><td>Decides whether this candidate qualifies.</td></tr>
+<tr><td><code>System.out.print</code></td><td>Processes a match by printing it.</td></tr>
+</tbody></table></div>
+<p><strong>Trace a rejected candidate too:</strong> at 5, the remainder is 4, so nothing is printed. The loop still updates the candidate to 6. At 6, the remainder is 0, so 6 is printed.</p>
+<h3>The action can change: print, count or add</h3>
+<p>For the same factor check, the question may ask for different results:</p>
+<ul><li><strong>List the factors:</strong> print each match.</li><li><strong>Count the factors:</strong> declare <code>int count = 0;</code> before the loop, use <code>count++;</code> inside the if, then print count after the loop. For 24, the result is 8.</li><li><strong>Add the factors:</strong> declare <code>int total = 0;</code> before the loop, use <code>total = total + candidate;</code> inside the if, then print total after the loop. For 24, the result is 60.</li></ul>
+<p>Keep count or total outside the loop so it remembers earlier results.</p>
+<h3>Do all loops need if and %?</h3>
+<p><strong>No.</strong> Choose the steps from the problem. To print the even numbers from 2 through 20, you can generate only the numbers you want:</p>
+<pre tabindex="0"><code>for (int number = 2; number &lt;= 20; number += 2) {
+    System.out.print(number + " ");
+}</code></pre>
+<p>No filtering is needed: every generated value is already even. To add every number from 1 through 5, use a running total:</p>
+<pre tabindex="0"><code>int total = 0;
+for (int number = 1; number &lt;= 5; number++) {
+    total = total + number;
+}
+System.out.println(total); // 15</code></pre>
+<p>Every number contributes, so there is no if or %. Factorials similarly keep a running product, starting at 1. Also, a check need not use %: for example, <code>number &gt; 10</code> checks size. Use % when the question concerns remainders, divisibility or a repeating position.</p>
+<h3>Four questions to write on paper</h3>
+<ol><li><strong>What will I examine one by one?</strong> Decide the first value and how to get the next one.</li><li><strong>Does each value need a check?</strong> State the rule in words, or say “use every value.”</li><li><strong>What will I do?</strong> Print, count, add, multiply or another action?</li><li><strong>When will I stop?</strong> Identify the last value to process and the first value that fails the loop condition.</li></ol>
+<p>Try a tiny example by hand, write these answers as comments, and then translate them into Java. You can solve the logic before remembering every punctuation mark. Apply this plan to <a href="#exercise-3">Exercise 3: Find every factor</a>.</p>
+</section>
 <section id="trace"><h2>2. Start once → check → body → update → check again</h2><pre tabindex="0"><code>for (initialization; condition; update) {
     // repeated work
 }</code></pre><p>This is a syntax template: replace the three words with Java statements/expressions. The header contains <strong>two semicolons</strong>. There is no extra semicolon between the closing parenthesis and the opening brace.</p><div class="table-scroll"><table><thead><tr><th scope="col">i before check</th><th scope="col">i &lt;= 4</th><th scope="col">Body prints</th><th scope="col">Update</th></tr></thead><tbody><tr><td>1</td><td>true</td><td>1</td><td>i becomes 2</td></tr><tr><td>2</td><td>true</td><td>2</td><td>i becomes 3</td></tr><tr><td>3</td><td>true</td><td>3</td><td>i becomes 4</td></tr><tr><td>4</td><td>true</td><td>4</td><td>i becomes 5</td></tr><tr><td>5</td><td>false</td><td>Nothing</td><td>No update; exit</td></tr></tbody></table></div><p>Four prints, five condition checks. Initialization happens once. The update happens after each completed body execution, not before the first print.</p><p><strong>Scope:</strong> with <code>for (int i = ...)</code>, i only exists inside that loop. It reaches 5 for the last check, but you cannot print i after the loop. Declare it before the loop if you need it afterward.</p><pre tabindex="0"><code>int i;
