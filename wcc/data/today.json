@@ -1,13 +1,13 @@
 {
-  "boardDate": "2026-09-22",
-  "generatedAt": "2026-09-22T15:39:14.554Z",
+  "boardDate": "2026-09-23",
+  "generatedAt": "2026-09-23T15:32:44.008Z",
   "sourceCount": 26,
   "weather": [
     {
       "city": "Ottawa",
-      "temperatureC": 13,
-      "maxC": 17,
-      "minC": 6,
+      "temperatureC": 15,
+      "maxC": 18,
+      "minC": 4,
       "summary": "Clear skies"
     }
   ],
@@ -29,6 +29,33 @@
       "source": "BBC Science & Environment",
       "url": "https://www.bbc.co.uk/news/videos/ckjrxpqxx2v3o?at_medium=RSS&at_campaign=rss",
       "publishedAt": "2026-09-21T14:05:29.000Z"
+    },
+    {
+      "title": "At Climate Week, Elmo recalls a storm on Sesame Street: ‘Courage is when you still help others’",
+      "whatHappened": "New York event hears about the red Muppet’s fears during a recent storm as climate crisis increasingly affects children A generation of political leaders has failed...",
+      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
+      "keyWord": "extreme weather: unusual and dangerous weather like floods, storms, or heat waves",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/environment/2026/sep/23/elmo-new-york-climate-week-sesame-street-storm",
+      "publishedAt": "2026-09-23T10:00:47.000Z"
+    },
+    {
+      "title": "When a country goes underwater: Island States fight for their future",
+      "whatHappened": "Rising sea levels and ever-more-powerful storms are eroding shorelines, submerging land and threatening to evict millions of people from their homes worldwide.&nbsp;",
+      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
+      "keyWord": "extreme weather: unusual and dangerous weather like floods, storms, or heat waves",
+      "source": "UN Climate",
+      "url": "https://news.un.org/feed/view/en/story/2026/09/1168398",
+      "publishedAt": "2026-09-22T12:00:00.000Z"
+    },
+    {
+      "title": "How El Niño offers a test of whether the world can adapt to a changing climate",
+      "whatHappened": "El Niño is strengthening in a world that is already hotter, raising the risk of drought, floods and crop losses across some of the world’s most...",
+      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
+      "keyWord": "drought: a long time with very little rain",
+      "source": "UN Climate",
+      "url": "https://news.un.org/feed/view/en/story/2026/09/1168404",
+      "publishedAt": "2026-09-22T12:00:00.000Z"
     },
     {
       "title": "World leaders address climate crisis before UN meet amid record-breaking El Niño",
@@ -60,13 +87,31 @@
       "publishedAt": "2026-09-21T12:00:00.000Z"
     },
     {
-      "title": "UN climate chief warns political division is undermining fight against ‘economic security emergency’",
-      "whatHappened": "The head of the UN's climate body&nbsp;has warned that treating global warming as a partisan issue is dangerously out of step with reality, as he set...",
+      "title": "At Climate Week, Elmo recalls a storm on Sesame Street: ‘Courage is when you still help others’",
+      "whatHappened": "New York event hears about the red Muppet’s fears during a recent storm as climate crisis increasingly affects children A generation of political leaders has failed...",
+      "whyItMatters": "Climate and environment stories connect science to real issues like safety, health, and extreme weather.",
+      "keyWord": "climate: the usual pattern of weather over a long period of time",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/environment/2026/sep/23/elmo-new-york-climate-week-sesame-street-storm",
+      "publishedAt": "2026-09-23T10:00:47.000Z"
+    },
+    {
+      "title": "India is producing more green energy - but wasting a lot of it",
+      "whatHappened": "India has rapidly decarbonised electricity generation, but its gains are tempered by transmission shortages.",
       "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
       "keyWord": "climate: the usual pattern of weather over a long period of time",
+      "source": "BBC Science & Environment",
+      "url": "https://www.bbc.co.uk/news/articles/c8xkvzlz0x4o?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-09-22T23:02:29.000Z"
+    },
+    {
+      "title": "How El Niño offers a test of whether the world can adapt to a changing climate",
+      "whatHappened": "El Niño is strengthening in a world that is already hotter, raising the risk of drought, floods and crop losses across some of the world’s most...",
+      "whyItMatters": "Climate and environment stories connect science to real issues like safety, health, and extreme weather.",
+      "keyWord": "climate: the usual pattern of weather over a long period of time",
       "source": "UN Climate",
-      "url": "https://news.un.org/feed/view/en/story/2026/09/1168311",
-      "publishedAt": "2026-09-10T12:00:00.000Z"
+      "url": "https://news.un.org/feed/view/en/story/2026/09/1168404",
+      "publishedAt": "2026-09-22T12:00:00.000Z"
     },
     {
       "title": "Spain battles climate change on several fronts",
@@ -76,35 +121,17 @@
       "source": "BBC Science & Environment",
       "url": "https://www.bbc.co.uk/news/articles/cwg59g3vz564o?at_medium=RSS&at_campaign=rss",
       "publishedAt": "2026-09-22T09:11:48.000Z"
-    },
-    {
-      "title": "World leaders address climate crisis before UN meet amid record-breaking El Niño",
-      "whatHappened": "Prime ministers of Australia and Iceland discuss effects on their countries even as some shy away in face of war and inflation World political leaders are...",
-      "whyItMatters": "Climate and environment stories connect science to real issues like safety, health, and extreme weather.",
-      "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/environment/2026/sep/21/world-leaders-climate-crisis-el-nino",
-      "publishedAt": "2026-09-21T21:26:55.000Z"
-    },
-    {
-      "title": "California braces for record El Niño storms as governor declares emergency",
-      "whatHappened": "Super El-Niño has already broken temperature records and is predicted to bring an extremely wet winter to the state ‘Jaw-dropping’ El Niño bursts through temperature record...",
-      "whyItMatters": "Climate and environment stories connect science to real issues like safety, health, and extreme weather.",
-      "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/us-news/2026/sep/21/california-el-nino-storm-state-of-emergency",
-      "publishedAt": "2026-09-21T19:31:49.000Z"
     }
   ],
   "weatherTech": [
     {
-      "title": "These discreet hearing aid glasses now have better voice boosting and battery life",
-      "whatHappened": "EssilorLuxottica, the company that Meta partnered with for its Ray-Ban smart glasses, announced a new version of its Nuance Audio glasses that are designed to double...",
+      "title": "This $199 GPS sports watch is repairable, modular, and open-source",
+      "whatHappened": "The Una Watch costs less than most Garmin watches now that its price has been lowered from the Kickstarter offer of $350 to $199, but its...",
       "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
       "keyWord": "battery: a device that stores energy for later use",
       "source": "The Verge",
-      "url": "https://www.theverge.com/tech/998243/essilorluxottica-nuance-audio-plus-otc-hearing-aid-glasses",
-      "publishedAt": "2026-09-21T17:46:27.000Z"
+      "url": "https://www.theverge.com/gadgets/999380/una-watch-sports-gps-modular",
+      "publishedAt": "2026-09-23T15:01:16.000Z"
     }
   ],
   "universityNews": [
@@ -145,6 +172,24 @@
       "publishedAt": "2026-09-04T14:35:10.000Z"
     },
     {
+      "title": "Turning environmental research into urban action",
+      "whatHappened": "Tue, 22 Sep 2026 12:00:00 +0000 Jo Fitzgibbons (MES ’19) is a planner and researcher turning environmental research into practical change in Canadian cities.",
+      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
+      "keyWord": "research: careful study used to discover new knowledge",
+      "source": "Waterloo Environment",
+      "url": "https://uwaterloo.ca/environment/news/turning-environmental-research-urban-action",
+      "publishedAt": "2026-09-22T12:00:00.000Z"
+    },
+    {
+      "title": "Investing in the next generation of environmental leaders",
+      "whatHappened": "Tue, 22 Sep 2026 12:00:00 +0000 KEEN Footwear is a long-standing partner of the University of Waterloo's Faculty of Environment, helping students turn environmental knowledge into...",
+      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
+      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
+      "source": "Waterloo Environment",
+      "url": "https://uwaterloo.ca/environment/news/investing-next-generation-environmental-leaders",
+      "publishedAt": "2026-09-22T12:00:00.000Z"
+    },
+    {
       "title": "MIT researchers are mapping extreme weather risks — and building tools to act on them",
       "whatHappened": "The Climate Grand Challenges “New World of Weather” project shows how modeling, planning tools, and infrastructure analysis are translating research into real-world resilience.",
       "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
@@ -172,22 +217,13 @@
       "publishedAt": "2026-09-10T18:26:13.000Z"
     },
     {
-      "title": "Game plan for a warmer world",
-      "whatHappened": "Tue, 18 Aug 2026 12:00:00 +0000 The impacts of climate change are seen in natural and human systems, and the global sports sector is particularly vulnerable.",
+      "title": "Tiny quantum nanostructures could make AI less of an energy hog",
+      "whatHappened": "An emerging technology designed by UW–Madison engineers has the potential to make AI systems faster and significantly more energy efficient.",
       "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
       "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
-      "source": "Waterloo Environment",
-      "url": "https://uwaterloo.ca/environment/news/game-plan-warmer-world",
-      "publishedAt": "2026-08-18T12:00:00.000Z"
-    },
-    {
-      "title": "Environment researchers build capacity on climate change adaptations and partnerships in Mauritius",
-      "whatHappened": "Fri, 07 Aug 2026 12:00:00 +0000 In July, a Faculty of Environment delegation led by Dean Bruce Frayne and Dr.",
-      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
-      "keyWord": "research: careful study used to discover new knowledge",
-      "source": "Waterloo Environment",
-      "url": "https://uwaterloo.ca/environment/news/recover-builds-capacity-climate-change-adaptations",
-      "publishedAt": "2026-08-07T12:00:00.000Z"
+      "source": "University of Wisconsin News",
+      "url": "https://engineering.wisc.edu/news/tiny-quantum-nanostructures-could-make-ai-less-of-an-energy-hog/",
+      "publishedAt": "2026-09-22T16:06:02.000Z"
     },
     {
       "title": "“Super” El Niño is expected to be the strongest on record",
@@ -206,15 +242,6 @@
       "source": "MIT Earth & Atmospheric Sciences",
       "url": "https://news.mit.edu/2026/translating-economic-growth-into-better-lives-lyonel-tanganco-0831",
       "publishedAt": "2026-08-31T20:40:00.000Z"
-    },
-    {
-      "title": "Study: Peptides can form well-defined structures in harsh, Venus-like conditions",
-      "whatHappened": "New research offers support for the possibility that complex biological molecules could exist in the highly acidic environment of Venus’s cloud layer.",
-      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
-      "keyWord": "research: careful study used to discover new knowledge",
-      "source": "MIT Earth & Atmospheric Sciences",
-      "url": "https://news.mit.edu/2026/study-peptides-can-form-well-defined-structures-harsh-venus-conditions-0831",
-      "publishedAt": "2026-08-31T19:00:00.000Z"
     }
   ]
 }
