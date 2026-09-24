@@ -1,0 +1,62 @@
+<!doctype html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Exception Handling | Java Lab</title><link rel="stylesheet" href="style.css"><link rel="stylesheet" href="study.css"></head><body><header><a href="./" class="brand">{ } <span>JAVA LAB</span></a><a href="./">All lessons</a></header><main class="lesson-list study"><p class="eyebrow">UNIT 1 / LESSON 1.10</p><h1>Exception Handling</h1><p>Understand what failed, handle it, and decide whether to ask again.</p><nav aria-label="Lesson sections"><a href="#plan">Plan the recovery</a><a href="#flow">Follow try and catch</a><a href="#retry">Complete retry example</a><a href="#validation">Type checks and range checks</a><a href="#quiz">Six paper checks</a><a href="#notes">Common mistakes</a></nav><section id="plan"><h2>Plan the recovery</h2><p class="callout">Before syntax: Which operation might fail? What message would help? What input must be discarded? Should the program retry or stop?</p><p>try runs potentially failing code. If a matching exception occurs, Java jumps to catch. Successful handling lets execution continue; it does not undo earlier work or automatically retry the failed statement.</p></section><section id="flow"><h2>Follow try and catch</h2><pre tabindex="0"><code>try {
+    number = input.nextInt();
+    // reached only if the read succeeds
+} catch (InputMismatchException e) {
+    System.out.println(&quot;Please enter an integer.&quot;);
+    input.next();
+}</code></pre><p>e is a variable holding the exception object. You may rename it. The type name must be written correctly: InputMismatchException, without spaces.</p><p><code>System.err.println</code>, used in class, writes to the error stream; it is not what catches the error. System.out.println is enough for these friendly messages.</p></section><section id="retry"><h2>Complete retry example</h2><details><summary>Show complete beginner solution</summary><pre tabindex="0"><code>import java.util.Scanner;
+import java.util.InputMismatchException;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+
+        boolean askAgain = true;
+        int number = 0;
+        do {
+            try {
+                System.out.println(&quot;Enter an integer:&quot;);
+                number = input.nextInt();
+                askAgain = false;
+            } catch (InputMismatchException e) {
+                System.out.println(&quot;Not an integer. Please try again.&quot;);
+                input.next(); // consume the bad token before retrying
+            }
+        } while (askAgain);
+        System.out.println(&quot;You entered &quot; + number);
+
+        input.close();
+    }
+}
+</code></pre><p><a download="Main.java" href="solutions/1.10/retry/Main.java">Download Main.java</a> — run each download separately.</p></details><div class="table-scroll"><table><tr><th>Input token</th><th>What happens</th><th>askAgain</th></tr><tr><td>hello</td><td>Read throws; catch consumes hello.</td><td>true</td></tr><tr><td>3.5</td><td>Not an int; consume and retry.</td><td>true</td></tr><tr><td>8</td><td>Read succeeds; skip catch.</td><td>false; loop ends</td></tr></table></div><p>next() discards one token. nextLine() discards the remainder of the current line, as in one class example. Either can be intentional; know which input you want to discard. These console examples assume the user continues providing input.</p></section><section id="validation"><h2>Type checks and range checks</h2><p><code>hasNextInt()</code> checks whether the next token can be read as an int without consuming it. <code>hasNext()</code> only checks for a token; it does not validate an integer.</p><p>After a successful read, use if for rules such as positive, five digits or at most 100. try/catch does not recognize an unwanted range as an exception.</p><details><summary>Show complete beginner solution</summary><pre tabindex="0"><code>import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+
+        int number = 0;
+        while (number &lt; 10000 || number &gt; 99999) {
+            System.out.println(&quot;Enter a five-digit integer:&quot;);
+            if (input.hasNextInt()) {
+                number = input.nextInt();
+                if (number &lt; 10000 || number &gt; 99999) {
+                    System.out.println(&quot;Use a number from 10000 to 99999.&quot;);
+                }
+            } else {
+                System.out.println(&quot;Please enter an integer.&quot;);
+                input.next();
+            }
+        }
+        System.out.println(&quot;Valid number: &quot; + number);
+
+        input.close();
+    }
+}
+</code></pre><p><a download="Main.java" href="solutions/1.10/lottery/Main.java">Download Main.java</a> — run each download separately.</p></details><p>Classroom lottery input validation: hello, 9999 and 100000 are rejected; 10000 and 99999 are accepted. Leading zeros are not preserved in an int, so 01234 is treated as 1234 and rejected. This matches the teacher’s numeric range rule; it is not a complete lottery game.</p></section><section id="quiz"><h2>Six paper checks</h2><h3>1. What catches what?</h3><p>nextInt reads hello. Which exception from this lesson is thrown?</p><details><summary>Check answer and reasoning</summary><p>InputMismatchException. The token does not represent an int.</p></details><h3>2. Follow the jump</h3><pre tabindex="0"><code>try {
+    int n = input.nextInt();
+    System.out.println(&quot;A&quot;);
+} catch (InputMismatchException e) {
+    System.out.println(&quot;B&quot;);
+    input.next();
+}
+System.out.println(&quot;C&quot;);</code></pre><details><summary>Check answer and reasoning</summary><p>For hello: B then C. For 7: A then C. The remaining statements in try are skipped when nextInt throws.</p></details><h3>3. Does catch retry?</h3><p>If this try/catch is used without an enclosing loop, does it ask again automatically?</p><details><summary>Check answer and reasoning</summary><p>No. The loop causes a retry; catch only handles the matching exception.</p></details><h3>4. Find the repeated failure</h3><p>Why does deleting input.next() from the retry example cause trouble?</p><details><summary>Check answer and reasoning</summary><p>The invalid token stays unread. The next iteration tries to read the same token and fails again.</p></details><h3>5. Type or range?</h3><p>For an age restricted to 0–120, does entering -5 trigger InputMismatchException?</p><details><summary>Check answer and reasoning</summary><p>No. -5 is a valid int. Use if to reject the range after reading the integer.</p></details><h3>6. A different exception</h3><p>Will catch (InputMismatchException e) handle integer division by zero?</p><details><summary>Check answer and reasoning</summary><p>No. That throws ArithmeticException. A catch must match the thrown exception type (or an appropriate superclass).</p></details></section><section id="notes"><h2>Common mistakes</h2><ul><li>Keep imports above the class; do not put them inside main.</li><li>Set the retry flag to false only after a successful read.</li><li>Consume invalid input before trying again.</li><li>Declare a value before try if you need it after try/catch; initialize it where Java requires definite assignment.</li><li>Catching an exception does not fix syntax or logic errors.</li></ul><p>The handout says try is always followed by catch. That describes this lesson’s pattern; Java also has try/finally and try-with-resources forms, which are outside this lesson. A handled exception need not crash the program first.</p></section><section id="sources"><h2>Classroom sources</h2><p>1.10 Exception handling.pdf; 1.10 Class Code.pdf; Attachment_ PDF_ Try_&amp;_Catch.pdf; Lottery Program (with Error Checks) Class Code.pdf.</p><p>Explanations, quizzes and separate reference programs are Java Lab study additions. Try the teacher’s question on paper before opening the answer. These are not predictions of the exam.</p><p><a href="lesson19.html">1.9 Switch</a> · <a href="lesson110.html">1.10 Exceptions</a> · <a href="review-unit1.html">Unit 1 Review Exercises</a> · <a href="./">All lessons</a></p></section></main></body></html>
