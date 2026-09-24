@@ -1,0 +1,66 @@
+<!doctype html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Switch Statements | Java Lab</title><link rel="stylesheet" href="style.css"><link rel="stylesheet" href="study.css"></head><body><header><a href="./" class="brand">{ } <span>JAVA LAB</span></a><a href="./">All lessons</a></header><main class="lesson-list study"><p class="eyebrow">UNIT 1 / LESSON 1.9</p><h1>Switch Statements</h1><p>Match one value to a case. Plan the choices first, then write the syntax.</p><nav aria-label="Lesson sections"><a href="#plan">Plan the choices</a><a href="#example">Classroom example</a><a href="#syntax">Syntax to recognize</a><a href="#old">Arrow versus colon</a><a href="#quiz">Six paper checks</a><a href="#write">Write a small menu</a><a href="#notes">Reading the slides carefully</a></nav><section id="plan"><h2>Plan the choices</h2><p class="callout">Kevin: write a small lookup table in words first. What value are you checking? What should each exact value do? What should happen if nothing matches?</p><p>Use switch for a menu option, a period number or a letter grade. Use if for ranges, inequalities or combinations of unrelated conditions.</p><p>This lesson follows your teacher’s <strong>arrow case</strong> syntax. Use Java 14 or later (Java 17 works). The older colon syntax is included for reading and debugging.</p></section><section id="example"><h2>Classroom example</h2><pre tabindex="0"><code>char block = &#x27;C&#x27;;
+switch (block) {
+    case &#x27;A&#x27; -&gt; System.out.println(&quot;Day 1 at 8:40am&quot;);
+    case &#x27;B&#x27; -&gt; System.out.println(&quot;Day 1 at 10:05am&quot;);
+    case &#x27;C&#x27; -&gt; System.out.println(&quot;Day 1 at 12:10pm&quot;);
+    case &#x27;D&#x27; -&gt; System.out.println(&quot;Day 1 at 1:35pm&quot;);
+    default -&gt; System.out.println(&quot;ERROR&quot;);
+}</code></pre><p>Output: Day 1 at 12:10pm. These times follow the Class Code file; some slides use different example times.</p><ol><li>Evaluate block.</li><li>Find the matching case.</li><li>Run that arrow case and continue after the switch.</li></ol><p>default handles an unmatched value. It is not an exception handler. Arrow cases do not require break.</p><details><summary>Show complete beginner solution</summary><pre tabindex="0"><code>
+public class Main {
+    public static void main(String[] args) {
+
+        char block = &#x27;C&#x27;;
+        switch (block) {
+            case &#x27;A&#x27; -&gt; System.out.println(&quot;Day 1 at 8:40am&quot;);
+            case &#x27;B&#x27; -&gt; System.out.println(&quot;Day 1 at 10:05am&quot;);
+            case &#x27;C&#x27; -&gt; System.out.println(&quot;Day 1 at 12:10pm&quot;);
+            case &#x27;D&#x27; -&gt; System.out.println(&quot;Day 1 at 1:35pm&quot;);
+            default -&gt; System.out.println(&quot;ERROR&quot;);
+        }
+    }
+}
+</code></pre><p><a download="Main.java" href="solutions/1.9/block/Main.java">Download Main.java</a> — run each download separately.</p></details></section><section id="syntax"><h2>Syntax to recognize</h2><ul><li><code>switch (value)</code>: the value being matched.</li><li><code>case 'A' -&gt;</code>: one character uses single quotes.</li><li><code>case "a", "A" -&gt;</code>: strings use double quotes; comma-separated labels share an action.</li><li>Use braces after the arrow for more than one statement.</li><li>For these lessons, use int, char or String selectors. Do not use a boolean condition or a decimal as the selector.</li></ul><pre tabindex="0"><code>switch (grade) {
+    case &quot;a&quot;, &quot;A&quot; -&gt; {
+        System.out.println(&quot;Hello&quot;);
+        System.out.println(&quot;Your percent mark is 80-100&quot;);
+    }
+    case &quot;b&quot;, &quot;B&quot; -&gt; System.out.println(&quot;Your percent mark is 70-79&quot;);
+    default -&gt; System.out.println(&quot;Invalid entry&quot;);
+}</code></pre><p>With String cases, switch compares string contents. In an if, use <code>grade.equals("A")</code> to compare contents.</p></section><section id="old"><h2>Arrow versus colon</h2><pre tabindex="0"><code>switch (choice) {
+    case 1:
+        System.out.println(&quot;One&quot;);
+        break;
+    case 2:
+        System.out.println(&quot;Two&quot;);
+        break;
+    default:
+        System.out.println(&quot;Other&quot;);
+}</code></pre><p>Colon cases can continue into following cases until a break or the end. Do not mix colon and arrow labels within the same switch. A break exits the nearest switch or loop; a break inside a switch nested in a loop does not exit that outer loop.</p></section><section id="quiz"><h2>Six paper checks</h2><h3>1. Match a case</h3><p>In the block example, change C to D. What prints?</p><details><summary>Check answer and reasoning</summary><p>Day 1 at 1:35pm. Only the matching arrow case runs.</p></details><h3>2. Unmatched value</h3><p>What prints for the lowercase character c?</p><details><summary>Check answer and reasoning</summary><p>ERROR. Character matching is case-sensitive and only uppercase C is listed.</p></details><h3>3. Shared cases</h3><pre tabindex="0"><code>String grade = &quot;a&quot;;
+switch (grade) {
+    case &quot;a&quot;, &quot;A&quot; -&gt; {
+        System.out.println(&quot;Hello&quot;);
+        System.out.println(&quot;80-100&quot;);
+    }
+    default -&gt; System.out.println(&quot;Invalid&quot;);
+}</code></pre><details><summary>Check answer and reasoning</summary><p>Hello, then 80-100 on the next line. Both labels lead to the same block.</p></details><h3>4. Trace old syntax</h3><pre tabindex="0"><code>int choice = 1;
+switch (choice) {
+    case 1: System.out.print(&quot;A&quot;);
+    case 2: System.out.print(&quot;B&quot;); break;
+    default: System.out.print(&quot;C&quot;);
+}</code></pre><details><summary>Check answer and reasoning</summary><p>AB. There is no break after A, so execution falls through to B. With arrow cases, that fall-through does not occur.</p></details><h3>5. Choose the structure</h3><p>Would you use switch or if / else if for mark ≥ 80, mark ≥ 70, or lower?</p><details><summary>Check answer and reasoning</summary><p>Use if / else if for ranges. The classroom switch syntax matches exact values.</p></details><h3>6. Repair syntax</h3><pre tabindex="0"><code>switch (choice) {
+    case 1 -&gt; System.out.println(&quot;One&quot;);
+    default System.out.println(&quot;Other&quot;);
+}</code></pre><details><summary>Check answer and reasoning</summary><p>Add the arrow: <code>default -&gt; System.out.println("Other");</code>.</p></details></section><section id="write"><h2>Write a small menu</h2><p>Use a variable choice: 1 means Rock, 2 Paper, 3 Scissors, and anything else Invalid. Write a switch without looking above, then check.</p><details><summary>Show complete beginner solution</summary><pre tabindex="0"><code>
+public class Main {
+    public static void main(String[] args) {
+
+        int choice = 2;
+        switch (choice) {
+            case 1 -&gt; System.out.println(&quot;Rock&quot;);
+            case 2 -&gt; System.out.println(&quot;Paper&quot;);
+            case 3 -&gt; System.out.println(&quot;Scissors&quot;);
+            default -&gt; System.out.println(&quot;Invalid&quot;);
+        }
+    }
+}
+</code></pre><p><a download="Main.java" href="solutions/1.9/menu/Main.java">Download Main.java</a> — run each download separately.</p></details><p>Check choice = 1, 2, 3 and 0. The class random expression <code>(int)(Math.random() * 3 + 1)</code> produces 1, 2 or 3.</p></section><section id="notes"><h2>Reading the slides carefully</h2><p>The card slide omits an arrow after default; use <code>default -&gt; value = -1;</code>. A period example also has a missing closing quote. The reference programs here correct those syntax slips. For arrow cases, one matching rule runs; several independent conditions being true is an if-design question.</p></section><section id="sources"><h2>Classroom sources</h2><p>1.9 Switch Statement.pdf; 1.9 Class Code.pdf.</p><p>Explanations, quizzes and separate reference programs are Java Lab study additions. Try the teacher’s question on paper before opening the answer. These are not predictions of the exam.</p><p><a href="lesson19.html">1.9 Switch</a> · <a href="lesson110.html">1.10 Exceptions</a> · <a href="review-unit1.html">Unit 1 Review Exercises</a> · <a href="./">All lessons</a></p></section></main></body></html>
