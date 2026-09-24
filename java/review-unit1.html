@@ -1,0 +1,326 @@
+<!doctype html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Unit 1 Review Exercises | Java Lab</title><link rel="stylesheet" href="style.css"><link rel="stylesheet" href="study.css"></head><body><header><a href="./" class="brand">{ } <span>JAVA LAB</span></a><a href="./">All lessons</a></header><main class="lesson-list study"><p class="eyebrow">UNIT 1 / EXAM REVISION</p><h1>Unit 1 Review Exercises</h1><p>All eight teacher exercises, including the three challenges, plus handwritten Test Prep practice.</p><nav aria-label="Lesson sections"><a href="#start">How to use this review</a><a href="#exercise-1">1. Seconds to hours, minutes and seconds</a><a href="#exercise-2">2. Divisible by 3 or 5</a><a href="#exercise-3">3. Growing descending pattern</a><a href="#exercise-4">4. Perfect square</a><a href="#exercise-5">5. Classify a triangle</a><a href="#exercise-6">6. Challenge: sum and product</a><a href="#exercise-7">7. Challenge: primes below a limit</a><a href="#exercise-8">8. Challenge: sum of digits</a><a href="#part-a">Part A: explain</a><a href="#part-b">Part B: trace and debug</a><a href="#part-c">Part C: extra writing tasks</a><a href="#checklist">Before handing in</a></nav><section id="start"><h2>How to use this review</h2><p class="callout">Kevin: start with an example you can solve by hand. Write input → steps → output. Then translate one step at a time into Java. You do not need to remember the whole program at once.</p><p>Each exercise has a hidden plan and a separate Main.java. Input examples use ordinary console tokens; retry programs assume the user continues entering values. Exercises 2 and 3 have no input to validate.</p><p>Choose the skills you need most, as the worksheet allows. Questions 6–8 are challenges. The Part A/B/C grouping below is a revision format, not a confirmed exam paper.</p><p><a href="quiz.html?lesson=1.3#mod-guide">Review % first</a> if remainders are slowing you down. Match the structure: exact choices → switch; ranges → if; repetition → loop; invalid input → checks or try/catch.</p></section><section id="exercise-1"><h2>1. Seconds to hours, minutes and seconds</h2><p>Read a movie length in seconds. Reject invalid input and negative lengths. Print hours, minutes and seconds with singular/plural words.</p><details><summary>Plan before coding</summary><ol><li>Read a nonnegative integer.</li><li>Take full hours using / 3600.</li><li>The leftover seconds are total % 3600. Divide those by 60 for minutes; use % 60 for seconds.</li></ol></details><details><summary>Show complete beginner solution</summary><pre tabindex="0"><code>import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+
+        int total = -1;
+        while (total &lt; 0) {
+            System.out.println(&quot;Enter the movie length in seconds:&quot;);
+            if (input.hasNextInt()) {
+                total = input.nextInt();
+                if (total &lt; 0) {
+                    System.out.println(&quot;Use zero or a positive integer.&quot;);
+                }
+            } else {
+                System.out.println(&quot;Please enter an integer.&quot;);
+                input.next();
+            }
+        }
+        int hours = total / 3600;
+        int remaining = total % 3600;
+        int minutes = remaining / 60;
+        int seconds = remaining % 60;
+        System.out.print(hours);
+        if (hours == 1) {
+            System.out.print(&quot; hour, &quot;);
+        } else {
+            System.out.print(&quot; hours, &quot;);
+        }
+        System.out.print(minutes);
+        if (minutes == 1) {
+            System.out.print(&quot; minute, &quot;);
+        } else {
+            System.out.print(&quot; minutes, &quot;);
+        }
+        System.out.print(seconds);
+        if (seconds == 1) {
+            System.out.println(&quot; second.&quot;);
+        } else {
+            System.out.println(&quot; seconds.&quot;);
+        }
+
+        input.close();
+    }
+}
+</code></pre><p><a download="Main.java" href="solutions/unit1-review/1/Main.java">Download Main.java</a> — run each download separately.</p></details><p><strong>Test it:</strong> hi then 3721 → reject hi, then 1 hour, 2 minutes, 1 second. 1 → 0 hours, 0 minutes, 1 second. 3600 → 1 hour, 0 minutes, 0 seconds. 0 → all zero.</p><p>For 3721: one hour uses 3600 seconds, leaving 121; two minutes use 120, leaving 1. The teacher solution’s comment says “1 minute” at the end; it should be “1 second.”</p></section><section id="exercise-2"><h2>2. Divisible by 3 or 5</h2><p>Print numbers from 5 through 100 that are divisible by 3 or 5.</p><details><summary>Plan before coding</summary><ol><li>Generate every candidate from 5 through 100.</li><li>Check divisibility by 3 OR divisibility by 5.</li><li>Print a candidate once if either condition is true.</li></ol></details><details><summary>Show complete beginner solution</summary><pre tabindex="0"><code>
+public class Main {
+    public static void main(String[] args) {
+
+        for (int number = 5; number &lt;= 100; number++) {
+            if (number % 3 == 0 || number % 5 == 0) {
+                System.out.print(number + &quot;, &quot;);
+            }
+        }
+        System.out.println();
+    }
+}
+</code></pre><p><a download="Main.java" href="solutions/unit1-review/2/Main.java">Download Main.java</a> — run each download separately.</p></details><p><strong>Test it:</strong> Starts 5, 6, 9, 10, 12, 15; ends 96, 99, 100. There are 45 numbers; 15 appears once.</p><p>Use || (or), not &amp;&amp; (and). Two independent if statements would print common multiples twice. The trailing comma follows the worksheet sample. No input is needed.</p></section><section id="exercise-3"><h2>3. Growing descending pattern</h2><p>Print 9, then 98, then 987, continuing to 987654321, one line each.</p><details><summary>Plan before coding</summary><ol><li>Start a running number at 0.</li><li>Take digits 9 down to 1.</li><li>Multiply the previous number by 10, add the new digit and print.</li></ol></details><details><summary>Show complete beginner solution</summary><pre tabindex="0"><code>
+public class Main {
+    public static void main(String[] args) {
+
+        int number = 0;
+        for (int digit = 9; digit &gt;= 1; digit--) {
+            number = number * 10 + digit;
+            System.out.println(number);
+        }
+    }
+}
+</code></pre><p><a download="Main.java" href="solutions/unit1-review/3/Main.java">Download Main.java</a> — run each download separately.</p></details><p><strong>Test it:</strong> Nine lines: 9, 98, 987, 9876, 98765, 987654, 9876543, 98765432, 987654321.</p><p>Trace: 9 × 10 + 8 = 98, then 98 × 10 + 7 = 987. All nine values fit in int. No input is needed.</p></section><section id="exercise-4"><h2>4. Perfect square</h2><p>Read an integer and decide whether it is a perfect square.</p><details><summary>Plan before coding</summary><ol><li>Negative integers cannot be squares of whole numbers. Zero is a perfect square.</li><li>Try roots 0, 1, 2… until the square would exceed the input.</li><li>Stop when a square equals the input.</li></ol></details><details><summary>Show complete beginner solution</summary><pre tabindex="0"><code>import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+
+        System.out.println(&quot;Enter an integer:&quot;);
+        while (!input.hasNextInt()) {
+            System.out.println(&quot;Please enter an integer.&quot;);
+            input.next(); // discard one invalid token
+        }
+        int number = input.nextInt();
+        boolean isSquare = false;
+        for (long root = 0; root * root &lt;= number; root++) {
+            if (root * root == number) {
+                isSquare = true;
+                break;
+            }
+        }
+        if (isSquare) {
+            System.out.println(number + &quot; is a perfect square&quot;);
+        } else {
+            System.out.println(number + &quot; is not a perfect square&quot;);
+        }
+
+        input.close();
+    }
+}
+</code></pre><p><a download="Main.java" href="solutions/unit1-review/4/Main.java">Download Main.java</a> — run each download separately.</p></details><p><strong>Test it:</strong> 25 → yes; 26 → no; 0 → yes; -4 → no; hello then 16 → reject text, then yes.</p><p>long is used only for root so multiplication cannot overflow int for an int input. The posted solution starts at 1 and therefore misses 0; starting at 0 includes 0 × 0.</p></section><section id="exercise-5"><h2>5. Classify a triangle</h2><p>Read three integer side lengths. If a token is not an integer, print an exit message. Otherwise check validity and classify the triangle.</p><details><summary>Plan before coding</summary><ol><li>Read three integers; stop on invalid input.</li><li>Require positive lengths and the sum of any two sides to exceed the third.</li><li>Check all equal first, then any equal pair, then all different.</li></ol></details><details><summary>Show complete beginner solution</summary><pre tabindex="0"><code>import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+
+        System.out.println(&quot;Enter three integer side lengths:&quot;);
+        if (!input.hasNextInt()) {
+            System.out.println(&quot;A value entered is not an integer. Exiting program.&quot;);
+            input.close();
+            return;
+        }
+        int a = input.nextInt();
+        if (!input.hasNextInt()) {
+            System.out.println(&quot;A value entered is not an integer. Exiting program.&quot;);
+            input.close();
+            return;
+        }
+        int b = input.nextInt();
+        if (!input.hasNextInt()) {
+            System.out.println(&quot;A value entered is not an integer. Exiting program.&quot;);
+            input.close();
+            return;
+        }
+        int c = input.nextInt();
+        if (a &lt;= 0 || b &lt;= 0 || c &lt;= 0) {
+            System.out.println(&quot;Side lengths must be positive.&quot;);
+        } else if ((long) a + b &lt;= c || (long) a + c &lt;= b || (long) b + c &lt;= a) {
+            System.out.println(&quot;These sides do not form a triangle.&quot;);
+        } else if (a == b &amp;&amp; b == c) {
+            System.out.println(&quot;Equilateral&quot;);
+        } else if (a == b || b == c || a == c) {
+            System.out.println(&quot;Isosceles&quot;);
+        } else {
+            System.out.println(&quot;Scalene&quot;);
+        }
+
+        input.close();
+    }
+}
+</code></pre><p><a download="Main.java" href="solutions/unit1-review/5/Main.java">Download Main.java</a> — run each download separately.</p></details><p><strong>Test it:</strong> 3 3 3 → Equilateral; 3 3 4 → Isosceles; 3 4 5 → Scalene; 1 2 3 → not a triangle; hi 30 60 → exit message.</p><p>return ends main after bad input; it is not a loop break. Casting to long before addition prevents overflow for large int sides. The posted answer checks positivity but omits the triangle inequality, so 1, 2, 3 would be misclassified.</p></section><section id="exercise-6"><h2>6. Challenge: sum and product</h2><p>Find two positive integers with a given sum and product, or report that none exist.</p><details><summary>Plan before coding</summary><ol><li>Read a positive sum and a positive product.</li><li>Try the smaller number first = 1 through sum / 2.</li><li>The other number must be sum − first; check their product.</li></ol></details><details><summary>Show complete beginner solution</summary><pre tabindex="0"><code>import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+
+        int sum = 0;
+        while (sum &lt;= 0) {
+            System.out.println(&quot;Enter a positive integer sum:&quot;);
+            if (input.hasNextInt()) {
+                sum = input.nextInt();
+                if (sum &lt;= 0) System.out.println(&quot;The sum must be positive.&quot;);
+            } else {
+                System.out.println(&quot;Please enter an integer.&quot;);
+                input.next();
+            }
+        }
+        int product = 0;
+        while (product &lt;= 0) {
+            System.out.println(&quot;Enter a positive integer product:&quot;);
+            if (input.hasNextInt()) {
+                product = input.nextInt();
+                if (product &lt;= 0) System.out.println(&quot;The product must be positive.&quot;);
+            } else {
+                System.out.println(&quot;Please enter an integer.&quot;);
+                input.next();
+            }
+        }
+        boolean found = false;
+        for (int first = 1; first &lt;= sum / 2; first++) {
+            int second = sum - first;
+            if ((long) first * second == product) {
+                System.out.println(first + &quot; and &quot; + second);
+                found = true;
+                break;
+            }
+        }
+        if (!found) {
+            System.out.println(&quot;No positive integer pair exists.&quot;);
+        }
+
+        input.close();
+    }
+}
+</code></pre><p><a download="Main.java" href="solutions/unit1-review/6/Main.java">Download Main.java</a> — run each download separately.</p></details><p><strong>Test it:</strong> sum 7, product 10 → 2 and 5; 6, 9 → 3 and 3; 5, 7 → no pair; product 0 must be rejected.</p><p>The posted product-validation block checks add &gt; 0 instead of multiply &gt; 0. Check the value you just read. Use small practice inputs: this direct search can take many iterations. Optional signed extension: allow signed inputs and, for nonzero product p, test divisors from −|p| to |p|, skipping zero; pair each divisor with p / divisor and check the sum. Use long for the magnitude of an int. If p = 0, the pair is 0 and the requested sum.</p></section><section id="exercise-7"><h2>7. Challenge: primes below a limit</h2><p>Read an integer and print all prime numbers strictly smaller than it.</p><details><summary>Plan before coding</summary><ol><li>A prime is at least 2 and has no divisors other than 1 and itself.</li><li>Try candidates from 2 up to, but not including, the limit.</li><li>For each candidate, reset a flag and search for a divisor from 2 through candidate / 2. Stop at the first divisor.</li></ol></details><details><summary>Show complete beginner solution</summary><pre tabindex="0"><code>import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+
+        System.out.println(&quot;Enter an integer limit:&quot;);
+        while (!input.hasNextInt()) {
+            System.out.println(&quot;Please enter an integer.&quot;);
+            input.next(); // discard one invalid token
+        }
+        int limit = input.nextInt();
+        for (int candidate = 2; candidate &lt; limit; candidate++) {
+            boolean isPrime = true;
+            for (int divisor = 2; divisor &lt;= candidate / 2; divisor++) {
+                if (candidate % divisor == 0) {
+                    isPrime = false;
+                    break;
+                }
+            }
+            if (isPrime) {
+                System.out.print(candidate + &quot; &quot;);
+            }
+        }
+        System.out.println();
+
+        input.close();
+    }
+}
+</code></pre><p><a download="Main.java" href="solutions/unit1-review/7/Main.java">Download Main.java</a> — run each download separately.</p></details><p><strong>Test it:</strong> 10 → 2 3 5 7; 3 → 2; 2 or any smaller limit → no primes; 13 is not included when the limit is 13.</p><p>For candidate 2, the inner loop runs zero times and isPrime stays true. Reset isPrime inside the outer loop. The posted solution starts at 1, which incorrectly prints 1 as prime. This beginner trial-divisor method is for small practice limits.</p></section><section id="exercise-8"><h2>8. Challenge: sum of digits</h2><p>Read an integer and print the sum of its decimal digits. This version also handles zero and negative int inputs.</p><details><summary>Plan before coding</summary><ol><li>Work on the magnitude so a minus sign is not treated as a digit.</li><li>Read the last digit with % 10.</li><li>Add it to the sum and remove it with / 10.</li></ol></details><details><summary>Show complete beginner solution</summary><pre tabindex="0"><code>import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+
+        System.out.println(&quot;Enter an integer:&quot;);
+        while (!input.hasNextInt()) {
+            System.out.println(&quot;Please enter an integer.&quot;);
+            input.next(); // discard one invalid token
+        }
+        int number = input.nextInt();
+        long remaining = number;
+        if (remaining &lt; 0) {
+            remaining = -remaining;
+        }
+        int sum = 0;
+        while (remaining &gt; 0) {
+            int digit = (int) (remaining % 10);
+            sum = sum + digit;
+            remaining = remaining / 10;
+        }
+        System.out.println(sum);
+
+        input.close();
+    }
+}
+</code></pre><p><a download="Main.java" href="solutions/unit1-review/8/Main.java">Download Main.java</a> — run each download separately.</p></details><p><strong>Test it:</strong> 305 → 8; 0 → 0; -247 → 13; -2147483648 → 47; hello then 123 → reject text, then 6.</p><p>Convert to long before negating, because the magnitude of the smallest int does not fit in int. For positive-only class work, an int copy and the same % 10, / 10 loop are enough. The posted while (num2 &gt; 0) returns 0 for negative inputs without processing their digits.</p></section><section id="part-a"><h2>Part A: explain</h2><h3>A1. Declaration and initialization</h3><p>Explain <code>int score;</code> versus <code>int score = 0;</code>.</p><details><summary>Check answer and reasoning</summary><p>The first declares a local variable. The second declares it and gives it an initial value. A local variable must have a value before it is read.</p></details><h3>A2. Operators</h3><p>Explain !=, += and %. What are the three parts of a for header?</p><details><summary>Check answer and reasoning</summary><p>!= means not equal; x += 3 adds 3 to x; % gives a remainder. A for header contains initialization, condition and update.</p></details><h3>A3. Eight primitive types</h3><p>Name Java’s eight primitive types. Is String one?</p><details><summary>Check answer and reasoning</summary><p>byte, short, int, long, float, double, char, boolean. String is a reference type.</p></details><h3>A4. Control flow</h3><p>How do while, do-while and a nested if work?</p><details><summary>Check answer and reasoning</summary><p>while checks before the body, so it can run zero times. do-while checks afterward, so its body runs at least once. A nested if is reached only when execution enters its enclosing branch.</p></details><h3>A5. Errors</h3><p>Give examples of a compile-time error, a runtime exception and a logic error.</p><details><summary>Check answer and reasoning</summary><p>Missing quote: compile-time error. Integer division by zero: runtime exception. Using &amp;&amp; instead of || when the task says “or”: logic error. The review slides ask for two categories but do not identify which two; follow your teacher’s terminology while understanding these distinctions.</p></details></section><section id="part-b"><h2>Part B: trace and debug</h2><h3>B1. Printed text</h3><pre tabindex="0"><code>System.out.print(&quot;Hello 15 +5&quot; + (10 + 5) + &quot;5&quot;);</code></pre><details><summary>Check answer and reasoning</summary><p>Exactly <code>Hello 15 +5155</code>, with no newline. Text inside quotes stays text; the parentheses calculate 15; the last "5" is appended.</p></details><h3>B2. Arithmetic</h3><p>Find <code>3 * 9 * (3 + (9 * 3 / 3))</code> and <code>2 % 2 + 2 * 2 - 2 / 2</code>.</p><details><summary>Check answer and reasoning</summary><p>324 and 3. First: 9 × 3 / 3 = 9; 3 + 9 = 12; 27 × 12 = 324. Second: 0 + 4 − 1 = 3.</p></details><h3>B3. Missing values on the slide</h3><p>The slide declares <code>int x;</code> and <code>int xLimit;</code>, then uses <code>while (x &lt;= xLimit)</code> without assigning either. Can you predict an output?</p><details><summary>Check answer and reasoning</summary><p>As shown, it does not compile: the local variables are uninitialized. For extra practice, set x = 1 and xLimit = 3. Because x++ is before printing, the body prints values 2, 3, 4; final x is 4.</p></details><h3>B4. Repair the temperature example</h3><pre tabindex="0"><code>int temp = 20;
+if (temp = 35) {
+    System.out.println(&quot;Nice&quot;);
+}</code></pre><details><summary>Check answer and reasoning</summary><p>Use <code>temp == 35</code>. Assignment to an int is not a boolean condition. The slide also capitalizes Public/Class and uses curly quotation marks: Java requires lowercase public/class and straight quotes. With those repaired and the full slide’s branches, temp = 20 prints Not bad.</p></details><h3>B5. Repair the grade example</h3><p>The slide has a mark of 80 and a middle condition <code>mark &lt; 80 &amp;&amp; mark &lt;= 70</code>. What needs attention?</p><details><summary>Check answer and reasoning</summary><p>As printed, syntax problems (Public/Class, curly quotes and a missing closing brace before else if) prevent compilation. After repairing them, mark 80 prints A - Well done! For the intended 70–79 middle range, use <code>mark &gt;= 70</code> after the first mark &gt;= 80 branch. Test 69, 70, 79 and 80.</p></details></section><section id="part-c"><h2>Part C: extra writing tasks</h2><p>These additional tasks come from the Test Prep slides. They are separate from Review Exercises 1–8.</p><h3>C1. Four-digit integer: sum of digits</h3><p>Require a positive four-digit integer, then add its digits.</p><details><summary>Show complete beginner solution</summary><pre tabindex="0"><code>import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+
+        int number = 0;
+        while (number &lt; 1000 || number &gt; 9999) {
+            System.out.println(&quot;Enter a four-digit integer:&quot;);
+            if (input.hasNextInt()) {
+                number = input.nextInt();
+                if (number &lt; 1000 || number &gt; 9999) {
+                    System.out.println(&quot;Use 1000 through 9999.&quot;);
+                }
+            } else {
+                System.out.println(&quot;Please enter an integer.&quot;);
+                input.next();
+            }
+        }
+        int sum = 0;
+        while (number &gt; 0) {
+            sum = sum + number % 10;
+            number = number / 10;
+        }
+        System.out.println(sum);
+
+        input.close();
+    }
+}
+</code></pre><p><a download="Main.java" href="solutions/unit1-review/four-digits/Main.java">Download Main.java</a> — run each download separately.</p></details><p>Check 1000 → 1; 9999 → 36; reject 999, 10000 and text.</p><h3>C2. Print 1 to n using while</h3><p>Require a positive integer n and print commas between the numbers, with no trailing comma.</p><details><summary>Show complete beginner solution</summary><pre tabindex="0"><code>import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+
+        int n = 0;
+        while (n &lt;= 0) {
+            System.out.println(&quot;Enter a positive integer:&quot;);
+            if (input.hasNextInt()) {
+                n = input.nextInt();
+                if (n &lt;= 0) System.out.println(&quot;Incorrect input: use a positive integer.&quot;);
+            } else {
+                System.out.println(&quot;Please enter an integer.&quot;);
+                input.next();
+            }
+        }
+        int number = 1;
+        while (number &lt;= n) {
+            if (number &gt; 1) System.out.print(&quot;, &quot;);
+            System.out.print(number);
+            if (number == n) break;
+            number++;
+        }
+        System.out.println();
+
+        input.close();
+    }
+}
+</code></pre><p><a download="Main.java" href="solutions/unit1-review/count-to-n/Main.java">Download Main.java</a> — run each download separately.</p></details><p>Check n = 1 → 1; n = 3 → 1, 2, 3. Use small n for manageable output. The break avoids updating past the largest int.</p><h3>C3. Sum ten doubles</h3><p>Read ten valid decimal numbers and print their sum. Invalid tokens do not count toward the ten.</p><details><summary>Show complete beginner solution</summary><pre tabindex="0"><code>import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+
+        double sum = 0;
+        int count = 0;
+        while (count &lt; 10) {
+            System.out.println(&quot;Enter a number:&quot;);
+            if (input.hasNextDouble()) {
+                double number = input.nextDouble();
+                if (Double.isFinite(number)) {
+                    sum = sum + number;
+                    count++;
+                } else {
+                    System.out.println(&quot;Use a finite number.&quot;);
+                }
+            } else {
+                System.out.println(&quot;Please enter a number.&quot;);
+                input.next();
+            }
+        }
+        System.out.println(sum);
+
+        input.close();
+    }
+}
+</code></pre><p><a download="Main.java" href="solutions/unit1-review/ten-doubles/Main.java">Download Main.java</a> — run each download separately.</p></details><p>The slide’s ten values total <strong>43.0</strong>, not the printed 42.5: 2.5, 3.0, 1.25, 4.75, 10.25, 3.5, 2.5, 5.25, 7.5, 2.5. Double.isFinite is an extra guard against NaN and Infinity; the core classroom idea is to update the sum and count only after a valid read. Extremely large finite values can still overflow a double sum; use ordinary classroom values.</p></section><section id="checklist"><h2>Before handing in</h2><ul><li>Read the exact endpoints: inclusive or strictly smaller?</li><li>Try one normal case, one boundary and one invalid input.</li><li>Use / for an integer quotient and % for a remainder.</li><li>Initialize sums to 0, products to 1, and reset per-candidate flags inside the loop.</li><li>Check == versus =, &amp;&amp; versus ||, braces, quotes and loop updates.</li><li>Explain why the loop covers all candidates and eventually stops.</li></ul><p>For marking criteria, show correct data types and operators (A1), input/processing/output and control structures (A2), and clear names, indentation and useful comments (A4).</p></section><section id="sources"><h2>Classroom sources</h2><p>Review Practice.pdf; Review Practice SOLUTIONS.pdf; Attachment_ PDF_ TestPrepI1.pdf. Source discrepancies are explained beside the relevant exercise. Reference solutions use classroom constructs; small long conversions protect integer arithmetic.</p><p>Explanations, quizzes and separate reference programs are Java Lab study additions. Try the teacher’s question on paper before opening the answer. These are not predictions of the exam.</p><p><a href="lesson19.html">1.9 Switch</a> · <a href="lesson110.html">1.10 Exceptions</a> · <a href="review-unit1.html">Unit 1 Review Exercises</a> · <a href="./">All lessons</a></p></section></main></body></html>
