@@ -1,26 +1,17 @@
 {
-  "boardDate": "2026-09-25",
-  "generatedAt": "2026-09-25T15:56:30.489Z",
+  "boardDate": "2026-09-26",
+  "generatedAt": "2026-09-26T15:06:52.619Z",
   "sourceCount": 26,
   "weather": [
     {
       "city": "Ottawa",
-      "temperatureC": 19,
-      "maxC": 22,
-      "minC": 4,
-      "summary": "Clear skies"
+      "temperatureC": 20,
+      "maxC": 23,
+      "minC": 9,
+      "summary": "Cloudy"
     }
   ],
   "extremeWeather": [
-    {
-      "title": "Did El Niño turn Hurricane Polo into the most powerful storm of the season?",
-      "whatHappened": "The BBC's Courtney Sargent explains how El Niño could have rapidly turned Hurricane Polo into one of the Pacific season's most powerful storms.",
-      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
-      "keyWord": "extreme weather: unusual and dangerous weather like floods, storms, or heat waves",
-      "source": "BBC Science & Environment",
-      "url": "https://www.bbc.co.uk/news/videos/cm93v2zz4w7qo?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-09-23T17:33:39.000Z"
-    },
     {
       "title": "Just how hot and dry was your summer? Use our postcode lookup to find out",
       "whatHappened": "Most of us experienced drought and heatwaves - but temperatures and rainfall were not the same everywhere.",
@@ -29,6 +20,15 @@
       "source": "BBC Science & Environment",
       "url": "https://www.bbc.co.uk/news/articles/cy9zvw47v90o?at_medium=RSS&at_campaign=rss",
       "publishedAt": "2026-09-24T23:45:08.000Z"
+    },
+    {
+      "title": "Bangkok roads submerged as flood disaster declared",
+      "whatHappened": "An emergency has been declared across the capital of Thailand as days of heavy rain leave the city inundated.",
+      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
+      "keyWord": "flood: water covering land that is usually dry",
+      "source": "BBC Science & Environment",
+      "url": "https://www.bbc.co.uk/news/articles/ck1wxx8n2x3zo?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-09-26T07:21:30.000Z"
     },
     {
       "title": "When a country goes underwater: Island States fight for their future",
@@ -52,7 +52,7 @@
   "climate": [
     {
       "title": "‘Robust little’ vessel begins treacherous 22,000km journey around Antarctica in the name of climate science",
-      "whatHappened": "Powered by sun and wind, the uncrewed vehicle will collect data to help Australian scientists better understand how oceans absorb emissions A small uncrewed vessel has...",
+      "whatHappened": "Powered by sun and wind, the uncrewed vehicle will collect data to help Australian scientists better understand how oceans absorb emissions Get our breaking news email...",
       "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
       "keyWord": "emissions: gases released into the air",
       "source": "The Guardian Environment",
@@ -87,6 +87,15 @@
       "publishedAt": "2026-09-23T12:00:00.000Z"
     },
     {
+      "title": "The treasured 'eternal snow' on this tropical island is about to disappear forever",
+      "whatHappened": "Climate change is transforming Papua's snowy peaks, which hold scientific value and spiritual significance.",
+      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
+      "keyWord": "climate: the usual pattern of weather over a long period of time",
+      "source": "BBC Science & Environment",
+      "url": "https://www.bbc.co.uk/news/articles/cm5ydvww0erdo?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-09-25T22:12:48.000Z"
+    },
+    {
       "title": "Gavin Newsom condemns Democrats’ ‘climate hushing’, predicts Trump’s downfall and expects AOC to run in 2028",
       "whatHappened": "Democrats must show links of climate shocks to ‘kitchen table’ issues, California governor says It’s a mistake for Democratic politicians not to talk about climate change...",
       "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
@@ -94,21 +103,12 @@
       "source": "The Guardian Environment",
       "url": "https://www.theguardian.com/us-news/2026/sep/24/gavin-newsom-interview-trump-aoc",
       "publishedAt": "2026-09-24T16:00:24.000Z"
-    },
-    {
-      "title": "LIVE: World leaders approve new declaration to tackle rising sea levels",
-      "whatHappened": "Sea level rise is among the most visible consequences of global warming, but for some countries, it is an imminent existential threat.",
-      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
-      "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "UN Climate",
-      "url": "https://news.un.org/feed/view/en/story/2026/09/1168423",
-      "publishedAt": "2026-09-24T12:00:00.000Z"
     }
   ],
   "weatherTech": [
     {
       "title": "‘Robust little’ vessel begins treacherous 22,000km journey around Antarctica in the name of climate science",
-      "whatHappened": "Powered by sun and wind, the uncrewed vehicle will collect data to help Australian scientists better understand how oceans absorb emissions A small uncrewed vessel has...",
+      "whatHappened": "Powered by sun and wind, the uncrewed vehicle will collect data to help Australian scientists better understand how oceans absorb emissions Get our breaking news email...",
       "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
       "keyWord": "weather technology: tools that help people measure, study, or predict weather and climate",
       "source": "The Guardian Environment",
@@ -154,21 +154,21 @@
       "publishedAt": "2026-09-04T14:35:10.000Z"
     },
     {
-      "title": "Turning environmental research into urban action",
-      "whatHappened": "Tue, 22 Sep 2026 12:00:00 +0000 Jo Fitzgibbons (MES ’19) is a planner and researcher turning environmental research into practical change in Canadian cities.",
-      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
-      "keyWord": "research: careful study used to discover new knowledge",
-      "source": "Waterloo Environment",
-      "url": "https://uwaterloo.ca/environment/news/turning-environmental-research-urban-action",
-      "publishedAt": "2026-09-22T12:00:00.000Z"
-    },
-    {
       "title": "Investing in the next generation of environmental leaders",
       "whatHappened": "Tue, 22 Sep 2026 12:00:00 +0000 KEEN Footwear is a long-standing partner of the University of Waterloo's Faculty of Environment, helping students turn environmental knowledge into...",
       "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
       "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
       "source": "Waterloo Environment",
       "url": "https://uwaterloo.ca/environment/news/investing-next-generation-environmental-leaders",
+      "publishedAt": "2026-09-22T12:00:00.000Z"
+    },
+    {
+      "title": "2026 Faculty of Environment Alumni Awards announced",
+      "whatHappened": "Tue, 22 Sep 2026 12:00:00 +0000 From changing how children learn about the world around them to rethinking how cities grow, strengthening connections between research and...",
+      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
+      "keyWord": "research: careful study used to discover new knowledge",
+      "source": "Waterloo Environment",
+      "url": "https://uwaterloo.ca/environment/news/2026-faculty-environment-alumni-awards-announced",
       "publishedAt": "2026-09-22T12:00:00.000Z"
     },
     {
