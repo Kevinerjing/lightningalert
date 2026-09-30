@@ -1,0 +1,151 @@
+<!doctype html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Weather Helper | Java Code Review</title><link rel="stylesheet" href="style.css"><link rel="stylesheet" href="study.css"><style>.project-download{display:inline-block;background:#244ada;color:white;padding:12px 18px;border-radius:6px;text-decoration:none}.study pre{color:#e6edff;background:#20292a}.study nav a{line-height:1.7}@media print{header,nav,.project-download{display:none}.study{margin:0;max-width:none;padding:0}.study section{break-inside:auto}.study h2,.study h3{break-after:avoid}.study pre{background:#f1f3f5;color:#18283b;border:1px solid #bbb;font-size:9pt}details{display:none}a{color:inherit}.callout{background:#fff!important}}</style></head><body><header><a class="brand" href="./">{ } <span>JAVA LAB</span></a><a href="./#projects">All projects</a></header><main class="lesson-list study"><p class="eyebrow">CODE REVIEW / BEGINNER REFERENCE</p><h1>Weather Helper</h1><p>Explore temperature conversion and a five-day weather summary with simple Java.</p><nav aria-label="Project sections"><a href="#plan">Plan</a><a href="#run">Download</a><a href="#concepts">Concepts</a><a href="#code">Full code</a><a href="#tests">Tests</a><a href="#errors">Errors</a><a href="#present">Present it</a></nav><section id="plan"><h2>1. Plan before syntax</h2><p><strong>Task:</strong> Convert a Celsius temperature to Fahrenheit and summarize five daily temperatures.</p><p><strong>Try it by hand:</strong> 20 C gives 68.0 F. Temperatures -5, 0, 5, 10, 15 total 25 C: average 5.0 C; two days are at or below 0 C.</p><ol><li>Print a menu and read a choice.</li><li>Ask for the numbers needed by that task.</li><li>Check the input type and allowed range.</li><li>Calculate the result, then print it.</li><li>Return to the menu until the user chooses Exit.</li></ol><pre tabindex="0"><code>1. Convert Celsius to Fahrenheit
+2. Summarize 5 daily temperatures
+3. Exit</code></pre><p>Build one feature first. Test it before adding the next feature. These programs use classroom console input; no arrays, collections, saved files or live data are needed.</p></section><section id="run"><h2>2. Download and run</h2><p><a class="project-download" href="projects/weather/WeatherHelper.java" download="WeatherHelper.java">Download WeatherHelper.java</a></p><p>Save the file using this exact name. In a Java IDE, run its main method. With a JDK terminal:</p><pre tabindex="0"><code>javac WeatherHelper.java
+java WeatherHelper</code></pre><p>If an online IDE requires Main.java, rename the public class to Main and the file to Main.java. Run the Java file in an IDE or terminal; this page explains the program rather than executing Java in the browser.</p></section><section id="concepts"><h2>3. Explain how each concept is used</h2><h3>Variables, types and assignment</h3><p>A variable gives a name to a stored value. A declaration introduces it; an assignment changes its value.</p><pre tabindex="0"><code>String city = &quot;Ottawa&quot;;
+double total = 0;
+int freezingDays = 0;
+boolean running = true;
+total = total + temperature;</code></pre><p>String stores text; int stores whole numbers; double stores decimal numbers; boolean stores true or false. The final line is an assignment, not a new declaration.</p><h3>Scanner, printing and concatenation</h3><p>Scanner reads typed input. print displays a prompt without a new line; println ends the line. + joins text with values.</p><pre tabindex="0"><code>System.out.print(&quot;Temperature in Celsius: &quot;);
+double celsius = readDouble(input);
+System.out.println(&quot;Weather Helper for &quot; + city);</code></pre><p>The read helper calls nextInt() or nextDouble(). It retries a wrong number type. It does not check the allowed range; main does that separately.</p><h3>Arithmetic and printf</h3><p>Calculate before formatting. %.1f displays one decimal place; %n ends the line.</p><pre tabindex="0"><code>double fahrenheit = celsius * 9.0 / 5 + 32;
+System.out.printf(&quot;%.1f C = %.1f F%n&quot;, celsius, fahrenheit);</code></pre><p>20 * 9.0 / 5 + 32 = 68.0. Using 9.0 keeps the calculation in decimal arithmetic. Computing 9 / 5 first with integers would give 1.</p><h3>If, else if, else and logical operators</h3><p>A chained decision picks the first true branch. || means OR; && means AND.</p><pre tabindex="0"><code>if (average &lt;= 0) {
+    System.out.println(&quot;Average label: freezing or below&quot;);
+} else if (average &lt; 15) {
+    System.out.println(&quot;Average label: cool&quot;);
+} else {
+    System.out.println(&quot;Average label: mild or warm&quot;);
+}</code></pre><p>An average of 0 uses the first branch; 5 uses the second; 15 uses the last. These are simplified classroom labels, not a weather forecast.</p><h3>While loop: repeat until Exit</h3><p>The menu repeats while running is true.</p><pre tabindex="0"><code>while (running) {
+    // Print menu, read choice, handle the selected task.
+}
+// Exit case inside the switch:
+running = false;</code></pre><p>Choosing Exit changes running to false. The next while check ends the menu loop. while checks before its body; do-while checks after the body and therefore runs at least once.</p><h3>For loop: repeat a known number of times</h3><p>A counter controls exactly five iterations.</p><pre tabindex="0"><code>for (int day = 1; day &lt;= 5; day++) {
+    double temperature = readDouble(input);
+    total = total + temperature;
+    if (temperature &lt;= 0) {
+        freezingDays++;
+    }
+}</code></pre><p>day starts at 1; day <= 5 is checked before each iteration; day++ adds 1 after each iteration. These shortened snippets show the loop idea; the complete code also prompts and checks ranges.</p><h3>Switch and break</h3><p>switch selects a menu action by an exact value. default handles an unlisted choice.</p><pre tabindex="0"><code>switch (choice) {
+    case 1:
+        // First feature
+        break;
+    case 2:
+        // Second feature
+        break;
+    case 3:
+        running = false;
+        break;
+    default:
+        System.out.println(&quot;Choose 1, 2 or 3.&quot;);
+}</code></pre><p>A break in a case ends the switch and prevents fall-through. A break inside the for loop ends that loop instead. Neither automatically exits the entire program. This example uses traditional colon cases; arrow cases are another syntax from the lessons.</p><h3>Try-catch: recover from a wrong input type</h3><p>InputMismatchException occurs when nextInt receives a token such as hello or 2.5.</p><pre tabindex="0"><code>while (true) {
+    try {
+        return input.nextInt();
+    } catch (InputMismatchException e) {
+        input.nextLine();
+        System.out.print(&quot;Please enter a whole number: &quot;);
+    }
+}</code></pre><p>The catch discards the bad input line; otherwise the same bad token would be read again. A successful read returns from the helper. Negative integers are still integers, so range checks belong in main. The weather readDouble helper uses the same pattern with nextDouble.</p><h3>Methods: name a reusable task</h3><p>Parameters receive inputs; return sends a result back. The caller decides whether to print it.</p><pre tabindex="0"><code>public static double toFahrenheit(double celsius) {
+    return celsius * 9.0 / 5 + 32;
+}
+// In main:
+double fahrenheit = toFahrenheit(20);</code></pre><p>20 is the argument. celsius is the parameter. The return type is double; main stores 68.0 in fahrenheit. return does not print this value.</p><h3>Remainder (%)</h3><p>The % operator gives the remainder after division.</p><pre tabindex="0"><code>// Optional observation schedule, separate from the main program:
+for (int day = 1; day &lt;= 7; day++) {
+    if (day % 3 == 0) {
+        System.out.println(&quot;Detailed observation on day &quot; + day);
+    }
+}</code></pre><p>This optional example prints days 3 and 6 because their remainder on division by 3 is zero. It demonstrates % without changing the five-day temperature summary. For 2 % 3, the answer is 2.</p></section><section id="code"><h2>4. Complete beginner reference program</h2><p>Read this after planning the features. The complete program includes prompts and checks omitted from the short teaching snippets.</p><details><summary>Show complete Java code</summary><pre tabindex="0"><code>import java.util.InputMismatchException;
+import java.util.Scanner;
+
+public class WeatherHelper {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        String city = &quot;Ottawa&quot;;
+        boolean running = true;
+        System.out.println(&quot;Weather Helper for &quot; + city);
+
+        while (running) {
+            System.out.println(&quot;\n1. Convert Celsius to Fahrenheit&quot;);
+            System.out.println(&quot;2. Summarize 5 daily temperatures&quot;);
+            System.out.println(&quot;3. Exit&quot;);
+            System.out.print(&quot;Choose 1, 2 or 3: &quot;);
+            int choice = readInt(input);
+
+            switch (choice) {
+                case 1:
+                    System.out.print(&quot;Temperature in Celsius (-60 to 60): &quot;);
+                    double celsius = readDouble(input);
+                    if (!(celsius &gt;= -60 &amp;&amp; celsius &lt;= 60)) {
+                        System.out.println(&quot;Use a temperature from -60 to 60 for this exercise.&quot;);
+                    } else {
+                        double fahrenheit = toFahrenheit(celsius);
+                        System.out.printf(&quot;%.1f C = %.1f F%n&quot;, celsius, fahrenheit);
+                    }
+                    break;
+                case 2:
+                    double total = 0;
+                    int freezingDays = 0;
+                    boolean valid = true;
+                    for (int day = 1; day &lt;= 5; day++) {
+                        System.out.print(&quot;Day &quot; + day + &quot; Celsius (-60 to 60): &quot;);
+                        double temperature = readDouble(input);
+                        if (!(temperature &gt;= -60 &amp;&amp; temperature &lt;= 60)) {
+                            System.out.println(&quot;Invalid temperature. Start again from the menu.&quot;);
+                            valid = false;
+                            break;
+                        }
+                        total = total + temperature;
+                        if (temperature &lt;= 0) {
+                            freezingDays++;
+                        }
+                    }
+                    if (valid) {
+                        double average = total / 5;
+                        System.out.printf(&quot;Average: %.1f C%n&quot;, average);
+                        System.out.println(&quot;Days at or below 0 C: &quot; + freezingDays);
+                        // Simple classroom labels, not forecasts or safety advice.
+                        if (average &lt;= 0) {
+                            System.out.println(&quot;Average label: freezing or below&quot;);
+                        } else if (average &lt; 15) {
+                            System.out.println(&quot;Average label: cool&quot;);
+                        } else {
+                            System.out.println(&quot;Average label: mild or warm&quot;);
+                        }
+                    }
+                    break;
+                case 3:
+                    running = false;
+                    break;
+                default:
+                    System.out.println(&quot;Choose 1, 2 or 3.&quot;);
+            }
+        }
+        System.out.println(&quot;Thanks for exploring the weather!&quot;);
+        input.close();
+    }
+
+    public static double toFahrenheit(double celsius) {
+        return celsius * 9.0 / 5 + 32;
+    }
+
+    public static int readInt(Scanner input) {
+        while (true) {
+            try {
+                return input.nextInt();
+            } catch (InputMismatchException e) {
+                input.nextLine();
+                System.out.print(&quot;Please enter a whole number: &quot;);
+            }
+        }
+    }
+
+    public static double readDouble(Scanner input) {
+        while (true) {
+            try {
+                return input.nextDouble();
+            } catch (InputMismatchException e) {
+                input.nextLine();
+                System.out.print(&quot;Please enter a number: &quot;);
+            }
+        }
+    }
+}
+</code></pre></details><p>Helpers are inside the class, alongside main. The input helpers are slightly more advanced because their Scanner parameter lets them read from the same input source.</p></section><section id="tests"><h2>5. Test ordinary, boundary and invalid inputs</h2><p>Arrows mean successive typed inputs. Start a new run for each row, then choose 3 when finished.</p><div class="table-scroll"><table><thead><tr><th>Inputs</th><th>Expected result</th></tr></thead><tbody><tr><td>1 → 20</td><td>20.0 C = 68.0 F</td></tr><tr><td>1 → -40</td><td>-40.0 C = -40.0 F</td></tr><tr><td>1 → 61</td><td>Range warning</td></tr><tr><td>2 → -5 → 0 → 5 → 10 → 15</td><td>Average 5.0 C; freezingDays = 2; cool</td></tr><tr><td>2 → 0 → 0 → 0 → 0 → 0</td><td>Average 0.0 C; freezingDays = 5</td></tr><tr><td>2 → 70</td><td>Warning; no partial summary</td></tr><tr><td>1 → hello → 20</td><td>Retry temperature, then 68.0 F</td></tr><tr><td>9 → 3</td><td>Menu warning, then exit</td></tr></tbody></table></div><p>Use a decimal point for decimal input in an English locale. The program is for interactive console practice; it assumes the user can continue entering input.</p></section><section id="errors"><h2>6. Explain three kinds of errors</h2><ul><li><strong>Syntax:</strong> remove the semicolon after a println statement. The compiler cannot compile it.</li><li><strong>Runtime:</strong> calling nextInt directly with hello causes InputMismatchException if it is not caught.</li><li><strong>Logic:</strong> the following compiles, but integer division can produce a wrong answer:</li></ul><pre tabindex="0"><code>double fahrenheit = celsius * (9 / 5) + 32;</code></pre><p>9 / 5 gives 1 before multiplication. For 20 C, this wrong expression gives 52 F. Use celsius * 9.0 / 5 + 32.</p><p>Range validation checks sensible values; try-catch handles an exception. They solve different problems.</p></section><section id="present"><h2>7. Make the review your own</h2><p class="callout">This is a study reference, not a claim that Kevin wrote it. Follow your teacher’s rules on outside help. Choose a version you can rebuild and explain, and acknowledge help where required.</p><ol><li>State the problem and why this topic interests you.</li><li>Show a normal run and an invalid-input run.</li><li>For each concept: give its meaning, show a short snippet, and explain the output.</li><li>Describe one mistake you found and how you corrected it.</li><li>Explain one improvement you made yourself.</li></ol><h3>Personalize one feature</h3><p>Change the city, change the number of observation days, or add a method to convert Fahrenheit back to Celsius. Enter actual observations manually; this program does not fetch weather data.</p><h3>Before presenting</h3><ul><li>Can I explain why decimal arithmetic is needed?</li><li>Can I trace one menu choice from input to output?</li><li>Can I explain where each loop ends and what each break exits?</li><li>Can I explain why the bad token must be discarded?</li><li>Can I distinguish returning a value from printing it?</li></ul><p>Based on the teacher’s Code Review assignment and supplied example structure. The example’s task-manager implementation is not copied. Methods are included as current revision; confirm whether your teacher expects Unit 2 in this submission.</p></section><p><a href="project-tennis.html">Explore the other project</a> · <a href="lesson21.html">Methods lesson</a> · <a href="./#projects">All projects</a></p></main></body></html>
