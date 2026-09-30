@@ -1,0 +1,150 @@
+<!doctype html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Methods | Java 2.1</title><link rel="stylesheet" href="style.css"><link rel="stylesheet" href="study.css"></head><body><header><a href="./" class="brand">{ } <span>JAVA LAB</span></a><a href="./">All lessons</a></header><main class="lesson-list study"><p class="eyebrow">UNIT 2 / LESSON 2.1</p><h1>Methods</h1><p>Give a small task a name. Pass in the information it needs, then use its result.</p><nav aria-label="Lesson sections"><a href="#plan">Plan a small task before its syntax</a><a href="#structure">Declare it once; call it when needed</a><a href="#parameters">Parameters, arguments and local variables</a><a href="#return">Returning is different from printing</a><a href="#classroom">Classroom examples and warm-ups</a><a href="#challenge">Challenge: Helpful.java and Main.java</a><a href="#quiz">Twelve paper checks</a><a href="#checklist">Check your method before finishing</a><a href="#sources">Classroom sources</a></nav><p><strong>Helpful Methods:</strong> <a href="#triangleArea">triangleArea</a> · <a href="#average">average</a> · <a href="#isDivisible">isDivisible</a> · <a href="#factorial">factorial</a> · <a href="#strongNumber">strongNumber</a> · <a href="#size">size</a> · <a href="#armstrongNumbers">armstrongNumbers</a></p><section id="plan"><h2>1. Plan a small task before its syntax</h2><p class="callout">Kevin: a method is a named task you can use again. Before writing its header, answer three questions: <strong>What does it do? What information does it need? What result should it give back?</strong></p><p>For triangleArea: calculate a triangle area; receive base and height; return a double. For printHello: print a greeting; receive nothing; return no value.</p><ol><li>Try one example by hand: base 6, height 8 gives area 24.</li><li>Choose the parameters and return type.</li><li>Write the calculation or decision in the body.</li><li>Call it from main and check the result.</li></ol><p>Methods help reuse work, give a program a readable structure and let you test one task at a time. You already use methods such as println(), nextInt() and hasNextInt().</p></section><section id="structure"><h2>2. Declare it once; call it when needed</h2><pre tabindex="0"><code>public class Main {
+    public static void main(String[] args) {
+        int answer = getSum(5, 3);
+        System.out.println(answer); // 8
+    }
+
+    public static int getSum(int first, int second) {
+        int sum = first + second;
+        return sum;
+    }
+}</code></pre><p>The declaration describes the task; <code>getSum(5, 3)</code> calls it. A helper belongs inside the class, alongside main, <strong>not inside main</strong>. Its position above or below main does not determine when it runs.</p><div class="table-scroll"><table><thead><tr><th>Header part</th><th>Meaning in this course</th></tr></thead><tbody><tr><td>public</td><td>Allows other code to access the method.</td></tr><tr><td>static</td><td>Belongs to the class; call it without making an object.</td></tr><tr><td>int</td><td>The type of result returned.</td></tr><tr><td>getSum</td><td>The method name.</td></tr><tr><td>int first, int second</td><td>Two named input parameters, in order.</td></tr></tbody></table></div><p>Use <code>public static</code> for these Unit 2 helpers, as your teacher requests. Java supports other kinds of methods later. Lower camel case (such as triangleArea) is a naming convention, not a compiler requirement. Parentheses are required in these declarations and ordinary calls.</p></section><section id="parameters"><h2>3. Parameters, arguments and local variables</h2><p><strong>Parameters</strong> are the variables in the declaration: first and second. <strong>Arguments</strong> are the actual values in the call: 5 and 3. Match the number, order and compatible types of arguments.</p><ol><li>main evaluates the arguments.</li><li>getSum receives first = 5 and second = 3.</li><li>The method calculates sum = 8.</li><li>return sends 8 back to the call.</li><li>main stores it in answer and prints it.</li></ol><p>A parameter or local variable only exists in its method/block scope. Java passes values: changing an int parameter does not change the caller’s original int.</p><pre tabindex="0"><code>public static void change(int value) {
+    value = 99;
+}
+// Inside main:
+int number = 5;
+change(number);
+System.out.println(number); // still 5</code></pre><p>A method expecting double can accept an int by widening conversion. A method expecting int cannot accept a double without an explicit conversion; converting would discard a fractional part, so only do it intentionally.</p></section><section id="return"><h2>4. Returning is different from printing</h2><div class="table-scroll"><table><thead><tr><th>Method kind</th><th>Call</th><th>Result</th></tr></thead><tbody><tr><td>void, no parameters</td><td>printHello();</td><td>Performs a task; no value to store.</td></tr><tr><td>void, with parameters</td><td>printName("Kevin");</td><td>Prints using supplied text.</td></tr><tr><td>Return value, no parameters</td><td>String text = messageGenerator();</td><td>Returns text to the caller.</td></tr><tr><td>Return value, with parameters</td><td>int area = calcArea(2, 3);</td><td>Returns the calculated value 6.</td></tr></tbody></table></div><pre tabindex="0"><code>public static void displaySum(int a, int b) {
+    System.out.println(a + b);
+}
+public static int getSum(int a, int b) {
+    return a + b;
+}
+// Inside main:
+displaySum(5, 3);              // prints 8
+int answer = getSum(5, 3);    // stores 8; prints nothing
+System.out.println(answer);  // now prints 8</code></pre><p>return exits the method immediately, not just its loop. A non-void method must return a compatible value on every path that completes normally. A void method may use <code>return;</code> to end early, but cannot return a value. You cannot assign or print the result of a void method.</p><p>You may store a returned value, print it directly, or use it in another expression. Simply writing <code>getSum(5, 3);</code> calls the method but discards its return value.</p></section><section id="classroom"><h2>5. Classroom examples and warm-ups</h2><p>The slides ask for printHello(), calcArea(2, 3), and findGreater() for two doubles. Here are straightforward reference methods.</p><details><summary>Show printHello</summary><pre tabindex="0"><code>public static void printHello() {
+    System.out.println(&quot;Hello World!&quot;);
+}</code></pre></details><details><summary>Show calcArea</summary><pre tabindex="0"><code>public static int calcArea(int length, int width) {
+    return length * width;
+}</code></pre></details><details><summary>Show findGreater</summary><pre tabindex="0"><code>public static double findGreater(double first, double second) {
+    if (first &gt;= second) {
+        return first;
+    } else {
+        return second;
+    }
+}</code></pre></details><details><summary>Show printName</summary><pre tabindex="0"><code>public static void printName(String name) {
+    System.out.println(&quot;Your name is: &quot; + name);
+}</code></pre></details><details><summary>Show messageGenerator</summary><pre tabindex="0"><code>public static String messageGenerator() {
+    return &quot;This is a returned message.&quot;;
+}</code></pre></details><details><summary>Show textRepeater</summary><pre tabindex="0"><code>public static String textRepeater(String word, int n) {
+    String result = &quot;&quot;;
+    for (int i = 0; i &lt; n; i++) {
+        result = result + word + &quot; &quot;;
+    }
+    return result;
+}</code></pre></details><details><summary>Show gcf</summary><pre tabindex="0"><code>public static int gcf(int n, int p) {
+    int divisor;
+    if (n &lt; p) {
+        divisor = n;
+    } else {
+        divisor = p;
+    }
+    while (divisor &gt; 0) {
+        if (n % divisor == 0 &amp;&amp; p % divisor == 0) {
+            return divisor;
+        }
+        divisor--;
+    }
+    return 1;
+}</code></pre></details><details><summary>Show calcCircleArea</summary><pre tabindex="0"><code>public static double calcCircleArea(int radius) {
+    return Math.PI * radius * radius;
+}</code></pre></details><p>textRepeater("Hello", 4) returns "Hello Hello Hello Hello " with a trailing space. The gcf method starts at the smaller positive number and searches downward, so the first common factor is the greatest. gcf(256, 300) = 4; gcf(1256, 23452) = 4. Its classroom contract is <strong>two positive integers</strong>; do not apply this version to zero or negatives.</p><p>The circle examples progress from printing a message, to passing parameters, to returning an area. For radius 5, the returned value is approximately 78.5398 and formatting to two decimals displays 78.54.</p><p><a href="solutions/2.1/basics/Main.java" download="Main.java">Download complete classroom reference Main.java</a></p></section><section id="triangleArea"><h2>6. triangleArea(double base, double height)</h2><p>Return the triangle area as double.</p><details><summary>Plan before coding</summary><p>Receive base and height; multiply them; divide by 2; return the result.</p></details><details><summary>Show beginner reference method</summary><pre tabindex="0"><code>public static double triangleArea(double base, double height) {
+    return base * height / 2;
+}</code></pre></details><p><strong>Test:</strong> 6, 8 → 24.0; 3, 5 → 7.5.</p><p>The double parameters make the division decimal arithmetic. Assume ordinary nonnegative dimensions.</p></section><section id="average"><h2>7. average(int n1, int n2, int n3)</h2><p>Return the average of three integers as double.</p><details><summary>Plan before coding</summary><p>Add the values using a double total, then divide by 3.</p></details><details><summary>Show beginner reference method</summary><pre tabindex="0"><code>public static double average(int n1, int n2, int n3) {
+    double total = n1;
+    total = total + n2 + n3;
+    return total / 3;
+}</code></pre></details><p><strong>Test:</strong> 65, 70, 75 → 70.0; 1, 2, 2 → about 1.6667.</p><p>A double return type alone does not fix integer division: (1 + 2 + 2) / 3 computes 1 before conversion. Use a double total or divide by 3.0. Initializing total from n1 also avoids int overflow when adding large int values.</p></section><section id="isDivisible"><h2>8. isDivisible(int num, int div)</h2><p>Return true when num is divisible by div; otherwise false.</p><details><summary>Plan before coding</summary><p>Guard against a zero divisor; compute the remainder; return whether it equals zero.</p></details><details><summary>Show beginner reference method</summary><pre tabindex="0"><code>public static boolean isDivisible(int num, int div) {
+    if (div == 0) {
+        return false;
+    }
+    return num % div == 0;
+}</code></pre></details><p><strong>Test:</strong> 8, 2 → true; 9, 4 → false; 3, 5 → false; 0, 3 → true.</p><p>The worksheet does not define div = 0. This reference returns false for that case to avoid ArithmeticException. Here % calculates a number; == turns the result into a boolean.</p></section><section id="factorial"><h2>9. factorial(int n)</h2><p>Return n!, or -1 for a negative n.</p><details><summary>Plan before coding</summary><p>Reject a negative n; start product at 1; multiply by 1 through n; return product.</p></details><details><summary>Show beginner reference method</summary><pre tabindex="0"><code>public static int factorial(int n) {
+    if (n &lt; 0) {
+        return -1;
+    }
+    int product = 1;
+    for (int i = 1; i &lt;= n; i++) {
+        product = product * i;
+    }
+    return product;
+}</code></pre></details><p><strong>Test:</strong> 5 → 120; 0 → 1; -5 → -1; 12 → 479001600.</p><p>For 0 the loop runs zero times, leaving product = 1. This int solution is accurate for 0–12. Beyond 12, overflow means int cannot represent the factorial; use the stated practice domain. The negative sentinel -1 follows the worksheet.</p></section><section id="strongNumber"><h2>10. strongNumber(int n)</h2><p>Return whether the number equals the sum of its digits’ factorials.</p><details><summary>Plan before coding</summary><p>Preserve n; extract each digit with % 10; call factorial(digit); add it; remove the digit with / 10; compare sum with n.</p></details><details><summary>Show beginner reference method</summary><pre tabindex="0"><code>public static boolean strongNumber(int n) {
+    if (n &lt; 0) {
+        return false;
+    }
+    int remaining = n;
+    int sum = 0;
+    do {
+        int digit = remaining % 10;
+        sum = sum + factorial(digit);
+        remaining = remaining / 10;
+    } while (remaining &gt; 0);
+    return sum == n;
+}</code></pre></details><p><strong>Test:</strong> 145 → true; 123 → false; 1 → true; 2 → true; 0 → false.</p><p>145 gives 1! + 4! + 5! = 1 + 24 + 120 = 145. Every digit is at most 9, so the factorial helper remains in its safe int range. A do-while processes 0 once: 0! = 1, so 0 is not strong. This example rejects negative n.</p></section><section id="size"><h2>11. size(int n)</h2><p>Return the number of decimal digits.</p><details><summary>Plan before coding</summary><p>Start count at 1; divide the magnitude by 10 while it has at least two digits; increase count each time.</p></details><details><summary>Show beginner reference method</summary><pre tabindex="0"><code>public static int size(int n) {
+    long remaining = n;
+    if (remaining &lt; 0) {
+        remaining = -remaining;
+    }
+    int count = 1;
+    while (remaining &gt;= 10) {
+        remaining = remaining / 10;
+        count++;
+    }
+    return count;
+}</code></pre></details><p><strong>Test:</strong> 6512 → 4; 9 → 1; 0 → 1; -247 → 3.</p><p>The worksheet’s examples mean digit count, despite the phrase “order of magnitude.” This reference counts 0 as one digit and ignores a minus sign. A long copy lets the magnitude of the smallest int be represented safely.</p></section><section id="armstrongNumbers"><h2>12. armstrongNumbers(int n)</h2><p>For a positive integer, compare n with the sum of each digit raised to the number of digits.</p><details><summary>Plan before coding</summary><p>Use size(n) for the exponent; extract a digit; multiply it by itself length times; add the power; repeat; compare.</p></details><details><summary>Show beginner reference method</summary><pre tabindex="0"><code>public static boolean armstrongNumbers(int n) {
+    if (n &lt;= 0) {
+        return false;
+    }
+    int length = size(n);
+    int remaining = n;
+    long sum = 0;
+    while (remaining &gt; 0) {
+        int digit = remaining % 10;
+        long power = 1;
+        for (int i = 1; i &lt;= length; i++) {
+            power = power * digit;
+        }
+        sum = sum + power;
+        remaining = remaining / 10;
+    }
+    return sum == n;
+}</code></pre></details><p><strong>Test:</strong> 153 → true; 346 → false; 1 → true; 9474 → true; 0 → false under the worksheet’s positive-integer definition.</p><p>153: 1³ + 5³ + 3³ = 153. 346: 3³ + 4³ + 6³ = 307. Strong numbers use factorials; Armstrong numbers use powers. long for sum and power prevents overflow for int inputs. A simple multiplication loop keeps the arithmetic integral; Math.pow returns double.</p></section><section id="challenge"><h2>13. Challenge: Helpful.java and Main.java</h2><p>Move the seven methods into <strong>public class Helpful</strong>, with no main in that class. Save it as Helpful.java. In the same project, save Main.java with its main method, and call <code>Helpful.methodName(...)</code>.</p><pre tabindex="0"><code>public class Main {
+    public static void main(String[] args) {
+        System.out.println(Helpful.triangleArea(6, 8));
+        System.out.println(Helpful.average(65, 70, 75));
+        System.out.println(Helpful.isDivisible(8, 2));
+        System.out.println(Helpful.isDivisible(9, 4));
+        System.out.println(Helpful.factorial(5));
+        System.out.println(Helpful.factorial(0));
+        System.out.println(Helpful.factorial(-5));
+        System.out.println(Helpful.strongNumber(145));
+        System.out.println(Helpful.size(6512));
+        System.out.println(Helpful.armstrongNumbers(153));
+    }
+}
+</code></pre><p>Download both files into the same project/source folder: <a href="solutions/2.1/helpful/Helpful.java" download="Helpful.java">Helpful.java</a> and <a href="solutions/2.1/helpful/Main.java" download="Main.java">Main.java</a>. Compile both (for example, javac Main.java Helpful.java), then run java Main. With a browser IDE, add both files and use its Run button.</p><p>Expected lines: 24.0, 70.0, true, false, 120, 1, -1, true, 4, true. The sample worksheet writes 24 and 70; println of a double displays 24.0 and 70.0, which are the same numeric results.</p></section><section id="quiz"><h2>14. Twelve paper checks</h2><p>These are Java Lab revision questions. Predict, explain and write on paper before opening the answers.</p><h3>1. Arguments or parameters?</h3><p>In <code>triangleArea(6, 8)</code>, are 6 and 8 arguments or parameters?</p><details><summary>Check answer and explanation</summary><p>Arguments. The declared variables base and height are parameters.</p></details><h3>2. Does return print?</h3><p>What appears on screen after <code>int result = calcArea(2, 3);</code> if calcArea only returns length * width?</p><details><summary>Check answer and explanation</summary><p>Nothing. result stores 6; a separate print is needed.</p></details><h3>3. Trace two calls</h3><pre tabindex="0"><code>int sum = getSum(5, 3);
+int sum2 = getSum(sum, sum);
+System.out.println(sum2);</code></pre><details><summary>Check answer and explanation</summary><p>16. The first call returns 8; the second receives 8 and 8 and returns 16.</p></details><h3>4. Fix integer division</h3><pre tabindex="0"><code>public static double average(int a, int b, int c) {
+    return (a + b + c) / 3;
+}</code></pre><p>For 1, 2, 2, why does this return 1.0? Fix it.</p><details><summary>Check answer and explanation</summary><p>The expression does integer division first. For ordinary small inputs divide by 3.0; the worksheet reference uses a double total before division, which also avoids overflow in the int addition.</p></details><h3>5. Fix a void call</h3><pre tabindex="0"><code>int answer = printHello();</code></pre><details><summary>Check answer and explanation</summary><p>A void method has no result to assign. Call <code>printHello();</code> on its own.</p></details><h3>6. Trace local changes</h3><pre tabindex="0"><code>int n = 4;
+change(n); // change assigns 99 to its int parameter
+System.out.println(n);</code></pre><details><summary>Check answer and explanation</summary><p>4. The method changes its own parameter copy, not n in main.</p></details><h3>7. Match the types</h3><p>Can calcArea(int length, int width) be called with calcArea(2.5, 3)?</p><details><summary>Check answer and explanation</summary><p>No. The double 2.5 cannot be implicitly narrowed to int. Use appropriate int arguments, or change the method’s contract if decimal dimensions are required.</p></details><h3>8. Missing return</h3><pre tabindex="0"><code>public static int bigger(int a, int b) {
+    if (a &gt; b) {
+        return a;
+    }
+}</code></pre><details><summary>Check answer and explanation</summary><p>This fails to compile: if a is not greater than b, the method reaches its end without returning an int. Add an else returning b or a return b after the if.</p></details><h3>9. Factorial boundary</h3><p>Why does factorial(0) return 1 instead of 0?</p><details><summary>Check answer and explanation</summary><p>The product starts at 1, and the loop has no iterations when n is 0. That matches 0! = 1.</p></details><h3>10. Count digits</h3><p>Trace size(10865). How many divisions occur?</p><details><summary>Check answer and explanation</summary><p>Four: 10865 → 1086 → 108 → 10 → 1. Count begins at 1 and becomes 5.</p></details><h3>11. Early return</h3><p>In gcf, what does return divisor do when a common factor is found?</p><details><summary>Check answer and explanation</summary><p>It ends the entire gcf method immediately and gives that factor to the caller. Searching downward makes the first match the greatest for positive inputs.</p></details><h3>12. Write a helper</h3><p>Write public static boolean isEven(int n), then call it from main for 7 and print the returned result.</p><details><summary>Check answer and explanation</summary><pre tabindex="0"><code>public static boolean isEven(int n) {
+    return n % 2 == 0;
+}
+// Inside main:
+System.out.println(isEven(7)); // false</code></pre></details></section><section id="checklist"><h2>15. Check your method before finishing</h2><ul><li>I can state its task, inputs and output in words.</li><li>I put helpers alongside main, inside the class.</li><li>My parameter count, order and types match the call.</li><li>I know whether the method prints, returns, or does both.</li><li>Every normally completing path of a non-void method returns a suitable value.</li><li>I preserve the original number when comparing with processed digits.</li><li>I tested ordinary and boundary cases, including 0 when relevant.</li></ul><p><strong>Notes corrections:</strong> the older circle notes declare non-static helpers but call them directly from static main. For this unit, add static. A void displayCircleArea call must stand alone, not inside System.out.print(). Method names beginning lowercase are a convention; the primitive boolean type is lowercase <code>boolean</code>, while <code>Boolean</code> is a separate wrapper class.</p></section><section id="sources"><h2>Classroom sources</h2><p>Based on 2.1 Methods.pdf, 2.1 Class Code.pdf, 2.1 Exercise Helpful Methods.pdf, Methods_Examples.pdf and Notes 1.10-Methods-ALL.pdf. The older notes’ number 1.10 refers to their methods topic; this page follows your class’s 2.1 numbering.</p><p>Reference implementations are rewritten study solutions. The zero-divisor policy and signed digit-count behavior are stated explicitly where the worksheet leaves them unspecified.</p><p><a href="review-unit1.html">Unit 1 Review</a> · <a href="./">All lessons</a></p></section></main></body></html>
