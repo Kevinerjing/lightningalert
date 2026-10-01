@@ -1,34 +1,34 @@
 {
-  "boardDate": "2026-09-30",
-  "generatedAt": "2026-09-30T16:59:53.001Z",
+  "boardDate": "2026-10-01",
+  "generatedAt": "2026-10-01T17:28:20.380Z",
   "sourceCount": 26,
   "weather": [
     {
       "city": "Ottawa",
-      "temperatureC": 15,
+      "temperatureC": 18,
       "maxC": 19,
-      "minC": 8,
+      "minC": 14,
       "summary": "Cloudy"
     }
   ],
   "extremeWeather": [
     {
-      "title": "Hurricane Polo makes landfall on Mexico's Pacific coast",
-      "whatHappened": "The storm moved ashore on the Baja California peninsula, which is a popular tourist destination.",
-      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
-      "keyWord": "extreme weather: unusual and dangerous weather like floods, storms, or heat waves",
-      "source": "BBC Science & Environment",
-      "url": "https://www.bbc.co.uk/news/articles/cw8d3z5y7958o?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-09-29T10:34:53.000Z"
-    },
-    {
-      "title": "Warning more homes will be uninsurable due to flood risk",
-      "whatHappened": "Aviva boss Amanda Blanc said England was \"for sure\" building homes that might be uninsurable at some point in the future.",
+      "title": "Prince of Wales tells villagers 'holistic' approach is needed to tackle flooding",
+      "whatHappened": "Prince William visits residents of Skenfrith, Monmouthshire, who have faced four floods in six years.",
       "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
       "keyWord": "flood: water covering land that is usually dry",
       "source": "BBC Science & Environment",
-      "url": "https://www.bbc.co.uk/news/articles/c60qxk288e57o?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-09-29T09:42:48.000Z"
+      "url": "https://www.bbc.co.uk/news/articles/cm1j4j9lxp49o?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-10-01T16:09:34.000Z"
+    },
+    {
+      "title": "Trekkers helicoptered off mountains as more deadly landslides hit Nepal",
+      "whatHappened": "A month after mass catastrophic flooding, around 30 people have died in landslides and heavy rain.",
+      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
+      "keyWord": "flood: water covering land that is usually dry",
+      "source": "BBC Science & Environment",
+      "url": "https://www.bbc.co.uk/news/articles/c607l4l3vn0eo?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-09-30T22:01:16.000Z"
     },
     {
       "title": "When a country goes underwater: Island States fight for their future",
@@ -51,6 +51,15 @@
   ],
   "climate": [
     {
+      "title": "Matt Kean warns climate crisis ‘isn’t someone else’s problem’ as largest coal project in NSW history greenlit",
+      "whatHappened": "Exclusive: Climate Change Authority chair says planning commission did not account for climate-related economic damage in NSW Sign up for climate and environment editor Adam Morton’s...",
+      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
+      "keyWord": "climate: the usual pattern of weather over a long period of time",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/australia-news/2026/oct/02/hunter-valley-operations-coal-mine-extension-nsw",
+      "publishedAt": "2026-10-01T15:00:54.000Z"
+    },
+    {
       "title": "Insects play critical role in ecosystems beyond just providing food, new research shows",
       "whatHappened": "Insects provide protection, sanitation and even shelter to vertebrates, making them a priority for conservation efforts For many vertebrates, insects are more than a food source.",
       "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
@@ -60,13 +69,31 @@
       "publishedAt": "2026-09-30T10:00:24.000Z"
     },
     {
-      "title": "Trump administration to slash clean car rules aimed at cutting climate emissions",
-      "whatHappened": "Environmentalists decry move that relaxes requirements on automakers to control pollution from gas-powered cars The Trump administration on Monday announced it was slashing clean car rules...",
+      "title": "US datacenter discharged large amounts of pollution for almost a year with no permits",
+      "whatHappened": "Records show Vineland facility in New Jersey emitted health-harming pollution before regulators stepped in DataOne, the Microsoft-linked New Jersey datacenter recently hit with a $1m fine...",
       "whyItMatters": "Climate and environment stories connect science to real issues like safety, health, and extreme weather.",
-      "keyWord": "emissions: gases released into the air",
+      "keyWord": "climate: the usual pattern of weather over a long period of time",
       "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/us-news/2026/sep/28/trump-administration-slashes-clean-car-rules",
-      "publishedAt": "2026-09-28T15:56:32.000Z"
+      "url": "https://www.theguardian.com/environment/2026/oct/01/us-datacenter-new-jersey-pollution",
+      "publishedAt": "2026-10-01T12:00:51.000Z"
+    },
+    {
+      "title": "Trump the environmentalist? How his Iran war exposed the fragility of dirty energy",
+      "whatHappened": "Gavin Newsom says Trump is a ‘gift’ to the climate cause for dispelling notions of fossil fuel energy security Of all the epithets hurled at Donald...",
+      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
+      "keyWord": "climate: the usual pattern of weather over a long period of time",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/us-news/2026/oct/01/trump-iran-war-oil-gas-energy",
+      "publishedAt": "2026-10-01T11:30:49.000Z"
+    },
+    {
+      "title": "The rare Bog Grass Moth found in nature reserve for first time",
+      "whatHappened": "Experts called it a \"special surprise\" to find an \"incredibly sparse moth\" in this habitat.",
+      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
+      "keyWord": "climate: the usual pattern of weather over a long period of time",
+      "source": "BBC Science & Environment",
+      "url": "https://www.bbc.co.uk/news/articles/cw4gqnnm4ymdo?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-10-01T05:03:12.000Z"
     },
     {
       "title": "LIVE: Climate change is here - What happens next is still in our hands",
@@ -76,33 +103,6 @@
       "source": "UN Climate",
       "url": "https://news.un.org/feed/view/en/story/2026/09/1168372",
       "publishedAt": "2026-09-23T12:00:00.000Z"
-    },
-    {
-      "title": "New UK gas and oil projects are a ‘no-brainer’, says EDF boss",
-      "whatHappened": "Developing North Sea fields does not contradict net zero goals, according to Simone Rossi New oil and gas projects are a “no-brainer” that pose “no contradiction”...",
-      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
-      "keyWord": "renewable energy: energy from sources that can be used again, like sun or wind",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/business/2026/sep/30/uk-gas-and-oil-climate-crisis-energy-edf-boss",
-      "publishedAt": "2026-09-30T16:24:53.000Z"
-    },
-    {
-      "title": "California rushes to prepare for massive ‘Kelvin’ wave and predicted sea level rise",
-      "whatHappened": "Wave nearing southern California expected to reach San Francisco Bay Area by October as it crawls toward Alaska Communities across California are rushing to prepare for...",
-      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
-      "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/us-news/2026/sep/30/california-kelvin-wave-sea-level-rise",
-      "publishedAt": "2026-09-30T11:00:39.000Z"
-    },
-    {
-      "title": "‘It’s just cruel’: US households hit by surge in electricity shutoffs amid record hot summer",
-      "whatHappened": "Utility disconnections were up 28% in 10 states in July 2026 – the hottest month ever recorded in the US – compared with July 2024, data...",
-      "whyItMatters": "Climate and environment stories connect science to real issues like safety, health, and extreme weather.",
-      "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/environment/2026/sep/29/electricity-disconnected-record-heat",
-      "publishedAt": "2026-09-29T13:00:51.000Z"
     }
   ],
   "weatherTech": [],
@@ -144,21 +144,21 @@
       "publishedAt": "2026-09-04T14:35:10.000Z"
     },
     {
+      "title": "Turning environmental research into urban action",
+      "whatHappened": "Tue, 22 Sep 2026 12:00:00 +0000 Jo Fitzgibbons (MES ’19) is a planner and researcher turning environmental research into practical change in Canadian cities.",
+      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
+      "keyWord": "research: careful study used to discover new knowledge",
+      "source": "Waterloo Environment",
+      "url": "https://uwaterloo.ca/environment/news/turning-environmental-research-urban-action",
+      "publishedAt": "2026-09-22T12:00:00.000Z"
+    },
+    {
       "title": "Investing in the next generation of environmental leaders",
       "whatHappened": "Tue, 22 Sep 2026 12:00:00 +0000 KEEN Footwear is a long-standing partner of the University of Waterloo's Faculty of Environment, helping students turn environmental knowledge into...",
       "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
       "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
       "source": "Waterloo Environment",
       "url": "https://uwaterloo.ca/environment/news/investing-next-generation-environmental-leaders",
-      "publishedAt": "2026-09-22T12:00:00.000Z"
-    },
-    {
-      "title": "2026 Faculty of Environment Alumni Awards announced",
-      "whatHappened": "Tue, 22 Sep 2026 12:00:00 +0000 From changing how children learn about the world around them to rethinking how cities grow, strengthening connections between research and...",
-      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
-      "keyWord": "research: careful study used to discover new knowledge",
-      "source": "Waterloo Environment",
-      "url": "https://uwaterloo.ca/environment/news/2026-faculty-environment-alumni-awards-announced",
       "publishedAt": "2026-09-22T12:00:00.000Z"
     },
     {
@@ -189,24 +189,6 @@
       "publishedAt": "2026-09-08T04:00:00.000Z"
     },
     {
-      "title": "This Berkeley artist was given six months to live. Now he’s asking us to rethink our relationship with water.",
-      "whatHappened": "A double-lung transplant reshaped Professor Greg Niemeyer’s understanding of water as circulation, inspiring his latest art installation, now on view at the Worth Ryder Art Gallery.",
-      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
-      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
-      "source": "Berkeley News",
-      "url": "https://news.berkeley.edu/2026/09/24/this-berkeley-artist-was-given-six-months-to-live-now-hes-asking-us-to-rethink-our-relationship-with-water/",
-      "publishedAt": "2026-09-24T21:09:47.000Z"
-    },
-    {
-      "title": "Desert soils pull in carbon dioxide at night, Berkeley researchers find",
-      "whatHappened": "In a first, scientists reveal an unexpected carbon cycle occurring in the Mojave Desert.",
-      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
-      "keyWord": "research: careful study used to discover new knowledge",
-      "source": "Berkeley News",
-      "url": "https://ourenvironment.berkeley.edu/news/uc-berkeley-scientists-find-carbon-cycle-hiding-desert-minerals",
-      "publishedAt": "2026-09-23T18:49:24.000Z"
-    },
-    {
       "title": "Translating economic growth into better lives",
       "whatHappened": "Graduate student Lyonel Tanganco investigates how to improve public policy interventions and address challenges in nutrition, climate, and development.",
       "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
@@ -214,6 +196,15 @@
       "source": "MIT Earth & Atmospheric Sciences",
       "url": "https://news.mit.edu/2026/translating-economic-growth-into-better-lives-lyonel-tanganco-0831",
       "publishedAt": "2026-08-31T20:40:00.000Z"
+    },
+    {
+      "title": "Canadian telescope directly maps earliest glow of hydrogen, opening a new window on the universe",
+      "whatHappened": "The CHIME telescope has made its first standalone detection of the glow of hydrogen from when the universe was about five billion years old, paving the...",
+      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
+      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
+      "source": "UBC News",
+      "url": "https://news.ubc.ca/2026/09/canadian-telescope-maps-earliest-glow-of-hydrogen/",
+      "publishedAt": "2026-09-28T14:55:00.000Z"
     }
   ]
 }
