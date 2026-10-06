@@ -1,0 +1,89 @@
+<!doctype html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>More on Strings | Java 2.3</title><link rel="stylesheet" href="style.css"><link rel="stylesheet" href="study.css"><style>.study pre{color:#e6edff;background:#20292a}.study code{overflow-wrap:anywhere}@media print{header,nav{display:none}.study{margin:0;padding:0;max-width:none}.study pre{background:#f3f4f5;color:#18283b;font-size:9pt}.study h2,.study h3{break-after:avoid}}</style></head><body><header><a href="./" class="brand">{ } <span>JAVA LAB</span></a><a href="./">All lessons</a></header><main class="lesson-list study"><p class="eyebrow">UNIT 2 / LESSON 2.3</p><h1>More on Strings</h1><p class="callout">Plan in words, try one example by hand, then translate your steps into Java. Predict and write before opening a solution.</p><nav aria-label="Lesson sections"><a href="#finder">1. Find a prefix</a><a href="#count">2. Count a character</a><a href="#trace">3. Trace every character</a><a href="#methods">4. Compare, replace and change case</a><a href="#debug">5. Find and fix the whole program</a><a href="#challenge">6. Complete handwritten programming task</a><a href="#checks">7. Eight paper checks</a><a href="#sources">Classroom source</a></nav><section id="finder"><h2>1. Find a prefix</h2><p><strong>Task:</strong> return the text before the first occurrence of a character. Plan: search → check whether found → take the prefix → return.</p><p>The worksheet description mentions String then char, but its sample call and solution use <code>charFinder(char c, String str)</code>. Follow that signature consistently.</p><details><summary>Show charFinder</summary><pre tabindex="0"><code>    public static String charFinder(char c, String str) {
+        int index = str.indexOf(c);
+        if (index == -1) {
+            return str;
+        }
+        return str.substring(0, index);
+    }</code></pre></details><div class="table-scroll"><table><thead><tr><th>Call</th><th>Result</th></tr></thead><tbody><tr><td>charFinder(&#x27;l&#x27;, &quot;Welcome to EOM!&quot;)</td><td>We</td></tr><tr><td>charFinder(&#x27;W&#x27;, &quot;Welcome&quot;)</td><td>empty String</td></tr><tr><td>charFinder(&#x27;z&#x27;, &quot;Welcome&quot;)</td><td>Welcome</td></tr><tr><td>charFinder(&#x27;a&#x27;, &quot;&quot;)</td><td>empty String</td></tr></tbody></table></div><p>The slides do not define the absent-character case. Our reference returns the original text when indexOf returns -1, preventing substring(0, -1).</p></section><section id="count"><h2>2. Count a character</h2><p><strong>Task:</strong> count every matching character. Plan: start at 0 → visit each index → compare → increment when matching → return after the entire loop.</p><details><summary>Show countChar</summary><pre tabindex="0"><code>    public static int countChar(String str, char c) {
+        int count = 0;
+        for (int i = 0; i &lt; str.length(); i++) {
+            if (str.charAt(i) == c) {
+                count++;
+            }
+        }
+        return count;
+    }</code></pre></details><p>Use == to compare two char values, but equals to compare String content. count is initialized once before the loop. return belongs after the loop; putting it inside would stop the scan early.</p><div class="table-scroll"><table><thead><tr><th>Input</th><th>Result</th></tr></thead><tbody><tr><td>countChar(&quot;Happy Birthday to you!&quot;, &#x27;a&#x27;)</td><td>2</td></tr><tr><td>countChar(&quot;banana&quot;, &#x27;a&#x27;)</td><td>3</td></tr><tr><td>countChar(&quot;AAA&quot;, &#x27;a&#x27;)</td><td>0</td></tr><tr><td>countChar(&quot;&quot;, &#x27;a&#x27;)</td><td>0</td></tr></tbody></table></div></section><section id="trace"><h2>3. Trace every character</h2><div class="table-scroll"><table><thead><tr><th>i</th><th>Character</th><th>Matches a?</th><th>count after iteration</th></tr></thead><tbody><tr><td>0</td><td>b</td><td>false</td><td>0</td></tr><tr><td>1</td><td>a</td><td>true</td><td>1</td></tr><tr><td>2</td><td>n</td><td>false</td><td>1</td></tr><tr><td>3</td><td>a</td><td>true</td><td>2</td></tr><tr><td>4</td><td>n</td><td>false</td><td>2</td></tr><tr><td>5</td><td>a</td><td>true</td><td>3</td></tr></tbody></table></div><p>After the last iteration, i becomes 6. 6 &lt; 6 is false. The method returns 3; main then prints it. Six loop iterations do not mean the result is six.</p><pre tabindex="0"><code>String word = &quot;Wow&quot;;
+for (int i = 0; i &lt; word.length(); i++) {
+    System.out.println(word.charAt(i));
+}</code></pre><p>Exact output is three lines: W, o, w. Record every print statement in order, including text output.</p></section><section id="methods"><h2>4. Compare, replace and change case</h2><h3>compareTo: interpret the sign</h3><pre tabindex="0"><code>System.out.println(&quot;apple&quot;.compareTo(&quot;orange&quot;)); // -14
+System.out.println(&quot;cat&quot;.compareTo(&quot;cat&quot;));      // 0
+System.out.println(&quot;dog&quot;.compareTo(&quot;cat&quot;));      // positive</code></pre><p>Java compares character values from left to right; the first difference decides. If one String is a prefix of the other, length decides. It is case-sensitive and is not a dictionary sorting rule for every language. Do not test only for -1 or 1: negative, zero, positive are the meaningful categories.</p><h3>Case and start/end checks</h3><pre tabindex="0"><code>System.out.println(&quot;apple&quot;.equalsIgnoreCase(&quot;Apple&quot;)); // true
+System.out.println(&quot;Happily&quot;.endsWith(&quot;ly&quot;));          // true
+System.out.println(&quot;Relax&quot;.startsWith(&quot;re&quot;));          // false
+String word = &quot;Awesome&quot;;
+System.out.println(word.toLowerCase()); // awesome
+System.out.println(word);               // Awesome
+word = word.toUpperCase();              // save new text</code></pre><h3>Replacing text: save the returned String</h3><pre tabindex="0"><code>String text = &quot;Happy Birthday!&quot;;
+text = text.replace(&#x27;a&#x27;, &#x27;A&#x27;);
+System.out.println(text); // HAppy BirthdAy!
+System.out.println(&quot;Happy Birthday!&quot;.replaceAll(&quot;Happy&quot;, &quot;Good&quot;));</code></pre><p>replace uses literal characters/text; replaceAll and replaceFirst interpret regex patterns. For literal text, replace is simpler. For example, replaceAll(".", "x") matches every character, whereas replace(".", "x") replaces literal periods. The slide’s replaceAll expression has an extra closing parenthesis; the runnable version above fixes it.</p></section><section id="debug"><h2>5. Find and fix the whole program</h2><p>Find every problem in this attempted character counter. First check compilation, then index safety, then the intended count. Test a match at index 0, several matches, and an empty String.</p><pre tabindex="0"><code>public static int countChar(String str, char c) {
+    int count = 0;
+    for (int i = 1; i &lt;= str.length(); i++) {
+        if (str.charAt[i] = c) {
+            count = +1;
+        }
+        return count;
+    }
+}</code></pre><details><summary>Reveal corrections</summary><ul><li>charAt[i] → charAt(i): method-call syntax.</li><li>= → ==: compare the char values.</li><li>Start i at 0 to include the first character.</li><li>Use i &lt; str.length() to stay inside the valid indices.</li><li>count = +1 sets count to positive one; use count++ or count = count + 1.</li><li>Move return count after the loop: this both allows the entire scan and supplies a return for empty text.</li></ul><pre tabindex="0"><code>    public static int countChar(String str, char c) {
+        int count = 0;
+        for (int i = 0; i &lt; str.length(); i++) {
+            if (str.charAt(i) == c) {
+                count++;
+            }
+        }
+        return count;
+    }</code></pre></details><h3>Your repeatable checking routine</h3><ol><li>Read the intended task and write a hand-calculated example.</li><li>Check syntax: names, declarations, calls, punctuation and types.</li><li>Check runtime risks: empty text, -1 search results, invalid indices.</li><li>Check logic: start/end/update, count initialization, return location and every output.</li><li>Write each correction immediately; then scan the whole program again.</li></ol></section><section id="challenge"><h2>6. Complete handwritten programming task</h2><p><strong>Write from a blank page:</strong> read a full line, read exactly one target character, print its prefix, count its occurrences and print the text vertically.</p><ol><li>Inputs: text and a one-character String, then extract its char.</li><li>Processing: call charFinder and countChar.</li><li>Outputs: print the returned results, then call printVertical.</li><li>Repetition: retry the target input until its length is one.</li></ol><details><summary>Show full beginner Main.java</summary><pre tabindex="0"><code>import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        System.out.print(&quot;Enter a line of text: &quot;);
+        String text = input.nextLine();
+        System.out.print(&quot;Enter one character to count: &quot;);
+        String target = input.nextLine();
+        while (target.length() != 1) {
+            System.out.print(&quot;Enter exactly one character: &quot;);
+            target = input.nextLine();
+        }
+        char c = target.charAt(0);
+        System.out.println(&quot;Before first match: &quot; + charFinder(c, text));
+        System.out.println(&quot;Matches: &quot; + countChar(text, c));
+        System.out.println(&quot;Text vertically:&quot;);
+        printVertical(text);
+        input.close();
+    }
+
+    // Policy when absent: return the whole original string.
+    public static String charFinder(char c, String str) {
+        int index = str.indexOf(c);
+        if (index == -1) {
+            return str;
+        }
+        return str.substring(0, index);
+    }
+    public static int countChar(String str, char c) {
+        int count = 0;
+        for (int i = 0; i &lt; str.length(); i++) {
+            if (str.charAt(i) == c) {
+                count++;
+            }
+        }
+        return count;
+    }
+    public static void printVertical(String str) {
+        for (int i = 0; i &lt; str.length(); i++) {
+            System.out.println(str.charAt(i));
+        }
+    }
+}
+</code></pre></details><p><a href="solutions/2.3/Main.java" download="Main.java">Download complete Main.java</a>. Compile with javac Main.java, then run java Main. nextLine reads spaces too. If a program first uses nextInt, consume its remaining line ending before the next text nextLine.</p><p>Try text banana and target a: prefix b; matches 3; vertical output b, a, n, a, n, a on six lines. Try empty text and a: empty prefix; matches 0; no vertical characters.</p></section><section id="checks"><h2>7. Eight paper checks</h2><h3>1. Where should return count go?</h3><details><summary>Check answer</summary><p>After the loop, so all characters are visited.</p></details><h3>2. Why i &lt; str.length(), not &lt;=?</h3><details><summary>Check answer</summary><p>The last valid charAt index is length() - 1.</p></details><h3>3. Does toUpperCase change the original variable automatically?</h3><details><summary>Check answer</summary><p>No. Assign the returned String to save it.</p></details><h3>4. Does compareTo return only -1, 0 or 1?</h3><details><summary>Check answer</summary><p>No. Interpret the sign.</p></details><h3>5. What happens when indexOf finds the target at position 0?</h3><details><summary>Check answer</summary><p>substring(0, 0) returns an empty String.</p></details><h3>6. What are the countChar results for AaA with targets A and a?</h3><details><summary>Check answer</summary><p>2 and 1, because matching is case-sensitive.</p></details><h3>7. Why must count not reset inside the loop?</h3><details><summary>Check answer</summary><p>Resetting loses earlier matches.</p></details><h3>8. What does break in a character loop exit?</h3><details><summary>Check answer</summary><p>The nearest loop, not the entire method or program.</p></details></section><section id="sources"><h2>Classroom source</h2><p>Based on 2.3 More on Strings.pdf. Reference solutions add explicitly stated handling for absent characters and validate the one-character input.</p></section><p><a href="lesson21.html">2.1 Methods</a> · <a href="lesson22.html">2.2 Strings</a> · <a href="lesson23.html">2.3 More on Strings</a> · <a href="./">All lessons</a></p></main></body></html>
