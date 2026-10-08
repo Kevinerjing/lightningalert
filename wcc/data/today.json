@@ -1,35 +1,17 @@
 {
-  "boardDate": "2026-10-07",
-  "generatedAt": "2026-10-07T17:58:11.661Z",
+  "boardDate": "2026-10-08",
+  "generatedAt": "2026-10-08T17:58:59.187Z",
   "sourceCount": 26,
   "weather": [
     {
       "city": "Ottawa",
-      "temperatureC": 12,
+      "temperatureC": 16,
       "maxC": 17,
-      "minC": 3,
-      "summary": "Cloudy"
+      "minC": 9,
+      "summary": "Clear skies"
     }
   ],
   "extremeWeather": [
-    {
-      "title": "Q&A: ‘Are the warnings all hype?’ – our environment writers answered your El Niño questions",
-      "whatHappened": "Guardian reporters Jonathan Watts and Gabrielle Canon answered your question climate and extreme weather, from what to expect this winter in the UK to the increasing...",
-      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
-      "keyWord": "extreme weather: unusual and dangerous weather like floods, storms, or heat waves",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/community/live/2026/oct/07/a-godzilla-level-el-nino-is-causing-extreme-weather-conditions-around-the-world-put-your-questions-to-our-environment-writers",
-      "publishedAt": "2026-10-07T17:37:05.000Z"
-    },
-    {
-      "title": "Tropical Storm Isaias forecast to become first Atlantic hurricane of 2026",
-      "whatHappened": "El Niño has led to an eerily quiet season so far but the first Atlantic hurricane of the year is now set to impact the southern...",
-      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
-      "keyWord": "extreme weather: unusual and dangerous weather like floods, storms, or heat waves",
-      "source": "BBC Science & Environment",
-      "url": "https://www.bbc.co.uk/weather/articles/cw146l6pnvx0o?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-10-07T15:46:46.000Z"
-    },
     {
       "title": "Landslides, flash floods and raging seas: is California ready for the ravages of El Niño?",
       "whatHappened": "A mix of natural disasters could all befall the state at once as it finds itself in the crosshairs of the climate phenomenon On a cloudless...",
@@ -38,6 +20,24 @@
       "source": "The Guardian Environment",
       "url": "https://www.theguardian.com/us-news/2026/oct/07/california-el-nino-preparedness",
       "publishedAt": "2026-10-07T14:30:52.000Z"
+    },
+    {
+      "title": "First Hurricane of the Atlantic season due to hit the Gulf coast",
+      "whatHappened": "El Niño has led to an eerily quiet season so far but the first Atlantic hurricane of the year is now set to impact the southern...",
+      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
+      "keyWord": "extreme weather: unusual and dangerous weather like floods, storms, or heat waves",
+      "source": "BBC Science & Environment",
+      "url": "https://www.bbc.co.uk/weather/articles/cw146l6pnvx0o?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-10-08T17:15:33.000Z"
+    },
+    {
+      "title": "Residents airlifted to safety after flooding in central Chile",
+      "whatHappened": "The Mapocho river has burst its banks after an unusually large amount of rain fell in recent days.",
+      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
+      "keyWord": "flood: water covering land that is usually dry",
+      "source": "BBC Science & Environment",
+      "url": "https://www.bbc.co.uk/news/articles/ck5yn8jn677vo?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-10-08T11:31:22.000Z"
     },
     {
       "title": "Rainmakers: The drones used to seed clouds",
@@ -69,15 +69,6 @@
   ],
   "climate": [
     {
-      "title": "Q&A: ‘Godzilla-level’ El Niño is causing extreme weather – our environment writers answer your questions – live",
-      "whatHappened": "Guardian reporters Jonathan Watts and Gabrielle Canon are online answering your questions on climate and extreme weather from what to expect this winter in the UK...",
-      "whyItMatters": "Climate and environment stories connect science to real issues like safety, health, and extreme weather.",
-      "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/community/live/2026/oct/07/a-godzilla-level-el-nino-is-causing-extreme-weather-conditions-around-the-world-put-your-questions-to-our-environment-writers",
-      "publishedAt": "2026-10-07T17:37:05.000Z"
-    },
-    {
       "title": "Rotting food waste emits 5 times more greenhouse gases than planes",
       "whatHappened": "Rotting food waste is causing up to 10 per cent of total global greenhouse gas emissions – five times more than the entire aviation sector, the...",
       "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
@@ -85,6 +76,15 @@
       "source": "UN Climate",
       "url": "https://news.un.org/feed/view/en/story/2026/10/1168507",
       "publishedAt": "2026-10-03T12:00:00.000Z"
+    },
+    {
+      "title": "Seychelles giant tortoise numbers hit record 180,000 in conservation triumph",
+      "whatHappened": "Free-roaming Aldabra population thrives on Indian Ocean atoll due to decades-long recovery programme A survey of the world’s largest free-roaming giant tortoise population has revealed that...",
+      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
+      "keyWord": "climate: the usual pattern of weather over a long period of time",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/environment/2026/oct/08/researchers-find-180000-giant-tortoises-living-on-island-in-seychelles",
+      "publishedAt": "2026-10-08T17:03:42.000Z"
     },
     {
       "title": "US supreme court hears big oil’s bid to block climate damage lawsuits",
@@ -96,13 +96,13 @@
       "publishedAt": "2026-10-05T19:57:36.000Z"
     },
     {
-      "title": "More than 1,200 Colorado students have earned a climate ‘seal’: ‘We’re the ones growing up in this world’",
-      "whatHappened": "A statewide initiative pairs climate-focused coursework with community service – and is spreading to other states As a student at a high school not far from...",
+      "title": "UK bluefin tuna comeback shows nature can recover, says WWF",
+      "whatHappened": "The tuna is one of several wildlife recoveries highlighted in a major new report from WWF.",
       "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
       "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/us-news/2026/oct/04/colorado-climate-high-school-students",
-      "publishedAt": "2026-10-04T12:30:27.000Z"
+      "source": "BBC Science & Environment",
+      "url": "https://www.bbc.co.uk/news/articles/c5rmyzgdjzkwo?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-10-08T05:00:04.000Z"
     },
     {
       "title": "World's largest penguin colony hit by 'alarming' decline in numbers",
@@ -125,13 +125,13 @@
   ],
   "weatherTech": [
     {
-      "title": "Tropical Storm Isaias forecast to become first Atlantic hurricane of 2026",
-      "whatHappened": "El Niño has led to an eerily quiet season so far but the first Atlantic hurricane of the year is now set to impact the southern...",
+      "title": "Elon Musk questions Ambani’s influence as Starlink India launch stalls",
+      "whatHappened": "“Is Ambani the real boss of India?” Elon Musk asked as he questioned why Starlink has yet to launch its satellite internet service in the country.",
       "whyItMatters": "Weather technology shows how science tools can predict conditions faster and help people prepare earlier.",
-      "keyWord": "forecast: a prediction about future weather conditions",
-      "source": "BBC Science & Environment",
-      "url": "https://www.bbc.co.uk/weather/articles/cw146l6pnvx0o?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-10-07T15:46:46.000Z"
+      "keyWord": "satellite: an object in space that collects information and sends it back to Earth",
+      "source": "TechCrunch",
+      "url": "https://techcrunch.com/2026/10/08/india-rejects-elon-musks-claim-of-discrimination-over-starlink-launch/",
+      "publishedAt": "2026-10-08T15:12:59.000Z"
     },
     {
       "title": "Snakes, bobcats, mountain lions: the secret animal world beneath the Hollywood sign",
@@ -154,13 +154,13 @@
       "publishedAt": "2025-07-29T18:25:35.000Z"
     },
     {
-      "title": "Changing the way we research could fix the oceans’ crisis",
-      "whatHappened": "Marine scientists are finding new ways to understand how other organisms experience their environment, from tiny shifts in temperature and water movement to the limits of...",
+      "title": "Lamont Researchers Receive Major Earth Science Honors from the American Geophysical Union",
+      "whatHappened": "Five Lamont scientists received major 2026 honors recognizing research on sea-level change, ocean carbon uptake, seafloor mapping and Earth’s deep interior.",
       "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
       "keyWord": "research: careful study used to discover new knowledge",
-      "source": "Northeastern Global News",
-      "url": "https://news.northeastern.edu/2026/10/02/ocean-crisis-research/",
-      "publishedAt": "2026-10-02T19:34:24.000Z"
+      "source": "Columbia Climate School",
+      "url": "https://news.climate.columbia.edu/2026/10/08/lamont-researchers-receive-major-earth-science-honors-from-the-american-geophysical-union/",
+      "publishedAt": "2026-10-08T14:56:33.000Z"
     },
     {
       "title": "Columbia Climate School Hosts City Leaders to Address Energy Affordability and Climate Action",
@@ -179,6 +179,15 @@
       "source": "Carleton Sustainability",
       "url": "https://carleton.ca/sustainability/2026/carleton-advances-to-silver-tier-in-canadas-net-zero-challenge/",
       "publishedAt": "2026-09-04T14:35:10.000Z"
+    },
+    {
+      "title": "Using AI to mitigate the growing environmental threat of data centers",
+      "whatHappened": "By rethinking how large cloud computing systems operate, Associate Professor Christina Delimitrou seeks to make data centers more energy efficient.",
+      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
+      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
+      "source": "MIT Climate & Sustainability",
+      "url": "https://news.mit.edu/2026/mitigating-environmental-threat-of-data-centers-christina-delimitrou-1008",
+      "publishedAt": "2026-10-08T04:00:00.000Z"
     },
     {
       "title": "2026 Faculty of Environment Alumni Awards announced",
@@ -208,15 +217,6 @@
       "publishedAt": "2026-09-18T16:55:00.000Z"
     },
     {
-      "title": "Marine bacteria team up to break down one of the ocean's toughest carbon-storing molecules",
-      "whatHappened": "Researchers reveal how communities of marine bacteria divide the task of degrading fucoidan, a key player in ocean carbon storage.",
-      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
-      "keyWord": "research: careful study used to discover new knowledge",
-      "source": "MIT Climate & Sustainability",
-      "url": "https://news.mit.edu/2026/marine-bacteria-team-up-to-break-down-carbon-storing-molecules-0914",
-      "publishedAt": "2026-09-14T20:30:00.000Z"
-    },
-    {
       "title": "Study predicts large disparities in access to food, water, and energy in 2050",
       "whatHappened": "In some regions of the world, the poorest people may spend about 50 percent of their income on food, while the richest spend about 5 percent.",
       "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
@@ -224,15 +224,6 @@
       "source": "MIT Earth & Atmospheric Sciences",
       "url": "https://news.mit.edu/2026/study-predicts-large-disparities-access-food-water-energy-2050-0908",
       "publishedAt": "2026-09-08T04:00:00.000Z"
-    },
-    {
-      "title": "A spider in disguise puts wildlife travel habits in the spotlight",
-      "whatHappened": "Wendy the wasp spider has turned up in a new neighborhood in northern England.",
-      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
-      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
-      "source": "Northeastern Global News",
-      "url": "https://news.northeastern.edu/2026/10/02/wasp-spider-chester-zoo/",
-      "publishedAt": "2026-10-02T21:28:20.000Z"
     },
     {
       "title": "On complex political issues, most Americans take shortcuts to simplicity",
@@ -244,13 +235,13 @@
       "publishedAt": "2026-10-01T23:04:48.000Z"
     },
     {
-      "title": "El Niño 2026: How Big Could It Get?",
-      "whatHappened": "The current El Niño will break all sea-surface temperature records to date and will very likely deliver unprecedented weather-related impacts around the world.",
+      "title": "Canadian telescope directly maps earliest glow of hydrogen, opening a new window on the universe",
+      "whatHappened": "The CHIME telescope has made its first standalone detection of the glow of hydrogen from when the universe was about five billion years old, paving the...",
       "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
       "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
-      "source": "Columbia Climate School",
-      "url": "https://news.climate.columbia.edu/2026/10/01/el-nino-2026-how-big-could-it-get/",
-      "publishedAt": "2026-10-01T21:14:09.000Z"
+      "source": "UBC News",
+      "url": "https://news.ubc.ca/2026/09/canadian-telescope-maps-earliest-glow-of-hydrogen/",
+      "publishedAt": "2026-09-28T14:55:00.000Z"
     }
   ]
 }
