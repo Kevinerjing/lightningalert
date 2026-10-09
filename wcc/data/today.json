@@ -1,19 +1,46 @@
 {
-  "boardDate": "2026-10-08",
-  "generatedAt": "2026-10-08T17:58:59.187Z",
+  "boardDate": "2026-10-09",
+  "generatedAt": "2026-10-09T17:33:12.474Z",
   "sourceCount": 26,
   "weather": [
     {
       "city": "Ottawa",
-      "temperatureC": 16,
-      "maxC": 17,
-      "minC": 9,
-      "summary": "Clear skies"
+      "temperatureC": 13,
+      "maxC": 13,
+      "minC": 5,
+      "summary": "Cloudy"
     }
   ],
   "extremeWeather": [
     {
-      "title": "Landslides, flash floods and raging seas: is California ready for the ravages of El Niño?",
+      "title": "Isaias becomes major category three storm before landfall",
+      "whatHappened": "Isaias, the first hurricane of the Atlantic season has been continuing to strengthen and is now a category three 'major' hurricane.",
+      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
+      "keyWord": "extreme weather: unusual and dangerous weather like floods, storms, or heat waves",
+      "source": "BBC Science & Environment",
+      "url": "https://www.bbc.co.uk/news/videos/cmewe552de72o?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-10-09T16:46:32.000Z"
+    },
+    {
+      "title": "Hurricane Isaias strengthens as it heads towards land",
+      "whatHappened": "Isaias will bring damaging winds, torrential rain and a storm surge with landfall expected late Friday.",
+      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
+      "keyWord": "extreme weather: unusual and dangerous weather like floods, storms, or heat waves",
+      "source": "BBC Science & Environment",
+      "url": "https://www.bbc.co.uk/news/videos/cw073kg2dgr9o?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-10-09T14:23:57.000Z"
+    },
+    {
+      "title": "Hurricane Isaias strengthens to a major category three storm",
+      "whatHappened": "El Niño has led to a quiet season so far but the first Atlantic hurricane of the year is set to make landfall later on Friday...",
+      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
+      "keyWord": "extreme weather: unusual and dangerous weather like floods, storms, or heat waves",
+      "source": "BBC Science & Environment",
+      "url": "https://www.bbc.co.uk/weather/articles/cw146l6pnvx0o?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-10-09T12:54:28.000Z"
+    },
+    {
+      "title": "‘Like an earthquake’: El Niño is coming for California – is the state ready?",
       "whatHappened": "A mix of natural disasters could all befall the state at once as it finds itself in the crosshairs of the climate phenomenon On a cloudless...",
       "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
       "keyWord": "flood: water covering land that is usually dry",
@@ -22,31 +49,13 @@
       "publishedAt": "2026-10-07T14:30:52.000Z"
     },
     {
-      "title": "First Hurricane of the Atlantic season due to hit the Gulf coast",
-      "whatHappened": "El Niño has led to an eerily quiet season so far but the first Atlantic hurricane of the year is now set to impact the southern...",
-      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
-      "keyWord": "extreme weather: unusual and dangerous weather like floods, storms, or heat waves",
-      "source": "BBC Science & Environment",
-      "url": "https://www.bbc.co.uk/weather/articles/cw146l6pnvx0o?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-10-08T17:15:33.000Z"
-    },
-    {
-      "title": "Residents airlifted to safety after flooding in central Chile",
-      "whatHappened": "The Mapocho river has burst its banks after an unusually large amount of rain fell in recent days.",
+      "title": "Amid heartache of Nepal flooding disaster, fear remains",
+      "whatHappened": "Six weeks after Nepal’s deadly flooding disaster, communities are still struggling to rebuild their lives,&nbsp;but they will need sustained help as global warming increases the risk...",
       "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
       "keyWord": "flood: water covering land that is usually dry",
-      "source": "BBC Science & Environment",
-      "url": "https://www.bbc.co.uk/news/articles/ck5yn8jn677vo?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-10-08T11:31:22.000Z"
-    },
-    {
-      "title": "Rainmakers: The drones used to seed clouds",
-      "whatHappened": "Cloud seeding is gaining attention as countries look to boost rainfall - will drones help?",
-      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
-      "keyWord": "extreme weather: unusual and dangerous weather like floods, storms, or heat waves",
-      "source": "BBC Science & Environment",
-      "url": "https://www.bbc.co.uk/news/articles/c64g71j4lgyjo?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-10-07T07:09:32.000Z"
+      "source": "UN Climate",
+      "url": "https://news.un.org/feed/view/en/story/2026/10/1168561",
+      "publishedAt": "2026-10-09T12:00:00.000Z"
     },
     {
       "title": "From drought to deluge: ‘Super’ El Niño’s expanding reach",
@@ -56,15 +65,6 @@
       "source": "UN Climate",
       "url": "https://news.un.org/feed/view/en/story/2026/10/1168537",
       "publishedAt": "2026-10-06T12:00:00.000Z"
-    },
-    {
-      "title": "US households pay 62% more for water than they did a decade ago, study finds",
-      "whatHappened": "For-profit water corporations, federal cuts and climate crisis are ‘supercharging water rate hikes’, study co-author says US households are paying 62% more for drinking water than...",
-      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
-      "keyWord": "extreme weather: unusual and dangerous weather like floods, storms, or heat waves",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/us-news/2026/oct/06/households-drinking-water-cost-study",
-      "publishedAt": "2026-10-06T09:00:09.000Z"
     }
   ],
   "climate": [
@@ -78,15 +78,6 @@
       "publishedAt": "2026-10-03T12:00:00.000Z"
     },
     {
-      "title": "Seychelles giant tortoise numbers hit record 180,000 in conservation triumph",
-      "whatHappened": "Free-roaming Aldabra population thrives on Indian Ocean atoll due to decades-long recovery programme A survey of the world’s largest free-roaming giant tortoise population has revealed that...",
-      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
-      "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/environment/2026/oct/08/researchers-find-180000-giant-tortoises-living-on-island-in-seychelles",
-      "publishedAt": "2026-10-08T17:03:42.000Z"
-    },
-    {
       "title": "US supreme court hears big oil’s bid to block climate damage lawsuits",
       "whatHappened": "How the court will lean is unclear amid Suncor Energy and ExxonMobil’s attempt to stop lawsuits at state level The US supreme court began its new...",
       "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
@@ -96,42 +87,51 @@
       "publishedAt": "2026-10-05T19:57:36.000Z"
     },
     {
-      "title": "UK bluefin tuna comeback shows nature can recover, says WWF",
-      "whatHappened": "The tuna is one of several wildlife recoveries highlighted in a major new report from WWF.",
+      "title": "Cop31 host urges wealthy countries to spend ‘much more’ on climate than defence",
+      "whatHappened": "‘The climate issue is the security issue,’ says Turkish minister at Pacific pre-Cop summit in Fiji Wealthy countries should spend far more on dealing with the...",
       "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
-      "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "BBC Science & Environment",
-      "url": "https://www.bbc.co.uk/news/articles/c5rmyzgdjzkwo?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-10-08T05:00:04.000Z"
-    },
-    {
-      "title": "World's largest penguin colony hit by 'alarming' decline in numbers",
-      "whatHappened": "Climate change is blamed for dramatic decline of chinstrap penguins living on a remote volcanic island.",
-      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
-      "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "BBC Science & Environment",
-      "url": "https://www.bbc.co.uk/news/articles/cr9dzy24g2l7o?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-10-07T15:00:35.000Z"
-    },
-    {
-      "title": "Landslides, flash floods and raging seas: is California ready for the ravages of El Niño?",
-      "whatHappened": "A mix of natural disasters could all befall the state at once as it finds itself in the crosshairs of the climate phenomenon On a cloudless...",
-      "whyItMatters": "Climate and environment stories connect science to real issues like safety, health, and extreme weather.",
       "keyWord": "climate: the usual pattern of weather over a long period of time",
       "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/us-news/2026/oct/07/california-el-nino-preparedness",
-      "publishedAt": "2026-10-07T14:30:52.000Z"
+      "url": "https://www.theguardian.com/environment/2026/oct/09/cop31-host-wealthy-countries-climate-crisis-spending-defence-nato",
+      "publishedAt": "2026-10-09T12:00:28.000Z"
+    },
+    {
+      "title": "Amid heartache of Nepal flooding disaster, fear remains",
+      "whatHappened": "Six weeks after Nepal’s deadly flooding disaster, communities are still struggling to rebuild their lives,&nbsp;but they will need sustained help as global warming increases the risk...",
+      "whyItMatters": "Climate and environment stories connect science to real issues like safety, health, and extreme weather.",
+      "keyWord": "climate: the usual pattern of weather over a long period of time",
+      "source": "UN Climate",
+      "url": "https://news.un.org/feed/view/en/story/2026/10/1168561",
+      "publishedAt": "2026-10-09T12:00:00.000Z"
+    },
+    {
+      "title": "Why are more roofs not made of solar tiles?",
+      "whatHappened": "Solar tiles were touted as an attractive alternative to solar panels - why have they not taken off?",
+      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
+      "keyWord": "climate: the usual pattern of weather over a long period of time",
+      "source": "BBC Science & Environment",
+      "url": "https://www.bbc.co.uk/news/articles/cdr7n610rmzo?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-10-08T23:09:56.000Z"
+    },
+    {
+      "title": "‘Overshoot is not a reason to surrender’: UN calls for accelerated climate action ahead of COP31 summit",
+      "whatHappened": "As world leaders prepare for November’s major&nbsp;COP31 climate summit in Türkiye, record-breaking heat, devastating floods and an unprecedented El Niño climate pattern are making global climate...",
+      "whyItMatters": "Climate and environment stories connect science to real issues like safety, health, and extreme weather.",
+      "keyWord": "climate: the usual pattern of weather over a long period of time",
+      "source": "UN Climate",
+      "url": "https://news.un.org/feed/view/en/story/2026/10/1168555",
+      "publishedAt": "2026-10-08T12:00:00.000Z"
     }
   ],
   "weatherTech": [
     {
-      "title": "Elon Musk questions Ambani’s influence as Starlink India launch stalls",
-      "whatHappened": "“Is Ambani the real boss of India?” Elon Musk asked as he questioned why Starlink has yet to launch its satellite internet service in the country.",
-      "whyItMatters": "Weather technology shows how science tools can predict conditions faster and help people prepare earlier.",
-      "keyWord": "satellite: an object in space that collects information and sends it back to Earth",
-      "source": "TechCrunch",
-      "url": "https://techcrunch.com/2026/10/08/india-rejects-elon-musks-claim-of-discrimination-over-starlink-launch/",
-      "publishedAt": "2026-10-08T15:12:59.000Z"
+      "title": "Why are more roofs not made of solar tiles?",
+      "whatHappened": "Solar tiles were touted as an attractive alternative to solar panels - why have they not taken off?",
+      "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
+      "keyWord": "solar: related to energy from sunlight",
+      "source": "BBC Science & Environment",
+      "url": "https://www.bbc.co.uk/news/articles/cdr7n610rmzo?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-10-08T23:09:56.000Z"
     },
     {
       "title": "Snakes, bobcats, mountain lions: the secret animal world beneath the Hollywood sign",
@@ -161,15 +161,6 @@
       "source": "Columbia Climate School",
       "url": "https://news.climate.columbia.edu/2026/10/08/lamont-researchers-receive-major-earth-science-honors-from-the-american-geophysical-union/",
       "publishedAt": "2026-10-08T14:56:33.000Z"
-    },
-    {
-      "title": "Columbia Climate School Hosts City Leaders to Address Energy Affordability and Climate Action",
-      "whatHappened": "Sustainability leaders from Ann Arbor, Atlanta and NYC shared the ways they are working at the local level to improve energy efficiency and reduce costs, while...",
-      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
-      "keyWord": "sustainability: using resources in a way that can last over time",
-      "source": "Columbia Climate School",
-      "url": "https://news.climate.columbia.edu/2026/09/29/columbia-climate-school-hosts-city-leaders-to-address-energy-affordability-and-climate-action/",
-      "publishedAt": "2026-09-29T15:34:13.000Z"
     },
     {
       "title": "Carleton Advances to Silver Tier in Canada’s Net-Zero Challenge",
@@ -226,13 +217,31 @@
       "publishedAt": "2026-09-08T04:00:00.000Z"
     },
     {
-      "title": "On complex political issues, most Americans take shortcuts to simplicity",
-      "whatHappened": "A novel study by UC Berkeley scholars finds that when Americans are presented with complex decisions on immigration, climate change or political candidates, they often avoid...",
+      "title": "Photos: Clam box collection, pie day and BEANIE babies",
+      "whatHappened": "Natasha Sortland, an environmental science and landscape architecture combined major, collects the clam boxes in the Plum Island Estuary.",
+      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
+      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
+      "source": "Northeastern Global News",
+      "url": "https://news.northeastern.edu/2026/10/09/photos-clam-box-collection-pie-day-and-beanie-babies/",
+      "publishedAt": "2026-10-09T15:16:34.000Z"
+    },
+    {
+      "title": "How Do We Make COP32 Deliver on Climate Goals?",
+      "whatHappened": "As COP31 and COP32 approach, a Climate Week panel brought together climate leaders to discuss how the world can turn Paris promises into action.",
+      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
+      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
+      "source": "Columbia Climate School",
+      "url": "https://news.climate.columbia.edu/2026/10/09/how-do-we-make-cop32-deliver-on-climate-goals/",
+      "publishedAt": "2026-10-09T14:26:57.000Z"
+    },
+    {
+      "title": "Berkeley helped make IceCube a success — and earn its leader the 2026 Nobel Prize in Physics",
+      "whatHappened": "When Francis Halzen first proposed an experiment in the Antarctic ice to detect high-energy neutrinos, Berkeley’s Buford Price was all in.",
       "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
       "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
       "source": "Berkeley News",
-      "url": "https://news.berkeley.edu/2026/10/01/on-complex-political-issues-most-americans-take-shortcuts-to-simplicity/",
-      "publishedAt": "2026-10-01T23:04:48.000Z"
+      "url": "https://news.berkeley.edu/2026/10/08/berkeley-helped-make-icecube-a-success-and-earn-its-leader-the-2026-nobel-prize-in-physics/",
+      "publishedAt": "2026-10-08T19:30:37.000Z"
     },
     {
       "title": "Canadian telescope directly maps earliest glow of hydrogen, opening a new window on the universe",
