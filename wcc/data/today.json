@@ -1,14 +1,14 @@
 {
-  "boardDate": "2026-10-15",
-  "generatedAt": "2026-10-15T15:43:47.538Z",
+  "boardDate": "2026-10-16",
+  "generatedAt": "2026-10-16T15:28:25.429Z",
   "sourceCount": 26,
   "weather": [
     {
       "city": "Ottawa",
-      "temperatureC": 9,
-      "maxC": 11,
-      "minC": 3,
-      "summary": "Clear skies"
+      "temperatureC": 7,
+      "maxC": 9,
+      "minC": 4,
+      "summary": "Light drizzle"
     }
   ],
   "extremeWeather": [
@@ -31,13 +31,22 @@
       "publishedAt": "2026-10-10T22:18:05.000Z"
     },
     {
-      "title": "Severe drought declared in six areas of England as reservoirs run low",
-      "whatHappened": "Some reservoirs in south at critical levels as water companies call for extended restrictions that would affect golf clubs, private schools and car washes A severe...",
+      "title": "Flash floods destroy villages in central Nepal",
+      "whatHappened": "Landslide blocks river and triggers downstream flooding, while summer temperatures persist in Portugal Flash floods have swept through Nepal’s central Gorkha district after a pre-dawn landslide...",
+      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
+      "keyWord": "flood: water covering land that is usually dry",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/environment/2026/oct/16/flash-floods-deaths-nepal-high-temperatures-portugal",
+      "publishedAt": "2026-10-16T10:12:48.000Z"
+    },
+    {
+      "title": "Severe drought declared and hosepipe bans in force - is your area affected?",
+      "whatHappened": "Parts of southern England have entered \"severe drought\", while about 30 million people are under hosepipe ban.",
       "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
       "keyWord": "drought: a long time with very little rain",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/environment/2026/oct/15/severe-drought-declared-six-areas-england-public-water-supplies-threat",
-      "publishedAt": "2026-10-15T12:18:27.000Z"
+      "source": "BBC Science & Environment",
+      "url": "https://www.bbc.co.uk/news/articles/crk661074ejo?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-10-15T15:42:37.000Z"
     },
     {
       "title": "Two dead in Istanbul after heaviest rainfall in 84 years, governor says",
@@ -56,26 +65,35 @@
       "source": "The Guardian Environment",
       "url": "https://www.theguardian.com/commentisfree/2026/oct/12/super-el-nino-farms-prepare",
       "publishedAt": "2026-10-12T13:00:55.000Z"
-    },
-    {
-      "title": "Amid heartache of Nepal flooding disaster, fear remains",
-      "whatHappened": "Six weeks after Nepal’s deadly flooding disaster, communities are still struggling to rebuild their lives,&nbsp;but they will need sustained help as global warming increases the risk...",
-      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
-      "keyWord": "flood: water covering land that is usually dry",
-      "source": "UN Climate",
-      "url": "https://news.un.org/feed/view/en/story/2026/10/1168561",
-      "publishedAt": "2026-10-09T12:00:00.000Z"
     }
   ],
   "climate": [
     {
-      "title": "India and China aren't friends - but Nepal wants to unite them against climate threats",
-      "whatHappened": "Can Nepal bring the two regional giants together to confront a shared climate threat in the Himalayas?",
+      "title": "US voters want action on global heating. So why are midterm candidates ‘climate hushing’?",
+      "whatHappened": "Polls show that Democrats and Republicans in battleground states want to hear more from candidates about the climate crisis Most Americans feel unease or alarm about...",
+      "whyItMatters": "Climate and environment stories connect science to real issues like safety, health, and extreme weather.",
+      "keyWord": "climate: the usual pattern of weather over a long period of time",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/us-news/2026/oct/16/midterms-voters-climate-crisis-candidates",
+      "publishedAt": "2026-10-16T15:00:04.000Z"
+    },
+    {
+      "title": "The world is waging a ‘war on nature’ as progress on biodiversity targets lags",
+      "whatHappened": "Fewer than half of the national targets set to protect the world’s plants, animals and ecosystems are on track, the UN warns in a new report,...",
       "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
       "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "BBC Science & Environment",
-      "url": "https://www.bbc.co.uk/news/articles/cvy0rd1j2kzlo?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-10-14T23:32:11.000Z"
+      "source": "UN Climate",
+      "url": "https://news.un.org/feed/view/en/story/2026/10/1168607",
+      "publishedAt": "2026-10-15T12:00:00.000Z"
+    },
+    {
+      "title": "Guterres urges faster action and financing to stop biodiversity loss",
+      "whatHappened": "The United Nations Secretary-General appealed on Friday for governments, businesses and communities to accelerate efforts to protect biodiversity for future generations and all life on Earth.",
+      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
+      "keyWord": "climate: the usual pattern of weather over a long period of time",
+      "source": "UN Climate",
+      "url": "https://news.un.org/feed/view/en/story/2026/10/1168610",
+      "publishedAt": "2026-10-16T12:00:00.000Z"
     },
     {
       "title": "A super el Niño threatens our food system. Here’s how farms can prepare | Liz Carlisle",
@@ -103,36 +121,9 @@
       "source": "UN Climate",
       "url": "https://news.un.org/feed/view/en/story/2026/10/1168561",
       "publishedAt": "2026-10-09T12:00:00.000Z"
-    },
-    {
-      "title": "‘Overshoot is not a reason to surrender’: UN calls for accelerated climate action ahead of COP31 summit",
-      "whatHappened": "As world leaders prepare for November’s major&nbsp;COP31 climate summit in Türkiye, record-breaking heat, devastating floods and an unprecedented El Niño climate pattern are making global climate...",
-      "whyItMatters": "Climate and environment stories connect science to real issues like safety, health, and extreme weather.",
-      "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "UN Climate",
-      "url": "https://news.un.org/feed/view/en/story/2026/10/1168555",
-      "publishedAt": "2026-10-08T12:00:00.000Z"
-    },
-    {
-      "title": "From drought to deluge: ‘Super’ El Niño’s expanding reach",
-      "whatHappened": "Across Papua New Guinea, water sources are drying up, crops are failing and food prices are rising months before the worst agricultural impacts are expected.",
-      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
-      "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "UN Climate",
-      "url": "https://news.un.org/feed/view/en/story/2026/10/1168537",
-      "publishedAt": "2026-10-06T12:00:00.000Z"
     }
   ],
   "weatherTech": [
-    {
-      "title": "Shelly’s new presence sensor simultaneously detects up to 10 people without a camera",
-      "whatHappened": "Following the launch of its $50 subscription-free security camera last month, Shelly announced another new accessory for smart home automation today that can keep track of...",
-      "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
-      "keyWord": "weather technology: tools that help people measure, study, or predict weather and climate",
-      "source": "The Verge",
-      "url": "https://www.theverge.com/tech/1011967/shellys-new-presence-sensor-simultaneously-detects-up-to-ten-people-without-a-camera",
-      "publishedAt": "2026-10-15T15:22:23.000Z"
-    },
     {
       "title": "Thousands without power in Florida and Alabama as Isaias moves north",
       "whatHappened": "At least four deaths linked to storm amid warnings of flash flooding that could stretch into Appalachians As what was left of Hurricane Isaias moved north...",
