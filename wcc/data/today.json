@@ -1,17 +1,35 @@
 {
-  "boardDate": "2026-10-18",
-  "generatedAt": "2026-10-18T14:45:51.948Z",
+  "boardDate": "2026-10-19",
+  "generatedAt": "2026-10-19T17:42:17.607Z",
   "sourceCount": 26,
   "weather": [
     {
       "city": "Ottawa",
-      "temperatureC": 7,
-      "maxC": 13,
-      "minC": 0,
+      "temperatureC": 16,
+      "maxC": 17,
+      "minC": 3,
       "summary": "Clear skies"
     }
   ],
   "extremeWeather": [
+    {
+      "title": "US disaster survivors still await at least $10bn in federal aid: ‘It’s devastating’",
+      "whatHappened": "The last long-term federal recovery funds allocated for a major disaster were for Hurricane Milton, which hit in late 2024 Survivors of extreme weather disasters across...",
+      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
+      "keyWord": "extreme weather: unusual and dangerous weather like floods, storms, or heat waves",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/us-news/2026/oct/19/us-disaster-survivor-payouts-fema",
+      "publishedAt": "2026-10-19T10:00:03.000Z"
+    },
+    {
+      "title": "BBC visits wildfire front in haze-choked Indonesia",
+      "whatHappened": "The BBC is in central Kalimantan, where a toxic haze fuelled by wildfires is choking millions of residents.",
+      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
+      "keyWord": "extreme weather: unusual and dangerous weather like floods, storms, or heat waves",
+      "source": "BBC Science & Environment",
+      "url": "https://www.bbc.co.uk/news/videos/cm9wzye55j4xo?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-10-19T01:57:02.000Z"
+    },
     {
       "title": "A California town’s beaches are washing away. Can its residents turn the tide?",
       "whatHappened": "Rapid coastal erosion threatens coastal homes and economies, and as Super El Niño rounds the corner, a town is reckoning with the reality of climate crisis...",
@@ -31,15 +49,6 @@
       "publishedAt": "2026-10-17T19:13:21.000Z"
     },
     {
-      "title": "Why hasn't the UK had any named storms yet?",
-      "whatHappened": "So far this autumn wet and windy weather patterns have been steered away from the UK.",
-      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
-      "keyWord": "extreme weather: unusual and dangerous weather like floods, storms, or heat waves",
-      "source": "BBC Science & Environment",
-      "url": "https://www.bbc.co.uk/weather/articles/ck5yn68mj88vo?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-10-17T01:53:34.000Z"
-    },
-    {
       "title": "Amid heartache of Nepal flooding disaster, fear remains",
       "whatHappened": "Six weeks after Nepal’s deadly flooding disaster, communities are still struggling to rebuild their lives,&nbsp;but they will need sustained help as global warming increases the risk...",
       "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
@@ -51,6 +60,15 @@
   ],
   "climate": [
     {
+      "title": "Stop ‘cash to trash’ housebuilding in Norfolk Broads, says Labour MP",
+      "whatHappened": "Exclusive: Chris Hinchliff urges environment watchdog to block rules that will allow almost 16,000 new homes in one of UK’s most protected areas The environment watchdog...",
+      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
+      "keyWord": "climate: the usual pattern of weather over a long period of time",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/environment/2026/oct/19/stop-cash-for-trash-housebuilding-norfolk-broads-labour-mp-chris-hinchcliffe",
+      "publishedAt": "2026-10-19T12:20:08.000Z"
+    },
+    {
       "title": "COP17: The world has a plan to save nature. Is it working?",
       "whatHappened": "The UN Secretary-General has called for an end to the “war on nature”.",
       "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
@@ -58,15 +76,6 @@
       "source": "UN Climate",
       "url": "https://news.un.org/feed/view/en/story/2026/10/1168618",
       "publishedAt": "2026-10-17T12:00:00.000Z"
-    },
-    {
-      "title": "US voters want more action on global heating. Why are Democrats and Republicans staying silent?",
-      "whatHappened": "Polls show that Democrats and Republicans in battleground states want to hear more from candidates about the climate crisis Most Americans feel unease or alarm about...",
-      "whyItMatters": "Climate and environment stories connect science to real issues like safety, health, and extreme weather.",
-      "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/us-news/2026/oct/16/midterms-voters-climate-crisis-candidates",
-      "publishedAt": "2026-10-16T15:00:04.000Z"
     },
     {
       "title": "As disasters mount, next UN climate summit faces a test of trust",
@@ -87,6 +96,15 @@
       "publishedAt": "2026-10-15T12:00:00.000Z"
     },
     {
+      "title": "Protecting Earth’s fragile biodiversity takes spotlight at Armenia talks",
+      "whatHappened": "Biodiversity losses continue to upend the lives of billions of people whose future prosperity depends on countries taking urgent action to protect our planet, the top...",
+      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
+      "keyWord": "climate: the usual pattern of weather over a long period of time",
+      "source": "UN Climate",
+      "url": "https://news.un.org/feed/view/en/story/2026/10/1168620",
+      "publishedAt": "2026-10-19T12:00:00.000Z"
+    },
+    {
       "title": "US workers facing deadly heat borrow from tomato pickers to win key protections",
       "whatHappened": "As efforts to protect people from extreme heat stall, organizers are embracing an approach that targets major brands’ reputations “It’s the kind of heat that makes...",
       "whyItMatters": "Climate and environment stories connect science to real issues like safety, health, and extreme weather.",
@@ -94,26 +112,17 @@
       "source": "The Guardian Environment",
       "url": "https://www.theguardian.com/environment/2026/oct/18/workers-heat-protections",
       "publishedAt": "2026-10-18T12:00:02.000Z"
-    },
-    {
-      "title": "A California town’s beaches are washing away. Can its residents turn the tide?",
-      "whatHappened": "Rapid coastal erosion threatens coastal homes and economies, and as Super El Niño rounds the corner, a town is reckoning with the reality of climate crisis...",
-      "whyItMatters": "Climate and environment stories connect science to real issues like safety, health, and extreme weather.",
-      "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/us-news/2026/oct/18/california-beach-erosion-san-clemente",
-      "publishedAt": "2026-10-18T11:00:03.000Z"
     }
   ],
   "weatherTech": [
     {
-      "title": "Porsche’s electric Macan Turbo is an automotive existential crisis",
-      "whatHappened": "The 2026 Porsche Macan Turbo EV is a two-row crossover with 630 horsepower and a 100-kilowatt-hour battery.",
-      "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
-      "keyWord": "battery: a device that stores energy for later use",
-      "source": "TechCrunch",
-      "url": "https://techcrunch.com/2026/10/16/porsches-electric-macan-turbo-is-an-automotive-existential-crisis/",
-      "publishedAt": "2026-10-16T19:40:00.000Z"
+      "title": "Major European mobile carriers are teaming up for a ‘direct’ satellite program without Starlink",
+      "whatHappened": "Deutsche Telekom, Orange, Telefónica, and Vodafone signed a letter of intent saying they're considering a joint bid for spectrum that would support European direct-to-device satellite competition...",
+      "whyItMatters": "Weather technology shows how science tools can predict conditions faster and help people prepare earlier.",
+      "keyWord": "satellite: an object in space that collects information and sends it back to Earth",
+      "source": "The Verge",
+      "url": "https://www.theverge.com/policy/1013680/european-mobile-carriers-mobile-satellite-starlink",
+      "publishedAt": "2026-10-19T14:24:42.000Z"
     }
   ],
   "universityNews": [
