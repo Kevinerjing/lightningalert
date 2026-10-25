@@ -1,70 +1,70 @@
 {
-  "boardDate": "2026-10-24",
-  "generatedAt": "2026-10-24T14:47:16.664Z",
+  "boardDate": "2026-10-25",
+  "generatedAt": "2026-10-25T15:01:41.845Z",
   "sourceCount": 26,
   "weather": [
     {
       "city": "Ottawa",
-      "temperatureC": 4,
-      "maxC": 10,
-      "minC": -4,
+      "temperatureC": 6,
+      "maxC": 15,
+      "minC": -3,
       "summary": "Mostly clear"
     }
   ],
   "extremeWeather": [
     {
-      "title": "Amber weather warning as Storm Boelo hits Scotland",
-      "whatHappened": "The Met Office has issued an amber warning for wind over Scotland from 21:00 until 21:00 on Sunday.",
+      "title": "Travel disruption and power cuts after back-to-back storms",
+      "whatHappened": "Authorities said they were dealing with flooding and fallen trees as Storm Boelo followed Storm Austen.",
       "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
-      "keyWord": "extreme weather: unusual and dangerous weather like floods, storms, or heat waves",
+      "keyWord": "flood: water covering land that is usually dry",
       "source": "BBC Science & Environment",
-      "url": "https://www.bbc.co.uk/news/videos/cmqlnkq6p6y7o?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-10-24T14:40:18.000Z"
+      "url": "https://www.bbc.co.uk/news/articles/c6n9rzde1n80o?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-10-25T14:29:15.000Z"
     },
     {
-      "title": "Storm Boelo to bring severe gales and heavy rain into Sunday",
-      "whatHappened": "An amber weather warning has been issued for much of Scotland, parts of Northern Ireland and northern England, as Storm Boelo approaches.",
+      "title": "Flight disruption and thousands without electricity after Storm Boelo",
+      "whatHappened": "About 350 incidents, including fallen trees and flooding, have been reported to the Department for Infrastructure.",
       "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
-      "keyWord": "extreme weather: unusual and dangerous weather like floods, storms, or heat waves",
+      "keyWord": "flood: water covering land that is usually dry",
       "source": "BBC Science & Environment",
-      "url": "https://www.bbc.co.uk/weather/articles/cv8ez97k0wnlo?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-10-24T11:48:58.000Z"
+      "url": "https://www.bbc.co.uk/news/articles/c84g10r00221o?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-10-25T14:16:04.000Z"
     },
     {
-      "title": "Scotland to be hit with 80mph wind gusts as Storm Boelo warning upgraded to amber",
-      "whatHappened": "It is due to be the second of two storms to hit Scotland over the weekend, with Storm Austen bringing heavy rain on Friday.",
-      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
-      "keyWord": "extreme weather: unusual and dangerous weather like floods, storms, or heat waves",
-      "source": "BBC Science & Environment",
-      "url": "https://www.bbc.co.uk/news/articles/cwkgjz3dpyj6o?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-10-23T16:13:11.000Z"
-    },
-    {
-      "title": "Trains cancelled and road warnings as Scotland prepares for Storm Boelo",
-      "whatHappened": "Heavy rain and strong winds are expected during the second named storm to hit in two days, with gusts of up to 80mph forecast.",
+      "title": "Overnight winds reach 85mph as Scotland is hit by Storm Boelo",
+      "whatHappened": "Heavy rain and strong winds are affecting most of the country until 21:00 on Sunday.",
       "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
       "keyWord": "extreme weather: unusual and dangerous weather like floods, storms, or heat waves",
       "source": "BBC Science & Environment",
       "url": "https://www.bbc.co.uk/news/articles/c60qk5lw1z8wo?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-10-24T14:43:59.000Z"
+      "publishedAt": "2026-10-25T14:15:34.000Z"
     },
     {
-      "title": "Storm Boelo to bring 80mph gusts and heavy rain to parts of UK",
-      "whatHappened": "Second named storm will hit northern parts of UK as thousands remain without power after Friday’s Storm Austen The UK is bracing for a second storm...",
-      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
-      "keyWord": "extreme weather: unusual and dangerous weather like floods, storms, or heat waves",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/world/2026/oct/24/storm-boelo-80mph-winds-heavy-rain-northern-uk",
-      "publishedAt": "2026-10-24T13:28:07.000Z"
-    },
-    {
-      "title": "Weather warnings in place ahead of Storm Boelo",
-      "whatHappened": "The amber Met Office alert for counties Antrim and Londonderry lasts from 21:00 BST on Saturday until 21:00 GMT on Sunday.",
+      "title": "'What was in the Clyde is basically now on the shore'",
+      "whatHappened": "BBC Scotland reports from the scene at Cardross as Storm Boelo batters the country.",
       "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
       "keyWord": "extreme weather: unusual and dangerous weather like floods, storms, or heat waves",
       "source": "BBC Science & Environment",
-      "url": "https://www.bbc.co.uk/news/articles/c83vqn2x54v1o?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-10-24T08:28:49.000Z"
+      "url": "https://www.bbc.co.uk/news/videos/cmg47e2znpzpo?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-10-25T11:42:17.000Z"
+    },
+    {
+      "title": "More wet and windy weather to follow stormy weekend",
+      "whatHappened": "Following the first two named storms of the season, wet and very windy conditions are set to continue into the start of the new week.",
+      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
+      "keyWord": "extreme weather: unusual and dangerous weather like floods, storms, or heat waves",
+      "source": "BBC Science & Environment",
+      "url": "https://www.bbc.co.uk/weather/articles/cwdd858z8ynlo?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-10-25T10:16:20.000Z"
+    },
+    {
+      "title": "Rosebank: Life on the oil field at the centre of a political storm",
+      "whatHappened": "Scotland editor James Cook finds out what life is like on board a ship in an untapped oil field awaiting its fate.",
+      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
+      "keyWord": "extreme weather: unusual and dangerous weather like floods, storms, or heat waves",
+      "source": "BBC Science & Environment",
+      "url": "https://www.bbc.co.uk/news/articles/cqy8ljkle97ro?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-10-25T07:15:38.000Z"
     }
   ],
   "climate": [
@@ -96,69 +96,42 @@
       "publishedAt": "2026-10-16T12:00:00.000Z"
     },
     {
-      "title": "Amber weather warning as Storm Boelo hits Scotland",
-      "whatHappened": "The Met Office has issued an amber warning for wind over Scotland from 21:00 until 21:00 on Sunday.",
+      "title": "Storm Boelo: Travel disrupted and events cancelled as UK hit by wind and rain",
+      "whatHappened": "Fresh deluge of wet weather comes after Storm Austen brought strong winds to many regions on Friday Amber weather warnings have come into force as the...",
       "whyItMatters": "Climate and environment stories connect science to real issues like safety, health, and extreme weather.",
       "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "BBC Science & Environment",
-      "url": "https://www.bbc.co.uk/news/videos/cmqlnkq6p6y7o?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-10-24T14:40:18.000Z"
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/uk-news/2026/oct/24/storm-boelo-travel-disrupted-events-cancelled-uk-hit-wind-and-rain",
+      "publishedAt": "2026-10-24T22:40:08.000Z"
     },
     {
-      "title": "Storm Austen brings power cuts and travel disruption as more wind and rain forecast",
-      "whatHappened": "A second storm, Storm Boelo, is expected to hit Scotland, Northern Ireland and northern England on Saturday bringing more wild weather.",
-      "whyItMatters": "Climate and environment stories connect science to real issues like safety, health, and extreme weather.",
+      "title": "EPA has failed to tackle cancer-linked pesticide pollution, lawsuit alleges",
+      "whatHappened": "Suit alleges EPA has for decades failed under the Clean Water Act to address surface-water atrazine pollution A new lawsuit asks a federal judge to order...",
+      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
       "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "BBC Science & Environment",
-      "url": "https://www.bbc.co.uk/news/articles/cxj0l193y0l8o?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-10-23T21:10:47.000Z"
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/us-news/2026/oct/23/lawsuit-atrazine-pesticide-cancer-epa",
+      "publishedAt": "2026-10-23T12:00:26.000Z"
     },
     {
-      "title": "Scotland to be hit with 80mph wind gusts as Storm Boelo warning upgraded to amber",
-      "whatHappened": "It is due to be the second of two storms to hit Scotland over the weekend, with Storm Austen bringing heavy rain on Friday.",
-      "whyItMatters": "Climate and environment stories connect science to real issues like safety, health, and extreme weather.",
+      "title": "The US west has lost nearly 300 glaciers since the 1960s. Climate crisis is drastically shrinking what’s left",
+      "whatHappened": "At the midpoint of the last century the region had 1,450 glaciers and a new study reveals the extent of losses Continue reading...",
+      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
       "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "BBC Science & Environment",
-      "url": "https://www.bbc.co.uk/news/articles/cwkgjz3dpyj6o?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-10-23T16:13:11.000Z"
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/environment/ng-interactive/2026/oct/23/glacier-loss-climate-crisis-west",
+      "publishedAt": "2026-10-23T12:00:26.000Z"
     }
   ],
   "weatherTech": [
     {
-      "title": "Storm Austen brings power cuts and travel disruption as more wind and rain forecast",
-      "whatHappened": "A second storm, Storm Boelo, is expected to hit Scotland, Northern Ireland and northern England on Saturday bringing more wild weather.",
-      "whyItMatters": "Weather technology shows how science tools can predict conditions faster and help people prepare earlier.",
-      "keyWord": "forecast: a prediction about future weather conditions",
-      "source": "BBC Science & Environment",
-      "url": "https://www.bbc.co.uk/news/articles/cxj0l193y0l8o?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-10-23T21:10:47.000Z"
-    },
-    {
-      "title": "Trains cancelled and road warnings as Scotland prepares for Storm Boelo",
-      "whatHappened": "Heavy rain and strong winds are expected during the second named storm to hit in two days, with gusts of up to 80mph forecast.",
-      "whyItMatters": "Weather technology shows how science tools can predict conditions faster and help people prepare earlier.",
-      "keyWord": "forecast: a prediction about future weather conditions",
-      "source": "BBC Science & Environment",
-      "url": "https://www.bbc.co.uk/news/articles/c60qk5lw1z8wo?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-10-24T14:43:59.000Z"
-    },
-    {
-      "title": "Amber weather warning as Storm Boelo hits Scotland",
-      "whatHappened": "The Met Office has issued an amber warning for wind over Scotland from 21:00 until 21:00 on Sunday.",
+      "title": "Storm Boelo: Travel disrupted and events cancelled as UK hit by wind and rain",
+      "whatHappened": "Fresh deluge of wet weather comes after Storm Austen brought strong winds to many regions on Friday Amber weather warnings have come into force as the...",
       "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
       "keyWord": "weather technology: tools that help people measure, study, or predict weather and climate",
-      "source": "BBC Science & Environment",
-      "url": "https://www.bbc.co.uk/news/videos/cmqlnkq6p6y7o?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-10-24T14:40:18.000Z"
-    },
-    {
-      "title": "Scotland to be hit with 80mph wind gusts as Storm Boelo warning upgraded to amber",
-      "whatHappened": "It is due to be the second of two storms to hit Scotland over the weekend, with Storm Austen bringing heavy rain on Friday.",
-      "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
-      "keyWord": "weather technology: tools that help people measure, study, or predict weather and climate",
-      "source": "BBC Science & Environment",
-      "url": "https://www.bbc.co.uk/news/articles/cwkgjz3dpyj6o?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-10-23T16:13:11.000Z"
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/uk-news/2026/oct/24/storm-boelo-travel-disrupted-events-cancelled-uk-hit-wind-and-rain",
+      "publishedAt": "2026-10-24T22:40:08.000Z"
     }
   ],
   "universityNews": [
@@ -250,7 +223,7 @@
       "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
       "source": "uOttawa News",
       "url": "https://www.uottawa.ca/en/news-all/high-pressure-decisions-monica-gattinger-positive-energy-fulbright-collaboration",
-      "publishedAt": "2026-10-24T14:46:01.655Z"
+      "publishedAt": "2026-10-25T15:00:50.861Z"
     },
     {
       "title": "Energizing first-time voters",
