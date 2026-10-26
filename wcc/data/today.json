@@ -1,70 +1,70 @@
 {
-  "boardDate": "2026-10-25",
-  "generatedAt": "2026-10-25T15:01:41.845Z",
+  "boardDate": "2026-10-26",
+  "generatedAt": "2026-10-26T17:35:35.819Z",
   "sourceCount": 26,
   "weather": [
     {
       "city": "Ottawa",
-      "temperatureC": 6,
-      "maxC": 15,
-      "minC": -3,
-      "summary": "Mostly clear"
+      "temperatureC": 12,
+      "maxC": 14,
+      "minC": 2,
+      "summary": "Cloudy"
     }
   ],
   "extremeWeather": [
     {
-      "title": "Travel disruption and power cuts after back-to-back storms",
-      "whatHappened": "Authorities said they were dealing with flooding and fallen trees as Storm Boelo followed Storm Austen.",
+      "title": "Typhoon Champi declared strongest storm of year so far",
+      "whatHappened": "One dead and 527 injured as winds of up to 185mph hit Taiwan and southern Japan, while Greece issues flood alerts Typhoon Champi was declared the...",
       "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
       "keyWord": "flood: water covering land that is usually dry",
-      "source": "BBC Science & Environment",
-      "url": "https://www.bbc.co.uk/news/articles/c6n9rzde1n80o?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-10-25T14:29:15.000Z"
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/world/2026/oct/26/typhoon-champi-taiwan-japan-storm-greece-floods",
+      "publishedAt": "2026-10-26T09:28:59.000Z"
     },
     {
-      "title": "Flight disruption and thousands without electricity after Storm Boelo",
-      "whatHappened": "About 350 incidents, including fallen trees and flooding, have been reported to the Department for Infrastructure.",
+      "title": "US south-west braces for more storms after enduring days of rain and flooding",
+      "whatHappened": "More inclement weather forecast in rain-soaked Four Corners region after evacuations and rescues last week Another round of heavy showers and thunderstorms were expected to hit...",
       "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
       "keyWord": "flood: water covering land that is usually dry",
-      "source": "BBC Science & Environment",
-      "url": "https://www.bbc.co.uk/news/articles/c84g10r00221o?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-10-25T14:16:04.000Z"
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/us-news/2026/oct/25/four-corners-southwest-rain-flooding-thunderstorms",
+      "publishedAt": "2026-10-25T19:02:51.000Z"
     },
     {
-      "title": "Overnight winds reach 85mph as Scotland is hit by Storm Boelo",
-      "whatHappened": "Heavy rain and strong winds are affecting most of the country until 21:00 on Sunday.",
+      "title": "Storm Boelo leaves 22,000 without power as Met Office issues new wind warning",
+      "whatHappened": "The Met Office has issued a fresh wind warning from 18:00 on Monday across the west coast of England, Wales and Scotland and eastern parts of...",
       "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
       "keyWord": "extreme weather: unusual and dangerous weather like floods, storms, or heat waves",
       "source": "BBC Science & Environment",
-      "url": "https://www.bbc.co.uk/news/articles/c60qk5lw1z8wo?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-10-25T14:15:34.000Z"
+      "url": "https://www.bbc.co.uk/news/articles/cqm264jxxnxzo?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-10-26T17:22:51.000Z"
     },
     {
-      "title": "'What was in the Clyde is basically now on the shore'",
-      "whatHappened": "BBC Scotland reports from the scene at Cardross as Storm Boelo batters the country.",
+      "title": "'Safety first' as wedding guests stranded on island after Storm Boelo",
+      "whatHappened": "Wedding guests at an island in County Fermanagh were left stranded due to the storm.",
       "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
       "keyWord": "extreme weather: unusual and dangerous weather like floods, storms, or heat waves",
       "source": "BBC Science & Environment",
-      "url": "https://www.bbc.co.uk/news/videos/cmg47e2znpzpo?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-10-25T11:42:17.000Z"
+      "url": "https://www.bbc.co.uk/news/articles/cqe9lykm93jmo?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-10-26T15:17:59.000Z"
     },
     {
-      "title": "More wet and windy weather to follow stormy weekend",
-      "whatHappened": "Following the first two named storms of the season, wet and very windy conditions are set to continue into the start of the new week.",
+      "title": "Storm Boelo clears but more wind and rain bear down on UK",
+      "whatHappened": "Another area of low pressure will pass close to the north-west UK with a Met Office yellow wind warning issued for Tuesday.",
       "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
       "keyWord": "extreme weather: unusual and dangerous weather like floods, storms, or heat waves",
       "source": "BBC Science & Environment",
-      "url": "https://www.bbc.co.uk/weather/articles/cwdd858z8ynlo?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-10-25T10:16:20.000Z"
+      "url": "https://www.bbc.co.uk/weather/articles/cqwy7w8dryrxo?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-10-26T11:21:24.000Z"
     },
     {
-      "title": "Rosebank: Life on the oil field at the centre of a political storm",
-      "whatHappened": "Scotland editor James Cook finds out what life is like on board a ship in an untapped oil field awaiting its fate.",
+      "title": "Two men killed by falling trees as Storm Boelo leaves 90,000 properties without power",
+      "whatHappened": "An amber wind warning has now expired after severe weather sweeps across the UK.",
       "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
       "keyWord": "extreme weather: unusual and dangerous weather like floods, storms, or heat waves",
       "source": "BBC Science & Environment",
-      "url": "https://www.bbc.co.uk/news/articles/cqy8ljkle97ro?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-10-25T07:15:38.000Z"
+      "url": "https://www.bbc.co.uk/news/articles/cxdd8gr1vje0o?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-10-26T04:41:36.000Z"
     }
   ],
   "climate": [
@@ -87,51 +87,87 @@
       "publishedAt": "2026-10-17T12:00:00.000Z"
     },
     {
-      "title": "As disasters mount, next UN climate summit faces a test of trust",
-      "whatHappened": "Less than a month before the UN climate conference COP31 opens in Antalya, Türkiye, representatives of three successive summit presidencies gathered to address a pressing question:...",
-      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
-      "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "UN Climate",
-      "url": "https://news.un.org/feed/view/en/story/2026/10/1168617",
-      "publishedAt": "2026-10-16T12:00:00.000Z"
-    },
-    {
-      "title": "Storm Boelo: Travel disrupted and events cancelled as UK hit by wind and rain",
-      "whatHappened": "Fresh deluge of wet weather comes after Storm Austen brought strong winds to many regions on Friday Amber weather warnings have come into force as the...",
+      "title": "Storm Boelo leaves 22,000 without power as Met Office issues new wind warning",
+      "whatHappened": "The Met Office has issued a fresh wind warning from 18:00 on Monday across the west coast of England, Wales and Scotland and eastern parts of...",
       "whyItMatters": "Climate and environment stories connect science to real issues like safety, health, and extreme weather.",
       "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/uk-news/2026/oct/24/storm-boelo-travel-disrupted-events-cancelled-uk-hit-wind-and-rain",
-      "publishedAt": "2026-10-24T22:40:08.000Z"
+      "source": "BBC Science & Environment",
+      "url": "https://www.bbc.co.uk/news/articles/cqm264jxxnxzo?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-10-26T17:22:51.000Z"
     },
     {
-      "title": "EPA has failed to tackle cancer-linked pesticide pollution, lawsuit alleges",
-      "whatHappened": "Suit alleges EPA has for decades failed under the Clean Water Act to address surface-water atrazine pollution A new lawsuit asks a federal judge to order...",
-      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
+      "title": "Storm Boelo clears but more wind and rain bear down on UK",
+      "whatHappened": "Another area of low pressure will pass close to the north-west UK with a Met Office yellow wind warning issued for Tuesday.",
+      "whyItMatters": "Climate and environment stories connect science to real issues like safety, health, and extreme weather.",
       "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/us-news/2026/oct/23/lawsuit-atrazine-pesticide-cancer-epa",
-      "publishedAt": "2026-10-23T12:00:26.000Z"
+      "source": "BBC Science & Environment",
+      "url": "https://www.bbc.co.uk/weather/articles/cqwy7w8dryrxo?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-10-26T11:21:24.000Z"
     },
     {
-      "title": "The US west has lost nearly 300 glaciers since the 1960s. Climate crisis is drastically shrinking what’s left",
-      "whatHappened": "At the midpoint of the last century the region had 1,450 glaciers and a new study reveals the extent of losses Continue reading...",
-      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
+      "title": "Two men killed by falling trees as Storm Boelo leaves 90,000 properties without power",
+      "whatHappened": "An amber wind warning has now expired after severe weather sweeps across the UK.",
+      "whyItMatters": "Climate and environment stories connect science to real issues like safety, health, and extreme weather.",
       "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/environment/ng-interactive/2026/oct/23/glacier-loss-climate-crisis-west",
-      "publishedAt": "2026-10-23T12:00:26.000Z"
+      "source": "BBC Science & Environment",
+      "url": "https://www.bbc.co.uk/news/articles/cxdd8gr1vje0o?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-10-26T04:41:36.000Z"
+    },
+    {
+      "title": "Why do planes keep circling before landing? The UN has a plan to fix it",
+      "whatHappened": "Air traffic delays cost billions and turn journeys into ordeals.",
+      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
+      "keyWord": "emissions: gases released into the air",
+      "source": "UN Climate",
+      "url": "https://news.un.org/feed/view/en/story/2026/10/1168666",
+      "publishedAt": "2026-10-25T12:00:00.000Z"
     }
   ],
   "weatherTech": [
     {
-      "title": "Storm Boelo: Travel disrupted and events cancelled as UK hit by wind and rain",
-      "whatHappened": "Fresh deluge of wet weather comes after Storm Austen brought strong winds to many regions on Friday Amber weather warnings have come into force as the...",
+      "title": "Storm Boelo leaves 22,000 without power as Met Office issues new wind warning",
+      "whatHappened": "The Met Office has issued a fresh wind warning from 18:00 on Monday across the west coast of England, Wales and Scotland and eastern parts of...",
       "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
       "keyWord": "weather technology: tools that help people measure, study, or predict weather and climate",
+      "source": "BBC Science & Environment",
+      "url": "https://www.bbc.co.uk/news/articles/cqm264jxxnxzo?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-10-26T17:22:51.000Z"
+    },
+    {
+      "title": "Storm Boelo clears but more wind and rain bear down on UK",
+      "whatHappened": "Another area of low pressure will pass close to the north-west UK with a Met Office yellow wind warning issued for Tuesday.",
+      "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
+      "keyWord": "weather technology: tools that help people measure, study, or predict weather and climate",
+      "source": "BBC Science & Environment",
+      "url": "https://www.bbc.co.uk/weather/articles/cqwy7w8dryrxo?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-10-26T11:21:24.000Z"
+    },
+    {
+      "title": "Two men killed by falling trees as Storm Boelo leaves 90,000 properties without power",
+      "whatHappened": "An amber wind warning has now expired after severe weather sweeps across the UK.",
+      "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
+      "keyWord": "weather technology: tools that help people measure, study, or predict weather and climate",
+      "source": "BBC Science & Environment",
+      "url": "https://www.bbc.co.uk/news/articles/cxdd8gr1vje0o?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-10-26T04:41:36.000Z"
+    },
+    {
+      "title": "From agriculture to AI-griculture: How tech is changing farming",
+      "whatHappened": "From remote monitoring of cattle to automation of processes that took up valuable time, farmers in NI are rapidly becoming skilled in technology.",
+      "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
+      "keyWord": "weather technology: tools that help people measure, study, or predict weather and climate",
+      "source": "BBC Science & Environment",
+      "url": "https://www.bbc.co.uk/news/articles/cw80zk9k51j1o?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-10-26T00:13:09.000Z"
+    },
+    {
+      "title": "US south-west braces for more storms after enduring days of rain and flooding",
+      "whatHappened": "More inclement weather forecast in rain-soaked Four Corners region after evacuations and rescues last week Another round of heavy showers and thunderstorms were expected to hit...",
+      "whyItMatters": "Weather technology shows how science tools can predict conditions faster and help people prepare earlier.",
+      "keyWord": "forecast: a prediction about future weather conditions",
       "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/uk-news/2026/oct/24/storm-boelo-travel-disrupted-events-cancelled-uk-hit-wind-and-rain",
-      "publishedAt": "2026-10-24T22:40:08.000Z"
+      "url": "https://www.theguardian.com/us-news/2026/oct/25/four-corners-southwest-rain-flooding-thunderstorms",
+      "publishedAt": "2026-10-25T19:02:51.000Z"
     }
   ],
   "universityNews": [
@@ -181,15 +217,6 @@
       "publishedAt": "2026-10-20T21:15:00.000Z"
     },
     {
-      "title": "Critical Minerals, New Energy Sources and the Race for Resilience",
-      "whatHappened": "At a Climate Week symposium, Columbia Engineering convened members of government, industry and academia to examine critical mineral supply chains and emerging energy sources.",
-      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
-      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
-      "source": "Columbia Climate School",
-      "url": "https://news.climate.columbia.edu/2026/10/12/critical-minerals-new-energy-sources-and-the-race-for-resilience/",
-      "publishedAt": "2026-10-12T15:01:52.000Z"
-    },
-    {
       "title": "Using AI to mitigate the growing environmental threat of data centers",
       "whatHappened": "By rethinking how large cloud computing systems operate, Associate Professor Christina Delimitrou seeks to make data centers more energy efficient.",
       "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
@@ -197,15 +224,6 @@
       "source": "MIT Climate & Sustainability",
       "url": "https://news.mit.edu/2026/mitigating-environmental-threat-of-data-centers-christina-delimitrou-1008",
       "publishedAt": "2026-10-08T04:00:00.000Z"
-    },
-    {
-      "title": "Turning environmental research into urban action",
-      "whatHappened": "Tue, 22 Sep 2026 12:00:00 +0000 Jo Fitzgibbons (MES ’19) is a planner and researcher turning environmental research into practical change in Canadian cities.",
-      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
-      "keyWord": "research: careful study used to discover new knowledge",
-      "source": "Waterloo Environment",
-      "url": "https://uwaterloo.ca/environment/news/turning-environmental-research-urban-action",
-      "publishedAt": "2026-09-22T12:00:00.000Z"
     },
     {
       "title": "Investing in the next generation of environmental leaders",
@@ -217,13 +235,31 @@
       "publishedAt": "2026-09-22T12:00:00.000Z"
     },
     {
+      "title": "2026 Faculty of Environment Alumni Awards announced",
+      "whatHappened": "Tue, 22 Sep 2026 12:00:00 +0000 From changing how children learn about the world around them to rethinking how cities grow, strengthening connections between research and...",
+      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
+      "keyWord": "research: careful study used to discover new knowledge",
+      "source": "Waterloo Environment",
+      "url": "https://uwaterloo.ca/environment/news/2026-faculty-environment-alumni-awards-announced",
+      "publishedAt": "2026-09-22T12:00:00.000Z"
+    },
+    {
       "title": "High-pressure decisions: Monica Gattinger, Positive Energy and the Fulbright collaboration",
       "whatHappened": "High-pressure decisions: Monica Gattinger, Positive Energy and the Fulbright collaboration",
       "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
       "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
       "source": "uOttawa News",
       "url": "https://www.uottawa.ca/en/news-all/high-pressure-decisions-monica-gattinger-positive-energy-fulbright-collaboration",
-      "publishedAt": "2026-10-25T15:00:50.861Z"
+      "publishedAt": "2026-10-26T17:33:29.247Z"
+    },
+    {
+      "title": "Beyond Net-Zero Targets: Lisa Sachs on Designing Systems for Decarbonization",
+      "whatHappened": "Sachs, director of Columbia’s Center on Sustainable Investment, argues that durable climate progress begins with systems diagnosis, not isolated technologies, targets or promises.",
+      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
+      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
+      "source": "Columbia Climate School",
+      "url": "https://news.climate.columbia.edu/2026/10/23/beyond-net-zero-targets-lisa-sachs-on-designing-systems-for-decarbonization/",
+      "publishedAt": "2026-10-23T18:37:22.000Z"
     },
     {
       "title": "Energizing first-time voters",
