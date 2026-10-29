@@ -1,17 +1,26 @@
 {
-  "boardDate": "2026-10-28",
-  "generatedAt": "2026-10-28T17:17:40.233Z",
+  "boardDate": "2026-10-29",
+  "generatedAt": "2026-10-29T17:30:57.587Z",
   "sourceCount": 26,
   "weather": [
     {
       "city": "Ottawa",
-      "temperatureC": 6,
-      "maxC": 8,
-      "minC": -2,
-      "summary": "Cloudy"
+      "temperatureC": 17,
+      "maxC": 17,
+      "minC": -1,
+      "summary": "Mostly clear"
     }
   ],
   "extremeWeather": [
+    {
+      "title": "Higher Ground: How New York is raising a park to hold back the sea",
+      "whatHappened": "On 29 October 2012, Hurricane Sandy slammed into New York City, unleashing a devastating storm surge that flooded homes, subways and tunnels, knocked out power and...",
+      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
+      "keyWord": "flood: water covering land that is usually dry",
+      "source": "UN Climate",
+      "url": "https://news.un.org/feed/view/en/story/2026/10/1168679",
+      "publishedAt": "2026-10-28T12:00:00.000Z"
+    },
     {
       "title": "US south-west braces for more storms after enduring days of rain and flooding",
       "whatHappened": "More inclement weather forecast in rain-soaked Four Corners region after evacuations and rescues last week Another round of heavy showers and thunderstorms were expected to hit...",
@@ -31,17 +40,17 @@
       "publishedAt": "2026-10-27T21:20:52.000Z"
     },
     {
-      "title": "More high winds hit parts of UK as Storm Boelo clean-up continues",
-      "whatHappened": "A Met Office weather warning is in place for Scotland and Northern Ireland for much of Tuesday.",
+      "title": "Record-breaking high tides spark chaos – and kayak commutes – across California",
+      "whatHappened": "Seawater surges into low-lying communities from San Diego to San Francisco Bay Area, submerging streets, homes and businesses Historic high tides have caused chaos up and...",
       "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
-      "keyWord": "extreme weather: unusual and dangerous weather like floods, storms, or heat waves",
-      "source": "BBC Science & Environment",
-      "url": "https://www.bbc.co.uk/news/articles/cqm264jxxnxzo?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-10-27T10:30:40.000Z"
+      "keyWord": "flood: water covering land that is usually dry",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/us-news/2026/oct/28/california-extreme-weather-high-tides",
+      "publishedAt": "2026-10-28T22:22:39.000Z"
     },
     {
       "title": "Aerial video shows California flooding amid ‘record-breaking tides’ – video",
-      "whatHappened": "Coastal communities across California were preparing for days of flooding amid potentially 'record-breaking tides' this week, as water levels began rising on Monday.",
+      "whatHappened": "Coastal communities across California were preparing for days of flooding amid potentially 'record-breaking tides' this week, as water levels began rising on Monday Coastal California braces...",
       "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
       "keyWord": "flood: water covering land that is usually dry",
       "source": "The Guardian Environment",
@@ -56,21 +65,12 @@
       "source": "The Guardian Environment",
       "url": "https://www.theguardian.com/environment/2026/oct/27/trump-cuts-el-nino-noaa",
       "publishedAt": "2026-10-27T21:34:54.000Z"
-    },
-    {
-      "title": "Nepal’s deadly glacier flood a ‘defining moment’ for the international community",
-      "whatHappened": "The deadly flash flood that tore through Nepal in August is a “defining moment” for both the country and the international community, according to the head...",
-      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
-      "keyWord": "flood: water covering land that is usually dry",
-      "source": "UN Climate",
-      "url": "https://news.un.org/feed/view/en/story/2026/10/1168651",
-      "publishedAt": "2026-10-22T12:00:00.000Z"
     }
   ],
   "climate": [
     {
       "title": "Trump says government to ‘terminate’ Biden-era methane emissions rules",
-      "whatHappened": "Critics warn of climate danger as president in Texas claims change will save companies and consumers billions Donald Trump said his administration is “terminating” Biden-era regulations...",
+      "whatHappened": "Critics warn of climate danger as president in Texas claims change will save companies and consumers billions Donald Trump said his administration was “terminating” Biden-era regulations...",
       "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
       "keyWord": "emissions: gases released into the air",
       "source": "The Guardian Environment",
@@ -96,37 +96,37 @@
       "publishedAt": "2026-10-27T12:00:00.000Z"
     },
     {
-      "title": "Menindee Lakes water levels drop to lowest in five years as experts warn of mass fish deaths",
-      "whatHappened": "NSW government imposes water restrictions after Menindee water volumes fall below 2021 levels Sign up for climate and environment editor Adam Morton’s free Clear Air newsletter...",
+      "title": "Eight of England’s nine water companies still failing on environment, report finds",
+      "whatHappened": "Angela Eagle tells industry ‘people are sick of excuses’ as pollution levels remain high despite billions in investment Angela Eagle, the environment secretary, has summoned water...",
       "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
       "keyWord": "climate: the usual pattern of weather over a long period of time",
       "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/australia-news/2026/oct/28/menindee-lakes-water-levels-drop-mass-fish-death-fears",
-      "publishedAt": "2026-10-28T14:00:07.000Z"
+      "url": "https://www.theguardian.com/business/2026/oct/29/ministers-water-bosses-report-performance-worse",
+      "publishedAt": "2026-10-29T16:39:48.000Z"
     },
     {
-      "title": "Record heat-related deaths in 2023, WHO-partnered report finds",
-      "whatHappened": "Climate inaction continues to harm and kill people in all countries with a record 710,000 estimated deaths globally from heat in 2023, a UN-partnered report warned...",
-      "whyItMatters": "Climate and environment stories connect science to real issues like safety, health, and extreme weather.",
-      "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "UN Climate",
-      "url": "https://news.un.org/feed/view/en/story/2026/10/1168688",
-      "publishedAt": "2026-10-28T12:00:00.000Z"
+      "title": "A new wave of electric ferries is here in the US. Some even fly",
+      "whatHappened": "Replacing diesel-powered ferries with electric vessels could reduce emissions and improve air quality Cutting through New York Harbor in the shadow of the Statue of Liberty,...",
+      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
+      "keyWord": "emissions: gases released into the air",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/environment/2026/oct/29/us-electric-ferries",
+      "publishedAt": "2026-10-29T10:00:31.000Z"
     },
     {
-      "title": "Trump’s cuts have exposed US to ‘cascade’ of El Niño dangers, experts warn",
-      "whatHappened": "President has taken an axe to National Oceanic and Atmospheric Administration, stalling climate research on and response to extreme weather events Sweeping cuts to the premier...",
+      "title": "Serious pollution by water industry remains high despite £5bn investment",
+      "whatHappened": "All but one of England's water companies were rated as \"poor\" or \"requiring improvement\" for environmental targets.",
       "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
       "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/environment/2026/oct/27/trump-cuts-el-nino-noaa",
-      "publishedAt": "2026-10-27T21:34:54.000Z"
+      "source": "BBC Science & Environment",
+      "url": "https://www.bbc.co.uk/news/articles/cw5ynxepy4gno?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-10-29T12:08:01.000Z"
     }
   ],
   "weatherTech": [
     {
       "title": "Aerial video shows California flooding amid ‘record-breaking tides’ – video",
-      "whatHappened": "Coastal communities across California were preparing for days of flooding amid potentially 'record-breaking tides' this week, as water levels began rising on Monday.",
+      "whatHappened": "Coastal communities across California were preparing for days of flooding amid potentially 'record-breaking tides' this week, as water levels began rising on Monday Coastal California braces...",
       "whyItMatters": "Weather technology shows how science tools can predict conditions faster and help people prepare earlier.",
       "keyWord": "forecast: a prediction about future weather conditions",
       "source": "The Guardian Environment",
@@ -172,15 +172,6 @@
       "publishedAt": "2026-10-27T17:01:09.000Z"
     },
     {
-      "title": "Discover Climate LIVE K12 Sessions for 2026-27",
-      "whatHappened": "From October through June, Columbia Climate School researchers and students will host sessions exploring climate and sustainability topics including biodiversity, climate finance, climate action in professional...",
-      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
-      "keyWord": "sustainability: using resources in a way that can last over time",
-      "source": "Columbia Climate School",
-      "url": "https://news.climate.columbia.edu/2026/10/21/discover-climate-live-k12-sessions-for-2026-27/",
-      "publishedAt": "2026-10-21T17:33:14.000Z"
-    },
-    {
       "title": "Carleton Advances to Silver Tier in Canada’s Net-Zero Challenge",
       "whatHappened": "Carleton University has advanced to the Silver participation tier in the federal Net-Zero Challenge, Environment and Climate Change Canada’s program for organisations with credible, science-based plans...",
       "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
@@ -188,6 +179,15 @@
       "source": "Carleton Sustainability",
       "url": "https://carleton.ca/sustainability/2026/carleton-advances-to-silver-tier-in-canadas-net-zero-challenge/",
       "publishedAt": "2026-09-04T14:35:10.000Z"
+    },
+    {
+      "title": "Climate Risk Meets Retail: Inside Princess Polly’s SoHo Flagship",
+      "whatHappened": "This M.A.",
+      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
+      "keyWord": "sustainability: using resources in a way that can last over time",
+      "source": "Columbia Climate School",
+      "url": "https://news.climate.columbia.edu/2026/10/26/climate-risk-meets-retail-inside-princess-pollys-soho-flagship/",
+      "publishedAt": "2026-10-27T01:03:06.000Z"
     },
     {
       "title": "How kites can harness the power of the tides",
@@ -217,15 +217,6 @@
       "publishedAt": "2026-10-08T04:00:00.000Z"
     },
     {
-      "title": "Turning environmental research into urban action",
-      "whatHappened": "Tue, 22 Sep 2026 12:00:00 +0000 Jo Fitzgibbons (MES ’19) is a planner and researcher turning environmental research into practical change in Canadian cities.",
-      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
-      "keyWord": "research: careful study used to discover new knowledge",
-      "source": "Waterloo Environment",
-      "url": "https://uwaterloo.ca/environment/news/turning-environmental-research-urban-action",
-      "publishedAt": "2026-09-22T12:00:00.000Z"
-    },
-    {
       "title": "Investing in the next generation of environmental leaders",
       "whatHappened": "Tue, 22 Sep 2026 12:00:00 +0000 KEEN Footwear is a long-standing partner of the University of Waterloo's Faculty of Environment, helping students turn environmental knowledge into...",
       "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
@@ -233,6 +224,24 @@
       "source": "Waterloo Environment",
       "url": "https://uwaterloo.ca/environment/news/investing-next-generation-environmental-leaders",
       "publishedAt": "2026-09-22T12:00:00.000Z"
+    },
+    {
+      "title": "2026 Faculty of Environment Alumni Awards announced",
+      "whatHappened": "Tue, 22 Sep 2026 12:00:00 +0000 From changing how children learn about the world around them to rethinking how cities grow, strengthening connections between research and...",
+      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
+      "keyWord": "research: careful study used to discover new knowledge",
+      "source": "Waterloo Environment",
+      "url": "https://uwaterloo.ca/environment/news/2026-faculty-environment-alumni-awards-announced",
+      "publishedAt": "2026-09-22T12:00:00.000Z"
+    },
+    {
+      "title": "Quantum, fusion and AI stand out during DOE leader’s campus visit",
+      "whatHappened": "The Department of Energy’s Darío Gil took part in a daylong visit that emphasized UW–Madison’s strengths across a number of research areas, as well as key...",
+      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
+      "keyWord": "research: careful study used to discover new knowledge",
+      "source": "University of Wisconsin News",
+      "url": "https://news.wisc.edu/quantum-fusion-and-ai-stand-out-during-doe-leaders-campus-visit/",
+      "publishedAt": "2026-10-28T20:06:19.000Z"
     },
     {
       "title": "3 Questions: Why infrastructure is entering a defining era",
@@ -251,15 +260,6 @@
       "source": "MIT Earth & Atmospheric Sciences",
       "url": "https://news.mit.edu/2026/researchers-improve-weather-forecasts-looking-two-six-weeks-out-1014",
       "publishedAt": "2026-10-14T15:00:00.000Z"
-    },
-    {
-      "title": "What happens after disaster strikes? UBC experts on Nepal’s road to recovery",
-      "whatHappened": "Two UBC experts explain what recovery could look like, why climate justice matters and what B.C.",
-      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
-      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
-      "source": "UBC News",
-      "url": "https://news.ubc.ca/2026/10/ubc-experts-on-nepals-road-to-recovery/",
-      "publishedAt": "2026-10-13T14:55:00.000Z"
     }
   ]
 }
