@@ -1,14 +1,14 @@
 {
-  "boardDate": "2026-11-02",
-  "generatedAt": "2026-11-02T20:52:19.637Z",
+  "boardDate": "2026-11-03",
+  "generatedAt": "2026-11-03T18:40:38.359Z",
   "sourceCount": 26,
   "weather": [
     {
       "city": "Ottawa",
-      "temperatureC": 19,
-      "maxC": 21,
-      "minC": 8,
-      "summary": "Mostly clear"
+      "temperatureC": 13,
+      "maxC": 14,
+      "minC": 11,
+      "summary": "Heavy drizzle"
     }
   ],
   "extremeWeather": [
@@ -60,6 +60,15 @@
       "publishedAt": "2026-10-27T12:00:00.000Z"
     },
     {
+      "title": "UK makes huge aid cuts to Commonwealth nations despite warm words at Chogm summit",
+      "whatHappened": "Nations in the group fare worse than others, with funding for nature projects especially hard hit even as climate crisis intensifies global need The UK government...",
+      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
+      "keyWord": "climate: the usual pattern of weather over a long period of time",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/world/2026/nov/03/uk-cuts-aid-commonwealth-countries-despite-warm-words-at-chogm-summit",
+      "publishedAt": "2026-11-03T17:49:57.000Z"
+    },
+    {
       "title": "COP17: Nations chart ‘Yerevan Pathway’ to speed up action for nature",
       "whatHappened": "At the halfway mark to 2030, countries meeting in Armenia have agreed a roadmap to accelerate action for nature, after a global review found the world...",
       "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
@@ -76,37 +85,9 @@
       "source": "The Guardian Environment",
       "url": "https://www.theguardian.com/us-news/2026/oct/30/climate-crisis-midterms-affordability",
       "publishedAt": "2026-10-30T11:30:52.000Z"
-    },
-    {
-      "title": "A new wave of electric ferries is here in the US. Some even fly",
-      "whatHappened": "Replacing diesel-powered ferries with electric vessels could reduce emissions and improve air quality Cutting through New York Harbor in the shadow of the Statue of Liberty,...",
-      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
-      "keyWord": "emissions: gases released into the air",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/environment/2026/oct/29/us-electric-ferries",
-      "publishedAt": "2026-10-29T10:00:31.000Z"
     }
   ],
-  "weatherTech": [
-    {
-      "title": "The Apple Watch Ultra 4 is $100 off, matching its best price to date",
-      "whatHappened": "The Apple Watch Ultra 4 is the company’s most capable smartwatch.",
-      "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
-      "keyWord": "battery: a device that stores energy for later use",
-      "source": "The Verge",
-      "url": "https://www.theverge.com/gadgets/1024416/apple-watch-ultra-4-ugreen-finetrack-2-bluetooth-tracker-deal-sale",
-      "publishedAt": "2026-11-02T19:24:09.000Z"
-    },
-    {
-      "title": "UK could see 10 days without rain after 'wettest week in two years'",
-      "whatHappened": "With high pressure developing across the UK, the start of November is looking very settled with no significant rain in the forecast.",
-      "whyItMatters": "Weather technology shows how science tools can predict conditions faster and help people prepare earlier.",
-      "keyWord": "forecast: a prediction about future weather conditions",
-      "source": "BBC Science & Environment",
-      "url": "https://www.bbc.co.uk/weather/articles/cq98zrwd42jzo?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-10-31T00:06:31.000Z"
-    }
-  ],
+  "weatherTech": [],
   "universityNews": [
     {
       "title": "Carleton Recognised as Only University in Canada to Achieve Bronze Tier in Net-Zero Challenge",
@@ -199,15 +180,6 @@
       "publishedAt": "2026-10-30T18:05:18.000Z"
     },
     {
-      "title": "Quantum, fusion and AI stand out during DOE leader’s campus visit",
-      "whatHappened": "The Department of Energy’s Darío Gil took part in a daylong visit that emphasized UW–Madison’s strengths across a number of research areas, as well as key...",
-      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
-      "keyWord": "research: careful study used to discover new knowledge",
-      "source": "University of Wisconsin News",
-      "url": "https://news.wisc.edu/quantum-fusion-and-ai-stand-out-during-doe-leaders-campus-visit/",
-      "publishedAt": "2026-10-28T20:06:19.000Z"
-    },
-    {
       "title": "3 Questions: Why infrastructure is entering a defining era",
       "whatHappened": "Professor Ali Jadbabaie describes how AI, digital transformation, climate change, and complex geopolitics are forcing engineers and policymakers to rethink how infrastructure is designed, built, and...",
       "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
@@ -215,6 +187,15 @@
       "source": "MIT Climate & Sustainability",
       "url": "https://news.mit.edu/2026/3-questions-why-infrastructure-is-entering-defining-era-1028",
       "publishedAt": "2026-10-28T16:00:00.000Z"
+    },
+    {
+      "title": "Researchers improve weather forecasts looking two to six weeks out",
+      "whatHappened": "A new machine-learning approach broke records for weather forecasting for an important time frame in emergency planning.",
+      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
+      "keyWord": "research: careful study used to discover new knowledge",
+      "source": "MIT Earth & Atmospheric Sciences",
+      "url": "https://news.mit.edu/2026/researchers-improve-weather-forecasts-looking-two-six-weeks-out-1014",
+      "publishedAt": "2026-10-14T15:00:00.000Z"
     }
   ]
 }
