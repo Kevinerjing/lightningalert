@@ -1,14 +1,14 @@
 {
-  "boardDate": "2026-11-03",
-  "generatedAt": "2026-11-03T18:40:38.359Z",
+  "boardDate": "2026-11-04",
+  "generatedAt": "2026-11-04T18:47:44.227Z",
   "sourceCount": 26,
   "weather": [
     {
       "city": "Ottawa",
-      "temperatureC": 13,
-      "maxC": 14,
+      "temperatureC": 21,
+      "maxC": 21,
       "minC": 11,
-      "summary": "Heavy drizzle"
+      "summary": "Mostly clear"
     }
   ],
   "extremeWeather": [
@@ -20,6 +20,15 @@
       "source": "UN Climate",
       "url": "https://news.un.org/feed/view/en/story/2026/10/1168679",
       "publishedAt": "2026-10-28T12:00:00.000Z"
+    },
+    {
+      "title": "Endangered giant burrowing frog returns to wild after tadpoles rescued from ashes of black summer fires",
+      "whatHappened": "Tadpoles collected from puddles in East Gippsland were transported to Melbourne zoo, where they were raised to metamorphosis and successfully bred in captivity for the first...",
+      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
+      "keyWord": "extreme weather: unusual and dangerous weather like floods, storms, or heat waves",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/australia-news/2026/nov/05/giant-burrowing-frog-returns-to-wild-after-tadpoles-rescued-black-summer-fires-australia",
+      "publishedAt": "2026-11-04T14:01:35.000Z"
     },
     {
       "title": "A lackluster response to North Carolina flooding disasters is eroding Republican support in one county",
@@ -42,6 +51,15 @@
       "publishedAt": "2026-10-28T12:00:00.000Z"
     },
     {
+      "title": "‘The world is not ready’: Climate adaptation cash falls far short as warming heads past 1.5°C",
+      "whatHappened": "Although global warming is set to exceed 1.5°C, financing to help communities adapt to climate change falls far short of needs, the UN Environment Programme (UNEP)...",
+      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
+      "keyWord": "climate: the usual pattern of weather over a long period of time",
+      "source": "UN Climate",
+      "url": "https://news.un.org/feed/view/en/story/2026/11/1168725",
+      "publishedAt": "2026-11-04T12:00:00.000Z"
+    },
+    {
       "title": "Colorado community fights plan to use drones to spray weed killer",
       "whatHappened": "Officials in Boulder County, Colorado, say they have a safe plan to wipe out invasive weeds, but some locals are concerned Soon, weed-killing chemicals will start...",
       "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
@@ -58,15 +76,6 @@
       "source": "UN Climate",
       "url": "https://news.un.org/feed/view/en/story/2026/10/1168677",
       "publishedAt": "2026-10-27T12:00:00.000Z"
-    },
-    {
-      "title": "UK makes huge aid cuts to Commonwealth nations despite warm words at Chogm summit",
-      "whatHappened": "Nations in the group fare worse than others, with funding for nature projects especially hard hit even as climate crisis intensifies global need The UK government...",
-      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
-      "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/world/2026/nov/03/uk-cuts-aid-commonwealth-countries-despite-warm-words-at-chogm-summit",
-      "publishedAt": "2026-11-03T17:49:57.000Z"
     },
     {
       "title": "COP17: Nations chart ‘Yerevan Pathway’ to speed up action for nature",
@@ -87,7 +96,17 @@
       "publishedAt": "2026-10-30T11:30:52.000Z"
     }
   ],
-  "weatherTech": [],
+  "weatherTech": [
+    {
+      "title": "Anker’s new window-mounted camera monitors the outside of your home from within it",
+      "whatHappened": "Anker announced a new indoor security camera that's designed to watch your yard, driveway, or front porch through a window, instead of monitoring what's inside your...",
+      "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
+      "keyWord": "weather technology: tools that help people measure, study, or predict weather and climate",
+      "source": "The Verge",
+      "url": "https://www.theverge.com/tech/1026360/anker-eufy-window-camera-e10-indoors-security-ai-color-night-vision",
+      "publishedAt": "2026-11-04T17:41:10.000Z"
+    }
+  ],
   "universityNews": [
     {
       "title": "Carleton Recognised as Only University in Canada to Achieve Bronze Tier in Net-Zero Challenge",
@@ -127,21 +146,12 @@
     },
     {
       "title": "Comparing spatial interpolation approaches for mapping peatlands",
-      "whatHappened": "Fri, 30 Oct 2026 12:00:00 +0000 Victoria Steblaj, a recent Master of Science graduate from the Department of Geography and Environmental Management, has always been interested...",
+      "whatHappened": "Fri, 30 Oct 2026 12:00:00 +0000 Victoria Steblaj, a graduate student in the Department of Geography and Environmental Management, has always been interested in wetlands and...",
       "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
       "keyWord": "research: careful study used to discover new knowledge",
       "source": "Waterloo Environment",
       "url": "https://uwaterloo.ca/environment/news/comparing-spatial-interpolation-approaches-mapping-peatlands",
       "publishedAt": "2026-10-30T12:00:00.000Z"
-    },
-    {
-      "title": "How kites can harness the power of the tides",
-      "whatHappened": "Berkeley engineer Evan Variano explains how underwater kites could expand the world’s renewable energy portfolio.",
-      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
-      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
-      "source": "Berkeley News",
-      "url": "https://engineering.berkeley.edu/news/2026/10/harnessing-the-power-of-the-tides/",
-      "publishedAt": "2026-10-23T16:20:19.000Z"
     },
     {
       "title": "The ocean’s most abundant “loner” microbe has a sticky second life",
@@ -153,31 +163,13 @@
       "publishedAt": "2026-10-20T21:15:00.000Z"
     },
     {
-      "title": "Using AI to mitigate the growing environmental threat of data centers",
-      "whatHappened": "By rethinking how large cloud computing systems operate, Associate Professor Christina Delimitrou seeks to make data centers more energy efficient.",
+      "title": "2026 Faculty of Environment Alumni Awards announced",
+      "whatHappened": "Tue, 22 Sep 2026 12:00:00 +0000 From changing how children learn about the world around them to rethinking how cities grow, strengthening connections between research and...",
       "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
-      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
-      "source": "MIT Climate & Sustainability",
-      "url": "https://news.mit.edu/2026/mitigating-environmental-threat-of-data-centers-christina-delimitrou-1008",
-      "publishedAt": "2026-10-08T04:00:00.000Z"
-    },
-    {
-      "title": "Investing in the next generation of environmental leaders",
-      "whatHappened": "Tue, 22 Sep 2026 12:00:00 +0000 KEEN Footwear is a long-standing partner of the University of Waterloo's Faculty of Environment, helping students turn environmental knowledge into...",
-      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
-      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
+      "keyWord": "research: careful study used to discover new knowledge",
       "source": "Waterloo Environment",
-      "url": "https://uwaterloo.ca/environment/news/investing-next-generation-environmental-leaders",
+      "url": "https://uwaterloo.ca/environment/news/2026-faculty-environment-alumni-awards-announced",
       "publishedAt": "2026-09-22T12:00:00.000Z"
-    },
-    {
-      "title": "Reminder: UW–Madison policies regarding inclement weather",
-      "whatHappened": "UW–Madison strives to remain open and maintain instruction whenever possible.",
-      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
-      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
-      "source": "University of Wisconsin News",
-      "url": "https://news.wisc.edu/reminder-uw-madison-policies-regarding-inclement-weather/",
-      "publishedAt": "2026-10-30T18:05:18.000Z"
     },
     {
       "title": "3 Questions: Why infrastructure is entering a defining era",
@@ -187,6 +179,15 @@
       "source": "MIT Climate & Sustainability",
       "url": "https://news.mit.edu/2026/3-questions-why-infrastructure-is-entering-defining-era-1028",
       "publishedAt": "2026-10-28T16:00:00.000Z"
+    },
+    {
+      "title": "At New York Climate Week 2026, MIT connects with a global network",
+      "whatHappened": "A cross-section of the MIT community convened discussions on topics ranging from data centers and super pollutants to agriculture and education.",
+      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
+      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
+      "source": "MIT Climate & Sustainability",
+      "url": "https://news.mit.edu/2026/at-new-york-climate-week-mit-connects-global-network-1026",
+      "publishedAt": "2026-10-26T19:00:00.000Z"
     },
     {
       "title": "Researchers improve weather forecasts looking two to six weeks out",
