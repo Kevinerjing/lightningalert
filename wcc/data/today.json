@@ -1,14 +1,14 @@
 {
-  "boardDate": "2026-11-07",
-  "generatedAt": "2026-11-07T17:00:07.059Z",
+  "boardDate": "2026-11-08",
+  "generatedAt": "2026-11-08T17:13:53.182Z",
   "sourceCount": 26,
   "weather": [
     {
       "city": "Ottawa",
-      "temperatureC": 9,
-      "maxC": 12,
-      "minC": 8,
-      "summary": "Cloudy"
+      "temperatureC": 7,
+      "maxC": 9,
+      "minC": 5,
+      "summary": "Mostly clear"
     }
   ],
   "extremeWeather": [
@@ -60,6 +60,15 @@
       "publishedAt": "2026-11-04T12:00:00.000Z"
     },
     {
+      "title": "Beef industry quietly squashes part of its own science curriculum after ranchers protest",
+      "whatHappened": "Lesson for teenagers included how cattle’s methane emissions contribute to climate crisis, but it was then scrapped A beef industry-funded effort to teach teenagers about cattle’s...",
+      "whyItMatters": "Climate and environment stories connect science to real issues like safety, health, and extreme weather.",
+      "keyWord": "emissions: gases released into the air",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/environment/2026/nov/08/beef-industry-climate-impact-education",
+      "publishedAt": "2026-11-08T15:00:43.000Z"
+    },
+    {
       "title": "A really simple guide to climate change",
       "whatHappened": "Human activities are causing the world to heat up, posing serious threats to people and nature.",
       "whyItMatters": "Climate and environment stories connect science to real issues like safety, health, and extreme weather.",
@@ -67,15 +76,6 @@
       "source": "BBC Science & Environment",
       "url": "https://www.bbc.co.uk/news/articles/c9w15nggj58o?at_medium=RSS&at_campaign=rss",
       "publishedAt": "2026-11-06T16:40:51.000Z"
-    },
-    {
-      "title": "Most Europeans want action to tackle climate crisis but not at any cost, poll shows",
-      "whatHappened": "YouGov survey finds support for tree planting and emissions taxes but opposition to air travel and fuel levies Europe live – latest updates Europeans believe human-made...",
-      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
-      "keyWord": "emissions: gases released into the air",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/world/2026/nov/06/europeans-want-action-climate-crisis-yougov-poll",
-      "publishedAt": "2026-11-06T12:27:54.000Z"
     },
     {
       "title": "How Democrats used the midterms to turn affordability concerns into ‘green populism’",
@@ -178,7 +178,7 @@
       "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
       "source": "uOttawa News",
       "url": "https://www.uottawa.ca/en/news-all/theory-predicting-older-universe-without-dark-matter-dark-energy-passes-key-cosmological",
-      "publishedAt": "2026-11-07T16:57:58.658Z"
+      "publishedAt": "2026-11-08T17:12:21.405Z"
     },
     {
       "title": "3 Questions: Why infrastructure is entering a defining era",
