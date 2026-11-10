@@ -1,17 +1,35 @@
 {
-  "boardDate": "2026-11-09",
-  "generatedAt": "2026-11-09T21:34:53.573Z",
+  "boardDate": "2026-11-10",
+  "generatedAt": "2026-11-10T18:46:08.996Z",
   "sourceCount": 26,
   "weather": [
     {
       "city": "Ottawa",
-      "temperatureC": 7,
+      "temperatureC": 11,
       "maxC": 11,
       "minC": 5,
       "summary": "Cloudy"
     }
   ],
   "extremeWeather": [
+    {
+      "title": "World News in Brief: El Niño’s $11 trillion price tag, Mozambique and Yemen updates",
+      "whatHappened": "The El Niño extreme weather pattern could cost the global economy up to $11 trillion and seriously impact food security, said the UN agency tackling rural...",
+      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
+      "keyWord": "extreme weather: unusual and dangerous weather like floods, storms, or heat waves",
+      "source": "UN Climate",
+      "url": "https://news.un.org/feed/view/en/story/2026/11/1168768",
+      "publishedAt": "2026-11-09T12:00:00.000Z"
+    },
+    {
+      "title": "Children among the dead as heavy rains flood tents and shelters in Gaza",
+      "whatHappened": "An infant reportedly drowned and five Gazans were killed – including three children – when a sand dune collapsed on their tents as the first heavy...",
+      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
+      "keyWord": "flood: water covering land that is usually dry",
+      "source": "UN Climate",
+      "url": "https://news.un.org/feed/view/en/story/2026/11/1168766",
+      "publishedAt": "2026-11-09T12:00:00.000Z"
+    },
     {
       "title": "COP31 opens in Antalya: Can climate promises finally deliver results?",
       "whatHappened": "Nearly 200 countries have arrived on Türkiye's Mediterranean coast for a climate summit with a different ambition: fewer grand declarations and more concrete decisions.",
@@ -51,40 +69,13 @@
   ],
   "climate": [
     {
-      "title": "What is net zero and is the UK on track to achieve it?",
-      "whatHappened": "Reaching net zero carbon emissions worldwide is essential to limit global warming, UN scientists say.",
-      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
-      "keyWord": "emissions: gases released into the air",
-      "source": "BBC Science & Environment",
-      "url": "https://www.bbc.co.uk/news/articles/cx238yyr40qo?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-11-06T16:22:51.000Z"
-    },
-    {
-      "title": "‘The world is not ready’: Climate adaptation cash falls far short as warming heads past 1.5°C",
-      "whatHappened": "Although global warming is set to exceed 1.5°C, financing to help communities adapt to climate change falls far short of needs, the UN Environment Programme (UNEP)...",
-      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
-      "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "UN Climate",
-      "url": "https://news.un.org/feed/view/en/story/2026/11/1168725",
-      "publishedAt": "2026-11-04T12:00:00.000Z"
-    },
-    {
-      "title": "Air pollution soars as fog traps emissions in England’s urban areas",
-      "whatHappened": "Particles from fireworks and bonfires likely to have contributed to levels well above WHO’s daily guideline Air pollution soared to “very high” levels across urban parts...",
-      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
-      "keyWord": "emissions: gases released into the air",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/environment/2026/nov/09/air-pollution-soars-fog-traps-emissions-england-urban-areas",
-      "publishedAt": "2026-11-09T19:13:59.000Z"
-    },
-    {
-      "title": "Senate votes on bill to speed up projects from gas pipelines to clean energy",
-      "whatHappened": "Environmentalists torn over procedural vote to boost infrastructure projects but weaken environmental laws It’s a bill that would make it easier to build big infrastructure projects...",
+      "title": "Senate advances bill to speed up projects from gas pipelines to clean energy",
+      "whatHappened": "Key environmental groups come out against bipartisan Baaja bill over fears it could spur datacenters and ICE jails The Senate on Monday advanced bipartisan legislation aimed...",
       "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
       "keyWord": "climate: the usual pattern of weather over a long period of time",
       "source": "The Guardian Environment",
       "url": "https://www.theguardian.com/us-news/2026/nov/09/senate-energy-infrastructure-bill-vote",
-      "publishedAt": "2026-11-09T18:42:32.000Z"
+      "publishedAt": "2026-11-10T02:28:00.000Z"
     },
     {
       "title": "COP31 opens in Antalya: Can climate promises finally deliver results?",
@@ -103,26 +94,53 @@
       "source": "The Guardian Environment",
       "url": "https://www.theguardian.com/environment/2026/nov/08/beef-industry-climate-impact-education",
       "publishedAt": "2026-11-08T15:00:43.000Z"
+    },
+    {
+      "title": "Cop31 as it happened: ‘Everything and everyone we love is at stake,’ Greta Thunberg warns",
+      "whatHappened": "Host Turkey celebrates new oilfields as UN climate summit prepares to host world leaders from more than 90 countries We’ve just heard from Patricia Espinosa ,...",
+      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
+      "keyWord": "climate: the usual pattern of weather over a long period of time",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/environment/live/2026/nov/10/cop31-live-fossil-fuel-carbon-emissions-climate-crisis-latest-news-updates",
+      "publishedAt": "2026-11-10T15:35:09.000Z"
+    },
+    {
+      "title": "Jimmy Carter’s Georgia farm to open to the public: ‘This land shaped him and his legacy’",
+      "whatHappened": "Conservation group acquires former US president’s family farm with plans to transfer it to the state in 2028 Jimmy Carter ’s family farm has been acquired...",
+      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
+      "keyWord": "climate: the usual pattern of weather over a long period of time",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/us-news/2026/nov/10/jimmy-carter-georgia-farm-conserved-open-to-public",
+      "publishedAt": "2026-11-10T15:01:41.000Z"
+    },
+    {
+      "title": "COP31: Energy transition takes centre stage as countries map path beyond fossil fuels",
+      "whatHappened": "The global energy transition took centre stage on the second day of COP31, as countries explored how to move away from fossil fuels, accelerate clean energy...",
+      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
+      "keyWord": "climate: the usual pattern of weather over a long period of time",
+      "source": "UN Climate",
+      "url": "https://news.un.org/feed/view/en/story/2026/11/1168775",
+      "publishedAt": "2026-11-10T12:00:00.000Z"
     }
   ],
   "weatherTech": [
     {
-      "title": "Air pollution soars as fog traps emissions in England’s urban areas",
-      "whatHappened": "Particles from fireworks and bonfires likely to have contributed to levels well above WHO’s daily guideline Air pollution soared to “very high” levels across urban parts...",
+      "title": "COP31: Energy transition takes centre stage as countries map path beyond fossil fuels",
+      "whatHappened": "The global energy transition took centre stage on the second day of COP31, as countries explored how to move away from fossil fuels, accelerate clean energy...",
       "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
       "keyWord": "weather technology: tools that help people measure, study, or predict weather and climate",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/environment/2026/nov/09/air-pollution-soars-fog-traps-emissions-england-urban-areas",
-      "publishedAt": "2026-11-09T19:13:59.000Z"
+      "source": "UN Climate",
+      "url": "https://news.un.org/feed/view/en/story/2026/11/1168775",
+      "publishedAt": "2026-11-10T12:00:00.000Z"
     },
     {
-      "title": "Senate votes on bill to speed up projects from gas pipelines to clean energy",
-      "whatHappened": "Environmentalists torn over procedural vote to boost infrastructure projects but weaken environmental laws It’s a bill that would make it easier to build big infrastructure projects...",
+      "title": "Senate advances bill to speed up projects from gas pipelines to clean energy",
+      "whatHappened": "Key environmental groups come out against bipartisan Baaja bill over fears it could spur datacenters and ICE jails The Senate on Monday advanced bipartisan legislation aimed...",
       "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
       "keyWord": "weather technology: tools that help people measure, study, or predict weather and climate",
       "source": "The Guardian Environment",
       "url": "https://www.theguardian.com/us-news/2026/nov/09/senate-energy-infrastructure-bill-vote",
-      "publishedAt": "2026-11-09T18:42:32.000Z"
+      "publishedAt": "2026-11-10T02:28:00.000Z"
     },
     {
       "title": "COP31 opens in Antalya: Can climate promises finally deliver results?",
@@ -132,15 +150,6 @@
       "source": "UN Climate",
       "url": "https://news.un.org/feed/view/en/story/2026/11/1168763",
       "publishedAt": "2026-11-09T12:00:00.000Z"
-    },
-    {
-      "title": "COP31 explained: What’s at stake at this year’s UN climate summit?",
-      "whatHappened": "The world has more tools than ever to tackle climate change, yet millions remain unable to benefit from them.",
-      "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
-      "keyWord": "weather technology: tools that help people measure, study, or predict weather and climate",
-      "source": "UN Climate",
-      "url": "https://news.un.org/feed/view/en/story/2026/11/1168735",
-      "publishedAt": "2026-11-04T12:00:00.000Z"
     }
   ],
   "universityNews": [
@@ -199,13 +208,22 @@
       "publishedAt": "2026-10-20T21:15:00.000Z"
     },
     {
-      "title": "Investing in the next generation of environmental leaders",
-      "whatHappened": "Tue, 22 Sep 2026 12:00:00 +0000 KEEN Footwear is a long-standing partner of the University of Waterloo's Faculty of Environment, helping students turn environmental knowledge into...",
+      "title": "2026 Faculty of Environment Alumni Awards announced",
+      "whatHappened": "Tue, 22 Sep 2026 12:00:00 +0000 From changing how children learn about the world around them to rethinking how cities grow, strengthening connections between research and...",
+      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
+      "keyWord": "research: careful study used to discover new knowledge",
+      "source": "Waterloo Environment",
+      "url": "https://uwaterloo.ca/environment/news/2026-faculty-environment-alumni-awards-announced",
+      "publishedAt": "2026-09-22T12:00:00.000Z"
+    },
+    {
+      "title": "New publication: Professor David Jaclin explores the many dimensions of water in O: Essai d’anthropologie élémentale",
+      "whatHappened": "New publication: Professor David Jaclin explores the many dimensions of water in O: Essai d’anthropologie élémentale",
       "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
       "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
-      "source": "Waterloo Environment",
-      "url": "https://uwaterloo.ca/environment/news/investing-next-generation-environmental-leaders",
-      "publishedAt": "2026-09-22T12:00:00.000Z"
+      "source": "uOttawa News",
+      "url": "https://www.uottawa.ca/en/news-all/new-publication-professor-david-jaclin-explores-many-dimensions-water-o-essai",
+      "publishedAt": "2026-11-10T18:46:00.550Z"
     },
     {
       "title": "Theory predicting an older Universe without dark matter or dark energy passes key cosmological tests, warranting further investigation",
@@ -214,7 +232,7 @@
       "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
       "source": "uOttawa News",
       "url": "https://www.uottawa.ca/en/news-all/theory-predicting-older-universe-without-dark-matter-dark-energy-passes-key-cosmological",
-      "publishedAt": "2026-11-09T21:34:50.506Z"
+      "publishedAt": "2026-11-10T18:46:00.550Z"
     },
     {
       "title": "The UK government wants households to stockpile essentials – but why?",
