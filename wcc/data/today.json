@@ -1,14 +1,14 @@
 {
-  "boardDate": "2026-11-11",
-  "generatedAt": "2026-11-11T18:50:30.004Z",
+  "boardDate": "2026-11-12",
+  "generatedAt": "2026-11-12T19:02:10.530Z",
   "sourceCount": 26,
   "weather": [
     {
       "city": "Ottawa",
-      "temperatureC": 6,
-      "maxC": 7,
-      "minC": 0,
-      "summary": "Partly cloudy"
+      "temperatureC": 5,
+      "maxC": 5,
+      "minC": -1,
+      "summary": "Mostly clear"
     }
   ],
   "extremeWeather": [
@@ -56,18 +56,27 @@
       "source": "UN Climate",
       "url": "https://news.un.org/feed/view/en/story/2026/11/1168760",
       "publishedAt": "2026-11-09T12:00:00.000Z"
-    },
-    {
-      "title": "Famous New Mexico rock formation destroyed after torrential El Niño rains",
-      "whatHappened": "Officials expected to investigate whether super El Niño storms in US south-west damaged the Alien Throne spires Undulating, gravity-defying rock spires are one of the most...",
-      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
-      "keyWord": "extreme weather: unusual and dangerous weather like floods, storms, or heat waves",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/environment/2026/nov/06/new-mexico-alien-throne-collapse-el-nino-rain",
-      "publishedAt": "2026-11-06T19:23:03.000Z"
     }
   ],
   "climate": [
+    {
+      "title": "Trump the ‘biggest loser’ for scrapping climate action, John Kerry says at Cop31",
+      "whatHappened": "Kerry decries president for ceding clean-energy dominance to China and says climate crisis still a key issue for voters Donald Trump is the “biggest loser we’ve...",
+      "whyItMatters": "Climate and environment stories connect science to real issues like safety, health, and extreme weather.",
+      "keyWord": "emissions: gases released into the air",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/environment/2026/nov/12/trump-loser-john-kerry-cop31",
+      "publishedAt": "2026-11-12T11:00:48.000Z"
+    },
+    {
+      "title": "UK ministers have no plans to publish explosive report on climate crisis",
+      "whatHappened": "Andy Burnham’s newly appointed climate adviser used report to warn of national security risk from collapsing ecosystems The UK government still has no plans to publish...",
+      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
+      "keyWord": "climate: the usual pattern of weather over a long period of time",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/environment/2026/nov/12/uk-ministers-no-plans-publish-climate-crisis-report",
+      "publishedAt": "2026-11-12T17:51:24.000Z"
+    },
     {
       "title": "Senate advances bill to speed up projects from gas pipelines to clean energy",
       "whatHappened": "Key environmental groups come out against bipartisan Baaja bill over fears it could spur datacenters and ICE jails The Senate on Monday advanced bipartisan legislation aimed...",
@@ -96,34 +105,34 @@
       "publishedAt": "2026-11-08T15:00:43.000Z"
     },
     {
-      "title": "‘Make or bake time’: Guterres urges climate justice pact as leaders gather at COP31",
-      "whatHappened": "UN chief António Guterres called for a new global climate justice agreement at COP31 on Wednesday, urging governments to tax fossil fuel companies to help countries...",
+      "title": "Burnham says climate consensus 'gone' but pledges 'new era of leadership'",
+      "whatHappened": "PM Andy Burnham was addressing delegates at the COP31 UN climate summit in Antalya, Turkey.",
       "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
       "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "UN Climate",
-      "url": "https://news.un.org/feed/view/en/story/2026/11/1168783",
-      "publishedAt": "2026-11-11T12:00:00.000Z"
-    },
-    {
-      "title": "Jimmy Carter’s Georgia farm acquired by conservation group planning to open it to public",
-      "whatHappened": "Conservation group acquires former US president’s family farm with plans to transfer it to the state in 2028 Jimmy Carter ’s family farm has been acquired...",
-      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
-      "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/us-news/2026/nov/10/jimmy-carter-georgia-farm-conserved-open-to-public",
-      "publishedAt": "2026-11-10T15:01:41.000Z"
-    },
-    {
-      "title": "COP31: Energy transition takes centre stage as countries map path beyond fossil fuels",
-      "whatHappened": "The global energy transition took centre stage on the second day of COP31, as countries explored how to move away from fossil fuels, accelerate clean energy...",
-      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
-      "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "UN Climate",
-      "url": "https://news.un.org/feed/view/en/story/2026/11/1168775",
-      "publishedAt": "2026-11-10T12:00:00.000Z"
+      "source": "BBC Science & Environment",
+      "url": "https://www.bbc.co.uk/news/articles/cmg46y7wev42o?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-11-12T11:03:53.000Z"
     }
   ],
   "weatherTech": [
+    {
+      "title": "UK ministers have no plans to publish explosive report on climate crisis",
+      "whatHappened": "Andy Burnham’s newly appointed climate adviser used report to warn of national security risk from collapsing ecosystems The UK government still has no plans to publish...",
+      "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
+      "keyWord": "weather technology: tools that help people measure, study, or predict weather and climate",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/environment/2026/nov/12/uk-ministers-no-plans-publish-climate-crisis-report",
+      "publishedAt": "2026-11-12T17:51:24.000Z"
+    },
+    {
+      "title": "Trump the ‘biggest loser’ for scrapping climate action, John Kerry says at Cop31",
+      "whatHappened": "Kerry decries president for ceding clean-energy dominance to China and says climate crisis still a key issue for voters Donald Trump is the “biggest loser we’ve...",
+      "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
+      "keyWord": "weather technology: tools that help people measure, study, or predict weather and climate",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/environment/2026/nov/12/trump-loser-john-kerry-cop31",
+      "publishedAt": "2026-11-12T11:00:48.000Z"
+    },
     {
       "title": "COP31: Energy transition takes centre stage as countries map path beyond fossil fuels",
       "whatHappened": "The global energy transition took centre stage on the second day of COP31, as countries explored how to move away from fossil fuels, accelerate clean energy...",
@@ -163,6 +172,15 @@
       "publishedAt": "2025-07-29T18:25:35.000Z"
     },
     {
+      "title": "Indonesian delegation visits Waterloo to strengthen climate finance and energy transition partnership",
+      "whatHappened": "Thu, 12 Nov 2026 12:00:00 +0000 On September 25, 2026, the University of Waterloo’s Faculty of Environment helped welcome an Indonesian delegation to campus as part...",
+      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
+      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
+      "source": "Waterloo Environment",
+      "url": "https://uwaterloo.ca/environment/news/indonesian-delegation-visits-waterloo-strengthen-climate",
+      "publishedAt": "2026-11-12T12:00:00.000Z"
+    },
+    {
       "title": "October Research Roundup: Select Papers",
       "whatHappened": "In this month's research roundup, we explore how delayed climate action could trigger abrupt changes in the Arctic; what ancient ocean sediments reveal about carbon storage...",
       "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
@@ -170,15 +188,6 @@
       "source": "Columbia Climate School",
       "url": "https://news.climate.columbia.edu/2026/11/09/october-research-roundup-select-papers/",
       "publishedAt": "2026-11-09T18:51:02.000Z"
-    },
-    {
-      "title": "Columbia Climate School Career Reception Connects Students With Climate and Sustainability Professionals",
-      "whatHappened": "Climate and sustainability students met with professionals in finance, clean energy, real estate, public policy and communications at the 11th annual career reception.",
-      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
-      "keyWord": "sustainability: using resources in a way that can last over time",
-      "source": "Columbia Climate School",
-      "url": "https://news.climate.columbia.edu/2026/10/27/columbia-climate-school-career-reception-connects-students-with-sustainability-professionals/",
-      "publishedAt": "2026-10-27T17:01:09.000Z"
     },
     {
       "title": "Carleton Advances to Silver Tier in Canada’s Net-Zero Challenge",
@@ -190,6 +199,15 @@
       "publishedAt": "2026-09-04T14:35:10.000Z"
     },
     {
+      "title": "Rain May Increase Ocean Carbon Uptake More Than We Thought",
+      "whatHappened": "A Lamont-led study finds that global carbon budgets may underestimate how much carbon dioxide the ocean absorbs by roughly 5% to 15% because they do not...",
+      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
+      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
+      "source": "Columbia Climate School",
+      "url": "https://news.climate.columbia.edu/2026/11/11/rain-may-increase-ocean-carbon-uptake-more-than-we-thought/",
+      "publishedAt": "2026-11-11T22:48:27.000Z"
+    },
+    {
       "title": "Comparing spatial interpolation approaches for mapping peatlands",
       "whatHappened": "Fri, 30 Oct 2026 12:00:00 +0000 Victoria Steblaj, a graduate student in the Department of Geography and Environmental Management, has always been interested in wetlands and...",
       "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
@@ -199,31 +217,22 @@
       "publishedAt": "2026-10-30T12:00:00.000Z"
     },
     {
-      "title": "The ocean’s most abundant “loner” microbe has a sticky second life",
-      "whatHappened": "Researchers in the Chisholm lab find Prochlorococcus can switch between drifting alone and living in attached communities, a discovery that could reshape estimates of how much...",
-      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
-      "keyWord": "research: careful study used to discover new knowledge",
-      "source": "MIT Earth & Atmospheric Sciences",
-      "url": "https://news.mit.edu/2026/oceans-most-abundant-loner-microbe-has-sticky-second-life-1020",
-      "publishedAt": "2026-10-20T21:15:00.000Z"
-    },
-    {
-      "title": "Investing in the next generation of environmental leaders",
-      "whatHappened": "Tue, 22 Sep 2026 12:00:00 +0000 KEEN Footwear is a long-standing partner of the University of Waterloo's Faculty of Environment, helping students turn environmental knowledge into...",
-      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
-      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
-      "source": "Waterloo Environment",
-      "url": "https://uwaterloo.ca/environment/news/investing-next-generation-environmental-leaders",
-      "publishedAt": "2026-09-22T12:00:00.000Z"
-    },
-    {
       "title": "New publication: Professor David Jaclin explores the many dimensions of water in O: Essai d’anthropologie élémentale",
       "whatHappened": "New publication: Professor David Jaclin explores the many dimensions of water in O: Essai d’anthropologie élémentale",
       "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
       "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
       "source": "uOttawa News",
       "url": "https://www.uottawa.ca/en/news-all/new-publication-professor-david-jaclin-explores-many-dimensions-water-o-essai",
-      "publishedAt": "2026-11-11T18:50:27.344Z"
+      "publishedAt": "2026-11-12T19:02:08.030Z"
+    },
+    {
+      "title": "New research could lead to faster, trustworthy AI models for climate prediction",
+      "whatHappened": "MIT scientists developed a training method to generate models that simulate the effects of human activities on climate much more quickly than other approaches.",
+      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
+      "keyWord": "research: careful study used to discover new knowledge",
+      "source": "MIT Climate & Sustainability",
+      "url": "https://news.mit.edu/2026/new-research-could-lead-faster-trustworthy-ai-models-climate-prediction-1112",
+      "publishedAt": "2026-11-12T05:00:00.000Z"
     },
     {
       "title": "Retired ocean liner to become largest artificial reef in the world",
@@ -244,15 +253,6 @@
       "publishedAt": "2026-11-10T16:11:39.000Z"
     },
     {
-      "title": "The UK government wants households to stockpile essentials – but why?",
-      "whatHappened": "Households are urged by the U.K.",
-      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
-      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
-      "source": "Northeastern Global News",
-      "url": "https://news.northeastern.edu/2026/11/09/uk-be-ready-campaign-stockpile/",
-      "publishedAt": "2026-11-09T18:08:23.000Z"
-    },
-    {
       "title": "3 Questions: Why infrastructure is entering a defining era",
       "whatHappened": "Professor Ali Jadbabaie describes how AI, digital transformation, climate change, and complex geopolitics are forcing engineers and policymakers to rethink how infrastructure is designed, built, and...",
       "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
@@ -260,6 +260,15 @@
       "source": "MIT Climate & Sustainability",
       "url": "https://news.mit.edu/2026/3-questions-why-infrastructure-is-entering-defining-era-1028",
       "publishedAt": "2026-10-28T16:00:00.000Z"
+    },
+    {
+      "title": "Dark matter hunting satellite reveals record number of cosmic ’magnifying glasses’",
+      "whatHappened": "The Euclid satellite, launched to investigate dark energy and dark matter, delivers its first major data release with almost a billion galaxies captured and thousands of...",
+      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
+      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
+      "source": "UBC News",
+      "url": "https://news.ubc.ca/2026/11/dark-matter-hunting-satellite-reveals-record-number-of-cosmic-magnifying-glasses/",
+      "publishedAt": "2026-11-12T13:55:00.000Z"
     }
   ]
 }
