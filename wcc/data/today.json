@@ -1,25 +1,34 @@
 {
-  "boardDate": "2026-11-12",
-  "generatedAt": "2026-11-12T19:02:10.530Z",
+  "boardDate": "2026-11-13",
+  "generatedAt": "2026-11-13T18:41:07.462Z",
   "sourceCount": 26,
   "weather": [
     {
       "city": "Ottawa",
-      "temperatureC": 5,
-      "maxC": 5,
-      "minC": -1,
-      "summary": "Mostly clear"
+      "temperatureC": 4,
+      "maxC": 4,
+      "minC": 0,
+      "summary": "Cloudy"
     }
   ],
   "extremeWeather": [
     {
-      "title": "'It can kill us': Kenyans fear impact of El Niño with floods predicted",
-      "whatHappened": "Forecasters warn that this year's El Niño could be one of the strongest on record, with heavy rain and flooding in Kenya.",
+      "title": "Summer heatwave put bin crews lives at risk, says council worker",
+      "whatHappened": "Crews faced a \"perfect storm\" of challenges during the UK's record-breaking weather, it's claimed.",
+      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
+      "keyWord": "heat wave: a long period of unusually hot weather",
+      "source": "BBC Science & Environment",
+      "url": "https://www.bbc.co.uk/news/articles/cj1dv5q21wdxo?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-11-13T12:03:04.000Z"
+    },
+    {
+      "title": "Flood victim, 95, lived in Wetherspoons until she died after her home was destroyed",
+      "whatHappened": "Jean Powell kept asking when she could go back to her flat, which was flooded when the River Monnow burst its banks.",
       "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
       "keyWord": "flood: water covering land that is usually dry",
       "source": "BBC Science & Environment",
-      "url": "https://www.bbc.co.uk/news/articles/c8wy9y37z30vo?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-11-11T00:18:07.000Z"
+      "url": "https://www.bbc.co.uk/news/articles/cqe8r8ngjepjo?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-11-13T06:05:49.000Z"
     },
     {
       "title": "World News in Brief: El Niño’s $11 trillion price tag, Mozambique and Yemen updates",
@@ -29,36 +38,18 @@
       "source": "UN Climate",
       "url": "https://news.un.org/feed/view/en/story/2026/11/1168768",
       "publishedAt": "2026-11-09T12:00:00.000Z"
-    },
-    {
-      "title": "Children among the dead as heavy rains flood tents and shelters in Gaza",
-      "whatHappened": "An infant reportedly drowned and five Gazans were killed – including three children – when a sand dune collapsed on their tents as the first heavy...",
-      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
-      "keyWord": "flood: water covering land that is usually dry",
-      "source": "UN Climate",
-      "url": "https://news.un.org/feed/view/en/story/2026/11/1168766",
-      "publishedAt": "2026-11-09T12:00:00.000Z"
-    },
-    {
-      "title": "COP31 opens in Antalya: Can climate promises finally deliver results?",
-      "whatHappened": "Nearly 200 countries have arrived on Türkiye's Mediterranean coast for a climate summit with a different ambition: fewer grand declarations and more concrete decisions.",
-      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
-      "keyWord": "extreme weather: unusual and dangerous weather like floods, storms, or heat waves",
-      "source": "UN Climate",
-      "url": "https://news.un.org/feed/view/en/story/2026/11/1168763",
-      "publishedAt": "2026-11-09T12:00:00.000Z"
-    },
-    {
-      "title": "‘Exceptional’ extreme temperatures to continue into next year, UN reports",
-      "whatHappened": "In April this year, roughly 146.5 million Indians were exposed to an extreme heatwave with temperatures hitting a sweltering 47℃.&nbsp;&nbsp;",
-      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
-      "keyWord": "heat wave: a long period of unusually hot weather",
-      "source": "UN Climate",
-      "url": "https://news.un.org/feed/view/en/story/2026/11/1168760",
-      "publishedAt": "2026-11-09T12:00:00.000Z"
     }
   ],
   "climate": [
+    {
+      "title": "California governor Gavin Newsom endorses global fossil fuel phaseout",
+      "whatHappened": "Newsom is the most prominent US politician at Cop31, a process the Trump administration continues to boycott The leader of the world’s fourth biggest economy, California...",
+      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
+      "keyWord": "climate: the usual pattern of weather over a long period of time",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/environment/2026/nov/13/california-gavin-newsom-endorses-fossil-fuel-phaseout",
+      "publishedAt": "2026-11-13T16:31:28.000Z"
+    },
     {
       "title": "Trump the ‘biggest loser’ for scrapping climate action, John Kerry says at Cop31",
       "whatHappened": "Kerry decries president for ceding clean-energy dominance to China and says climate crisis still a key issue for voters Donald Trump is the “biggest loser we’ve...",
@@ -69,60 +60,51 @@
       "publishedAt": "2026-11-12T11:00:48.000Z"
     },
     {
-      "title": "UK ministers have no plans to publish explosive report on climate crisis",
-      "whatHappened": "Andy Burnham’s newly appointed climate adviser used report to warn of national security risk from collapsing ecosystems The UK government still has no plans to publish...",
-      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
-      "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/environment/2026/nov/12/uk-ministers-no-plans-publish-climate-crisis-report",
-      "publishedAt": "2026-11-12T17:51:24.000Z"
-    },
-    {
-      "title": "Senate advances bill to speed up projects from gas pipelines to clean energy",
-      "whatHappened": "Key environmental groups come out against bipartisan Baaja bill over fears it could spur datacenters and ICE jails The Senate on Monday advanced bipartisan legislation aimed...",
-      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
-      "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/us-news/2026/nov/09/senate-energy-infrastructure-bill-vote",
-      "publishedAt": "2026-11-10T02:28:00.000Z"
-    },
-    {
-      "title": "COP31 opens in Antalya: Can climate promises finally deliver results?",
-      "whatHappened": "Nearly 200 countries have arrived on Türkiye's Mediterranean coast for a climate summit with a different ambition: fewer grand declarations and more concrete decisions.",
+      "title": "COP31: New initiative targets AI and reliable climate change information",
+      "whatHappened": "New guidance has been issued to ensure that people everywhere can obtain credible climate change information from artificial intelligence (AI) and understand how the technology impacts...",
       "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
       "keyWord": "climate: the usual pattern of weather over a long period of time",
       "source": "UN Climate",
-      "url": "https://news.un.org/feed/view/en/story/2026/11/1168763",
-      "publishedAt": "2026-11-09T12:00:00.000Z"
+      "url": "https://news.un.org/feed/view/en/story/2026/11/1168798",
+      "publishedAt": "2026-11-13T12:00:00.000Z"
     },
     {
-      "title": "Beef industry quietly squashes part of its own science curriculum after ranchers protest",
-      "whatHappened": "Lesson for teenagers included how cattle’s methane emissions contribute to climate crisis, but it was then scrapped A beef industry-funded effort to teach teenagers about cattle’s...",
-      "whyItMatters": "Climate and environment stories connect science to real issues like safety, health, and extreme weather.",
-      "keyWord": "emissions: gases released into the air",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/environment/2026/nov/08/beef-industry-climate-impact-education",
-      "publishedAt": "2026-11-08T15:00:43.000Z"
-    },
-    {
-      "title": "Burnham says climate consensus 'gone' but pledges 'new era of leadership'",
-      "whatHappened": "PM Andy Burnham was addressing delegates at the COP31 UN climate summit in Antalya, Turkey.",
+      "title": "Dozens of protesters arrested after staging sit-in at Chuck Schumer’s DC office",
+      "whatHappened": "Protesters with the Sunrise Movement youth climate group push for new Senate leadership and ending the filibuster Dozens of protesters with the Sunrise Movement, a youth...",
       "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
       "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "BBC Science & Environment",
-      "url": "https://www.bbc.co.uk/news/articles/cmg46y7wev42o?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-11-12T11:03:53.000Z"
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/us-news/2026/nov/12/protesters-arrested-chuck-schumer-office-dc",
+      "publishedAt": "2026-11-12T22:12:56.000Z"
+    },
+    {
+      "title": "Be sea-ing you: humpback whale spotted in New York’s Hudson River",
+      "whatHappened": "Sightings of the species are becoming increasingly common as experts worry about danger posed by busy waterways A humpback whale was spotted on Thursday swimming in...",
+      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
+      "keyWord": "climate: the usual pattern of weather over a long period of time",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/us-news/2026/nov/12/humpback-whale-new-york-city-hudson-river",
+      "publishedAt": "2026-11-12T20:53:49.000Z"
+    },
+    {
+      "title": "New platform aims to get money moving before disaster strikes",
+      "whatHappened": "UN agencies on Thursday launched a joint platform at COP31 in Antalya, Türkiye, that aims to secure access to more than $3 billion in risk financing...",
+      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
+      "keyWord": "climate: the usual pattern of weather over a long period of time",
+      "source": "UN Climate",
+      "url": "https://news.un.org/feed/view/en/story/2026/11/1168794",
+      "publishedAt": "2026-11-12T12:00:00.000Z"
     }
   ],
   "weatherTech": [
     {
-      "title": "UK ministers have no plans to publish explosive report on climate crisis",
-      "whatHappened": "Andy Burnham’s newly appointed climate adviser used report to warn of national security risk from collapsing ecosystems The UK government still has no plans to publish...",
+      "title": "California governor Gavin Newsom endorses global fossil fuel phaseout",
+      "whatHappened": "Newsom is the most prominent US politician at Cop31, a process the Trump administration continues to boycott The leader of the world’s fourth biggest economy, California...",
       "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
-      "keyWord": "weather technology: tools that help people measure, study, or predict weather and climate",
+      "keyWord": "solar: related to energy from sunlight",
       "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/environment/2026/nov/12/uk-ministers-no-plans-publish-climate-crisis-report",
-      "publishedAt": "2026-11-12T17:51:24.000Z"
+      "url": "https://www.theguardian.com/environment/2026/nov/13/california-gavin-newsom-endorses-fossil-fuel-phaseout",
+      "publishedAt": "2026-11-13T16:31:28.000Z"
     },
     {
       "title": "Trump the ‘biggest loser’ for scrapping climate action, John Kerry says at Cop31",
@@ -141,24 +123,6 @@
       "source": "UN Climate",
       "url": "https://news.un.org/feed/view/en/story/2026/11/1168775",
       "publishedAt": "2026-11-10T12:00:00.000Z"
-    },
-    {
-      "title": "Senate advances bill to speed up projects from gas pipelines to clean energy",
-      "whatHappened": "Key environmental groups come out against bipartisan Baaja bill over fears it could spur datacenters and ICE jails The Senate on Monday advanced bipartisan legislation aimed...",
-      "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
-      "keyWord": "weather technology: tools that help people measure, study, or predict weather and climate",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/us-news/2026/nov/09/senate-energy-infrastructure-bill-vote",
-      "publishedAt": "2026-11-10T02:28:00.000Z"
-    },
-    {
-      "title": "COP31 opens in Antalya: Can climate promises finally deliver results?",
-      "whatHappened": "Nearly 200 countries have arrived on Türkiye's Mediterranean coast for a climate summit with a different ambition: fewer grand declarations and more concrete decisions.",
-      "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
-      "keyWord": "weather technology: tools that help people measure, study, or predict weather and climate",
-      "source": "UN Climate",
-      "url": "https://news.un.org/feed/view/en/story/2026/11/1168763",
-      "publishedAt": "2026-11-09T12:00:00.000Z"
     }
   ],
   "universityNews": [
@@ -199,13 +163,22 @@
       "publishedAt": "2026-09-04T14:35:10.000Z"
     },
     {
-      "title": "Rain May Increase Ocean Carbon Uptake More Than We Thought",
-      "whatHappened": "A Lamont-led study finds that global carbon budgets may underestimate how much carbon dioxide the ocean absorbs by roughly 5% to 15% because they do not...",
+      "title": "How the Energy Crises of the 1970s Shaped Today’s Climate Politics",
+      "whatHappened": "Science historian and Climate School professor Leah Aronowsky discusses her ongoing book project sparked by the 1970s energy crisis.",
       "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
       "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
       "source": "Columbia Climate School",
-      "url": "https://news.climate.columbia.edu/2026/11/11/rain-may-increase-ocean-carbon-uptake-more-than-we-thought/",
-      "publishedAt": "2026-11-11T22:48:27.000Z"
+      "url": "https://news.climate.columbia.edu/2026/11/13/how-the-energy-crises-of-the-1970s-shaped-todays-climate-politics/",
+      "publishedAt": "2026-11-13T15:39:09.000Z"
+    },
+    {
+      "title": "Energy, prosperity, emissions, and innovation: A decarbonization progress report",
+      "whatHappened": "Eric Toone, CTO of Breakthrough Energy, assessed global decarbonization, and the opportunities and challenges that remain, at MITEI’s annual research conference.",
+      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
+      "keyWord": "research: careful study used to discover new knowledge",
+      "source": "MIT Climate & Sustainability",
+      "url": "https://news.mit.edu/2026/energy-prosperity-emissions-innovation-decarbonization-progress-report-1112",
+      "publishedAt": "2026-11-12T21:30:00.000Z"
     },
     {
       "title": "Comparing spatial interpolation approaches for mapping peatlands",
@@ -217,15 +190,6 @@
       "publishedAt": "2026-10-30T12:00:00.000Z"
     },
     {
-      "title": "New publication: Professor David Jaclin explores the many dimensions of water in O: Essai d’anthropologie élémentale",
-      "whatHappened": "New publication: Professor David Jaclin explores the many dimensions of water in O: Essai d’anthropologie élémentale",
-      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
-      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
-      "source": "uOttawa News",
-      "url": "https://www.uottawa.ca/en/news-all/new-publication-professor-david-jaclin-explores-many-dimensions-water-o-essai",
-      "publishedAt": "2026-11-12T19:02:08.030Z"
-    },
-    {
       "title": "New research could lead to faster, trustworthy AI models for climate prediction",
       "whatHappened": "MIT scientists developed a training method to generate models that simulate the effects of human activities on climate much more quickly than other approaches.",
       "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
@@ -235,15 +199,6 @@
       "publishedAt": "2026-11-12T05:00:00.000Z"
     },
     {
-      "title": "Retired ocean liner to become largest artificial reef in the world",
-      "whatHappened": "The SS United States, a once famed luxury liner bigger than the Titanic, is set to be scuttled in Florida’s Gulf Coast The post Retired ocean...",
-      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
-      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
-      "source": "Northeastern Global News",
-      "url": "https://news.northeastern.edu/2026/11/10/ss-united-states-artificial-reef/",
-      "publishedAt": "2026-11-10T19:38:12.000Z"
-    },
-    {
       "title": "From remedy to prevention: Researchers call for proactive approach to protect the human right to water",
       "whatHappened": "Protecting the human right to safe water, sanitation and hygiene means preventing harm before it occurs rather than assigning responsibility afterward, University of Notre Dame researchers...",
       "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
@@ -251,15 +206,6 @@
       "source": "Notre Dame News",
       "url": "https://news.nd.edu/news/from-remedy-to-prevention-researchers-call-for-proactive-approach-to-protect-the-human-right-to-water/",
       "publishedAt": "2026-11-10T16:11:39.000Z"
-    },
-    {
-      "title": "3 Questions: Why infrastructure is entering a defining era",
-      "whatHappened": "Professor Ali Jadbabaie describes how AI, digital transformation, climate change, and complex geopolitics are forcing engineers and policymakers to rethink how infrastructure is designed, built, and...",
-      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
-      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
-      "source": "MIT Climate & Sustainability",
-      "url": "https://news.mit.edu/2026/3-questions-why-infrastructure-is-entering-defining-era-1028",
-      "publishedAt": "2026-10-28T16:00:00.000Z"
     },
     {
       "title": "Dark matter hunting satellite reveals record number of cosmic ’magnifying glasses’",
