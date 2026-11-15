@@ -1,14 +1,14 @@
 {
-  "boardDate": "2026-11-14",
-  "generatedAt": "2026-11-14T17:15:49.969Z",
+  "boardDate": "2026-11-15",
+  "generatedAt": "2026-11-15T17:55:55.657Z",
   "sourceCount": 26,
   "weather": [
     {
       "city": "Ottawa",
-      "temperatureC": 5,
-      "maxC": 5,
+      "temperatureC": 6,
+      "maxC": 6,
       "minC": 1,
-      "summary": "Partly cloudy"
+      "summary": "Cloudy"
     }
   ],
   "extremeWeather": [
@@ -20,6 +20,15 @@
       "source": "BBC Science & Environment",
       "url": "https://www.bbc.co.uk/news/articles/cj1dv5q21wdxo?at_medium=RSS&at_campaign=rss",
       "publishedAt": "2026-11-13T12:03:04.000Z"
+    },
+    {
+      "title": "When the rains fail: Preparing for drought in Central America",
+      "whatHappened": "Across Central America’s so-called Dry Corridor, farming families live at the mercy of the rains.",
+      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
+      "keyWord": "drought: a long time with very little rain",
+      "source": "UN Climate",
+      "url": "https://news.un.org/feed/view/en/story/2026/11/1168776",
+      "publishedAt": "2026-11-14T12:00:00.000Z"
     },
     {
       "title": "Flood victim, 95, lived in Wetherspoons until she died after her home was destroyed",
@@ -51,15 +60,6 @@
       "publishedAt": "2026-11-13T12:00:00.000Z"
     },
     {
-      "title": "LGBTQ+ protesters defy crackdown in Turkey to march with Cop31 activists",
-      "whatHappened": "Civil society campaigners form protective cordon around LGBTQ+ campaigners as they unfurl flags and placards Queer and gay protesters defied a crackdown on LGBTQ+ rights in...",
-      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
-      "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/world/2026/nov/14/lgbtq-protesters-defy-crackdown-in-turkey-to-march-with-cop31-activists",
-      "publishedAt": "2026-11-14T17:08:18.000Z"
-    },
-    {
       "title": "Indigenous students retrace Lewis and Clark’s historic journey: ‘We can’t protect what we cannot see’",
       "whatHappened": "Two centuries after the expedition, Indigenous students are conducting a new wildlife survey along the route In 1804, when Thomas Jefferson dispatched Meriwether Lewis and William...",
       "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
@@ -85,6 +85,15 @@
       "source": "The Guardian Environment",
       "url": "https://www.theguardian.com/us-news/2026/nov/13/climate-environment-questions-bill-mckibben",
       "publishedAt": "2026-11-13T20:23:23.000Z"
+    },
+    {
+      "title": "COP31: Climate finance falls short as calls grow for polluters to pay",
+      "whatHappened": "From emotional appeals for climate justice to high-stakes negotiations over billions of dollars, finance dominated discussions at COP31 on Friday.",
+      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
+      "keyWord": "climate: the usual pattern of weather over a long period of time",
+      "source": "UN Climate",
+      "url": "https://news.un.org/feed/view/en/story/2026/11/1168802",
+      "publishedAt": "2026-11-13T12:00:00.000Z"
     }
   ],
   "weatherTech": [
@@ -96,15 +105,6 @@
       "source": "The Guardian Environment",
       "url": "https://www.theguardian.com/environment/2026/nov/13/california-gavin-newsom-endorses-fossil-fuel-phaseout",
       "publishedAt": "2026-11-13T16:31:28.000Z"
-    },
-    {
-      "title": "Asian governments react to Nvidia CEO Jensen Huang’s exit",
-      "whatHappened": "Some governments moved to confirm chip supply commitments, while others are monitoring the impact on local projects or addressing ongoing investigations.",
-      "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
-      "keyWord": "weather technology: tools that help people measure, study, or predict weather and climate",
-      "source": "TechCrunch",
-      "url": "https://techcrunch.com/2026/11/14/asian-governments-react-to-nvidia-ceo-jensen-huangs-exit/",
-      "publishedAt": "2026-11-14T16:34:15.000Z"
     },
     {
       "title": "COP31: Energy transition takes centre stage as countries map path beyond fossil fuels",
