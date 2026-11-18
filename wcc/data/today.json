@@ -1,17 +1,26 @@
 {
-  "boardDate": "2026-11-17",
-  "generatedAt": "2026-11-17T19:58:35.413Z",
+  "boardDate": "2026-11-18",
+  "generatedAt": "2026-11-18T19:30:06.158Z",
   "sourceCount": 26,
   "weather": [
     {
       "city": "Ottawa",
-      "temperatureC": 12,
-      "maxC": 12,
-      "minC": -4,
-      "summary": "Clear skies"
+      "temperatureC": 13,
+      "maxC": 13,
+      "minC": 1,
+      "summary": "Cloudy"
     }
   ],
   "extremeWeather": [
+    {
+      "title": "Tag team: dual waterspouts appear in San Francisco Bay amid stormy weather",
+      "whatHappened": "Phenomenon is not a common occurrence in the Bay area and inclement weather is expected to continue for few days A pair of waterspouts were recorded...",
+      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
+      "keyWord": "extreme weather: unusual and dangerous weather like floods, storms, or heat waves",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/us-news/2026/nov/17/san-francisco-bay-area-waterspouts",
+      "publishedAt": "2026-11-18T02:33:21.000Z"
+    },
     {
       "title": "When the rains fail: Preparing for drought in Central America",
       "whatHappened": "Across Central America’s so-called Dry Corridor, farming families live at the mercy of the rains.",
@@ -33,40 +42,13 @@
       "publishedAt": "2026-11-17T12:00:00.000Z"
     },
     {
-      "title": "Surge of US datacenters adds equivalent of Denmark’s annual emissions, study finds",
-      "whatHappened": "‘Hyperscaler’ datacenters across country draw upon dirtier power sources to meet vast energy needs, research shows The frantic buildout of “hyperscaler” datacenters in the US has...",
-      "whyItMatters": "Climate and environment stories connect science to real issues like safety, health, and extreme weather.",
-      "keyWord": "emissions: gases released into the air",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/us-news/2026/nov/16/datacenter-emissions-study",
-      "publishedAt": "2026-11-16T16:00:47.000Z"
-    },
-    {
-      "title": "Passing bill to speed up gas projects and datacenters would be ‘serious mistake’, Al Gore says",
-      "whatHappened": "Former US vice-president at Cop31 urges lawmakers to rethink contentious bipartisan Baaja bill advanced by the US Senate It would be a “serious mistake” to pass...",
+      "title": "World ‘held hostage by oil mafia’, says Panama minister at Cop 31",
+      "whatHappened": "Key issues unresolved as summit enters final days, with 30 countries signed up to forge fossil fuel treaty separate to UN process The world is “being...",
       "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
       "keyWord": "climate: the usual pattern of weather over a long period of time",
       "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/us-news/2026/nov/16/al-gore-baaja-cop-31-climate",
-      "publishedAt": "2026-11-16T14:34:17.000Z"
-    },
-    {
-      "title": "Is Cop worth it? Fiona Harvey and Ajit Niranjan answered your climate talks questions",
-      "whatHappened": "The Guardian’s environment editor Fiona Harvey and Europe environment correspondent Ajit Niranjan tackled your questions on Cop31, the draft deal on fossil fuels, the fight over...",
-      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
-      "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/environment/live/2026/nov/17/what-do-you-want-to-know-about-the-cop31-climate-talks-ask-fiona-harvey-and-ajit-niranjan",
-      "publishedAt": "2026-11-17T18:57:55.000Z"
-    },
-    {
-      "title": "Working in Cape Cod’s waters, he saw an unusual clam. It was the start of an invasion",
-      "whatHappened": "The unfamiliar mollusk first turned up in this harvester’s haul in 2023.",
-      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
-      "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/environment/2026/nov/16/cape-cod-invasive-manila-clams",
-      "publishedAt": "2026-11-16T12:00:58.000Z"
+      "url": "https://www.theguardian.com/environment/2026/nov/18/world-held-hostage-by-oil-mafia-says-panama-minister-at-cop-31",
+      "publishedAt": "2026-11-18T17:07:06.000Z"
     },
     {
       "title": "COP31: New initiative targets AI and reliable climate change information",
@@ -76,20 +58,56 @@
       "source": "UN Climate",
       "url": "https://news.un.org/feed/view/en/story/2026/11/1168798",
       "publishedAt": "2026-11-13T12:00:00.000Z"
+    },
+    {
+      "title": "‘Huge experiment in biogeography’: US offshore windfarms are creating artificial reefs",
+      "whatHappened": "Scientists and fishers study how these ‘reefs’ and the creatures living on them are transforming the ocean floor – and what it means for the fishing...",
+      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
+      "keyWord": "climate: the usual pattern of weather over a long period of time",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/us-news/2026/nov/18/offshore-wind-farms-artificial-reef-experiment-fishing-industry",
+      "publishedAt": "2026-11-18T14:00:04.000Z"
+    },
+    {
+      "title": "Republicans could expedite bill to make big oil immune to lawsuits, warn experts",
+      "whatHappened": "GOP lawmakers are rushing through high-priority bills before newly elected Democrats are sworn in Climate groups fear lawmakers could pass a bill by the end of...",
+      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
+      "keyWord": "climate: the usual pattern of weather over a long period of time",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/us-news/2026/nov/18/big-oil-immunity-bill-climate",
+      "publishedAt": "2026-11-18T13:00:04.000Z"
+    },
+    {
+      "title": "Government risks missing climate targets if EV rules weakened, adviser warns",
+      "whatHappened": "The UK could miss legally binding climate targets if EV targets are cut, an adviser warns",
+      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
+      "keyWord": "climate: the usual pattern of weather over a long period of time",
+      "source": "BBC Science & Environment",
+      "url": "https://www.bbc.co.uk/news/articles/c63rgqg5l9l2o?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-11-18T00:44:48.000Z"
     }
   ],
   "weatherTech": [
     {
-      "title": "Passing bill to speed up gas projects and datacenters would be ‘serious mistake’, Al Gore says",
-      "whatHappened": "Former US vice-president at Cop31 urges lawmakers to rethink contentious bipartisan Baaja bill advanced by the US Senate It would be a “serious mistake” to pass...",
+      "title": "Pakistan's solar revolution is so successful the national grid is lagging behind",
+      "whatHappened": "People installing their own solar panels has helped boost the solar share of Pakistan's electricity from 1% to 28%.",
       "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
       "keyWord": "solar: related to energy from sunlight",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/us-news/2026/nov/16/al-gore-baaja-cop-31-climate",
-      "publishedAt": "2026-11-16T14:34:17.000Z"
+      "source": "BBC Science & Environment",
+      "url": "https://www.bbc.co.uk/news/articles/ckvg2n2q3103o?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-11-17T23:34:56.000Z"
     }
   ],
   "universityNews": [
+    {
+      "title": "Watch: Sea level rise isn’t just waves — how groundwater threatens coastal cities from below",
+      "whatHappened": "Storm footage has conditioned us to look toward the ocean, but Kristina Hill, a UC Berkeley professor and environmental planner, explains why the hidden danger comes...",
+      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
+      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
+      "source": "Berkeley News",
+      "url": "https://news.berkeley.edu/2026/11/18/watch-sea-level-rise-isnt-just-waves-how-groundwater-threatens-coastal-cities-from-below/",
+      "publishedAt": "2026-11-18T17:45:19.000Z"
+    },
     {
       "title": "Carleton Recognised as Only University in Canada to Achieve Bronze Tier in Net-Zero Challenge",
       "whatHappened": "Carleton University has been recognised as the only university in Canada to achieve the Bronze Tier in the Government of Canada’ Net-Zero Challenge, a significant milestone...",
@@ -118,15 +136,6 @@
       "publishedAt": "2026-11-12T12:00:00.000Z"
     },
     {
-      "title": "October Research Roundup: Select Papers",
-      "whatHappened": "In this month's research roundup, we explore how delayed climate action could trigger abrupt changes in the Arctic; what ancient ocean sediments reveal about carbon storage...",
-      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
-      "keyWord": "research: careful study used to discover new knowledge",
-      "source": "Columbia Climate School",
-      "url": "https://news.climate.columbia.edu/2026/11/09/october-research-roundup-select-papers/",
-      "publishedAt": "2026-11-09T18:51:02.000Z"
-    },
-    {
       "title": "Carleton Advances to Silver Tier in Canada’s Net-Zero Challenge",
       "whatHappened": "Carleton University has advanced to the Silver participation tier in the federal Net-Zero Challenge, Environment and Climate Change Canada’s program for organisations with credible, science-based plans...",
       "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
@@ -152,6 +161,15 @@
       "source": "MIT Climate & Sustainability",
       "url": "https://news.mit.edu/2026/energy-prosperity-emissions-innovation-decarbonization-progress-report-1112",
       "publishedAt": "2026-11-12T21:30:00.000Z"
+    },
+    {
+      "title": "Rain May Increase Ocean Carbon Uptake More Than We Thought",
+      "whatHappened": "A Lamont-led study finds that global carbon budgets may underestimate how much carbon dioxide the ocean absorbs by roughly 5% to 15% because they do not...",
+      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
+      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
+      "source": "Columbia Climate School",
+      "url": "https://news.climate.columbia.edu/2026/11/11/rain-may-increase-ocean-carbon-uptake-more-than-we-thought/",
+      "publishedAt": "2026-11-11T22:48:27.000Z"
     },
     {
       "title": "Comparing spatial interpolation approaches for mapping peatlands",
@@ -188,15 +206,6 @@
       "source": "University of Michigan Record",
       "url": "https://record.umich.edu/articles/five-recommended-for-winter-commencement-honorary-degrees-2/",
       "publishedAt": "2026-11-16T07:00:00.000Z"
-    },
-    {
-      "title": "From remedy to prevention: Researchers call for proactive approach to protect the human right to water",
-      "whatHappened": "Protecting the human right to safe water, sanitation and hygiene means preventing harm before it occurs rather than assigning responsibility afterward, University of Notre Dame researchers...",
-      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
-      "keyWord": "research: careful study used to discover new knowledge",
-      "source": "Notre Dame News",
-      "url": "https://news.nd.edu/news/from-remedy-to-prevention-researchers-call-for-proactive-approach-to-protect-the-human-right-to-water/",
-      "publishedAt": "2026-11-10T16:11:39.000Z"
     }
   ]
 }
