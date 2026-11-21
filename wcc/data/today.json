@@ -1,14 +1,14 @@
 {
-  "boardDate": "2026-11-19",
-  "generatedAt": "2026-11-19T19:35:02.820Z",
+  "boardDate": "2026-11-21",
+  "generatedAt": "2026-11-21T18:09:07.392Z",
   "sourceCount": 26,
   "weather": [
     {
       "city": "Ottawa",
-      "temperatureC": 13,
-      "maxC": 13,
-      "minC": 0,
-      "summary": "Cloudy"
+      "temperatureC": 9,
+      "maxC": 12,
+      "minC": -1,
+      "summary": "Partly cloudy"
     }
   ],
   "extremeWeather": [
@@ -31,24 +31,6 @@
       "publishedAt": "2026-11-19T09:21:54.000Z"
     },
     {
-      "title": "Torrential rain causes widespread flooding in South Florida",
-      "whatHappened": "Entire neighbourhoods remain under water as disruptions impact schools, roads, hospitals and airports.",
-      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
-      "keyWord": "flood: water covering land that is usually dry",
-      "source": "BBC Science & Environment",
-      "url": "https://www.bbc.co.uk/news/videos/crgj3205jv98o?at_medium=RSS&at_campaign=rss",
-      "publishedAt": "2026-11-18T20:29:18.000Z"
-    },
-    {
-      "title": "Tag team: dual waterspouts appear in San Francisco Bay amid stormy weather",
-      "whatHappened": "Phenomenon is not a common occurrence in the Bay area and inclement weather is expected to continue for few days A pair of waterspouts were recorded...",
-      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
-      "keyWord": "extreme weather: unusual and dangerous weather like floods, storms, or heat waves",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/us-news/2026/nov/17/san-francisco-bay-area-waterspouts",
-      "publishedAt": "2026-11-18T02:33:21.000Z"
-    },
-    {
       "title": "When the rains fail: Preparing for drought in Central America",
       "whatHappened": "Across Central America’s so-called Dry Corridor, farming families live at the mercy of the rains.",
       "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
@@ -69,52 +51,71 @@
       "publishedAt": "2026-11-17T12:00:00.000Z"
     },
     {
-      "title": "COP31: New initiative targets AI and reliable climate change information",
-      "whatHappened": "New guidance has been issued to ensure that people everywhere can obtain credible climate change information from artificial intelligence (AI) and understand how the technology impacts...",
+      "title": "What to know about the US permitting bill, from datacenters to Trump’s arch",
+      "whatHappened": "Environmental groups are aghast, but supporters say bill might be only chance to speed up clean energy projects The US Senate has passed a bill to...",
+      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
+      "keyWord": "climate: the usual pattern of weather over a long period of time",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/us-news/2026/nov/20/what-to-know-permitting-bill-energy-passed",
+      "publishedAt": "2026-11-20T18:26:08.000Z"
+    },
+    {
+      "title": "Cop31 live: world urged to avoid one of ‘most disappointing Cops ever’ as talks stretch past deadline",
+      "whatHappened": "EU thought to have backing of 130 countries in last-ditch push to get fossil fuels mentioned in outcome of UN climate summit.",
+      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
+      "keyWord": "climate: the usual pattern of weather over a long period of time",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/environment/live/2026/nov/21/cop31-climate-deal-latest-news-updates",
+      "publishedAt": "2026-11-21T17:48:54.000Z"
+    },
+    {
+      "title": "Fight over fossil fuels leaves COP31 climate talks in deadlock",
+      "whatHappened": "Countries from nearly 200 countries are in a deadlock to try and get a new global climate agreement.",
+      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
+      "keyWord": "climate: the usual pattern of weather over a long period of time",
+      "source": "BBC Science & Environment",
+      "url": "https://www.bbc.co.uk/news/articles/c6ly5w40eg07o?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-11-21T14:54:24.000Z"
+    },
+    {
+      "title": "Homes abandoned, harvests failing: Haiti’s farmers rebuild amid violence, hunger and El Niño",
+      "whatHappened": "Years of insecurity, violence perpetrated by murderous armed gangs and economic instability, combined with displacement, poor agricultural performance and climate shocks, have left millions of Haitians...",
       "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
       "keyWord": "climate: the usual pattern of weather over a long period of time",
       "source": "UN Climate",
-      "url": "https://news.un.org/feed/view/en/story/2026/11/1168798",
-      "publishedAt": "2026-11-13T12:00:00.000Z"
+      "url": "https://news.un.org/feed/view/en/story/2026/11/1168834",
+      "publishedAt": "2026-11-21T12:00:00.000Z"
     },
     {
-      "title": "Cop31 told it risks being ‘ghost’ summit as all mentions of ‘fossil fuels’ removed from draft text",
-      "whatHappened": "Draft agreement also fails to show how developing countries will receive financial help to deal with climate crisis Cop31 live – latest updates Every mention of...",
+      "title": "US Senate approves bill to speed up permitting reviews for energy projects and datacenters",
+      "whatHappened": "Bipartisan legislation now goes to the House amid concerns by some Democrats and environmental groups The Senate approved bipartisan legislation on Thursday aimed at speeding up...",
       "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
       "keyWord": "climate: the usual pattern of weather over a long period of time",
       "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/environment/2026/nov/19/cop31-risks-becoming-ghost-summit-after-all-mentions-of-fossil-fuels-removed-from-draft-text",
-      "publishedAt": "2026-11-19T17:58:21.000Z"
-    },
-    {
-      "title": "‘Huge experiment in biogeography’: US offshore windfarms are creating artificial reefs",
-      "whatHappened": "Scientists and fishers study how these ‘reefs’ and the creatures living on them are transforming the ocean floor – and what it means for the fishing...",
-      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
-      "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/us-news/2026/nov/18/offshore-wind-farms-artificial-reef-experiment-fishing-industry",
-      "publishedAt": "2026-11-18T14:00:04.000Z"
-    },
-    {
-      "title": "Republicans could expedite bill to make big oil immune to lawsuits, warn experts",
-      "whatHappened": "GOP lawmakers are rushing through high-priority bills before newly elected Democrats are sworn in Climate groups fear lawmakers could pass a bill by the end of...",
-      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
-      "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/us-news/2026/nov/18/big-oil-immunity-bill-climate",
-      "publishedAt": "2026-11-18T13:00:04.000Z"
-    },
-    {
-      "title": "COP31 deadlock persists as countries launch new ‘climate reality check’",
-      "whatHappened": "With the clock running down at COP31 in Antalya, countries on Wednesday launched a new global check on whether climate promises are being kept, even as...",
-      "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
-      "keyWord": "climate: the usual pattern of weather over a long period of time",
-      "source": "UN Climate",
-      "url": "https://news.un.org/feed/view/en/story/2026/11/1168833",
-      "publishedAt": "2026-11-18T12:00:00.000Z"
+      "url": "https://www.theguardian.com/us-news/2026/nov/20/senate-energy-datacenters-review-bill",
+      "publishedAt": "2026-11-20T15:09:09.000Z"
     }
   ],
-  "weatherTech": [],
+  "weatherTech": [
+    {
+      "title": "These US fishers see offshore wind as a ‘godsend’. Trump wants to shut it down",
+      "whatHappened": "Despite the president’s attacks, Sea Services is training New England fishers in offshore wind construction and providing them with a second income stream On a rainy...",
+      "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
+      "keyWord": "weather technology: tools that help people measure, study, or predict weather and climate",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/environment/2026/nov/20/offshore-wind-farms-trump-fishers",
+      "publishedAt": "2026-11-20T14:00:31.000Z"
+    },
+    {
+      "title": "What to know about the US permitting bill, from datacenters to Trump’s arch",
+      "whatHappened": "Environmental groups are aghast, but supporters say bill might be only chance to speed up clean energy projects The US Senate has passed a bill to...",
+      "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
+      "keyWord": "weather technology: tools that help people measure, study, or predict weather and climate",
+      "source": "The Guardian Environment",
+      "url": "https://www.theguardian.com/us-news/2026/nov/20/what-to-know-permitting-bill-energy-passed",
+      "publishedAt": "2026-11-20T18:26:08.000Z"
+    }
+  ],
   "universityNews": [
     {
       "title": "Watch: Sea level rise isn’t just waves — how groundwater threatens coastal cities from below",
@@ -160,6 +161,15 @@
       "source": "Carleton Sustainability",
       "url": "https://carleton.ca/sustainability/2026/carleton-advances-to-silver-tier-in-canadas-net-zero-challenge/",
       "publishedAt": "2026-09-04T14:35:10.000Z"
+    },
+    {
+      "title": "New approach enables physically consistent AI models of chaotic systems",
+      "whatHappened": "Enforcing physics-based constraints prevents AI models from generating unreliable predictions for complex nonlinear systems in weather, climate, and turbulent flows.",
+      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
+      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
+      "source": "MIT Earth & Atmospheric Sciences",
+      "url": "https://news.mit.edu/new-approach-enables-physically-consistent-ai-models-chaotic-systems-1120",
+      "publishedAt": "2026-11-20T20:00:00.000Z"
     },
     {
       "title": "How the Energy Crises of the 1970s Shaped Today’s Climate Politics",
@@ -214,15 +224,6 @@
       "source": "University of Michigan Record",
       "url": "https://record.umich.edu/articles/five-recommended-for-winter-commencement-honorary-degrees-2/",
       "publishedAt": "2026-11-16T07:00:00.000Z"
-    },
-    {
-      "title": "Kelping the environment one dive at a time: A day in the life of a scientific diver",
-      "whatHappened": "Follow a UBC-trained scientific diver beneath the Salish Sea to see how marine research happens firsthand, from kelp restoration projects to navigating low-visibility waters and unexpected...",
-      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
-      "keyWord": "research: careful study used to discover new knowledge",
-      "source": "UBC News",
-      "url": "https://news.ubc.ca/2026/11/kelping-the-environment-one-dive-at-a-time-a-day-in-the-life-of-a-scientific-diver/",
-      "publishedAt": "2026-11-16T14:55:00.000Z"
     }
   ]
 }
