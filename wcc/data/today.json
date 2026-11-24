@@ -1,17 +1,26 @@
 {
-  "boardDate": "2026-11-23",
-  "generatedAt": "2026-11-23T22:51:39.857Z",
+  "boardDate": "2026-11-24",
+  "generatedAt": "2026-11-24T21:27:18.241Z",
   "sourceCount": 26,
   "weather": [
     {
       "city": "Ottawa",
-      "temperatureC": 3,
-      "maxC": 9,
-      "minC": -1,
+      "temperatureC": -1,
+      "maxC": 1,
+      "minC": -4,
       "summary": "Clear skies"
     }
   ],
   "extremeWeather": [
+    {
+      "title": "Storms targeting both US coasts threaten to snarl Thanksgiving travel for millions",
+      "whatHappened": "Two storms, including a major Nor'easter on the east coast, are expected to impact millions of people celebrating the holiday with family and friends.",
+      "whyItMatters": "Extreme weather news helps students connect science with real safety risks, communities, and changing conditions around the world.",
+      "keyWord": "extreme weather: unusual and dangerous weather like floods, storms, or heat waves",
+      "source": "BBC Science & Environment",
+      "url": "https://www.bbc.co.uk/weather/articles/c5742nplemnno?at_medium=RSS&at_campaign=rss",
+      "publishedAt": "2026-11-24T11:40:46.000Z"
+    },
     {
       "title": "California on edge as high tides and floods set to wreak havoc over Thanksgiving. Here is what to know",
       "whatHappened": "Coastal cities race to prepare for possible historic floods colliding with El Niño conditions before busy travel week It has already been a rough year for...",
@@ -42,13 +51,13 @@
       "publishedAt": "2026-11-17T12:00:00.000Z"
     },
     {
-      "title": "‘Scapegoating’: green groups condemn plan to axe Environment Agency and Natural England",
-      "whatHappened": "Ministers proposing to abolish the quangos in attempt to give politicians more control over what gets built and where Scientists have accused the government of scapegoating...",
+      "title": "Outcry grows over Labour plan to exempt most brownfield sites from nature protection rules",
+      "whatHappened": "Chancellor’s decision to exempt plots up to 1.5 hectares allows developers to dodge rules aiming to reverse wildlife declines An outcry is growing over the UK...",
       "whyItMatters": "Climate news shows how science connects to weather, energy, nature, and communities.",
       "keyWord": "climate: the usual pattern of weather over a long period of time",
       "source": "The Guardian Environment",
-      "url": "https://www.theguardian.com/politics/2026/nov/23/natural-england-could-be-abolished-quango-cull-louise-haigh",
-      "publishedAt": "2026-11-23T17:47:58.000Z"
+      "url": "https://www.theguardian.com/politics/2026/nov/24/outcry-uk-plans-to-exempt-brownfield-sites-nature-protection-rules",
+      "publishedAt": "2026-11-24T14:00:47.000Z"
     },
     {
       "title": "Cranberry jam: warming winters and extreme weather threaten a traditional holiday fruit",
@@ -96,15 +105,6 @@
       "source": "The Guardian Environment",
       "url": "https://www.theguardian.com/environment/2026/nov/20/offshore-wind-farms-trump-fishers",
       "publishedAt": "2026-11-20T14:00:31.000Z"
-    },
-    {
-      "title": "AI data centers throw another wrench into chaotic UN climate talks",
-      "whatHappened": "The clean energy revolution hinges on electrifying the entire global economy just as power-hungry data centers are surging.",
-      "whyItMatters": "Weather technology matters because better tools can improve forecasting, clean energy, and safety during major weather events.",
-      "keyWord": "weather technology: tools that help people measure, study, or predict weather and climate",
-      "source": "The Verge",
-      "url": "https://www.theverge.com/science/1040497/ai-data-centers-electricity-un-climate-summit",
-      "publishedAt": "2026-11-23T21:09:37.000Z"
     },
     {
       "title": "What to know about the US permitting bill, from datacenters to Trump’s arch",
@@ -163,6 +163,15 @@
       "publishedAt": "2026-09-04T14:35:10.000Z"
     },
     {
+      "title": "What if excess renewable energy could power new industrial processes?",
+      "whatHappened": "Excess electricity from solar and wind generation could become widely available across the U.S.",
+      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
+      "keyWord": "faculty: a university group focused on a subject area such as environment, climate, or earth science",
+      "source": "MIT Climate & Sustainability",
+      "url": "https://news.mit.edu/2026/excess-renewable-energy-could-power-new-industrial-processes-1124",
+      "publishedAt": "2026-11-24T16:30:00.000Z"
+    },
+    {
       "title": "New approach enables physically consistent AI models of chaotic systems",
       "whatHappened": "Enforcing physics-based constraints prevents AI models from generating unreliable predictions for complex nonlinear systems in weather, climate, and turbulent flows.",
       "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
@@ -179,15 +188,6 @@
       "source": "Columbia Climate School",
       "url": "https://news.climate.columbia.edu/2026/11/13/how-the-energy-crises-of-the-1970s-shaped-todays-climate-politics/",
       "publishedAt": "2026-11-13T15:39:09.000Z"
-    },
-    {
-      "title": "Energy, prosperity, emissions, and innovation: A decarbonization progress report",
-      "whatHappened": "Eric Toone, CTO of Breakthrough Energy, assessed global decarbonization, and the opportunities and challenges that remain, at MITEI’s annual research conference.",
-      "whyItMatters": "University news shows how researchers in Canada and the U.S. are studying climate, weather, and the environment in real labs and classrooms.",
-      "keyWord": "research: careful study used to discover new knowledge",
-      "source": "MIT Climate & Sustainability",
-      "url": "https://news.mit.edu/2026/energy-prosperity-emissions-innovation-decarbonization-progress-report-1112",
-      "publishedAt": "2026-11-12T21:30:00.000Z"
     },
     {
       "title": "Rain May Increase Ocean Carbon Uptake More Than We Thought",
